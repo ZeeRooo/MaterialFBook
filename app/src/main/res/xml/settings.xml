@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory android:title="@string/notifications_setting_title">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="notifications_enabled"
+            android:summary="@string/notifications_enabled_summary"
+            android:title="@string/notifications_enabled_title" />
+        <ListPreference
+            android:title="@string/notification_interval_title"
+            android:summary="@string/notification_interval_summary"
+            android:key="notification_interval"
+            android:defaultValue="600000"
+            android:entries="@array/notification_interval"
+            android:entryValues="@array/notification_interval_values"/>
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="notifications_vibration"
+            android:summary="@string/notifications_vibration_summary"
+            android:title="@string/notifications_vibration_title" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/content_setting_title">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="location_enabled"
+            android:summary="@string/location_enabled_summary"
+            android:title="@string/location_enabled_title" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="most_recent_menu"
+            android:summary="@string/most_recent_menu_summary"
+            android:title="@string/most_recent_menu_title" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="hide_editor_newsfeed"
+            android:summary="@string/hide_editor_newsfeed_summary"
+            android:title="@string/hide_editor_newsfeed_title" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="stop_images"
+            android:summary="@string/stop_images_summary"
+            android:title="@string/stop_images_title" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="hide_sponsored"
+            android:summary="@string/hide_sponsored_summary"
+            android:title="@string/hide_sponsored_title" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="hide_birthdays"
+            android:summary="@string/hide_birthdays_summary"
+            android:title="@string/hide_birthdays_title" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/navigation_setting_title">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="hide_menu_bar"
+            android:summary="@string/hide_menu_bar_summary"
+            android:title="@string/hide_menu_bar_title" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="hide_fab_on_scroll"
+            android:summary="@string/hide_fab_on_scroll_summary"
+            android:title="@string/hide_fab_on_scroll_title" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="messaging_enabled"
+            android:summary="@string/messaging_enabled_summary"
+            android:title="@string/messaging_enabled_title" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="jump_top_enabled"
+            android:summary="@string/jump_top_enabled_summary"
+            android:title="@string/jump_top_enabled_title" />
+    </PreferenceCategory>
+</PreferenceScreen>

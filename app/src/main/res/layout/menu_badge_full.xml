@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clickable="false"
+    android:focusable="false"
+    android:enabled="false"
+    android:listSelector="@android:color/transparent"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/menu_badge"
+        android:clickable="false"
+        android:focusable="false"
+        android:enabled="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingBottom="1dp"
+        android:paddingLeft="7dp"
+        android:paddingRight="7dp"
+        android:paddingTop="1dp"
+        android:textColor="@android:color/white" />
+</FrameLayout>

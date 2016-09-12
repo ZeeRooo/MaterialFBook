@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/group_fbnav" android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_news"
+            android:icon="@drawable/ic_menu_news"
+            android:title="@string/menu_news" />
+        <item
+            android:id="@+id/nav_top_stories"
+            android:icon="@drawable/ic_menu_top_stories"
+            android:title="@string/menu_top_stories" />
+        <item
+            android:id="@+id/nav_most_recent"
+            android:icon="@drawable/ic_menu_most_recent"
+            android:title="@string/menu_most_recent" />
+        <item
+            android:id="@+id/nav_friendreq"
+            android:icon="@drawable/ic_menu_friendreq"
+            android:title="@string/menu_friendreq" />
+        <item
+            android:id="@+id/nav_messages"
+            android:icon="@drawable/ic_menu_messages"
+            android:title="@string/menu_messages" />
+        <item
+            android:id="@+id/nav_search"
+            android:icon="@drawable/ic_menu_search"
+            android:title="@string/menu_search" />
+        <item
+            android:id="@+id/nav_mainmenu"
+            android:icon="@drawable/ic_menu_mainmenu"
+            android:title="@string/menu_mainmenu" />
+    </group>
+
+    <group android:checkableBehavior="none">
+        <item
+            android:id="@+id/nav_fblogin"
+            android:icon="@drawable/ic_menu_fblogin"
+            android:title="@string/menu_fblogin" />
+        <item
+            android:id="@+id/nav_jump_top"
+            android:icon="@drawable/ic_menu_jump_top"
+            android:title="@string/menu_jump_top" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_menu_settings"
+            android:title="@string/menu_settings" />
+    </group>
+
+</menu>
