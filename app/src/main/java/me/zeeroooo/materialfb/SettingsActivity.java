@@ -20,6 +20,7 @@ public class SettingsActivity extends AppCompatActivity {
     public static final String KEY_PREF_NOTIFICATIONS_ENABLED = "notifications_enabled";
     public static final String KEY_PREF_NOTIFICATION_INTERVAL = "notification_interval";
     public static final String KEY_PREF_NOTIFICATION_VIBRATE = "notifications_vibration";
+	public static final String KEY_PREF_HIDE_MESSENGERDOWN = "messenger_download";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

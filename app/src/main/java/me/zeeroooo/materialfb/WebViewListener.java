@@ -52,6 +52,8 @@ class WebViewListener implements AdvancedWebView.Listener {
     private static final String HIDE_BIRTHDAYS = "article%23u_1j_4%7Bdisplay%3Anone%3B%7D";
     // ._59e9._55wr._4g33._400s{display:none}
     private static final String HIDE_TOP_STORIES_BUTTON = "._59e9._55wr._4g33._400s%7Bdisplay%3Anone%7D";
+    // Hide Messenger Download
+    private static final String HIDE_MESSENGER_DOWNLOAD = "[data-sigil*=m-promo-jewel-header]{ display: none; }";
 
     private final MainActivity mActivity;
     private final SharedPreferences mPreferences;
@@ -124,6 +126,11 @@ class WebViewListener implements AdvancedWebView.Listener {
             if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_MOST_RECENT_MENU, true)) {
                 css += HIDE_TOP_STORIES_BUTTON;
             }
+			
+			// Hide Messenger Download
+			if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_HIDE_MESSENGERDOWN, true)) {
+			    css += HIDE_MESSENGER_DOWNLOAD;
+		    }
 
             // Inject the css
             JavaScriptHelpers.loadCSS(mWebView, css);
