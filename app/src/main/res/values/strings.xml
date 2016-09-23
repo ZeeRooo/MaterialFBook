@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">MaterialFBook</string>
-    <string name="facebook_app_id" translatable="false">422483854616848</string>
+    <string name="facebook_app_id" translatable="false">1440102826005611</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="default_user">Who are you?</string>
