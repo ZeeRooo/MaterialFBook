@@ -18,9 +18,7 @@
         android:layout_width="75dp"
         android:layout_height="75dp"
         android:contentDescription="@string/header_profile_pic"
-        android:src="@drawable/side_profile"
-        app:civ_border_width="2dp"
-        app:civ_border_color="#FFFFFF" />
+        android:src="@drawable/side_profile" />
 
     <TextView
         android:id="@+id/profile_name"

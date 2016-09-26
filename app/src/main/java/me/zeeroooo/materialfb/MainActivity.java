@@ -81,6 +81,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 case R.id.checkinFAB:
                     mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('button%5Bname%3D%22view_location%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED + "%3Fpageload%3Dcomposer_checkin%22%7D%7D)()");
                     break;
+				case R.id.topFAB:
+                    mWebView.scrollTo(0, 0);
+                    break;
                 default:
                     break;
             }
@@ -109,9 +112,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
             public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
                 switch (key) {
-                    case SettingsActivity.KEY_PREF_JUMP_TOP_BUTTON:
-                        mNavigationView.getMenu().findItem(R.id.nav_jump_top).setVisible(prefs.getBoolean(key, false));
-                        break;
                     case SettingsActivity.KEY_PREF_STOP_IMAGES:
                         mWebView.getSettings().setBlockNetworkImage(prefs.getBoolean(key, false));
                         requiresReload = true;
@@ -158,12 +158,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     case SettingsActivity.KEY_PREF_HIDE_BIRTHDAYS:
                         requiresReload = true;
                         break;
-                    case SettingsActivity.KEY_PREF_NOTIFICATIONS_ENABLED:
-                        PollReceiver.scheduleAlarms(getApplicationContext(), false);
-                        break;
-                    case SettingsActivity.KEY_PREF_NOTIFICATION_INTERVAL:
-                        PollReceiver.scheduleAlarms(getApplicationContext(), false);
-                        break;
 					case SettingsActivity.KEY_PREF_HIDE_MESSENGERDOWN:
 						requiresReload = true;
 						break;
@@ -195,9 +189,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_MESSAGING, false)) {
             mNavigationView.getMenu().findItem(R.id.nav_messages).setVisible(false);
         }
-        if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_JUMP_TOP_BUTTON, false)) {
-            mNavigationView.getMenu().findItem(R.id.nav_jump_top).setVisible(false);
-        }
         boolean most_recent = mPreferences.getBoolean(SettingsActivity.KEY_PREF_MOST_RECENT_MENU, true);
         mNavigationView.getMenu().findItem(R.id.nav_news).setVisible(!most_recent);
         mNavigationView.getMenu().findItem(R.id.nav_top_stories).setVisible(most_recent);
@@ -219,7 +210,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Inflate the FAB menu
         mMenuFAB = (FloatingActionMenu) findViewById(R.id.menuFAB);
         // Nasty hack to get the FAB menu button
-        mMenuFAB.getChildAt(3).setOnLongClickListener(new View.OnLongClickListener() {
+        mMenuFAB.getChildAt(4).setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
                 mMenuFAB.hideMenu(true);
@@ -237,6 +228,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         findViewById(R.id.textFAB).setOnClickListener(mFABClickListener);
         findViewById(R.id.photoFAB).setOnClickListener(mFABClickListener);
         findViewById(R.id.checkinFAB).setOnClickListener(mFABClickListener);
+		findViewById(R.id.topFAB).setOnClickListener(mFABClickListener);
 
         // Load the WebView
         mWebView = (AdvancedWebView) findViewById(R.id.webview);
@@ -407,9 +399,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_fblogin:
                 LoginManager.getInstance().logInWithReadPermissions(this, Helpers.FB_PERMISSIONS);
                 break;
-            case R.id.nav_jump_top:
-                mWebView.scrollTo(0, 0);
-                break;
             case R.id.nav_settings:
                 Intent settingsActivity = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(settingsActivity);
@@ -443,9 +432,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             // Enable navigation buttons
             mNavigationView.getMenu().setGroupEnabled(R.id.group_fbnav, true);
-
-            // Start the Notification service (if not already running)
-            PollReceiver.scheduleAlarms(getApplicationContext(), false);
             return true;
         } else {
             // Not logged in (possibly logged into Facebook OAuth and/or webapp)
@@ -458,12 +444,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             // Disable navigation buttons
             mNavigationView.getMenu().setGroupEnabled(R.id.group_fbnav, false);
-
-            // Cancel the Notification service if we are logged out
-            PollReceiver.scheduleAlarms(getApplicationContext(), true);
-
-            // Kill the Feed URL, so we don't get the wrong notifications
-            mPreferences.edit().putString("feed_uri", null).apply();
             return false;
         }
     }

@@ -76,15 +76,6 @@
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-
-<!-- Not for now :(
-        <receiver android:name=".PollReceiver">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver> -->
-
-        <service android:name=".NotificationService" />
     </application>
 
 </manifest>

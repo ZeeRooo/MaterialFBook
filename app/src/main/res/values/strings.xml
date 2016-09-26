@@ -15,7 +15,7 @@
     <string name="menu_search">Search</string>
     <string name="menu_mainmenu">Main Menu</string>
     <string name="menu_fblogin">Login to Facebook</string>
-    <string name="menu_jump_top">Jump to Top</string>
+    <string name="fab_jump_top">Jump to Top</string>
     <string name="menu_settings">Settings</string>
     <string name="fab_text">Post a status</string>
     <string name="fab_photo">Post a photo</string>
@@ -27,30 +27,6 @@
     <string name="context_copy_link">Copy link</string>
     <string name="context_share_image_progress">Sharing image…</string>
     <string name="content_copy_link_done">Link copied to clipboard</string>
-    <string name="notifications_setting_title">Notifications</string>
-    <string name="notifications_enabled_title">Background Notifications</string>
-    <string name="notifications_enabled_summary">When enabled, you will receive background notifications from Facebook.</string>
-    <string name="notification_interval_title">Background Notifications interval</string>
-    <string name="notification_interval_summary">Specify the update interval for the notification service.</string>
-    <string-array name="notification_interval">
-        <item>5 minutes</item>
-        <item>10 minutes</item>
-        <item>15 minutes</item>
-        <item>30 minutes</item>
-        <item>1 hour</item>
-        <item>2 hours</item>
-    </string-array>
-    <string-array name="notification_interval_values">
-        <item>300000</item>
-        <item>600000</item>
-        <item>900000</item>
-        <item>1800000</item>
-        <item>3600000</item>
-        <item>7200000</item>
-    </string-array>
-
-    <string name="notifications_vibration_title">Vibrate</string>
-    <string name="notifications_vibration_summary">When enabled, notifications will make your device vibrate.</string>
     <string name="content_setting_title">Content</string>
     <string name="location_enabled_title">Location access</string>
     <string name="location_enabled_summary">Enable this to allow Facebook to obtain your location.</string>
@@ -61,8 +37,8 @@
     <string name="hide_editor_newsfeed_snackbar">Reload for changes to take effect</string>
     <string name="stop_images_title">Don\'t load images</string>
     <string name="stop_images_summary">When enabled, will not download images. Some images may remain in the cache.</string>
-    <string name="hide_sponsored_title">Hide "Sponsored" Content</string>
-    <string name="hide_sponsored_summary">When enabled, will hide "Sponsored" Content (ads) from the News Feed.</string>
+    <string name="hide_sponsored_title">Hide \'Sponsored\' Content</string>
+    <string name="hide_sponsored_summary">When enabled, will hide \'Sponsored\' Content (ads) from the News Feed.</string>
     <string name="hide_birthdays_title">Hide Birthdays</string>
     <string name="hide_birthdays_summary">When enabled, will hide birthdays from the News Feed.</string>
     <string name="navigation_setting_title">Navigation</string>
@@ -82,9 +58,8 @@
     <string name="error_facebook_noconnection">Could not access Facebook</string>
     <string name="error_facebook_error">Something went wrong on Facebook\'s end</string>
     <string name="loading">Loading</string>
-    <string name="notification_multiple_text">%s new notifications.</string>
     <string name="notification_viewall">View all Notifications</string>
     <string name="permission_denied">Permission denied, cannot complete action</string>
-	<string name="title_hidemessengerdown">Remove Download Messenger messages</string>
-	<string name="summary_hidemessengerdown">When enabled, Download Messenger dissapear.</string>
+	<string name="title_hidemessengerdown">Remove \'Download Messenger\' messages</string>
+	<string name="summary_hidemessengerdown">When enabled, \'Download Messenger\' dissapear.</string>
 </resources>

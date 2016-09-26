@@ -35,6 +35,9 @@ class JavaScriptHelpers {
                 case "composer_checkin":
                     view.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('button%5Bname%3D%22view_location%22%5D').click()%7Dcatch(_)%7B%7D%7D)()");
                     break;
+                case "composer_top":
+                    view.scrollTo(0, 0);
+                    break;
                 default:
                     break;
             }
