@@ -8,11 +8,6 @@
             android:title="@string/location_enabled_title" />
         <CheckBoxPreference
             android:defaultValue="true"
-            android:key="most_recent_menu"
-            android:summary="@string/most_recent_menu_summary"
-            android:title="@string/most_recent_menu_title" />
-        <CheckBoxPreference
-            android:defaultValue="true"
             android:key="hide_editor_newsfeed"
             android:summary="@string/hide_editor_newsfeed_summary"
             android:title="@string/hide_editor_newsfeed_title" />
@@ -36,6 +31,13 @@
             android:key="messenger_download"
             android:summary="@string/summary_hidemessengerdown"
             android:title="@string/title_hidemessengerdown" />
+		<ListPreference
+			android:defaultValue="MaterialTheme"
+			android:entries="@array/listThemes"
+			android:entryValues="@array/listValuesThemes"
+			android:key="pref_theme"
+			android:summary="@string/themes_summary"
+			android:title="@string/themes"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/navigation_setting_title">
         <CheckBoxPreference
@@ -44,7 +46,7 @@
             android:summary="@string/hide_menu_bar_summary"
             android:title="@string/hide_menu_bar_title" />
         <CheckBoxPreference
-            android:defaultValue="false"
+            android:defaultValue="true"
             android:key="hide_fab_on_scroll"
             android:summary="@string/hide_fab_on_scroll_summary"
             android:title="@string/hide_fab_on_scroll_title" />
@@ -54,4 +56,51 @@
             android:summary="@string/messaging_enabled_summary"
             android:title="@string/messaging_enabled_title" />
     </PreferenceCategory>
+		<PreferenceCategory android:title="@string/navigation_menu_title">
+	    <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="nav_groups"
+            android:summary="@string/menu_groups_summary"
+            android:title="@string/menu_groups" />
+	    <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="nav_search"
+            android:summary="@string/menu_search_summary"
+            android:title="@string/menu_search" />
+	    <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="nav_mainmenu"
+            android:summary="@string/menu_mainmenu_summary"
+            android:title="@string/menu_mainmenu" />
+	    <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="nav_most_recent"
+            android:summary="@string/menu_groups_summary"
+            android:title="@string/menu_most_recent" />
+	    <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="nav_news"
+            android:summary="@string/menu_news_summary"
+            android:title="@string/menu_news" />
+	    <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="nav_fblogout"
+            android:summary="@string/ic_menu_fblogout_summary"
+            android:title="@string/ic_menu_fblogout" />
+	    <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="nav_exitapp"
+            android:summary="@string/ic_menu_exitapp_summary"
+            android:title="@string/ic_menu_exitapp" />
+	    <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="nav_events"
+            android:summary="@string/menu_events_summary"
+            android:title="@string/menu_events" />
+	    <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="nav_photos"
+            android:summary="@string/menu_photos_summary"
+            android:title="@string/menu_photos" />
+        </PreferenceCategory>
 </PreferenceScreen>

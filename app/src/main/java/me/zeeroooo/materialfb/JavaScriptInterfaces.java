@@ -32,21 +32,15 @@ class JavaScriptInterfaces {
             public void run() {
                 switch (value) {
                     case "top_stories":
-                        if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_MOST_RECENT_MENU, true)) {
                             mContext.mNavigationView.setCheckedItem(R.id.nav_top_stories);
-                        } else {
                             mContext.mNavigationView.setCheckedItem(R.id.nav_news);
-                        }
                         break;
                     case "most_recent":
-                        if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_MOST_RECENT_MENU, true)) {
                             mContext.mNavigationView.setCheckedItem(R.id.nav_most_recent);
-                        } else {
                             mContext.mNavigationView.setCheckedItem(R.id.nav_news);
-                        }
                         break;
                     case "requests_jewel":
-                        mContext.mNavigationView.setCheckedItem(R.id.nav_friendreq);
+                            mContext.mNavigationView.setCheckedItem(R.id.nav_friendreq);
                         break;
                     case "messages_jewel":
                         mContext.mNavigationView.setCheckedItem(R.id.nav_messages);

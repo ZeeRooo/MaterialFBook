@@ -1,0 +1,548 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="DarkTheme" translatable="false">
+        body, #root, .storyStream, ._2v9s, ._4nmh, ._4u3j, ._35aq, ._146a, ._4g34, ._5pxb, ._55wq, ._53_-, ._55ws, ._u42, .jx-result, .jx-typeahead-results, ._56bt, ._52x7, ._vqv, ._4g33, ._5rgt, .popover_flyout, .flyout, #m_newsfeed_stream, ._55wo, ._3iln, .mentions-suggest, #header, ._xy, ._bgx, .acb, .acg, .aclb, .touch ._4g34, ._59e9, .nontouch ._5ui0, input[type=text], .acw, ._5up8, ._5kgn, .tlLinkContainer, .aps, .jewel .flyout .header, .appCenterCategorySelectorButton, .tlBody, #timelineBody, .timelineX, .timeline .feed, .timeline .tlPrelude, .timeline .tlFeedPlaceholder, .touch ._5c9u, .touch ._5ca9, .innerLink, ._5dy4, ._52x3, #m_group_stories_container, .albums, .subpage, ._uwu, ._uww, .scrollAreaBody, .al, .apl, .structuredPublisher, .groupChromeView, ._djv, ._bjg, ._5kgn, ._3f50, ._55wm, ._58f0 {
+        background: #000 !important; /* the background */
+        }
+        ._50cg._2ss {
+        background: #000 !important;
+        }
+        .composerLinkText, .fcg {
+        color: #d2d2d2 !important;
+        }
+
+        /* white text */
+
+        body, .touch ._2ya3, .composerTextSelected, .composerInput, .mentions-input, input[type=text], ._5001, .timeline .cover .profileName, .appListTitle, ._52jd, ._52jb, ._52jg, ._5qc3, .tlActorText, .tlLinkTitle, ._5379, ._5cqn, ._592p, ._3c9l, ._4yrh, .name, .btn, .upText, .tlLinkTitleOnly, ._5rgt, ._52x2, ._52jh, ._52ja, ._56bz, ._2tbu, ._1mwn, ._55sr, ._5t6r, ._1_oe, ._52lz, ._2l5v, .inputtext, .inputpassword, .touch, .touch tr, .touch input, .touch textarea, .touch .mfsm {
+        color: #d2d2d2 !important;
+        }
+        .touch ._2ya3 {
+        border-radius: 5px;
+        padding: 5px;
+        }
+
+        /* blue link text */
+
+        a, .actor, .mfsl, .fcw, .title, .blueName, ._5aw4, ._vqv, ._5yll, ._5qc3, ._52lz, ._4nwe, ._27vp, ._ir4, ._5wsv, ._46pa {
+        color: #DFEFF0 !important;
+        }
+
+        /* dark important */
+
+        .acy, .nontouch ._55mb .actor-link, .nontouch a.btnD, .inlineMedia.storyAttachment {
+        background: #304702 !important;
+        }
+        .statusBox, ._5whq, ._56bt, .composerInput, .mentions-input, ._1svy, ._bji {
+        background: #323232 !important;
+        }
+        .ufiBorder, ._5as0, ._5ef_, ._35aq {
+        border-color: #555 !important;
+        }
+
+        /* buttons */
+
+        .button>a.touchable, .btn, .touch ._5c9u, ._2l5v, ._52x1, ._tn0, ._52ja, ._5lm6 {
+        background: #323232 !important;
+        }
+        .flyout {
+        border: 1px solid #fff !important;
+        }
+
+        /* context menu */
+
+        ._5c0e, ._5bn_ {
+        background: #4e4e4e !important;
+        }
+        article, ._4o50, .acw, ._53_-, ._3wjp, ._usq, ._55wq, ._400s {
+        border: 1px dotted #383838 !important;
+        border-radius: 4px;
+        }
+        ._1_oa, ._bmx, ._52x1 {
+        border-bottom: 1px dotted #383838 !important;
+        }
+        article h3 {
+        color: #999 !important;
+        }
+
+        /* no border */
+
+        .aclb, ._53_-, ._52x6, ._52x1, ._2l5v, ._tn0, ._52ja, ._5lm6 {
+        border-top: 0px;
+        border-bottom: 0px;
+        }
+        ._59te.popoverOpen, ._59te.isActivem, ._59te {
+        background: #000;/*topbar*/
+        border-bottom: 1px solid #444;
+        border-right: 1px solid #444;
+        }
+       /* #feed_jewel ._59tf {
+        background-position: -22px -103px;
+        }
+        #requests_jewel ._59tf {
+        background-position: -122px -148px;
+        }
+        #messages_jewel ._59tf {
+        background-position: -268px -103px;
+        }
+        #notifications_jewel._2jdm ._59tf {
+        background-position: -350px -103px;
+        }
+        #notifications_jewel ._59tf {
+        background-position: 0 -149px;
+        }
+        #search_jewel ._59tf {
+        background-position: -186px -103px;
+        }
+        #bookmarks_jewel ._59tf {
+        background-position: -104px -103px;
+        }*/
+        ._2lut {
+        border: 1px dotted #e9eaed !important;
+        }
+	</string>
+	
+    <string name="MaterialTheme" translatable="false">
+* {
+    -webkit-tap-highlight-color: rgb(0,0,0,0);
+    -webkit-tap-highlight-color: transparent;
+    -webkit-appearance: none;
+	outline:none;
+}
+
+
+
+._10c_ ._2jl2 {
+    background: #ffffff;
+}
+
+._15n_ {
+    background-color: #ffffff !important;
+    
+}
+
+._15nr._15nx {
+   padding: 2px;
+   margin-bottom: 20px;
+   background-color:#ffffff;
+   -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+   
+
+}
+
+._15nz ._4g33 {
+    padding: 8px;
+}
+
+._1_oa._1w-s {
+    margin: 8px;
+}
+
+
+._2jl2 {
+    margin: 8px 8px 8px 8px;
+    margin-bottom: 8px;
+}
+
+
+
+
+._2vj7._2phz.voice.acw {
+  padding: 2px;
+   margin-bottom: 25px;
+   background-color:#ffffff;
+   -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+
+}
+
+
+._2zh4, ._15ks {
+    background: #ffffff;
+    }
+
+
+._44qk ._4g34 ._52jh {
+    color: #212121 ;
+    font-weight: normal ;
+    padding: 8px 0px 8px 0px;
+}
+
+._44qk ._4g34 .fcg {
+    color: #212121;
+}
+
+._45kb>div {
+    margin: 4px;
+}
+
+._46pa.day7 {
+    color: #212121;
+}
+
+
+._4g33._15n_ {
+    padding: 8px;
+}
+._4g33._52we._34qc._34qd._3hxn {
+    padding: 8px;
+}
+
+._4g33._52wf._-hs, #m-timeline-cover-section ._55wo ._52jj {
+    background-color: #FFFFFF;
+    padding-bottom: 10px;
+}
+
+._52jc._24u0._1xvv._5tg_ {
+    color: #212121;
+}
+
+._52jd {
+    color: #212121;
+}
+
+._52jh._4g33._15kk._15ks._15km {
+    padding: 5px;
+}
+
+._52we ._5xu4 {
+    margin: 0px 0px 10px 0px ;
+}
+
+._52x1 {
+    padding: 8px;
+}
+
+._52x6.touchable {
+    padding: 8px;
+}
+
+._53i6._53i6._53i6 {
+    margin: 6px;
+}
+
+._55wo ._4prr ._4g34._ru9 span.mfss.fcg {
+    color: #212121;
+}
+
+._55wr._-hs {
+    background-color: #FFFFFF
+;
+    padding: 10px 15px 10px 10px;
+}
+
+._55wr._4g33._52we._-hs {
+    background-color: #FFFFFF;
+    padding: 10px
+;
+}
+
+._56bf ._55wr {
+    background-color: #ffffff   
+;
+}
+
+._59e9 {
+    background: #ffffff;
+}
+
+._59e9._55wr._4g33._400s {
+    background-color: #ffffff !important;
+    color: #212121;
+    -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+    box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+    padding: 12px 10px 12px 15px;
+}
+
+._5gh8._5rgr {
+   padding: 2px;
+   margin-bottom: 25px;
+   background-color:#ffffff;
+   -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+
+}
+
+._5qc1 {
+    padding: 10px 8px 8px 15px;
+}
+
+._5s61._54k6 {
+    margin-top: 12px;
+}
+
+
+._d6- {
+    padding: 10px;
+}
+
+
+
+.desc .fcg .atb ._2vja.mfss.fcg abbr {
+    color: #212121;
+}
+
+.desc.attachment.mfss {
+    padding-left: 5px
+;
+}
+
+.jewel ._3wjp {
+  padding: 2px;
+   margin-bottom: 25px;
+   background-color:#ffffff;
+   -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+
+}
+
+.msg {
+    margin: 0px 8px 0px 8px;
+}
+
+.statusBox {
+    margin: 8px 8px 15px 8px;
+}
+
+.timeline .timelinePublisher.inlineComposer {
+  padding: 2px;
+   margin-bottom: 25px;
+   background-color:#ffffff;
+   -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+
+}
+
+
+.touch ._37fd {
+    height: 15px;
+    margin: 8px 8px 8px 10px;
+}
+
+.profpic{
+border-radius: 200px !important;
+}
+
+._129_ > :first-child {
+    border-top: 0px solid transparent;
+        border-top-width: 0px;
+        border-top-style: none;
+        border-top-color: transparent;
+}
+
+._129- {
+    border-top: none;
+}
+
+.touch ._44qk {
+   padding: 2px;
+   margin-bottom: 25px;
+   background-color:#ffffff;
+   -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+
+}
+
+.touch ._55wr._4g33._52we {
+    padding: 15px;
+}
+
+.touch .al._5lm6, .touch .al._5dka, .touch .al._4_00, .touch .al._5jl7 {
+    padding: 20px 16px;
+}
+
+a._4_h4._55wr._5ylm {
+    background-color: #ffffff ;
+    padding: 8px ;
+}
+
+abbr {
+    margin-left: 8px;
+}
+
+div#messageGroup {
+    margin: 5px;
+    background-color:#EEEEEE;
+}
+
+div#messageGroup, div#message-reply-composer {
+ padding: 2px;
+   margin-bottom: 25px;
+   background-color:#ffffff;
+   -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+
+}
+
+div.like_def._55wr.likes {
+    padding: 8px;
+}
+
+h3._52jd._52jh._4o51, h4._52jc._52jg._24u1._4o59._5tg_ , h1._52jd._52jh._4o51 {
+    color: #212121;
+}
+
+header._52ja._59e9._55wr._usq {
+    color: #212121;
+    padding: 8px;
+}
+
+header._52je._52jb._52jh._4g33._52we._2pi8._2pi4 {
+    background-color: #ffffff;
+    height: 50px;
+    padding-bottom: 0px;
+}
+
+header._52je._52jb._52jh._4g33._52we._2pi8._2pi4 ._4g34 {
+    color: #212121;
+    font-size: 20px;
+    font-weight: normal;
+    margin: 10px 0px 0px 10px ;
+}
+
+i.img._42b6._403j.profpic {
+    border-color: solid #fff !important;
+}
+
+p {
+    padding-bottom: 10px;
+    padding-left: 5px;
+}
+
+span._146a {
+    visibility: hidden;
+}
+
+ul._7k7, ._56be._4hkg._5rgr._5tx9 {
+   padding: 2px;
+   margin-bottom: 25px;
+   background-color:#ffffff;
+   -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+
+}
+
+ 
+._2vj7 ._4g33 ._4g34 .ib .c div.msg div,h1._52jc._52jg._24u1._4o59._5tg_,._2vj7._2vj7._2vj7._2vj7 a, div#voice_replace_id .fcg, a.sub, h3._391s {
+    color: #212121 !important;
+}
+	</string>
+
+    <string name="MaterialDarkTheme" translatable="false">
+        body, #root, .storyStream, ._2v9s, ._4nmh, ._4u3j, ._35aq, ._146a, ._4g34, ._5pxb, ._55wq, ._53_-, ._55ws, ._u42, .jx-result, .jx-typeahead-results, ._56bt, ._52x7, ._vqv, ._4g33, ._5rgt, .popover_flyout, .flyout, #m_newsfeed_stream, ._55wo, ._3iln, .mentions-suggest, #header, ._xy, ._bgx, .acb, .acg, .aclb, .touch ._4g34, ._59e9, .nontouch ._5ui0, input[type=text], .acw, ._5up8, ._5kgn, .tlLinkContainer, .aps, .jewel .flyout .header, .appCenterCategorySelectorButton, .tlBody, #timelineBody, .timelineX, .timeline .feed, .timeline .tlPrelude, .timeline .tlFeedPlaceholder, .touch ._5c9u, .touch ._5ca9, .innerLink, ._5dy4, ._52x3, #m_group_stories_container, .albums, .subpage, ._uwu, ._uww, .scrollAreaBody, .al, .apl, .structuredPublisher, .groupChromeView, ._djv, ._bjg, ._5kgn, ._3f50, ._55wm, ._58f0 {
+        background: #000 !important; /* the background */
+        }
+        ._50cg._2ss {
+        background: #000 !important;
+        }
+        .composerLinkText, .fcg {
+        color: #d2d2d2 !important;
+        }
+
+        /* white text */
+
+        body, .touch ._2ya3, .composerTextSelected, .composerInput, .mentions-input, input[type=text], ._5001, .timeline .cover .profileName, .appListTitle, ._52jd, ._52jb, ._52jg, ._5qc3, .tlActorText, .tlLinkTitle, ._5379, ._5cqn, ._592p, ._3c9l, ._4yrh, .name, .btn, .upText, .tlLinkTitleOnly, ._5rgt, ._52x2, ._52jh, ._52ja, ._56bz, ._2tbu, ._1mwn, ._55sr, ._5t6r, ._1_oe, ._52lz, ._2l5v, .inputtext, .inputpassword, .touch, .touch tr, .touch input, .touch textarea, .touch .mfsm {
+        color: #d2d2d2 !important;
+        }
+        .touch ._2ya3 {
+        border-radius: 5px;
+        padding: 5px;
+        }
+
+        /* blue link text */
+
+        a, .actor, .mfsl, .fcw, .title, .blueName, ._5aw4, ._vqv, ._5yll, ._5qc3, ._52lz, ._4nwe, ._27vp, ._ir4, ._5wsv, ._46pa {
+        color: #DFEFF0 !important;
+        }
+
+        /* dark important */
+
+        .acy, .nontouch ._55mb .actor-link, .nontouch a.btnD, .inlineMedia.storyAttachment {
+        background: #304702 !important;
+        }
+        .statusBox, ._5whq, ._56bt, .composerInput, .mentions-input, ._1svy, ._bji {
+        background: #323232 !important;
+        }
+        .ufiBorder, ._5as0, ._5ef_, ._35aq {
+        border-color: #555 !important;
+        }
+
+        /* buttons */
+
+        .button>a.touchable, .btn, .touch ._5c9u, ._2l5v, ._52x1, ._tn0, ._52ja, ._5lm6 {
+        background: #323232 !important;
+        }
+        .flyout {
+        border: 1px solid #fff !important;
+        }
+
+        /* context menu */
+
+        ._5c0e, ._5bn_ {
+        background: #4e4e4e !important;
+        }
+        article, ._4o50, .acw, ._53_-, ._3wjp, ._usq, ._55wq, ._400s {
+        border: 1px dotted #383838 !important;
+        border-radius: 4px;
+        }
+        ._1_oa, ._bmx, ._52x1 {
+        border-bottom: 1px dotted #383838 !important;
+        }
+        article h3 {
+        color: #999 !important;
+        }
+
+.profpic{
+border-radius: 200px !important;
+}
+
+._129_ > :first-child {
+    border-top: 0px solid transparent;
+        border-top-width: 0px;
+        border-top-style: none;
+        border-top-color: transparent;
+}
+
+._129- {
+    border-top: none;
+}
+		
+        /* no border */
+
+        .aclb, ._53_-, ._52x6, ._52x1, ._2l5v, ._tn0, ._52ja, ._5lm6 {
+        border-top: 0px;
+        border-bottom: 0px;
+        }
+        ._59te.popoverOpen, ._59te.isActivem, ._59te {
+        background: #000;/*topbar*/
+        border-bottom: 1px solid #444;
+        border-right: 1px solid #444;
+        }
+       /* #feed_jewel ._59tf {
+        background-position: -22px -103px;
+        }
+        #requests_jewel ._59tf {
+        background-position: -122px -148px;
+        }
+        #messages_jewel ._59tf {
+        background-position: -268px -103px;
+        }
+        #notifications_jewel._2jdm ._59tf {
+        background-position: -350px -103px;
+        }
+        #notifications_jewel ._59tf {
+        background-position: 0 -149px;
+        }
+        #search_jewel ._59tf {
+        background-position: -186px -103px;
+        }
+        #bookmarks_jewel ._59tf {
+        background-position: -104px -103px;
+        }*/
+        ._2lut {
+        border: 1px dotted #e9eaed !important;
+        }
+	</string>
+
+</resources>

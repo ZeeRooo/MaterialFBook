@@ -121,17 +121,28 @@ class WebViewListener implements AdvancedWebView.Listener {
             if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_HIDE_BIRTHDAYS, true)) {
                 css += HIDE_BIRTHDAYS;
             }
-
-            // Hide Top Stories button on News Feed
-            if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_MOST_RECENT_MENU, true)) {
-                css += HIDE_TOP_STORIES_BUTTON;
-            }
 			
 			// Hide Messenger Download
 			if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_HIDE_MESSENGERDOWN, true)) {
 			    css += HIDE_MESSENGER_DOWNLOAD;
 		    }
 
+			// Themes
+		    switch (mPreferences.getString("pref_theme", "default")) {
+			    case "DarkTheme": {
+                   css += mActivity.getString(R.string.DarkTheme);
+            }
+				break;
+			    case "MaterialDarkTheme": {
+                   css += mActivity.getString(R.string.MaterialDarkTheme);
+            }
+				break;
+			    case "MaterialTheme": {
+                   css += mActivity.getString(R.string.MaterialTheme);
+            }
+			    break;
+		}
+			
             // Inject the css
             JavaScriptHelpers.loadCSS(mWebView, css);
 

@@ -30,6 +30,18 @@
             android:id="@+id/nav_mainmenu"
             android:icon="@drawable/ic_menu_mainmenu"
             android:title="@string/menu_mainmenu" />
+		<item
+            android:id="@+id/nav_groups"
+            android:icon="@drawable/ic_menu_groups"
+            android:title="@string/menu_groups" />
+		<item
+            android:id="@+id/nav_events"
+            android:icon="@drawable/ic_menu_events"
+            android:title="@string/menu_events" />
+		<item
+            android:id="@+id/nav_photos"
+            android:icon="@drawable/ic_menu_photos"
+            android:title="@string/menu_photos" />
     </group>
 
     <group android:checkableBehavior="none">
@@ -41,6 +53,14 @@
             android:id="@+id/nav_settings"
             android:icon="@drawable/ic_menu_settings"
             android:title="@string/menu_settings" />
+		<item
+            android:id="@+id/nav_fblogout"
+            android:icon="@drawable/ic_menu_fblogout"
+            android:title="@string/ic_menu_fblogout" />
+		<item
+            android:id="@+id/nav_exitapp"
+            android:icon="@drawable/ic_menu_exitapp"
+            android:title="@string/ic_menu_exitapp" />
     </group>
 
 </menu>

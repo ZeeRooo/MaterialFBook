@@ -139,13 +139,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             }, Manifest.permission.ACCESS_FINE_LOCATION);
                         }
                         break;
-                    case SettingsActivity.KEY_PREF_MOST_RECENT_MENU:
-                        boolean most_recent = prefs.getBoolean(key, true);
-                        mNavigationView.getMenu().findItem(R.id.nav_news).setVisible(!most_recent);
-                        mNavigationView.getMenu().findItem(R.id.nav_top_stories).setVisible(most_recent);
-                        mNavigationView.getMenu().findItem(R.id.nav_most_recent).setVisible(most_recent);
-                        requiresReload = true;
-                        break;
                     case SettingsActivity.KEY_PREF_FAB_SCROLL:
                         mMenuFAB.showMenuButton(true);
                         break;
@@ -168,6 +161,88 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         };
         mPreferences.registerOnSharedPreferenceChangeListener(listener);
 
+		// Hide pref. from nav view: groups
+            if (mPreferences.getBoolean("nav_groups", false)) {
+                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+                mNavigationView.getMenu().findItem(R.id.nav_groups).setVisible(true);
+            } else {
+                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+                mNavigationView.getMenu().findItem(R.id.nav_groups).setVisible(false);
+
+            }
+		// Hide pref. from nav view: search
+            if (mPreferences.getBoolean("nav_search", false)) {
+                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+                mNavigationView.getMenu().findItem(R.id.nav_search).setVisible(true);
+            } else {
+                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+                mNavigationView.getMenu().findItem(R.id.nav_search).setVisible(false);
+
+            }
+		// Hide pref. from nav view: mainmenu
+            if (mPreferences.getBoolean("nav_mainmenu", false)) {
+                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+                mNavigationView.getMenu().findItem(R.id.nav_mainmenu).setVisible(true);
+            } else {
+                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+                mNavigationView.getMenu().findItem(R.id.nav_mainmenu).setVisible(false);
+
+            }
+		// Hide pref. from nav view: most_recent
+            if (mPreferences.getBoolean("nav_most_recent", false)) {
+                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+                mNavigationView.getMenu().findItem(R.id.nav_most_recent).setVisible(true);
+            } else {
+                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+                mNavigationView.getMenu().findItem(R.id.nav_most_recent).setVisible(false);
+
+            }
+		// Hide pref. from nav view: news
+            if (mPreferences.getBoolean("nav_news", false)) {
+                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+                mNavigationView.getMenu().findItem(R.id.nav_news).setVisible(true);
+            } else {
+                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+                mNavigationView.getMenu().findItem(R.id.nav_news).setVisible(false);
+
+            }
+        // Hide pref. from nav view: exitapp
+            if (mPreferences.getBoolean("nav_exitapp", false)) {
+                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+                mNavigationView.getMenu().findItem(R.id.nav_exitapp).setVisible(true);
+            } else {
+                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+                mNavigationView.getMenu().findItem(R.id.nav_exitapp).setVisible(false);
+
+            }
+        // Hide pref. from nav view: fblogout
+            if (mPreferences.getBoolean("nav_fblogout", false)) {
+                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+                mNavigationView.getMenu().findItem(R.id.nav_fblogout).setVisible(true);
+            } else {
+                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+                mNavigationView.getMenu().findItem(R.id.nav_fblogout).setVisible(false);
+
+            }
+        // Hide pref. from nav view: events
+            if (mPreferences.getBoolean("nav_events", false)) {
+                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+                mNavigationView.getMenu().findItem(R.id.nav_events).setVisible(true);
+            } else {
+                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+                mNavigationView.getMenu().findItem(R.id.nav_events).setVisible(false);
+
+            }
+        // Hide pref. from nav view: photos
+            if (mPreferences.getBoolean("nav_photos", false)) {
+                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+                mNavigationView.getMenu().findItem(R.id.nav_photos).setVisible(true);
+            } else {
+                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+                mNavigationView.getMenu().findItem(R.id.nav_photos).setVisible(false);
+
+            }
+		
         // Setup the toolbar
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
@@ -189,10 +264,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_MESSAGING, false)) {
             mNavigationView.getMenu().findItem(R.id.nav_messages).setVisible(false);
         }
-        boolean most_recent = mPreferences.getBoolean(SettingsActivity.KEY_PREF_MOST_RECENT_MENU, true);
-        mNavigationView.getMenu().findItem(R.id.nav_news).setVisible(!most_recent);
-        mNavigationView.getMenu().findItem(R.id.nav_top_stories).setVisible(most_recent);
-        mNavigationView.getMenu().findItem(R.id.nav_most_recent).setVisible(most_recent);
 
         // Bind the Coordinator to member
         mCoordinatorLayoutView = findViewById(R.id.coordinatorLayout);
@@ -392,10 +463,29 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23search_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "search%2F'%7D%7D)()");
                 item.setChecked(true);
                 break;
+			case R.id.nav_groups:
+                mWebView.loadUrl("https://m.facebook.com/" + "groups/?category=membership");
+                item.setChecked(true);
+                break;
             case R.id.nav_mainmenu:
                 mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23bookmarks_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "home.php'%7D%7D)()");
                 item.setChecked(true);
                 break;
+			case R.id.nav_events:
+                mWebView.loadUrl("https://m.facebook.com/" + "events");
+                item.setChecked(true);
+                break;
+			case R.id.nav_photos:
+                mWebView.loadUrl("https://m.facebook.com/" + "profile.php?v=photos&soft=composer");
+                item.setChecked(true);
+                break;
+			case R.id.nav_fblogout:
+                LoginManager.getInstance().logOut();
+                finish();
+                return true;
+            case R.id.nav_exitapp:
+                finish();
+                return true;
             case R.id.nav_fblogin:
                 LoginManager.getInstance().logInWithReadPermissions(this, Helpers.FB_PERMISSIONS);
                 break;
@@ -447,7 +537,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             return false;
         }
     }
-
+	
     private void updateUserInfo() {
         GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
             @Override
@@ -495,6 +585,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         request.executeAsync();
     }
 
+	private void SetTheme() {
+		switch (mPreferences.getString("pref_theme", "default")) {
+			case "DarkTheme": {
+				setTheme(R.style.DarkTheme);
+				break;
+            }
+			case "MaterialDarkTheme": {
+				setTheme(R.style.DarkTheme);
+				break;
+            }
+			case "MaterialTheme": {
+				setTheme(R.style.AppTheme);
+				break;
+            }
+				default: {
+				setTheme(R.style.AppTheme);
+				break;
+			}
+		}
+	}
+	
     public void setNotificationNum(int num) {
         if (num > 0) {
             ActionItemBadge.update(mNotificationButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_menu_notifications_active, null), num);
