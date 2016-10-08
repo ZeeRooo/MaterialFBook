@@ -31,6 +31,11 @@ This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed). 
 - RSS deleted (No notifications = no work = more space for nothing)
 - Moved "jump to up" buttom from left bar to fab menu
 
++ Version 1.4:
+- Added options to navigation menui (events, groups, close app, log out, and more).
+- Theme engine (Dark Theme, Material Dark Theme, Material Theme and Facebook Mobile Theme). Thx: rignaneseleo from Slimsocial For Facebook for the theme engine.
+- Added option to hide buttons of navigation menu (hide messages or hide groups, etc).
+
 ###########
 
 - I recomend Android Studio to build this project - 
