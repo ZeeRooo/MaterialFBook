@@ -36,6 +36,9 @@ This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed). 
 - Theme engine (Dark Theme, Material Dark Theme, Material Theme and Facebook Mobile Theme). Thx: rignaneseleo from Slimsocial For Facebook for the theme engine.
 - Added option to hide buttons of navigation menu (hide messages or hide groups, etc).
 
++ Version 1.5 Testing:
+- Trying to add notifications (messages and common activity). Porting from FaceSlim THX: @indywidualny
+
 ###########
 
 - I recomend Android Studio to build this project - 

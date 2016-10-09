@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
+import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -56,11 +57,22 @@ import java.util.List;
 
 import im.delight.android.webview.AdvancedWebView;
 
+import me.zeeroooo.materialfb.Notifications.NotificationsService;
+
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     static final String FACEBOOK_URL_BASE = "https://m.facebook.com/";
     private static final String FACEBOOK_URL_BASE_ENCODED = "https%3A%2F%2Fm.facebook.com%2F";
     private static final List<String> HOSTNAMES = Arrays.asList("facebook.com", "*.facebook.com", "*.fbcdn.net", "*.akamaihd.net");
     private final BadgeStyle BADGE_SIDE_FULL = new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_full, R.color.colorAccent, R.color.colorAccent, Color.WHITE);
+    private static Context mContext;
+
+    /**
+     * Get context of application for non-context classes
+     * @return context of application
+     */
+    public static Context getContextOfApplication() {
+        return mContext;
+    }
 
     // Members
     SwipeRefreshLayout swipeView;
@@ -102,10 +114,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mContext = getApplicationContext();
         FacebookSdk.sdkInitialize(this.getApplicationContext());
         setContentView(R.layout.activity_main);
         Permiso.getInstance().setActivity(this);
-
+		
         // Preferences
         PreferenceManager.setDefaultValues(this, R.xml.settings, false);
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -161,7 +174,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         };
         mPreferences.registerOnSharedPreferenceChangeListener(listener);
 
-		// Hide pref. from nav view: groups
+        // start the service when it's activated but somehow it's not running
+        // when it's already running nothing happens so it's ok
+        if (mPreferences.getBoolean("notifications_activated", false) || mPreferences.getBoolean("message_notifications", false)) {
+            final Intent intent = new Intent(MainActivity.getContextOfApplication(), NotificationsService.class);
+            MainActivity.getContextOfApplication().startService(intent);
+        }
+
+        // Hide pref. from nav view: groups
             if (mPreferences.getBoolean("nav_groups", false)) {
                 mNavigationView = (NavigationView) findViewById(R.id.nav_view);
                 mNavigationView.getMenu().findItem(R.id.nav_groups).setVisible(true);
@@ -318,7 +338,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mWebView.getSettings().setLoadWithOverviewMode(true);
         mWebView.getSettings().setUseWideViewPort(true);
         // Impersonate iPhone to prevent advertising garbage
-        mWebView.getSettings().setUserAgentString("Mozilla/5.0 (Linux; Android 2.2; Nexus 5 Build/_BuildID_) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/30.0.0.0 Mobile Safari/537.36");
+        mWebView.getSettings().setUserAgentString("Mozilla/5.0 (Linux; Android 5.1; XT1058 Build/LPAS23.12-21.7-1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.80 Mobile Safari/537.36");
 
         // Long press
         registerForContextMenu(mWebView);
@@ -586,6 +606,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
 	private void SetTheme() {
+        requiresReload = false;
 		switch (mPreferences.getString("pref_theme", "default")) {
 			case "DarkTheme": {
 				setTheme(R.style.DarkTheme);
