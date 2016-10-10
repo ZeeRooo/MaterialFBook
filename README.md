@@ -41,7 +41,7 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 
 ###########
 
-##- I recomend Android Studio to build this project -
+## - I recomend Android Studio to build this project -
 
 ###########
 
