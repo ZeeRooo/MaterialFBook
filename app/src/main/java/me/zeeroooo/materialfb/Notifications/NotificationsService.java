@@ -1,5 +1,7 @@
-/**
- * Code taken from FaceSlim by indywidualny. Thanks.
+/*
+ * Code taken from:
+ * - FaceSlim by indywidualny. Thanks. 
+ * - Folio for Facebook by creativetrendsapps. Thanks.
  */
 package me.zeeroooo.materialfb.Notifications;
 

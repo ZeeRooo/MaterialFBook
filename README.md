@@ -46,6 +46,20 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 ###########
 
 
+###########
+
+
+## - Credits:
+
+** Folio for Facebook by creativetrendsapps.
+** FaceSlim  by indywidualny.
+** Toffeed  by JakeLane.
+** SlimSocial for Facebook by rignaneseleo v3.5.6.
+
+
+###########
+
+
 
 ##Screens:
 http://imgur.com/a/6EU9q

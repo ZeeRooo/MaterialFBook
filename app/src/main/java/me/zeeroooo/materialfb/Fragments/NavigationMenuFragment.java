@@ -1,3 +1,6 @@
+/*
+ * Code taken from Folio for Facebook by creativetrendsapps. Thanks.
+ */
 package me.zeeroooo.materialfb.Fragments;
 
 import android.os.Bundle;

@@ -1,3 +1,9 @@
+/*
+ * Code taken from:
+ * - FaceSlim by indywidualny. Thanks. 
+ * - Folio for Facebook by creativetrendsapps. Thanks.
+ * - Toffed by JakeLane. Thanks.
+ */
 package me.zeeroooo.materialfb;
 
 import android.content.Context;

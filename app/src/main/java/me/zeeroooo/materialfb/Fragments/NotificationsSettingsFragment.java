@@ -1,4 +1,4 @@
-/**
+/*
  * Code taken from FaceSlim by indywidualny. Thanks.
  */
 package me.zeeroooo.materialfb.Fragments;

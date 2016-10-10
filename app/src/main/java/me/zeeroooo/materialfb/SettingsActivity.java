@@ -1,3 +1,8 @@
+/**
+ * Code taken from:
+ * - FaceSlim by indywidualny. Thanks. 
+ * - Toffed by JakeLane. Thanks.
+ */
 package me.zeeroooo.materialfb;
 
 import android.content.Intent;
