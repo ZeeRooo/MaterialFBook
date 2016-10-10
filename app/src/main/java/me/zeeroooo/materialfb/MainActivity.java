@@ -180,7 +180,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             final Intent intent = new Intent(MainActivity.getContextOfApplication(), NotificationsService.class);
             MainActivity.getContextOfApplication().startService(intent);
         }
-
+	//Code taken from Folio without credit starting here	
         // Hide pref. from nav view: groups
             if (mPreferences.getBoolean("nav_groups", false)) {
                 mNavigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -262,7 +262,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mNavigationView.getMenu().findItem(R.id.nav_photos).setVisible(false);
 
             }
-		
+	//Ending here. This isn't thi way Toffed has done this, Also can be found here: 
+	//https://github.com/creativetrendsapps/FolioforFacebook/blob/master/app/src/main/java/com/creativtrendz/folio/activities/MainActivity.java#L253    
         // Setup the toolbar
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
