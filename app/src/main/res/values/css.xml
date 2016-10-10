@@ -102,6 +102,8 @@
         }
 	</string>
 	
+	
+//Folio's Material theme without credit?	
     <string name="MaterialTheme" translatable="false">
 * {
     -webkit-tap-highlight-color: rgb(0,0,0,0);
