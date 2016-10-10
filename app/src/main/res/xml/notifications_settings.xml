@@ -1,0 +1,53 @@
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+        android:title="@string/notifications_settings">
+        <CheckBoxPreference
+            android:key="notifications_activated"
+            android:title="@string/facebook_notifications"
+            android:defaultValue="false"/>
+        <CheckBoxPreference
+            android:key="message_notifications"
+            android:title="@string/message_notifications"
+            android:defaultValue="false"/>
+		<ListPreference
+            android:title="@string/interval_pref"
+            android:summary="@string/interval_pref_description_new"
+            android:key="interval_pref"
+            android:entries="@array/intervalPrefTitles"
+            android:entryValues="@array/intervalPrefValues"
+            android:defaultValue="1800000" />
+        <RingtonePreference
+            android:key="ringtone"
+            android:ringtoneType="notification"
+            android:showDefault="true"
+            android:showSilent="true"
+            android:defaultValue="content://settings/system/notification_sound"
+            android:title="@string/notification_sound"
+            android:summary="@string/notification_sound_description" />
+        <RingtonePreference
+            android:key="ringtone_msg"
+            android:ringtoneType="notification"
+            android:showDefault="true"
+            android:showSilent="true"
+            android:defaultValue="content://settings/system/notification_sound"
+            android:title="@string/notification_sound_msg"
+            android:summary="@string/notification_sound_description" />
+        <CheckBoxPreference
+            android:key="vibrate"
+            android:title="@string/vibrate"
+            android:defaultValue="false"/>
+        <CheckBoxPreference
+            android:key="led_light"
+            android:title="@string/led_light"
+            android:defaultValue="false"/>
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:title="@string/notifications_extra">
+        <CheckBoxPreference
+            android:key="notifications_everywhere"
+            android:title="@string/notifications_everywhere"
+            android:summary="@string/notifications_everywhere_description"
+            android:defaultValue="true"/>
+    </PreferenceCategory>
+</PreferenceScreen>

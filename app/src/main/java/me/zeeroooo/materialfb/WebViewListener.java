@@ -33,6 +33,8 @@ import java.io.File;
 
 import im.delight.android.webview.AdvancedWebView;
 
+import me.zeeroooo.materialfb.SettingsActivity;
+
 class WebViewListener implements AdvancedWebView.Listener {
     private static final int ID_SAVE_IMAGE = 0;
     private static final int ID_SHARE_IMAGE = 1;

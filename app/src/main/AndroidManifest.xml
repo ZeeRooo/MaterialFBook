@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="me.zeeroooo.materialfb"
     android:installLocation="auto">
 
@@ -17,9 +18,9 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/MFB">
         <receiver
-            android:name=".Notifications.BootCompletedIntentReceiver"
+            android:name=".Receiver.BootCompletedIntentReceiver"
             android:enabled="true"
             android:permission="android.permission.RECEIVE_BOOT_COMPLETED" >
             <intent-filter>
@@ -28,7 +29,7 @@
             </intent-filter>
         </receiver>
         <receiver
-            android:name=".Notifications.PackageReplacedIntentReceiver"
+            android:name=".Receiver.PackageReplacedIntentReceiver"
             android:enabled="true" >
             <intent-filter>
                 <action android:name="android.intent.action.PACKAGE_REPLACED" />
@@ -93,7 +94,17 @@
                     android:scheme="https" />
             </intent-filter>
         </activity>
-        <activity android:name=".SettingsActivity" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName=".MainActivity"
+            android:configChanges="screenSize|orientation"
+            android:theme="@style/MFB_Settings"
+            tools:ignore="UnusedAttribute">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity
             android:name="com.facebook.FacebookActivity"
             android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"

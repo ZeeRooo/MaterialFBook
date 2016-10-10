@@ -18,22 +18,21 @@ import android.os.Build;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.IBinder;
-import android.os.Looper;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
-import android.widget.Toast;
-
-import me.zeeroooo.materialfb.MainActivity;
-import me.zeeroooo.materialfb.R;
-import me.zeeroooo.materialfb.logger.Logger;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-
 import java.io.IOException;
+import android.os.Looper;
+import android.widget.Toast;
+import me.zeeroooo.materialfb.MainActivity;
+import me.zeeroooo.materialfb.R;
+import me.zeeroooo.materialfb.Utils.Logger;
+import me.zeeroooo.materialfb.Utils.Connectivity;
 
 public class NotificationsService extends Service {
 
@@ -365,18 +364,23 @@ public class NotificationsService extends Service {
         // let's display a notification, dude!
         final String contentTitle;
         if (isMessage)
-            contentTitle = getString(R.string.app_name) + ": " + getString(R.string.messages);
+            contentTitle = getString(R.string.app_name) + " " + getString(R.string.messages);
         else
-            contentTitle = getString(R.string.app_name) + ": " + getString(R.string.notifications);
+            contentTitle = getString(R.string.app_name) + " " + getString(R.string.notifications);
 
         // log line (show what type of notification is about to be displayed)
         Log.i(TAG, "Start notification - isMessage: " + isMessage);
 
-        // start building a notification
+        // Messages && notifications parts
+        Intent actionIntent = new Intent(this, MainActivity.class);
+        actionIntent.putExtra("notif_url", "https://m.facebook.com/notifications.php");
+        Intent messageIntent = new Intent(this, MainActivity.class);
+        messageIntent.putExtra("messages_url", "https://m.facebook.com/messages/");
+
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setStyle(new NotificationCompat.BigTextStyle().bigText(title))
-                        .setSmallIcon(R.drawable.notify_logo)
+                        .setColor(getResources().getColor(R.color.colorPrimary))
                         .setContentTitle(contentTitle)
                         .setContentText(title)
                         .setTicker(title)
@@ -409,39 +413,58 @@ public class NotificationsService extends Service {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
             mBuilder.setPriority(Notification.PRIORITY_HIGH);
 
-        // intent with notification url in extra
-        Intent intent = new Intent(this, MainActivity.class);
-        intent.putExtra("start_url", url);
-        intent.setAction("NOTIFICATION_URL_ACTION");
-
-        // final notification building
-        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-        stackBuilder.addParentStack(MainActivity.class);
-        stackBuilder.addNextIntent(intent);
-        PendingIntent resultPendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        mBuilder.setContentIntent(resultPendingIntent);
-        mBuilder.setOngoing(false);
-        Notification note = mBuilder.build();
-
-        // LED light flag
-        if (mPreferences.getBoolean("led_light", false))
-            note.flags |= Notification.FLAG_SHOW_LIGHTS;
-
-        // display a notification
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-        // because message notifications are displayed separately
-        if (isMessage)
+        if (isMessage) {
+            // Messages
+            Intent viewMessagesIntent = new Intent(this, MainActivity.class);
+            viewMessagesIntent.putExtra("messages_url", url);
+            viewMessagesIntent.setAction(Intent.ACTION_VIEW);
+            viewMessagesIntent.setData(Uri.parse(MainActivity.FACEBOOK_URL_BASE + "messages/"));
+            PendingIntent pendingViewMessages = PendingIntent.getActivity(getApplicationContext(), 0, viewMessagesIntent, 0);
+            mBuilder.addAction(R.drawable.ic_message, getString(R.string.message_notifications), pendingViewMessages);
+            PendingIntent resultPendingIntent = PendingIntent.getActivity(getApplicationContext(), 1, viewMessagesIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            mBuilder.setContentIntent(resultPendingIntent);
+            mBuilder.setOngoing(false);
+            mBuilder.setSmallIcon(R.drawable.ic_message);
+            mBuilder.setOnlyAlertOnce(true);
+            Notification note = mBuilder.build();
             mNotificationManager.notify(1, note);
-        else
+        } else {
+            // Notif
+            Intent viewNotificationsIntent = new Intent(this, MainActivity.class);
+            viewNotificationsIntent.putExtra("notif_url", url);
+            viewNotificationsIntent.setAction(Intent.ACTION_VIEW);
+            viewNotificationsIntent.setData(Uri.parse(MainActivity.FACEBOOK_URL_BASE + "notifications.php"));
+            PendingIntent pendingViewNotifications = PendingIntent.getActivity(getApplicationContext(), 0, viewNotificationsIntent, 0);
+            mBuilder.addAction(R.drawable.ic_menu_notifications_active, getString(R.string.notification_viewall), pendingViewNotifications);
+            mBuilder.setSmallIcon(R.drawable.ic_menu_notifications_active_png);
+            TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+            stackBuilder.addParentStack(MainActivity.class);
+            stackBuilder.addNextIntent(viewNotificationsIntent);
+            PendingIntent resultPendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, viewNotificationsIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            mBuilder.setContentIntent(resultPendingIntent);
+            mBuilder.setOngoing(false);
+            Notification note = mBuilder.build();
             mNotificationManager.notify(0, note);
-    }
 
+            // LED light flag
+            if (mPreferences.getBoolean("led_light", false))
+                note.flags |= Notification.FLAG_SHOW_LIGHTS;
+        }
+
+    }
     // cancel all the notifications which are visible at the moment
-    public static void cancelAllNotifications() {
+    public static void clearNotifications() {
         NotificationManager notificationManager = (NotificationManager)
                 MainActivity.getContextOfApplication().getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.cancelAll();
+        notificationManager.cancel(0);
+    }
+    // cancel all the notifications which are visible at the moment
+    public static void clearMessages() {
+        NotificationManager notificationManager = (NotificationManager)
+               MainActivity.getContextOfApplication().getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.cancel(1);
     }
 
 }
+

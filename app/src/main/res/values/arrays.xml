@@ -21,6 +21,7 @@
         <item>1</item>
     </string-array>
     <string-array name="intervalPrefValues">
+        <item>5000</item>
         <item>120000</item>
         <item>300000</item>
         <item>900000</item>
@@ -30,6 +31,7 @@
         <item>21600000</item>
     </string-array>
 	<string-array name="intervalPrefTitles">
+        <item>Instant: For a better chat</item>
         <item>2 minutes</item>
         <item>5 minutes</item>
         <item>15 minutes</item>

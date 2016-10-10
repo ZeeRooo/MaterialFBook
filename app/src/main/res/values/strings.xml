@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="you_have_one_message">You have one message.</string>
+    <string name="navigation_menu_settings">Navigation menu items</string>
+    <string name="navigation_menu_settings_description">You can show/hide items in the navigation menu.</string>
+    <string name="notifications_setting_title">NOTIFICATIONS</string>
+	<string name="title_activity_settings">Settings</string>
+	<string name="applying_changes">Applying changes</string>
     <string name="you_have_n_messages">You have %d messages.</string>
 	<string name="sync_problem">Cookies cannot be synced. First run, yeah? Please just restart the app :)</string>
 	<string name="messages">Messages</string>
@@ -13,7 +18,7 @@
 	<string name="notifications_settings">Notifications settings</string>
 	<string name="notifications_settings_description">Additional settings. Choose time interval, set up sounds, LED and vibration.</string>
 	<string name="facebook_notifications">Facebook notifications</string>
-	<string name="message_notifications">Message notifications</string>
+	<string name="message_notifications">View all messagges</string>
 	<string name="interval_pref">Time interval for checking</string>
 	<string name="notification_sound">Notification sound</string>
 	<string name="file_logger_needs_permission">No access to external storage. Log cannot be saved</string>
@@ -57,7 +62,7 @@
     <string name="context_copy_link">Copy link</string>
     <string name="context_share_image_progress">Sharing image…</string>
     <string name="content_copy_link_done">Link copied to clipboard</string>
-    <string name="content_setting_title">Content</string>
+    <string name="general_setting_title">GENERAL</string>
     <string name="location_enabled_title">Location access</string>
     <string name="location_enabled_summary">Enable this to allow Facebook to obtain your location.</string>
     <string name="hide_editor_newsfeed_title">Hide Status editor in News Feed</string>
@@ -69,7 +74,7 @@
     <string name="hide_sponsored_summary">When enabled, will hide \'Sponsored\' Content (ads) from the News Feed.</string>
     <string name="hide_birthdays_title">Hide Birthdays</string>
     <string name="hide_birthdays_summary">When enabled, will hide birthdays from the News Feed.</string>
-    <string name="navigation_setting_title">Navigation</string>
+    <string name="navigation_setting_title">NAVIGATION</string>
     <string name="hide_menu_bar_title">Hide Menu bar</string>
     <string name="hide_menu_bar_summary">When enabled, the Facebook Menu bar will be hidden.</string>
     <string name="hide_fab_on_scroll_title">Hide Floating Action Button on scroll</string>
@@ -84,11 +89,11 @@
     <string name="error_facebook_noconnection">Could not access Facebook</string>
     <string name="error_facebook_error">Something went wrong on Facebook\'s end</string>
     <string name="loading">Loading</string>
-    <string name="notification_viewall">View all Notifications</string>
+    <string name="notification_viewall">View all notifications</string>
     <string name="permission_denied">Permission denied, cannot complete action</string>
 	<string name="title_hidemessengerdown">Remove \'Download Messenger\' ads</string>
 	<string name="summary_hidemessengerdown">When enabled, \'Download Messenger\' ads dissapear.</string>
-	<string name="navigation_menu_title">Navigation menu items (if change, need restart the app)</string>
+	<string name="navigation_menu_title">NAVIGATION MENU</string>
 	<string name="ic_menu_exitapp">Exit app</string>
 	<string name="ic_menu_exitapp_summary">When enabled, \'Exit app\' button on navigation menu dissapear.</string>
 	<string name="ic_menu_fblogout">Log out</string>
@@ -98,5 +103,5 @@
 	<string name="menu_events">Events</string>
 	<string name="menu_events_summary">When enabled, \'Events\' button on navigation menu dissapear.</string>
 	<string name="themes">Themes</string>
-	<string name="themes_summary">You can choose different themes. Need restart.</string>
+	<string name="themes_summary">You can choose different themes.</string>
 </resources>

@@ -1,72 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory
-        android:title="@string/preference_category5">
-
-        <CheckBoxPreference
-            android:key="notifications_activated"
-            android:title="@string/facebook_notifications"
-            android:defaultValue="false"/>
-
-        <CheckBoxPreference
-            android:key="message_notifications"
-            android:title="@string/message_notifications"
-            android:defaultValue="false"/>
-
-    </PreferenceCategory>
-    <PreferenceCategory
-        android:title="@string/notifications_settings">
-
-        <ListPreference
-            android:title="@string/interval_pref"
-            android:summary="@string/interval_pref_description_new"
-            android:key="interval_pref"
-            android:entries="@array/intervalPrefTitles"
-            android:entryValues="@array/intervalPrefValues"
-            android:defaultValue="1800000" />
-
-        <RingtonePreference
-            android:key="ringtone"
-            android:ringtoneType="notification"
-            android:showDefault="true"
-            android:showSilent="true"
-            android:defaultValue="content://settings/system/notification_sound"
-            android:title="@string/notification_sound"
-            android:summary="@string/notification_sound_description" />
-
-        <RingtonePreference
-            android:key="ringtone_msg"
-            android:ringtoneType="notification"
-            android:showDefault="true"
-            android:showSilent="true"
-            android:defaultValue="content://settings/system/notification_sound"
-            android:title="@string/notification_sound_msg"
-            android:summary="@string/notification_sound_description" />
-
-        <CheckBoxPreference
-            android:key="vibrate"
-            android:title="@string/vibrate"
-            android:defaultValue="false"/>
-
-        <CheckBoxPreference
-            android:key="led_light"
-            android:title="@string/led_light"
-            android:defaultValue="false"/>
-
-    </PreferenceCategory>
-
-
-    <PreferenceCategory
-        android:title="@string/notifications_extra">
-
-        <CheckBoxPreference
-            android:key="notifications_everywhere"
-            android:title="@string/notifications_everywhere"
-            android:summary="@string/notifications_everywhere_description"
-            android:defaultValue="true"/>
-
-    </PreferenceCategory>	
-    <PreferenceCategory android:title="@string/content_setting_title">
+    <PreferenceCategory android:title="@string/general_setting_title">
         <CheckBoxPreference
             android:defaultValue="false"
             android:key="location_enabled"
@@ -105,6 +39,12 @@
 			android:summary="@string/themes_summary"
 			android:title="@string/themes"/>
     </PreferenceCategory>
+    <PreferenceCategory android:title="@string/notifications_setting_title">
+        <Preference
+            android:key="notifications_settings"
+            android:title="@string/notifications_settings"
+            android:summary="@string/notifications_settings_description"/>
+    </PreferenceCategory>
     <PreferenceCategory android:title="@string/navigation_setting_title">
         <CheckBoxPreference
             android:defaultValue="true"
@@ -116,57 +56,9 @@
             android:key="hide_fab_on_scroll"
             android:summary="@string/hide_fab_on_scroll_summary"
             android:title="@string/hide_fab_on_scroll_title" />
-        <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="messaging_enabled"
-            android:summary="@string/messaging_enabled_summary"
-            android:title="@string/messaging_enabled_title" />
+        <Preference
+            android:key="navigation_menu_settings"
+            android:title="@string/navigation_menu_settings"
+            android:summary="@string/navigation_menu_settings_description"/>
     </PreferenceCategory>
-		<PreferenceCategory android:title="@string/navigation_menu_title">
-	    <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="nav_groups"
-            android:summary="@string/menu_groups_summary"
-            android:title="@string/menu_groups" />
-	    <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="nav_search"
-            android:summary="@string/menu_search_summary"
-            android:title="@string/menu_search" />
-	    <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="nav_mainmenu"
-            android:summary="@string/menu_mainmenu_summary"
-            android:title="@string/menu_mainmenu" />
-	    <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="nav_most_recent"
-            android:summary="@string/menu_groups_summary"
-            android:title="@string/menu_most_recent" />
-	    <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="nav_news"
-            android:summary="@string/menu_news_summary"
-            android:title="@string/menu_news" />
-	    <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="nav_fblogout"
-            android:summary="@string/ic_menu_fblogout_summary"
-            android:title="@string/ic_menu_fblogout" />
-	    <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="nav_exitapp"
-            android:summary="@string/ic_menu_exitapp_summary"
-            android:title="@string/ic_menu_exitapp" />
-	    <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="nav_events"
-            android:summary="@string/menu_events_summary"
-            android:title="@string/menu_events" />
-	    <CheckBoxPreference
-            android:defaultValue="true"
-            android:key="nav_photos"
-            android:summary="@string/menu_photos_summary"
-            android:title="@string/menu_photos" />
-        </PreferenceCategory>
 </PreferenceScreen>
