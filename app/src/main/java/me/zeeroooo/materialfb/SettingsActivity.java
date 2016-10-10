@@ -74,6 +74,7 @@ public class SettingsActivity extends AppCompatActivity {
                             if (prefs.getBoolean("notifications_activated", false) && preferences.getBoolean("message_notifications", false)) {
                                 context.stopService(intent);
                                 context.startService(intent);
+				Toast.makeText(getBaseContext, "Restart needed", Toast.LENGTH_SHORT).show();	    
                             } else //noinspection StatementWithEmptyBody
                                 if (!prefs.getBoolean("notifications_activated", false) && preferences.getBoolean("message_notifications", false)) {
                                     // ignore this case
@@ -86,6 +87,7 @@ public class SettingsActivity extends AppCompatActivity {
                             if (prefs.getBoolean("message_notifications", false) && preferences.getBoolean("notifications_activated", false)) {
                                 context.stopService(intent);
                                 context.startService(intent);
+				Toast.makeText(getBaseContext, "Restart needed", Toast.LENGTH_SHORT).show();
                             } else //noinspection StatementWithEmptyBody
                                 if (!prefs.getBoolean("message_notifications", false) && preferences.getBoolean("notifications_activated", false)) {
                                     // ignore this case
