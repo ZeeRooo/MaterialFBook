@@ -51,10 +51,10 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 
 ## - Credits:
 
-** Folio for Facebook by creativetrendsapps.
-** FaceSlim  by indywidualny.
-** Toffeed  by JakeLane.
-** SlimSocial for Facebook by rignaneseleo v3.5.6.
+- Folio for Facebook by creativetrendsapps.
+- FaceSlim  by indywidualny.
+- Toffeed  by JakeLane.
+- SlimSocial for Facebook by rignaneseleo.
 
 
 ###########
@@ -62,4 +62,4 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 
 
 ##Screens:
-http://imgur.com/a/6EU9q
+<center> <img src="http://i.imgur.com/BAfVEMf.png" width="22%" height=""> <img src="http://i.imgur.com/q6mIySH.png" width="22%" height=""> <img src="http://i.imgur.com/YXUJNYn.png" width="22%" height=""> <img src="http://i.imgur.com/dHT9mNf.png" width="22%" height=""> <img src="http://i.imgur.com/Oq8b0FS.png" width="22%" height=""> <img src="http://i.imgur.com/rkSFTGc.png" width="22%" height=""> <img src="http://i.imgur.com/yfS5WUf.png" width="22%" height=""> </center>
