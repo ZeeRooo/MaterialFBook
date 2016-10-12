@@ -10,7 +10,7 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.util.Log;
 
-import me.zeeroooo.materialfb.MainActivity;
+import me.zeeroooo.materialfb.MaterialFBook;
 import me.zeeroooo.materialfb.Notifications.NotificationsService;
 
 public class BootCompletedIntentReceiver extends BroadcastReceiver {
@@ -19,7 +19,7 @@ public class BootCompletedIntentReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
 
         Log.i("BroadcastReceiver", "********** Boot time or package replaced! **********");
-        context = MainActivity.getContextOfApplication();
+        context = MaterialFBook.getContextOfApplication();
 
         Intent startIntent = new Intent(context, NotificationsService.class);
 

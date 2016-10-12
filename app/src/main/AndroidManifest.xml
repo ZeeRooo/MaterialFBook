@@ -14,6 +14,7 @@
 
     <application
         android:allowBackup="true"
+        android:name=".MaterialFBook"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -28,14 +29,6 @@
                 <action android:name="android.intent.action.QUICKBOOT_POWERON" />
             </intent-filter>
         </receiver>
-        <receiver
-            android:name=".Receiver.PackageReplacedIntentReceiver"
-            android:enabled="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.PACKAGE_REPLACED" />
-                <data android:scheme="package" android:path="me.zeeroooo.materialfb" />
-            </intent-filter>
-        </receiver>		
         <service
             android:name=".Notifications.NotificationsService"
             android:enabled="true"

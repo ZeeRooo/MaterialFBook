@@ -4,7 +4,7 @@ import android.net.UrlQuerySanitizer;
 import android.webkit.WebView;
 
 class JavaScriptHelpers {
-    private static final int BADGE_UPDATE_INTERVAL = 15000;
+    private static final int BADGE_UPDATE_INTERVAL = 9000;
 
     public static void updateCurrentTab(WebView view) {
         // Get the currently open tab and check on the navigation menu

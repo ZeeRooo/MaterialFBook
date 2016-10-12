@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="you_have_one_message">You have one message.</string>
+    <string name="menu_back">Back</string>
+    <string name="menu_back_summary">If disabled, \'Back\' button on navigation menu dissapear.</string>
     <string name="navigation_menu_settings">Navigation menu items</string>
     <string name="navigation_menu_settings_description">You can show/hide items in the navigation menu.</string>
     <string name="notifications_setting_title">NOTIFICATIONS</string>

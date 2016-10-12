@@ -15,7 +15,7 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
 
-import me.zeeroooo.materialfb.MainActivity;
+import me.zeeroooo.materialfb.MaterialFBook;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.Notifications.NotificationsService;
 
@@ -32,7 +32,7 @@ public class NotificationsSettingsFragment extends PreferenceFragment {
         // load the preferences from an XML resource
         addPreferencesFromResource(R.xml.notifications_settings);
 
-        context = MainActivity.getContextOfApplication();
+        context = MaterialFBook.getContextOfApplication();
         preferences = PreferenceManager.getDefaultSharedPreferences(context);
 
         // default value for interval_pref preference summary

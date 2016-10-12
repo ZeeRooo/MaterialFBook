@@ -15,7 +15,7 @@ import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.widget.Toast;
 
-import me.zeeroooo.materialfb.MainActivity;
+import me.zeeroooo.materialfb.MaterialFBook;
 import me.zeeroooo.materialfb.R;
 
 import java.io.File;
@@ -26,14 +26,14 @@ public final class Logger {
 
     private static volatile Logger instance;
     private static final int MSG_SHOW_TOAST = 1;
-    private static final Context context = MainActivity.getContextOfApplication();
-    private final SharedPreferences preferences;
+    private static final Context context = MaterialFBook.getContextOfApplication();
+    private final SharedPreferences mPreferences;
     private final String logFilePath;
     private final MyHandler messageHandler;
 
     private Logger() {
         messageHandler = new MyHandler(this);
-        preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        mPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         logFilePath = Environment.getExternalStorageDirectory().getAbsolutePath()
                 + File.separator + context.getString(R.string.app_name).replace(" ", "") + ".log";
     }
@@ -81,14 +81,13 @@ public final class Logger {
     }
 
     public synchronized void i(String tag, String msg) {
-        final boolean fileLoggingEnabled = preferences.getBoolean("file_logging", false);
+        final boolean fileLoggingEnabled = mPreferences.getBoolean("file_logging", false);
         final boolean mounted = Environment.MEDIA_MOUNTED.equals(Environment.getExternalStorageState());
         final boolean storageReady = mounted && checkStoragePermission();
 
         if (fileLoggingEnabled && storageReady) {
             FileLog.open(logFilePath, Log.VERBOSE, 1000000);  // 1 megabyte
             FileLog.i(tag, msg);
-            FileLog.close();
         } else if (fileLoggingEnabled) {
             displayStoragePermissionRefused();
             Log.i(tag, msg);

@@ -51,5 +51,10 @@
             android:key="messaging_enabled"
             android:summary="@string/messaging_enabled_summary"
             android:title="@string/messaging_enabled_title" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="nav_back"
+            android:summary="@string/menu_back_summary"
+            android:title="@string/menu_back" />
     </PreferenceCategory>
 </PreferenceScreen>

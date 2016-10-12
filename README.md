@@ -38,6 +38,13 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Reworked and reorganized settings.
 - Added new interval for notifications refresh: "Instant: For a better chat". 
 
+**Version 1.7:**
+- Updated AdvancedWebView to 3.0.
+- Fixed "Exit app" button in navigation menu.
+- Added "Back" button in navigation menu.
+- Fixed FC when close the app. (Thank you again, indywidualny).
+- Minor badge update.
+
 
 ###########
 
@@ -55,6 +62,8 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - FaceSlim  by indywidualny.
 - Toffeed  by JakeLane.
 - SlimSocial for Facebook by rignaneseleo.
+- AdvancedWebView by delight-im.
+- FloatingActionButton by Clans.
 
 
 ###########

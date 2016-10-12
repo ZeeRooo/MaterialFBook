@@ -12,13 +12,6 @@
     </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-	<!-- DarkTheme-->
-    <style name="DarkTheme" parent="Base.Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">#2b2b2b</item>
-        <item name="colorPrimaryDark">#000000</item>
-		<item name="android:windowTranslucentNavigation">true</item>
-        <item name="colorAccent">#000000</item>
-    </style>
     <style name="AppWithToolbar" parent="@style/Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>

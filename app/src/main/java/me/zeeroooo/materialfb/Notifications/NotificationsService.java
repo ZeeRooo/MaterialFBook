@@ -29,9 +29,12 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.io.IOException;
+import java.nio.charset.MalformedInputException;
+
 import android.os.Looper;
 import android.widget.Toast;
 import me.zeeroooo.materialfb.MainActivity;
+import me.zeeroooo.materialfb.MaterialFBook;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.Utils.Logger;
 import me.zeeroooo.materialfb.Utils.Connectivity;
@@ -355,7 +358,7 @@ public class NotificationsService extends Service {
 
     // restart the service from inside the service
     private void restartItself() {
-        final Context context = MainActivity.getContextOfApplication();
+        final Context context = MaterialFBook.getContextOfApplication();
         final Intent intent = new Intent(context, NotificationsService.class);
         context.stopService(intent);
         context.startService(intent);
@@ -458,13 +461,13 @@ public class NotificationsService extends Service {
     // cancel all the notifications which are visible at the moment
     public static void clearNotifications() {
         NotificationManager notificationManager = (NotificationManager)
-                MainActivity.getContextOfApplication().getSystemService(Context.NOTIFICATION_SERVICE);
+                MaterialFBook.getContextOfApplication().getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.cancel(0);
     }
     // cancel all the notifications which are visible at the moment
     public static void clearMessages() {
         NotificationManager notificationManager = (NotificationManager)
-               MainActivity.getContextOfApplication().getSystemService(Context.NOTIFICATION_SERVICE);
+               MaterialFBook.getContextOfApplication().getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.cancel(1);
     }
 

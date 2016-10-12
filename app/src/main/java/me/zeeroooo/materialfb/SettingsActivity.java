@@ -23,18 +23,8 @@ public class SettingsActivity extends AppCompatActivity {
     public static final String KEY_PREF_HIDE_SPONSORED = "hide_sponsored";
     public static final String KEY_PREF_HIDE_BIRTHDAYS = "hide_birthdays";
     public static final String KEY_PREF_HIDE_MESSENGERDOWN = "messenger_download";
-    public static final String KEY_PREF_GROUPS = "nav_groups";
-    public static final String KEY_PREF_NAV_SEARCH = "nav_search";
-    public static final String KEY_PREF_NAV_MAINMENU = "nav_mainmenu";
-    public static final String KEY_PREF_NAV_MOST_RECENT = "nav_most_recent";
-    public static final String KEY_PREF_NAV_NEWS = "nav_news";
-    public static final String KEY_PREF_NAV_FBLOGOUT = "nav_fblogout";
-    public static final String KEY_PREF_NAV_EXITAPP = "nav_exitapp";
-    public static final String KEY_PREF_NAV_EVENTS = "nav_events";
-    public static final String KEY_PREF_NAV_PHOTOS = "nav_photos";
 
     private static final String TAG = SettingsActivity.class.getSimpleName();
-    private static final int REQUEST_STORAGE = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

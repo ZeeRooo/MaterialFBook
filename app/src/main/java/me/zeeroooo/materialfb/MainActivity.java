@@ -7,6 +7,7 @@
 package me.zeeroooo.materialfb;
 
 import android.content.Context;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -69,14 +70,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private final BadgeStyle BADGE_SIDE_FULL = new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_full, R.color.colorAccent, R.color.colorAccent, Color.WHITE);
     private static Context mContext;
 
-    /**
-     * Get context of application for non-context classes
-     * @return context of application
-     */
-    public static Context getContextOfApplication() {
-        return mContext;
-    }
-
     // Members
     SwipeRefreshLayout swipeView;
     NavigationView mNavigationView;
@@ -115,13 +108,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private SharedPreferences mPreferences;
 
     @Override
+    @SuppressLint("setJavaScriptEnabled")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mContext = getApplicationContext();
         FacebookSdk.sdkInitialize(this.getApplicationContext());
         setContentView(R.layout.activity_main);
         Permiso.getInstance().setActivity(this);
-		
+
         // Preferences
         PreferenceManager.setDefaultValues(this, R.xml.settings, false);
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -180,8 +173,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // start the service when it's activated but somehow it's not running
         // when it's already running nothing happens so it's ok
         if (mPreferences.getBoolean("notifications_activated", false) || mPreferences.getBoolean("message_notifications", false)) {
-            final Intent intent = new Intent(MainActivity.getContextOfApplication(), NotificationsService.class);
-            MainActivity.getContextOfApplication().startService(intent);
+            final Intent intent = new Intent(MaterialFBook.getContextOfApplication(), NotificationsService.class);
+            MaterialFBook.getContextOfApplication().startService(intent);
         }
 
         // Hide pref. from nav view: groups
@@ -265,6 +258,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mNavigationView.getMenu().findItem(R.id.nav_photos).setVisible(false);
 
             }
+        // Hide pref. from nav view: back
+        if (mPreferences.getBoolean("nav_back", false)) {
+            mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+            mNavigationView.getMenu().findItem(R.id.nav_back).setVisible(true);
+        } else {
+            mNavigationView = (NavigationView) findViewById(R.id.nav_view);
+            mNavigationView.getMenu().findItem(R.id.nav_back).setVisible(false);
+
+        }
 		
         // Setup the toolbar
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -340,8 +342,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mWebView.getSettings().setDisplayZoomControls(false);
         mWebView.getSettings().setLoadWithOverviewMode(true);
         mWebView.getSettings().setUseWideViewPort(true);
-        // Impersonate iPhone to prevent advertising garbage
-        mWebView.getSettings().setUserAgentString("Mozilla/5.0 (Linux; Android 5.1; XT1058 Build/LPAS23.12-21.7-1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.80 Mobile Safari/537.36");
+        mWebView.getSettings().setUserAgentString("Mozilla/5.0 (Linux; Android 5.1; Nexus 5 Build/_BuildID_) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.80 Mobile Safari/537.36");
 
         // Long press
         registerForContextMenu(mWebView);
@@ -507,14 +508,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 finish();
                 return true;
             case R.id.nav_exitapp:
-                finish();
-                return true;
+                System.exit(0);
+                break;
             case R.id.nav_fblogin:
                 LoginManager.getInstance().logInWithReadPermissions(this, Helpers.FB_PERMISSIONS);
                 break;
             case R.id.nav_settings:
                 Intent settingsActivity = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(settingsActivity);
+                break;
+            case R.id.nav_back:
+                mWebView.goBack();
                 break;
             default:
                 break;
@@ -607,28 +611,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         request.setParameters(parameters);
         request.executeAsync();
     }
-
-	private void SetTheme() {
-        requiresReload = false;
-		switch (mPreferences.getString("pref_theme", "default")) {
-			case "DarkTheme": {
-				setTheme(R.style.DarkTheme);
-				break;
-            }
-			case "MaterialDarkTheme": {
-				setTheme(R.style.DarkTheme);
-				break;
-            }
-			case "MaterialTheme": {
-				setTheme(R.style.AppTheme);
-				break;
-            }
-				default: {
-				setTheme(R.style.AppTheme);
-				break;
-			}
-		}
-	}
 	
     public void setNotificationNum(int num) {
         if (num > 0) {

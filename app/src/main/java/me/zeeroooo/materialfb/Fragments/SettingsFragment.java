@@ -3,7 +3,6 @@
  */
 package me.zeeroooo.materialfb.Fragments;
 
-import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,15 +13,14 @@ import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.Toast;
 
+import me.zeeroooo.materialfb.MaterialFBook;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.MainActivity;
 import me.zeeroooo.materialfb.Notifications.NotificationsService;
 
 public class SettingsFragment extends PreferenceFragment implements Preference.OnPreferenceClickListener {
 
-    private static final String TAG = SettingsFragment.class.getSimpleName();
-    private static final int REQUEST_STORAGE = 1;
-    private static Context context;
+    private static Context mContext;
     private SharedPreferences.OnSharedPreferenceChangeListener prefChangeListener;
     private SharedPreferences preferences;
 
@@ -30,8 +28,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.settings);
-        context = MainActivity.getContextOfApplication();
-        preferences = PreferenceManager.getDefaultSharedPreferences(context);
+        mContext = MaterialFBook.getContextOfApplication();
+        preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
 
         // set onPreferenceClickListener for a few preferences
         Preference notificationsSettingsPref = findPreference("notifications_settings");
@@ -43,31 +41,32 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         prefChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
             public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
                 // service intent (start, stop)
-                final Intent intent = new Intent(context, NotificationsService.class);
+                final Intent intent = new Intent(mContext, NotificationsService.class);
 
                 switch (key) {
                     case "notifications_activated":
                         if (prefs.getBoolean("notifications_activated", false) && preferences.getBoolean("message_notifications", false)) {
-                            context.stopService(intent);
-                            context.startService(intent);
+                            mContext.stopService(intent);
+                            mContext.startService(intent);
                         } else
                             if (!prefs.getBoolean("notifications_activated", false) && preferences.getBoolean("message_notifications", false)) {
                             } else if (prefs.getBoolean("notifications_activated", false) && !preferences.getBoolean("message_notifications", false)) {
-                                context.startService(intent);
+                                mContext.startService(intent);
                             } else
-                                context.stopService(intent);
+                                mContext.stopService(intent);
                         break;
                     case "message_notifications":
                         if (prefs.getBoolean("message_notifications", false) && preferences.getBoolean("notifications_activated", false)) {
-                            context.stopService(intent);
-                            context.startService(intent);
+                            mContext.stopService(intent);
+                            mContext.startService(intent);
                         } else
                             if (!prefs.getBoolean("message_notifications", false) && preferences.getBoolean("notifications_activated", false)) {
                                 // ignore this case
                             } else if (prefs.getBoolean("message_notifications", false) && !preferences.getBoolean("notifications_activated", false)) {
-                                context.startService(intent);
+                                mContext.startService(intent);
                             } else
-                                context.stopService(intent);
+                                mContext.stopService(intent);
+                        relaunch();
                         break;
                 }
                 Log.v("SharedPreferenceChange", key + " changed in SettingsFragment");
