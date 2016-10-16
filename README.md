@@ -30,7 +30,7 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Added option to hide buttons of navigation menu (hide messages or hide groups, etc).
 
 **Version 1.5:**
-- Added notifications (messages and common activity). Porting from FaceSlim THX: @indywidualny
+- Added notifications (messages and common activity). Ported from FaceSlim THX: @indywidualny
 - Updated useragent.
 
 **Version 1.6:**
@@ -44,6 +44,15 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Added "Back" button in navigation menu.
 - Fixed FC when close the app. (Thank you again, indywidualny).
 - Minor badge update.
+
+**Version 1.8:**
+- Code cleaned (app consume less cpu/ram).
+- App dont start at the boot (Yeah, less permissions now).
+- Improved notification Messages icon (when notification is displayed). Looks better now.
+- Added Messages icon in action bar  (idea of @GorranKurd).
+- Corrected wrong string.
+- Added app themes (Yellow, Lime, Red, Green, Black, Grey, Purple, Light Blue, Pink and default blue color of Facebook) (if you want more colours, tell me).
+- Fixed bug in Api 17 (Android 4.2.x). Now start correctly... or in AVD with 4.2.2 yes hahah.
 
 
 ###########

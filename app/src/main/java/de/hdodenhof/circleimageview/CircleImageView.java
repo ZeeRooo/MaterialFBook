@@ -31,7 +31,6 @@ import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.support.annotation.ColorInt;
-import android.support.annotation.ColorRes;
 import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.widget.ImageView;
@@ -47,7 +46,6 @@ public class CircleImageView extends ImageView {
     private static final int DEFAULT_BORDER_WIDTH = 0;
     private static final int DEFAULT_BORDER_COLOR = Color.BLACK;
     private static final int DEFAULT_FILL_COLOR = Color.TRANSPARENT;
-    private static final boolean DEFAULT_BORDER_OVERLAY = false;
 
     private final RectF mDrawableRect = new RectF();
     private final RectF mBorderRect = new RectF();
@@ -57,7 +55,6 @@ public class CircleImageView extends ImageView {
     private final Paint mBorderPaint = new Paint();
     private final Paint mFillPaint = new Paint();
 
-    private int mBorderColor = DEFAULT_BORDER_COLOR;
     private int mBorderWidth = DEFAULT_BORDER_WIDTH;
     private int mFillColor = DEFAULT_FILL_COLOR;
 
@@ -92,8 +89,6 @@ public class CircleImageView extends ImageView {
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.CircleImageView, defStyle, 0);
 
         mBorderWidth = a.getDimensionPixelSize(R.styleable.CircleImageView_civ_border_width, DEFAULT_BORDER_WIDTH);
-        mBorderColor = a.getColor(R.styleable.CircleImageView_civ_border_color, DEFAULT_BORDER_COLOR);
-        mBorderOverlay = a.getBoolean(R.styleable.CircleImageView_civ_border_overlay, DEFAULT_BORDER_OVERLAY);
         mFillColor = a.getColor(R.styleable.CircleImageView_civ_fill_color, DEFAULT_FILL_COLOR);
 
         a.recycle();
@@ -168,28 +163,6 @@ public class CircleImageView extends ImageView {
         setup();
     }
 
-    public int getBorderColor() {
-        return mBorderColor;
-    }
-
-    public void setBorderColor(@ColorInt int borderColor) {
-        if (borderColor == mBorderColor) {
-            return;
-        }
-
-        mBorderColor = borderColor;
-        mBorderPaint.setColor(mBorderColor);
-        invalidate();
-    }
-
-    /**
-     * @deprecated Use {@link #setBorderColor(int)} instead
-     */
-    @Deprecated
-    public void setBorderColorResource(@ColorRes int borderColorRes) {
-        setBorderColor(getContext().getResources().getColor(borderColorRes));
-    }
-
     /**
      * Return the color drawn behind the circle-shaped drawable.
      *
@@ -219,59 +192,6 @@ public class CircleImageView extends ImageView {
         mFillColor = fillColor;
         mFillPaint.setColor(fillColor);
         invalidate();
-    }
-
-    /**
-     * Set a color to be drawn behind the circle-shaped drawable. Note that
-     * this has no effect if the drawable is opaque or no drawable is set.
-     *
-     * @param fillColorRes The color resource to be resolved to a color and
-     *                     drawn behind the drawable
-     *
-     * @deprecated Fill color support is going to be removed in the future
-     */
-    @Deprecated
-    public void setFillColorResource(@ColorRes int fillColorRes) {
-        setFillColor(getContext().getResources().getColor(fillColorRes));
-    }
-
-    public int getBorderWidth() {
-        return mBorderWidth;
-    }
-
-    public void setBorderWidth(int borderWidth) {
-        if (borderWidth == mBorderWidth) {
-            return;
-        }
-
-        mBorderWidth = borderWidth;
-        setup();
-    }
-
-    public boolean isBorderOverlay() {
-        return mBorderOverlay;
-    }
-
-    public void setBorderOverlay(boolean borderOverlay) {
-        if (borderOverlay == mBorderOverlay) {
-            return;
-        }
-
-        mBorderOverlay = borderOverlay;
-        setup();
-    }
-
-    public boolean isDisableCircularTransformation() {
-        return mDisableCircularTransformation;
-    }
-
-    public void setDisableCircularTransformation(boolean disableCircularTransformation) {
-        if (mDisableCircularTransformation == disableCircularTransformation) {
-            return;
-        }
-
-        mDisableCircularTransformation = disableCircularTransformation;
-        initializeBitmap();
     }
 
     @Override
@@ -379,7 +299,6 @@ public class CircleImageView extends ImageView {
 
         mBorderPaint.setStyle(Paint.Style.STROKE);
         mBorderPaint.setAntiAlias(true);
-        mBorderPaint.setColor(mBorderColor);
         mBorderPaint.setStrokeWidth(mBorderWidth);
 
         mFillPaint.setStyle(Paint.Style.FILL);

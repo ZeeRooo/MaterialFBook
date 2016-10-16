@@ -31,13 +31,22 @@
             android:key="messenger_download"
             android:summary="@string/summary_hidemessengerdown"
             android:title="@string/title_hidemessengerdown" />
-		<ListPreference
-			android:defaultValue="MaterialTheme"
-			android:entries="@array/listThemes"
-			android:entryValues="@array/listValuesThemes"
-			android:key="pref_theme"
-			android:summary="@string/themes_summary"
-			android:title="@string/themes"/>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/appearance_setting_title">
+        <ListPreference
+            android:defaultValue="MaterialTheme"
+            android:entries="@array/WebThemes"
+            android:entryValues="@array/WebThemes"
+            android:key="web_themes"
+            android:summary="@string/web_themes_summary"
+            android:title="@string/web_themes"/>
+        <ListPreference
+            android:entries="@array/AppThemes"
+            android:entryValues="@array/AppThemes"
+            android:key="app_theme"
+            android:summary="@string/app_themes_summary"
+            android:title="@string/app_themes"
+            android:defaultValue="MFB" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/notifications_setting_title">
         <Preference

@@ -14,7 +14,6 @@ import android.preference.ListPreference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
-
 import me.zeeroooo.materialfb.MaterialFBook;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.Notifications.NotificationsService;

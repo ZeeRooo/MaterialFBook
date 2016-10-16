@@ -3,17 +3,23 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:ignore="MissingTranslation">
 <!-- Themes -->
-    <string-array name="listThemes">
-        <item>Facebook Mobile</item>
-        <item>DarkTheme</item>
-        <item>MaterialDarkTheme</item>
-		<item>MaterialTheme</item>
-    </string-array>
-    <string-array name="listValuesThemes">
+    <string-array name="WebThemes">
         <item>Facebook Mobile</item>
         <item>DarkTheme</item>
 		<item>MaterialDarkTheme</item>
 		<item>MaterialTheme</item>
+    </string-array>
+    <string-array name="AppThemes">
+        <item>MaterialFBook</item>
+        <item>Pink</item>
+        <item>Grey</item>
+        <item>Green</item>
+        <item>Red</item>
+        <item>Lime</item>
+        <item>Yellow</item>
+        <item>Purple</item>
+        <item>LightBlue</item>
+        <item>Black</item>
     </string-array>
 <!-- Notif -->	
     <string-array name="drawerPosValues">
@@ -39,5 +45,5 @@
         <item>1 hour</item>
         <item>3 hours</item>
         <item>6 hours</item>
-    </string-array>	
+    </string-array>
 </resources>

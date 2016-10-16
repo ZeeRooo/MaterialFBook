@@ -13,7 +13,7 @@ android {
         minSdkVersion 17
         targetSdkVersion 23
         versionCode 14
-        versionName "1.7"
+        versionName "1.8"
     }
     buildTypes {
         release {
@@ -27,13 +27,12 @@ dependencies {
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'com.android.support:design:23.4.0'
-	compile 'org.jsoup:jsoup:1.9.2'
+	compile 'org.jsoup:jsoup:1.8.3'
     compile 'com.facebook.android:facebook-android-sdk:4.6.0'
     compile('com.mikepenz:actionitembadge:3.1.9@aar') {
         transitive = true
     }
     compile 'com.squareup.picasso:picasso:2.5.2'
-    compile 'com.github.clans:fab:1.6.2'
     compile 'com.android.support:customtabs:23.4.0'
     compile 'com.greysonparrelli.permiso:permiso:0.1.3'
 }

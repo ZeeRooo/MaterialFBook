@@ -23,11 +23,6 @@
             android:title="@string/menu_most_recent" />
         <CheckBoxPreference
             android:defaultValue="true"
-            android:key="nav_news"
-            android:summary="@string/menu_news_summary"
-            android:title="@string/menu_news" />
-        <CheckBoxPreference
-            android:defaultValue="true"
             android:key="nav_fblogout"
             android:summary="@string/ic_menu_fblogout_summary"
             android:title="@string/ic_menu_fblogout" />
@@ -56,5 +51,20 @@
             android:key="nav_back"
             android:summary="@string/menu_back_summary"
             android:title="@string/menu_back" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="nav_friendreq"
+            android:summary="@string/menu_friendreq_summary"
+            android:title="@string/menu_friendreq" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="nav_top_stories"
+            android:summary="@string/menu_top_stories_summary"
+            android:title="@string/menu_top_stories" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="nav_news"
+            android:summary="@string/menu_news_summary"
+            android:title="@string/menu_news" /> />
     </PreferenceCategory>
 </PreferenceScreen>

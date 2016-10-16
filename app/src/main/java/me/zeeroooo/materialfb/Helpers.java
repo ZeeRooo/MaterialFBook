@@ -5,9 +5,7 @@ import android.support.design.widget.Snackbar;
 import android.view.Menu;
 import android.view.View;
 import android.webkit.CookieManager;
-
 import com.facebook.login.LoginManager;
-
 import java.util.Arrays;
 import java.util.List;
 

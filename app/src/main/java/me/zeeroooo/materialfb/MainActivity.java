@@ -6,7 +6,6 @@
  */
 package me.zeeroooo.materialfb;
 
-import android.content.Context;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -16,16 +15,15 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -58,19 +56,18 @@ import android.webkit.URLUtil;
 import com.squareup.picasso.Target;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
-
 import im.delight.android.webview.AdvancedWebView;
-
 import me.zeeroooo.materialfb.Notifications.NotificationsService;
+import me.zeeroooo.materialfb.Ui.Theme;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public static final String FACEBOOK_URL_BASE = "https://m.facebook.com/";
     private static final String FACEBOOK_URL_BASE_ENCODED = "https%3A%2F%2Fm.facebook.com%2F";
     private static final List<String> HOSTNAMES = Arrays.asList("facebook.com", "*.facebook.com", "*.fbcdn.net", "*.akamaihd.net");
     private final BadgeStyle BADGE_SIDE_FULL = new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_full, R.color.colorAccent, R.color.colorAccent, Color.WHITE);
-    private static Context mContext;
 
     // Members
+    private static AppCompatActivity MaterialFBookAct;
     SwipeRefreshLayout swipeView;
     NavigationView mNavigationView;
     View mCoordinatorLayoutView;
@@ -99,6 +96,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     };
     private MenuItem mNotificationButton;
+    private MenuItem mMessagesButton;
     private CallbackManager callbackManager;
     private Snackbar loginSnackbar = null;
     @SuppressWarnings("FieldCanBeLocal") // Will be garbage collected as a local variable
@@ -107,9 +105,45 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private String mUserLink = null;
     private SharedPreferences mPreferences;
 
+
     @Override
-    @SuppressLint("setJavaScriptEnabled")
+    @SuppressLint({"setJavaScriptEnabled"})
     protected void onCreate(Bundle savedInstanceState) {
+        MaterialFBookAct = this;
+        boolean MFB = Theme.getInstance(this).setTheme().equals("MFB");
+        final boolean Pink = Theme.getInstance(this).setTheme().equals("Pink");
+        final boolean Grey = Theme.getInstance(this).setTheme().equals("Grey");
+        final boolean Green = Theme.getInstance(this).setTheme().equals("Green");
+        final boolean Red = Theme.getInstance(this).setTheme().equals("Red");
+        final boolean Lime = Theme.getInstance(this).setTheme().equals("Lime");
+        final boolean Yellow = Theme.getInstance(this).setTheme().equals("Yellow");
+        final boolean Purple = Theme.getInstance(this).setTheme().equals("Purple");
+        final boolean LightBlue = Theme.getInstance(this).setTheme().equals("LightBlue");
+        final boolean Black = Theme.getInstance(this).setTheme().equals("Black");
+        boolean mCreatingActivity = true;
+        if (!mCreatingActivity) {
+            if (MFB)
+                setTheme(R.style.MFB);
+        } else {
+            if (Pink)
+                setTheme(R.style.Pink);
+            if (Grey)
+                setTheme(R.style.Grey);
+            if (Green)
+                setTheme(R.style.Green);
+            if (Red)
+                setTheme(R.style.Red);
+            if (Lime)
+                setTheme(R.style.Lime);
+            if (Yellow)
+                setTheme(R.style.Yellow);
+            if (Purple)
+                setTheme(R.style.Purple);
+            if (LightBlue)
+                setTheme(R.style.LightBlue);
+            if (Black)
+                setTheme(R.style.Black);
+
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(this.getApplicationContext());
         setContentView(R.layout.activity_main);
@@ -177,97 +211,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             MaterialFBook.getContextOfApplication().startService(intent);
         }
 
-        // Hide pref. from nav view: groups
-            if (mPreferences.getBoolean("nav_groups", false)) {
-                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-                mNavigationView.getMenu().findItem(R.id.nav_groups).setVisible(true);
-            } else {
-                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-                mNavigationView.getMenu().findItem(R.id.nav_groups).setVisible(false);
-
-            }
-		// Hide pref. from nav view: search
-            if (mPreferences.getBoolean("nav_search", false)) {
-                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-                mNavigationView.getMenu().findItem(R.id.nav_search).setVisible(true);
-            } else {
-                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-                mNavigationView.getMenu().findItem(R.id.nav_search).setVisible(false);
-
-            }
-		// Hide pref. from nav view: mainmenu
-            if (mPreferences.getBoolean("nav_mainmenu", false)) {
-                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-                mNavigationView.getMenu().findItem(R.id.nav_mainmenu).setVisible(true);
-            } else {
-                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-                mNavigationView.getMenu().findItem(R.id.nav_mainmenu).setVisible(false);
-
-            }
-		// Hide pref. from nav view: most_recent
-            if (mPreferences.getBoolean("nav_most_recent", false)) {
-                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-                mNavigationView.getMenu().findItem(R.id.nav_most_recent).setVisible(true);
-            } else {
-                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-                mNavigationView.getMenu().findItem(R.id.nav_most_recent).setVisible(false);
-
-            }
-		// Hide pref. from nav view: news
-            if (mPreferences.getBoolean("nav_news", false)) {
-                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-                mNavigationView.getMenu().findItem(R.id.nav_news).setVisible(true);
-            } else {
-                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-                mNavigationView.getMenu().findItem(R.id.nav_news).setVisible(false);
-
-            }
-        // Hide pref. from nav view: exitapp
-            if (mPreferences.getBoolean("nav_exitapp", false)) {
-                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-                mNavigationView.getMenu().findItem(R.id.nav_exitapp).setVisible(true);
-            } else {
-                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-                mNavigationView.getMenu().findItem(R.id.nav_exitapp).setVisible(false);
-
-            }
-        // Hide pref. from nav view: fblogout
-            if (mPreferences.getBoolean("nav_fblogout", false)) {
-                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-                mNavigationView.getMenu().findItem(R.id.nav_fblogout).setVisible(true);
-            } else {
-                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-                mNavigationView.getMenu().findItem(R.id.nav_fblogout).setVisible(false);
-
-            }
-        // Hide pref. from nav view: events
-            if (mPreferences.getBoolean("nav_events", false)) {
-                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-                mNavigationView.getMenu().findItem(R.id.nav_events).setVisible(true);
-            } else {
-                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-                mNavigationView.getMenu().findItem(R.id.nav_events).setVisible(false);
-
-            }
-        // Hide pref. from nav view: photos
-            if (mPreferences.getBoolean("nav_photos", false)) {
-                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-                mNavigationView.getMenu().findItem(R.id.nav_photos).setVisible(true);
-            } else {
-                mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-                mNavigationView.getMenu().findItem(R.id.nav_photos).setVisible(false);
-
-            }
-        // Hide pref. from nav view: back
-        if (mPreferences.getBoolean("nav_back", false)) {
-            mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-            mNavigationView.getMenu().findItem(R.id.nav_back).setVisible(true);
-        } else {
-            mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-            mNavigationView.getMenu().findItem(R.id.nav_back).setVisible(false);
-
-        }
-		
         // Setup the toolbar
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
@@ -288,6 +231,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Hide buttons if they are disabled
         if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_MESSAGING, false)) {
             mNavigationView.getMenu().findItem(R.id.nav_messages).setVisible(false);
+        }
+        if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_NAV_GROUPS, false)) {
+            mNavigationView.getMenu().findItem(R.id.nav_groups).setVisible(false);
+        }
+        if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_NAV_SEARCH, false)) {
+            mNavigationView.getMenu().findItem(R.id.nav_search).setVisible(false);
+        }
+        if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_NAV_MAINMENU, false)) {
+            mNavigationView.getMenu().findItem(R.id.nav_mainmenu).setVisible(false);
+        }
+        if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_NAV_MOST_RECENT, false)) {
+            mNavigationView.getMenu().findItem(R.id.nav_most_recent).setVisible(false);
+        }
+        if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_NAV_FBLOGOUT, false)) {
+            mNavigationView.getMenu().findItem(R.id.nav_fblogout).setVisible(false);
+        }
+        if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_NAV_EVENTS, false)) {
+            mNavigationView.getMenu().findItem(R.id.nav_events).setVisible(false);
+        }
+        if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_NAV_PHOTOS, false)) {
+            mNavigationView.getMenu().findItem(R.id.nav_photos).setVisible(false);
+        }
+        if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_NAV_BACK, false)) {
+            mNavigationView.getMenu().findItem(R.id.nav_back).setVisible(false);
+        }
+        if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_NAV_EXIT, false)) {
+            mNavigationView.getMenu().findItem(R.id.nav_exitapp).setVisible(false);
+        }
+        if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_NAV_TOP_STORIES, false)) {
+            mNavigationView.getMenu().findItem(R.id.nav_top_stories).setVisible(false);
+        }
+        if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_NAV_NEWS, false)) {
+            mNavigationView.getMenu().findItem(R.id.nav_news).setVisible(false);
+        }
+        if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_NAV_FRIENDREQ, false)) {
+            mNavigationView.getMenu().findItem(R.id.nav_friendreq).setVisible(false);
         }
 
         // Bind the Coordinator to member
@@ -379,7 +358,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onError(FacebookException error) {
                 Snackbar.make(mCoordinatorLayoutView, R.string.error_login, Snackbar.LENGTH_LONG).show();
-                Log.e(Helpers.LogTag, error.toString());
                 LoginManager.getInstance().logOut();
                 checkLoggedInState();
             }
@@ -393,6 +371,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             updateUserInfo();
         }
     }
+}
 
     @Override
     protected void onResume() {
@@ -436,11 +415,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         mNotificationButton = menu.findItem(R.id.action_notifications);
-
         ActionItemBadge.update(this, mNotificationButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_menu_notifications, null), ActionItemBadge.BadgeStyles.RED, Integer.MIN_VALUE);
+        mMessagesButton = menu.findItem(R.id.nav_messages);
+        ActionItemBadge.update(this, mMessagesButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_menu_messages, null), ActionItemBadge.BadgeStyles.RED, Integer.MIN_VALUE);
         return true;
     }
 
@@ -449,8 +428,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle action bar item clicks here
         int id = item.getItemId();
         if (id == R.id.action_notifications) {
-            // Load the notification page
             mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23notifications_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "notifications.php'%7D%7D)()");
+            Helpers.uncheckRadioMenu(mNavigationView.getMenu());
+        }
+        if (id == R.id.nav_messages) {
+            mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23messages_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "messages%2F'%7D%7D)()");
             Helpers.uncheckRadioMenu(mNavigationView.getMenu());
         }
 
@@ -488,7 +470,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 item.setChecked(true);
                 break;
 			case R.id.nav_groups:
-                mWebView.loadUrl("https://m.facebook.com/" + "groups/?category=membership");
+                mWebView.loadUrl(FACEBOOK_URL_BASE + "groups/?category=membership");
                 item.setChecked(true);
                 break;
             case R.id.nav_mainmenu:
@@ -496,20 +478,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 item.setChecked(true);
                 break;
 			case R.id.nav_events:
-                mWebView.loadUrl("https://m.facebook.com/" + "events");
+                mWebView.loadUrl(FACEBOOK_URL_BASE + "events");
                 item.setChecked(true);
                 break;
 			case R.id.nav_photos:
-                mWebView.loadUrl("https://m.facebook.com/" + "profile.php?v=photos&soft=composer");
+                mWebView.loadUrl(FACEBOOK_URL_BASE + "profile.php?v=photos&soft=composer");
                 item.setChecked(true);
                 break;
 			case R.id.nav_fblogout:
                 LoginManager.getInstance().logOut();
                 finish();
                 return true;
-            case R.id.nav_exitapp:
-                System.exit(0);
-                break;
             case R.id.nav_fblogin:
                 LoginManager.getInstance().logInWithReadPermissions(this, Helpers.FB_PERMISSIONS);
                 break;
@@ -519,6 +498,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_back:
                 mWebView.goBack();
+                break;
+            case R.id.nav_exitapp:
+                android.os.Process.killProcess(android.os.Process.myPid());
                 break;
             default:
                 break;
@@ -564,7 +546,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             return false;
         }
     }
-	
+
     private void updateUserInfo() {
         GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
             @Override
@@ -584,7 +566,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     Picasso.with(getApplicationContext()).load(object.getJSONObject("cover").getString("source")).resize(header.getWidth(), header.getHeight()).centerCrop().error(R.drawable.side_nav_bar).into(new Target() {
                         @Override
                         public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
-                            Log.v(Helpers.LogTag, "Set cover photo");
                             header.setBackground(new BitmapDrawable(getResources(), bitmap));
                         }
 
@@ -611,13 +592,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         request.setParameters(parameters);
         request.executeAsync();
     }
-	
+
     public void setNotificationNum(int num) {
         if (num > 0) {
             ActionItemBadge.update(mNotificationButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_menu_notifications_active, null), num);
         } else {
-            // Hide the badge and show the washed-out button
             ActionItemBadge.update(mNotificationButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_menu_notifications, null), Integer.MIN_VALUE);
+        }
+    }
+    public void setMessagessNum(int num) {
+        if (num > 0) {
+            ActionItemBadge.update(mMessagesButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_menu_messages_active, null), num);
+        } else {
+            ActionItemBadge.update(mMessagesButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_menu_messages, null), Integer.MIN_VALUE);
         }
     }
 
@@ -651,7 +638,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (Intent.ACTION_SEND.equals(action) && type != null) {
             if (URLUtil.isValidUrl(intent.getStringExtra(Intent.EXTRA_TEXT))) {
                 try {
-                    Log.v(Helpers.LogTag, "Shared URL Intent");
                     return "https://mbasic.facebook.com/composer/?text=" + URLEncoder.encode(intent.getStringExtra(Intent.EXTRA_TEXT), "utf-8");
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
@@ -659,7 +645,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         } else if (Intent.ACTION_VIEW.equals(action) && intent.getData() != null && URLUtil.isValidUrl(intent.getData().toString())) {
             // If there is a intent containing a facebook link, go there
-            Log.v(Helpers.LogTag, "Opened URL Intent");
             return intent.getData().toString();
         }
 

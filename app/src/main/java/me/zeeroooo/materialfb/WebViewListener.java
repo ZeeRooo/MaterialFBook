@@ -18,22 +18,16 @@ import android.provider.MediaStore;
 import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.Snackbar;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
-
 import com.github.clans.fab.FloatingActionMenu;
 import com.greysonparrelli.permiso.Permiso;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
-
 import java.io.File;
-
 import im.delight.android.webview.AdvancedWebView;
-
-import me.zeeroooo.materialfb.SettingsActivity;
 
 class WebViewListener implements AdvancedWebView.Listener {
     private static final int ID_SAVE_IMAGE = 0;
@@ -52,8 +46,6 @@ class WebViewListener implements AdvancedWebView.Listener {
     private static final String HIDE_SPONSORED = "article%5Bdata-ft*%3Dei%5D%7Bdisplay%3Anone%7D";
     // article#u_1j_4{display:none;}
     private static final String HIDE_BIRTHDAYS = "article%23u_1j_4%7Bdisplay%3Anone%3B%7D";
-    // ._59e9._55wr._4g33._400s{display:none}
-    private static final String HIDE_TOP_STORIES_BUTTON = "._59e9._55wr._4g33._400s%7Bdisplay%3Anone%7D";
     // Hide Messenger Download
     private static final String HIDE_MESSENGER_DOWNLOAD = "[data-sigil*=m-promo-jewel-header]{ display: none; }";
 
@@ -129,8 +121,8 @@ class WebViewListener implements AdvancedWebView.Listener {
 			    css += HIDE_MESSENGER_DOWNLOAD;
 		    }
 
-			// Themes
-		    switch (mPreferences.getString("pref_theme", "default")) {
+			// Web themes
+		    switch (mPreferences.getString("web_themes", "default")) {
 			    case "DarkTheme": {
                    css += mActivity.getString(R.string.DarkTheme);
             }
@@ -165,12 +157,11 @@ class WebViewListener implements AdvancedWebView.Listener {
     }
 
     @Override
-    public void onDownloadRequested(String url, String userAgent, String contentDisposition, String mimetype, long contentLength) {
+    public void onDownloadRequested(String url, String userAgent, String contentDisposition, String mimeType, long contentLength) {
     }
 
     @Override
     public void onExternalPageRequest(String url) {
-        Log.i(Helpers.LogTag, "External page: " + url);
 
         // Launch another Activity that handles URLs
         CustomTabsIntent.Builder intentBuilder = new CustomTabsIntent.Builder();
@@ -186,7 +177,6 @@ class WebViewListener implements AdvancedWebView.Listener {
         try {
             intentBuilder.build().launchUrl(mActivity, Uri.parse(url));
         } catch (android.content.ActivityNotFoundException ex) {
-            Log.e(Helpers.LogTag, "Could not launch url, activity was not found");
         }
     }
 

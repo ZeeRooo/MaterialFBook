@@ -18,7 +18,7 @@
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="@color/colorPrimary"
+            android:background="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|enterAlways|snap"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
@@ -32,9 +32,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         android:layout_margin="10dp"
-        fab:menu_colorNormal="@color/FABNormal"
-        fab:menu_colorPressed="#354f88"
-        fab:menu_colorRipple="@color/FABNormal"
+        fab:menu_colorNormal="?attr/colorPrimary"
+        fab:menu_colorPressed="?attr/colorPrimaryDark"
+        fab:menu_colorRipple="?attr/colorPrimary"
         fab:menu_icon="@drawable/ic_fab_menu">
 
         <com.github.clans.fab.FloatingActionButton
@@ -43,9 +43,9 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_fab_checkin"
             fab:fab_label="@string/fab_checkin"
-			fab:fab_colorNormal="@color/FABNormal"
-            fab:fab_colorPressed="#354f88"
-            fab:fab_colorRipple="@color/FABNormal"
+			fab:fab_colorNormal="?attr/colorPrimary"
+            fab:fab_colorPressed="?attr/colorPrimaryDark"
+            fab:fab_colorRipple="?attr/colorPrimary"
             fab:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
@@ -54,9 +54,9 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_fab_photo"
             fab:fab_label="@string/fab_photo"
-			fab:fab_colorNormal="@color/FABNormal"
-            fab:fab_colorPressed="#354f88"
-            fab:fab_colorRipple="@color/FABNormal"
+			fab:fab_colorNormal="?attr/colorPrimary"
+            fab:fab_colorPressed="?attr/colorPrimaryDark"
+            fab:fab_colorRipple="?attr/colorPrimary"
             fab:fab_size="mini" />
 
         <com.github.clans.fab.FloatingActionButton
@@ -65,9 +65,9 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_fab_text"
             fab:fab_label="@string/fab_text"
-			fab:fab_colorNormal="@color/FABNormal"
-            fab:fab_colorPressed="#354f88"
-            fab:fab_colorRipple="@color/FABNormal"
+			fab:fab_colorNormal="?attr/colorPrimary"
+            fab:fab_colorPressed="?attr/colorPrimaryDark"
+            fab:fab_colorRipple="?attr/colorPrimary"
             fab:fab_size="mini" />
 			
         <com.github.clans.fab.FloatingActionButton
@@ -76,9 +76,9 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_fab_jump_top"
             fab:fab_label="@string/fab_jump_top"
-			fab:fab_colorNormal="@color/FABNormal"
-            fab:fab_colorPressed="#354f88"
-            fab:fab_colorRipple="@color/FABNormal"
+			fab:fab_colorNormal="?attr/colorPrimary"
+            fab:fab_colorPressed="?attr/colorPrimaryDark"
+            fab:fab_colorRipple="?attr/colorPrimary"
             fab:fab_size="mini" />
 
     </com.github.clans.fab.FloatingActionMenu>

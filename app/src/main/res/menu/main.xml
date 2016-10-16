@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
+	<item
+        android:id="@+id/nav_messages"
+        android:icon="@drawable/ic_menu_messages"
+        android:title="@string/menu_messages"
+        app:actionLayout="@layout/menu_badge"
+        app:showAsAction="always"/>
     <item
         android:id="@+id/action_notifications"
         android:icon="@drawable/ic_menu_notifications"

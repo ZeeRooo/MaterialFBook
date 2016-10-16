@@ -10,9 +10,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.widget.Toast;
-
 import me.zeeroooo.materialfb.MaterialFBook;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.MainActivity;
@@ -20,7 +18,7 @@ import me.zeeroooo.materialfb.Notifications.NotificationsService;
 
 public class SettingsFragment extends PreferenceFragment implements Preference.OnPreferenceClickListener {
 
-    private static Context mContext;
+    private Context mContext;
     private SharedPreferences.OnSharedPreferenceChangeListener prefChangeListener;
     private SharedPreferences preferences;
 
@@ -51,7 +49,9 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         } else
                             if (!prefs.getBoolean("notifications_activated", false) && preferences.getBoolean("message_notifications", false)) {
                             } else if (prefs.getBoolean("notifications_activated", false) && !preferences.getBoolean("message_notifications", false)) {
+                                Toast.makeText(getActivity(), getString(R.string.applying_changes), Toast.LENGTH_SHORT).show();
                                 mContext.startService(intent);
+                                Toast.makeText(getActivity(), getString(R.string.applying_changes), Toast.LENGTH_SHORT).show();
                             } else
                                 mContext.stopService(intent);
                         break;
@@ -67,9 +67,9 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                             } else
                                 mContext.stopService(intent);
                         relaunch();
+                    case "app_theme":
                         break;
                 }
-                Log.v("SharedPreferenceChange", key + " changed in SettingsFragment");
             }
         };
     }
@@ -77,7 +77,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     @Override
     public boolean onPreferenceClick(Preference preference) {
         String key = preference.getKey();
-        Log.v("OnPreferenceClick", key + " clicked in SettingsFragment");
 
         switch (key) {
             case "notifications_settings":

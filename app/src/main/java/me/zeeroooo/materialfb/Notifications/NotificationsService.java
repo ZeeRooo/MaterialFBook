@@ -29,20 +29,16 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import java.io.IOException;
-import java.nio.charset.MalformedInputException;
-
 import android.os.Looper;
 import android.widget.Toast;
 import me.zeeroooo.materialfb.MainActivity;
 import me.zeeroooo.materialfb.MaterialFBook;
 import me.zeeroooo.materialfb.R;
-import me.zeeroooo.materialfb.Utils.Logger;
-import me.zeeroooo.materialfb.Utils.Connectivity;
+import android.util.Log;
 
 public class NotificationsService extends Service {
 
     // Facebook URL constants
-    private static final String BASE_URL = "https://mobile.facebook.com";
     private static final String NOTIFICATIONS_URL = "https://m.facebook.com/notifications.php";
     private static final String MESSAGES_URL = "https://m.facebook.com/messages";
     private static final String MESSAGES_URL_BACKUP = "https://mobile.facebook.com/messages";
@@ -63,11 +59,6 @@ public class NotificationsService extends Service {
     private static String userAgent;
     private SharedPreferences mPreferences;
 
-    /* Well, bad practice. Object name starting with a capital, but it's convenient.
-    In order to use my custom logger I just removed Log import and I'm getting an
-    instance of my Logger here. Its usage is exactly the same as the usage of Log */
-    private final Logger Log;
-
     // static initializer
     static {
         TAG = NotificationsService.class.getSimpleName();
@@ -78,7 +69,6 @@ public class NotificationsService extends Service {
         handlerThread = new HandlerThread("Handler Thread");
         handlerThread.start();
         handler = new Handler(handlerThread.getLooper());
-        Log = Logger.getInstance();
     }
 
     @Override
@@ -155,12 +145,6 @@ public class NotificationsService extends Service {
                 // when onDestroy() is run and lock is released, don't go on
                 if (shouldContinue) {
                     // start AsyncTasks if there is internet connection
-                    if (Connectivity.isConnected(getApplicationContext())) {
-                        Log.i(TAG, "Internet connection active. Starting AsyncTask...");
-                        String connectionType = "Wi-Fi";
-                        if (Connectivity.isConnectedMobile(getApplicationContext()))
-                            connectionType = "Mobile";
-                        Log.i(TAG, "Connection Type: " + connectionType);
                         userAgent = mPreferences.getString("webview_user_agent", System.getProperty("http.agent"));
                         Log.i(TAG, "User Agent: " + userAgent);
 
@@ -176,12 +160,10 @@ public class NotificationsService extends Service {
 
                     // set repeat time interval
                     handler.postDelayed(runnable, timeInterval);
-                } else
                     Log.i(TAG, "Notified to stop running. Exiting...");
 
             } catch (RuntimeException re) {
                 Log.i(TAG, "RuntimeException caught");
-                re.printStackTrace();
                 restartItself();
             }
         }
@@ -196,7 +178,7 @@ public class NotificationsService extends Service {
         private Element getElement(String connectUrl) {
             try {
                 return Jsoup.connect(connectUrl).userAgent(userAgent).timeout(JSOUP_TIMEOUT)
-                        .cookie("https://mobile.facebook.com", CookieManager.getInstance().getCookie("https://mobile.facebook.com")).get()
+                        .cookie((MainActivity.FACEBOOK_URL_BASE), CookieManager.getInstance().getCookie((MainActivity.FACEBOOK_URL_BASE))).get()
                         .select("a.touchable").not("a._19no").not("a.button").first();
             } catch (IllegalArgumentException ex) {
                 Log.i("CheckNotificationsTask", "Cookie sync problem occurred");
@@ -241,7 +223,7 @@ public class NotificationsService extends Service {
 
                 if (!mPreferences.getBoolean("activity_visible", false) || mPreferences.getBoolean("notifications_everywhere", true)) {
                     if (!mPreferences.getString("last_notification_text", "").equals(text))
-                        notifier(text, BASE_URL + result.attr("href"), false);
+                        notifier(text, (MainActivity.FACEBOOK_URL_BASE) + result.attr("href"), false);
                     mPreferences.edit().putString("last_notification_text", text).apply();
                 }
 
@@ -265,7 +247,7 @@ public class NotificationsService extends Service {
         private String getNumber(String connectUrl) {
             try {
                 Elements message = Jsoup.connect(connectUrl).userAgent(userAgent).timeout(JSOUP_TIMEOUT)
-                        .cookie("https://m.facebook.com", CookieManager.getInstance().getCookie("https://m.facebook.com")).get()
+                        .cookie((MainActivity.FACEBOOK_URL_BASE), CookieManager.getInstance().getCookie((MainActivity.FACEBOOK_URL_BASE))).get()
                         .select("div#viewport").select("div#page").select("div._129-")
                         .select("#messages_jewel").select("span._59tg");
 
@@ -369,18 +351,18 @@ public class NotificationsService extends Service {
         // let's display a notification, dude!
         final String contentTitle;
         if (isMessage)
-            contentTitle = getString(R.string.app_name) + " " + getString(R.string.messages);
+            contentTitle = getString(R.string.app_name);
         else
-            contentTitle = getString(R.string.app_name) + " " + getString(R.string.notifications);
+            contentTitle = getString(R.string.app_name);
 
         // log line (show what type of notification is about to be displayed)
         Log.i(TAG, "Start notification - isMessage: " + isMessage);
 
         // Messages && notifications parts
         Intent actionIntent = new Intent(this, MainActivity.class);
-        actionIntent.putExtra("notif_url", "https://m.facebook.com/notifications.php");
+        actionIntent.putExtra("notif_url", NOTIFICATIONS_URL);
         Intent messageIntent = new Intent(this, MainActivity.class);
-        messageIntent.putExtra("messages_url", "https://m.facebook.com/messages/");
+        messageIntent.putExtra("messages_url", MESSAGES_URL);
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
@@ -424,7 +406,7 @@ public class NotificationsService extends Service {
             Intent viewMessagesIntent = new Intent(this, MainActivity.class);
             viewMessagesIntent.putExtra("messages_url", url);
             viewMessagesIntent.setAction(Intent.ACTION_VIEW);
-            viewMessagesIntent.setData(Uri.parse(MainActivity.FACEBOOK_URL_BASE + "messages/"));
+            viewMessagesIntent.setData(Uri.parse(MESSAGES_URL));
             PendingIntent pendingViewMessages = PendingIntent.getActivity(getApplicationContext(), 0, viewMessagesIntent, 0);
             mBuilder.addAction(R.drawable.ic_message, getString(R.string.message_notifications), pendingViewMessages);
             PendingIntent resultPendingIntent = PendingIntent.getActivity(getApplicationContext(), 1, viewMessagesIntent, PendingIntent.FLAG_UPDATE_CURRENT);
@@ -439,7 +421,7 @@ public class NotificationsService extends Service {
             Intent viewNotificationsIntent = new Intent(this, MainActivity.class);
             viewNotificationsIntent.putExtra("notif_url", url);
             viewNotificationsIntent.setAction(Intent.ACTION_VIEW);
-            viewNotificationsIntent.setData(Uri.parse(MainActivity.FACEBOOK_URL_BASE + "notifications.php"));
+            viewNotificationsIntent.setData(Uri.parse(NOTIFICATIONS_URL));
             PendingIntent pendingViewNotifications = PendingIntent.getActivity(getApplicationContext(), 0, viewNotificationsIntent, 0);
             mBuilder.addAction(R.drawable.ic_menu_notifications_active, getString(R.string.notification_viewall), pendingViewNotifications);
             mBuilder.setSmallIcon(R.drawable.ic_menu_notifications_active_png);
@@ -457,18 +439,6 @@ public class NotificationsService extends Service {
                 note.flags |= Notification.FLAG_SHOW_LIGHTS;
         }
 
-    }
-    // cancel all the notifications which are visible at the moment
-    public static void clearNotifications() {
-        NotificationManager notificationManager = (NotificationManager)
-                MaterialFBook.getContextOfApplication().getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.cancel(0);
-    }
-    // cancel all the notifications which are visible at the moment
-    public static void clearMessages() {
-        NotificationManager notificationManager = (NotificationManager)
-               MaterialFBook.getContextOfApplication().getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.cancel(1);
     }
 
 }
