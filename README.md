@@ -56,7 +56,7 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 
 **Version 1.8.1:**
 - Bye "Download Messenger" ads. (Its automatic no more "Hide download messenger" button).
-- Maybe white screen in some users are fixed. I dont know because i havent this bug. Anyway, test the app and tell me.
+- Maybe white screen in messages was fixed. I dont know because i havent this bug. Anyway, test the app and tell me.
 
 
 ###########
