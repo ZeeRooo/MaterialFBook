@@ -26,11 +26,6 @@
             android:key="hide_birthdays"
             android:summary="@string/hide_birthdays_summary"
             android:title="@string/hide_birthdays_title" />
-        <CheckBoxPreference
-            android:defaultValue="false"
-            android:key="messenger_download"
-            android:summary="@string/summary_hidemessengerdown"
-            android:title="@string/title_hidemessengerdown" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/appearance_setting_title">
         <ListPreference

@@ -194,9 +194,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     case SettingsActivity.KEY_PREF_HIDE_BIRTHDAYS:
                         requiresReload = true;
                         break;
-					case SettingsActivity.KEY_PREF_HIDE_MESSENGERDOWN:
-						requiresReload = true;
-						break;
                     default:
                         break;
                 }
@@ -321,7 +318,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mWebView.getSettings().setDisplayZoomControls(false);
         mWebView.getSettings().setLoadWithOverviewMode(true);
         mWebView.getSettings().setUseWideViewPort(true);
-        mWebView.getSettings().setUserAgentString("Mozilla/5.0 (Linux; Android 5.1; Nexus 5 Build/_BuildID_) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.80 Mobile Safari/537.36");
+        mWebView.getSettings().setUserAgentString("Mozilla/5.0 (BB10; Kbd) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.4633 Mobile Safari/537.10+");
 
         // Long press
         registerForContextMenu(mWebView);
@@ -432,7 +429,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             Helpers.uncheckRadioMenu(mNavigationView.getMenu());
         }
         if (id == R.id.nav_messages) {
-            mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23messages_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "messages%2F'%7D%7D)()");
+            //mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23messages_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "messages%2F'%7D%7D)()");
+            // Trying to fix white screen in any users...
+            mWebView.loadUrl(FACEBOOK_URL_BASE + "messages/");
             Helpers.uncheckRadioMenu(mNavigationView.getMenu());
         }
 
@@ -461,7 +460,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 item.setChecked(true);
                 break;
             case R.id.nav_messages:
-                mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23messages_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "messages%2F'%7D%7D)()");
+                //mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23messages_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "messages%2F'%7D%7D)()");
+                // Trying to fix white screen in any users...
+                mWebView.loadUrl(FACEBOOK_URL_BASE + "messages/");
                 JavaScriptHelpers.updateNums(mWebView);
                 item.setChecked(true);
                 break;
@@ -488,7 +489,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 			case R.id.nav_fblogout:
                 LoginManager.getInstance().logOut();
                 finish();
-                return true;
+                break;
             case R.id.nav_fblogin:
                 LoginManager.getInstance().logInWithReadPermissions(this, Helpers.FB_PERMISSIONS);
                 break;
@@ -501,7 +502,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_exitapp:
                 android.os.Process.killProcess(android.os.Process.myPid());
-                break;
+                finish();
+                return true;
             default:
                 break;
         }

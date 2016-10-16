@@ -23,7 +23,6 @@ public class SettingsActivity extends AppCompatActivity {
     public static final String KEY_PREF_HIDE_EDITOR = "hide_editor_newsfeed";
     public static final String KEY_PREF_HIDE_SPONSORED = "hide_sponsored";
     public static final String KEY_PREF_HIDE_BIRTHDAYS = "hide_birthdays";
-    public static final String KEY_PREF_HIDE_MESSENGERDOWN = "messenger_download";
     public static final String KEY_PREF_NAV_GROUPS = "nav_groups";
     public static final String KEY_PREF_NAV_SEARCH = "nav_search";
     public static final String KEY_PREF_NAV_MAINMENU = "nav_mainmenu";

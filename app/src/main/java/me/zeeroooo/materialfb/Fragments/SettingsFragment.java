@@ -10,10 +10,8 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-import android.widget.Toast;
 import me.zeeroooo.materialfb.MaterialFBook;
 import me.zeeroooo.materialfb.R;
-import me.zeeroooo.materialfb.MainActivity;
 import me.zeeroooo.materialfb.Notifications.NotificationsService;
 
 public class SettingsFragment extends PreferenceFragment implements Preference.OnPreferenceClickListener {
@@ -49,9 +47,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         } else
                             if (!prefs.getBoolean("notifications_activated", false) && preferences.getBoolean("message_notifications", false)) {
                             } else if (prefs.getBoolean("notifications_activated", false) && !preferences.getBoolean("message_notifications", false)) {
-                                Toast.makeText(getActivity(), getString(R.string.applying_changes), Toast.LENGTH_SHORT).show();
                                 mContext.startService(intent);
-                                Toast.makeText(getActivity(), getString(R.string.applying_changes), Toast.LENGTH_SHORT).show();
                             } else
                                 mContext.stopService(intent);
                         break;
@@ -61,12 +57,11 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                             mContext.startService(intent);
                         } else
                             if (!prefs.getBoolean("message_notifications", false) && preferences.getBoolean("notifications_activated", false)) {
-                                // ignore this case
                             } else if (prefs.getBoolean("message_notifications", false) && !preferences.getBoolean("notifications_activated", false)) {
                                 mContext.startService(intent);
                             } else
                                 mContext.stopService(intent);
-                        relaunch();
+                        break;
                     case "app_theme":
                         break;
                 }
@@ -100,19 +95,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     @Override
     public void onPause() {
         super.onPause();
-        // unregister the listener
         preferences.unregisterOnSharedPreferenceChangeListener(prefChangeListener);
-    }
-
-    // relaunch the app
-    private void relaunch() {
-        // notify user about relaunching the app
-        Toast.makeText(getActivity(), getString(R.string.applying_changes), Toast.LENGTH_SHORT).show();
-        // sending intent to onNewIntent() of MainActivity
-        Intent intent = new Intent(getActivity(), MainActivity.class);
-        intent.putExtra("core_settings_changed", true);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);
     }
 
 }

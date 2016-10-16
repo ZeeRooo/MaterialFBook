@@ -54,6 +54,10 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Added app themes (Yellow, Lime, Red, Green, Black, Grey, Purple, Light Blue, Pink and default blue color of Facebook) (if you want more colours, tell me).
 - Fixed bug in Api 17 (Android 4.2.x). Now start correctly... or in AVD with 4.2.2 yes hahah.
 
+**Version 1.8.1:**
+- Bye "Download Messenger" ads. (Its automatic no more "Hide download messenger" button).
+- Maybe white screen in some users are fixed. I dont know because i havent this bug. Anyway, test the app and tell me.
+
 
 ###########
 
@@ -65,7 +69,7 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 ###########
 
 
-## - Credits:
+## Credits:
 
 - Folio for Facebook by creativetrendsapps.
 - FaceSlim  by indywidualny.
@@ -79,5 +83,5 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 
 
 
-##Screens:
-<center> <img src="http://i.imgur.com/BAfVEMf.png" width="22%" height=""> <img src="http://i.imgur.com/q6mIySH.png" width="22%" height=""> <img src="http://i.imgur.com/YXUJNYn.png" width="22%" height=""> <img src="http://i.imgur.com/dHT9mNf.png" width="22%" height=""> <img src="http://i.imgur.com/Oq8b0FS.png" width="22%" height=""> <img src="http://i.imgur.com/rkSFTGc.png" width="22%" height=""> <img src="http://i.imgur.com/yfS5WUf.png" width="22%" height=""> </center>
+## Screens:
+<center> <img src="http://i.imgur.com/nHSTvJh.png" width="22%" height=""> <img src="http://i.imgur.com/lG0ks6C.png" width="22%" height=""> <img src="http://i.imgur.com/iwwOetJ.png" width="22%" height=""> <img src="http://i.imgur.com/Y1wivll.png" width="22%" height=""> <img src="http://i.imgur.com/O7Zajff.png" width="22%" height=""> <img src="http://i.imgur.com/JQKZ9IE.png" width="22%" height=""> <img src="http://i.imgur.com/oWNBQyy.png" width="22%" height=""> </center>

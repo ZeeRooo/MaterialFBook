@@ -38,8 +38,6 @@
     <string name="hide_sponsored_summary">When enabled, will hide \'Sponsored\' Content (ads) from the News Feed.</string>
     <string name="hide_birthdays_title">Hide Birthdays</string>
     <string name="hide_birthdays_summary">When enabled, will hide birthdays from the News Feed.</string>
-    <string name="title_hidemessengerdown">Remove \'Download Messenger\' ads</string>
-    <string name="summary_hidemessengerdown">When enabled, \'Download Messenger\' ads disappear.</string>
     <!-- End general -->
 
     <!-- Appearence -->
