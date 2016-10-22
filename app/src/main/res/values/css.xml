@@ -103,329 +103,65 @@
 	</string>
 	<!-- Material based on Folio for Facebook. Thanks @creativetrendsapps -->
     <string name="MaterialTheme" translatable="false">
-* {
-    -webkit-tap-highlight-color: rgb(0,0,0,0);
-    -webkit-tap-highlight-color: transparent;
-    -webkit-appearance: none;
-	outline:none;
+
+._3bg5 ._52x1, .abb {
+border-top: none;
+border-bottom: none;
+padding: 4px 24px;
 }
 
-
-
-._10c_ ._2jl2 {
-    background: #ffffff;
+.jewel .flyout, #notifications_list, ._3bg5 ._52x1, ._vqv, #threadlist_rows, ._djv._bjn._bjp._5ek4._3gwg._2c_g{
+background: #ffffff; //prueba
 }
 
-._15n_ {
-    background-color: #ffffff !important;
-    
+.aclb, .acw {
+background: transparent;
+background-color: transparent;
 }
 
-._15nr._15nx {
-   padding: 2px;
-   margin-bottom: 20px;
-   background-color:#ffffff;
-   -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
-   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
-   
-
+article, #mbasic_inline_feed_composer, .timelinePublisher, ._10c_ ._2jl2, ._55wr._4g33._52wc._2-ck._51s,
+._59e9._55wr._4g33._400s, ._55wo._4g34, #friends_center_main, .touch ._5b6o, ._2ykg .unreadMessage,
+#owned_pages_section, #liked_pages_section, .item.tall.acw.abb, ._4g34._5o41 {
+border-radius: 2px;
+box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2);
+        margin: 5px 5px;
 }
 
-._15nz ._4g33 {
-    padding: 8px;
+._4prr::after {
+border: none !important;
 }
 
-._1_oa._1w-s {
-    margin: 8px;
+.touchable-notification, .touch ._55wr, .touch ._5b6o,
+._1_oa._4gvh._1w-s._1_od, ._1_oa._4gvh._1w-s, ._3to4,
+#owned_pages_section, #liked_pages_section,
+.item.tall.acw.abb, .item.buddylistItem.itemWithAction.acw.abt{
+background:white;
 }
 
+.touch ._5b6o {
+padding:5px !important;}
 
-._2jl2 {
-    margin: 8px 8px 8px 8px;
-    margin-bottom: 8px;
+._3bg5 ._53_-, .touchable-notification, ._55wq ._4g33 ._5pxa ._5vbx,
+._1_oa._4gvh._1w-s._1_od, ._1_oa._4gvh._1w-s, .item.buddylistItem.itemWithAction.acw.abt{
+margin: 3px 3px !important;
+border-radius: 1px;
+box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.12);
 }
 
-
-
-
-._2vj7._2phz.voice.acw {
-  padding: 2px;
-   margin-bottom: 25px;
-   background-color:#ffffff;
-   -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
-   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+._2k51, ._bji {
+border-bottom: 1px solid #ffffff; //Prueba,
+background: white;
 
 }
 
-
-._2zh4, ._15ks {
-    background: #ffffff;
-    }
-
-
-._44qk ._4g34 ._52jh {
-    color: #212121 ;
-    font-weight: normal ;
-    padding: 8px 0px 8px 0px;
-}
-
-._44qk ._4g34 .fcg {
-    color: #212121;
-}
-
-._45kb>div {
-    margin: 4px;
-}
-
-._46pa.day7 {
-    color: #212121;
-}
-
-
-._4g33._15n_ {
-    padding: 8px;
-}
-._4g33._52we._34qc._34qd._3hxn {
-    padding: 8px;
-}
-
-._4g33._52wf._-hs, #m-timeline-cover-section ._55wo ._52jj {
-    background-color: #FFFFFF;
-    padding-bottom: 10px;
-}
-
-._52jc._24u0._1xvv._5tg_ {
-    color: #212121;
-}
-
-._52jd {
-    color: #212121;
-}
-
-._52jh._4g33._15kk._15ks._15km {
-    padding: 5px;
-}
-
-._52we ._5xu4 {
-    margin: 0px 0px 10px 0px ;
-}
-
-._52x1 {
-    padding: 8px;
-}
-
-._52x6.touchable {
-    padding: 8px;
-}
-
-._53i6._53i6._53i6 {
-    margin: 6px;
-}
-
-._55wo ._4prr ._4g34._ru9 span.mfss.fcg {
-    color: #212121;
-}
-
-._55wr._-hs {
-    background-color: #FFFFFF
-;
-    padding: 10px 15px 10px 10px;
-}
-
-._55wr._4g33._52we._-hs {
-    background-color: #FFFFFF;
-    padding: 10px
-;
-}
-
-._56bf ._55wr {
-    background-color: #ffffff   
-;
-}
-
-._59e9 {
-    background: #ffffff;
-}
-
-._59e9._55wr._4g33._400s {
-    background-color: #ffffff !important;
-    color: #212121;
-    -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
-    box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
-    padding: 12px 10px 12px 15px;
-}
-
-._5gh8._5rgr {
-   padding: 2px;
-   margin-bottom: 25px;
-   background-color:#ffffff;
-   -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
-   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
+.profpic, .item ._1_0l {
+border-radius: 100px !important;
+border: 2px;
 
 }
-
-._5qc1 {
-    padding: 10px 8px 8px 15px;
-}
-
-._5s61._54k6 {
-    margin-top: 12px;
-}
-
-
-._d6- {
-    padding: 10px;
-}
-
-
-
-.desc .fcg .atb ._2vja.mfss.fcg abbr {
-    color: #212121;
-}
-
-.desc.attachment.mfss {
-    padding-left: 5px
-;
-}
-
-.jewel ._3wjp {
-  padding: 2px;
-   margin-bottom: 25px;
-   background-color:#ffffff;
-   -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
-   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
-
-}
-
-.msg {
-    margin: 0px 8px 0px 8px;
-}
-
-.statusBox {
-    margin: 8px 8px 15px 8px;
-}
-
-.timeline .timelinePublisher.inlineComposer {
-  padding: 2px;
-   margin-bottom: 25px;
-   background-color:#ffffff;
-   -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
-   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
-
-}
-
-
-.touch ._37fd {
-    height: 15px;
-    margin: 8px 8px 8px 10px;
-}
-
-.profpic{
-border-radius: 200px !important;
-}
-
-._129_ > :first-child {
-    border-top: 0px solid transparent;
-        border-top-width: 0px;
-        border-top-style: none;
-        border-top-color: transparent;
-}
-
-._129- {
-    border-top: none;
-}
-
-.touch ._44qk {
-   padding: 2px;
-   margin-bottom: 25px;
-   background-color:#ffffff;
-   -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
-   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
-
-}
-
-.touch ._55wr._4g33._52we {
-    padding: 15px;
-}
-
-.touch .al._5lm6, .touch .al._5dka, .touch .al._4_00, .touch .al._5jl7 {
-    padding: 20px 16px;
-}
-
-a._4_h4._55wr._5ylm {
-    background-color: #ffffff ;
-    padding: 8px ;
-}
-
-abbr {
-    margin-left: 8px;
-}
-
-div#messageGroup {
-    margin: 5px;
-    background-color:#EEEEEE;
-}
-
-div#messageGroup, div#message-reply-composer {
- padding: 2px;
-   margin-bottom: 25px;
-   background-color:#ffffff;
-   -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
-   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
-
-}
-
-div.like_def._55wr.likes {
-    padding: 8px;
-}
-
-h3._52jd._52jh._4o51, h4._52jc._52jg._24u1._4o59._5tg_ , h1._52jd._52jh._4o51 {
-    color: #212121;
-}
-
-header._52ja._59e9._55wr._usq {
-    color: #212121;
-    padding: 8px;
-}
-
-header._52je._52jb._52jh._4g33._52we._2pi8._2pi4 {
-    background-color: #ffffff;
-    height: 50px;
-    padding-bottom: 0px;
-}
-
-header._52je._52jb._52jh._4g33._52we._2pi8._2pi4 ._4g34 {
-    color: #212121;
-    font-size: 20px;
-    font-weight: normal;
-    margin: 10px 0px 0px 10px ;
-}
-
-i.img._42b6._403j.profpic {
-    border-color: solid #fff !important;
-}
-
-p {
-    padding-bottom: 10px;
-    padding-left: 5px;
-}
-
-span._146a {
-    visibility: hidden;
-}
-
-ul._7k7, ._56be._4hkg._5rgr._5tx9 {
-   padding: 2px;
-   margin-bottom: 25px;
-   background-color:#ffffff;
-   -webkit-box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
-   box-shadow: 0px 2px 2px 0px rgba(0,0,0,0.1);
-
-}
-
- 
-._2vj7 ._4g33 ._4g34 .ib .c div.msg div,h1._52jc._52jg._24u1._4o59._5tg_,._2vj7._2vj7._2vj7._2vj7 a, div#voice_replace_id .fcg, a.sub, h3._391s {
-    color: #212121 !important;
+._55x2>*, ._55x2._55x2>*{
+border-bottom-color: transparent;
+border-bottom: 1px solid white;
 }
 	</string>
 	<!-- MaterialDarkTheme based on Folio for Facebook. Thanks @creativetrendsapps -->
@@ -507,7 +243,7 @@ border-radius: 200px !important;
 ._129- {
     border-top: none;
 }
-		
+
         /* no border */
 
         .aclb, ._53_-, ._52x6, ._52x1, ._2l5v, ._tn0, ._52ja, ._5lm6 {

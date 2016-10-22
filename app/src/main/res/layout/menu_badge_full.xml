@@ -5,7 +5,7 @@
     android:clickable="false"
     android:focusable="false"
     android:enabled="false"
-    android:listSelector="@android:color/transparent"
+    android:listSelector="?attr/colorPrimary"
     android:gravity="center">
 
     <TextView

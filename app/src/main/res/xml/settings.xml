@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/general_setting_title">
-        <CheckBoxPreference
+        <SwitchPreference
             android:defaultValue="false"
             android:key="location_enabled"
             android:summary="@string/location_enabled_summary"
             android:title="@string/location_enabled_title" />
-        <CheckBoxPreference
+        <SwitchPreference
             android:defaultValue="true"
             android:key="hide_editor_newsfeed"
             android:summary="@string/hide_editor_newsfeed_summary"
             android:title="@string/hide_editor_newsfeed_title" />
-        <CheckBoxPreference
+        <SwitchPreference
             android:defaultValue="false"
             android:key="stop_images"
             android:summary="@string/stop_images_summary"
             android:title="@string/stop_images_title" />
-        <CheckBoxPreference
+        <SwitchPreference
             android:defaultValue="true"
             android:key="hide_sponsored"
             android:summary="@string/hide_sponsored_summary"
             android:title="@string/hide_sponsored_title" />
-        <CheckBoxPreference
+        <SwitchPreference
             android:defaultValue="false"
             android:key="hide_birthdays"
             android:summary="@string/hide_birthdays_summary"
@@ -50,12 +50,12 @@
             android:summary="@string/notifications_settings_description"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/navigation_setting_title">
-        <CheckBoxPreference
+        <SwitchPreference
             android:defaultValue="true"
             android:key="hide_menu_bar"
             android:summary="@string/hide_menu_bar_summary"
             android:title="@string/hide_menu_bar_title" />
-        <CheckBoxPreference
+        <SwitchPreference
             android:defaultValue="true"
             android:key="hide_fab_on_scroll"
             android:summary="@string/hide_fab_on_scroll_summary"
@@ -64,5 +64,21 @@
             android:key="navigation_menu_settings"
             android:title="@string/navigation_menu_settings"
             android:summary="@string/navigation_menu_settings_description"/>
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="save_data"
+            android:summary="@string/save_data_summary"
+            android:title="@string/save_data" />
     </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/more">
+        <PreferenceScreen
+            android:title="@string/more">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:targetClass="me.zeeroooo.materialfb.More"
+                android:targetPackage="me.zeeroooo.materialfb"/>
+        </PreferenceScreen>
+    </PreferenceCategory>
+
 </PreferenceScreen>

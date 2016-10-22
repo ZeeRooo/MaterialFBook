@@ -21,9 +21,7 @@
         android:theme="@style/MFB">
         <service
             android:name=".Notifications.NotificationsService"
-            android:enabled="true"
-            android:exported="false"
-            android:icon="@mipmap/ic_launcher" >
+            android:enabled="true" >
         </service>
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -78,7 +76,7 @@
         </activity>
         <activity
             android:name=".SettingsActivity"
-            android:label="@string/title_activity_settings"
+            android:label="@string/settings"
             android:parentActivityName=".MainActivity"
             android:configChanges="screenSize|orientation"
             android:theme="@style/MFB"
@@ -86,6 +84,9 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
+        </activity>
+		<activity
+            android:name=".More">
         </activity>
         <activity
             android:name="com.facebook.FacebookActivity"

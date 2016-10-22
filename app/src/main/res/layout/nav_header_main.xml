@@ -2,7 +2,7 @@
     android:id="@+id/header_layout"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
-    android:background="@drawable/side_nav_bar"
+    android:background="?attr/colorPrimary"
     android:gravity="bottom"
     android:orientation="vertical"
     android:paddingBottom="@dimen/activity_vertical_margin"
@@ -15,8 +15,7 @@
         android:id="@+id/profile_picture"
         android:layout_width="75dp"
         android:layout_height="75dp"
-        android:contentDescription="@string/header_profile_pic"
-        android:src="@drawable/side_profile" />
+        android:contentDescription="@string/header_profile_pic" />
 
     <TextView
         android:id="@+id/profile_name"

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Notifications -->
+    <string name="notifications_setting_title">NOTIFICATIçõES</string>
+    <string name="you_have_one_message">Você tem uma mensagem.</string>
+    <string name="notification_viewall">View all notifications</string>
+    <string name="messages_viewall">View all messages</string>
+	<string name="applying_changes">Aplicando altereções</string>
+    <string name="you_have_n_messages">Você tem %d mensagens.</string>
+	<string name="sync_problem">Cookies não podem ser sincronizados. Primeira execução, certo? Por favor reinicie o app</string>
+    <string name="notification_sound_description">Escolher um toque ou manter silêncio: \u0020</string>
+    <string name="notifications_settings">Configurações de notificações</string>
+    <string name="notifications_settings_description">Configurações adicionais. Escolha intervalo de tempo, sons, LED e vibração.</string>
+    <string name="facebook_notifications">Notificações do Facebook</string>
+    <string name="message_notifications">Notificações de mensagens</string>
+    <string name="interval_pref">Intervalo de tempo para verificação</string>
+    <string name="notification_sound">Som de notificação</string>
+    <string name="interval_pref_description_new">Notificações serão verificadas a cada %s.</string>
+    <string name="notification_sound_msg">Som de mensagens</string>
+	<string name="vibrate">Vibrar</string>
+    <string name="led_light">LED</string>
+    <string name="notifications_extra">Adicional</string>
+    <string name="notifications_everywhere">Sempre notificar</string>
+    <string name="notifications_everywhere_description">Além disso, quando você está na tela principal do aplicativo.</string>
+    <!-- End Notifications -->
+
+    <!-- General -->
+    <string name="general_setting_title">GENERAL</string>
+    <string name="location_enabled_title">Acesso à localização</string>
+    <string name="location_enabled_summary">Ative isso para permitir que o Facebook obtenha a sua localização.</string>
+    <string name="hide_editor_newsfeed_title">Esconder o editor de Status no Feed de Notícias</string>
+    <string name="hide_editor_newsfeed_summary">Quando ativado, o editor de Status será escondido no Feed de Notícias.</string>
+    <string name="hide_editor_newsfeed_snackbar">Atualizar para que as alterações entrem em vigor</string>
+    <string name="stop_images_title">Não carregar imagens</string>
+    <string name="stop_images_summary">Quando ativado, não vai baixar imagens. Algumas imagens podem permanecer no cache.</string>
+    <string name="hide_sponsored_title">Esconder Conteúdo Patrocinado</string>
+    <string name="hide_sponsored_summary">Quando ativado, irá esconder Conteúdo "Patrocinado" (anúncios) do Feed de notícias.</string>
+    <string name="hide_birthdays_title">Hide Birthdays</string>
+    <string name="hide_birthdays_summary">When enabled, will hide birthdays from the News Feed.</string>
+    <!-- End general -->
+
+    <!-- Appearence -->
+    <string name="appearance_setting_title">APPEARANCE</string>
+    <string name="web_themes">Web themes</string>
+    <string name="web_themes_summary">You can choose different web themes.</string>
+    <string name="app_themes">App themes</string>
+    <string name="app_themes_summary">You can choose different app themes.</string>
+
+    <!-- Navigation -->
+    <string name="navigation_setting_title">NAVEGAçãO</string>
+    <string name="hide_menu_bar_title">Hide Menu bar</string>
+    <string name="hide_menu_bar_summary">When enabled, the Facebook Menu bar will be hidden.</string>
+    <string name="hide_fab_on_scroll_title">Esconder Botão de Ação Flutuante (FAB) durante a navegação</string>
+    <string name="hide_fab_on_scroll_summary">Esconder o FAB quando estiver navegando para baixo</string>
+    <string name="navigation_menu_settings">Navigation menu items</string>
+    <string name="navigation_menu_settings_description">You can show/hide items in the navigation menu.</string>
+    <!-- Navigation: fab -->
+    <string name="fab_text">Postar um status</string>
+    <string name="fab_photo">Postar uma foto</string>
+    <string name="fab_checkin">Check-in</string>
+    <string name="fab_jump_top">Ir para o Topo</string>
+    <!-- Navigation: items -->
+    <string name="navigation_menu_title">NAVIGATION MENU</string>
+    <string name="ic_menu_exitapp">Exit app</string>
+    <string name="ic_menu_exitapp_summary">When enabled, \'Exit app\' button on navigation menu disappear.</string>
+    <string name="ic_menu_fblogout">Log out</string>
+    <string name="ic_menu_fblogout_summary">When enabled, \'Log out\' button on navigation menu disappear.</string>
+    <string name="menu_photos">Photos</string>
+    <string name="menu_photos_summary">When enabled, \'Photos\' button on navigation menu disappear.</string>
+    <string name="menu_events">Events</string>
+    <string name="menu_events_summary">When enabled, \'Events\' button on navigation menu disappear.</string>
+    <string name="menu_back">Voltar</string>
+    <string name="menu_back_summary">If disabled, \'Voltar\' button on navigation menu disappear.</string>
+    <string name="menu_news">Feed de Notícias</string>
+    <string name="menu_news_summary">If disabled, \'Feed de Notícias\' button on navigation menu disappear.</string>
+    <string name="menu_top_stories">Top stories</string>
+    <string name="menu_top_stories_summary">If disabled, \'Top stories\' button on navigation menu disappear.</string>
+    <string name="menu_most_recent">Most Recent</string>
+    <string name="menu_most_recent_summary">If disabled, \'Most Recent\' button on navigation menu disappear.</string>
+    <string name="menu_friendreq">Solicitações de Amizade</string>
+    <string name="menu_friendreq_summary">If disabled, \'Solicitações de Amizade\' button on navigation menu disappear.</string>
+    <string name="menu_groups">Groups</string>
+    <string name="menu_groups_summary">If disabled, \'Groups\' button on navigation menu disappear.</string>
+    <string name="menu_messages">Mensagens</string>
+    <string name="menu_search">Pesquisar</string>
+    <string name="menu_search_summary">If disabled, \'Pesquisar\' button on navigation menu disappear.</string>
+    <string name="menu_mainmenu">Menu Principal</string>
+    <string name="menu_mainmenu_summary">If disabled, \'Menu Principal\' button on navigation menu disappear.</string>
+    <string name="messaging_enabled_title">Mensagens</string>
+    <string name="messaging_enabled_summary">Quando ativado, irá proporcionar o acesso as Mensagens do Facebook. Desative se você tiver um aplicativo de mensagens.</string>
+    <!-- End navigation -->
+
+    <!-- App -->
+	<string name="silent">No sound</string>
+	<string name="file_logger_needs_permission">No access to external storage. Log cannot be saved</string>
+    <string name="navigation_drawer_open">Abrir gaveta de navegação</string>
+    <string name="navigation_drawer_close">Fechar gaveta de navegação</string>
+    <string name="default_user">Usuário</string>
+    <string name="header_profile_pic">Foto do perfil</string>
+    <string name="nav_notifications">Notificações</string>
+    <string name="menu_fblogin">Login no Facebook</string>
+    <string name="context_save_image">Salvar imagem</string>
+    <string name="settings">Configurações</string>
+    <string name="context_share_image">Compartilhar imagem</string>
+    <string name="context_copy_image_link">Copiar link da imagem</string>
+    <string name="context_share_link">Compartilhar link</string>
+    <string name="context_copy_link">Copiar link</string>
+    <string name="context_share_image_progress">Compartilhando imagem…</string>
+    <string name="content_copy_link_done">Link copiado para área de transferência</string>
+    <string name="login_button">Login</string>
+    <string name="share_text">Compartilhar</string>
+    <string name="not_logged_in">Você não está logado</string>
+    <string name="error_login">Algo deu errado, por favor tente fazer login novamente</string>
+    <string name="error_super_wrong">Algo deu muito errado</string>
+    <string name="error_facebook_noconnection">Não foi possível acessar o Facebook</string>
+    <string name="error_facebook_error">Algo deu errado no fim do Facebook</string>
+    <string name="loading">Carregando</string>
+    <string name="permission_denied">Permissão negada, ação não pode ser completada</string>
+	
+	<!-- About -->
+    <string name="more">Mais e créditos</string>
+    <string name="about_updates">Atualizações</string>
+    <string name="updates">Verifique se há uma nova versão</string>
+    <string name="updates_summary">Carregar a página e baixar a última versão</string>
+    <string name="people_who_translated">Os usuários que traduziram o aplicativo</string>
+    <string name="devs_who_helped_me">Os devs que me ajudou a pedir minhas perguntas e tendo código a partir de seus aplicativos</string>
+	<string name="help_translations">Ajuda a traduzir o aplicativo para seu idioma</string>
+	<string name="about_translations">¡Ajuda, precisamos de você!</string>
+    <string name="source_code">O código fonte em Github</string>
+    <string name="withYou">Relatar erros ou solicitar novos recursos</string>
+    <string name="changelog">Changelog</string>
+    <!-- End about -->
+
+</resources>

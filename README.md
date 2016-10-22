@@ -58,6 +58,14 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Bye "Download Messenger" ads. (Its automatic no more "Hide download messenger" button).
 - Maybe white screen in messages was fixed. I dont know because i havent this bug. Anyway, test the app and tell me.
 
+**Version 1.9:**
+- Added "Save data" mode.
+- Translated: Spanish (complete), Kurdish (complete), Chinesse (incomplet), Portuguesse (incomplet), Italian (incomplet).
+- Added option to check updates (Go to "more and credits" option in Settings and download the latest apk)
+- Reworked material theme in web
+- Translucent status bar in navigation menu (api >19 = KitKat+)
+- Replaced CheckBox with Switch. Looks better now :)
+
 
 ###########
 
@@ -77,6 +85,7 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - SlimSocial for Facebook by rignaneseleo.
 - AdvancedWebView by delight-im.
 - FloatingActionButton by Clans.
+- All people who translated the app (more details in "More and Credits")
 
 
 ###########

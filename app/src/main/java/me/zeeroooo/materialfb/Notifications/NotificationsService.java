@@ -39,20 +39,20 @@ import android.util.Log;
 public class NotificationsService extends Service {
 
     // Facebook URL constants
-    private static final String NOTIFICATIONS_URL = "https://m.facebook.com/notifications.php";
-    private static final String MESSAGES_URL = "https://m.facebook.com/messages";
+    private final String NOTIFICATIONS_URL = "https://m.facebook.com/notifications.php";
+    private final String MESSAGES_URL = "https://m.facebook.com/messages";
     private static final String MESSAGES_URL_BACKUP = "https://mobile.facebook.com/messages";
     private static final String NOTIFICATION_OLD_MESSAGE_URL = "https://m.facebook.com/messages#";
 
     // number of trials during notifications or messages checking
-    private static final int MAX_RETRY = 3;
-    private static final int JSOUP_TIMEOUT = 10000;
+    private final int MAX_RETRY = 3;
+    private final int JSOUP_TIMEOUT = 10000;
     private static final String TAG;
 
     // HandlerThread, Handler (final to allow synchronization) and its runnable
     private final HandlerThread handlerThread;
     private final Handler handler;
-    private static Runnable runnable;
+    private Runnable runnable;
 
     // volatile boolean to safely skip checking while service is being stopped
     private volatile boolean shouldContinue = true;
@@ -321,7 +321,7 @@ public class NotificationsService extends Service {
     @SuppressWarnings("deprecation")
     private void syncCookies() {
         if (Build.VERSION.SDK_INT < 21) {
-            CookieSyncManager.createInstance(getApplicationContext());
+            CookieSyncManager.createInstance(getApplication());
             CookieSyncManager.getInstance().sync();
         }
     }
@@ -332,7 +332,7 @@ public class NotificationsService extends Service {
         handler.post(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(getApplicationContext(), getString(R.string.sync_problem),
+                Toast.makeText(getApplication(), getString(R.string.sync_problem),
                         Toast.LENGTH_SHORT).show();
             }
         });
@@ -407,9 +407,9 @@ public class NotificationsService extends Service {
             viewMessagesIntent.putExtra("messages_url", url);
             viewMessagesIntent.setAction(Intent.ACTION_VIEW);
             viewMessagesIntent.setData(Uri.parse(MESSAGES_URL));
-            PendingIntent pendingViewMessages = PendingIntent.getActivity(getApplicationContext(), 0, viewMessagesIntent, 0);
+            PendingIntent pendingViewMessages = PendingIntent.getActivity(getApplication(), 0, viewMessagesIntent, 0);
             mBuilder.addAction(R.drawable.ic_message, getString(R.string.message_notifications), pendingViewMessages);
-            PendingIntent resultPendingIntent = PendingIntent.getActivity(getApplicationContext(), 1, viewMessagesIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent resultPendingIntent = PendingIntent.getActivity(getApplication(), 1, viewMessagesIntent, PendingIntent.FLAG_UPDATE_CURRENT);
             mBuilder.setContentIntent(resultPendingIntent);
             mBuilder.setOngoing(false);
             mBuilder.setSmallIcon(R.drawable.ic_message);
@@ -422,13 +422,13 @@ public class NotificationsService extends Service {
             viewNotificationsIntent.putExtra("notif_url", url);
             viewNotificationsIntent.setAction(Intent.ACTION_VIEW);
             viewNotificationsIntent.setData(Uri.parse(NOTIFICATIONS_URL));
-            PendingIntent pendingViewNotifications = PendingIntent.getActivity(getApplicationContext(), 0, viewNotificationsIntent, 0);
+            PendingIntent pendingViewNotifications = PendingIntent.getActivity(getApplication(), 0, viewNotificationsIntent, 0);
             mBuilder.addAction(R.drawable.ic_menu_notifications_active, getString(R.string.notification_viewall), pendingViewNotifications);
             mBuilder.setSmallIcon(R.drawable.ic_menu_notifications_active_png);
             TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
             stackBuilder.addParentStack(MainActivity.class);
             stackBuilder.addNextIntent(viewNotificationsIntent);
-            PendingIntent resultPendingIntent = PendingIntent.getActivity(getApplicationContext(), 0, viewNotificationsIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent resultPendingIntent = PendingIntent.getActivity(getApplication(), 0, viewNotificationsIntent, PendingIntent.FLAG_UPDATE_CURRENT);
             mBuilder.setContentIntent(resultPendingIntent);
             mBuilder.setOngoing(false);
             Notification note = mBuilder.build();

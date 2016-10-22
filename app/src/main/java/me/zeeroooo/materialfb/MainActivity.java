@@ -8,6 +8,7 @@ package me.zeeroooo.materialfb;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.support.design.widget.FloatingActionButton;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -62,12 +63,15 @@ import me.zeeroooo.materialfb.Ui.Theme;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public static final String FACEBOOK_URL_BASE = "https://m.facebook.com/";
-    private static final String FACEBOOK_URL_BASE_ENCODED = "https%3A%2F%2Fm.facebook.com%2F";
-    private static final List<String> HOSTNAMES = Arrays.asList("facebook.com", "*.facebook.com", "*.fbcdn.net", "*.akamaihd.net");
+    public static final String FACEBOOK_URL_BASE_BASIC = "https://mbasic.facebook.com/";
+    private final String FACEBOOK_URL_BASE_ENCODED = "https%3A%2F%2Fm.facebook.com%2F";
+    private final String FACEBOOK_URL_BASE_ENCODED_BASIC = "https%3A%2F%2Fmbasic.facebook.com%2F";
+    private final List<String> HOSTNAMES = Arrays.asList("facebook.com", "*.facebook.com", "*.fbcdn.net", "*.akamaihd.net");
     private final BadgeStyle BADGE_SIDE_FULL = new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_full, R.color.colorAccent, R.color.colorAccent, Color.WHITE);
 
+
     // Members
-    private static AppCompatActivity MaterialFBookAct;
+    private AppCompatActivity MaterialFBookAct;
     SwipeRefreshLayout swipeView;
     NavigationView mNavigationView;
     View mCoordinatorLayoutView;
@@ -78,13 +82,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         public void onClick(View v) {
             switch (v.getId()) {
                 case R.id.textFAB:
+                    if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                     mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('button%5Bname%3D%22view_overview%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED + "%3Fpageload%3Dcomposer%22%7D%7D)()");
+                    } else {
+                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('button%5Bname%3D%22view_overview%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED_BASIC + "%3Fpageload%3Dcomposer%22%7D%7D)()");
+                    }
                     break;
                 case R.id.photoFAB:
+                    if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                     mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('button%5Bname%3D%22view_photo%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED + "%3Fpageload%3Dcomposer_photo%22%7D%7D)()");
+                    } else {
+                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('button%5Bname%3D%22view_photo%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED_BASIC + "%3Fpageload%3Dcomposer_photo%22%7D%7D)()");
+                    }
                     break;
                 case R.id.checkinFAB:
+                    if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                     mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('button%5Bname%3D%22view_location%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED + "%3Fpageload%3Dcomposer_checkin%22%7D%7D)()");
+                    } else {
+                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('button%5Bname%3D%22view_location%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED_BASIC + "%3Fpageload%3Dcomposer_checkin%22%7D%7D)()");
+                    }
                     break;
 				case R.id.topFAB:
                     mWebView.scrollTo(0, 0);
@@ -95,6 +111,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             mMenuFAB.close(true);
         }
     };
+
     private MenuItem mNotificationButton;
     private MenuItem mMessagesButton;
     private CallbackManager callbackManager;
@@ -104,7 +121,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private boolean requiresReload = false;
     private String mUserLink = null;
     private SharedPreferences mPreferences;
-
 
     @Override
     @SuppressLint({"setJavaScriptEnabled"})
@@ -145,7 +161,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 setTheme(R.style.Black);
 
         super.onCreate(savedInstanceState);
-        FacebookSdk.sdkInitialize(this.getApplicationContext());
+        FacebookSdk.sdkInitialize(this.getApplication());
         setContentView(R.layout.activity_main);
         Permiso.getInstance().setActivity(this);
 
@@ -200,13 +216,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         };
         mPreferences.registerOnSharedPreferenceChangeListener(listener);
-
-        // start the service when it's activated but somehow it's not running
-        // when it's already running nothing happens so it's ok
-        if (mPreferences.getBoolean("notifications_activated", false) || mPreferences.getBoolean("message_notifications", false)) {
-            final Intent intent = new Intent(MaterialFBook.getContextOfApplication(), NotificationsService.class);
-            MaterialFBook.getContextOfApplication().startService(intent);
-        }
 
         // Setup the toolbar
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -264,6 +273,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
         if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_NAV_FRIENDREQ, false)) {
             mNavigationView.getMenu().findItem(R.id.nav_friendreq).setVisible(false);
+        }
+        if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_NOTIF_NOTIF, false) || mPreferences.getBoolean(SettingsActivity.KEY_PREF_NOTIF_MESSAGE, false)) {
+            final Intent intent = new Intent(MaterialFBook.getContextOfApplication(), NotificationsService.class);
+                MaterialFBook.getContextOfApplication().startService(intent);
         }
 
         // Bind the Coordinator to member
@@ -418,26 +431,33 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mMessagesButton = menu.findItem(R.id.nav_messages);
         ActionItemBadge.update(this, mMessagesButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_menu_messages, null), ActionItemBadge.BadgeStyles.RED, Integer.MIN_VALUE);
         return true;
-    }
+        }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here
         int id = item.getItemId();
         if (id == R.id.action_notifications) {
+            if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
             mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23notifications_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "notifications.php'%7D%7D)()");
+            } else {
+                mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23notifications_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED_BASIC + "notifications.php'%7D%7D)()");
+            }
             Helpers.uncheckRadioMenu(mNavigationView.getMenu());
         }
         if (id == R.id.nav_messages) {
-            //mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23messages_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "messages%2F'%7D%7D)()");
-            // Trying to fix white screen in any users...
+        if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
             mWebView.loadUrl(FACEBOOK_URL_BASE + "messages/");
+        } else {
+                mWebView.loadUrl(FACEBOOK_URL_BASE_BASIC + "messages/");
+        }
             Helpers.uncheckRadioMenu(mNavigationView.getMenu());
         }
 
         // Update the notifications
+        if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
         JavaScriptHelpers.updateNums(mWebView);
-        return super.onOptionsItemSelected(item);
+        } return super.onOptionsItemSelected(item);
     }
 
     @Override
@@ -445,45 +465,83 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         switch (item.getItemId()) {
             case R.id.nav_news:
+                if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                 mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23feed_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "home.php'%7D%7D)()");
-                item.setChecked(true);
+            } else {
+                mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23feed_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED_BASIC + "home.php'%7D%7D)()");
+            }
+            item.setChecked(true);
             case R.id.nav_top_stories:
+                if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                 mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('a%5Bhref*%3D%22%2Fhome.php%3Fsk%3Dh_nor%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED + "home.php%3Fsk%3Dh_nor%22%7D%7D)()");
-                item.setChecked(true);
-                break;
+            } else {
+                mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('a%5Bhref*%3D%22%2Fhome.php%3Fsk%3Dh_nor%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED_BASIC + "home.php%3Fsk%3Dh_nor%22%7D%7D)()");
+            }
+            item.setChecked(true);
+            break;
             case R.id.nav_most_recent:
+                if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                 mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('a%5Bhref*%3D%22%2Fhome.php%3Fsk%3Dh_chr%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED + "home.php%3Fsk%3Dh_chr%22%7D%7D)()");
-                item.setChecked(true);
-                break;
+            } else {
+                mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('a%5Bhref*%3D%22%2Fhome.php%3Fsk%3Dh_chr%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED_BASIC + "home.php%3Fsk%3Dh_chr%22%7D%7D)()");
+            }
+            item.setChecked(true);
+            break;
             case R.id.nav_friendreq:
+                if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                 mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23requests_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "friends%2Fcenter%2Frequests%2F'%7D%7D)()");
-                item.setChecked(true);
-                break;
+            } else {
+                mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23requests_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED_BASIC + "friends%2Fcenter%2Frequests%2F'%7D%7D)()");
+            }
+            item.setChecked(true);
+            break;
             case R.id.nav_messages:
-                //mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23messages_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "messages%2F'%7D%7D)()");
-                // Trying to fix white screen in any users...
-                mWebView.loadUrl(FACEBOOK_URL_BASE + "messages/");
+                if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
+                    mWebView.loadUrl(FACEBOOK_URL_BASE + "messages/");
+                } else {
+                    mWebView.loadUrl(FACEBOOK_URL_BASE_BASIC + "messages/");
+                }
                 JavaScriptHelpers.updateNums(mWebView);
                 item.setChecked(true);
                 break;
             case R.id.nav_search:
+                if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                 mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23search_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "search%2F'%7D%7D)()");
-                item.setChecked(true);
-                break;
+            } else {
+                mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23search_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED_BASIC + "search%2F'%7D%7D)()");
+            }
+            item.setChecked(true);
+            break;
 			case R.id.nav_groups:
-                mWebView.loadUrl(FACEBOOK_URL_BASE + "groups/?category=membership");
+                if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
+                    mWebView.loadUrl(FACEBOOK_URL_BASE + "groups/?category=membership");
+                } else {
+                    mWebView.loadUrl(FACEBOOK_URL_BASE_BASIC + "groups/?category=membership");
+                }
                 item.setChecked(true);
                 break;
             case R.id.nav_mainmenu:
+                if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                 mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23bookmarks_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "home.php'%7D%7D)()");
+                } else {
+                    mWebView.loadUrl("https://mbasic.facebook.com/menu/bookmarks/?ref_component=mbasic_home_header&ref_page=%2Fwap%2Fhome.php&refid=8");
+                }
                 item.setChecked(true);
                 break;
 			case R.id.nav_events:
-                mWebView.loadUrl(FACEBOOK_URL_BASE + "events");
+                if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
+                    mWebView.loadUrl(FACEBOOK_URL_BASE + "events");
+                } else {
+                    mWebView.loadUrl(FACEBOOK_URL_BASE_BASIC + "events");
+                }
                 item.setChecked(true);
                 break;
 			case R.id.nav_photos:
-                mWebView.loadUrl(FACEBOOK_URL_BASE + "profile.php?v=photos&soft=composer");
+                if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
+                    mWebView.loadUrl(FACEBOOK_URL_BASE + "profile.php?v=photos&soft=composer");
+                } else {
+                    mWebView.loadUrl(FACEBOOK_URL_BASE_BASIC + "profile.php?v=photos&soft=composer");
+                }
                 item.setChecked(true);
                 break;
 			case R.id.nav_fblogout:
@@ -562,10 +620,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     ((TextView) findViewById(R.id.profile_name)).setText(object.getString("name"));
 
                     // Set the cover photo with resizing
-                    Picasso.with(getApplicationContext()).load("https://graph.facebook.com/" + userID + "/picture?type=large").into((ImageView) findViewById(R.id.profile_picture));
+                    Picasso.with(getApplication()).load("https://graph.facebook.com/" + userID + "/picture?type=large").into((ImageView) findViewById(R.id.profile_picture));
 
                     final View header = findViewById(R.id.header_layout);
-                    Picasso.with(getApplicationContext()).load(object.getJSONObject("cover").getString("source")).resize(header.getWidth(), header.getHeight()).centerCrop().error(R.drawable.side_nav_bar).into(new Target() {
+                    Picasso.with(getApplication()).load(object.getJSONObject("cover").getString("source")).resize(header.getWidth(), header.getHeight()).centerCrop().into(new Target() {
                         @Override
                         public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom from) {
                             header.setBackground(new BitmapDrawable(getResources(), bitmap));
@@ -609,7 +667,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             ActionItemBadge.update(mMessagesButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_menu_messages, null), Integer.MIN_VALUE);
         }
     }
-
     public void setMessagesNum(int num) {
         // Only update message count if enabled
         if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_MESSAGING, false)) {
@@ -621,7 +678,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         }
     }
-
     public void setRequestsNum(int num) {
         if (num > 0) {
             ActionItemBadge.update(mNavigationView.getMenu().findItem(R.id.nav_friendreq), num);
@@ -630,7 +686,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             ActionItemBadge.update(mNavigationView.getMenu().findItem(R.id.nav_friendreq), Integer.MIN_VALUE);
         }
     }
-
     private String chooseUrl() {
         // Handle intents
         Intent intent = getIntent();
@@ -640,7 +695,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (Intent.ACTION_SEND.equals(action) && type != null) {
             if (URLUtil.isValidUrl(intent.getStringExtra(Intent.EXTRA_TEXT))) {
                 try {
-                    return "https://mbasic.facebook.com/composer/?text=" + URLEncoder.encode(intent.getStringExtra(Intent.EXTRA_TEXT), "utf-8");
+                    return FACEBOOK_URL_BASE_BASIC + "composer/?text=" + URLEncoder.encode(intent.getStringExtra(Intent.EXTRA_TEXT), "utf-8");
                 } catch (UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
@@ -649,8 +704,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             // If there is a intent containing a facebook link, go there
             return intent.getData().toString();
         }
-
-        // If nothing has happened at this point, we want the default url
-        return FACEBOOK_URL_BASE;
+        if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
+            return FACEBOOK_URL_BASE;
+        } else {
+            return FACEBOOK_URL_BASE_BASIC;
+        }
     }
 }

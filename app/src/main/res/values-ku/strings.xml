@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Notifications -->
+    <string name="notifications_setting_title">ئاگادارکردنەوەکان</string>
+    <string name="you_have_one_message">یەک پەیامت بۆ هاتووە</string>
+    <string name="notification_viewall">پیشاندانی هەموو ئاگادارکردنەوەکان</string>
+    <string name="messages_viewall">پیشاندانی هەموو پەیامەکان</string>
+	<string name="applying_changes">جێبەجێکردنی ئاگادارییەکان</string>
+    <string name="you_have_n_messages">تۆ %d پەیامت بۆ هاتووە</string>
+	<string name="sync_problem">فایلە پاشەکەوتکراوەکان ناتوانرێ هاوکاتبکرێت، ئەگەر یەکەمجارە بەرنامەکە بەکاردێنیت، ئەوا دووبارە ئیشی پێبکەرەوە</string>
+    <string name="notification_sound_description">زەنگ هەڵبژێرە: \u0020</string>
+    <string name="notifications_settings">ڕێکخستنەکانی ئاگادارکردنەوە</string>
+    <string name="notifications_settings_description">ڕێکخستنە زیادەکان بۆ هەڵبژاردنی کاتی دیاریکراو، دیاریکردنی زەنگی ئاگادارکردنەوە، وە هەروەها لەرزین و ڕووناکی لایتی LED</string>
+    <string name="facebook_notifications">ئاگادارکردنەوەکانی فەیسبووک</string>
+    <string name="message_notifications">پەیامەکانی فەیسبووک</string>
+    <string name="interval_pref">کاتی دیاریکراو بۆ پشکنین</string>
+    <string name="notification_sound">دەنگی ئاگادارکردنەوە</string>
+    <string name="interval_pref_description_new">ئاگادارکردنەوەکان دەپشکنرێن هەموو %s.</string>
+    <string name="notification_sound_msg">دەنگی پەیام</string>
+	<string name="vibrate">لەرزین</string>
+    <string name="led_light">لایتی LED</string>
+	<string name="notifications_extra">ئاگادارکردنەوە</string>
+    <string name="notifications_everywhere">ئاگادارکردنەوە هەمیشە</string>
+    <string name="notifications_everywhere_description">ئاگاداکردنەوە لە هەموو کاتێکدا</string>
+    <!-- End Notifications -->
+
+    <!-- General -->
+    <string name="general_setting_title">گشتی</string>
+    <string name="location_enabled_title">خزمەتگوزاری شوێن</string>
+    <string name="location_enabled_summary">ئەمە هەڵبژاردنە چالاک بکە بۆ بەکارهێنانی شوێن لە فەیسبووکدا</string>
+    <string name="hide_editor_newsfeed_title">شاردنەوەی بەشی بڵاوکردنەوەی بابەتی نوێ</string>
+    <string name="hide_editor_newsfeed_summary">ئەگەر چالاک بێت ئەوا بڵاوکردنەوەی بابەتی نوێ لە شاشەی سەرەکیدا دەشارێتەوە</string>
+    <string name="hide_editor_newsfeed_snackbar">تازەی بکەرەوە بۆ جێبەجێکردنی گۆڕانکارییەکان</string>
+    <string name="stop_images_title">پیشان نەدانی وێنەکان</string>
+    <string name="stop_images_summary">ئەگەر چالاک بێت ئەوا وێنەکان پیشان نادرێن، بەڵام لەوانەیە هەندێ وێنە دیاربن بەهۆی پاشەکەوتبوون لە فۆڵدەری کاتیدا</string>
+<!--<string name="hide_sponsored_title">شاردنەوەی 'ڕیکلام وپۆنسەرەکان</string>-->
+    <string name="hide_sponsored_summary">ئەگەر چالاک بێت، هەموو بابەتەکانی \'سپۆنسەر و ڕیکلامەکان\' دەشارێتەوە</string>
+    <string name="hide_birthdays_title">شاردنەوەی ڕۆژی لەدایکبوون</string>
+    <string name="hide_birthdays_summary">شاردنەوەی ڕۆژی لەدایکبوونەکان لە بەشی سەرەکیدا</string>
+    <!-- End general -->
+
+    <!-- Appearence -->
+    <string name="appearance_setting_title">ڕووکارەکان</string>
+    <string name="web_themes">ڕووکاری فەیسبووک</string>
+    <string name="web_themes_summary">ڕووکاری جیاوازی فەیسبووک</string>
+    <string name="app_themes">ڕووکاری بەرنامە</string>
+    <string name="app_themes_summary">ڕووکاری جیاوازی بەرنامەکە</string>
+
+    <!-- Navigation -->
+    <string name="navigation_setting_title">دوگمەکان</string>
+    <string name="hide_menu_bar_title">شاردنەوەی شریتی لیستی هەڵبژاردن</string>
+    <string name="hide_menu_bar_summary">شاردنەوەی شریتی لیستی هەڵبژاردنەکانی فەیسبووک</string>
+    <string name="hide_fab_on_scroll_title">شاردنەوەی دوگمەی خێرا کردنەوە</string>
+    <string name="hide_fab_on_scroll_summary">شاردنەوەی دوگمەی خێراکردنەوە لەکاتی جوڵاندن بۆ خوارەوە</string>
+    <string name="navigation_menu_settings">دوگمەکانی بەشی لیستی هەڵبژاردن</string>
+    <string name="navigation_menu_settings_description">شاردنەوەی دوگمەی لیستی هەڵبژاردنەکان</string>
+    <!-- Navigation: fab -->
+    <string name="fab_text">بڵاوکردنەوەی بابەت</string>
+    <string name="fab_photo">بڵاوکردنەوەی وێنە/ڤیدیۆ</string>
+    <string name="fab_checkin">شوێن</string>
+    <string name="fab_jump_top">چوون بۆ سەرەوە</string>
+    <!-- Navigation: items -->
+    <string name="navigation_menu_title">دوگمەی هەڵبژاردنەکان</string>
+    <string name="ic_menu_exitapp">داخستن</string>
+    <string name="ic_menu_exitapp_summary">ئەگەر چالاک بێت دوگمەی \'داخستنی بەرنامە\' دەشارێتەوە لە لیستی هەڵبژاردندا</string>
+    <string name="ic_menu_fblogout">دەرچوون</string>
+    <string name="ic_menu_fblogout_summary">ئەگەر چالاک بێت دوگمەی \'دەرچوون\' لە فەیسبووک دەشارێتەوە لە لیستی هەڵبژاردندا</string>
+    <string name="menu_photos">وێنەکان</string>
+    <string name="menu_photos_summary">ئەگەر چالاک بێت دوگمەی \'وێنەکان\' دەشارێتەوە لە لیستی هەڵبژاردندا</string>
+    <string name="menu_events">ڕووداوەکان</string>
+    <string name="menu_events_summary">ئەگەر چالاک بێت دوگمەی \'ڕووداوەکان\' دەشارێتەوە لە لیستی هەڵبژاردندا</string>
+    <string name="menu_back">گەڕانەوە</string>
+    <string name="menu_back_summary">شاردنەوەی دوگمەی \'گەڕانەوە\' لەبەشی سەرەکیدا</string>
+    <string name="menu_news">نوێترین بابەت</string>
+    <string name="menu_news_summary">شاردنەوەی دوگمەی \'نوێترین بابەت\' لەبەشی سەرەکیدا</string>
+    <string name="menu_top_stories">باشترین بابەت</string>
+    <string name="menu_top_stories_summary">ئەگەر ناچالاک بێت دوگمەی \'باشترین بابەت\' دەشارێتەوە لەلیستی سەرەکیدا</string>
+    <string name="menu_most_recent">دوایین بابەت</string>
+    <string name="menu_most_recent_summary">ئەگەر ناچالاک بێت دوگمەی \'دوایین بابەت\' دەشارێتەوە لەلیستی سەرەکیدا</string>
+    <string name="menu_friendreq">داواکاری هاوڕێیەتی</string>
+    <string name="menu_friendreq_summary">ئەگەر ناچالاک بێت دوگمەی \'داواکاری بابەت\' دەشارێتەوە لەلیستی سەرەکیدا</string>
+    <string name="menu_groups">گرووپەکان</string>
+    <string name="menu_groups_summary">ئەگەر چالاک بێت، دوگمەی \'گرووپەکان\' پیشان دەدرێ لە بەشی سەرەکیدا</string>
+    <string name="menu_messages">پەیامەکان</string>
+    <string name="menu_search">گەڕان</string>
+    <string name="menu_search_summary">ئەگەر ناچالاک بێت دوگمەی \'گەڕان\' دەشارێتەوە</string>
+    <string name="menu_mainmenu">لیستی هەڵبژاردنەکان</string>
+    <string name="menu_mainmenu_summary">ئەگەر ناچالاک بێت دوگمەی \'لیستی هەڵبژاردن\' دەشارێتەوە</string>
+    <string name="messaging_enabled_title">پەیامەکان</string>
+    <string name="messaging_enabled_summary">ئەگەر چالاک بێت یەکسەر دەچێتە ناو پەیامەکانی فەیسبووک، ناچالاکی بکە ئەگەر بەرنامەی نامەناردن بەکاردێنیت</string>
+    <!-- End navigation -->
+
+    <!-- App -->
+	<string name="silent">بێ دەنگ</string>
+	<string name="file_logger_needs_permission">ڕێگەپێدان ڕەتکرایەوە بۆ کردنەوەی بیرگەی دەرەکی، ناتوانرێ تۆمار پاشەکەوت بکرێ</string>
+    <string name="navigation_drawer_open">کردنەوەی بەشەکانی لیستی هەڵبژاردنەکان</string>
+    <string name="navigation_drawer_close">داخستنی بەشەکانی لیستی هەڵبژاردنەکان</string>
+    <string name="default_user">بچۆ ژوورەوە بۆ بینینی پرۆفایلەکەت</string>
+    <string name="header_profile_pic">وێنەی پرۆفایل</string>
+    <string name="nav_notifications">ئاگادارکردنەوەکان</string>
+    <string name="menu_fblogin">چوونەژورەوە بۆ فەیسبووک</string>
+    <string name="context_save_image">پاشەکەوتکردنی وێنە</string>
+    <string name="settings">ڕێکخستنەکان</string>
+    <string name="context_share_image">بڵاوکردنەوەی وێنە</string>
+    <string name="context_copy_image_link">لەبەرگرتنەوەی بەستەری وێنە</string>
+    <string name="context_share_link">بڵاوکردنەوەی بەستەر</string>
+    <string name="context_copy_link">لەبەرگرتنەوەی بەستەر</string>
+    <string name="context_share_image_progress">بڵاوکردنەوەی وێنە…</string>
+    <string name="content_copy_link_done">بەستەر لەبەریگیرایەوە بۆ فۆڵدەری کاتی</string>
+    <string name="login_button">چوونەژورەوە</string>
+    <string name="share_text">بڵاوکردنەوە</string>
+    <string name="not_logged_in">نەچویتە ژوورەوە</string>
+    <string name="error_login">هەڵە ڕوویدا، تکایە دووبارە هەوڵبدەرەوە</string>
+    <string name="error_super_wrong">هەڵەیەک ڕوویدا</string>
+    <string name="error_facebook_noconnection">هێڵی ئینتەرنێت نیە، فەیسبووک ناتوانرێ بکرێتەوە</string>
+    <string name="error_facebook_error">هەڵەیەک هەیە لە فەیسبووکدا</string>
+    <string name="loading">چاوەڕوانبە</string>
+    <string name="permission_denied">ڕێگەپێدان ڕەتکرایەوە، فرمان ناتوانرێ ئەنجام بدرێ</string>
+
+	<!-- About -->
+    <string name="more">More and credits</string>
+    <string name="about_updates">Updates</string>
+    <string name="updates">Check for a new version</string>
+    <string name="updates_summary">Load the page and download the latest version</string>
+    <string name="people_who_translated">Users who translated the app</string>
+    <string name="devs_who_helped_me">Developers who helped me asking my questions and taking code from their apps</string>
+	<string name="help_translations">Help me to translate the app to your language</string>
+	<string name="about_translations">¡Help, we need you!</string>
+    <string name="source_code">Source code on Github</string>
+    <string name="withYou">Report bugs or requst new features</string>
+    <string name="changelog">Changelog</string>
+    <!-- End about -->
+	
+</resources>

@@ -16,7 +16,6 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import java.util.HashMap;
 import android.net.http.SslError;
-import android.view.InputEvent;
 import android.view.KeyEvent;
 import android.webkit.ClientCertRequest;
 import android.webkit.HttpAuthHandler;
@@ -62,6 +61,7 @@ import android.support.v4.view.NestedScrollingChildHelper;
 import android.support.v4.view.ViewCompat;
 import android.view.MotionEvent;
 import android.view.ContextMenu;
+import android.view.InputEvent;
 
 /** Advanced WebView component for Android that works as intended out of the box */
 @SuppressWarnings("deprecation")

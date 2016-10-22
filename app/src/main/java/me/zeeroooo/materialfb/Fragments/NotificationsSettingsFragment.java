@@ -20,7 +20,7 @@ import me.zeeroooo.materialfb.Notifications.NotificationsService;
 
 public class NotificationsSettingsFragment extends PreferenceFragment {
 
-    private static Context context;
+    private Context context;
     private SharedPreferences preferences;
     private SharedPreferences.OnSharedPreferenceChangeListener prefChangeListener;
 

@@ -3,15 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:fab="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/coordinatorLayout"
     tools:context=".MainActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fitsSystemWindows="true"
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
@@ -19,7 +18,6 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|enterAlways|snap"
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </android.support.design.widget.AppBarLayout>
@@ -43,7 +41,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_fab_checkin"
             fab:fab_label="@string/fab_checkin"
-			fab:fab_colorNormal="?attr/colorPrimary"
+            fab:fab_colorNormal="?attr/colorPrimary"
             fab:fab_colorPressed="?attr/colorPrimaryDark"
             fab:fab_colorRipple="?attr/colorPrimary"
             fab:fab_size="mini" />
@@ -54,7 +52,7 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_fab_photo"
             fab:fab_label="@string/fab_photo"
-			fab:fab_colorNormal="?attr/colorPrimary"
+            fab:fab_colorNormal="?attr/colorPrimary"
             fab:fab_colorPressed="?attr/colorPrimaryDark"
             fab:fab_colorRipple="?attr/colorPrimary"
             fab:fab_size="mini" />
@@ -65,18 +63,18 @@
             android:layout_height="wrap_content"
             android:src="@drawable/ic_fab_text"
             fab:fab_label="@string/fab_text"
-			fab:fab_colorNormal="?attr/colorPrimary"
+            fab:fab_colorNormal="?attr/colorPrimary"
             fab:fab_colorPressed="?attr/colorPrimaryDark"
             fab:fab_colorRipple="?attr/colorPrimary"
             fab:fab_size="mini" />
-			
+
         <com.github.clans.fab.FloatingActionButton
             android:id="@+id/topFAB"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_fab_jump_top"
             fab:fab_label="@string/fab_jump_top"
-			fab:fab_colorNormal="?attr/colorPrimary"
+            fab:fab_colorNormal="?attr/colorPrimary"
             fab:fab_colorPressed="?attr/colorPrimaryDark"
             fab:fab_colorRipple="?attr/colorPrimary"
             fab:fab_size="mini" />
@@ -89,6 +87,7 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:background="#000"
         android:clickable="false"
         android:visibility="gone" />
 

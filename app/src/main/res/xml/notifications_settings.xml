@@ -2,11 +2,11 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
         android:title="@string/notifications_settings">
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="notifications_activated"
             android:title="@string/facebook_notifications"
             android:defaultValue="false"/>
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="message_notifications"
             android:title="@string/message_notifications"
             android:defaultValue="false"/>
@@ -33,18 +33,18 @@
             android:defaultValue="content://settings/system/notification_sound"
             android:title="@string/notification_sound_msg"
             android:summary="@string/notification_sound_description" />
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="vibrate"
             android:title="@string/vibrate"
             android:defaultValue="false"/>
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="led_light"
             android:title="@string/led_light"
             android:defaultValue="false"/>
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/notifications_extra">
-        <CheckBoxPreference
+        <SwitchPreference
             android:key="notifications_everywhere"
             android:title="@string/notifications_everywhere"
             android:summary="@string/notifications_everywhere_description"
