@@ -2,13 +2,14 @@
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
     <style name="MFB" parent="Theme.AppCompat.Light.NoActionBar">
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorPrimary">@color/MFBPrimary</item>
+        <item name="colorPrimaryDark">@color/MFBPrimaryDark</item>
+        <item name="colorAccent">@color/MFBPrimaryDark</item>
         <item name="windowActionModeOverlay">true</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:colorControlHighlight">@color/MFBPrimary</item>
     </style>
     <style name="Pink" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/PinkPrimary</item>
@@ -18,6 +19,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:colorControlHighlight">@color/PinkPrimary</item>
     </style>
     <style name="Grey" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/GreyPrimary</item>
@@ -27,6 +29,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:colorControlHighlight">@color/GreyPrimary</item>
     </style>
     <style name="Green" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/GreenPrimary</item>
@@ -36,6 +39,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:colorControlHighlight">@color/GreenPrimary</item>
     </style>
     <style name="Red" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/RedPrimary</item>
@@ -45,6 +49,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:colorControlHighlight">@color/RedPrimary</item>
     </style>
     <style name="Lime" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/LimePrimary</item>
@@ -54,6 +59,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:colorControlHighlight">@color/LimePrimary</item>
     </style>
     <style name="Yellow" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/YellowPrimary</item>
@@ -63,6 +69,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:colorControlHighlight">@color/YellowPrimary</item>
     </style>
     <style name="Purple" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/PurplePrimary</item>
@@ -72,6 +79,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:colorControlHighlight">@color/PurplePrimary</item>
     </style>
     <style name="LightBlue" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/LightBluePrimary</item>
@@ -81,6 +89,7 @@
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
         <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:colorControlHighlight">@color/LightBluePrimary</item>
     </style>
     <style name="Black" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">@android:color/black</item>
@@ -89,6 +98,17 @@
         <item name="windowActionModeOverlay">true</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/black</item>
         <item name="android:windowTranslucentStatus">true</item>
+    </style>
+    <style name="Orange" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/OrangePrimary</item>
+        <item name="colorPrimaryDark">@color/OrangeDark</item>
+        <item name="colorAccent">@color/OrangeDark</item>
+        <item name="windowActionModeOverlay">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:colorControlHighlight">@color/OrangePrimary</item>
     </style>
 </resources>

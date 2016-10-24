@@ -38,6 +38,11 @@
             android:title="@string/vibrate"
             android:defaultValue="false"/>
         <SwitchPreference
+            android:key="vibrate_double"
+            android:dependency="vibrate"
+            android:title="@string/vibrate_double"
+            android:defaultValue="false"/>
+        <SwitchPreference
             android:key="led_light"
             android:title="@string/led_light"
             android:defaultValue="false"/>

@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private final String FACEBOOK_URL_BASE_ENCODED = "https%3A%2F%2Fm.facebook.com%2F";
     private final String FACEBOOK_URL_BASE_ENCODED_BASIC = "https%3A%2F%2Fmbasic.facebook.com%2F";
     private final List<String> HOSTNAMES = Arrays.asList("facebook.com", "*.facebook.com", "*.fbcdn.net", "*.akamaihd.net");
-    private final BadgeStyle BADGE_SIDE_FULL = new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_full, R.color.colorAccent, R.color.colorAccent, Color.WHITE);
+    private final BadgeStyle BADGE_SIDE_FULL = new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_full, R.color.MFBPrimaryDark, R.color.MFBPrimaryDark, Color.WHITE);
 
 
     // Members
@@ -136,6 +136,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final boolean Purple = Theme.getInstance(this).setTheme().equals("Purple");
         final boolean LightBlue = Theme.getInstance(this).setTheme().equals("LightBlue");
         final boolean Black = Theme.getInstance(this).setTheme().equals("Black");
+        final boolean Orange = Theme.getInstance(this).setTheme().equals("Orange");
         boolean mCreatingActivity = true;
         if (!mCreatingActivity) {
             if (MFB)
@@ -159,6 +160,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 setTheme(R.style.LightBlue);
             if (Black)
                 setTheme(R.style.Black);
+            if (Orange)
+                setTheme(R.style.Orange);
 
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(this.getApplication());
@@ -284,7 +287,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // Start the Swipe to reload listener
         swipeView = (SwipeRefreshLayout) findViewById(R.id.swipeLayout);
-        swipeView.setColorSchemeResources(R.color.colorPrimary);
+        swipeView.setColorSchemeResources (R.color.MFBPrimary);
         swipeView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -357,7 +360,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onSuccess(LoginResult loginResult) {
                 mWebView.loadUrl(chooseUrl());
+                if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                 updateUserInfo();
+            }
             }
 
             @Override
@@ -378,7 +383,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (checkLoggedInState()) {
             mWebView.loadUrl(chooseUrl());
+            if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
             updateUserInfo();
+      }
         }
     }
 }
@@ -608,6 +615,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void updateUserInfo() {
+ if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
         GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
             @Override
             public void onCompleted(JSONObject object, GraphResponse response) {
@@ -652,6 +660,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         request.setParameters(parameters);
         request.executeAsync();
     }
+}
 
     public void setNotificationNum(int num) {
         if (num > 0) {

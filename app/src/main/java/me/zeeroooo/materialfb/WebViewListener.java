@@ -159,7 +159,7 @@ class WebViewListener implements AdvancedWebView.Listener {
         // Launch another Activity that handles URLs
         CustomTabsIntent.Builder intentBuilder = new CustomTabsIntent.Builder();
         intentBuilder.setShowTitle(true);
-        intentBuilder.setToolbarColor(ContextCompat.getColor(mActivity, R.color.colorPrimary));
+        intentBuilder.setToolbarColor(ContextCompat.getColor(mActivity, R.color.MFBPrimary));
 
         Intent actionIntent = new Intent(Intent.ACTION_SEND);
         actionIntent.setType("text/plain");

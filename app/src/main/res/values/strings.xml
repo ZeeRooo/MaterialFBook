@@ -19,6 +19,7 @@
     <string name="interval_pref_description_new">Notifications will be checked every %s.</string>
     <string name="notification_sound_msg">Message sound</string>
 	<string name="vibrate">Vibrations</string>
+    <string name="vibrate_double">Double vibrations</string>
     <string name="led_light">LED light</string>
 	<string name="notifications_extra">Additional</string>
     <string name="notifications_everywhere">Always notify</string>

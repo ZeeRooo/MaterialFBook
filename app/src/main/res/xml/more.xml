@@ -10,7 +10,7 @@
         <PreferenceScreen
             android:title="@string/changelog">
             <intent
-                android:data="http://pastebin.com/raw/kYKZSHAZ"/>
+                android:data="http://pastebin.com/raw/VmLbF6QW"/>
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/source_code">

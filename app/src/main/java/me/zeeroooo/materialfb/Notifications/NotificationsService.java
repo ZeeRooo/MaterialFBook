@@ -367,7 +367,7 @@ public class NotificationsService extends Service {
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setStyle(new NotificationCompat.BigTextStyle().bigText(title))
-                        .setColor(getResources().getColor(R.color.colorPrimary))
+                        .setColor(getResources().getColor(R.color.MFBPrimary))
                         .setContentTitle(contentTitle)
                         .setContentText(title)
                         .setTicker(title)
@@ -442,4 +442,3 @@ public class NotificationsService extends Service {
     }
 
 }
-

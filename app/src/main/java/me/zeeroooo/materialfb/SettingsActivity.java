@@ -57,6 +57,7 @@ public class SettingsActivity extends AppCompatActivity {
         final boolean Purple = Theme.getInstance(this).setTheme().equals("Purple");
         final boolean LightBlue = Theme.getInstance(this).setTheme().equals("LightBlue");
         final boolean Black = Theme.getInstance(this).setTheme().equals("Black");
+        final boolean Orange = Theme.getInstance(this).setTheme().equals("Orange");
         boolean mCreatingActivity = true;
         if (!mCreatingActivity) {
             if (MFB)
@@ -80,6 +81,8 @@ public class SettingsActivity extends AppCompatActivity {
                 setTheme(R.style.LightBlue);
             if (Black)
                 setTheme(R.style.Black);
+            if (Orange)
+                setTheme(R.style.Orange);
 
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_settings);

@@ -20,6 +20,7 @@
         <item>Purple</item>
         <item>LightBlue</item>
         <item>Black</item>
+        <item>Orange</item>
     </string-array>
 <!-- Notif -->	
     <string-array name="drawerPosValues">

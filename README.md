@@ -66,6 +66,13 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Translucent status bar in navigation menu (api >19 = KitKat+)
 - Replaced CheckBox with Switch. Looks better now :)
 
+**Version 1.9.1:**
+- Added Orange color
+- Added "Double vibration" option
+- Improved Black theme
+- Improved "Save Data" mode. Now dont update the photo cover and profile.
+- Improved themes. Now we have the theme colour when you press an item.
+
 
 ###########
 
