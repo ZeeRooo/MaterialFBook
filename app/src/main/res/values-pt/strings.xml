@@ -54,6 +54,8 @@
     <string name="hide_fab_on_scroll_summary">Esconder o FAB quando estiver navegando para baixo</string>
     <string name="navigation_menu_settings">Navigation menu items</string>
     <string name="navigation_menu_settings_description">You can show/hide items in the navigation menu.</string>
+	<string name="save_data">Save data</string>
+    <string name="save_data_summary">When enabled, the app autoconfigure to save data</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Postar um status</string>
     <string name="fab_photo">Postar uma foto</string>

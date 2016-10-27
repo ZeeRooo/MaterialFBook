@@ -81,6 +81,10 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Fixed wrong translation in Kurdish.
 - Extended time (from 3s to 10s) when you long press the FAB. Its good when the FAB hide the "Send" button in chats.
 
+**Version 1.9.3:**
+- Fixed French missed translations.
+- Translated to Polish by alekksander.
+
 
 ###########
 

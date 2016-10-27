@@ -54,6 +54,8 @@
     <string name="hide_fab_on_scroll_summary">Quando attiva, nasconde il FAB quando scrolli in basso</string>
     <string name="navigation_menu_settings">Navigation menu items</string>
     <string name="navigation_menu_settings_description">You can show/hide items in the navigation menu.</string>
+	<string name="save_data">Save data</string>
+    <string name="save_data_summary">When enabled, the app autoconfigure to save data</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Condividi uno stato</string>
     <string name="fab_photo">Condividi una foto</string>
@@ -100,7 +102,7 @@
     <string name="nav_notifications">Notifiche</string>
     <string name="menu_fblogin">Entra in Facebook</string>
     <string name="context_save_image">Salva immagine</string>
-   <string name="settings">Impostazioni</string>
+    <string name="settings">Impostazioni</string>
     <string name="context_share_image">Condividi immagine</string>
     <string name="context_copy_image_link">Copia link immagine</string>
     <string name="context_share_link">Condividi link</string>

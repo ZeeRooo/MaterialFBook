@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Notifications -->
+    <string name="notifications_setting_title">POWIADOMIENIA</string>
+    <string name="you_have_one_message">Masz jedną wiadomość.</string>
+    <string name="notification_viewall">Zobacz wszystkie powiadomienia</string>
+    <string name="messages_viewall">Zobacz wszystkie wiadomości</string>
+	<string name="applying_changes">Zastosuj zmiany</string>
+    <string name="you_have_n_messages">Masz %d wiadomości.</string>
+	<string name="sync_problem">Nie można zsynchronizować ciasteczek. Pierwsze uruchomienie, tak? Wystarczy zrestartować aplikacje :)</string>
+    <string name="notification_sound_description">Wybierz dzwonek, lub wyciszenie: \u0020</string>
+    <string name="notifications_settings">Ustawienia powiadomień</string>
+    <string name="notifications_settings_description">Ustawienia dodatkowe. Wybierz interwał czasu, ustaw dźwięki, LED i wibracje.</string>
+    <string name="facebook_notifications">Powiadomienia z Facebooka</string>
+    <string name="message_notifications">Wiadomości z Facebooka</string>
+    <string name="interval_pref">Sprawdzaj w interwale</string>
+    <string name="notification_sound">Dźwięk powiadomień</string>
+    <string name="interval_pref_description_new">Powiadomienia będą sprawdzane co %s.</string>
+    <string name="notification_sound_msg">Dźwięk wiadomości</string>
+	<string name="vibrate">Wibracje</string>
+    <string name="led_light">Światło LED</string>
+	<string name="notifications_extra">Dodatkowe</string>
+    <string name="notifications_everywhere">Zawsze powiadamiaj</string>
+    <string name="notifications_everywhere_description">Także, kiedy używasz aplikacji na pierwszym planie.</string>
+    <!-- End Notifications -->
+
+    <!-- General -->
+    <string name="general_setting_title">OGÓLNE</string>
+    <string name="location_enabled_title">Dostęp do lokalizacji</string>
+    <string name="location_enabled_summary">Włącz, by pozwolić facebookowi uzyskiwać twoją lokalizację.</string>
+    <string name="hide_editor_newsfeed_title">Ukryj edytor statusu w Aktualnościach</string>
+    <string name="hide_editor_newsfeed_summary">Kiedy włączone, edytor statusu będzie ukryty z Aktualności.</string>
+    <string name="hide_editor_newsfeed_snackbar">Przeładuj, aby zastosować zmiany.</string>
+    <string name="stop_images_title">Nie ładuj obrazów</string>
+    <string name="stop_images_summary">Kiedy włączone, obrazy nie będą ściągane. (Niektóre obrazy mogą pozostać w pamięci cache.)</string>
+    <string name="hide_sponsored_title">Ukryj treści \„Sponsorowane\”</string>
+    <string name="hide_sponsored_summary">Kiedy włączone, treści \„Sponsorowane\” (reklamy) będą ukryte z Aktualności.</string>
+    <string name="hide_birthdays_title">Ukryj Urodziny</string>
+    <string name="hide_birthdays_summary">Kiedy włączone, urodziny będą ukryte z Aktualności.</string>
+    <!-- End general -->
+
+    <!-- Appearence -->
+    <string name="appearance_setting_title">WYGLĄD</string>
+    <string name="web_themes">Wygląd facebooka </string>
+    <string name="web_themes_summary">Możesz wybrać wzornictwo facebooka.</string>
+    <string name="app_themes">Wygląd aplikacji</string>
+    <string name="app_themes_summary">Możesz wybrać wzornictwo aplikacji.</string>
+
+    <!-- Navigation -->
+    <string name="navigation_setting_title">NAWIGACJA</string>
+    <string name="hide_menu_bar_title">Ukryj pasek Menu</string>
+    <string name="hide_menu_bar_summary">Kiedy włączone, górny pasek Menu Facebooka będzie ukryty.</string>
+    <string name="hide_fab_on_scroll_title">Ukryj \„Floating Action Button\” przy przewijaniu</string>
+    <string name="hide_fab_on_scroll_summary">Ukrywa FAB przy przewijaniu w dół.</string>
+    <string name="navigation_menu_settings">Elementy menu nawigacji</string>
+    <string name="navigation_menu_settings_description">Możesz dodać/ukryć elementy w menu nawigacyjnym aplikacji.</string>
+	<string name="save_data">Zapisywanie danych</string>
+    <string name="save_data_summary">włączona aplikacja zużywa mniej danych</string>
+    <!-- Navigation: fab -->
+    <string name="fab_text">Opublikuj status</string>
+    <string name="fab_photo">Opublikuj zdjęcie</string>
+    <string name="fab_checkin">Zamelduj się</string>
+    <string name="fab_jump_top">Skocz na górę</string>
+    <!-- Navigation: items -->
+    <string name="navigation_menu_title">MENU NAWIGACJI</string>
+    <string name="ic_menu_exitapp">Wyłącz aplikację</string>
+    <string name="ic_menu_exitapp_summary">Jeśli wyłączone, przycisk \„Wyłącz aplikację\” zniknie z menu nawigacji.</string>
+    <string name="ic_menu_fblogout">Wyloguj się</string>
+    <string name="ic_menu_fblogout_summary">Jeśli wyłączone, przycisk \„Wyloguj się\” zniknie z menu nawigacji.</string>
+    <string name="menu_photos">Zdjęcia</string>
+    <string name="menu_photos_summary">Jeśli wyłączone, przycisk \„Zdjęcia\” zniknie z menu nawigacji.</string>
+    <string name="menu_events">Wydarzenia</string>
+    <string name="menu_events_summary">Jeśli wyłączone, przycisk \„Wydarzenia\” zniknie z menu nawigacji.</string>
+    <string name="menu_back">Cofnij</string>
+    <string name="menu_back_summary">Jeśli wyłączone, przycisk \„Cofnij\” zniknie z menu nawigacji.</string>
+    <string name="menu_news">Aktualności</string>
+    <string name="menu_news_summary">Jeśli wyłączone, przycisk \„Aktualności\” zniknie z menu nawigacji.</string>
+    <string name="menu_top_stories">Najciekawsze zdarzenia</string>
+    <string name="menu_top_stories_summary">Jeśli wyłączone, przycisk \„Najciekawsze zdarzenia\” zniknie z menu nawigacji.</string>
+    <string name="menu_most_recent">Najnowsze</string>
+    <string name="menu_most_recent_summary">Jeśli wyłączone, przycisk \„Najnowsze\” zniknie z menu nawigacji.</string>
+    <string name="menu_friendreq">Zaproszenia do grona znajomych</string>
+    <string name="menu_friendreq_summary">Jeśli wyłączone, przycisk \„Zaproszenia do grona znajomych\” zniknie z menu nawigacji.</string>
+    <string name="menu_groups">Grupy</string>
+    <string name="menu_groups_summary">Jeśli wyłączone, przycisk \„Grupy\” zniknie z menu nawigacji.</string>
+    <string name="menu_messages">Wiadomości</string>
+    <string name="menu_search">Szukaj</string>
+    <string name="menu_search_summary">Jeśli wyłączone, przycisk \„Szukaj\” zniknie z menu nawigacji.</string>
+    <string name="menu_mainmenu">Menu Główne</string>
+    <string name="menu_mainmenu_summary">Jeśli wyłączone, przycisk \„Menu Główne\” zniknie z menu nawigacji.</string>
+    <string name="messaging_enabled_title">Wiadomości</string>
+    <string name="messaging_enabled_summary">Włączone zapewnia dostęp do Wiadomości z Facebooka. Wyłącz, jeśli używasz innej aplikacji do wiadomości.</string>
+    <!-- End navigation -->
+
+    <!-- App -->
+	<string name="silent">Brak dźwięku</string>
+	<string name="file_logger_needs_permission">Brak dostępu do pamięci zewnętrznej. Log nie może być zapisany.</string>
+    <string name="navigation_drawer_open">Otwórz szufladę nawigacji</string>
+    <string name="navigation_drawer_close">Zamknij szufladę nawigacji</string>
+    <string name="default_user">Kim jesteś?</string>
+    <string name="header_profile_pic">Zdjęcie profilowe</string>
+    <string name="nav_notifications">Powiadomienia</string>
+    <string name="menu_fblogin">Zaloguj się do Facebooka</string>
+    <string name="context_save_image">Zapisz obraz</string>
+	<string name="settings">Ustawienia</string>
+    <string name="context_share_image">Udostępnij obraz</string>
+    <string name="context_copy_image_link">Kopiuj link obrazu</string>
+    <string name="context_share_link">Udostępnij link</string>
+    <string name="context_copy_link">Kopiuj link</string>
+    <string name="context_share_image_progress">Udostępnianie obrazu…</string>
+    <string name="content_copy_link_done">Link skopiowany do schowka</string>
+    <string name="login_button">Zaloguj</string>
+    <string name="share_text">Udostępnij</string>
+    <string name="not_logged_in">Nie jesteś zalogowany</string>
+    <string name="error_login">Coś poszło nie tak. Spróbuj zalogować się ponownie</string>
+    <string name="error_super_wrong">Coś poszło bardzo nie tak</string>
+    <string name="error_facebook_noconnection">Brak dostępu do facebooka</string>
+    <string name="error_facebook_error">Coś poszło nie tak po stronie facebooka</string>
+    <string name="loading">Ładowanie</string>
+    <string name="permission_denied">Odmowa pozwolenia. Nie można ukończyć zadania</string>
+	
+	<!-- About -->
+    <string name="more">Więcej i zasługi</string>
+    <string name="about_updates">Aktualizacje</string>
+    <string name="updates">Sprawdź czy jest nowsza wersja</string>
+    <string name="updates_summary">Załaduj stronę i ściągnij najnowszą wersję</string>
+    <string name="people_who_translated">Użytkownicy, którzy przetłumaczyli aplikację</string>
+    <string name="devs_who_helped_me">Deweloperzy, którzy pomogli z pytaniami, oraz użyczyli kod z ich aplikacji</string>
+	<string name="help_translations">Pomóż przetłumaczyć aplikację na Twój język</string>
+	<string name="about_translations">¡Pomóż, potrzebujemy Cię!</string>
+    <string name="source_code">Kod źródłowy na Github</string>
+    <string name="withYou">Zaraportuj błędy, lub poproś o nowa funkcję</string>
+    <string name="changelog">Lista zmian</string>
+    <!-- End about -->
+
+</resources>

@@ -54,6 +54,8 @@
     <string name="hide_fab_on_scroll_summary">شاردنەوەی دوگمەی خێراکردنەوە لەکاتی جوڵاندن بۆ خوارەوە</string>
     <string name="navigation_menu_settings">دوگمەکانی بەشی لیستی هەڵبژاردن</string>
     <string name="navigation_menu_settings_description">شاردنەوەی دوگمەی لیستی هەڵبژاردنەکان</string>
+	<string name="save_data">Save data</string>
+    <string name="save_data_summary">When enabled, the app autoconfigure to save data</string>
     <!-- Navigation: fab -->
     <string name="fab_text">بڵاوکردنەوەی بابەت</string>
     <string name="fab_photo">بڵاوکردنەوەی وێنە/ڤیدیۆ</string>

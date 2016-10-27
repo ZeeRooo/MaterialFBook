@@ -54,6 +54,8 @@
     <string name="hide_fab_on_scroll_summary">当你往下滑动阅读时，隐藏右下角的悬浮操作按钮，避免挡到部分内容。 </string>
     <string name="navigation_menu_settings">Navigation menu items</string>
     <string name="navigation_menu_settings_description">You can show/hide items in the navigation menu.</string>
+	<string name="save_data">Save data</string>
+    <string name="save_data_summary">When enabled, the app autoconfigure to save data</string>
     <!-- Navigation: fab -->
     <string name="fab_text">近况更新</string>
     <string name="fab_photo">新增相片</string>
