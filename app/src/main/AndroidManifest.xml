@@ -21,7 +21,8 @@
         android:theme="@style/MFB">
         <service
             android:name=".Notifications.NotificationsService"
-            android:enabled="true" >
+            android:enabled="true"
+            android:exported="false">
         </service>
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"

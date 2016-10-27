@@ -73,6 +73,14 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Improved "Save Data" mode. Now dont update the photo cover and profile.
 - Improved themes. Now we have the theme colour when you press an item.
 
+**Version 1.9.2:**
+- New icon.
+- Fixed wrong translation in the spanish.
+- Translated to French by Sebastien Durussel.
+- Fixed "More and Credits" bug in Marshmallow.
+- Fixed wrong translation in Kurdish.
+- Extended time (from 3s to 10s) when you long press the FAB. Its good when the FAB hide the "Send" button in chats.
+
 
 ###########
 

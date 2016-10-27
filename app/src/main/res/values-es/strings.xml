@@ -123,7 +123,7 @@
 	<!-- About -->
     <string name="more">Créditos y más</string>
     <string name="about_updates">Actualizaciones</string>
-    <string name="updates">Verificar si hay una nueva versiónn disposible</string>
+    <string name="updates">Verificar si hay una nueva versión disposible</string>
     <string name="updates_summary">Carga la página y descarga la última versión</string>
     <string name="people_who_translated">Usuarios que tradujeron la app</string>
     <string name="devs_who_helped_me">Desarrolladores que me ayudaron respondiendo dudas y usando su código</string>

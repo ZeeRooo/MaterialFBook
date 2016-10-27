@@ -5,18 +5,21 @@
             android:summary="@string/updates_summary"
             android:title="@string/updates">
             <intent
+                android:action="android.intent.action.VIEW"
                 android:data="https://github.com/ZeeRooo/MaterialFBook/tree/master/apks"/>
         </PreferenceScreen>
         <PreferenceScreen
             android:title="@string/changelog">
             <intent
-                android:data="http://pastebin.com/raw/VmLbF6QW"/>
+                android:action="android.intent.action.VIEW"
+                android:data="http://pastebin.com/raw/KnbHFaqB"/>
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/source_code">
         <PreferenceScreen
             android:title="@string/source_code">
             <intent
+                android:action="android.intent.action.VIEW"
                 android:data="https://github.com/ZeeRooo/MaterialFBook"/>
         </PreferenceScreen>
     </PreferenceCategory>
@@ -25,36 +28,42 @@
             android:summary="SlimSocial for Facebook"
             android:title="rignaneseleo">
             <intent
+                android:action="android.intent.action.VIEW"
                 android:data="https://github.com/rignaneseleo/SlimSocial-for-Facebook"/>
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="Toffeed"
             android:title="JakeLane">
             <intent
+                android:action="android.intent.action.VIEW"
                 android:data="https://github.com/JakeLane/Toffeed"/>
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="Folio for Facebook"
             android:title="creativetrendsapps">
             <intent
+                android:action="android.intent.action.VIEW"
                 android:data="https://github.com/creativetrendsapps/FolioforFacebook"/>
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="FaceSlim"
             android:title="indywidualny">
             <intent
+                android:action="android.intent.action.VIEW"
                 android:data="https://github.com/indywidualny/FaceSlim"/>
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="Android-AdvancedWebView"
             android:title="delight-im">
             <intent
+                android:action="android.intent.action.VIEW"
                 android:data="https://github.com/delight-im/Android-AdvancedWebView"/>
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="FloatingActionButton"
             android:title="Clans">
             <intent
+                android:action="android.intent.action.VIEW"
                 android:data="https://github.com/Clans/FloatingActionButton"/>
         </PreferenceScreen>
     </PreferenceCategory>
@@ -63,24 +72,32 @@
             android:summary="GorranKurd"
             android:title="Kurdish">
             <intent
+                android:action="android.intent.action.VIEW"
                 android:data="http://forum.xda-developers.com/member.php?u=4604711"/>
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="Me, ZeeRooo"
             android:title="Spanish">
             <intent
+                android:action="android.intent.action.VIEW"
                 android:data="http://forum.xda-developers.com/member.php?u=7490500"/>
+        </PreferenceScreen>
+		<PreferenceScreen
+            android:summary="Sebastien Durussel"
+            android:title="French">
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/about_translations">
         <PreferenceScreen
             android:title="@string/help_translations">
             <intent
+                android:action="android.intent.action.VIEW"
                 android:data="https://github.com/ZeeRooo/Translations"/>
         </PreferenceScreen>
         <PreferenceScreen
             android:title="@string/withYou">
             <intent
+                android:action="android.intent.action.VIEW"
                 android:data="https://github.com/ZeeRooo/MaterialFBook/issues"/>
         </PreferenceScreen>
     </PreferenceCategory>

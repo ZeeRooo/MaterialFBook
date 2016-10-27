@@ -306,10 +306,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 handler.postDelayed(new Runnable() {
                     @Override
                     public void run() {
-                        // Show your View after 3 seconds
+                        // Show your View after 10 seconds
                         mMenuFAB.showMenu(true);
                     }
-                }, 3000);
+                }, 10000);
                 return false;
             }
         });
