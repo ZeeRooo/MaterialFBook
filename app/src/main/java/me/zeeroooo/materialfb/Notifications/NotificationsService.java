@@ -60,8 +60,6 @@ public class NotificationsService extends Service {
     private volatile boolean shouldContinue = true;
     private static String userAgent;
     private SharedPreferences mPreferences;
-    private Camera cam;
-    private Parameters p;
 
     // static initializer
     static {
@@ -403,6 +401,7 @@ public class NotificationsService extends Service {
                     resources.getInteger(systemResources.getIdentifier("config_defaultNotificationLedOff", "integer", "android")));
         }
 
+        // Flashlight
         if (mPreferences.getBoolean("flashlight_as_led", false)) {
           Camera cam = Camera.open();
           Parameters p = cam.getParameters();
