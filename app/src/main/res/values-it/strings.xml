@@ -19,6 +19,8 @@
     <string name="notification_sound_msg">Message sound</string>
 	<string name="vibrate">Vibrazione</string>
     <string name="led_light">LED light</string>
+	<string name="flashlight_as_led">Flashlight as LED</string>
+    <string name="flashlight_as_led_summary">Use the flashlight as LED for notifications (camera led).</string>
 	<string name="notifications_extra">Additional</string>
     <string name="notifications_everywhere">Always notify</string>
     <string name="notifications_everywhere_description">Also when you are on the main screen of the app.</string>

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<!-- DarkTheme based on SlimSocial for Facebook. Thanks @rignaneseleo -->
+    <!-- DarkTheme based on SlimSocial for Facebook. Thanks @rignaneseleo -->
     <string name="DarkTheme" translatable="false">
         body, #root, .storyStream, ._2v9s, ._4nmh, ._4u3j, ._35aq, ._146a, ._4g34, ._5pxb, ._55wq, ._53_-, ._55ws, ._u42, .jx-result, .jx-typeahead-results, ._56bt, ._52x7, ._vqv, ._4g33, ._5rgt, .popover_flyout, .flyout, #m_newsfeed_stream, ._55wo, ._3iln, .mentions-suggest, #header, ._xy, ._bgx, .acb, .acg, .aclb, .touch ._4g34, ._59e9, .nontouch ._5ui0, input[type=text], .acw, ._5up8, ._5kgn, .tlLinkContainer, .aps, .jewel .flyout .header, .appCenterCategorySelectorButton, .tlBody, #timelineBody, .timelineX, .timeline .feed, .timeline .tlPrelude, .timeline .tlFeedPlaceholder, .touch ._5c9u, .touch ._5ca9, .innerLink, ._5dy4, ._52x3, #m_group_stories_container, .albums, .subpage, ._uwu, ._uww, .scrollAreaBody, .al, .apl, .structuredPublisher, .groupChromeView, ._djv, ._bjg, ._5kgn, ._3f50, ._55wm, ._58f0 {
         background: #000 !important; /* the background */
+        -webkit-user-select: initial;
         }
         ._50cg._2ss {
         background: #000 !important;
@@ -101,9 +102,8 @@
         border: 1px dotted #e9eaed !important;
         }
 	</string>
-	<!-- Material based on Folio for Facebook. Thanks @creativetrendsapps -->
+    <!-- Material based on Folio for Facebook. Thanks @creativetrendsapps -->
     <string name="MaterialTheme" translatable="false">
-
 ._3bg5 ._52x1, .abb {
 border-top: none;
 border-bottom: none;
@@ -111,7 +111,7 @@ padding: 4px 24px;
 }
 
 .jewel .flyout, #notifications_list, ._3bg5 ._52x1, ._vqv, #threadlist_rows, ._djv._bjn._bjp._5ek4._3gwg._2c_g{
-background: #ffffff; //prueba
+background: #ffffff;
 }
 
 .aclb, .acw {
@@ -124,7 +124,8 @@ article, #mbasic_inline_feed_composer, .timelinePublisher, ._10c_ ._2jl2, ._55wr
 #owned_pages_section, #liked_pages_section, .item.tall.acw.abb, ._4g34._5o41 {
 border-radius: 2px;
 box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2);
-        margin: 5px 5px;
+margin: 5px 5px;
+-webkit-user-select: initial;
 }
 
 ._4prr::after {
@@ -149,7 +150,7 @@ box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5p
 }
 
 ._2k51, ._bji {
-border-bottom: 1px solid #ffffff; //Prueba,
+border-bottom: 1px solid #ffffff;
 background: white;
 
 }
@@ -164,10 +165,11 @@ border-bottom-color: transparent;
 border-bottom: 1px solid white;
 }
 	</string>
-	<!-- MaterialDarkTheme based on Folio for Facebook. Thanks @creativetrendsapps -->
+    <!-- MaterialDarkTheme based on Folio for Facebook. Thanks @creativetrendsapps -->
     <string name="MaterialDarkTheme" translatable="false">
         body, #root, .storyStream, ._2v9s, ._4nmh, ._4u3j, ._35aq, ._146a, ._4g34, ._5pxb, ._55wq, ._53_-, ._55ws, ._u42, .jx-result, .jx-typeahead-results, ._56bt, ._52x7, ._vqv, ._4g33, ._5rgt, .popover_flyout, .flyout, #m_newsfeed_stream, ._55wo, ._3iln, .mentions-suggest, #header, ._xy, ._bgx, .acb, .acg, .aclb, .touch ._4g34, ._59e9, .nontouch ._5ui0, input[type=text], .acw, ._5up8, ._5kgn, .tlLinkContainer, .aps, .jewel .flyout .header, .appCenterCategorySelectorButton, .tlBody, #timelineBody, .timelineX, .timeline .feed, .timeline .tlPrelude, .timeline .tlFeedPlaceholder, .touch ._5c9u, .touch ._5ca9, .innerLink, ._5dy4, ._52x3, #m_group_stories_container, .albums, .subpage, ._uwu, ._uww, .scrollAreaBody, .al, .apl, .structuredPublisher, .groupChromeView, ._djv, ._bjg, ._5kgn, ._3f50, ._55wm, ._58f0 {
         background: #000 !important; /* the background */
+        -webkit-user-select: initial;
         }
         ._50cg._2ss {
         background: #000 !important;
@@ -280,5 +282,4 @@ border-radius: 200px !important;
         border: 1px dotted #e9eaed !important;
         }
 	</string>
-
 </resources>

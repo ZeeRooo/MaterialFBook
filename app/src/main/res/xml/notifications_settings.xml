@@ -46,6 +46,11 @@
             android:key="led_light"
             android:title="@string/led_light"
             android:defaultValue="false"/>
+        <SwitchPreference
+            android:key="flashlight_as_led"
+            android:title="@string/flashlight_as_led"
+            android:summary="@string/flashlight_as_led_summary"
+            android:defaultValue="false"/>
     </PreferenceCategory>
     <PreferenceCategory
         android:title="@string/notifications_extra">

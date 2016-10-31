@@ -19,6 +19,8 @@
     <string name="notification_sound_msg">訊息提示音</string>
 	<string name="vibrate">震動</string>
     <string name="led_light">LED</string>
+	<string name="flashlight_as_led">Flashlight as LED</string>
+    <string name="flashlight_as_led_summary">Use the flashlight as LED for notifications (camera led).</string>
 	<string name="notifications_extra">更多</string>
     <string name="notifications_everywhere">總是啟用通知</string>
     <string name="notifications_everywhere_description">在使用本程式時也接收通知.</string>

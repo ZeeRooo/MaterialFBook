@@ -85,6 +85,13 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Fixed French missed translations.
 - Translated to Polish by alekksander.
 
+**Version 2.0:**
+- Added "Flashlight as led" option. We can use the camera led as notification led :)
+- Translated to Russian by maxel85.
+- Added forgot lines for double vibration (i really forget it).
+- Hide toolbar in scroll down.
+- Now we can select and copy text (still in beta, works only in comments).
+
 
 ###########
 

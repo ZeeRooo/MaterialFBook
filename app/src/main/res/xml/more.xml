@@ -12,7 +12,7 @@
             android:title="@string/changelog">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="http://pastebin.com/raw/59jPeJBK"/>
+                android:data="http://pastebin.com/raw/wNJqfnw3"/>
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/source_code">
@@ -92,7 +92,13 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/alekksander"/>
-        </PreferenceScreen>		
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="maxel85"
+            android:title="Russian">
+            <intent
+                android:action="android.intent.action.VIEW"/>
+        </PreferenceScreen>				
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/about_translations">
         <PreferenceScreen

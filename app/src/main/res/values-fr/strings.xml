@@ -19,6 +19,8 @@
     <string name="notification_sound_msg">Sonnerie de messages</string>
 	<string name="vibrate">Vibrations</string>
     <string name="led_light">LED de notification</string>
+	<string name="flashlight_as_led">Flashlight as LED</string>
+    <string name="flashlight_as_led_summary">Use the flashlight as LED for notifications (camera led).</string>
 	<string name="notifications_extra">Additionnel</string>
     <string name="notifications_everywhere">Toujours notifier</string>
     <string name="notifications_everywhere_description">Même quand vous êtes sur l’écran principal de l’application.</string>

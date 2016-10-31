@@ -19,6 +19,8 @@
     <string name="notification_sound_msg">دەنگی پەیام</string>
 	<string name="vibrate">لەرزین</string>
     <string name="led_light">لایتی LED</string>
+	<string name="flashlight_as_led">Flashlight as LED</string>
+    <string name="flashlight_as_led_summary">Use the flashlight as LED for notifications (camera led).</string>
 	<string name="notifications_extra">ئاگادارکردنەوە</string>
     <string name="notifications_everywhere">ئاگادارکردنەوە هەمیشە</string>
     <string name="notifications_everywhere_description">ئاگاداکردنەوە لە هەموو کاتێکدا</string>

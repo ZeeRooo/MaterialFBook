@@ -20,6 +20,8 @@
 	<string name="vibrate">Vibración</string>
     <string name="vibrate_double">Doble vibración</string>
     <string name="led_light">Luz LED</string>
+	<string name="flashlight_as_led">Flash como luz LED</string>
+    <string name="flashlight_as_led_summary">Usa el flash de la cámara como led de notificaciones.</string>
 	<string name="notifications_extra">Adicional</string>
     <string name="notifications_everywhere">Notificarme siempre</string>
     <string name="notifications_everywhere_description">También cuando estas en la pantalla principal</string>

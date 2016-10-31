@@ -35,6 +35,8 @@ import me.zeeroooo.materialfb.MainActivity;
 import me.zeeroooo.materialfb.MaterialFBook;
 import me.zeeroooo.materialfb.R;
 import android.util.Log;
+import android.hardware.Camera;
+import android.hardware.Camera.Parameters;
 
 public class NotificationsService extends Service {
 
@@ -58,6 +60,8 @@ public class NotificationsService extends Service {
     private volatile boolean shouldContinue = true;
     private static String userAgent;
     private SharedPreferences mPreferences;
+    private Camera cam;
+    private Parameters p;
 
     // static initializer
     static {
@@ -383,10 +387,13 @@ public class NotificationsService extends Service {
         mBuilder.setSound(ringtoneUri);
 
         // vibration
-        if (mPreferences.getBoolean("vibrate", false))
+        if (mPreferences.getBoolean("vibrate", false)) {
             mBuilder.setVibrate(new long[] {500, 500});
-        else
+        } else {
             mBuilder.setVibrate(new long[] {0L});
+        }
+        if (mPreferences.getBoolean("vibrate_double", false))
+            mBuilder.setVibrate(new long[] {500, 500, 500, 500});
 
         // LED light
         if (mPreferences.getBoolean("led_light", false)) {
@@ -394,6 +401,14 @@ public class NotificationsService extends Service {
             mBuilder.setLights(Color.CYAN,
                     resources.getInteger(systemResources.getIdentifier("config_defaultNotificationLedOn", "integer", "android")),
                     resources.getInteger(systemResources.getIdentifier("config_defaultNotificationLedOff", "integer", "android")));
+        }
+
+        if (mPreferences.getBoolean("flashlight_as_led", false)) {
+          Camera cam = Camera.open();
+          Parameters p = cam.getParameters();
+          p.setFlashMode(Parameters.FLASH_MODE_TORCH);
+          cam.setParameters(p);
+          cam.startPreview();
         }
 
         // priority for Heads-up
@@ -438,7 +453,5 @@ public class NotificationsService extends Service {
             if (mPreferences.getBoolean("led_light", false))
                 note.flags |= Notification.FLAG_SHOW_LIGHTS;
         }
-
     }
-
-}
+    }
