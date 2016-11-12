@@ -12,7 +12,7 @@
             android:title="@string/changelog">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="http://pastebin.com/raw/wNJqfnw3"/>
+                android:data="http://pastebin.com/raw/z9TRa7Jx"/>
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/source_code">
@@ -96,9 +96,28 @@
         <PreferenceScreen
             android:summary="maxel85"
             android:title="Russian">
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="fabsmusicjunkie"
+            android:title="German">
             <intent
-                android:action="android.intent.action.VIEW"/>
-        </PreferenceScreen>				
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/fabsmusicjunkie"/>
+        </PreferenceScreen>	
+        <PreferenceScreen
+            android:summary="nishimura-san"
+            android:title="Romanian">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://forum.xda-developers.com/member.php?u=4995498"/>
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="Nguyễn Giang"
+            android:title="Vietnamese">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/ngoisaosang"/>
+        </PreferenceScreen>			
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/about_translations">
         <PreferenceScreen

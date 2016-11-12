@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Notifications -->
+    <string name="notifications_setting_title">BENACHRICHTIGUNGEN</string>
+    <string name="you_have_one_message">Du hast eine Nachricht.</string>
+    <string name="notification_viewall">Alle Benachrichtigungen anzeigen</string>
+    <string name="messages_viewall">Alle Nachrichten anzeigen</string>
+	<string name="applying_changes">Änderungen anwenden</string>
+    <string name="you_have_n_messages">Du hast %d Nachrichten.</string>
+	<string name="sync_problem">Cookies konnten nicht synchronisiert werden. Erster Start, oder? Bitte starte die App einmal neu :)</string>
+    <string name="notification_sound_description">Wähle einen Klingelton oder lautlos: \u0020</string>
+    <string name="notifications_settings">Benachrichtigungseinstellungen</string>
+    <string name="notifications_settings_description">Zusätzliche Einstellungen. Wähle das Zeitintervall, setze die Töne, LED und Vibration.</string>
+    <string name="facebook_notifications">Facebook Benachrichtigungen</string>
+    <string name="message_notifications">Facebook Nachrichten</string>
+    <string name="interval_pref">Zeitintervall für Kontrolle</string>
+    <string name="notification_sound">Benachrichtigungston</string>
+    <string name="interval_pref_description_new">Benachrichtigunen werden alle %s kontrolliert.</string>
+    <string name="notification_sound_msg">Nachrichtenton</string>
+	<string name="vibrate">Vibrationen</string>
+    <string name="vibrate_double">Doppelvibrationen</string>
+    <string name="led_light">LED-Licht</string>
+	<string name="flashlight_as_led">Blitzlicht als LED</string>
+    <string name="flashlight_as_led_summary">Nutze das Blitzlicht als LED für Benachrichtigungen (Kamera LED).</string>
+	<string name="notifications_extra">Zusätzlich</string>
+    <string name="notifications_everywhere">Immer benachrichtigen</string>
+    <string name="notifications_everywhere_description">Auch wenn du auf dem Hauptbildschirm der App bist.</string>
+    <!-- End Notifications -->
+
+    <!-- General -->
+    <string name="general_setting_title">GENERAL</string>
+    <string name="location_enabled_title">Standort-Berechtigung</string>
+    <string name="location_enabled_summary">Aktiviere, um Facebook zu erlauben deinen Standort zu erhalten.</string>
+    <string name="hide_editor_newsfeed_title">Verstecke den Status-Editor im News Feed</string>
+    <string name="hide_editor_newsfeed_summary">Aktiviere, um den Status-Editor im News Feed zu verstecken.</string>
+    <string name="hide_editor_newsfeed_snackbar">Lade neu, damit die Änderungen wirksam werden</string>
+    <string name="stop_images_title">Bilder nicht laden</string>
+    <string name="stop_images_summary">Aktivere, um Bilder nicht herunterzuladen. Einige Bilder könnten im Cache bleiben.</string>
+    <string name="hide_sponsored_title">Verstecke \'Sponsored\' Inhalte</string>
+    <string name="hide_sponsored_summary">Aktiviere, um \'Sponsored\' Inhalte (Werbung) aus dem News Feed zu entfernen.</string>
+    <string name="hide_birthdays_title">Verstecke Geburtstage</string>
+    <string name="hide_birthdays_summary">Aktiviere, um Geburtstage im News Feed zu verstecken.</string>
+    <!-- End general -->
+
+    <!-- About -->
+    <string name="more">Mehr and Credits</string>
+    <string name="about_updates">Updates</string>
+    <string name="updates">Schaue nach einer neuen Version</string>
+    <string name="updates_summary">Lade die Seite und lade die neueste Version herunter</string>
+    <string name="people_who_translated">Übersetzer der App</string>
+    <string name="devs_who_helped_me">Developer, die mir mit Fragen geholfen haben und von deren Apps Code hier drin stecken</string>
+	<string name="help_translations">Hilf mir die App in deine Sprache zu übersetzen</string>
+	<string name="about_translations">Hilfe von dir wird benötigt</string>
+    <string name="source_code">Quelltext auf Github</string>
+    <string name="withYou">Teile Bugs mit oder wünsche dir neue Features</string>
+    <string name="changelog">Changelog</string>
+    <!-- End about -->
+
+    <!-- Appearence -->
+    <string name="appearance_setting_title">AUSSEHEN</string>
+    <string name="web_themes">Web Themes</string>
+    <string name="web_themes_summary">Du kannst aus verschiedenen Web Themes wählen.</string>
+    <string name="app_themes">App Themes</string>
+    <string name="app_themes_summary">Du kannst aus verschiedenen App Themes wählen.</string>
+
+    <!-- Navigation -->
+    <string name="navigation_setting_title">NAVIGATION</string>
+    <string name="hide_menu_bar_title">Verstecke Menü-Leiste</string>
+    <string name="hide_menu_bar_summary">Aktiviere, um die Menü-Leiste zu verstecken.</string>
+    <string name="hide_fab_on_scroll_title">Verstecke schwebenden Aktionsbutton beim Scrollen</string>
+    <string name="hide_fab_on_scroll_summary">Verstecke den schwebenden Aktionsbutton beim Herunterscrollen.</string>
+    <string name="navigation_menu_settings">Elemente des Navigationsmenüs</string>
+    <string name="navigation_menu_settings_description">Du kannst Elemente des Navigationsmenüs anzeigen/verstecken.</string>
+    <string name="save_data">Daten speichern</string>
+    <string name="save_data_summary">Aktiviere, damit die App automatisch Daten speichert.</string>
+    <!-- Navigation: fab -->
+    <string name="fab_text">Statusmeldung</string>
+    <string name="fab_photo">Ein Foto posten</string>
+    <string name="fab_checkin">Einchecken</string>
+    <string name="fab_jump_top">Zurück zum Anfang</string>
+    <!-- Navigation: items -->
+    <string name="navigation_menu_title">NAVIGATIONS MENÜ</string>
+    <string name="ic_menu_exitapp">App verlassen</string>
+    <string name="ic_menu_exitapp_summary">Wenn aktiviert, wird der \'App verlassen\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="ic_menu_fblogout">Ausloggen</string>
+    <string name="ic_menu_fblogout_summary">Wenn aktiviert, wird der \'Ausloggen\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="menu_photos">Fotos</string>
+    <string name="menu_photos_summary">Wenn aktiviert, wird der \'Fotos\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="menu_events">Veranstaltungen</string>
+    <string name="menu_events_summary">Wenn aktiviert, wird der \'Veranstaltungen\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="menu_back">Zurück</string>
+    <string name="menu_back_summary">Wenn nicht aktiviert, wird der \'Zurück\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="menu_news">News Feed</string>
+    <string name="menu_news_summary">Wenn nicht aktiviert, wird der \'News Feed\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="menu_top_stories">Top Meldungen</string>
+    <string name="menu_top_stories_summary">Wenn nicht aktiviert, wird der \'Top Meldungen\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="menu_most_recent">Neueste Meldungen</string>
+    <string name="menu_most_recent_summary">Wenn nicht aktiviert, wird der \'Neueste Meldungen\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="menu_friendreq">Freundschaftsanfragen</string>
+    <string name="menu_friendreq_summary">Wenn nicht aktiviert, wird der \'Freundschaftsanfragen\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="menu_groups">Gruppen</string>
+    <string name="menu_groups_summary">Wenn nicht aktiviert, wird der \'Gruppen\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="menu_messages">Nachrichten</string>
+    <string name="menu_search">Suche</string>
+    <string name="menu_search_summary">Wenn nicht aktiviert, wird der \'Suche\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="menu_mainmenu">Hauptmenü</string>
+    <string name="menu_mainmenu_summary">Wenn nicht aktiviert, wird der \'Hauptmenü\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="messaging_enabled_title">Nachrichten</string>
+    <string name="messaging_enabled_summary">Aktiviere, um Zugang zu Facebook-Nachrichten zu haben. Deaktivere, wenn du die Facebook-Messenging-App nutzt.</string>
+    <!-- End navigation -->
+
+    <!-- App -->
+	<string name="silent">Kein Ton</string>
+	<string name="file_logger_needs_permission">Kein Zugang zum externen Speicher. Log kann nicht gespeichert werden.</string>
+    <string name="navigation_drawer_open">Öffne die Navigationsleiste</string>
+    <string name="navigation_drawer_close">Schließe die Navigationsleiste</string>
+    <string name="default_user">Nutzer</string>
+    <string name="header_profile_pic">Pofilbild</string>
+    <string name="nav_notifications">Benachrichtungen</string>
+    <string name="menu_fblogin">Bei Facebook einloggen</string>
+    <string name="context_save_image">Bild speichern</string>
+    <string name="settings">Einstellungen</string>
+    <string name="context_share_image">Bild teilen</string>
+    <string name="context_copy_image_link">Link zum Bild kopieren</string>
+    <string name="context_share_link">Link teilen</string>
+    <string name="context_copy_link">Link kopieren</string>
+    <string name="context_share_image_progress">Teile das Bild…</string>
+    <string name="content_copy_link_done">Link in die Zwischenablage kopiert</string>
+    <string name="login_button">Einloggen</string>
+    <string name="share_text">Teilen</string>
+    <string name="not_logged_in">Du bist nicht eingeloggt</string>
+    <string name="error_login">Etwas ist schief gelaufen, versuche dich erneut einzuloggen</string>
+    <string name="error_super_wrong">Etwas ist ziemlich schief gelaufen</string>
+    <string name="error_facebook_noconnection">Konnte Facebook nicht erreichen</string>
+    <string name="error_facebook_error">Etwas ist bei Facebook schief gelaufen</string>
+    <string name="loading">Lade</string>
+    <string name="permission_denied">Rechte verweigert, kann die Aktion nicht ausführen</string>
+
+</resources>

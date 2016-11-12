@@ -27,7 +27,7 @@
             android:summary="@string/ic_menu_fblogout_summary"
             android:title="@string/ic_menu_fblogout" />
         <SwitchPreference
-            android:defaultValue="true"
+            android:defaultValue="false"
             android:key="nav_exitapp"
             android:summary="@string/ic_menu_exitapp_summary"
             android:title="@string/ic_menu_exitapp" />

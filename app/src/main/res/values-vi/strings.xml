@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Notifications -->
+    <string name="notifications_setting_title">Thông báo</string>
+    <string name="you_have_one_message">Bạn có một tin nhắn.</string>
+    <string name="notification_viewall">Xem tất cả thông báo</string>
+    <string name="messages_viewall">Xem tất cả tin nhắn</string>
+	<string name="applying_changes">Áp dụng thay đổi</string>
+    <string name="you_have_n_messages">Bạn có %d tin nhắn.</string>
+	<string name="sync_problem">Cookie chưa được đồng bộ hóa. Lần chạy đầu tiên hả? Hãy khởi động lại ứng dụng :)</string>
+    <string name="notification_sound_description">Chọn nhạc chuông hoặc im lặng: \u0020</string>
+    <string name="notifications_settings">Cài đặt thông báo</string>
+    <string name="notifications_settings_description">Cài đặt thêm. Chọn khoảng thời gian, thiết lập âm thanh, đèn LED và độ rung.</string>
+    <string name="facebook_notifications">Thông báo trên Facebook</string>
+    <string name="message_notifications">Tin nhắn trên Facebook</string>
+    <string name="interval_pref">Khoảng thời gian để kiểm tra</string>
+    <string name="notification_sound">Âm thanh thông báo</string>
+    <string name="interval_pref_description_new">Thông báo sẽ được kiểm tra mỗi %s.</string>
+    <string name="notification_sound_msg">Âm thanh tin nhắn</string>
+	<string name="vibrate">Độ rung</string>
+    <string name="vibrate_double">Độ rung kép</string>
+    <string name="led_light">Đèn LED</string>
+	<string name="flashlight_as_led">Đèn Flash dạng LED</string>
+    <string name="flashlight_as_led_summary">Sử dụng Flash như đèn LED cho các thông báo (camera led).</string>
+	<string name="notifications_extra">Bổ sung</string>
+    <string name="notifications_everywhere">Luôn thông báo</string>
+    <string name="notifications_everywhere_description">Ngoài ra khi bạn đang ở trên màn hình chính của ứng dụng.</string>
+    <!-- End Notifications -->
+
+    <!-- General -->
+    <string name="general_setting_title">Thiết lập chung</string>
+    <string name="location_enabled_title">Truy cập vị trí</string>
+    <string name="location_enabled_summary">Kích hoạt tính năng này để cho phép Facebook để có được vị trí của bạn.</string>
+    <string name="hide_editor_newsfeed_title">Ẩn trình sửa trạng thái trên dòng thời gian</string>
+    <string name="hide_editor_newsfeed_summary">Khi được kích hoạt, trình sửa trạng thái sẽ được ẩn trên dòng thời gian.</string>
+    <string name="hide_editor_newsfeed_snackbar">Nạp lại thay đổi để áp dụng</string>
+    <string name="stop_images_title">Đừng nạp ảnh</string>
+    <string name="stop_images_summary">Khi được kích hoạt, sẽ không tải về hình ảnh. Một số hình ảnh có thể vẫn còn trong bộ nhớ cache.</string>
+    <string name="hide_sponsored_title">Ẩn nội dung được tài trợ</string>
+    <string name="hide_sponsored_summary">Khi được kích hoạt, sẽ ẩn nội dung được tài trợ (quảng cáo) từ dòng thời gian.</string>
+    <string name="hide_birthdays_title">Ẩn sinh nhật</string>
+    <string name="hide_birthdays_summary">Khi được kích hoạt, sẽ ẩn sinh nhật từ dòng thời gian.</string>
+    <!-- End general -->
+
+    <!-- About -->
+    <string name="more">Về</string>
+    <string name="about_updates">Nâng cấp</string>
+    <string name="updates">Kiểm tra phiên bản mới</string>
+    <string name="updates_summary">Nạp trang web và tải về phiên bản mới nhất</string>
+    <string name="people_who_translated">Người dùng đã dịch ứng dụng</string>
+    <string name="devs_who_helped_me">Các nhà phát triển đã giúp tôi đặt câu hỏi của tôi và lấy mã từ ứng dụng của họ</string>
+	<string name="help_translations">Giúp tôi để dịch ứng dụng sang ngôn ngữ của bạn</string>
+	<string name="about_translations">Giúp đỡ, chúng tôi cần bạn</string>
+    <string name="source_code">Mã nguồn trên Github</string>
+    <string name="withYou">Báo cáo lỗi hoặc yêu cầu tính năng mới</string>
+    <string name="changelog">Nhật ký thay đổi</string>
+    <!-- End about -->
+
+    <!-- Appearence -->
+    <string name="appearance_setting_title">Giao diện</string>
+    <string name="web_themes">Chủ đề web</string>
+    <string name="web_themes_summary">Bạn có thể chọn chủ đề web khác.</string>
+    <string name="app_themes">Chủ đề ứng dụng</string>
+    <string name="app_themes_summary">Bạn có thể chọn chủ đề ứng dụng khác.</string>
+
+    <!-- Navigation -->
+    <string name="navigation_setting_title">Điều hướng</string>
+    <string name="hide_menu_bar_title">Ẩn thanh menu</string>
+    <string name="hide_menu_bar_summary">Khi kích hoạt, thanh menu Facebook sẽ được ẩn.</string>
+    <string name="hide_fab_on_scroll_title">Ẩn nút cuộn thực thi nổi</string>
+    <string name="hide_fab_on_scroll_summary">Ẩn FAB khi cuộn xuống.</string>
+    <string name="navigation_menu_settings">Điều hướng các mục menu</string>
+    <string name="navigation_menu_settings_description">Bạn có thể hiển thị/ẩn các mục trong điều hướng menu.</string>
+    <string name="save_data">Lưu dữ liệu</string>
+    <string name="save_data_summary">Khi được kích hoạt, tự động cấu hình ứng dụng sẽ lưu dữ liệu</string>
+    <!-- Navigation: fab -->
+    <string name="fab_text">Đăng trạng thái</string>
+    <string name="fab_photo">Đăng ảnh</string>
+    <string name="fab_checkin">Check in</string>
+    <string name="fab_jump_top">Nhảy lên đầu</string>
+    <!-- Navigation: items -->
+    <string name="navigation_menu_title">Menu điều hướng</string>
+    <string name="ic_menu_exitapp">Thoát ứng dụng</string>
+    <string name="ic_menu_exitapp_summary">Khi được kích hoạt, nút \'Thoát ứng dụng\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="ic_menu_fblogout">Đăng xuất</string>
+    <string name="ic_menu_fblogout_summary">Khi được kích hoạt, \'Đăng xuất\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="menu_photos">Ảnh</string>
+    <string name="menu_photos_summary">Khi được kích hoạt, nút \'Ảnh\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="menu_events">Sự kiện</string>
+    <string name="menu_events_summary">Khi được kích hoạt, nút \'Sự kiện\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="menu_back">Quay lại</string>
+    <string name="menu_back_summary">Khi được vô hiệu hóa, nút \'Quay lại\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="menu_news">Dòng thời gian</string>
+    <string name="menu_news_summary">Khi được vô hiệu hóa, \'Dòng thời gian\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="menu_top_stories">Top stories</string>
+    <string name="menu_top_stories_summary">Khi được vô hiệu hóa, \'Top stories\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="menu_most_recent">Most Recent</string>
+    <string name="menu_most_recent_summary">Khi được vô hiệu hóa, \'Most Recent\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="menu_friendreq">Lời mời kết bạn</string>
+    <string name="menu_friendreq_summary">Khi được vô hiệu hóa, \'Lời mời kết bạn\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="menu_groups">Nhóm</string>
+    <string name="menu_groups_summary">Khi được vô hiệu hóa, \'Nhóm\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="menu_messages">Tin nhắn</string>
+    <string name="menu_search">Tìm kiếm</string>
+    <string name="menu_search_summary">Khi được vô hiệu hóa, \'Tìm kiếm\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="menu_mainmenu">Menu chính</string>
+    <string name="menu_mainmenu_summary">Khi được vô hiệu hóa, \'Menu chính\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="messaging_enabled_title">Tin nhắn</string>
+    <string name="messaging_enabled_summary">Khi được kích hoạt, sẽ được cung cấp truy cập vào Facebook Messages. Vô hiệu hóa nếu bạn có một ứng dụng tin nhắn.</string>
+    <!-- End navigation -->
+
+    <!-- App -->
+	<string name="silent">Im lặng</string>
+	<string name="file_logger_needs_permission">Không có quyền truy cập vào bộ nhớ ngòai. Không thể lưu việc đăng nhập</string>
+    <string name="navigation_drawer_open">Mở ngăn điều hướng</string>
+    <string name="navigation_drawer_close">Thoát ngăn điều hướng</string>
+    <string name="default_user">Người dùng</string>
+    <string name="header_profile_pic">Hình đại diện</string>
+    <string name="nav_notifications">Thông báo</string>
+    <string name="menu_fblogin">Đăng nhập vào Facebook</string>
+    <string name="context_save_image">Lưu ảnh</string>
+    <string name="settings">Thiết lập</string>
+    <string name="context_share_image">Chia sẻ ảnh</string>
+    <string name="context_copy_image_link">Sao chép liên kết ảnh</string>
+    <string name="context_share_link">Chia sẻ liên kết</string>
+    <string name="context_copy_link">Sao chép liên kết</string>
+    <string name="context_share_image_progress">Đang chia sẻ ảnh…</string>
+    <string name="content_copy_link_done">Đường dẫn đã được sao chép vào bảng tạm</string>
+    <string name="login_button">Đăng nhập</string>
+    <string name="share_text">Chia sẻ</string>
+    <string name="not_logged_in">Bạn chưa đăng nhập</string>
+    <string name="error_login">Một cái gì đó đã diễn ra sai, hãy thử đăng nhập lại</string>
+    <string name="error_super_wrong">Một cái gì đó đã diễn ra sai</string>
+    <string name="error_facebook_noconnection">Không thể truy cập Facebook</string>
+    <string name="error_facebook_error">Một cái gì đó đã diễn ra sai lúc kết thúc Facebook</string>
+    <string name="loading">Đang nạp</string>
+    <string name="permission_denied">Quyền truy cập bị từ chối, không thể hoàn tất thao tác</string>
+
+</resources>

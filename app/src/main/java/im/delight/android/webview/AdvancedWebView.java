@@ -659,7 +659,7 @@ public class AdvancedWebView extends WebView implements NestedScrollingChild {
 				}
 			}
 
-			@SuppressLint("NewApi")
+/*			@SuppressLint("NewApi")
 			@SuppressWarnings("all")
 			public void onUnhandledInputEvent(WebView view, InputEvent event) {
 				if (Build.VERSION.SDK_INT >= 21) {
@@ -670,7 +670,7 @@ public class AdvancedWebView extends WebView implements NestedScrollingChild {
 						super.onUnhandledInputEvent(view, event);
 					}
 				}
-			}
+			}*/
 
 			@Override
 			public void onScaleChanged(WebView view, float oldScale, float newScale) {

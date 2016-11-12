@@ -40,6 +40,7 @@ public class SettingsActivity extends AppCompatActivity {
     public static final String KEY_PREF_SAVE_DATA = "save_data";
     public static final String KEY_PREF_NOTIF_NOTIF = "notifications_activated";
     public static final String KEY_PREF_NOTIF_MESSAGE = "message_notifications";
+    public static final String KEY_PREF_HIDE_NEWS_FEED = "hide_newsfeed";
 
     private static final String TAG = SettingsActivity.class.getSimpleName();
     private AppCompatActivity MaterialFBookAct;

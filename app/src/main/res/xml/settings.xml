@@ -26,6 +26,11 @@
             android:key="hide_birthdays"
             android:summary="@string/hide_birthdays_summary"
             android:title="@string/hide_birthdays_title" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="hide_newsfeed"
+            android:summary="@string/hide_newsfeedcontent_summary"
+            android:title="@string/hide_newsfeedcontent" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/appearance_setting_title">
         <ListPreference
@@ -60,15 +65,15 @@
             android:key="hide_fab_on_scroll"
             android:summary="@string/hide_fab_on_scroll_summary"
             android:title="@string/hide_fab_on_scroll_title" />
-        <Preference
-            android:key="navigation_menu_settings"
-            android:title="@string/navigation_menu_settings"
-            android:summary="@string/navigation_menu_settings_description"/>
         <SwitchPreference
             android:defaultValue="false"
             android:key="save_data"
             android:summary="@string/save_data_summary"
             android:title="@string/save_data" />
+        <Preference
+            android:key="navigation_menu_settings"
+            android:title="@string/navigation_menu_settings"
+            android:summary="@string/navigation_menu_settings_description"/>
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/more">

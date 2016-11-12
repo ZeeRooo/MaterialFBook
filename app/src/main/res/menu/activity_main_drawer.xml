@@ -62,7 +62,7 @@
             android:title="@string/ic_menu_fblogout" />
 		<item
             android:id="@+id/nav_exitapp"
-            android:icon="@drawable/ic_menu_exitapp"
+            android:icon="@android:drawable/ic_lock_power_off"
             android:title="@string/ic_menu_exitapp" />
     </group>
 

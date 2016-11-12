@@ -77,59 +77,52 @@
         border-bottom: 1px solid #444;
         border-right: 1px solid #444;
         }
-       /* #feed_jewel ._59tf {
-        background-position: -22px -103px;
-        }
-        #requests_jewel ._59tf {
-        background-position: -122px -148px;
-        }
-        #messages_jewel ._59tf {
-        background-position: -268px -103px;
-        }
-        #notifications_jewel._2jdm ._59tf {
-        background-position: -350px -103px;
-        }
-        #notifications_jewel ._59tf {
-        background-position: 0 -149px;
-        }
-        #search_jewel ._59tf {
-        background-position: -186px -103px;
-        }
-        #bookmarks_jewel ._59tf {
-        background-position: -104px -103px;
-        }*/
         ._2lut {
         border: 1px dotted #e9eaed !important;
         }
 	</string>
     <!-- Material based on Folio for Facebook. Thanks @creativetrendsapps -->
     <string name="MaterialTheme" translatable="false">
+article, #mbasic_inline_feed_composer, .timelinePublisher, ._10c_ ._2jl2, ._55wr._4g33._52wc._2-ck._51s,
+._59e9._55wr._4g33._400s, ._55wo._4g34, #friends_center_main, .touch ._5b6o, ._2ykg .unreadMessage,
+#owned_pages_section, #liked_pages_section, .item.tall.acw.abb, ._4g34._5o41 {
+margin: 7px 5px !important;
+-webkit-user-select: initial;
+border-radius: 2px;
+box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.12);
+}
+
+._3bg5 ._53_-, .touchable-notification, ._55wq ._4g33 ._5pxa ._5vbx,
+._1_oa._4gvh._1w-s._1_od, ._1_oa._4gvh._1w-s, .item.buddylistItem.itemWithAction.acw.abt{
+display: block;
+margin: 4px 12px !important;
+border-radius: 2px;
+box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.12);
+}
+
+
+._55x2>*, ._55x2._55x2>*{
+border-bottom-color: transparent;
+border-bottom: 1px solid transparent;
+}
+
 ._3bg5 ._52x1, .abb {
 border-top: none;
 border-bottom: none;
 padding: 4px 24px;
 }
 
-.jewel .flyout, #notifications_list, ._3bg5 ._52x1, ._vqv, #threadlist_rows, ._djv._bjn._bjp._5ek4._3gwg._2c_g{
-background: #ffffff;
+.profpic, .item ._1_0l {
+border-radius: 100px !important;
 }
 
-.aclb, .acw {
-background: transparent;
-background-color: transparent;
+.jewel .flyout, #page, #notifications_list, ._3bg5 ._52x1, ._vqv, #threadlist_rows, ._djv._bjn._bjp._5ek4._3gwg._2c_g{
+background: solid white;
 }
 
-article, #mbasic_inline_feed_composer, .timelinePublisher, ._10c_ ._2jl2, ._55wr._4g33._52wc._2-ck._51s,
-._59e9._55wr._4g33._400s, ._55wo._4g34, #friends_center_main, .touch ._5b6o, ._2ykg .unreadMessage,
-#owned_pages_section, #liked_pages_section, .item.tall.acw.abb, ._4g34._5o41 {
-border-radius: 2px;
-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2);
-margin: 5px 5px;
--webkit-user-select: initial;
-}
-
-._4prr::after {
-border: none !important;
+.aclb{
+border-left: 3px solid #3b5998;
+border-right: 3px solid #3b5998;
 }
 
 .touchable-notification, .touch ._55wr, .touch ._5b6o,
@@ -140,29 +133,17 @@ background:white;
 }
 
 .touch ._5b6o {
-padding:5px !important;}
+padding:5px;}
 
-._3bg5 ._53_-, .touchable-notification, ._55wq ._4g33 ._5pxa ._5vbx,
-._1_oa._4gvh._1w-s._1_od, ._1_oa._4gvh._1w-s, .item.buddylistItem.itemWithAction.acw.abt{
-margin: 3px 3px !important;
-border-radius: 1px;
-box-shadow: 0 1px 1px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.12);
-}
 
 ._2k51, ._bji {
-border-bottom: 1px solid #ffffff;
+border-bottom: 2px solid #e9eaed;
 background: white;
 
 }
 
-.profpic, .item ._1_0l {
-border-radius: 100px !important;
-border: 2px;
-
-}
-._55x2>*, ._55x2._55x2>*{
-border-bottom-color: transparent;
-border-bottom: 1px solid white;
+._4prr::after {
+border: none !important;
 }
 	</string>
     <!-- MaterialDarkTheme based on Folio for Facebook. Thanks @creativetrendsapps -->
@@ -257,27 +238,6 @@ border-radius: 200px !important;
         border-bottom: 1px solid #444;
         border-right: 1px solid #444;
         }
-       /* #feed_jewel ._59tf {
-        background-position: -22px -103px;
-        }
-        #requests_jewel ._59tf {
-        background-position: -122px -148px;
-        }
-        #messages_jewel ._59tf {
-        background-position: -268px -103px;
-        }
-        #notifications_jewel._2jdm ._59tf {
-        background-position: -350px -103px;
-        }
-        #notifications_jewel ._59tf {
-        background-position: 0 -149px;
-        }
-        #search_jewel ._59tf {
-        background-position: -186px -103px;
-        }
-        #bookmarks_jewel ._59tf {
-        background-position: -104px -103px;
-        }*/
         ._2lut {
         border: 1px dotted #e9eaed !important;
         }

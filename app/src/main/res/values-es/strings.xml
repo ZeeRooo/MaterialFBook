@@ -40,6 +40,8 @@
     <string name="hide_sponsored_summary">Si esta habilitado, la publicidad del patrocinador no se mostrará.</string>
     <string name="hide_birthdays_title">Oculta cumpleaños</string>
     <string name="hide_birthdays_summary">Si esta habilitado, los cumpleaños no se mostrarán.</string>
+    <string name="hide_newsfeedcontent">Oculta las nuevas noticias</string>
+    <string name="hide_newsfeedcontent_summary">Si esta habilitado, las nuevas noticias no aparecerán.</string>
     <!-- End general -->
 
     <!-- Appearence -->

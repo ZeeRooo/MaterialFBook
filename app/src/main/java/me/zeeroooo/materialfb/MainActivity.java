@@ -290,6 +290,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onRefresh() {
                 mWebView.reload();
+                updateUserInfo();
             }
         });
 
@@ -551,7 +552,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
 			case R.id.nav_fblogout:
                 LoginManager.getInstance().logOut();
-                finish();
+                mWebView.reload();
                 break;
             case R.id.nav_fblogin:
                 LoginManager.getInstance().logInWithReadPermissions(this, Helpers.FB_PERMISSIONS);
@@ -662,14 +663,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void setNotificationNum(int num) {
         if (num > 0) {
-            ActionItemBadge.update(mNotificationButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_menu_notifications_active, null), num);
+            ActionItemBadge.update(mNotificationButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_menu_notifications, null), num);
         } else {
             ActionItemBadge.update(mNotificationButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_menu_notifications, null), Integer.MIN_VALUE);
         }
     }
     public void setMessagessNum(int num) {
         if (num > 0) {
-            ActionItemBadge.update(mMessagesButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_menu_messages_active, null), num);
+            ActionItemBadge.update(mMessagesButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_menu_messages, null), num);
         } else {
             ActionItemBadge.update(mMessagesButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_menu_messages, null), Integer.MIN_VALUE);
         }

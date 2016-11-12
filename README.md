@@ -85,12 +85,23 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Fixed French missed translations.
 - Translated to Polish by alekksander.
 
-**Version 2.0:**
+**Version 2.0.0:**
 - Added "Flashlight as led" option. We can use the camera led as notification led :)
 - Translated to Russian by maxel85.
 - Added forgot lines for double vibration (i really forget it).
 - Hide toolbar in scroll down.
 - Now we can select and copy text (still in beta, works only in comments).
+
+**Version 2.1.0:**
+- Translated to German (by fabsmusicjunkie) - Vietnamese (by Nguyễn Giang) - Romanian (by nishimura-san).
+- Added black shadow to User name in navigation view for white photo covers.
+- Updated Facebook SDK.
+- Improved "Log Out" button.
+- Maybe Nougat is fully supported now.
+- Hide News Feed content.
+- Improved unread messages notice.
+- Improved toolbar icons for black theme.
+- Improved exit of Chrome Custom Tabs.
 
 
 ###########

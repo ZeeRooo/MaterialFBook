@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="color">?attr/colorPrimaryDark</string>
     <!-- Notifications -->
     <string name="notifications_setting_title">NOTIFICATIONS</string>
     <string name="you_have_one_message">You have one message.</string>
@@ -41,6 +40,8 @@
     <string name="hide_sponsored_summary">When enabled, will hide \'Sponsored\' Content (ads) from the News Feed.</string>
     <string name="hide_birthdays_title">Hide Birthdays</string>
     <string name="hide_birthdays_summary">When enabled, will hide birthdays from the News Feed.</string>
+    <string name="hide_newsfeedcontent">Hide News Feed content</string>
+    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
     <!-- End general -->
 
     <!-- About -->

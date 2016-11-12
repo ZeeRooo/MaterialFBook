@@ -114,6 +114,11 @@ class WebViewListener implements AdvancedWebView.Listener {
                 css += HIDE_BIRTHDAYS;
             }
 
+            // Hide NewsFeed content (idk why... but user request this feature..)
+            if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_HIDE_NEWS_FEED, true)) {
+                mWebView.loadUrl("javascript:function addStyleString(str) { var node = document.createElement('style');node.innerHTML = str; document.body.appendChild(node); } addStyleString('#m_newsfeed_stream{ display: none; }');");
+            }
+
 			// Web themes
 		    switch (mPreferences.getString("web_themes", "default")) {
 			    case "DarkTheme": {
@@ -171,6 +176,7 @@ class WebViewListener implements AdvancedWebView.Listener {
             intentBuilder.build().launchUrl(mActivity, Uri.parse(url));
         } catch (android.content.ActivityNotFoundException ex) {
         }
+        BackCCT();
     }
 
     @Override
@@ -185,6 +191,10 @@ class WebViewListener implements AdvancedWebView.Listener {
                 mMenuFAB.showMenuButton(true);
             }
         }
+    }
+
+    private void BackCCT() {
+        mWebView.goBack();
     }
 
     @Override
