@@ -112,7 +112,7 @@
                 android:data="http://forum.xda-developers.com/member.php?u=4995498"/>
         </PreferenceScreen>
         <PreferenceScreen
-            android:summary="Nguyễn Giang"
+            android:summary="ngoisaosang"
             android:title="Vietnamese">
             <intent
                 android:action="android.intent.action.VIEW"
