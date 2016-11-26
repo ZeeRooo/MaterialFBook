@@ -103,6 +103,12 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Improved toolbar icons for black theme.
 - Improved exit of Chrome Custom Tabs.
 
+**Version 2.2.0:**
+- Updated Polish translation.
+- Updated libraries.
+- Improved animation when external link open Chrome Custom Tabs.
+- Reworked "More and credits" page.
+
 
 ###########
 

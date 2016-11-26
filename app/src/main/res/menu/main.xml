@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 	<item
         android:id="@+id/nav_messages"
-        android:icon="@drawable/ic_menu_messages"
+        android:icon="@drawable/ic_message"
         android:title="@string/menu_messages"
         app:actionLayout="@layout/menu_badge"
         app:showAsAction="always"/>
     <item
         android:id="@+id/action_notifications"
-        android:icon="@drawable/ic_menu_notifications"
+        android:icon="@drawable/ic_menu_notifications_active_png"
         android:title="@string/nav_notifications"
         app:actionLayout="@layout/menu_badge"
         app:showAsAction="always"/>

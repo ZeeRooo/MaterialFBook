@@ -437,7 +437,7 @@ public class NotificationsService extends Service {
             viewNotificationsIntent.setAction(Intent.ACTION_VIEW);
             viewNotificationsIntent.setData(Uri.parse(NOTIFICATIONS_URL));
             PendingIntent pendingViewNotifications = PendingIntent.getActivity(getApplication(), 0, viewNotificationsIntent, 0);
-            mBuilder.addAction(R.drawable.ic_menu_notifications, getString(R.string.notification_viewall), pendingViewNotifications);
+            mBuilder.addAction(R.drawable.ic_menu_notifications_active_png, getString(R.string.notification_viewall), pendingViewNotifications);
             mBuilder.setSmallIcon(R.drawable.ic_menu_notifications_active_png);
             TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
             stackBuilder.addParentStack(MainActivity.class);

@@ -1,15 +1,65 @@
 package me.zeeroooo.materialfb;
 
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.preference.PreferenceFragment;
+import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
+import me.zeeroooo.materialfb.Ui.Theme;
 
-public class More extends PreferenceActivity {
+public class More extends AppCompatActivity {
+    private AppCompatActivity MaterialFBookAct;
+
     @Override
-    protected void onCreate(Bundle Instance) {
-        super.onCreate(Instance);
-        getFragmentManager().beginTransaction().replace(android.R.id.content, new MoreAndCredits()).commit();
+    protected void onCreate(Bundle savedInstanceState) {
+        MaterialFBookAct = this;
+        boolean MFB = Theme.getInstance(this).setTheme().equals("MFB");
+        final boolean Pink = Theme.getInstance(this).setTheme().equals("Pink");
+        final boolean Grey = Theme.getInstance(this).setTheme().equals("Grey");
+        final boolean Green = Theme.getInstance(this).setTheme().equals("Green");
+        final boolean Red = Theme.getInstance(this).setTheme().equals("Red");
+        final boolean Lime = Theme.getInstance(this).setTheme().equals("Lime");
+        final boolean Yellow = Theme.getInstance(this).setTheme().equals("Yellow");
+        final boolean Purple = Theme.getInstance(this).setTheme().equals("Purple");
+        final boolean LightBlue = Theme.getInstance(this).setTheme().equals("LightBlue");
+        final boolean Black = Theme.getInstance(this).setTheme().equals("Black");
+        final boolean Orange = Theme.getInstance(this).setTheme().equals("Orange");
+        boolean mCreatingActivity = true;
+        if (!mCreatingActivity) {
+            if (MFB)
+                setTheme(R.style.MFB);
+        } else {
+            if (Pink)
+                setTheme(R.style.Pink);
+            if (Grey)
+                setTheme(R.style.Grey);
+            if (Green)
+                setTheme(R.style.Green);
+            if (Red)
+                setTheme(R.style.Red);
+            if (Lime)
+                setTheme(R.style.Lime);
+            if (Yellow)
+                setTheme(R.style.Yellow);
+            if (Purple)
+                setTheme(R.style.Purple);
+            if (LightBlue)
+                setTheme(R.style.LightBlue);
+            if (Black)
+                setTheme(R.style.Black);
+            if (Orange)
+                setTheme(R.style.Orange);
 
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.activity_more);
+
+            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+            setSupportActionBar(toolbar);
+
+            if (getSupportActionBar() != null) {
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                getSupportActionBar().setDisplayShowHomeEnabled(true);
+            }
+        }
     }
     public static class MoreAndCredits extends PreferenceFragment {
         @Override

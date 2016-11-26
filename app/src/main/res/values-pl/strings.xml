@@ -19,8 +19,8 @@
     <string name="notification_sound_msg">Dźwięk wiadomości</string>
 	<string name="vibrate">Wibracje</string>
     <string name="led_light">Światło LED</string>
-	<string name="flashlight_as_led">Flashlight as LED</string>
-    <string name="flashlight_as_led_summary">Use the flashlight as LED for notifications (camera led).</string>
+	<string name="flashlight_as_led">Latarka jako LED</string>
+    <string name="flashlight_as_led_summary">Użyj latarki do powiadomień LED (flesz aparatu).</string>
 	<string name="notifications_extra">Dodatkowe</string>
     <string name="notifications_everywhere">Zawsze powiadamiaj</string>
     <string name="notifications_everywhere_description">Także, kiedy używasz aplikacji na pierwszym planie.</string>
@@ -39,6 +39,8 @@
     <string name="hide_sponsored_summary">Kiedy włączone, treści \„Sponsorowane\” (reklamy) będą ukryte z Aktualności.</string>
     <string name="hide_birthdays_title">Ukryj Urodziny</string>
     <string name="hide_birthdays_summary">Kiedy włączone, urodziny będą ukryte z Aktualności.</string>
+	<string name="hide_newsfeedcontent">Ukryj Aktualności</string>
+    <string name="hide_newsfeedcontent_summary">Kiedy włączone, treść Aktualności będzie ukryta.</string>
     <!-- End general -->
 
     <!-- Appearence -->
@@ -116,8 +118,8 @@
     <string name="not_logged_in">Nie jesteś zalogowany</string>
     <string name="error_login">Coś poszło nie tak. Spróbuj zalogować się ponownie</string>
     <string name="error_super_wrong">Coś poszło bardzo nie tak</string>
-    <string name="error_facebook_noconnection">Brak dostępu do facebooka</string>
-    <string name="error_facebook_error">Coś poszło nie tak po stronie facebooka</string>
+    <string name="error_facebook_noconnection">Brak dostępu do Facebooka</string>
+    <string name="error_facebook_error">Coś poszło nie tak po stronie Facebooka</string>
     <string name="loading">Ładowanie</string>
     <string name="permission_denied">Odmowa pozwolenia. Nie można ukończyć zadania</string>
 	
@@ -129,7 +131,7 @@
     <string name="people_who_translated">Użytkownicy, którzy przetłumaczyli aplikację</string>
     <string name="devs_who_helped_me">Deweloperzy, którzy pomogli z pytaniami, oraz użyczyli kod z ich aplikacji</string>
 	<string name="help_translations">Pomóż przetłumaczyć aplikację na Twój język</string>
-	<string name="about_translations">¡Pomóż, potrzebujemy Cię!</string>
+	<string name="about_translations">Pomóż, potrzebujemy Cię!</string>
     <string name="source_code">Kod źródłowy na Github</string>
     <string name="withYou">Zaraportuj błędy, lub poproś o nowa funkcję</string>
     <string name="changelog">Lista zmian</string>

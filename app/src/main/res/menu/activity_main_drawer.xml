@@ -19,7 +19,7 @@
             android:title="@string/menu_friendreq" />
         <item
             android:id="@+id/nav_messages"
-            android:icon="@drawable/ic_menu_messages"
+            android:icon="@drawable/ic_message"
             android:title="@string/menu_messages" />
         <item
             android:id="@+id/nav_search"
