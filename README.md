@@ -109,6 +109,13 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Improved animation when external link open Chrome Custom Tabs.
 - Reworked "More and credits" page.
 
+**Version 2.3.0:**
+- Translated to Portuguese by abacate123.
+- Implemented option to force all traffic to Orbot (Tor).
+- Added new theme: Google Play Green.
+- Improved status bar color.
+- Added shadow behind the icon.
+
 
 ###########
 

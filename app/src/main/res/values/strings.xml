@@ -5,9 +5,9 @@
     <string name="you_have_one_message">You have one message.</string>
     <string name="notification_viewall">View all notifications</string>
     <string name="messages_viewall">View all messages</string>
-	<string name="applying_changes">Applying changes</string>
+    <string name="applying_changes">Applying changes</string>
     <string name="you_have_n_messages">You have %d messages.</string>
-	<string name="sync_problem">Cookies cannot be synced. First run, yeah? Please just restart the app :)</string>
+    <string name="sync_problem">Cookies cannot be synced. First run, yeah? Please just restart the app :)</string>
     <string name="notification_sound_description">Choose a ringtone or silence: \u0020</string>
     <string name="notifications_settings">Notifications settings</string>
     <string name="notifications_settings_description">Additional settings. Choose time interval, set up sounds, LED and vibration.</string>
@@ -17,12 +17,12 @@
     <string name="notification_sound">Notification sound</string>
     <string name="interval_pref_description_new">Notifications will be checked every %s.</string>
     <string name="notification_sound_msg">Message sound</string>
-	<string name="vibrate">Vibrations</string>
+    <string name="vibrate">Vibrations</string>
     <string name="vibrate_double">Double vibrations</string>
     <string name="led_light">LED light</string>
     <string name="flashlight_as_led">Flashlight as LED</string>
     <string name="flashlight_as_led_summary">Use the flashlight as LED for notifications (camera led).</string>
-	<string name="notifications_extra">Additional</string>
+    <string name="notifications_extra">Additional</string>
     <string name="notifications_everywhere">Always notify</string>
     <string name="notifications_everywhere_description">Also when you are on the main screen of the app.</string>
     <!-- End Notifications -->
@@ -51,8 +51,8 @@
     <string name="updates_summary">Load the page and download the latest version</string>
     <string name="people_who_translated">Users who translated the app</string>
     <string name="devs_who_helped_me">Developers who helped me asking my questions and taking code from their apps</string>
-	<string name="help_translations">Help me to translate the app to your language</string>
-	<string name="about_translations">Help, we need you</string>
+    <string name="help_translations">Help me to translate the app to your language</string>
+    <string name="about_translations">Help, we need you</string>
     <string name="source_code">Source code on Github</string>
     <string name="withYou">Report bugs or requst new features</string>
     <string name="changelog">Changelog</string>
@@ -75,6 +75,8 @@
     <string name="navigation_menu_settings_description">You can show/hide items in the navigation menu.</string>
     <string name="save_data">Save data</string>
     <string name="save_data_summary">When enabled, the app autoconfigure to save data</string>
+    <string name="orbot">Use Orbot</string>
+    <string name="orbot_summary">Force all traffic to Orbot.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Post a status</string>
     <string name="fab_photo">Post a photo</string>
@@ -113,8 +115,8 @@
 
     <!-- App -->
     <string name="app_name">MaterialFBook</string>
-	<string name="silent">No sound</string>
-	<string name="file_logger_needs_permission">No access to external storage. Log cannot be saved</string>
+    <string name="silent">No sound</string>
+    <string name="file_logger_needs_permission">No access to external storage. Log cannot be saved</string>
     <string name="facebook_app_id" translatable="false">1440102826005611</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

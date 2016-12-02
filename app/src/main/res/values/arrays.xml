@@ -21,6 +21,7 @@
         <item>LightBlue</item>
         <item>Black</item>
         <item>Orange</item>
+        <item>GooglePlayGreen</item>
     </string-array>
 <!-- Notif -->	
     <string-array name="drawerPosValues">

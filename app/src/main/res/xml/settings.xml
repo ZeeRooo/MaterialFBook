@@ -70,6 +70,11 @@
             android:key="save_data"
             android:summary="@string/save_data_summary"
             android:title="@string/save_data" />
+        <SwitchPreference
+            android:key="orbot"
+            android:title="@string/orbot"
+            android:summary="@string/orbot_summary"
+            android:defaultValue="false"/>
         <Preference
             android:key="navigation_menu_settings"
             android:title="@string/navigation_menu_settings"

@@ -5,9 +5,9 @@
     <string name="you_have_one_message">您有一則新訊息.</string>
     <string name="notification_viewall">查看全部通知</string>
     <string name="messages_viewall">View all messages</string>
-	<string name="applying_changes">正在套用變更…</string>
+    <string name="applying_changes">正在套用變更…</string>
     <string name="you_have_n_messages">您有 %d 則新訊息.</string>
-	<string name="sync_problem">Cookies無法同步. 請重新啟動程式</string>
+    <string name="sync_problem">Cookies無法同步. 請重新啟動程式</string>
     <string name="notification_sound_description">選擇鈴聲或是將鈴聲靜音: \u0020</string>
     <string name="notifications_settings">通知設定</string>
     <string name="notifications_settings_description">選擇檢查通知的時間間隔, 設定通知鈴聲, LED和震動.</string>
@@ -17,11 +17,11 @@
     <string name="notification_sound">通知音效</string>
     <string name="interval_pref_description_new">通知將每隔 %s 檢查一次.</string>
     <string name="notification_sound_msg">訊息提示音</string>
-	<string name="vibrate">震動</string>
+    <string name="vibrate">震動</string>
     <string name="led_light">LED</string>
-	<string name="flashlight_as_led">Flashlight as LED</string>
+    <string name="flashlight_as_led">Flashlight as LED</string>
     <string name="flashlight_as_led_summary">Use the flashlight as LED for notifications (camera led).</string>
-	<string name="notifications_extra">更多</string>
+    <string name="notifications_extra">更多</string>
     <string name="notifications_everywhere">總是啟用通知</string>
     <string name="notifications_everywhere_description">在使用本程式時也接收通知.</string>
     <!-- End Notifications -->
@@ -39,6 +39,8 @@
     <string name="hide_sponsored_summary">這項功能開啟後，系統將會隱藏你塗鴉牆上顯示「贊助」的內容（也就是俗稱的擋廣告）。</string>
     <string name="hide_birthdays_title">Hide Birthdays</string>
     <string name="hide_birthdays_summary">When enabled, will hide birthdays from the News Feed.</string>
+    <string name="hide_newsfeedcontent">Hide News Feed content</string>
+    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
     <!-- End general -->
 
     <!-- Appearence -->
@@ -56,7 +58,7 @@
     <string name="hide_fab_on_scroll_summary">當你往下滑動閱讀時，隱藏右下角的懸浮操作按鈕，避免擋到部分內容。</string>
     <string name="navigation_menu_settings">Navigation menu items</string>
     <string name="navigation_menu_settings_description">You can show/hide items in the navigation menu.</string>
-	<string name="save_data">Save data</string>
+    <string name="save_data">Save data</string>
     <string name="save_data_summary">When enabled, the app autoconfigure to save data</string>
     <!-- Navigation: fab -->
     <string name="fab_text">近況更新</string>
@@ -95,8 +97,8 @@
     <!-- End navigation -->
 
     <!-- App -->
-	<string name="silent">No sound</string>
-	<string name="file_logger_needs_permission">No access to external storage. Log cannot be saved</string>
+    <string name="silent">No sound</string>
+    <string name="file_logger_needs_permission">No access to external storage. Log cannot be saved</string>
     <string name="navigation_drawer_open">打開側邊選單</string>
     <string name="navigation_drawer_close">關閉側邊選單</string>
     <string name="default_user">未知用戶</string>
@@ -128,8 +130,8 @@
     <string name="updates_summary">Load the page and download the latest version</string>
     <string name="people_who_translated">Users who translated the app</string>
     <string name="devs_who_helped_me">Developers who helped me asking my questions and taking code from their apps</string>
-	<string name="help_translations">Help me to translate the app to your language</string>
-	<string name="about_translations">¡Help, we need you!</string>
+    <string name="help_translations">Help me to translate the app to your language</string>
+    <string name="about_translations">¡Help, we need you!</string>
     <string name="source_code">Source code on Github</string>
     <string name="withYou">Report bugs or requst new features</string>
     <string name="changelog">Changelog</string>

@@ -5,9 +5,9 @@
     <string name="you_have_one_message">Bạn có một tin nhắn.</string>
     <string name="notification_viewall">Xem tất cả thông báo</string>
     <string name="messages_viewall">Xem tất cả tin nhắn</string>
-    <string name="applying_changes">Áp dụng thay đổi</string>
+	<string name="applying_changes">Áp dụng thay đổi</string>
     <string name="you_have_n_messages">Bạn có %d tin nhắn.</string>
-    <string name="sync_problem">Cookie chưa được đồng bộ hóa. Lần chạy đầu tiên hả? Hãy khởi động lại ứng dụng :)</string>
+	<string name="sync_problem">Cookie chưa được đồng bộ hóa. Lần chạy đầu tiên hả? Hãy khởi động lại ứng dụng :)</string>
     <string name="notification_sound_description">Chọn nhạc chuông hoặc im lặng: \u0020</string>
     <string name="notifications_settings">Cài đặt thông báo</string>
     <string name="notifications_settings_description">Cài đặt thêm. Chọn khoảng thời gian, thiết lập âm thanh, đèn LED và độ rung.</string>
@@ -17,12 +17,12 @@
     <string name="notification_sound">Âm thanh thông báo</string>
     <string name="interval_pref_description_new">Thông báo sẽ được kiểm tra mỗi %s.</string>
     <string name="notification_sound_msg">Âm thanh tin nhắn</string>
-    <string name="vibrate">Độ rung</string>
+	<string name="vibrate">Độ rung</string>
     <string name="vibrate_double">Độ rung kép</string>
     <string name="led_light">Đèn LED</string>
-    <string name="flashlight_as_led">Đèn Flash dạng LED</string>
+	<string name="flashlight_as_led">Đèn Flash dạng LED</string>
     <string name="flashlight_as_led_summary">Sử dụng Flash như đèn LED cho các thông báo (camera led).</string>
-    <string name="notifications_extra">Bổ sung</string>
+	<string name="notifications_extra">Bổ sung</string>
     <string name="notifications_everywhere">Luôn thông báo</string>
     <string name="notifications_everywhere_description">Ngoài ra khi bạn đang ở trên màn hình chính của ứng dụng.</string>
     <!-- End Notifications -->
@@ -40,8 +40,8 @@
     <string name="hide_sponsored_summary">Khi được kích hoạt, sẽ ẩn nội dung được tài trợ (quảng cáo) từ dòng thời gian.</string>
     <string name="hide_birthdays_title">Ẩn sinh nhật</string>
     <string name="hide_birthdays_summary">Khi được kích hoạt, sẽ ẩn sinh nhật từ dòng thời gian.</string>
-    <string name="hide_newsfeedcontent">Ẩn nội dung Dòng thời gian</string>
-    <string name="hide_newsfeedcontent_summary">Khi được kích hoạt, sẽ ẩn nội dung Dòng thời gian.</string>
+	<string name="hide_newsfeedcontent">Hide News Feed content</string>
+    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
     <!-- End general -->
 
     <!-- About -->
@@ -51,8 +51,8 @@
     <string name="updates_summary">Nạp trang web và tải về phiên bản mới nhất</string>
     <string name="people_who_translated">Người dùng đã dịch ứng dụng</string>
     <string name="devs_who_helped_me">Các nhà phát triển đã giúp tôi đặt câu hỏi của tôi và lấy mã từ ứng dụng của họ</string>
-    <string name="help_translations">Giúp tôi để dịch ứng dụng sang ngôn ngữ của bạn</string>
-    <string name="about_translations">Giúp đỡ, chúng tôi cần bạn</string>
+	<string name="help_translations">Giúp tôi để dịch ứng dụng sang ngôn ngữ của bạn</string>
+	<string name="about_translations">Giúp đỡ, chúng tôi cần bạn</string>
     <string name="source_code">Mã nguồn trên Github</string>
     <string name="withYou">Báo cáo lỗi hoặc yêu cầu tính năng mới</string>
     <string name="changelog">Nhật ký thay đổi</string>
@@ -112,8 +112,8 @@
     <!-- End navigation -->
 
     <!-- App -->
-    <string name="silent">Im lặng</string>
-    <string name="file_logger_needs_permission">Không có quyền truy cập vào bộ nhớ ngòai. Không thể lưu việc đăng nhập</string>
+	<string name="silent">Im lặng</string>
+	<string name="file_logger_needs_permission">Không có quyền truy cập vào bộ nhớ ngòai. Không thể lưu việc đăng nhập</string>
     <string name="navigation_drawer_open">Mở ngăn điều hướng</string>
     <string name="navigation_drawer_close">Thoát ngăn điều hướng</string>
     <string name="default_user">Người dùng</string>

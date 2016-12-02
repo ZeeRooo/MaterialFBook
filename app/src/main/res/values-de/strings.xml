@@ -5,9 +5,9 @@
     <string name="you_have_one_message">Du hast eine Nachricht.</string>
     <string name="notification_viewall">Alle Benachrichtigungen anzeigen</string>
     <string name="messages_viewall">Alle Nachrichten anzeigen</string>
-	<string name="applying_changes">Änderungen anwenden</string>
+    <string name="applying_changes">Änderungen anwenden</string>
     <string name="you_have_n_messages">Du hast %d Nachrichten.</string>
-	<string name="sync_problem">Cookies konnten nicht synchronisiert werden. Erster Start, oder? Bitte starte die App einmal neu :)</string>
+    <string name="sync_problem">Cookies konnten nicht synchronisiert werden. Erster Start, oder? Bitte starte die App einmal neu :)</string>
     <string name="notification_sound_description">Wähle einen Klingelton oder lautlos: \u0020</string>
     <string name="notifications_settings">Benachrichtigungseinstellungen</string>
     <string name="notifications_settings_description">Zusätzliche Einstellungen. Wähle das Zeitintervall, setze die Töne, LED und Vibration.</string>
@@ -17,12 +17,12 @@
     <string name="notification_sound">Benachrichtigungston</string>
     <string name="interval_pref_description_new">Benachrichtigunen werden alle %s kontrolliert.</string>
     <string name="notification_sound_msg">Nachrichtenton</string>
-	<string name="vibrate">Vibrationen</string>
+    <string name="vibrate">Vibrationen</string>
     <string name="vibrate_double">Doppelvibrationen</string>
     <string name="led_light">LED-Licht</string>
-	<string name="flashlight_as_led">Blitzlicht als LED</string>
+    <string name="flashlight_as_led">Blitzlicht als LED</string>
     <string name="flashlight_as_led_summary">Nutze das Blitzlicht als LED für Benachrichtigungen (Kamera LED).</string>
-	<string name="notifications_extra">Zusätzlich</string>
+    <string name="notifications_extra">Zusätzlich</string>
     <string name="notifications_everywhere">Immer benachrichtigen</string>
     <string name="notifications_everywhere_description">Auch wenn du auf dem Hauptbildschirm der App bist.</string>
     <!-- End Notifications -->
@@ -40,6 +40,8 @@
     <string name="hide_sponsored_summary">Aktiviere, um \'Sponsored\' Inhalte (Werbung) aus dem News Feed zu entfernen.</string>
     <string name="hide_birthdays_title">Verstecke Geburtstage</string>
     <string name="hide_birthdays_summary">Aktiviere, um Geburtstage im News Feed zu verstecken.</string>
+    <string name="hide_newsfeedcontent">Hide News Feed content</string>
+    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
     <!-- End general -->
 
     <!-- About -->
@@ -49,8 +51,8 @@
     <string name="updates_summary">Lade die Seite und lade die neueste Version herunter</string>
     <string name="people_who_translated">Übersetzer der App</string>
     <string name="devs_who_helped_me">Developer, die mir mit Fragen geholfen haben und von deren Apps Code hier drin stecken</string>
-	<string name="help_translations">Hilf mir die App in deine Sprache zu übersetzen</string>
-	<string name="about_translations">Hilfe von dir wird benötigt</string>
+    <string name="help_translations">Hilf mir die App in deine Sprache zu übersetzen</string>
+    <string name="about_translations">Hilfe von dir wird benötigt</string>
     <string name="source_code">Quelltext auf Github</string>
     <string name="withYou">Teile Bugs mit oder wünsche dir neue Features</string>
     <string name="changelog">Changelog</string>
@@ -110,8 +112,8 @@
     <!-- End navigation -->
 
     <!-- App -->
-	<string name="silent">Kein Ton</string>
-	<string name="file_logger_needs_permission">Kein Zugang zum externen Speicher. Log kann nicht gespeichert werden.</string>
+    <string name="silent">Kein Ton</string>
+    <string name="file_logger_needs_permission">Kein Zugang zum externen Speicher. Log kann nicht gespeichert werden.</string>
     <string name="navigation_drawer_open">Öffne die Navigationsleiste</string>
     <string name="navigation_drawer_close">Schließe die Navigationsleiste</string>
     <string name="default_user">Nutzer</string>

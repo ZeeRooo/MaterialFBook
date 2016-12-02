@@ -5,9 +5,9 @@
     <string name="you_have_one_message">Ai un mesaj.</string>
     <string name="notification_viewall">Vezi toate notificarile.</string>
     <string name="messages_viewall">Vezi toatele mesajele</string>
-	<string name="applying_changes">Aplica schimbarile</string>
+    <string name="applying_changes">Aplica schimbarile</string>
     <string name="you_have_n_messages">Ai %d mesaje.</string>
-	<string name="sync_problem">Cookieurile nu pot fi sincronizate. Prima rulare? Da-i un restart :)</string>
+    <string name="sync_problem">Cookieurile nu pot fi sincronizate. Prima rulare? Da-i un restart :)</string>
     <string name="notification_sound_description">Alege un ringtone sau deloc: \u0020</string>
     <string name="notifications_settings">Setarile notificarilor</string>
     <string name="notifications_settings_description">Setari aditionale. Alege intervalul de timp, adauga sunete, LED si vibratii.</string>
@@ -17,12 +17,12 @@
     <string name="notification_sound">Sunetul de notificare</string>
     <string name="interval_pref_description_new">Notificarile vor fi verificate la fiecare %s.</string>
     <string name="notification_sound_msg">Sunet pentru mesaje</string>
-	<string name="vibrate">Vibratii</string>
+    <string name="vibrate">Vibratii</string>
     <string name="vibrate_double">Vibratii duble</string>
     <string name="led_light">LED de notificari</string>
-	<string name="flashlight_as_led">Lanterna ca LED</string>
+    <string name="flashlight_as_led">Lanterna ca LED</string>
     <string name="flashlight_as_led_summary">Foloseste lanterna pentru notificari in loc de LED (blitul de la camera).</string>
-	<string name="notifications_extra">Aditionale</string>
+    <string name="notifications_extra">Aditionale</string>
     <string name="notifications_everywhere">Mereu notifica</string>
     <string name="notifications_everywhere_description">Chiar si cand esti pe ecranul principal.</string>
     <!-- End Notifications -->
@@ -40,6 +40,8 @@
     <string name="hide_sponsored_summary">Cand este activat, se va ascunde continutul \'Sponsorizat\' (anunturi) din Feed.</string>
     <string name="hide_birthdays_title">Ascunde Zilele de Nastere</string>
     <string name="hide_birthdays_summary">Cand este activat, se vor ascunde zilele de nastere din Feed.</string>
+    <string name="hide_newsfeedcontent">Hide News Feed content</string>
+    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
     <!-- End general -->
 
     <!-- About -->
@@ -49,8 +51,8 @@
     <string name="updates_summary">Incarca pagina si descarca ultima versiune</string>
     <string name="people_who_translated">Userii care au tradus aplicatia</string>
     <string name="devs_who_helped_me">Dezvoltatorii care m-au ajutat prin raspunzandu-mi la intrebari si luand cod sursa din aplicatiile lor</string>
-	<string name="help_translations">Ajuta-ma sa traduc aplicatia in limba ta</string>
-	<string name="about_translations">Ajutor, avem nevoie de tine</string>
+    <string name="help_translations">Ajuta-ma sa traduc aplicatia in limba ta</string>
+    <string name="about_translations">Ajutor, avem nevoie de tine</string>
     <string name="source_code">Codul-sursa pe Github</string>
     <string name="withYou">Raporteaza bug-uri sau cere noi functii</string>
     <string name="changelog">Jurnalul schimbarilor</string>
@@ -110,8 +112,8 @@
     <!-- End navigation -->
 
     <!-- App -->
-	<string name="silent">Fara sunet</string>
-	<string name="file_logger_needs_permission">Nu am acces la cardul extern. Nu pot fi salvate jurnalele</string>
+    <string name="silent">Fara sunet</string>
+    <string name="file_logger_needs_permission">Nu am acces la cardul extern. Nu pot fi salvate jurnalele</string>
     <string name="navigation_drawer_open">Deschide serarul de navigatie</string>
     <string name="navigation_drawer_close">Inchide serarul de navigatie</string>
     <string name="default_user">Utilizator</string>

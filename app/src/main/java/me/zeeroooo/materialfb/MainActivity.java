@@ -9,9 +9,11 @@ package me.zeeroooo.materialfb;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -24,11 +26,14 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
@@ -59,6 +64,8 @@ import java.net.URLEncoder;
 import im.delight.android.webview.AdvancedWebView;
 import me.zeeroooo.materialfb.Notifications.NotificationsService;
 import me.zeeroooo.materialfb.Ui.Theme;
+import info.guardianproject.netcipher.web.WebkitProxy;
+import java.net.InetSocketAddress;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public static final String FACEBOOK_URL_BASE = "https://m.facebook.com/";
@@ -67,6 +74,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private final String FACEBOOK_URL_BASE_ENCODED_BASIC = "https%3A%2F%2Fmbasic.facebook.com%2F";
     private final List<String> HOSTNAMES = Arrays.asList("facebook.com", "*.facebook.com", "*.fbcdn.net", "*.akamaihd.net");
     private final BadgeStyle BADGE_SIDE_FULL = new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_full, R.color.MFBPrimaryDark, R.color.MFBPrimaryDark, Color.WHITE);
+    private static String TAG;
+
+    private LinearLayout contentMain;
 
     // Members
     private AppCompatActivity MaterialFBookAct;
@@ -135,6 +145,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final boolean LightBlue = Theme.getInstance(this).setTheme().equals("LightBlue");
         final boolean Black = Theme.getInstance(this).setTheme().equals("Black");
         final boolean Orange = Theme.getInstance(this).setTheme().equals("Orange");
+        final boolean GooglePlayGreen = Theme.getInstance(this).setTheme().equals("GooglePlayGreen");
         boolean mCreatingActivity = true;
         if (!mCreatingActivity) {
             if (MFB)
@@ -160,6 +171,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 setTheme(R.style.Black);
             if (Orange)
                 setTheme(R.style.Orange);
+            if (GooglePlayGreen)
+                setTheme(R.style.GooglePlayGreen);
 
         super.onCreate(savedInstanceState);
         FacebookSdk.sdkInitialize(this.getApplication());
@@ -334,6 +347,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mWebView.getSettings().setLoadWithOverviewMode(true);
         mWebView.getSettings().setUseWideViewPort(true);
         mWebView.getSettings().setUserAgentString("Mozilla/5.0 (BB10; Kbd) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.4633 Mobile Safari/537.10+");
+
+        // Force all data to Orbot, thanks to FaceSlim
+        try {
+            InetSocketAddress isa = (InetSocketAddress) Miscellany.getProxy(mPreferences).address();
+            WebkitProxy.setProxy("me.zeeroooo.materialfb.MaterialFBook", getApplicationContext(), mWebView,
+                        isa.getHostName(), isa.getPort());
+        } catch (Exception e) {
+            Log.w(TAG, "Failed to set webview proxy", e);
+        }
 
         // Long press
         registerForContextMenu(mWebView);

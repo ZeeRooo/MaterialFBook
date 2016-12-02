@@ -5,9 +5,9 @@
     <string name="you_have_one_message">У вас одно сообщение.</string>
     <string name="notification_viewall">Показать все уведомления</string>
     <string name="messages_viewall">Показать все сообщения</string>
-	<string name="applying_changes">Сохранение изменений…</string>
+    <string name="applying_changes">Сохранение изменений…</string>
     <string name="you_have_n_messages">У вас %d сообщений.</string>
-	<string name="sync_problem">Невозможно синхронизировать cookie-файлы. Пожалуйста, перезагрузите программу.</string>
+    <string name="sync_problem">Невозможно синхронизировать cookie-файлы. Пожалуйста, перезагрузите программу.</string>
     <string name="notification_sound_description">Выбор рингтона: \u0020</string>
     <string name="notifications_settings">Настройки уведомлений</string>
     <string name="notifications_settings_description">Дополнительные настройки: выбор интервала проверки, настройка звуков, светодиода и вибрации.</string>
@@ -17,12 +17,12 @@
     <string name="notification_sound">Звук уведомлений</string>
     <string name="interval_pref_description_new">Уведомления будут проверяться каждые %s.</string>
     <string name="notification_sound_msg">Звук сообщений</string>
-	<string name="vibrate">Вибрация</string>
+    <string name="vibrate">Вибрация</string>
     <string name="vibrate_double">Двойная вибрация</string>
     <string name="led_light">Светодиод</string>
-	<string name="flashlight_as_led">Вспышка вместо светодиода</string>
+    <string name="flashlight_as_led">Вспышка вместо светодиода</string>
     <string name="flashlight_as_led_summary">Использовать вспышку камеры вместо светодиода для уведомлений.</string>
-	<string name="notifications_extra">Дополнительно</string>
+    <string name="notifications_extra">Дополнительно</string>
     <string name="notifications_everywhere">Постоянное уведомление</string>
     <string name="notifications_everywhere_description">Даже когда вы находитесь в главном окне программы.</string>
     <!-- End Notifications -->
@@ -40,6 +40,8 @@
     <string name="hide_sponsored_summary">Реклама будет скрыта из ленты новостей.</string>
     <string name="hide_birthdays_title">Скрыть дни рождения</string>
     <string name="hide_birthdays_summary">Дни рождения будут скрыты из ленты новостей.</string>
+    <string name="hide_newsfeedcontent">Hide News Feed content</string>
+    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
     <!-- End general -->
 
     <!-- About -->
@@ -49,8 +51,8 @@
     <string name="updates_summary">Страница загрузки последней версии</string>
     <string name="people_who_translated">Переводчики:</string>
     <string name="devs_who_helped_me">Благодарности:</string>
-	<string name="help_translations">Перевод программы на ваш язык</string>
-	<string name="about_translations">Связь с разработчиком:</string>
+    <string name="help_translations">Перевод программы на ваш язык</string>
+    <string name="about_translations">Связь с разработчиком:</string>
     <string name="source_code">Исходный код на Github</string>
     <string name="withYou">Багрепорт или запрос новой функции</string>
     <string name="changelog">Список изменений</string>
@@ -110,8 +112,8 @@
     <!-- End navigation -->
 
     <!-- App -->
-	<string name="silent">Без звука</string>
-	<string name="file_logger_needs_permission">Нет доступа к внешнему накопителю. Невозможно сохранить лог.</string>
+    <string name="silent">Без звука</string>
+    <string name="file_logger_needs_permission">Нет доступа к внешнему накопителю. Невозможно сохранить лог.</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="default_user">Пользователь</string>

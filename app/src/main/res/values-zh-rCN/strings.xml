@@ -5,9 +5,9 @@
     <string name="you_have_one_message">You have one message.</string>
     <string name="notification_viewall">View all notifications</string>
     <string name="messages_viewall">View all messages</string>
-	<string name="applying_changes">Applying changes</string>
+    <string name="applying_changes">Applying changes</string>
     <string name="you_have_n_messages">You have %d messages.</string>
-	<string name="sync_problem">Cookies cannot be synced. First run, yeah? Please just restart the app :)</string>
+    <string name="sync_problem">Cookies cannot be synced. First run, yeah? Please just restart the app :)</string>
     <string name="notification_sound_description">Choose a ringtone or silence: \u0020</string>
     <string name="notifications_settings">Notifications settings</string>
     <string name="notifications_settings_description">Additional settings. Choose time interval, set up sounds, LED and vibration.</string>
@@ -17,11 +17,11 @@
     <string name="notification_sound">Notification sound</string>
     <string name="interval_pref_description_new">Notifications will be checked every %s.</string>
     <string name="notification_sound_msg">Message sound</string>
-	<string name="vibrate">Vibrations</string>
+    <string name="vibrate">Vibrations</string>
     <string name="led_light">LED light</string>
-	<string name="flashlight_as_led">Flashlight as LED</string>
+    <string name="flashlight_as_led">Flashlight as LED</string>
     <string name="flashlight_as_led_summary">Use the flashlight as LED for notifications (camera led).</string>
-	<string name="notifications_extra">Additional</string>
+    <string name="notifications_extra">Additional</string>
     <string name="notifications_everywhere">Always notify</string>
     <string name="notifications_everywhere_description">Also when you are on the main screen of the app.</string>
     <!-- End Notifications -->
@@ -39,6 +39,8 @@
     <string name="hide_sponsored_summary">这项功能开启后，系统将会隐藏你涂鸦墙上显示「赞助」的内容（也就是俗称的挡广告）。 </string>
     <string name="hide_birthdays_title">Hide Birthdays</string>
     <string name="hide_birthdays_summary">When enabled, will hide birthdays from the News Feed.</string>
+    <string name="hide_newsfeedcontent">Hide News Feed content</string>
+    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
     <!-- End general -->
 
     <!-- Appearence -->
@@ -56,7 +58,7 @@
     <string name="hide_fab_on_scroll_summary">当你往下滑动阅读时，隐藏右下角的悬浮操作按钮，避免挡到部分内容。 </string>
     <string name="navigation_menu_settings">Navigation menu items</string>
     <string name="navigation_menu_settings_description">You can show/hide items in the navigation menu.</string>
-	<string name="save_data">Save data</string>
+    <string name="save_data">Save data</string>
     <string name="save_data_summary">When enabled, the app autoconfigure to save data</string>
     <!-- Navigation: fab -->
     <string name="fab_text">近况更新</string>
@@ -95,8 +97,8 @@
     <!-- End navigation -->
 
     <!-- App -->
-	<string name="silent">No sound</string>
-	<string name="file_logger_needs_permission">No access to external storage. Log cannot be saved</string>
+    <string name="silent">No sound</string>
+    <string name="file_logger_needs_permission">No access to external storage. Log cannot be saved</string>
     <string name="navigation_drawer_open">打开侧边栏</string>
     <string name="navigation_drawer_close">关闭侧边栏</string>
     <string name="default_user">未知用户</string>
@@ -128,8 +130,8 @@
     <string name="updates_summary">Load the page and download the latest version</string>
     <string name="people_who_translated">Users who translated the app</string>
     <string name="devs_who_helped_me">Developers who helped me asking my questions and taking code from their apps</string>
-	<string name="help_translations">Help me to translate the app to your language</string>
-	<string name="about_translations">¡Help, we need you!</string>
+    <string name="help_translations">Help me to translate the app to your language</string>
+    <string name="about_translations">¡Help, we need you!</string>
     <string name="source_code">Source code on Github</string>
     <string name="withYou">Report bugs or requst new features</string>
     <string name="changelog">Changelog</string>

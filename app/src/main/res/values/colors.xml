@@ -21,4 +21,6 @@
     <color name="LightBlueDark">#0288D1</color>
     <color name="OrangePrimary">#FF5722</color>
     <color name="OrangeDark">#E64A19</color>
+	<color name="GooglePlayGreenPrimary">#109c56</color>
+    <color name="GooglePlayGreenDark">#0c7d45</color>
 </resources>

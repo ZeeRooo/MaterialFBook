@@ -23,6 +23,7 @@ public class More extends AppCompatActivity {
         final boolean LightBlue = Theme.getInstance(this).setTheme().equals("LightBlue");
         final boolean Black = Theme.getInstance(this).setTheme().equals("Black");
         final boolean Orange = Theme.getInstance(this).setTheme().equals("Orange");
+        final boolean GooglePlayGreen = Theme.getInstance(this).setTheme().equals("GooglePlayGreen");
         boolean mCreatingActivity = true;
         if (!mCreatingActivity) {
             if (MFB)
@@ -48,6 +49,8 @@ public class More extends AppCompatActivity {
                 setTheme(R.style.Black);
             if (Orange)
                 setTheme(R.style.Orange);
+            if (GooglePlayGreen)
+                setTheme(R.style.GooglePlayGreen);
 
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_more);

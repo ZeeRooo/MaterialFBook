@@ -5,9 +5,9 @@
     <string name="you_have_one_message">Masz jedną wiadomość.</string>
     <string name="notification_viewall">Zobacz wszystkie powiadomienia</string>
     <string name="messages_viewall">Zobacz wszystkie wiadomości</string>
-	<string name="applying_changes">Zastosuj zmiany</string>
+    <string name="applying_changes">Zastosuj zmiany</string>
     <string name="you_have_n_messages">Masz %d wiadomości.</string>
-	<string name="sync_problem">Nie można zsynchronizować ciasteczek. Pierwsze uruchomienie, tak? Wystarczy zrestartować aplikacje :)</string>
+    <string name="sync_problem">Nie można zsynchronizować ciasteczek. Pierwsze uruchomienie, tak? Wystarczy zrestartować aplikacje :)</string>
     <string name="notification_sound_description">Wybierz dzwonek, lub wyciszenie: \u0020</string>
     <string name="notifications_settings">Ustawienia powiadomień</string>
     <string name="notifications_settings_description">Ustawienia dodatkowe. Wybierz interwał czasu, ustaw dźwięki, LED i wibracje.</string>
@@ -17,11 +17,11 @@
     <string name="notification_sound">Dźwięk powiadomień</string>
     <string name="interval_pref_description_new">Powiadomienia będą sprawdzane co %s.</string>
     <string name="notification_sound_msg">Dźwięk wiadomości</string>
-	<string name="vibrate">Wibracje</string>
+    <string name="vibrate">Wibracje</string>
     <string name="led_light">Światło LED</string>
-	<string name="flashlight_as_led">Latarka jako LED</string>
+    <string name="flashlight_as_led">Latarka jako LED</string>
     <string name="flashlight_as_led_summary">Użyj latarki do powiadomień LED (flesz aparatu).</string>
-	<string name="notifications_extra">Dodatkowe</string>
+    <string name="notifications_extra">Dodatkowe</string>
     <string name="notifications_everywhere">Zawsze powiadamiaj</string>
     <string name="notifications_everywhere_description">Także, kiedy używasz aplikacji na pierwszym planie.</string>
     <!-- End Notifications -->
@@ -39,7 +39,7 @@
     <string name="hide_sponsored_summary">Kiedy włączone, treści \„Sponsorowane\” (reklamy) będą ukryte z Aktualności.</string>
     <string name="hide_birthdays_title">Ukryj Urodziny</string>
     <string name="hide_birthdays_summary">Kiedy włączone, urodziny będą ukryte z Aktualności.</string>
-	<string name="hide_newsfeedcontent">Ukryj Aktualności</string>
+    <string name="hide_newsfeedcontent">Ukryj Aktualności</string>
     <string name="hide_newsfeedcontent_summary">Kiedy włączone, treść Aktualności będzie ukryta.</string>
     <!-- End general -->
 
@@ -58,7 +58,7 @@
     <string name="hide_fab_on_scroll_summary">Ukrywa FAB przy przewijaniu w dół.</string>
     <string name="navigation_menu_settings">Elementy menu nawigacji</string>
     <string name="navigation_menu_settings_description">Możesz dodać/ukryć elementy w menu nawigacyjnym aplikacji.</string>
-	<string name="save_data">Zapisywanie danych</string>
+    <string name="save_data">Zapisywanie danych</string>
     <string name="save_data_summary">włączona aplikacja zużywa mniej danych</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Opublikuj status</string>
@@ -97,8 +97,8 @@
     <!-- End navigation -->
 
     <!-- App -->
-	<string name="silent">Brak dźwięku</string>
-	<string name="file_logger_needs_permission">Brak dostępu do pamięci zewnętrznej. Log nie może być zapisany.</string>
+    <string name="silent">Brak dźwięku</string>
+    <string name="file_logger_needs_permission">Brak dostępu do pamięci zewnętrznej. Log nie może być zapisany.</string>
     <string name="navigation_drawer_open">Otwórz szufladę nawigacji</string>
     <string name="navigation_drawer_close">Zamknij szufladę nawigacji</string>
     <string name="default_user">Kim jesteś?</string>
@@ -106,7 +106,7 @@
     <string name="nav_notifications">Powiadomienia</string>
     <string name="menu_fblogin">Zaloguj się do Facebooka</string>
     <string name="context_save_image">Zapisz obraz</string>
-	<string name="settings">Ustawienia</string>
+    <string name="settings">Ustawienia</string>
     <string name="context_share_image">Udostępnij obraz</string>
     <string name="context_copy_image_link">Kopiuj link obrazu</string>
     <string name="context_share_link">Udostępnij link</string>
@@ -130,8 +130,8 @@
     <string name="updates_summary">Załaduj stronę i ściągnij najnowszą wersję</string>
     <string name="people_who_translated">Użytkownicy, którzy przetłumaczyli aplikację</string>
     <string name="devs_who_helped_me">Deweloperzy, którzy pomogli z pytaniami, oraz użyczyli kod z ich aplikacji</string>
-	<string name="help_translations">Pomóż przetłumaczyć aplikację na Twój język</string>
-	<string name="about_translations">Pomóż, potrzebujemy Cię!</string>
+    <string name="help_translations">Pomóż przetłumaczyć aplikację na Twój język</string>
+    <string name="about_translations">Pomóż, potrzebujemy Cię!</string>
     <string name="source_code">Kod źródłowy na Github</string>
     <string name="withYou">Zaraportuj błędy, lub poproś o nowa funkcję</string>
     <string name="changelog">Lista zmian</string>

@@ -59,6 +59,7 @@ public class SettingsActivity extends AppCompatActivity {
         final boolean LightBlue = Theme.getInstance(this).setTheme().equals("LightBlue");
         final boolean Black = Theme.getInstance(this).setTheme().equals("Black");
         final boolean Orange = Theme.getInstance(this).setTheme().equals("Orange");
+        final boolean GooglePlayGreen = Theme.getInstance(this).setTheme().equals("GooglePlayGreen");
         boolean mCreatingActivity = true;
         if (!mCreatingActivity) {
             if (MFB)
@@ -84,6 +85,8 @@ public class SettingsActivity extends AppCompatActivity {
                 setTheme(R.style.Black);
             if (Orange)
                 setTheme(R.style.Orange);
+            if (GooglePlayGreen)
+                setTheme(R.style.GooglePlayGreen);
 
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_settings);
@@ -98,6 +101,13 @@ public class SettingsActivity extends AppCompatActivity {
 
             getFragmentManager().beginTransaction().replace(R.id.content_frame,
                     new SettingsFragment()).commit();
+
+            if (Build.VERSION.SDK_INT >= 21) {
+                Window window = getWindow();
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                window.setStatusBarColor(getResources().getColor(android.R.color.black));
+            }
         }
     }
 

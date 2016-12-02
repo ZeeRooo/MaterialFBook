@@ -5,9 +5,9 @@
     <string name="you_have_one_message">Tienes un mensaje</string>
     <string name="notification_viewall">Ver todas las notificaciones</string>
     <string name="messages_viewall">Ver todos los mensajes</string>
-	<string name="applying_changes">Aplicando cambios</string>
+    <string name="applying_changes">Aplicando cambios</string>
     <string name="you_have_n_messages">Tienes %d mensajes</string>
-	<string name="sync_problem">Las cookies no pudieron sincronizarse. Por favor, reinicie la app</string>
+    <string name="sync_problem">Las cookies no pudieron sincronizarse. Por favor, reinicie la app</string>
     <string name="notification_sound_description">Elija un ringtone: \u0020</string>
     <string name="notifications_settings">Ajusted de notificaciones</string>
     <string name="notifications_settings_description">Ajustes adicionales. Elija un intervalo de tiempoo, alija sonidos, LED y vibración.</string>
@@ -17,12 +17,11 @@
     <string name="notification_sound">Sonido de notificación</string>
     <string name="interval_pref_description_new">Las notificaciones seran checkeadas cada %s.</string>
     <string name="notification_sound_msg">Sonido de mensaje</string>
-	<string name="vibrate">Vibración</string>
-    <string name="vibrate_double">Doble vibración</string>
+    <string name="vibrate">Vibración</string>
     <string name="led_light">Luz LED</string>
-	<string name="flashlight_as_led">Flash como luz LED</string>
-    <string name="flashlight_as_led_summary">Usa el flash de la cámara como led de notificaciones.</string>
-	<string name="notifications_extra">Adicional</string>
+    <string name="flashlight_as_led">Flashlight como luz LED</string>
+    <string name="flashlight_as_led_summary">Usa el flash de la camara como led de notificaciones.</string>
+    <string name="notifications_extra">Adicional</string>
     <string name="notifications_everywhere">Notificarme siempre</string>
     <string name="notifications_everywhere_description">También cuando estas en la pantalla principal</string>
     <!-- End Notifications -->
@@ -61,6 +60,8 @@
     <string name="navigation_menu_settings_description">Elije los elementos que aparecen en la barra de navegación.</string>
     <string name="save_data">Ahorra datos</string>
     <string name="save_data_summary">Si esta habilitado, ahorraras datos.</string>
+    <string name="orbot">Usar Orbot</string>
+    <string name="orbot_summary">Redirecciona todo el tráfico hacia Orbot.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Publica un estado</string>
     <string name="fab_photo">Publica una foto</string>
@@ -70,8 +71,8 @@
     <string name="navigation_menu_title">MENÚ DE NAVEGACIÓN</string>
     <string name="ic_menu_exitapp">Salir</string>
     <string name="ic_menu_exitapp_summary">Si esta habilitado, el botón \'Salir\' desaparecerá del menú de navegación.</string>
-    <string name="ic_menu_fblogout">Cerrar seción</string>
-    <string name="ic_menu_fblogout_summary">Si esta habilitado, el botón \'Cerrar seción\' desaparecerá del menú de navegación.</string>
+    <string name="ic_menu_fblogout">Cerrar sesión</string>
+    <string name="ic_menu_fblogout_summary">Si esta habilitado, el botón \'Cerrar sesión\' desaparecerá del menú de navegación.</string>
     <string name="menu_photos">Fotos</string>
     <string name="menu_photos_summary">Si esta habilitado, el botón \'Fotos\' desaparecerá del menú de navegación.</string>
     <string name="menu_events">Eventos</string>
@@ -98,8 +99,8 @@
     <!-- End navigation -->
 
     <!-- App -->
-	<string name="silent">Silencio</string>
-	<string name="file_logger_needs_permission">Sin acceso al almacenamiento, el archivo no podrá ser guardado</string>
+    <string name="silent">Silencio</string>
+    <string name="file_logger_needs_permission">Sin acceso al almacenamiento, el archivo no podrá ser guardado</string>
     <string name="navigation_drawer_open">Abrir cajón de navegación</string>
     <string name="navigation_drawer_close">Cerrar cajón de navegación</string>
     <string name="default_user">Usuario</string>
@@ -124,15 +125,15 @@
     <string name="loading">Cargando</string>
     <string name="permission_denied">Permiso denegado, la acción no se pudo completar</string>
 
-	<!-- About -->
+    <!-- About -->
     <string name="more">Créditos y más</string>
     <string name="about_updates">Actualizaciones</string>
     <string name="updates">Verificar si hay una nueva versión disposible</string>
     <string name="updates_summary">Carga la página y descarga la última versión</string>
     <string name="people_who_translated">Usuarios que tradujeron la app</string>
     <string name="devs_who_helped_me">Desarrolladores que me ayudaron respondiendo dudas y usando su código</string>
-	<string name="help_translations">Ayudame a traducir la app a tu lenguaje</string>
-	<string name="about_translations">¡Ayudanos, te necesitamos!</string>
+    <string name="help_translations">Ayudame a traducir la app a tu lenguaje</string>
+    <string name="about_translations">¡Ayudanos, te necesitamos!</string>
     <string name="source_code">Código en Github</string>
     <string name="withYou">Reporta un bug o solicita un cambio</string>
     <string name="changelog">Lista de cambios</string>

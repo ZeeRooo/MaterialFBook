@@ -13,6 +13,7 @@ import android.preference.PreferenceManager;
 import me.zeeroooo.materialfb.MaterialFBook;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.Notifications.NotificationsService;
+import me.zeeroooo.materialfb.Miscellany;
 
 public class SettingsFragment extends PreferenceFragment implements Preference.OnPreferenceClickListener {
 
@@ -63,6 +64,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                                 mContext.stopService(intent);
                         break;
                     case "app_theme":
+                    case "orbot":
                         break;
                 }
             }
@@ -96,6 +98,12 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     public void onPause() {
         super.onPause();
         preferences.unregisterOnSharedPreferenceChangeListener(prefChangeListener);
+        try {
+            findPreference("orbot").setSummary(getString(R.string.orbot_summary) + " ― Proxy: " +
+                    Miscellany.getProxy(preferences).toString());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
