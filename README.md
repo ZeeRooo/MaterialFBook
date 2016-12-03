@@ -93,7 +93,7 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Now we can select and copy text (still in beta, works only in comments).
 
 **Version 2.1.0:**
-- Translated to German (by fabsmusicjunkie) - Vietnamese (by Nguyễn Giang) - Romanian (by nishimura-san).
+- Translated to German (by fabsmusicjunkie) - Vietnamese (by ngoisaosang) - Romanian (by nishimura-san).
 - Added black shadow to User name in navigation view for white photo covers.
 - Updated Facebook SDK.
 - Improved "Log Out" button.
