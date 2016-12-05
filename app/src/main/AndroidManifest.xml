@@ -91,7 +91,7 @@
                 android:value=".MainActivity" />
         </activity>
 		<activity
-            android:name=".More">
+            android:name=".Fragments.More">
         </activity>
         <activity
             android:name="com.facebook.FacebookActivity"

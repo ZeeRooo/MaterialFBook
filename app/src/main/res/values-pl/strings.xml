@@ -59,7 +59,9 @@
     <string name="navigation_menu_settings">Elementy menu nawigacji</string>
     <string name="navigation_menu_settings_description">Możesz dodać/ukryć elementy w menu nawigacyjnym aplikacji.</string>
     <string name="save_data">Zapisywanie danych</string>
-    <string name="save_data_summary">włączona aplikacja zużywa mniej danych</string>
+    <string name="save_data_summary">Włączona aplikacja zużywa mniej danych.</string>
+    <string name="orbot">Użyj Orbot</string>
+    <string name="orbot_summary">Wymuś cały ruch przez Orbot.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Opublikuj status</string>
     <string name="fab_photo">Opublikuj zdjęcie</string>

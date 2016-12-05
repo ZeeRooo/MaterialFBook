@@ -79,13 +79,11 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             case "notifications_settings":
                 //noinspection ResourceType
                 getFragmentManager().beginTransaction()
-                        .setCustomAnimations(R.anim.slide_in_right, 0)
                         .addToBackStack(null).replace(R.id.content_frame,
                         new NotificationsSettingsFragment()).commit();
                 return true;
             case "navigation_menu_settings":
                 getFragmentManager().beginTransaction()
-                        .setCustomAnimations(R.anim.slide_in_right, 0)
                         .addToBackStack(null).replace(R.id.content_frame,
                         new NavigationMenuFragment()).commit();
                 return true;

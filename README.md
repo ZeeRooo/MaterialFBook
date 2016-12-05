@@ -3,6 +3,8 @@ A light client for Facebook with a modern look (Material Design).
 
 _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed). Thanks JakeLane._
 
+[![MaterialFBook on fdroid.org](https://f-droid.org/wiki/images/0/06/F-Droid-button_get-it-on.png "Download from fdroid.org")](https://f-droid.org/app/me.zeeroooo.materialfb)
+
 ## Changelog
 
 **Version 1.1:**
@@ -115,6 +117,11 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Added new theme: Google Play Green.
 - Improved status bar color.
 - Added shadow behind the icon.
+
+**Version 2.3.5:**
+- Updated Polish.
+- Updated Vietnamese.
+- Translucent status bar on ALL the app.
 
 
 ###########

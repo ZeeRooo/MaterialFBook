@@ -1,9 +1,10 @@
-package me.zeeroooo.materialfb;
+package me.zeeroooo.materialfb.Fragments;
 
 import android.os.Bundle;
 import android.preference.PreferenceFragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.Ui.Theme;
 
 public class More extends AppCompatActivity {

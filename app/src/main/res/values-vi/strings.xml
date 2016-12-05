@@ -40,8 +40,8 @@
     <string name="hide_sponsored_summary">Khi được kích hoạt, sẽ ẩn nội dung được tài trợ (quảng cáo) từ dòng thời gian.</string>
     <string name="hide_birthdays_title">Ẩn sinh nhật</string>
     <string name="hide_birthdays_summary">Khi được kích hoạt, sẽ ẩn sinh nhật từ dòng thời gian.</string>
-	<string name="hide_newsfeedcontent">Hide News Feed content</string>
-    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
+	<string name="hide_newsfeedcontent">Ẩn nội dung Bảng tin</string>
+    <string name="hide_newsfeedcontent_summary">Khi được kích hoạt, sẽ ẩn nội dung Bảng tin.</string>
     <!-- End general -->
 
     <!-- About -->
@@ -75,6 +75,8 @@
     <string name="navigation_menu_settings_description">Bạn có thể hiển thị/ẩn các mục trong điều hướng menu.</string>
     <string name="save_data">Lưu dữ liệu</string>
     <string name="save_data_summary">Khi được kích hoạt, tự động cấu hình ứng dụng sẽ lưu dữ liệu</string>
+    <string name="orbot">Dùng Orbot</string>
+    <string name="orbot_summary">Buộc tất cả các lưu lượng đến Orbot.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Đăng trạng thái</string>
     <string name="fab_photo">Đăng ảnh</string>

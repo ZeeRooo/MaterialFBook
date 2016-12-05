@@ -101,13 +101,6 @@ public class SettingsActivity extends AppCompatActivity {
 
             getFragmentManager().beginTransaction().replace(R.id.content_frame,
                     new SettingsFragment()).commit();
-
-            if (Build.VERSION.SDK_INT >= 21) {
-                Window window = getWindow();
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                window.setStatusBarColor(getResources().getColor(android.R.color.black));
-            }
         }
     }
 

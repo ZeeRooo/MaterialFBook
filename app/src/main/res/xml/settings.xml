@@ -86,7 +86,7 @@
             android:title="@string/more">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:targetClass="me.zeeroooo.materialfb.More"
+                android:targetClass="me.zeeroooo.materialfb.Fragments.More"
                 android:targetPackage="me.zeeroooo.materialfb"/>
         </PreferenceScreen>
     </PreferenceCategory>
