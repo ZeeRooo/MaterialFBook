@@ -1,20 +1,17 @@
 /*
  * Code taken from:
- * - FaceSlim by indywidualny. Thanks. 
+ * - FaceSlim by indywidualny. Thanks.
  * - Toffed by JakeLane. Thanks.
  */
 package me.zeeroooo.materialfb;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import me.zeeroooo.materialfb.Fragments.SettingsFragment;
 import me.zeeroooo.materialfb.Ui.Theme;
-import android.view.Window;
-import android.view.WindowManager;
 
 public class SettingsActivity extends AppCompatActivity {
     public static final String KEY_PREF_STOP_IMAGES = "stop_images";
@@ -41,6 +38,10 @@ public class SettingsActivity extends AppCompatActivity {
     public static final String KEY_PREF_NOTIF_NOTIF = "notifications_activated";
     public static final String KEY_PREF_NOTIF_MESSAGE = "message_notifications";
     public static final String KEY_PREF_HIDE_NEWS_FEED = "hide_newsfeed";
+    public static final String KEY_PREF_BNV_SHIFTING = "shifting";
+    public static final String KEY_PREF_BNV_ONLYICONS = "icons_only";
+    public static final String KEY_PREF_BNV_ITEM_SHIFTING = "item_shifting";
+    public static final String KEY_PREF_BNV_ONLYTEXT = "only_text";
 
     private static final String TAG = SettingsActivity.class.getSimpleName();
     private AppCompatActivity MaterialFBookAct;
@@ -107,7 +108,6 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         int count = getFragmentManager().getBackStackEntryCount();
-
         if (count == 0) {
             startActivity(new Intent(this, MainActivity.class));
             finish();

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Notifications -->
+    <string name="notifications_setting_title">ÉRTESÍTÉSEK</string>
+    <string name="you_have_one_message">Egy új üzenet.</string>
+    <string name="notification_viewall">Összes értesítés megtekintése</string>
+    <string name="messages_viewall">Összes üzenet megtekintése</string>
+    <string name="applying_changes">Változtatások mentése</string>
+    <string name="you_have_n_messages">%d új üzenet.</string>
+    <string name="sync_problem">Cookie-k szinkronizálása sikertelen. Első indítás, igaz? Kérlek indítsd újra az alkalmazást :)</string>
+    <string name="notification_sound_description">Válassz jelzőhangot vagy némítsd: \u0020</string>
+    <string name="notifications_settings">Értesítési beállítások</string>
+    <string name="notifications_settings_description">Additional settings. Értesítési időintervallum, hang, vaku és rezgés beállítások.</string>
+    <string name="facebook_notifications">Facebook értesítések</string>
+    <string name="message_notifications">Facebook üzenetek</string>
+    <string name="interval_pref">Frissítési időintervallum</string>
+    <string name="notification_sound">Értesítési hang</string>
+    <string name="interval_pref_description_new">Értesítések ellenőrzése minden %. percben.</string>
+    <string name="notification_sound_msg">Üzenet hang</string>
+    <string name="vibrate">Rezgések</string>
+    <string name="vibrate_double">Dupla rezgés</string>
+    <string name="led_light">LED fényjelzés</string>
+    <string name="flashlight_as_led">Vaku használata értesítésként</string>
+    <string name="flashlight_as_led_summary">Használja a vaku LED-et értesítések jelzéséhez (kamera vaku).</string>
+    <string name="notifications_extra">Továbbiak</string>
+    <string name="notifications_everywhere">Mindig értesítsen</string>
+    <string name="notifications_everywhere_description">Az alkalmazás főképernyőjén is értesítsen.</string>
+    <!-- End Notifications -->
+
+    <!-- General -->
+    <string name="general_setting_title">ÁLTALÁNOS</string>
+    <string name="location_enabled_title">Helyhozzáférés</string>
+    <string name="location_enabled_summary">Engedélyezd, ha szeretnéd, hogy a Facebook hozzáférjen tartózkodási helyedhez.</string>
+    <string name="hide_editor_newsfeed_title">Állapot szerkesztő elrejtése a Hírfolyamban.</string>
+    <string name="hide_editor_newsfeed_summary">Bekapcsolva a "Mi jár a fejedben?" állapot hozzáadás rejtve lesz a Hírfolyamban.</string>
+    <string name="hide_editor_newsfeed_snackbar">A változtatások újratöltés után lépnek érvénybe.</string>
+    <string name="stop_images_title">Képbetöltés kikapcsolása</string>
+    <string name="stop_images_summary">Bekapcsolva a képek nem töltődnek be. Egyes képek megmaradhatnak az előzetes cache betöltés miatt.</string>
+    <string name="hide_sponsored_title">Szponzorált reklámok elrejtése</string>
+    <string name="hide_sponsored_summary">Bekapcsolva elrejti a Szponzorált reklámtartalmakat a hírfolyamból.</string>
+    <string name="hide_birthdays_title">Születésnapok elrejtése</string>
+    <string name="hide_birthdays_summary">Bekapcsolva elrejti a születésnapokat a hírfolyamból.</string>
+    <string name="hide_newsfeedcontent">Hírfolyam elrejtése</string>
+    <string name="hide_newsfeedcontent_summary">Bekapcsolva elrejti a hírfolyamot.</string>
+    <!-- End general -->
+
+    <!-- About -->
+    <string name="more">Továbbiak és  készítő</string>
+    <string name="about_updates">Frissítések</string>
+    <string name="updates">Frissítések keresése</string>
+    <string name="updates_summary">Oldal betöltése a legújabb frissítés letöltéséhez.</string>
+    <string name="people_who_translated">Az alkalmazás fordítói</string>
+    <string name="devs_who_helped_me">Developers who helped me asking my questions and taking code from their apps</string>
+    <string name="help_translations">Segíts az alkalmazás anyanyelvedre történő fordításához</string>
+    <string name="about_translations">Szükségünk van a segítségedre</string>
+    <string name="source_code">Forráskód a Github-on</string>
+    <string name="withYou">Hibák jelzése, új ötletek</string>
+    <string name="changelog">Változások</string>
+    <!-- End about -->
+
+    <!-- Appearence -->
+    <string name="appearance_setting_title">MEGJELENÉS</string>
+    <string name="web_themes">Web kinézet</string>
+    <string name="web_themes_summary">Különböző web témák kiválasztása.</string>
+    <string name="app_themes">Alkalmazás témák</string>
+    <string name="app_themes_summary">Különböző alkalmazás témák kiválasztása.</string>
+
+    <!-- Navigation -->
+    <string name="navigation_setting_title">NAVIGÁCIÓ</string>
+    <string name="hide_menu_bar_title">Menüsáv elrejtése</string>
+    <string name="hide_menu_bar_summary">Bekapcsolva a Facebook felső menü rejtve lesz.</string>
+    <string name="hide_fab_on_scroll_title">Lebegő gyors művelet gomb görgetéskor</string>
+    <string name="hide_fab_on_scroll_summary">Rejtsd el a gombot görgetéskor.</string>
+    <string name="navigation_menu_settings">Navigációs menü elemek</string>
+    <string name="navigation_menu_settings_description">Megjelenítheted/elrejtheted a navigációs menü elemeit.</string>
+    <string name="save_data">Adatok mentése</string>
+    <string name="save_data_summary">When enabled, the app autoconfigure to save data.</string>
+    <string name="orbot">Orbot proxy használata</string>
+    <string name="orbot_summary">Összes adathasználat az Orbot-on keresztül.</string>
+    <!-- Navigation: fab -->
+    <string name="fab_text">Státusz megosztása</string>
+    <string name="fab_photo">Kép megosztása</string>
+    <string name="fab_checkin">Bejelentkezés</string>
+    <string name="fab_jump_top">Tetejére ugrás</string>
+    <!-- Navigation: items -->
+    <string name="navigation_menu_title">NAVIGÁCIÓS MENÜ</string>
+    <string name="ic_menu_exitapp">Kilépés</string>
+    <string name="ic_menu_exitapp_summary">Engedélyezve a "Kilépés" gomb eltűnik a navigációs menüből.</string>
+    <string name="ic_menu_fblogout">Kijelentkezés</string>
+    <string name="ic_menu_fblogout_summary">Engedélyezve a "Kijelentkezés" gomb eltűnik a navigációs menüből.</string>
+    <string name="menu_photos">Fotók</string>
+    <string name="menu_photos_summary">Engedélyezve a "Fotók" gomb eltűnik a navigációs menüből.</string>
+    <string name="menu_events">Események</string>
+    <string name="menu_events_summary">Engedélyezve a "Események" gomb eltűnik a navigációs menüből.</string>
+    <string name="menu_back">Vissza</string>
+    <string name="menu_back_summary">Ha kikapcsolod a "Vissza" gomb eltűnik a navigációs menüből.</string>
+    <string name="menu_news">Hírfolyam</string>
+    <string name="menu_news_summary">Ha kikapcsolod a "Hírfolyam" gomb eltűnik a navigációs menüből.</string>
+    <string name="menu_top_stories">Legjobb hírek</string>
+    <string name="menu_top_stories_summary">Ha kikapcsolod a "Legjobb hírek" gomb eltűnik a navigációs menüből.</string>
+    <string name="menu_most_recent">Legfrissebbek</string>
+    <string name="menu_most_recent_summary">Ha kikapcsolod a "Legfrissebbek" gomb eltűnik a navigációs menüből.</string>
+    <string name="menu_friendreq">Ismerősnek jelölések</string>
+    <string name="menu_friendreq_summary">Ha kikapcsolod az "Ismerősnek jelölések" gomb eltűnik a navigációs menüből.</string>
+    <string name="menu_groups">Csoportok</string>
+    <string name="menu_groups_summary">Ha kikapcsolod az "Csoportok" gomb eltűnik a navigációs menüből.</string>
+    <string name="menu_messages">Üzenetek</string>
+    <string name="menu_search">Keresés</string>
+    <string name="menu_search_summary">Ha kikapcsolod a "Keresés" gomb eltűnik a navigációs menüből.</string>
+    <string name="menu_mainmenu">Főmenü</string>
+    <string name="menu_mainmenu_summary">Ha kikapcsolod a "Főmenü" gomb eltűnik a navigációs menüből.</string>
+    <string name="messaging_enabled_title">Üzenetkezelés</string>
+    <string name="messaging_enabled_summary">Bekapcsolva hozzáférhetsz a Facebook üzeneteidhez. Kapcsold ki, ha külön alkalmazást használsz erre.</string>
+    <!-- End navigation -->
+
+    <!-- App -->
+    <string name="silent">Néma</string>
+    <string name="file_logger_needs_permission">Nincs hozzáférés a külső tárhelyhez. A hibanapló nem kerül mentésre.</string>
+    <string name="navigation_drawer_open">Navigációs menü megnyitása.</string>
+    <string name="navigation_drawer_close">Navigációs menü bezárása.</string>
+    <string name="default_user">Felhasználó</string>
+    <string name="header_profile_pic">Profilkép</string>
+    <string name="nav_notifications">Értesítések</string>
+    <string name="menu_fblogin">Bejelentkezés a Facebook-ba</string>
+    <string name="context_save_image">Kép mentése</string>
+    <string name="settings">Beállítások</string>
+    <string name="context_share_image">Kép megosztása</string>
+    <string name="context_copy_image_link">Kép hivatkozásának másolása</string>
+    <string name="context_share_link">Hivatkozás megosztása</string>
+    <string name="context_copy_link">Hivatkozás másolása</string>
+    <string name="context_share_image_progress">Kép megosztása…</string>
+    <string name="content_copy_link_done">Hivatkozás másolása a vágólapra</string>
+    <string name="login_button">Bejelentkezés</string>
+    <string name="share_text">Megosztás</string>
+    <string name="not_logged_in">Nem vagy bejelentkezve</string>
+    <string name="error_login">Valami hiba történt a bejelentkezéskor, kérjük próbáld újra.</string>
+    <string name="error_super_wrong">Hiba történt</string>
+    <string name="error_facebook_noconnection">Hiba, nem sikerült elérni a Facebook-ot</string>
+    <string name="error_facebook_error">Hiba történt a Facebook-on</string>
+    <string name="loading">Betöltés</string>
+    <string name="permission_denied">Hozzáférés megtagadva, sikertelen művelet</string>
+
+</resources>

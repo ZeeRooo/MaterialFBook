@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/bnav_news"
+        android:icon="@drawable/ic_menu_news"
+        android:title="@string/menu_news"/>
+    <item
+        android:id="@+id/bnav_friendreq"
+        android:icon="@drawable/ic_menu_friendreq"
+        android:title="@string/menu_friendreq"/>
+    <item
+        android:id="@+id/bnav_messages"
+        android:icon="@drawable/ic_message"
+        android:title="@string/menu_messages"/>
+    <item
+        android:id="@+id/bnav_notifications"
+        android:icon="@drawable/ic_menu_notifications_active_png"
+        android:title="@string/nav_notifications"/>
+</menu>

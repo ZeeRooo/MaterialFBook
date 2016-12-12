@@ -12,7 +12,7 @@
             android:title="@string/changelog">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="http://pastebin.com/raw/ZHVbzaMR"/>
+                android:data="http://pastebin.com/raw/M7ySmEGj"/>
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/source_code">
@@ -65,6 +65,13 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/Clans/FloatingActionButton"/>
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="BottomNavigationViewEx"
+            android:title="ittianyu">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/ittianyu/BottomNavigationViewEx"/>
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/people_who_translated">
@@ -124,7 +131,14 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/abacate123"/>
-        </PreferenceScreen>				
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="István Vass"
+            android:title="Hungarian">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://forum.xda-developers.com/member.php?u=2946536"/>
+        </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/about_translations">
         <PreferenceScreen

@@ -31,16 +31,16 @@
     <string name="location_enabled_title">Acceso a localización</string>
     <string name="location_enabled_summary">Habilitalo para que Facebook sepa donde estas (GPS).</string>
     <string name="hide_editor_newsfeed_title">Oculta el editor de estado</string>
-    <string name="hide_editor_newsfeed_summary">Si esta habilitado, el editor de estado desaparecerá.</string>
+    <string name="hide_editor_newsfeed_summary">Si está habilitado, el editor de estado desaparecerá.</string>
     <string name="hide_editor_newsfeed_snackbar">Recargue la página para que tenga efecto</string>
     <string name="stop_images_title">No cargar imágenes</string>
-    <string name="stop_images_summary">Si esta habilitado, las imágenes no se descargarán</string>
+    <string name="stop_images_summary">Si está habilitado, las imágenes no se descargarán</string>
     <string name="hide_sponsored_title">Oculta publicidad del patrocinador</string>
-    <string name="hide_sponsored_summary">Si esta habilitado, la publicidad del patrocinador no se mostrará.</string>
+    <string name="hide_sponsored_summary">Si está habilitado, la publicidad del patrocinador no se mostrará.</string>
     <string name="hide_birthdays_title">Oculta cumpleaños</string>
-    <string name="hide_birthdays_summary">Si esta habilitado, los cumpleaños no se mostrarán.</string>
-    <string name="hide_newsfeedcontent">Oculta las nuevas noticias</string>
-    <string name="hide_newsfeedcontent_summary">Si esta habilitado, las nuevas noticias no aparecerán.</string>
+    <string name="hide_birthdays_summary">Si está habilitado, los cumpleaños no se mostrarán.</string>
+    <string name="hide_newsfeedcontent">Oculta todas las noticias</string>
+    <string name="hide_newsfeedcontent_summary">Si está habilitado, ninguna noticia aparecerá.</string>	
     <!-- End general -->
 
     <!-- Appearence -->
@@ -53,15 +53,17 @@
     <!-- Navigation -->
     <string name="navigation_setting_title">NAVEGACIÓN</string>
     <string name="hide_menu_bar_title">Oculta la barra de menú de Facebook</string>
-    <string name="hide_menu_bar_summary">Si esta habilitado, la barra de menú de Facebook no se mostrará.</string>
+    <string name="hide_menu_bar_summary">Si está habilitado, la barra de menú de Facebook no se mostrará.</string>
     <string name="hide_fab_on_scroll_title">Oculta botón flotante al deslizarse</string>
     <string name="hide_fab_on_scroll_summary">Oculta el botón flotante al deslizarse hacia abajo.</string>
     <string name="navigation_menu_settings">Elementos de la barra de navegación</string>
     <string name="navigation_menu_settings_description">Elije los elementos que aparecen en la barra de navegación.</string>
     <string name="save_data">Ahorra datos</string>
-    <string name="save_data_summary">Si esta habilitado, ahorraras datos.</string>
+    <string name="save_data_summary">Si está habilitado, ahorraras datos.</string>
     <string name="orbot">Usar Orbot</string>
     <string name="orbot_summary">Redirecciona todo el tráfico hacia Orbot.</string>
+    <string name="bottom_navigation_view">Barra de navegación inferior</string>
+    <string name="summary_bottom_navigation_view">Configura la barra de navegación inferior.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Publica un estado</string>
     <string name="fab_photo">Publica una foto</string>
@@ -70,33 +72,42 @@
     <!-- Navigation: items -->
     <string name="navigation_menu_title">MENÚ DE NAVEGACIÓN</string>
     <string name="ic_menu_exitapp">Salir</string>
-    <string name="ic_menu_exitapp_summary">Si esta habilitado, el botón \'Salir\' desaparecerá del menú de navegación.</string>
+    <string name="ic_menu_exitapp_summary">Si está habilitado, el botón \'Salir\' desaparecerá del menú de navegación.</string>
     <string name="ic_menu_fblogout">Cerrar sesión</string>
-    <string name="ic_menu_fblogout_summary">Si esta habilitado, el botón \'Cerrar sesión\' desaparecerá del menú de navegación.</string>
+    <string name="ic_menu_fblogout_summary">Si está habilitado, el botón \'Cerrar sesión\' desaparecerá del menú de navegación.</string>
     <string name="menu_photos">Fotos</string>
-    <string name="menu_photos_summary">Si esta habilitado, el botón \'Fotos\' desaparecerá del menú de navegación.</string>
+    <string name="menu_photos_summary">Si está habilitado, el botón \'Fotos\' desaparecerá del menú de navegación.</string>
     <string name="menu_events">Eventos</string>
-    <string name="menu_events_summary">Si esta habilitado, el botón \'Eventos\' desaparecerá del menú de navegación.</string>
+    <string name="menu_events_summary">Si está habilitado, el botón \'Eventos\' desaparecerá del menú de navegación.</string>
     <string name="menu_back">Atras</string>
-    <string name="menu_back_summary">Si esta habilitado, el botón \'Atras\' desaparecerá del menú de navegación.</string>
+    <string name="menu_back_summary">Si está habilitado, el botón \'Atras\' desaparecerá del menú de navegación.</string>
     <string name="menu_news">Noticias</string>
-    <string name="menu_news_summary">Si esta habilitado, el botón \'Noticias\' desaparecerá del menú de navegación.</string>
+    <string name="menu_news_summary">Si está habilitado, el botón \'Noticias\' desaparecerá del menú de navegación.</string>
     <string name="menu_top_stories">Historias populares</string>
-    <string name="menu_top_stories_summary">Si esta habilitado, el botón \'Historias populares\' desaparecerá del menú de navegación.</string>
+    <string name="menu_top_stories_summary">Si está habilitado, el botón \'Historias populares\' desaparecerá del menú de navegación.</string>
     <string name="menu_most_recent">Más reciente</string>
-    <string name="menu_most_recent_summary">Si esta habilitado, el botón \'Más reciente\' desaparecerá del menú de navegación.</string>
+    <string name="menu_most_recent_summary">Si está habilitado, el botón \'Más reciente\' desaparecerá del menú de navegación.</string>
     <string name="menu_friendreq">Solicitudes de amistad</string>
-    <string name="menu_friendreq_summary">Si esta habilitado, el botón \'Solicitudes de amistad\' desaparecerá del menú de navegación.</string>
+    <string name="menu_friendreq_summary">Si está habilitado, el botón \'Solicitudes de amistad\' desaparecerá del menú de navegación.</string>
     <string name="menu_groups">Grupos</string>
-    <string name="menu_groups_summary">Si esta habilitado, el botón \'Grupos\' desaparecerá del menú de navegación.</string>
+    <string name="menu_groups_summary">Si está habilitado, el botón \'Grupos\' desaparecerá del menú de navegación.</string>
     <string name="menu_messages">Mensajes</string>
     <string name="menu_search">Buscar</string>
-    <string name="menu_search_summary">Si esta habilitado, el botón \'Buscar\' desaparecerá del menú de navegación.</string>
+    <string name="menu_search_summary">Si está habilitado, el botón \'Buscar\' desaparecerá del menú de navegación.</string>
     <string name="menu_mainmenu">Menú principal</string>
-    <string name="menu_mainmenu_summary">Si esta habilitado, el botón \'Menú principal\' desaparecerá del menú de navegación.</string>
+    <string name="menu_mainmenu_summary">Si está habilitado, el botón \'Menú principal\' desaparecerá del menú de navegación.</string>
     <string name="messaging_enabled_title">Mensajería</string>
     <string name="messaging_enabled_summary">Habilitalo para usar los mensajes de Facebook. Deshabilitalo si usas otra app de mensajería.</string>
     <!-- End navigation -->
+    <!-- BottomnavigationView -->
+    <string name="bottomnavigationview_configs">CONFIGURACIÓN DE LA BARRA DE NAVEGACIÓN INFERIOR</string>
+	<string name="shifting">Deshabilitar shifting</string>
+    <string name="summary_shifting">Si está deshabilitado, todos los items tendrán el mismo tamaño.</string>
+    <string name="only_icons">Sólo íconos</string>
+    <string name="item_shifting">Muestra texto en todos items</string>
+    <string name="summary_item_shifting">Tanto en los seleccionados como en los que no.</string>
+    <string name="only_text">Sólo texto</string>
+    <!-- End BottomNavigationView -->
 
     <!-- App -->
     <string name="silent">Silencio</string>
@@ -124,6 +135,7 @@
     <string name="error_facebook_error">Something went wrong on Facebook\'s end</string>
     <string name="loading">Cargando</string>
     <string name="permission_denied">Permiso denegado, la acción no se pudo completar</string>
+    <string name="restart_needed">Reinicio necesario</string>
 
     <!-- About -->
     <string name="more">Créditos y más</string>

@@ -31,8 +31,10 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         // set onPreferenceClickListener for a few preferences
         Preference notificationsSettingsPref = findPreference("notifications_settings");
         Preference navigationmenuSettingsPref = findPreference("navigation_menu_settings");
+        Preference bottomnavigationviewSettingsPref = findPreference("bottom_navigation_view");
         notificationsSettingsPref.setOnPreferenceClickListener(this);
         navigationmenuSettingsPref.setOnPreferenceClickListener(this);
+        bottomnavigationviewSettingsPref.setOnPreferenceClickListener(this);
 
         // listener for changing preferences (works after the value change)
         prefChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
@@ -87,6 +89,11 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         .addToBackStack(null).replace(R.id.content_frame,
                         new NavigationMenuFragment()).commit();
                 return true;
+            case "bottom_navigation_view":
+                getFragmentManager().beginTransaction()
+                        .addToBackStack(null).replace(R.id.content_frame,
+                        new BottomNavigationViewFragment()).commit();
+                return true;
         }
 
         return false;
@@ -103,5 +110,4 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
             e.printStackTrace();
         }
     }
-
 }

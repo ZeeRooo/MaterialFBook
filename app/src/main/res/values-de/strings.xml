@@ -81,7 +81,7 @@
     <string name="fab_checkin">Einchecken</string>
     <string name="fab_jump_top">Zurück zum Anfang</string>
     <!-- Navigation: items -->
-    <string name="navigation_menu_title">NAVIGATIONS MENÜ</string>
+    <string name="navigation_menu_title">NAVIGATIONS MENÜ ⟳</string>
     <string name="ic_menu_exitapp">App verlassen</string>
     <string name="ic_menu_exitapp_summary">Wenn aktiviert, wird der \'App verlassen\' Knopf im Navigationsmenu verschwinden.</string>
     <string name="ic_menu_fblogout">Ausloggen</string>

@@ -115,5 +115,4 @@ public class NotificationsSettingsFragment extends PreferenceFragment {
         RingtonePreference rpm = (RingtonePreference) findPreference("ringtone_msg");
         rpm.setSummary(getString(R.string.notification_sound_description) + name);
     }
-
 }

@@ -7,7 +7,6 @@ import android.content.pm.PackageManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import info.guardianproject.netcipher.NetCipher;
-
 import java.net.Proxy;
 import java.util.Locale;
 

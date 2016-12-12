@@ -23,4 +23,17 @@
     <color name="OrangeDark">#E64A19</color>
 	<color name="GooglePlayGreenPrimary">#109c56</color>
     <color name="GooglePlayGreenDark">#0c7d45</color>
+
+    <!-- Ripple colours -->
+    <color name="MFBRipple">#403b5998</color>
+    <color name="PinkRipple">#40E91E63</color>
+    <color name="GreyRipple">#40607D8B</color>
+    <color name="GreenRipple">#404CAF50</color>
+    <color name="RedRipple">#40F44336</color>
+    <color name="LimeRipple">#40CDDC39</color>
+    <color name="YellowRipple">#40FFEB3B</color>
+    <color name="PurpleRipple">#409C27B0</color>
+    <color name="LightBlueRipple">#4003A9F4</color>
+    <color name="OrangeRipple">#40FF5722</color>
+    <color name="GooglePlayGreenRipple">#40109c56</color>
 </resources>

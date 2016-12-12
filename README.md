@@ -123,6 +123,13 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Updated Vietnamese.
 - Translucent status bar on ALL the app.
 
+**Version 2.4.0:**
+- Translated to Hungrian.
+- Added BottomNavigationView.
+- Options to configure BottomnavigationView (only icons, only text, etc).
+- UI reworked.
+- Improved the update of the photo cover and profile.
+
 
 ###########
 
@@ -142,6 +149,7 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - SlimSocial for Facebook by rignaneseleo.
 - AdvancedWebView by delight-im.
 - FloatingActionButton by Clans.
+- BottomNavigationViewEx by ittianyu. (Thank to Google too, because they release a bnv without options to customize).
 - All people who translated the app (more details in "More and Credits")
 
 

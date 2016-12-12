@@ -79,8 +79,11 @@
             android:key="navigation_menu_settings"
             android:title="@string/navigation_menu_settings"
             android:summary="@string/navigation_menu_settings_description"/>
+        <Preference
+            android:key="bottom_navigation_view"
+            android:title="@string/bottom_navigation_view"
+            android:summary="@string/summary_bottom_navigation_view"/>
     </PreferenceCategory>
-
     <PreferenceCategory android:title="@string/more">
         <PreferenceScreen
             android:title="@string/more">
@@ -90,5 +93,4 @@
                 android:targetPackage="me.zeeroooo.materialfb"/>
         </PreferenceScreen>
     </PreferenceCategory>
-
 </PreferenceScreen>

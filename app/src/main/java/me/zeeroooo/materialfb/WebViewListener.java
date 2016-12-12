@@ -1,7 +1,6 @@
 package me.zeeroooo.materialfb;
 
 import android.Manifest;
-import android.annotation.TargetApi;
 import android.app.DownloadManager;
 import android.app.PendingIntent;
 import android.content.ClipData;
@@ -13,7 +12,6 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.net.UrlQuerySanitizer;
-import android.os.Build;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
@@ -23,11 +21,7 @@ import android.support.v4.content.ContextCompat;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
-
 import com.github.clans.fab.FloatingActionMenu;
 import com.greysonparrelli.permiso.Permiso;
 import com.squareup.picasso.Picasso;
@@ -41,7 +35,6 @@ class WebViewListener implements AdvancedWebView.Listener {
     private static final int ID_COPY_IMAGE_LINK = 2;
     private static final int ID_SHARE_LINK = 3;
     private static final int ID_COPY_LINK = 4;
-    protected WebViewClient mCustomWebViewClient;
 
     // *{-webkit-tap-highlight-color: rgba(0,0,0, 0.0);outline: none;}
     private static final String HIDE_ORANGE_FOCUS = "*%7B-webkit-tap-highlight-color%3Atransparent%3Boutline%3A0%7D";

@@ -72,4 +72,9 @@ public class More extends AppCompatActivity {
             addPreferencesFromResource(R.xml.more);
         }
     }
+
+    @Override
+    public void onBackPressed() {
+       finish();
+    }
 }
