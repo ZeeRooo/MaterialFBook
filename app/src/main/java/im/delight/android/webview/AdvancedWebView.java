@@ -61,7 +61,6 @@ import android.support.v4.view.NestedScrollingChildHelper;
 import android.support.v4.view.ViewCompat;
 import android.view.MotionEvent;
 import android.view.ContextMenu;
-import android.view.InputEvent;
 
 /** Advanced WebView component for Android that works as intended out of the box */
 @SuppressWarnings("deprecation")

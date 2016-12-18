@@ -12,7 +12,7 @@
             android:title="@string/changelog">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="http://pastebin.com/raw/M7ySmEGj"/>
+                android:data="http://pastebin.com/raw/UvVsaZrJ"/>
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/source_code">
@@ -65,13 +65,6 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/Clans/FloatingActionButton"/>
-        </PreferenceScreen>
-        <PreferenceScreen
-            android:summary="BottomNavigationViewEx"
-            android:title="ittianyu">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://github.com/ittianyu/BottomNavigationViewEx"/>
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/people_who_translated">

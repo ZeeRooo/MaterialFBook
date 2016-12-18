@@ -130,6 +130,12 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - UI reworked.
 - Improved the update of the photo cover and profile.
 
+**Version 2.4.5:**
+- Deleted BottomNavigationView and configurations.
+- Improved the update of the photo cover and profile x2.
+- Cleaned code.
+- Updated Google libreries.
+- Corrected typo in English translation.
 
 ###########
 

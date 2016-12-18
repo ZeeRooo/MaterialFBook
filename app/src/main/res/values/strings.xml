@@ -12,7 +12,7 @@
     <string name="notifications_settings">Notifications settings</string>
     <string name="notifications_settings_description">Additional settings. Choose time interval, set up sounds, LED and vibration.</string>
     <string name="facebook_notifications">Facebook notifications</string>
-    <string name="message_notifications">Facebook messagges</string>
+    <string name="message_notifications">Facebook messages</string>
     <string name="interval_pref">Time interval for checking</string>
     <string name="notification_sound">Notification sound</string>
     <string name="interval_pref_description_new">Notifications will be checked every %s.</string>
@@ -77,8 +77,6 @@
     <string name="save_data_summary">When enabled, the app autoconfigure to save data</string>
     <string name="orbot">Use Orbot</string>
     <string name="orbot_summary">Force all traffic to Orbot.</string>
-    <string name="bottom_navigation_view">Bottom navigation view</string>
-    <string name="summary_bottom_navigation_view">Configure the Bottom Navigation View.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Post a status</string>
     <string name="fab_photo">Post a photo</string>
@@ -114,15 +112,6 @@
     <string name="messaging_enabled_title">Messaging</string>
     <string name="messaging_enabled_summary">When enabled, will provide access to Facebook Messages. Disable if you have a messaging app.</string>
     <!-- End navigation -->
-    <!-- BottomnavigationView -->
-    <string name="bottomnavigationview_configs">BOTTOMNAVIGATIONVIEW CONFIG</string>
-	<string name="shifting">Disable shifting</string>
-    <string name="summary_shifting">When disabled, all items have the same size.</string>
-    <string name="only_icons">Only icons</string>
-    <string name="item_shifting">Show text in all items</string>
-    <string name="summary_item_shifting">In selected and unselected.</string>
-    <string name="only_text">Only text</string>
-    <!-- End BottomNavigationView -->
 
     <!-- App -->
     <string name="app_name">MaterialFBook</string>
@@ -152,6 +141,5 @@
     <string name="error_facebook_error">Something went wrong on Facebook\'s end</string>
     <string name="loading">Loading</string>
     <string name="permission_denied">Permission denied, cannot complete action</string>
-    <string name="restart_needed">Restart needed</string>
 
 </resources>

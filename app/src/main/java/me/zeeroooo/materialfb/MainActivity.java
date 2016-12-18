@@ -14,7 +14,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
-import android.support.design.widget.BottomNavigationView;
+import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -59,7 +59,6 @@ import me.zeeroooo.materialfb.Notifications.NotificationsService;
 import me.zeeroooo.materialfb.Ui.Theme;
 import info.guardianproject.netcipher.web.WebkitProxy;
 import java.net.InetSocketAddress;
-import me.zeeroooo.materialfb.BottomNavigationView.mBottomNavigationView;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public static final String FACEBOOK_URL_BASE = "https://m.facebook.com/";
@@ -112,9 +111,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     };
 
-    //    private MenuItem mNotificationButton;
-//    private MenuItem mMessagesButton;
-    private MenuItem mSearchButton;
+    private MenuItem mNotificationButton;
+    private MenuItem mMessagesButton;
     private CallbackManager callbackManager;
     private Snackbar loginSnackbar = null;
     @SuppressWarnings("FieldCanBeLocal") // Will be garbage collected as a local variable
@@ -229,60 +227,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
-        // Setup the BottomNavigationView
-        mBottomNavigationView mBottomNavigationView = (mBottomNavigationView) findViewById(R.id.bottom_navigation);
-        if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_BNV_SHIFTING, false)) {
-            mBottomNavigationView.enableShiftingMode(false);
-        }
-        if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_BNV_ONLYICONS, false)) {
-            mBottomNavigationView.setIconVisibility(true);
-            mBottomNavigationView.setTextVisibility(false);
-        }
-        if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_BNV_ITEM_SHIFTING, false)) {
-            mBottomNavigationView.enableItemShiftingMode(false);
-        }
-        if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_BNV_ONLYTEXT, false)) {
-            mBottomNavigationView.setIconVisibility(false);
-            mBottomNavigationView.setTextVisibility(true);
-        }
-        mBottomNavigationView.setOnNavigationItemSelectedListener(
-                new BottomNavigationView.OnNavigationItemSelectedListener() {
-                    @Override
-                    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        switch (item.getItemId()) {
-                            case R.id.bnav_news:
-                                if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-                                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23feed_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "home.php'%7D%7D)()");
-                                } else {
-                                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23feed_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED_BASIC + "home.php'%7D%7D)()");
-                                }
-                                break;
-                            case R.id.bnav_friendreq:
-                                if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-                                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23requests_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "friends%2Fcenter%2Frequests%2F'%7D%7D)()");
-                                } else {
-                                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23requests_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED_BASIC + "friends%2Fcenter%2Frequests%2F'%7D%7D)()");
-                                }
-                                break;
-                            case R.id.bnav_messages:
-                                if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-                                    mWebView.loadUrl(FACEBOOK_URL_BASE + "messages/");
-                                } else {
-                                    mWebView.loadUrl(FACEBOOK_URL_BASE_BASIC + "messages/");
-                                }
-                                break;
-                            case R.id.bnav_notifications:
-                                if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-                                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23notifications_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "notifications.php'%7D%7D)()");
-                                } else {
-                                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23notifications_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED_BASIC + "notifications.php'%7D%7D)()");
-                                }
-                                break;
-                        }
-                        return true;
-                    }
-                });
-
         // Setup the DrawLayout
         final DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         final ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -351,6 +295,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onRefresh() {
                 mWebView.reload();
+                if(!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
+                    updateUserInfo();
+                }
             }
         });
 
@@ -508,11 +455,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
-/*        mNotificationButton = menu.findItem(R.id.action_notifications);
+        mNotificationButton = menu.findItem(R.id.action_notifications);
         ActionItemBadge.update(this, mNotificationButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_menu_notifications_active_png, null), ActionItemBadge.BadgeStyles.RED, Integer.MIN_VALUE);
         mMessagesButton = menu.findItem(R.id.nav_messages);
-        ActionItemBadge.update(this, mMessagesButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_message, null), ActionItemBadge.BadgeStyles.RED, Integer.MIN_VALUE);*/
-        mSearchButton = menu.findItem(R.id.action_search);
+        ActionItemBadge.update(this, mMessagesButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_message, null), ActionItemBadge.BadgeStyles.RED, Integer.MIN_VALUE);
         return true;
     }
 
@@ -520,14 +466,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here
         int id = item.getItemId();
-        if (id == R.id.action_search) {
-            if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-                mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23search_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "search%2F'%7D%7D)()");
-            } else {
-                mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23search_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED_BASIC + "search%2F'%7D%7D)()");
-            }
-        }
-/*         if (id == R.id.action_notifications) {
+         if (id == R.id.action_notifications) {
             if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
             mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23notifications_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "notifications.php'%7D%7D)()");
          } else {
@@ -535,19 +474,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
          }
             Helpers.uncheckRadioMenu(mNavigationView.getMenu());
          }
-         if (id == R.id.nav_messages) {
-         if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-            mWebView.loadUrl(FACEBOOK_URL_BASE + "messages/");
-         } else {
-            mWebView.loadUrl(FACEBOOK_URL_BASE_BASIC + "messages/");
-         }
+        if (id == R.id.nav_messages) {
+            if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
+                mWebView.loadUrl(FACEBOOK_URL_BASE + "messages/");
+            } else {
+                mWebView.loadUrl(FACEBOOK_URL_BASE_BASIC + "messages/");
+            }
             Helpers.uncheckRadioMenu(mNavigationView.getMenu());
-         }
+        }
 
         // Update the notifications
         if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
         JavaScriptHelpers.updateNums(mWebView);
-        } */
+        }
             return super.onOptionsItemSelected(item);
 
     }
@@ -737,7 +676,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 }
 
- /*   public void setNotificationNum(int num) {
+    public void setNotificationNum(int num) {
         if (num > 0) {
             ActionItemBadge.update(mNotificationButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_menu_notifications_active_png, null), num);
         } else {
@@ -750,7 +689,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             ActionItemBadge.update(mMessagesButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_message, null), Integer.MIN_VALUE);
         }
-    }*/
+    }
     public void setMessagesNum(int num) {
         // Only update message count if enabled
         if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_MESSAGING, false)) {

@@ -14,7 +14,6 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.ContextThemeWrapper;
-import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,9 +25,6 @@ import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
 import me.zeeroooo.materialfb.R;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class FloatingActionMenu extends ViewGroup {
 
     private static final int ANIMATION_DURATION = 300;
@@ -37,10 +33,8 @@ public class FloatingActionMenu extends ViewGroup {
     private static final float OPENED_PLUS_ROTATION_RIGHT = 90f + 45f;
 
     private static final int OPEN_UP = 0;
-    private static final int OPEN_DOWN = 1;
 
     private static final int LABELS_POSITION_LEFT = 0;
-    private static final int LABELS_POSITION_RIGHT = 1;
 
     private AnimatorSet mOpenAnimatorSet = new AnimatorSet();
     private AnimatorSet mCloseAnimatorSet = new AnimatorSet();
@@ -735,71 +729,6 @@ public class FloatingActionMenu extends ViewGroup {
         }
     }
 
-    /**
-     * Sets the {@link android.view.animation.Interpolator} for <b>FloatingActionButton's</b> icon animation.
-     *
-     * @param interpolator the Interpolator to be used in animation
-     */
-    public void setIconAnimationInterpolator(Interpolator interpolator) {
-        mOpenAnimatorSet.setInterpolator(interpolator);
-        mCloseAnimatorSet.setInterpolator(interpolator);
-    }
-
-    public void setIconAnimationOpenInterpolator(Interpolator openInterpolator) {
-        mOpenAnimatorSet.setInterpolator(openInterpolator);
-    }
-
-    public void setIconAnimationCloseInterpolator(Interpolator closeInterpolator) {
-        mCloseAnimatorSet.setInterpolator(closeInterpolator);
-    }
-
-    /**
-     * Sets whether open and close actions should be animated
-     *
-     * @param animated if <b>false</b> - menu items will appear/disappear instantly without any animation
-     */
-    public void setAnimated(boolean animated) {
-        mIsAnimated = animated;
-        mOpenAnimatorSet.setDuration(animated ? ANIMATION_DURATION : 0);
-        mCloseAnimatorSet.setDuration(animated ? ANIMATION_DURATION : 0);
-    }
-
-    public boolean isAnimated() {
-        return mIsAnimated;
-    }
-
-    public void setAnimationDelayPerItem(int animationDelayPerItem) {
-        mAnimationDelayPerItem = animationDelayPerItem;
-    }
-
-    public int getAnimationDelayPerItem() {
-        return mAnimationDelayPerItem;
-    }
-
-    public void setOnMenuToggleListener(OnMenuToggleListener listener) {
-        mToggleListener = listener;
-    }
-
-    public void setIconAnimated(boolean animated) {
-        mIconAnimated = animated;
-    }
-
-    public boolean isIconAnimated() {
-        return mIconAnimated;
-    }
-
-    public ImageView getMenuIconView() {
-        return mImageToggle;
-    }
-
-    public void setIconToggleAnimatorSet(AnimatorSet toggleAnimatorSet) {
-        mIconToggleSet = toggleAnimatorSet;
-    }
-
-    public AnimatorSet getIconToggleAnimatorSet() {
-        return mIconToggleSet;
-    }
-
     public void setMenuButtonShowAnimation(Animation showAnimation) {
         mMenuButtonShowAnimation = showAnimation;
         mMenuButton.setShowAnimation(showAnimation);
@@ -862,14 +791,6 @@ public class FloatingActionMenu extends ViewGroup {
         }
     }
 
-    public void toggleMenu(boolean animate) {
-        if (isMenuHidden()) {
-            showMenu(animate);
-        } else {
-            hideMenu(animate);
-        }
-    }
-
     /**
      * Makes the {@link FloatingActionButton} to appear inside the {@link #FloatingActionMenu} and
      * sets its visibility to {@link #VISIBLE}
@@ -903,115 +824,5 @@ public class FloatingActionMenu extends ViewGroup {
                 hideMenuButtonWithImage(animate);
             }
         }
-    }
-
-    public void toggleMenuButton(boolean animate) {
-        if (isMenuButtonHidden()) {
-            showMenuButton(animate);
-        } else {
-            hideMenuButton(animate);
-        }
-    }
-
-    public void setClosedOnTouchOutside(boolean close) {
-        mIsSetClosedOnTouchOutside = close;
-    }
-
-    public void setMenuButtonColorNormal(int color) {
-        mMenuColorNormal = color;
-        mMenuButton.setColorNormal(color);
-    }
-
-    public void setMenuButtonColorNormalResId(int colorResId) {
-        mMenuColorNormal = getResources().getColor(colorResId);
-        mMenuButton.setColorNormalResId(colorResId);
-    }
-
-    public int getMenuButtonColorNormal() {
-        return mMenuColorNormal;
-    }
-
-    public void setMenuButtonColorPressed(int color) {
-        mMenuColorPressed = color;
-        mMenuButton.setColorPressed(color);
-    }
-
-    public void setMenuButtonColorPressedResId(int colorResId) {
-        mMenuColorPressed = getResources().getColor(colorResId);
-        mMenuButton.setColorPressedResId(colorResId);
-    }
-
-    public int getMenuButtonColorPressed() {
-        return mMenuColorPressed;
-    }
-
-    public void setMenuButtonColorRipple(int color) {
-        mMenuColorRipple = color;
-        mMenuButton.setColorRipple(color);
-    }
-
-    public void setMenuButtonColorRippleResId(int colorResId) {
-        mMenuColorRipple = getResources().getColor(colorResId);
-        mMenuButton.setColorRippleResId(colorResId);
-    }
-
-    public int getMenuButtonColorRipple() {
-        return mMenuColorRipple;
-    }
-
-    public void addMenuButton(FloatingActionButton fab) {
-        addView(fab, mButtonsCount - 2);
-        mButtonsCount++;
-        addLabel(fab);
-    }
-
-    public void removeMenuButton(FloatingActionButton fab) {
-        removeView(fab.getLabelView());
-        removeView(fab);
-        mButtonsCount--;
-    }
-
-    public void addMenuButton(FloatingActionButton fab, int index) {
-        int size = mButtonsCount - 2;
-        if (index < 0) {
-            index = 0;
-        } else if (index > size) {
-            index = size;
-        }
-
-        addView(fab, index);
-        mButtonsCount++;
-        addLabel(fab);
-    }
-
-    public void removeAllMenuButtons() {
-        close(true);
-        
-        List<FloatingActionButton> viewsToRemove = new ArrayList<>();
-        for (int i = 0; i < getChildCount(); i++) {
-            View v = getChildAt(i);
-            if (v != mMenuButton && v != mImageToggle && v instanceof FloatingActionButton) {
-                viewsToRemove.add((FloatingActionButton) v);
-            }
-        }
-        for (FloatingActionButton v : viewsToRemove) {
-            removeMenuButton(v);
-        }
-    }
-
-    public void setMenuButtonLabelText(String text) {
-        mMenuButton.setLabelText(text);
-    }
-
-    public String getMenuButtonLabelText() {
-        return mMenuLabelText;
-    }
-
-    public void setOnMenuButtonClickListener(OnClickListener clickListener) {
-        mMenuButton.setOnClickListener(clickListener);
-    }
-
-    public void setOnMenuButtonLongClickListener(OnLongClickListener longClickListener) {
-        mMenuButton.setOnLongClickListener(longClickListener);
     }
 }

@@ -67,7 +67,4 @@
             android:summary="@string/menu_news_summary"
             android:title="@string/menu_news" /> />
     </PreferenceCategory>
-    <PreferenceCategory
-        android:title="@string/restart_needed">
-    </PreferenceCategory>
 </PreferenceScreen>

@@ -31,13 +31,11 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 import me.zeeroooo.materialfb.R;
 
 public class FloatingActionButton extends ImageButton {
 
     public static final int SIZE_NORMAL = 0;
-    public static final int SIZE_MINI = 1;
 
     int mFabSize;
     boolean mShowShadow;
@@ -321,14 +319,6 @@ public class FloatingActionButton extends ImageButton {
         }
     }
 
-    Animation getShowAnimation() {
-        return mShowAnimation;
-    }
-
-    Animation getHideAnimation() {
-        return mHideAnimation;
-    }
-
     void playShowAnimation() {
         mHideAnimation.cancel();
         startAnimation(mShowAnimation);
@@ -434,9 +424,6 @@ public class FloatingActionButton extends ImageButton {
         private int circleInsetHorizontal;
         private int circleInsetVertical;
 
-        private CircleDrawable() {
-        }
-
         private CircleDrawable(Shape s) {
             super(s);
             circleInsetHorizontal = hasShadow() ? mShadowRadius + Math.abs(mShadowXOffset) : 0;
@@ -534,39 +521,11 @@ public class FloatingActionButton extends ImageButton {
         }
     }
 
-    /**
-     * Sets the size of the <b>FloatingActionButton</b> and invalidates its layout.
-     *
-     * @param size size of the <b>FloatingActionButton</b>. Accepted values: SIZE_NORMAL, SIZE_MINI.
-     */
-    public void setButtonSize(int size) {
-        if (size != SIZE_NORMAL && size != SIZE_MINI) {
-            throw new IllegalArgumentException("Use @FabSize constants only!");
-        }
-
-        if (mFabSize != size) {
-            mFabSize = size;
-            updateBackground();
-        }
-    }
-
-    public int getButtonSize() {
-        return mFabSize;
-    }
-
     public void setColorNormal(int color) {
         if (mColorNormal != color) {
             mColorNormal = color;
             updateBackground();
         }
-    }
-
-    public void setColorNormalResId(int colorResId) {
-        setColorNormal(getResources().getColor(colorResId));
-    }
-
-    public int getColorNormal() {
-        return mColorNormal;
     }
 
     public void setColorPressed(int color) {
@@ -576,47 +535,9 @@ public class FloatingActionButton extends ImageButton {
         }
     }
 
-    public void setColorPressedResId(int colorResId) {
-        setColorPressed(getResources().getColor(colorResId));
-    }
-
-    public int getColorPressed() {
-        return mColorPressed;
-    }
-
     public void setColorRipple(int color) {
         if (color != mColorRipple) {
             mColorRipple = color;
-            updateBackground();
-        }
-    }
-
-    public void setColorRippleResId(int colorResId) {
-        setColorRipple(getResources().getColor(colorResId));
-    }
-
-    public int getColorRipple() {
-        return mColorRipple;
-    }
-
-    public void setColorDisabled(int color) {
-        if (color != mColorDisabled) {
-            mColorDisabled = color;
-            updateBackground();
-        }
-    }
-
-    public void setColorDisabledResId(int colorResId) {
-        setColorDisabled(getResources().getColor(colorResId));
-    }
-
-    public int getColorDisabled() {
-        return mColorDisabled;
-    }
-
-    public void setShowShadow(boolean show) {
-        if (mShowShadow != show) {
-            mShowShadow = show;
             updateBackground();
         }
     }
@@ -625,115 +546,16 @@ public class FloatingActionButton extends ImageButton {
         return !mUsingElevation && mShowShadow;
     }
 
-    /**
-     * Sets the shadow radius of the <b>FloatingActionButton</b> and invalidates its layout.
-     *
-     * @param dimenResId the resource identifier of the dimension
-     */
-    public void setShadowRadius(int dimenResId) {
-        int shadowRadius = getResources().getDimensionPixelSize(dimenResId);
-        if (mShadowRadius != shadowRadius) {
-            mShadowRadius = shadowRadius;
-            requestLayout();
-            updateBackground();
-        }
-    }
-
-    /**
-     * Sets the shadow radius of the <b>FloatingActionButton</b> and invalidates its layout.
-     * <p>
-     * Must be specified in density-independent (dp) pixels, which are then converted into actual
-     * pixels (px).
-     *
-     * @param shadowRadiusDp shadow radius specified in density-independent (dp) pixels
-     */
-    public void setShadowRadius(float shadowRadiusDp) {
-        mShadowRadius = Util.dpToPx(getContext(), shadowRadiusDp);
-        requestLayout();
-        updateBackground();
-    }
-
     public int getShadowRadius() {
         return mShadowRadius;
-    }
-
-    /**
-     * Sets the shadow x offset of the <b>FloatingActionButton</b> and invalidates its layout.
-     *
-     * @param dimenResId the resource identifier of the dimension
-     */
-    public void setShadowXOffset(int dimenResId) {
-        int shadowXOffset = getResources().getDimensionPixelSize(dimenResId);
-        if (mShadowXOffset != shadowXOffset) {
-            mShadowXOffset = shadowXOffset;
-            requestLayout();
-            updateBackground();
-        }
-    }
-
-    /**
-     * Sets the shadow x offset of the <b>FloatingActionButton</b> and invalidates its layout.
-     * <p>
-     * Must be specified in density-independent (dp) pixels, which are then converted into actual
-     * pixels (px).
-     *
-     * @param shadowXOffsetDp shadow radius specified in density-independent (dp) pixels
-     */
-    public void setShadowXOffset(float shadowXOffsetDp) {
-        mShadowXOffset = Util.dpToPx(getContext(), shadowXOffsetDp);
-        requestLayout();
-        updateBackground();
     }
 
     public int getShadowXOffset() {
         return mShadowXOffset;
     }
 
-    /**
-     * Sets the shadow y offset of the <b>FloatingActionButton</b> and invalidates its layout.
-     *
-     * @param dimenResId the resource identifier of the dimension
-     */
-    public void setShadowYOffset(int dimenResId) {
-        int shadowYOffset = getResources().getDimensionPixelSize(dimenResId);
-        if (mShadowYOffset != shadowYOffset) {
-            mShadowYOffset = shadowYOffset;
-            requestLayout();
-            updateBackground();
-        }
-    }
-
-    /**
-     * Sets the shadow y offset of the <b>FloatingActionButton</b> and invalidates its layout.
-     * <p>
-     * Must be specified in density-independent (dp) pixels, which are then converted into actual
-     * pixels (px).
-     *
-     * @param shadowYOffsetDp shadow radius specified in density-independent (dp) pixels
-     */
-    public void setShadowYOffset(float shadowYOffsetDp) {
-        mShadowYOffset = Util.dpToPx(getContext(), shadowYOffsetDp);
-        requestLayout();
-        updateBackground();
-    }
-
     public int getShadowYOffset() {
         return mShadowYOffset;
-    }
-
-    public void setShadowColorResource(int colorResId) {
-        int shadowColor = getResources().getColor(colorResId);
-        if (mShadowColor != shadowColor) {
-            mShadowColor = shadowColor;
-            updateBackground();
-        }
-    }
-
-    public void setShadowColor(int color) {
-        if (mShadowColor != color) {
-            mShadowColor = color;
-            updateBackground();
-        }
     }
 
     public int getShadowColor() {
@@ -777,14 +599,6 @@ public class FloatingActionButton extends ImageButton {
         }
     }
 
-    public void toggle(boolean animate) {
-        if (isHidden()) {
-            show(animate);
-        } else {
-            hide(animate);
-        }
-    }
-
     public void setLabelText(String text) {
         mLabelText = text;
         TextView labelView = getLabelView();
@@ -803,23 +617,6 @@ public class FloatingActionButton extends ImageButton {
 
     public void setHideAnimation(Animation hideAnimation) {
         mHideAnimation = hideAnimation;
-    }
-
-    public void setLabelVisibility(int visibility) {
-        Label labelView = getLabelView();
-        if (labelView != null) {
-            labelView.setVisibility(visibility);
-            labelView.setHandleVisibilityChanges(visibility == VISIBLE);
-        }
-    }
-
-    public int getLabelVisibility() {
-        TextView labelView = getLabelView();
-        if (labelView != null) {
-            return labelView.getVisibility();
-        }
-
-        return -1;
     }
 
     @Override
@@ -861,70 +658,5 @@ public class FloatingActionButton extends ImageButton {
             mShowShadow = true;
             updateBackground();
         }
-    }
-
-    /**
-     * <b>This will clear all AnimationListeners.</b>
-     */
-    public void hideButtonInMenu(boolean animate) {
-        if (!isHidden() && getVisibility() != GONE) {
-            hide(animate);
-
-            Label label = getLabelView();
-            if (label != null) {
-                label.hide(animate);
-            }
-
-            getHideAnimation().setAnimationListener(new Animation.AnimationListener() {
-                @Override
-                public void onAnimationStart(Animation animation) {
-                }
-
-                @Override
-                public void onAnimationEnd(Animation animation) {
-                    setVisibility(GONE);
-                    getHideAnimation().setAnimationListener(null);
-                }
-
-                @Override
-                public void onAnimationRepeat(Animation animation) {
-                }
-            });
-        }
-    }
-
-    public void showButtonInMenu(boolean animate) {
-        if (getVisibility() == VISIBLE) return;
-
-        setVisibility(INVISIBLE);
-        show(animate);
-        Label label = getLabelView();
-        if (label != null) {
-            label.show(animate);
-        }
-    }
-
-    /**
-     * Set the label's background colors
-     */
-    public void setLabelColors(int colorNormal, int colorPressed, int colorRipple) {
-        Label label = getLabelView();
-
-        int left = label.getPaddingLeft();
-        int top = label.getPaddingTop();
-        int right = label.getPaddingRight();
-        int bottom = label.getPaddingBottom();
-
-        label.setColors(colorNormal, colorPressed, colorRipple);
-        label.updateBackground();
-        label.setPadding(left, top, right, bottom);
-    }
-
-    public void setLabelTextColor(int color) {
-        getLabelView().setTextColor(color);
-    }
-
-    public void setLabelTextColor(ColorStateList colors) {
-        getLabelView().setTextColor(colors);
     }
 }

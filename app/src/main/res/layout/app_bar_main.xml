@@ -29,9 +29,8 @@
         android:id="@+id/menuFAB"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="60dp"
-        android:layout_marginEnd="5dp"
         android:layout_gravity="bottom|end"
+        android:layout_margin="16dp"
         fab:menu_colorNormal="?attr/colorPrimary"
         fab:menu_colorPressed="?attr/colorPrimaryDark"
         fab:menu_colorRipple="?attr/colorPrimary"
@@ -92,17 +91,5 @@
         android:background="#000"
         android:clickable="false"
         android:visibility="gone" />
-
-    <me.zeeroooo.materialfb.BottomNavigationView.mBottomNavigationView
-        android:id="@+id/bottom_navigation"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:background="?attr/colorPrimary"
-        app:itemBackground="@drawable/ripple"
-        app:itemIconTint="@drawable/nav_item_color_state"
-        app:itemTextColor="@drawable/nav_item_color_state"
-        app:menu="@menu/bottom_navigation_main"
-        app:layout_behavior=".BottomNavigationView.BottomNavigationBehavior" />
 
 </android.support.design.widget.CoordinatorLayout>

@@ -62,8 +62,6 @@
     <string name="save_data_summary">Si está habilitado, ahorraras datos.</string>
     <string name="orbot">Usar Orbot</string>
     <string name="orbot_summary">Redirecciona todo el tráfico hacia Orbot.</string>
-    <string name="bottom_navigation_view">Barra de navegación inferior</string>
-    <string name="summary_bottom_navigation_view">Configura la barra de navegación inferior.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Publica un estado</string>
     <string name="fab_photo">Publica una foto</string>
@@ -99,15 +97,6 @@
     <string name="messaging_enabled_title">Mensajería</string>
     <string name="messaging_enabled_summary">Habilitalo para usar los mensajes de Facebook. Deshabilitalo si usas otra app de mensajería.</string>
     <!-- End navigation -->
-    <!-- BottomnavigationView -->
-    <string name="bottomnavigationview_configs">CONFIGURACIÓN DE LA BARRA DE NAVEGACIÓN INFERIOR</string>
-	<string name="shifting">Deshabilitar shifting</string>
-    <string name="summary_shifting">Si está deshabilitado, todos los items tendrán el mismo tamaño.</string>
-    <string name="only_icons">Sólo íconos</string>
-    <string name="item_shifting">Muestra texto en todos items</string>
-    <string name="summary_item_shifting">Tanto en los seleccionados como en los que no.</string>
-    <string name="only_text">Sólo texto</string>
-    <!-- End BottomNavigationView -->
 
     <!-- App -->
     <string name="silent">Silencio</string>
@@ -135,7 +124,6 @@
     <string name="error_facebook_error">Something went wrong on Facebook\'s end</string>
     <string name="loading">Cargando</string>
     <string name="permission_denied">Permiso denegado, la acción no se pudo completar</string>
-    <string name="restart_needed">Reinicio necesario</string>
 
     <!-- About -->
     <string name="more">Créditos y más</string>

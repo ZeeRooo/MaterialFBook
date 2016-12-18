@@ -22,6 +22,8 @@ import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
+import android.widget.Toast;
+
 import com.github.clans.fab.FloatingActionMenu;
 import com.greysonparrelli.permiso.Permiso;
 import com.squareup.picasso.Picasso;

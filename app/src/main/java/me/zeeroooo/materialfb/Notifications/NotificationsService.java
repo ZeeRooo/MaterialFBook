@@ -23,6 +23,7 @@ import android.os.IBinder;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
+import android.support.v4.content.ContextCompat;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import org.jsoup.Jsoup;
@@ -41,8 +42,8 @@ import android.hardware.Camera.Parameters;
 public class NotificationsService extends Service {
 
     // Facebook URL constants
-    private final String NOTIFICATIONS_URL = "https://m.facebook.com/notifications.php";
-    private final String MESSAGES_URL = "https://m.facebook.com/messages";
+    private final String NOTIFICATIONS_URL = "https://m.facebook.com/notifications/";
+    private final String MESSAGES_URL = "https://m.facebook.com/messages/";
     private static final String MESSAGES_URL_BACKUP = "https://mobile.facebook.com/messages";
     private static final String NOTIFICATION_OLD_MESSAGE_URL = "https://m.facebook.com/messages#";
 
@@ -369,7 +370,7 @@ public class NotificationsService extends Service {
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setStyle(new NotificationCompat.BigTextStyle().bigText(title))
-                        .setColor(getResources().getColor(R.color.MFBPrimary))
+                        .setColor(ContextCompat.getColor(this, R.color.MFBPrimary))
                         .setContentTitle(contentTitle)
                         .setContentText(title)
                         .setTicker(title)

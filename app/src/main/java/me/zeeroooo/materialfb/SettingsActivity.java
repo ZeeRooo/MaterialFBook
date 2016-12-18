@@ -38,10 +38,6 @@ public class SettingsActivity extends AppCompatActivity {
     public static final String KEY_PREF_NOTIF_NOTIF = "notifications_activated";
     public static final String KEY_PREF_NOTIF_MESSAGE = "message_notifications";
     public static final String KEY_PREF_HIDE_NEWS_FEED = "hide_newsfeed";
-    public static final String KEY_PREF_BNV_SHIFTING = "shifting";
-    public static final String KEY_PREF_BNV_ONLYICONS = "icons_only";
-    public static final String KEY_PREF_BNV_ITEM_SHIFTING = "item_shifting";
-    public static final String KEY_PREF_BNV_ONLYTEXT = "only_text";
 
     private static final String TAG = SettingsActivity.class.getSimpleName();
     private AppCompatActivity MaterialFBookAct;
