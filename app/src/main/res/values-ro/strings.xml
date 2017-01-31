@@ -129,7 +129,6 @@
     <string name="context_share_image_progress">Distribuie imaginea</string>
     <string name="content_copy_link_done">Link copiat in clipboard</string>
     <string name="login_button">Logare</string>
-    <string name="share_text">Distribuire</string>
     <string name="not_logged_in">Nu esti logat</string>
     <string name="error_login">Ceva s-a intamplat, mai incearca o data</string>
     <string name="error_super_wrong">Ceva grav s-a intamplat</string>

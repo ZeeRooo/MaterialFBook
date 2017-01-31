@@ -1,16 +1,17 @@
 /*
  * Code taken from:
- * - FaceSlim by indywidualny. Thanks. 
+ * - FaceSlim by indywidualny. Thanks.
  * - Folio for Facebook by creativetrendsapps. Thanks.
  * - Toffed by JakeLane. Thanks.
  */
-package me.zeeroooo.materialfb;
+package me.zeeroooo.materialfb.Activities;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -23,13 +24,15 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.WindowManager;
+import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.bumptech.glide.Glide;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -44,36 +47,38 @@ import com.github.clans.fab.FloatingActionMenu;
 import com.greysonparrelli.permiso.Permiso;
 import com.mikepenz.actionitembadge.library.ActionItemBadge;
 import com.mikepenz.actionitembadge.library.utils.BadgeStyle;
-import com.squareup.picasso.Picasso;
 import org.json.JSONException;
 import org.json.JSONObject;
-import java.util.Arrays;
-import java.util.List;
 import android.Manifest;
 import android.support.v4.view.GravityCompat;
 import android.webkit.URLUtil;
+import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import im.delight.android.webview.AdvancedWebView;
+import me.zeeroooo.materialfb.MaterialFBook;
 import me.zeeroooo.materialfb.Notifications.NotificationsService;
+import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.Ui.Theme;
-import info.guardianproject.netcipher.web.WebkitProxy;
-import java.net.InetSocketAddress;
+import me.zeeroooo.materialfb.WebView.Helpers;
+import me.zeeroooo.materialfb.WebView.CustomWebChromeClient;
+import me.zeeroooo.materialfb.WebView.JavaScriptHelpers;
+import me.zeeroooo.materialfb.WebView.JavaScriptInterfaces;
+import me.zeeroooo.materialfb.WebView.MFBWebViewClient;
+import me.zeeroooo.materialfb.WebView.WebViewListener;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     public static final String FACEBOOK_URL_BASE = "https://m.facebook.com/";
     public static final String FACEBOOK_URL_BASE_BASIC = "https://mbasic.facebook.com/";
     private final String FACEBOOK_URL_BASE_ENCODED = "https%3A%2F%2Fm.facebook.com%2F";
     private final String FACEBOOK_URL_BASE_ENCODED_BASIC = "https%3A%2F%2Fmbasic.facebook.com%2F";
-    private final List<String> HOSTNAMES = Arrays.asList("facebook.com", "*.facebook.com", "*.fbcdn.net", "*.akamaihd.net");
     private final BadgeStyle BADGE_SIDE_FULL = new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_full, R.color.MFBPrimaryDark, R.color.MFBPrimaryDark, Color.WHITE);
-    private static String TAG;
 
     // Members
-    private AppCompatActivity MaterialFBookAct;
-    SwipeRefreshLayout swipeView;
-    NavigationView mNavigationView;
-    View mCoordinatorLayoutView;
+    AppCompatActivity MaterialFBookAct;
+    public SwipeRefreshLayout swipeView;
+    public NavigationView mNavigationView;
+    public View mCoordinatorLayoutView;
     private FloatingActionMenu mMenuFAB;
     private AdvancedWebView mWebView;
     private final View.OnClickListener mFABClickListener = new View.OnClickListener() {
@@ -122,7 +127,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private SharedPreferences mPreferences;
 
     @Override
-    @SuppressLint({"setJavaScriptEnabled"})
     protected void onCreate(Bundle savedInstanceState) {
         MaterialFBookAct = this;
         boolean MFB = Theme.getInstance(this).setTheme().equals("MFB");
@@ -295,9 +299,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onRefresh() {
                 mWebView.reload();
-                if(!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
+             /*   if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                     updateUserInfo();
-                }
+                }*/
             }
         });
 
@@ -327,7 +331,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Load the WebView
         mWebView = (AdvancedWebView) findViewById(R.id.webview);
         assert mWebView != null;
-        mWebView.addPermittedHostnames(HOSTNAMES);
         mWebView.setGeolocationEnabled(mPreferences.getBoolean(SettingsActivity.KEY_PREF_LOCATION, false));
 
         mWebView.setListener(this, new WebViewListener(this, mWebView));
@@ -340,32 +343,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mWebView.getSettings().setDisplayZoomControls(false);
         mWebView.getSettings().setLoadWithOverviewMode(true);
         mWebView.getSettings().setUseWideViewPort(true);
-        mWebView.getSettings().setUserAgentString("Mozilla/5.0 (BB10; Kbd) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.4633 Mobile Safari/537.10+");
-
-        // Force all data to Orbot, thanks to FaceSlim
-        try {
-            InetSocketAddress isa = (InetSocketAddress) Miscellany.getProxy(mPreferences).address();
-            WebkitProxy.setProxy("me.zeeroooo.materialfb.MaterialFBook", getApplicationContext(), mWebView,
-                    isa.getHostName(), isa.getPort());
-        } catch (Exception e) {
-            Log.w(TAG, "Failed to set webview proxy", e);
+        if (Build.VERSION.SDK_INT >= 19) {
+            mWebView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
+        } else {
+            mWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         }
+        mWebView.getSettings().setUserAgentString("Mozilla/5.0 (BB10; Kbd) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.4633 Mobile Safari/537.10+");
+        mWebView.setWebViewClient(new MFBWebViewClient());
 
         // Long press
         registerForContextMenu(mWebView);
         mWebView.setLongClickable(true);
-        mWebView.setWebChromeClient(new CustomWebChromeClient(this, mWebView, (FrameLayout) findViewById(R.id.fullscreen_custom_content)));
-
-        // Add OnClick listener to Profile picture
-        ImageView profileImage = (ImageView) mNavigationView.getHeaderView(0).findViewById(R.id.profile_picture);
-        profileImage.setClickable(true);
-        profileImage.setOnClickListener(new View.OnClickListener() {
+        mWebView.setWebChromeClient(new CustomWebChromeClient(this, mWebView, (FrameLayout) findViewById(R.id.fullscreen_custom_content)) {
             @Override
-            public void onClick(View v) {
-                if (mUserLink != null) {
-                    drawer.closeDrawers();
-                    mWebView.loadUrl(mUserLink);
-                }
+            public void onReceivedTitle(WebView view, String title) {
+                    MainActivity.this.setTitle(title);
             }
         });
 
@@ -409,14 +401,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onResume();
         mWebView.onResume();
         Permiso.getInstance().setActivity(this);
-
         registerForContextMenu(mWebView);
     }
 
     @Override
     protected void onDestroy() {
         mWebView.onDestroy();
+        mWebView.removeAllViews();
+        mWebView.clearHistory();
+        mWebView.clearCache(true);
+        mWebView.freeMemory();
+        mWebView.pauseTimers();
         super.onDestroy();
+        if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_CLEAR_CACHE, false))
+        deleteCache(this);
     }
 
     @Override
@@ -435,9 +433,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void onStart() {
         super.onStart();
-    if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-        updateUserInfo();
-    }
+        if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
+            updateUserInfo();
+        }
     }
 
     @Override
@@ -450,6 +448,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             super.onBackPressed();
         }
+    }
+
+    public static void deleteCache(Context context) {
+        try {
+            File dir = context.getCacheDir();
+            if (dir != null && dir.isDirectory()) {
+                deleteDir(dir);
+            }
+        } catch (Exception e) {}
+    }
+
+    public static boolean deleteDir(File dir) {
+        if (dir != null && dir.isDirectory()) {
+            String[] children = dir.list();
+            for (int i = 0; i < children.length; i++) {
+                boolean success = deleteDir(new File(dir, children[i]));
+                if (!success) {
+                    return false;
+                }
+            }
+        }
+        return dir.delete();
     }
 
     @Override
@@ -466,28 +486,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here
         int id = item.getItemId();
-         if (id == R.id.action_notifications) {
+        if (id == R.id.action_notifications) {
             if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-            mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23notifications_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "notifications.php'%7D%7D)()");
-         } else {
-            mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23notifications_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED_BASIC + "notifications.php'%7D%7D)()");
-         }
+                mWebView.loadUrl(FACEBOOK_URL_BASE + "notifications.php");
+            } else {
+                mWebView.loadUrl(FACEBOOK_URL_BASE_BASIC + "notifications.php");
+            }
             Helpers.uncheckRadioMenu(mNavigationView.getMenu());
-         }
+            NotificationsService.ClearNotif();
+        }
         if (id == R.id.nav_messages) {
+           /* Intent messagesActivity = new Intent(MainActivity.this, MessagesActivity.class);
+            startActivity(messagesActivity);*/
             if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                 mWebView.loadUrl(FACEBOOK_URL_BASE + "messages/");
             } else {
                 mWebView.loadUrl(FACEBOOK_URL_BASE_BASIC + "messages/");
             }
+            NotificationsService.ClearMessages();
             Helpers.uncheckRadioMenu(mNavigationView.getMenu());
         }
 
         // Update the notifications
         if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-        JavaScriptHelpers.updateNums(mWebView);
+            JavaScriptHelpers.updateNums(mWebView);
         }
-            return super.onOptionsItemSelected(item);
+        return super.onOptionsItemSelected(item);
 
     }
 
@@ -497,53 +521,55 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()) {
             case R.id.nav_news:
                 if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-                mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23feed_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "home.php'%7D%7D)()");
-            } else {
-                mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23feed_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED_BASIC + "home.php'%7D%7D)()");
-            }
-            item.setChecked(true);
+                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23feed_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "home.php'%7D%7D)()");
+                } else {
+                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23feed_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED_BASIC + "home.php'%7D%7D)()");
+                }
+                item.setChecked(true);
             case R.id.nav_top_stories:
                 if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-                mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('a%5Bhref*%3D%22%2Fhome.php%3Fsk%3Dh_nor%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED + "home.php%3Fsk%3Dh_nor%22%7D%7D)()");
-            } else {
-                mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('a%5Bhref*%3D%22%2Fhome.php%3Fsk%3Dh_nor%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED_BASIC + "home.php%3Fsk%3Dh_nor%22%7D%7D)()");
-            }
-            item.setChecked(true);
-            break;
+                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('a%5Bhref*%3D%22%2Fhome.php%3Fsk%3Dh_nor%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED + "home.php%3Fsk%3Dh_nor%22%7D%7D)()");
+                } else {
+                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('a%5Bhref*%3D%22%2Fhome.php%3Fsk%3Dh_nor%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED_BASIC + "home.php%3Fsk%3Dh_nor%22%7D%7D)()");
+                }
+                item.setChecked(true);
+                break;
             case R.id.nav_most_recent:
                 if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-                mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('a%5Bhref*%3D%22%2Fhome.php%3Fsk%3Dh_chr%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED + "home.php%3Fsk%3Dh_chr%22%7D%7D)()");
-            } else {
-                mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('a%5Bhref*%3D%22%2Fhome.php%3Fsk%3Dh_chr%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED_BASIC + "home.php%3Fsk%3Dh_chr%22%7D%7D)()");
-            }
-            item.setChecked(true);
-            break;
+                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('a%5Bhref*%3D%22%2Fhome.php%3Fsk%3Dh_chr%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED + "home.php%3Fsk%3Dh_chr%22%7D%7D)()");
+                } else {
+                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('a%5Bhref*%3D%22%2Fhome.php%3Fsk%3Dh_chr%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED_BASIC + "home.php%3Fsk%3Dh_chr%22%7D%7D)()");
+                }
+                item.setChecked(true);
+                break;
             case R.id.nav_friendreq:
                 if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-                mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23requests_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "friends%2Fcenter%2Frequests%2F'%7D%7D)()");
-            } else {
-                mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23requests_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED_BASIC + "friends%2Fcenter%2Frequests%2F'%7D%7D)()");
-            }
-            item.setChecked(true);
-            break;
+                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23requests_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "friends%2Fcenter%2Frequests%2F'%7D%7D)()");
+                } else {
+                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23requests_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED_BASIC + "friends%2Fcenter%2Frequests%2F'%7D%7D)()");
+                }
+                item.setChecked(true);
+                break;
             case R.id.nav_messages:
+              /*  Intent messagesActivity = new Intent(MainActivity.this, MessagesActivity.class);
+                startActivity(messagesActivity);*/
                 if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                     mWebView.loadUrl(FACEBOOK_URL_BASE + "messages/");
                 } else {
                     mWebView.loadUrl(FACEBOOK_URL_BASE_BASIC + "messages/");
                 }
-                JavaScriptHelpers.updateNums(mWebView);
-                item.setChecked(true);
+                NotificationsService.ClearMessages();
+                Helpers.uncheckRadioMenu(mNavigationView.getMenu());
                 break;
             case R.id.nav_search:
                 if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-                mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23search_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "search%2F'%7D%7D)()");
-            } else {
-                mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23search_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED_BASIC + "search%2F'%7D%7D)()");
-            }
-            item.setChecked(true);
-            break;
-			case R.id.nav_groups:
+                    mWebView.loadUrl(FACEBOOK_URL_BASE + "/search/top/?q=");
+                } else {
+                    mWebView.loadUrl(FACEBOOK_URL_BASE_BASIC + "/search/top/?q=");
+                }
+                item.setChecked(true);
+                break;
+            case R.id.nav_groups:
                 if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                     mWebView.loadUrl(FACEBOOK_URL_BASE + "groups/?category=membership");
                 } else {
@@ -553,13 +579,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_mainmenu:
                 if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-                mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23bookmarks_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "home.php'%7D%7D)()");
+                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23bookmarks_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "home.php'%7D%7D)()");
                 } else {
                     mWebView.loadUrl("https://mbasic.facebook.com/menu/bookmarks/?ref_component=mbasic_home_header&ref_page=%2Fwap%2Fhome.php&refid=8");
                 }
                 item.setChecked(true);
                 break;
-			case R.id.nav_events:
+            case R.id.nav_events:
                 if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                     mWebView.loadUrl(FACEBOOK_URL_BASE + "events");
                 } else {
@@ -567,7 +593,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
                 item.setChecked(true);
                 break;
-			case R.id.nav_photos:
+            case R.id.nav_photos:
                 if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                     mWebView.loadUrl(FACEBOOK_URL_BASE + "profile.php?v=photos&soft=composer");
                 } else {
@@ -575,7 +601,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
                 item.setChecked(true);
                 break;
-			case R.id.nav_fblogout:
+            case R.id.nav_fblogout:
                 LoginManager.getInstance().logOut();
                 mWebView.reload();
                 break;
@@ -592,7 +618,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_exitapp:
                 android.os.Process.killProcess(android.os.Process.myPid());
                 finish();
-                return true;
+                break;
             default:
                 break;
         }
@@ -639,42 +665,42 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void updateUserInfo() {
- if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-        GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
-            @Override
-            public void onCompleted(JSONObject object, GraphResponse response) {
-                // Update header
-                try {
-                    String userID = object.getString("id");
-                    mUserLink = object.getString("link");
+        if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
+            GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
+                @Override
+                public void onCompleted(JSONObject object, GraphResponse response) {
+                    // Update header
+                    try {
+                        String userID = object.getString("id");
+                        mUserLink = object.getString("link");
 
-                    // Set the user's name under the header
-                    ((TextView) findViewById(R.id.profile_name)).setText(object.getString("name"));
+                        // Set the user's name under the header
+                        ((TextView) findViewById(R.id.profile_name)).setText(object.getString("name"));
 
-                    // Set the cover photo with resizing
-                    Picasso.with(getApplication()).load("https://graph.facebook.com/" + userID + "/picture?type=large").into((ImageView) findViewById(R.id.profile_picture));
-                    final View header = findViewById(R.id.header_layout);
+                        // Set the cover photo with resizing
+                        Glide.with(getApplication()).load("https://graph.facebook.com/" + userID + "/picture?type=large").into((ImageView) findViewById(R.id.profile_picture));
+                        final View header = findViewById(R.id.header_layout);
 
-                    Picasso.with(getApplicationContext()).load(object.getJSONObject("cover").getString("source")).into((ImageView) findViewById(R.id.cover));
+                        Glide.with(getApplicationContext()).load(object.getJSONObject("cover").getString("source")).into((ImageView) findViewById(R.id.cover));
 
-                } catch (NullPointerException e) {
-                    Snackbar.make(mCoordinatorLayoutView, R.string.error_facebook_noconnection, Snackbar.LENGTH_LONG).show();
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    Snackbar.make(mCoordinatorLayoutView, R.string.error_facebook_error, Snackbar.LENGTH_LONG).show();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    Snackbar.make(mCoordinatorLayoutView, R.string.error_super_wrong, Snackbar.LENGTH_LONG).show();
+                    } catch (NullPointerException e) {
+                        Snackbar.make(mCoordinatorLayoutView, R.string.error_facebook_noconnection, Snackbar.LENGTH_LONG).show();
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                        Snackbar.make(mCoordinatorLayoutView, R.string.error_facebook_error, Snackbar.LENGTH_LONG).show();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        Snackbar.make(mCoordinatorLayoutView, R.string.error_super_wrong, Snackbar.LENGTH_LONG).show();
+                    }
                 }
-            }
-        });
+            });
 
-        Bundle parameters = new Bundle();
-        parameters.putString("fields", "id,name,cover,link");
-        request.setParameters(parameters);
-        request.executeAsync();
+            Bundle parameters = new Bundle();
+            parameters.putString("fields", "id,name,cover,link");
+            request.setParameters(parameters);
+            request.executeAsync();
+        }
     }
-}
 
     public void setNotificationNum(int num) {
         if (num > 0) {
@@ -732,5 +758,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             return FACEBOOK_URL_BASE_BASIC;
         }
+    }
+    public void fullscreen() {
+        if (Build.VERSION.SDK_INT >= 19) {
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+        }
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
+    public void exitfullscreen() {
+        if (Build.VERSION.SDK_INT >= 19) {
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN);
+        }
+        getWindow().clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 }

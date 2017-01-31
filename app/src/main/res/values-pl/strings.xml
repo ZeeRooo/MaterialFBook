@@ -60,8 +60,6 @@
     <string name="navigation_menu_settings_description">Możesz dodać/ukryć elementy w menu nawigacyjnym aplikacji.</string>
     <string name="save_data">Zapisywanie danych</string>
     <string name="save_data_summary">Włączona aplikacja zużywa mniej danych.</string>
-    <string name="orbot">Użyj Orbot</string>
-    <string name="orbot_summary">Wymuś cały ruch przez Orbot.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Opublikuj status</string>
     <string name="fab_photo">Opublikuj zdjęcie</string>
@@ -116,7 +114,6 @@
     <string name="context_share_image_progress">Udostępnianie obrazu…</string>
     <string name="content_copy_link_done">Link skopiowany do schowka</string>
     <string name="login_button">Zaloguj</string>
-    <string name="share_text">Udostępnij</string>
     <string name="not_logged_in">Nie jesteś zalogowany</string>
     <string name="error_login">Coś poszło nie tak. Spróbuj zalogować się ponownie</string>
     <string name="error_super_wrong">Coś poszło bardzo nie tak</string>

@@ -114,7 +114,6 @@
     <string name="context_share_image_progress">Compartilhando imagem…</string>
     <string name="content_copy_link_done">Link copiado para área de transferência</string>
     <string name="login_button">Login</string>
-    <string name="share_text">Compartilhar</string>
     <string name="not_logged_in">Você não está logado</string>
     <string name="error_login">Algo deu errado, por favor tente fazer login novamente</string>
     <string name="error_super_wrong">Algo deu muito errado</string>

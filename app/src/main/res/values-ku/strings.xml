@@ -114,7 +114,6 @@
     <string name="context_share_image_progress">بڵاوکردنەوەی وێنە…</string>
     <string name="content_copy_link_done">بەستەر لەبەریگیرایەوە بۆ فۆڵدەری کاتی</string>
     <string name="login_button">چوونەژورەوە</string>
-    <string name="share_text">بڵاوکردنەوە</string>
     <string name="not_logged_in">نەچویتە ژوورەوە</string>
     <string name="error_login">هەڵە ڕوویدا، تکایە دووبارە هەوڵبدەرەوە</string>
     <string name="error_super_wrong">هەڵەیەک ڕوویدا</string>

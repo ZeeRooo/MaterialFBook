@@ -114,7 +114,6 @@
     <string name="content_copy_link_done">Link copiato negli appunti</string>
     <string name="context_share_image_progress">Condividendo immagine…</string>
     <string name="login_button">Entra</string>
-    <string name="share_text">Condividi</string>
     <string name="not_logged_in">Non hai effettuato l\'accesso</string>
     <string name="error_login">Qualcosa è andato storto, prova a eseguire di nuovo l\'accesso</string>
     <string name="error_super_wrong">Qualcosa è andato molto storto</string>

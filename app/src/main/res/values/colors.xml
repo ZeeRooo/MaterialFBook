@@ -36,4 +36,7 @@
     <color name="LightBlueRipple">#4003A9F4</color>
     <color name="OrangeRipple">#40FF5722</color>
     <color name="GooglePlayGreenRipple">#40109c56</color>
+
+    <color name="md_divider">#1f000000</color>
+    <color name="black_semi_transparent">#10000000</color>
 </resources>

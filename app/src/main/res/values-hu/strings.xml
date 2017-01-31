@@ -75,8 +75,6 @@
     <string name="navigation_menu_settings_description">Megjelenítheted/elrejtheted a navigációs menü elemeit.</string>
     <string name="save_data">Adatok mentése</string>
     <string name="save_data_summary">When enabled, the app autoconfigure to save data.</string>
-    <string name="orbot">Orbot proxy használata</string>
-    <string name="orbot_summary">Összes adathasználat az Orbot-on keresztül.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Státusz megosztása</string>
     <string name="fab_photo">Kép megosztása</string>
@@ -131,7 +129,6 @@
     <string name="context_share_image_progress">Kép megosztása…</string>
     <string name="content_copy_link_done">Hivatkozás másolása a vágólapra</string>
     <string name="login_button">Bejelentkezés</string>
-    <string name="share_text">Megosztás</string>
     <string name="not_logged_in">Nem vagy bejelentkezve</string>
     <string name="error_login">Valami hiba történt a bejelentkezéskor, kérjük próbáld újra.</string>
     <string name="error_super_wrong">Hiba történt</string>

@@ -114,7 +114,6 @@
     <string name="context_share_image_progress">Partage de l\'image...</string>
     <string name="content_copy_link_done">Lien copié dans le presse papiers</string>
     <string name="login_button">Connexion</string>
-    <string name="share_text">Partage</string>
     <string name="not_logged_in">Vous n’êtes pas connecté</string>
     <string name="error_login">Quelque chose ne s’est pas bien déroulé, essayez de vous connecter à nouveau</string>
     <string name="error_super_wrong">Quelque chose ne s’est vraiment pas bien déroulé</string>

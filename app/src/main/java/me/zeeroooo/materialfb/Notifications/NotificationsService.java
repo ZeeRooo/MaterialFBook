@@ -32,7 +32,7 @@ import org.jsoup.select.Elements;
 import java.io.IOException;
 import android.os.Looper;
 import android.widget.Toast;
-import me.zeeroooo.materialfb.MainActivity;
+import me.zeeroooo.materialfb.Activities.MainActivity;
 import me.zeeroooo.materialfb.MaterialFBook;
 import me.zeeroooo.materialfb.R;
 import android.util.Log;
@@ -59,7 +59,7 @@ public class NotificationsService extends Service {
 
     // volatile boolean to safely skip checking while service is being stopped
     private volatile boolean shouldContinue = true;
-    private static String userAgent;
+    private static String userAgent = "Mozilla/5.0 (BB10; Kbd) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.4633 Mobile Safari/537.10+";
     private SharedPreferences mPreferences;
 
     // static initializer
@@ -112,7 +112,9 @@ public class NotificationsService extends Service {
         handlerThread.quit();
     }
 
-    /** A runnable used by the Handler to schedule checking. **/
+    /**
+     * A runnable used by the Handler to schedule checking.
+     **/
     private class HandlerRunnable implements Runnable {
 
         public void run() {
@@ -148,22 +150,21 @@ public class NotificationsService extends Service {
                 // when onDestroy() is run and lock is released, don't go on
                 if (shouldContinue) {
                     // start AsyncTasks if there is internet connection
-                        userAgent = mPreferences.getString("webview_user_agent", System.getProperty("http.agent"));
-                        Log.i(TAG, "User Agent: " + userAgent);
+                    Log.i(TAG, "User Agent: " + userAgent);
 
-                        if (mPreferences.getBoolean("notifications_activated", false))
-                            new CheckNotificationsTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void) null);
-                        if (mPreferences.getBoolean("message_notifications", false))
-                            new CheckMessagesTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void) null);
+                    if (mPreferences.getBoolean("notifications_activated", false))
+                        new CheckNotificationsTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void) null);
+                    if (mPreferences.getBoolean("message_notifications", false))
+                        new CheckMessagesTask().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, (Void) null);
 
-                        // save current time (last potentially successful checking)
-                        mPreferences.edit().putLong("last_check", System.currentTimeMillis()).apply();
-                    } else
-                        Log.i(TAG, "No internet connection. Skip checking.");
+                    // save current time (last potentially successful checking)
+                    mPreferences.edit().putLong("last_check", System.currentTimeMillis()).apply();
+                } else
+                    Log.i(TAG, "No internet connection. Skip checking.");
 
-                    // set repeat time interval
-                    handler.postDelayed(runnable, timeInterval);
-                    Log.i(TAG, "Notified to stop running. Exiting...");
+                // set repeat time interval
+                handler.postDelayed(runnable, timeInterval);
+                Log.i(TAG, "Notified to stop running. Exiting...");
 
             } catch (RuntimeException re) {
                 Log.i(TAG, "RuntimeException caught");
@@ -173,7 +174,9 @@ public class NotificationsService extends Service {
 
     }
 
-    /** Notifications checker task: it checks Facebook notifications only. */
+    /**
+     * Notifications checker task: it checks Facebook notifications only.
+     */
     private class CheckNotificationsTask extends AsyncTask<Void, Void, Element> {
 
         boolean syncProblemOccurred = false;
@@ -242,7 +245,9 @@ public class NotificationsService extends Service {
 
     }
 
-    /** Messages checker task: it checks new messages only. */
+    /**
+     * Messages checker task: it checks new messages only.
+     */
     private class CheckMessagesTask extends AsyncTask<Void, Void, String> {
 
         boolean syncProblemOccurred = false;
@@ -317,9 +322,10 @@ public class NotificationsService extends Service {
 
     }
 
-    /** CookieSyncManager was deprecated in API level 21.
-     *  We need it for API level lower than 21 though.
-     *  In API level >= 21 it's done automatically.
+    /**
+     * CookieSyncManager was deprecated in API level 21.
+     * We need it for API level lower than 21 though.
+     * In API level >= 21 it's done automatically.
      */
     @SuppressWarnings("deprecation")
     private void syncCookies() {
@@ -330,13 +336,14 @@ public class NotificationsService extends Service {
     }
 
     // show a Sync Problem Toast while not being on UI Thread
-    private void syncProblemToast() {
+    public void syncProblemToast() {
         Handler handler = new Handler(Looper.getMainLooper());
         handler.post(new Runnable() {
             @Override
             public void run() {
                 Toast.makeText(getApplication(), getString(R.string.sync_problem),
                         Toast.LENGTH_SHORT).show();
+
             }
         });
     }
@@ -353,19 +360,13 @@ public class NotificationsService extends Service {
     private void notifier(String title, String url, boolean isMessage) {
         // let's display a notification, dude!
         final String contentTitle;
-        if (isMessage)
+      /*  if (isMessage)
             contentTitle = getString(R.string.app_name);
-        else
+        else*/
             contentTitle = getString(R.string.app_name);
 
         // log line (show what type of notification is about to be displayed)
         Log.i(TAG, "Start notification - isMessage: " + isMessage);
-
-        // Messages && notifications parts
-        Intent actionIntent = new Intent(this, MainActivity.class);
-        actionIntent.putExtra("notif_url", NOTIFICATIONS_URL);
-        Intent messageIntent = new Intent(this, MainActivity.class);
-        messageIntent.putExtra("messages_url", MESSAGES_URL);
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
@@ -387,12 +388,13 @@ public class NotificationsService extends Service {
 
         // vibration
         if (mPreferences.getBoolean("vibrate", false)) {
-            mBuilder.setVibrate(new long[] {500, 500});
+            mBuilder.setVibrate(new long[]{500, 500});
+            if (mPreferences.getBoolean("vibrate_double", false)) {
+                mBuilder.setVibrate(new long[]{500, 500, 500, 500});
+            }
         } else {
-            mBuilder.setVibrate(new long[] {0L});
+            mBuilder.setVibrate(new long[]{0L});
         }
-        if (mPreferences.getBoolean("vibrate_double", false))
-            mBuilder.setVibrate(new long[] {500, 500, 500, 500});
 
         // LED light
         if (mPreferences.getBoolean("led_light", false)) {
@@ -404,11 +406,11 @@ public class NotificationsService extends Service {
 
         // Flashlight
         if (mPreferences.getBoolean("flashlight_as_led", false)) {
-          Camera cam = Camera.open();
-          Parameters p = cam.getParameters();
-          p.setFlashMode(Parameters.FLASH_MODE_TORCH);
-          cam.setParameters(p);
-          cam.startPreview();
+                    Camera cam = Camera.open();
+                    Parameters p = cam.getParameters();
+                    p.setFlashMode(Parameters.FLASH_MODE_TORCH);
+                    cam.setParameters(p);
+                    cam.startPreview();
         }
 
         // priority for Heads-up
@@ -419,11 +421,11 @@ public class NotificationsService extends Service {
         if (isMessage) {
             // Messages
             Intent viewMessagesIntent = new Intent(this, MainActivity.class);
-            viewMessagesIntent.putExtra("messages_url", url);
             viewMessagesIntent.setAction(Intent.ACTION_VIEW);
-            viewMessagesIntent.setData(Uri.parse(MESSAGES_URL));
+            viewMessagesIntent.setData(Uri.parse(url));
+          /*  viewMessagesIntent.putExtra("", MESSAGES_URL);
             PendingIntent pendingViewMessages = PendingIntent.getActivity(getApplication(), 0, viewMessagesIntent, 0);
-            mBuilder.addAction(R.drawable.ic_message, getString(R.string.message_notifications), pendingViewMessages);
+            mBuilder.addAction(R.drawable.ic_message, getString(R.string.message_notifications), pendingViewMessages);*/
             PendingIntent resultPendingIntent = PendingIntent.getActivity(getApplication(), 1, viewMessagesIntent, PendingIntent.FLAG_UPDATE_CURRENT);
             mBuilder.setContentIntent(resultPendingIntent);
             mBuilder.setOngoing(false);
@@ -434,11 +436,11 @@ public class NotificationsService extends Service {
         } else {
             // Notif
             Intent viewNotificationsIntent = new Intent(this, MainActivity.class);
-            viewNotificationsIntent.putExtra("notif_url", url);
+          //  viewNotificationsIntent.putExtra("notif_url", url);
             viewNotificationsIntent.setAction(Intent.ACTION_VIEW);
-            viewNotificationsIntent.setData(Uri.parse(NOTIFICATIONS_URL));
-            PendingIntent pendingViewNotifications = PendingIntent.getActivity(getApplication(), 0, viewNotificationsIntent, 0);
-            mBuilder.addAction(R.drawable.ic_menu_notifications_active_png, getString(R.string.notification_viewall), pendingViewNotifications);
+            viewNotificationsIntent.setData(Uri.parse(url));
+          /*  PendingIntent pendingViewNotifications = PendingIntent.getActivity(getApplication(), 0, viewNotificationsIntent, 0);
+            mBuilder.addAction(R.drawable.ic_menu_notifications_active_png, getString(R.string.notification_viewall), pendingViewNotifications);*/
             mBuilder.setSmallIcon(R.drawable.ic_menu_notifications_active_png);
             TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
             stackBuilder.addParentStack(MainActivity.class);
@@ -454,4 +456,15 @@ public class NotificationsService extends Service {
                 note.flags |= Notification.FLAG_SHOW_LIGHTS;
         }
     }
+    public static void ClearMessages() {
+        NotificationManager notificationManager = (NotificationManager)
+                MaterialFBook.getContextOfApplication().getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.cancel(1);
     }
+
+    public static void ClearNotif() {
+        NotificationManager notificationManager = (NotificationManager)
+                MaterialFBook.getContextOfApplication().getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.cancel(0);
+    }
+}

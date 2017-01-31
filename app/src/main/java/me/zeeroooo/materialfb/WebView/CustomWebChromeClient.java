@@ -1,4 +1,4 @@
-package me.zeeroooo.materialfb;
+package me.zeeroooo.materialfb.WebView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,8 +8,10 @@ import android.webkit.WebView;
 import android.widget.FrameLayout;
 import com.github.clans.fab.FloatingActionMenu;
 
+import me.zeeroooo.materialfb.Activities.MainActivity;
+import me.zeeroooo.materialfb.R;
 
-class CustomWebChromeClient extends WebChromeClient {
+public class CustomWebChromeClient extends WebChromeClient {
     private final MainActivity mActivity;
     private final WebView mWebView;
     private final ViewGroup mCustomViewContainer;
@@ -39,7 +41,10 @@ class CustomWebChromeClient extends WebChromeClient {
         mCustomViewContainer.setVisibility(View.VISIBLE);
         mCustomViewContainer.addView(view);
         customViewCallback = callback;
+        mActivity.fullscreen();
     }
+
+
 
     @Override
     public View getVideoLoadingProgressView() {
@@ -67,7 +72,7 @@ class CustomWebChromeClient extends WebChromeClient {
         // Remove the custom view from its container.
         mCustomViewContainer.removeView(mCustomView);
         customViewCallback.onCustomViewHidden();
-
         mCustomView = null;
+        mActivity.exitfullscreen();
     }
 }

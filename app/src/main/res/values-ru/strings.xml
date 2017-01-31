@@ -129,7 +129,6 @@
     <string name="context_share_image_progress">Отправка изображения…</string>
     <string name="content_copy_link_done">Ссылка скопирована в буфер обмена</string>
     <string name="login_button">Вход</string>
-    <string name="share_text">Поделиться</string>
     <string name="not_logged_in">Вы не вошли в учетную запись!</string>
     <string name="error_login">Что то пошло не так. Попробуйте войти еще раз.</string>
     <string name="error_super_wrong">Произошла критическая ошибка!</string>

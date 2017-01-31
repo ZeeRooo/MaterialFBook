@@ -1,37 +1,36 @@
-package me.zeeroooo.materialfb;
+package me.zeeroooo.materialfb.WebView;
 
 import android.Manifest;
 import android.app.DownloadManager;
-import android.app.PendingIntent;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.net.UrlQuerySanitizer;
 import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
-import android.support.customtabs.CustomTabsIntent;
 import android.support.design.widget.Snackbar;
-import android.support.v4.content.ContextCompat;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebView;
-import android.widget.Toast;
-
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.github.clans.fab.FloatingActionMenu;
 import com.greysonparrelli.permiso.Permiso;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 import java.io.File;
 import im.delight.android.webview.AdvancedWebView;
+import me.zeeroooo.materialfb.Activities.MainActivity;
+import me.zeeroooo.materialfb.MaterialFBook;
+import me.zeeroooo.materialfb.R;
+import me.zeeroooo.materialfb.Activities.SettingsActivity;
 
-class WebViewListener implements AdvancedWebView.Listener {
+public class WebViewListener implements AdvancedWebView.Listener {
     private static final int ID_SAVE_IMAGE = 0;
     private static final int ID_SHARE_IMAGE = 1;
     private static final int ID_COPY_IMAGE_LINK = 2;
@@ -57,8 +56,11 @@ class WebViewListener implements AdvancedWebView.Listener {
 
     private final int mScrollThreshold;
     private final View mCoordinatorLayoutView;
+    private int Width = 512;
+    private int Height = 384;
 
-    WebViewListener(MainActivity activity, WebView view) {
+
+    public WebViewListener(MainActivity activity, WebView view) {
         mActivity = activity;
         mCoordinatorLayoutView = activity.mCoordinatorLayoutView;
         mWebView = (AdvancedWebView) view;
@@ -101,6 +103,15 @@ class WebViewListener implements AdvancedWebView.Listener {
                 mWebView.loadUrl("javascript:(function()%7Bdocument.querySelector('%23composerInput').innerHTML%3D'" + param + "'%7D)()");
             }
 
+            // FAB should be hiden in the next sites
+            if (url.contains("fbcdn.net") || url.endsWith("messages/")) {
+                mMenuFAB.hideMenu(true);
+            }
+            // Show the FAB on the next sites
+            if (url.contains("photo") || url.endsWith("https://m.facebook.com/")) {
+                mMenuFAB.showMenu(true);
+            }
+
             // Hide the status editor on the News Feed if setting is enabled
             if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_HIDE_EDITOR, true)) {
                 css += HIDE_COMPOSER_CSS;
@@ -136,7 +147,7 @@ class WebViewListener implements AdvancedWebView.Listener {
             }
 			    break;
 		}
-			
+
             // Inject the css
             JavaScriptHelpers.loadCSS(mWebView, css);
 
@@ -157,29 +168,10 @@ class WebViewListener implements AdvancedWebView.Listener {
     }
 
     @Override
-    public void onDownloadRequested(String url, String userAgent, String contentDisposition, String mimeType, long contentLength) {
-    }
+    public void onDownloadRequested(String url, String userAgent, String contentDisposition, String mimeType, long contentLength) { }
 
     @Override
-    public void onExternalPageRequest(String url) {
-
-        // Launch another Activity that handles URLs
-        CustomTabsIntent.Builder intentBuilder = new CustomTabsIntent.Builder();
-        intentBuilder.setShowTitle(true);
-        intentBuilder.setToolbarColor(ContextCompat.getColor(mActivity, R.color.MFBPrimary));
-
-        Intent actionIntent = new Intent(Intent.ACTION_SEND);
-        actionIntent.setType("text/plain");
-        actionIntent.putExtra(Intent.EXTRA_TEXT, url);
-
-        PendingIntent menuItemPendingIntent = PendingIntent.getActivity(mActivity, 0, actionIntent, 0);
-        intentBuilder.addMenuItem(mActivity.getString(R.string.share_text), menuItemPendingIntent);
-        try {
-            intentBuilder.build().launchUrl(mActivity, Uri.parse(url));
-        } catch (android.content.ActivityNotFoundException ex) {
-        }
-        BackCCT();
-    }
+    public void onExternalPageRequest(String url) { }
 
     @Override
     public void onScrollChange(int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
@@ -193,10 +185,6 @@ class WebViewListener implements AdvancedWebView.Listener {
                 mMenuFAB.showMenuButton(true);
             }
         }
-    }
-
-    private void BackCCT() {
-        mWebView.goBack();
     }
 
     @Override
@@ -246,27 +234,16 @@ class WebViewListener implements AdvancedWebView.Listener {
                 } else if (i == ID_SHARE_IMAGE) {
                     final Uri uri = Uri.parse(result.getExtra());
                     // Share image
-                    Target target = new Target() {
-                        @Override
-                        public void onPrepareLoad(Drawable placeHolderDrawable) {
-                        }
-
-                        @Override
-                        public void onBitmapLoaded(Bitmap bitmap, Picasso.LoadedFrom arg1) {
-                            String path = MediaStore.Images.Media.insertImage(mActivity.getContentResolver(), bitmap, uri.getLastPathSegment(), null);
-
-                            Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                            shareIntent.setType("image/*");
-                            shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
-                            mActivity.startActivity(Intent.createChooser(shareIntent, mActivity.getString(R.string.context_share_image)));
-                        }
-
-                        @Override
-                        public void onBitmapFailed(Drawable errorDrawable) {
-                        }
-                    };
-
-                    Picasso.with(mActivity).load(uri).into(target);
+                    Glide.with(MaterialFBook.getContextOfApplication()).load(uri).asBitmap().into(new SimpleTarget<Bitmap>(Width, Height) {
+                                @Override
+                                public void onResourceReady(Bitmap bitmap, GlideAnimation anim) {
+                                    String path = MediaStore.Images.Media.insertImage(mActivity.getContentResolver(), bitmap, uri.getLastPathSegment(), null);
+                                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                                    shareIntent.setType("image/*");
+                                    shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
+                                    mActivity.startActivity(Intent.createChooser(shareIntent, mActivity.getString(R.string.context_share_image)));
+                                }
+                            });
                     Snackbar.make(mCoordinatorLayoutView, R.string.context_share_image_progress, Snackbar.LENGTH_SHORT).show();
                     return true;
                 } else if (i == ID_COPY_IMAGE_LINK || i == ID_COPY_LINK) {

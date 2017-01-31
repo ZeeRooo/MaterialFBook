@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="changelog_list" translatable="false"><![CDATA[
+<br>
+<b>Version 2.5.0:</b>
+<br>
+- Deleted Orbot.
+<br>
+- Fixed status bar issues on KitKat.
+<br>
+- Improved status bar transparency in Lollipop+.
+<br>
+- Added icons for all display sizes.
+<br>
+- Improved notifications system.
+<br>
+- FAB disabled in Messages because it hide the "send" button.
+<br>
+- FAB disabled when we see a image in full screen.
+<br>
+- Fixed white page after go back from external link. (Yes, bye 2 times back button and reload the page).
+<br>
+- Deleted Chrome Custom Tabs. (now we use the browser, its better because most of the browsers have AdBlocks, lower data modes, etc).
+<br>
+- Renamed "Save data" to "Lower data mode".
+<br>
+- New feature: "Clear cache on exit", same as Settings > Apps > MaterialFBook > Clear Cache, but automatic.
+<br>
+- Fixed double vibration issues.
+<br>
+<br>
+<b>Version 2.4.5:</b>
+<br>
+- Deleted BottomNavigationView and configurations.
+<br>
+- Improved the update of the photo cover and profile x2.
+<br>
+- Cleaned code.
+<br>
+- Updated Google libreries.
+<br>
+- Corrected typo in English translation.
+<br>
+<br>
+<b>Version 2.4.0:</b>
+<br>
+- Translated to Hungrian.
+<br>
+- Added BottomNavigationView.
+<br>
+- Options to configure BottomnavigationView (only icons, only text, etc).
+<br>
+- UI reworked.
+<br>
+- Improved the update of the photo cover and profile.
+<br>
+<br>
+<b>Version 2.3.5:</b>
+<br>
+- Updated Polish.
+<br>
+- Updated Vietnamese.
+<br>
+- Translucent status bar on ALL the app.
+<br>
+<br>
+<b>Version 2.3.0:</b>
+<br>
+- Translated to Portuguese by abacate123.
+<br>
+- Implemented option to force all traffic to Orbot (Tor).
+<br>
+- Added new theme: Google Play Green.
+<br>
+- Improved status bar color.
+<br>
+- Added shadow behind the icon.
+<br>
+<br>
+<b>Version 2.2.0:</b>
+<br>
+- Updated Polish translation.
+<br>
+- Updated Google libraries.
+<br>
+- Improved animation when external link open Chrome Custom Tabs.
+<br>
+- Reworked "More and credits" page.
+<br>
+<br>
+<b>Version 2.1.0:</b>
+<br>
+- Translated to German (by fabsmusicjunkie) - Vietnamese (by Nguyễn Giang) - Romanian (by nishimura-san).
+<br>
+- Added black shadow to User name in navigation view for white photo covers.
+<br>
+- Updated Facebook SDK.
+<br>
+- Improved "Log Out" button.
+<br>
+- Maybe Nougat is fully supported now.
+<br>
+- Hide News Feed content.
+<br>
+- Improved unread messages notice.
+<br>
+- Improved toolbar icons for black theme.
+<br>
+- Improved exit of Chrome Custom Tabs.
+<br>
+<br>
+<b>Version 2.0.0:</b>
+<br>
+- Added "Flashlight as led" option. We can use the camera led as notification led :)
+<br>
+- Translated to Russian by maxel85.
+<br>
+- Added forgot lines for double vibration (i really forget it).
+<br>
+- Hide toolbar in scroll down.
+<br>
+- Now we can select and copy text (still in beta, works only in comments).
+<br>
+<br>
+<b>Version 1.9.3:</b>
+<br>
+- Fixed French missed translations.
+<br>
+- Translated to Polish by alekksander.
+<br>
+<br>
+<b>Version 1.9.2:</b>
+<br>
+- New icon.
+<br>
+- Fixed wrong translation in the spanish.
+<br>
+- Translated to French by Sebastien Durussel.
+<br>
+- Fixed "More and Credits" bug in Marshmallow.
+<br>
+- Fixed wrong translation in Kurdish.
+<br>
+- Extended time (from 3s to 10s) when you long press the FAB. Its good when the FAB hide the "Send" button in chats.
+<br>
+<br>
+<b>Version 1.9.1:</b>
+<br>
+- Added Orange color.
+<br>
+- Added "Double vibration" option.
+<br>
+- Improved Black theme.
+<br>
+- Improved "Save Data" mode. Now dont update the photo cover and profile.
+<br>
+- Improved themes. Now we have the theme colour when you press an item.
+<br>
+<br>
+<b>Version 1.9.0:</b>
+<br>
+- Added "Save data" mode.
+<br>
+- Translated: Spanish (complete), Kurdish (complete), Chinesse (incomplet), Portuguesse (incomplet), Italian (incomplet).
+<br>
+- Added option to check updates (Go to "more and credits" option in Settings and download the latest apk).
+<br>
+- Reworked material theme in web.
+<br>
+- Translucent status bar in navigation menu (api >19 = KitKat+).
+<br>
+- Replaced CheckBox with Switch. Looks better now :)
+<br>
+<br>
+<b>Version 1.8.1:</b>
+<br>
+- Bye "Download Messenger" ads. (Its automatic no more "Hide download messenger" button).
+<br>
+- Maybe white screen in messages was fixed. I dont know because i havent this bug. Anyway, test the app and tell me.
+<br>
+<br>
+<b>Version 1.8.0:</b>
+<br>
+- Code cleaned (app consume less cpu/ram).
+<br>
+- App dont start at the boot (Yeah, less permissions now).
+<br>
+- Improved notification Messages icon (when notification is displayed). Looks better now.
+<br>
+- Added Messages icon in action bar  (idea of @GorranKurd).
+<br>
+- Corrected wrong string.
+<br>
+- Added app themes (Yellow, Lime, Red, Green, Black, Grey, Purple, Light Blue, Pink and default blue color of Facebook) (if you want more colours, tell me).
+<br>
+- Fixed bug in Api 17 (Android 4.2.x). Now start correctly... or in AVD with 4.2.2 yes hahah.
+<br>
+<br>
+<b>Version 1.7.0:</b>
+<br>
+- Updated AdvancedWebView to 3.0.
+<br>
+- Fixed "Exit app" button in navigation menu.
+<br>
+- Added "Back" button in navigation menu.
+<br>
+- Fixed FC when close the app. (Thank you again, indywidualny).
+<br>
+- Minor badge update.
+<br>
+<br>
+<b>Version 1.6.0:</b>
+<br>
+- Reworked notifications. Now we have button to "All notifications" or "All messages".
+<br>
+- Reworked and reorganized settings.
+<br>
+- Added new interval for notifications refresh: "Instant: For a better chat".
+<br>
+<br>
+<b>Version 1.5.0:</b>
+<br>
+- Added notifications (messages and common activity). Ported from FaceSlim THX: @indywidualny.
+<br>
+- Updated useragent.
+<br>
+<br>
+<b>Version 1.4.0:</b>
+<br>
+- Added options to navigation menui (events, groups, close app, log out, and more).
+<br>
+- Theme engine (Dark Theme, Material Dark Theme, Material Theme and Facebook Mobile Theme). Thx: rignaneseleo from Slimsocial For Facebook for the theme engine.
+<br>
+- Added option to hide buttons of navigation menu (hide messages or hide groups, etc).
+<br>
+<br>
+<b>Version 1.3.0:</b>
+<br>
+- Fab menu with better look (its blue like Facebook theme now).
+<br>
+- Better look on CircleImage from profile.
+<br>
+- Updated dependencies.
+<br>
+- RSS deleted (No notifications = no work = more space for nothing).
+<br>
+- Moved "jump to up" buttom from left bar to fab menu.
+<br>
+<br>
+<b>Version 1.2.0:</b>
+<br>
+- Option to hide "Download Messenger".
+<br>
+- Deleted two permissions (vibrate and run after boot).
+<br>
+- New user agent.
+<br>
+<br>
+<b>Version 1.1.0:</b>
+<br>
+- Pinch to zoom.
+<br>
+- Navbar with Facebook theme colour.
+<br>
+- Code cleaned.
+    ]]></string>
+</resources>

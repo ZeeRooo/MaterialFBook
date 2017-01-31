@@ -8,12 +8,9 @@
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/ZeeRooo/MaterialFBook/tree/master/apks"/>
         </PreferenceScreen>
-        <PreferenceScreen
-            android:title="@string/changelog">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="http://pastebin.com/raw/UvVsaZrJ"/>
-        </PreferenceScreen>
+        <Preference
+            android:key="changelog"
+            android:title="@string/changelog"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/source_code">
         <PreferenceScreen

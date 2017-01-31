@@ -129,7 +129,6 @@
     <string name="context_share_image_progress">Teile das Bild…</string>
     <string name="content_copy_link_done">Link in die Zwischenablage kopiert</string>
     <string name="login_button">Einloggen</string>
-    <string name="share_text">Teilen</string>
     <string name="not_logged_in">Du bist nicht eingeloggt</string>
     <string name="error_login">Etwas ist schief gelaufen, versuche dich erneut einzuloggen</string>
     <string name="error_super_wrong">Etwas ist ziemlich schief gelaufen</string>

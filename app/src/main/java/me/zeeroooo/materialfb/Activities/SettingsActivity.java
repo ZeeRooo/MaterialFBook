@@ -3,7 +3,7 @@
  * - FaceSlim by indywidualny. Thanks.
  * - Toffed by JakeLane. Thanks.
  */
-package me.zeeroooo.materialfb;
+package me.zeeroooo.materialfb.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import me.zeeroooo.materialfb.Fragments.SettingsFragment;
+import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.Ui.Theme;
 
 public class SettingsActivity extends AppCompatActivity {
@@ -38,9 +39,9 @@ public class SettingsActivity extends AppCompatActivity {
     public static final String KEY_PREF_NOTIF_NOTIF = "notifications_activated";
     public static final String KEY_PREF_NOTIF_MESSAGE = "message_notifications";
     public static final String KEY_PREF_HIDE_NEWS_FEED = "hide_newsfeed";
+    public static final String KEY_PREF_CLEAR_CACHE = "clear_cache";
 
-    private static final String TAG = SettingsActivity.class.getSimpleName();
-    private AppCompatActivity MaterialFBookAct;
+    AppCompatActivity MaterialFBookAct;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,14 +88,9 @@ public class SettingsActivity extends AppCompatActivity {
 
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_settings);
-            Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-            setSupportActionBar(toolbar);
-
-
-            if (getSupportActionBar() != null) {
-                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-                getSupportActionBar().setDisplayShowHomeEnabled(true);
-            }
+            Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+            setSupportActionBar(mToolbar);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
             getFragmentManager().beginTransaction().replace(R.id.content_frame,
                     new SettingsFragment()).commit();
@@ -119,5 +115,4 @@ public class SettingsActivity extends AppCompatActivity {
         }
         return false;
     }
-
 }

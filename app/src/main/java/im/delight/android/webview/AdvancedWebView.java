@@ -127,7 +127,7 @@ public class AdvancedWebView extends WebView implements NestedScrollingChild {
 
 	public void setListener(final Activity activity, final Listener listener, final int requestCodeFilePicker) {
 		if (activity != null) {
-			mActivity = new WeakReference<Activity>(activity);
+			mActivity = new WeakReference<>(activity);
 		}
 		else {
 			mActivity = null;
@@ -142,7 +142,7 @@ public class AdvancedWebView extends WebView implements NestedScrollingChild {
 
 	public void setListener(final Fragment fragment, final Listener listener, final int requestCodeFilePicker) {
 		if (fragment != null) {
-			mFragment = new WeakReference<Fragment>(fragment);
+			mFragment = new WeakReference<>(fragment);
 		}
 		else {
 			mFragment = null;

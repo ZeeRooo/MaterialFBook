@@ -1,16 +1,18 @@
-package me.zeeroooo.materialfb;
+package me.zeeroooo.materialfb.WebView;
 
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.webkit.JavascriptInterface;
+import me.zeeroooo.materialfb.Activities.MainActivity;
+import me.zeeroooo.materialfb.R;
 
 @SuppressWarnings("unused")
-class JavaScriptInterfaces {
+public class JavaScriptInterfaces {
     private final MainActivity mContext;
     private final SharedPreferences mPreferences;
 
     // Instantiate the interface and set the context
-    JavaScriptInterfaces(MainActivity c) {
+    public JavaScriptInterfaces(MainActivity c) {
         mContext = c;
         mPreferences = PreferenceManager.getDefaultSharedPreferences(c);
     }

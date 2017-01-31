@@ -18,9 +18,10 @@
     <string name="interval_pref_description_new">Las notificaciones seran checkeadas cada %s.</string>
     <string name="notification_sound_msg">Sonido de mensaje</string>
     <string name="vibrate">Vibración</string>
+    <string name="vibrate_double">Vibración doble</string>
     <string name="led_light">Luz LED</string>
     <string name="flashlight_as_led">Flashlight como luz LED</string>
-    <string name="flashlight_as_led_summary">Usa el flash de la camara como led de notificaciones.</string>
+    <string name="flashlight_as_led_summary">Usa el flash de la cámara como led de notificaciones.</string>
     <string name="notifications_extra">Adicional</string>
     <string name="notifications_everywhere">Notificarme siempre</string>
     <string name="notifications_everywhere_description">También cuando estas en la pantalla principal</string>
@@ -40,7 +41,9 @@
     <string name="hide_birthdays_title">Oculta cumpleaños</string>
     <string name="hide_birthdays_summary">Si está habilitado, los cumpleaños no se mostrarán.</string>
     <string name="hide_newsfeedcontent">Oculta todas las noticias</string>
-    <string name="hide_newsfeedcontent_summary">Si está habilitado, ninguna noticia aparecerá.</string>	
+    <string name="hide_newsfeedcontent_summary">Si está habilitado, ninguna noticia aparecerá.</string>
+    <string name="clearcache">Limpiar cache al salir</string>
+    <string name="clearcache_summary">Tardará más tiempo en abrir la app.</string>
     <!-- End general -->
 
     <!-- Appearence -->
@@ -59,9 +62,7 @@
     <string name="navigation_menu_settings">Elementos de la barra de navegación</string>
     <string name="navigation_menu_settings_description">Elije los elementos que aparecen en la barra de navegación.</string>
     <string name="save_data">Ahorra datos</string>
-    <string name="save_data_summary">Si está habilitado, ahorraras datos.</string>
-    <string name="orbot">Usar Orbot</string>
-    <string name="orbot_summary">Redirecciona todo el tráfico hacia Orbot.</string>
+    <string name="save_data_summary">Carga la versión básica de Facebook, deshabilita la sincronización de la info. del usuario.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Publica un estado</string>
     <string name="fab_photo">Publica una foto</string>
@@ -116,7 +117,6 @@
     <string name="context_share_image_progress">Guardando imágen...</string>
     <string name="content_copy_link_done">Link copiado</string>
     <string name="login_button">Iniciar seción</string>
-    <string name="share_text">Compartir</string>
     <string name="not_logged_in">No haz iniciado seción</string>
     <string name="error_login">Algo extraño ha pasado, por favor inicie seción nuevamente</string>
     <string name="error_super_wrong">Algo super extraño ha pasado, lo siento</string>
@@ -133,7 +133,7 @@
     <string name="people_who_translated">Usuarios que tradujeron la app</string>
     <string name="devs_who_helped_me">Desarrolladores que me ayudaron respondiendo dudas y usando su código</string>
     <string name="help_translations">Ayudame a traducir la app a tu lenguaje</string>
-    <string name="about_translations">¡Ayudanos, te necesitamos!</string>
+    <string name="about_translations">¡Ayúdanos, te necesitamos!</string>
     <string name="source_code">Código en Github</string>
     <string name="withYou">Reporta un bug o solicita un cambio</string>
     <string name="changelog">Lista de cambios</string>

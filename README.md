@@ -137,6 +137,20 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Updated Google libreries.
 - Corrected typo in English translation.
 
+**Version 2.5.0:**
+- Deleted Orbot.
+- Fixed status bar issues on KitKat.
+- Improved status bar transparency in Lollipop+.
+- Added icons for all display sizes.
+- Improved notifications system.
+- FAB disabled in Messages because it hide the "send" button.
+- FAB disabled when we see a image in full screen.
+- Fixed white page after go back from external link. (Yes, bye 2 times back button and reload the page)
+- Deleted Chrome Custom Tabs. (now we use the browser, its better because most of the browsers have AdBlocks, lower data modes, etc).
+- Renamed "Save data" to "Lower data mode".
+- New feature: "Clear cache on exit", same as Settings > Apps > MaterialFBook > Clear Cache, but automatic.
+- Fixed double vibration issues.
+
 ###########
 
 ## - I recomend Android Studio to build this project -
@@ -155,7 +169,6 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - SlimSocial for Facebook by rignaneseleo.
 - AdvancedWebView by delight-im.
 - FloatingActionButton by Clans.
-- BottomNavigationViewEx by ittianyu. (Thank to Google too, because they release a bnv without options to customize).
 - All people who translated the app (more details in "More and Credits")
 
 

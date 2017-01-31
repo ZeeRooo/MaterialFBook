@@ -1,4 +1,4 @@
-package me.zeeroooo.materialfb;
+package me.zeeroooo.materialfb.WebView;
 
 import android.app.Activity;
 import android.support.design.widget.Snackbar;
@@ -8,10 +8,11 @@ import android.webkit.CookieManager;
 import com.facebook.login.LoginManager;
 import java.util.Arrays;
 import java.util.List;
+import me.zeeroooo.materialfb.Activities.MainActivity;
+import me.zeeroooo.materialfb.R;
 
-class Helpers {
-    public final String LogTag = "FBWrapper";
-    static final List<String> FB_PERMISSIONS = Arrays.asList("public_profile", "user_friends");
+public class Helpers {
+    public static final List<String> FB_PERMISSIONS = Arrays.asList("public_profile", "user_friends");
 
     // Method to retrieve a single cookie
     public static String getCookie() {
@@ -53,7 +54,7 @@ class Helpers {
         }
     }
 
-    public static boolean isInteger(String str) {
+    static boolean isInteger(String str) {
         return (str.matches("^-?\\d+$"));
     }
 }

@@ -75,8 +75,6 @@
     <string name="navigation_menu_settings_description">Bạn có thể hiển thị/ẩn các mục trong điều hướng menu.</string>
     <string name="save_data">Lưu dữ liệu</string>
     <string name="save_data_summary">Khi được kích hoạt, tự động cấu hình ứng dụng sẽ lưu dữ liệu</string>
-    <string name="orbot">Dùng Orbot</string>
-    <string name="orbot_summary">Buộc tất cả các lưu lượng đến Orbot.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Đăng trạng thái</string>
     <string name="fab_photo">Đăng ảnh</string>
@@ -131,7 +129,6 @@
     <string name="context_share_image_progress">Đang chia sẻ ảnh…</string>
     <string name="content_copy_link_done">Đường dẫn đã được sao chép vào bảng tạm</string>
     <string name="login_button">Đăng nhập</string>
-    <string name="share_text">Chia sẻ</string>
     <string name="not_logged_in">Bạn chưa đăng nhập</string>
     <string name="error_login">Một cái gì đó đã diễn ra sai, hãy thử đăng nhập lại</string>
     <string name="error_super_wrong">Một cái gì đó đã diễn ra sai</string>

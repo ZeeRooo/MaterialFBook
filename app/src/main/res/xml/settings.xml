@@ -31,6 +31,11 @@
             android:key="hide_newsfeed"
             android:summary="@string/hide_newsfeedcontent_summary"
             android:title="@string/hide_newsfeedcontent" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="clear_cache"
+            android:summary="@string/clearcache_summary"
+            android:title="@string/clearcache" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/appearance_setting_title">
         <ListPreference
@@ -70,23 +75,14 @@
             android:key="save_data"
             android:summary="@string/save_data_summary"
             android:title="@string/save_data" />
-        <SwitchPreference
-            android:key="orbot"
-            android:title="@string/orbot"
-            android:summary="@string/orbot_summary"
-            android:defaultValue="false"/>
         <Preference
             android:key="navigation_menu_settings"
             android:title="@string/navigation_menu_settings"
             android:summary="@string/navigation_menu_settings_description"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/more">
-        <PreferenceScreen
-            android:title="@string/more">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:targetClass="me.zeeroooo.materialfb.Fragments.More"
-                android:targetPackage="me.zeeroooo.materialfb"/>
-        </PreferenceScreen>
+        <Preference
+            android:key="moreandcredits"
+            android:title="@string/more"/>
     </PreferenceCategory>
 </PreferenceScreen>
