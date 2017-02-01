@@ -2,6 +2,11 @@
 <resources>
     <string name="changelog_list" translatable="false"><![CDATA[
 <br>
+<b>Version 2.5.1:</b>
+<br>
+- Fixed FC in "More and Settings".
+<br>	
+<br>
 <b>Version 2.5.0:</b>
 <br>
 - Deleted Orbot.

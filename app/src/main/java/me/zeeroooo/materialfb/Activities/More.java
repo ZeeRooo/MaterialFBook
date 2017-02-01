@@ -68,7 +68,7 @@ public class More extends AppCompatActivity {
             setSupportActionBar(mToolbar);
         }
     }
-    static class MoreAndCredits extends PreferenceFragment implements Preference.OnPreferenceClickListener {
+    public static class MoreAndCredits extends PreferenceFragment implements Preference.OnPreferenceClickListener {
         @Override
         public void onCreate(final Bundle Instance) {
             super.onCreate(Instance);

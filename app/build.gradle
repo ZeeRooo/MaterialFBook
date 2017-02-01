@@ -13,8 +13,8 @@ android {
         applicationId "me.zeeroooo.materialfb"
         minSdkVersion 17
         targetSdkVersion 25
-        versionCode 34
-        versionName "2.5.0"
+        versionCode 35
+        versionName "2.5.1"
     }
     buildTypes {
         release {

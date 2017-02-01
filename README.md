@@ -151,6 +151,9 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - New feature: "Clear cache on exit", same as Settings > Apps > MaterialFBook > Clear Cache, but automatic.
 - Fixed double vibration issues.
 
+**Version 2.5.1:**
+- Fixed FC in "More and Credits".
+
 ###########
 
 ## - I recomend Android Studio to build this project -
