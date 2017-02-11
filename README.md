@@ -162,6 +162,9 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Translated to Serbian by PoP992.
 - Fixed toolbar/keyboard issues on KitKat devices. #36
 
+**Version 2.6.1:**
+- Fixed FC when the device is not connected and AlarmManager try to refresh the notifications. #40
+
 ###########
 
 ## - I recomend Android Studio to build this project -
