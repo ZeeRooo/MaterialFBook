@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Notifications -->
+    <string name="notifications_setting_title">Obaveštenja</string>
+    <string name="notif">Notifications</string>
+    <string name="notif_summary">New messages and general notifications.</string>
+    <string name="you_have_one_message">Imaš jednu poruku.</string>
+    <string name="notification_viewall">Vidi sva obaveštenja</string>
+    <string name="messages_viewall">Vidi sve poruke</string>
+    <string name="applying_changes">Primeni promene</string>
+    <string name="you_have_n_messages">Imaš %d poruka.</string>
+    <string name="sync_problem">Kolačići ne mogu biti sinhronizovani. Prvo pokretanje? Molimo restartujte aplikaciju :)</string>
+    <string name="notification_sound_description">izaberite melodiju zvona: \u0020</string>
+    <string name="notifications_settings">Podešavanje obaveštenja</string>
+    <string name="notifications_settings_description">Dodatna podešavanja. Izaberite vremenski razmak, podesite zvuk, LED i vibracije.</string>
+    <string name="facebook_notifications">Facebook obaveštenja</string>
+    <string name="message_notifications">Facebook poruke</string>
+    <string name="interval_pref">Vremenski razmak za proveru</string>
+    <string name="notification_sound">Zvuk obaveštenja</string>
+    <string name="interval_pref_description_new">Obaveštenja će biti proveravana na svakih %s.</string>
+    <string name="notification_sound_msg">Zvuk poruka</string>
+    <string name="vibrate">Vibracija</string>
+    <string name="vibrate_double">Dupla vibracija</string>
+    <string name="led_light">LED osvetljenje</string>
+    <string name="flashlight_as_led">Baterijska lampa kao LED</string>
+    <string name="flashlight_as_led_summary">Koristi baterijsku lampu kao LED za obaveštenja (kamera led).</string>
+    <!-- End Notifications -->
+
+    <!-- General -->
+    <string name="general_setting_title">Opšte</string>
+    <string name="location_enabled_title">Prietup lokaciji</string>
+    <string name="location_enabled_summary">Omoguci ovo da bi Facebook mogao da koristi tvoju lokaciju.</string>
+    <string name="hide_editor_newsfeed_title">Sakri Status editor u Najvažnijim vestima</string>
+    <string name="hide_editor_newsfeed_summary">Kada je omogućeno, status editor će biti sakriven u Najvažnijim vestima.</string>
+    <string name="hide_editor_newsfeed_snackbar">Osveži da bi promene stupile na snagu</string>
+    <string name="stop_images_title">Ne ocitavaj slike</string>
+    <string name="stop_images_summary">Kada je omoguceno, Neće skidati slike. Neke slike mogu ostati keširane.</string>
+    <string name="hide_sponsored_title">Sakri &#8216;Sponsored&#8217; Sadržaj</string>
+    <string name="hide_sponsored_summary">Kada je omogućeno, sakriće &#8216;Sponsored&#8217; sadržaj (ads) u News Feed-u.</string>
+    <string name="hide_birthdays_title">Sakriti rođendane</string>
+    <string name="hide_birthdays_summary">Kada je omogućeno, sakrice rođendane u Najvažnijim vestima.</string>
+    <string name="clearcache">Clear cache on exit</string>
+    <string name="clearcache_summary">It will take more time to open the app.</string>
+    <!-- End general -->
+
+    <!-- About -->
+    <string name="more">Još i zasluge</string>
+    <string name="about_updates">Nadogradnja</string>
+    <string name="updates">Proverite za novu verziju</string>
+    <string name="updates_summary">Učitaj stranicu i skini najnoviju verziju</string>
+    <string name="people_who_translated">Korisnici koji su preveli ovu aplikaciju</string>
+    <string name="devs_who_helped_me">Programeri koji su mi pomogli sa pitanjima i od kojih sam uzeo kod od njihovih aplikacija</string>
+    <string name="help_translations">Pomozite mi da prevedem aplikaciju na vašem jeziku</string>
+    <string name="about_translations">Pomozi, potreban si nam</string>
+    <string name="source_code">Izvorni kod na Github-u</string>
+    <string name="withYou">Prijavi greške i zahtevaj nove fungcije</string>
+    <string name="changelog">Promene u aplikaciji</string>
+    <!-- End about -->
+
+    <!-- Appearence -->
+    <string name="appearance_setting_title">IZGLED</string>
+    <string name="web_themes">Web teme</string>
+    <string name="web_themes_summary">Možeš da izabereš nove web teme.</string>
+    <string name="app_themes">Teme aplikacije</string>
+    <string name="app_themes_summary">Možeš da izabereš nove teme aplikacije.</string>
+
+    <!-- Navigation -->
+    <string name="navigation_setting_title">NAVIGACIJE</string>
+    <string name="hide_menu_bar_title">Sakriti meni traku</string>
+    <string name="hide_menu_bar_summary">Kada je omogućeno, Facebook meni traka će biti sakrivena.</string>
+    <string name="hide_fab_on_scroll_title">Sakriti akciono dugme kada skroluješ</string>
+    <string name="hide_fab_on_scroll_summary">Sakriće akciono dugme kada skroluješ.</string>
+    <string name="navigation_menu_settings">Navigacione stavke menija</string>
+    <string name="navigation_menu_settings_description">možeš da pokažeš/sakriješ stavke u navigacionom meniju.</string>
+    <string name="save_data">Sačuvaj podatke</string>
+    <string name="save_data_summary">Kada je omogućeno, Alpikacija ce bitit podešena da čuva podatke</string>
+    <string name="orbot">Koristi Orbot</string>
+    <string name="orbot_summary">Primoraj sav saobraćaj na Orbot.</string>
+    <string name="bottom_navigation_view">Donji navigacioni pregled</string>
+    <string name="summary_bottom_navigation_view">Konfigurišite donji navigacioni pregled.</string>
+    <!-- Navigation: fab -->
+    <string name="fab_text">Postavi status</string>
+    <string name="fab_photo">Postavi poruku</string>
+    <string name="fab_checkin">Postavi lokaciju</string>
+    <string name="fab_jump_top">Skoči na vrh</string>
+    <!-- Navigation: items -->
+    <string name="navigation_menu_title">NAVIGACIONI MENI</string>
+    <string name="ic_menu_exitapp">izađi iz aplikacije</string>
+    <string name="ic_menu_exitapp_summary">Kada je omogućeno, &#8216;Izađi iz aplikacije&#8217; dugme u navigacionom meniju će nestati.</string>
+    <string name="ic_menu_fblogout">Odjavi se</string>
+    <string name="ic_menu_fblogout_summary">Kada je omogućeno, &#8216;Odjavi se&#8217; dugme u navigacionom meniju će nestati.</string>
+    <string name="menu_photos">Slike</string>
+    <string name="menu_photos_summary">Kada je omogućeno, &#8216;Slike&#8217; dugme u navigacionom meniju će nestati.</string>
+    <string name="menu_events">Događaji</string>
+    <string name="menu_events_summary">Kada je omogućeno, &#8216;Događaji&#8217; dugme u navigacionom meniju će nestati.</string>
+    <string name="menu_back">Nazad</string>
+    <string name="menu_back_summary">Ako je onemogućeno, &#8216;Nazad&#8217; dugme u navigacionom meniju će nestati.</string>
+    <string name="menu_top_stories">Top priče</string>
+    <string name="menu_top_stories_summary">Ako je onemogućeno, &#8216;Top priče&#8217; dugme u navigacionom meniju će nestati.</string>
+    <string name="menu_most_recent">Najnovije</string>
+    <string name="menu_most_recent_summary">Ako je onemogućeno, &#8216;Najnovije&#8217; dugme u navigacionom meniju će nestati.</string>
+    <string name="menu_friendreq">Zahtev za prijatelja</string>
+    <string name="menu_friendreq_summary">Ako je onemogućeno, &#8216;Zahtev za prijatelja&#8217; dugme u navigacionom meniju će nestati.</string>
+    <string name="menu_groups">Grupe</string>
+    <string name="menu_groups_summary">Ako je onemogućeno, &#8216;Grupe&#8217; dugme u navigacionom meniju će nestati.</string>
+    <string name="menu_messages">Poruke</string>
+    <string name="menu_search">Pretraga</string>
+    <string name="menu_search_summary">Ako je onemogućeno, &#8216;Pretraga&#8217; dugme u navigacionom meniju će nestati.</string>
+    <string name="menu_mainmenu">Glavni meni</string>
+    <string name="menu_mainmenu_summary">Ako je onemogućeno, &#8216;Glavni meni&#8217; dugme u navigacionom meniju će nestati.</string>
+    <string name="messaging_enabled_title">Razmena poruka</string>
+    <string name="messaging_enabled_summary">Kada je omogućeno, omogućiće pristup Facebook porukama. pnemogući ako imaš aplikaciju za poruke.</string>
+    <!-- End navigation -->
+
+    <!-- App -->
+    <string name="silent">Bez zvuka</string>
+    <string name="file_logger_needs_permission">Nemam pristup eksternom memorijom. Log ne mogu sačuvati</string>
+    <string name="navigation_drawer_open">Otvori navigacijonu fioku</string>
+    <string name="navigation_drawer_close">Zatvori navigacijonu fioku</string>
+    <string name="default_user">Korisnik</string>
+    <string name="header_profile_pic">Profilna Slika</string>
+    <string name="nav_notifications">Obaveštenja</string>
+    <string name="menu_fblogin">Uloguj se na Facebook</string>
+    <string name="context_save_image">Sačuvati sliku</string>
+    <string name="settings">Podešavanja</string>
+    <string name="context_share_image">Podeli sliku</string>
+    <string name="context_copy_image_link">Kopiraj link slike</string>
+    <string name="context_share_link">Podeli link</string>
+    <string name="context_copy_link">Kopiraj link</string>
+    <string name="context_share_image_progress">Deljenje slike…</string>
+    <string name="content_copy_link_done">Link je kopiran</string>
+    <string name="login_button">Uloguj se</string>
+    <string name="share_text">Podeli</string>
+    <string name="not_logged_in">Nisi ulogovan</string>
+    <string name="error_login">Nešto nije u redu, Molimo probajte da se ulogujete opet</string>
+    <string name="error_super_wrong">Nešto mnogo nije u redu</string>
+    <string name="error_facebook_noconnection">Ne mogu da pristupim Facebook-u</string>
+    <string name="error_facebook_error">Nešto nije u redu na Facebook-ovom kraju</string>
+    <string name="loading">Očitavam</string>
+    <string name="permission_denied">Dozvola odbijena, ne mogu da završim akciju</string>
+
+</resources>

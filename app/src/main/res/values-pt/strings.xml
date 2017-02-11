@@ -2,6 +2,8 @@
 <resources>
     <!-- Notifications -->
     <string name="notifications_setting_title">NOTIFICAÇÕES</string>
+    <string name="notif">Notifications</string>
+    <string name="notif_summary">New messages and general notifications.</string>
     <string name="you_have_one_message">Você tem uma mensagem.</string>
     <string name="notification_viewall">Ver todas as notificações</string>
     <string name="messages_viewall">Ver todas as mensagens</string>
@@ -21,9 +23,6 @@
     <string name="led_light">LED</string>
     <string name="flashlight_as_led">Lanterna como LED</string>
     <string name="flashlight_as_led_summary">Use a lanterna como LED para as notificações (led da câmera).</string>
-    <string name="notifications_extra">Adicional</string>
-    <string name="notifications_everywhere">Sempre notificar</string>
-    <string name="notifications_everywhere_description">Além disso, quando você está na tela principal do aplicativo.</string>
     <!-- End Notifications -->
 
     <!-- General -->
@@ -36,11 +35,11 @@
     <string name="stop_images_title">Não carregar imagens</string>
     <string name="stop_images_summary">Quando ativado, não irá baixar imagens. Algumas imagens podem permanecer no cache.</string>
     <string name="hide_sponsored_title">Esconder Conteúdo Patrocinado</string>
-    <string name="hide_sponsored_summary">Quando ativado, irá esconder Conteúdo "Patrocinado" (anúncios) do Feed de Notícias.</string>
+    <string name="hide_sponsored_summary">Quando ativado, irá esconder Conteúdo &#8220;Patrocinado&#8221; (anúncios) do Feed de Notícias.</string>
     <string name="hide_birthdays_title">Ocultar Aniversários</string>
     <string name="hide_birthdays_summary">Quando ativado, irá ocultar aniversários do seu Feed de notícias.</string>
-    <string name="hide_newsfeedcontent">Ocultar Conteúdo do Feed de Notícias</string>
-    <string name="hide_newsfeedcontent_summary">Quando ativado, irá ocultar conteúdos do Feed de Notícias.</string>
+    <string name="clearcache">Clear cache on exit</string>
+    <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->
 
     <!-- Appearence -->
@@ -68,30 +67,28 @@
     <!-- Navigation: items -->
     <string name="navigation_menu_title">MENU DE NAVEGAÇÃO</string>
     <string name="ic_menu_exitapp">Exit app</string>
-    <string name="ic_menu_exitapp_summary">When enabled, \'Exit app\' button on navigation menu disappear.</string>
+    <string name="ic_menu_exitapp_summary">When enabled, &#8216;Exit app&#82167; button on navigation menu disappear.</string>
     <string name="ic_menu_fblogout">Log out</string>
-    <string name="ic_menu_fblogout_summary">When enabled, \'Log out\' button on navigation menu disappear.</string>
+    <string name="ic_menu_fblogout_summary">When enabled, &#8216;Log out&#82167; button on navigation menu disappear.</string>
     <string name="menu_photos">Photos</string>
-    <string name="menu_photos_summary">When enabled, \'Photos\' button on navigation menu disappear.</string>
+    <string name="menu_photos_summary">When enabled, &#8216;Photos&#82167; button on navigation menu disappear.</string>
     <string name="menu_events">Events</string>
-    <string name="menu_events_summary">When enabled, \'Events\' button on navigation menu disappear.</string>
+    <string name="menu_events_summary">When enabled, &#8216;Events&#82167; button on navigation menu disappear.</string>
     <string name="menu_back">Voltar</string>
-    <string name="menu_back_summary">If disabled, \'Voltar\' button on navigation menu disappear.</string>
-    <string name="menu_news">Feed de Notícias</string>
-    <string name="menu_news_summary">If disabled, \'Feed de Notícias\' button on navigation menu disappear.</string>
+    <string name="menu_back_summary">If disabled, &#8216;Voltar&#82167; button on navigation menu disappear.</string>
     <string name="menu_top_stories">Top stories</string>
-    <string name="menu_top_stories_summary">If disabled, \'Top stories\' button on navigation menu disappear.</string>
+    <string name="menu_top_stories_summary">If disabled, &#8216;Top stories&#82167; button on navigation menu disappear.</string>
     <string name="menu_most_recent">Most Recent</string>
-    <string name="menu_most_recent_summary">If disabled, \'Most Recent\' button on navigation menu disappear.</string>
+    <string name="menu_most_recent_summary">If disabled, &#8216;Most Recent&#82167; button on navigation menu disappear.</string>
     <string name="menu_friendreq">Solicitações de Amizade</string>
-    <string name="menu_friendreq_summary">If disabled, \'Solicitações de Amizade\' button on navigation menu disappear.</string>
+    <string name="menu_friendreq_summary">If disabled, &#8216;Solicitações de Amizade&#82167; button on navigation menu disappear.</string>
     <string name="menu_groups">Groups</string>
-    <string name="menu_groups_summary">If disabled, \'Groups\' button on navigation menu disappear.</string>
+    <string name="menu_groups_summary">If disabled, &#8216;Groups&#82167; button on navigation menu disappear.</string>
     <string name="menu_messages">Mensagens</string>
     <string name="menu_search">Pesquisar</string>
-    <string name="menu_search_summary">If disabled, \'Pesquisar\' button on navigation menu disappear.</string>
+    <string name="menu_search_summary">If disabled, &#8216;Pesquisar&#82167; button on navigation menu disappear.</string>
     <string name="menu_mainmenu">Menu Principal</string>
-    <string name="menu_mainmenu_summary">If disabled, \'Menu Principal\' button on navigation menu disappear.</string>
+    <string name="menu_mainmenu_summary">If disabled, &#8216;Menu Principal&#82167; button on navigation menu disappear.</string>
     <string name="messaging_enabled_title">Mensagens</string>
     <string name="messaging_enabled_summary">Quando ativado, irá proporcionar o acesso as Mensagens do Facebook. Desative se você tiver um aplicativo de mensagens.</string>
     <!-- End navigation -->

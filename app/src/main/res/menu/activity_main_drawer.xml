@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
     <group android:id="@+id/group_fbnav" android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_news"
-            android:icon="@drawable/ic_menu_news"
-            android:title="@string/menu_news" />
         <item
             android:id="@+id/nav_top_stories"
             android:icon="@drawable/ic_menu_top_stories"
@@ -53,10 +48,6 @@
             android:id="@+id/nav_fblogin"
             android:icon="@drawable/ic_menu_fblogin"
             android:title="@string/menu_fblogin" />
-        <item
-            android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_menu_settings"
-            android:title="@string/settings" />
 		<item
             android:id="@+id/nav_fblogout"
             android:icon="@drawable/ic_menu_fblogout"
@@ -65,6 +56,10 @@
             android:id="@+id/nav_exitapp"
             android:icon="@android:drawable/ic_lock_power_off"
             android:title="@string/ic_menu_exitapp" />
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_menu_settings"
+            android:title="@string/settings" />
     </group>
 
 </menu>

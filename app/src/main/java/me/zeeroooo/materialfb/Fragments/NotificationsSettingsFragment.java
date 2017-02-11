@@ -4,19 +4,15 @@
 package me.zeeroooo.materialfb.Fragments;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.preference.ListPreference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
-import me.zeeroooo.materialfb.MaterialFBook;
 import me.zeeroooo.materialfb.R;
-import me.zeeroooo.materialfb.Notifications.NotificationsService;
 
 public class NotificationsSettingsFragment extends PreferenceFragment {
 
@@ -31,33 +27,8 @@ public class NotificationsSettingsFragment extends PreferenceFragment {
         // load the preferences from an XML resource
         addPreferencesFromResource(R.xml.notifications_settings);
 
-        context = MaterialFBook.getContextOfApplication();
+        context = getActivity();
         preferences = PreferenceManager.getDefaultSharedPreferences(context);
-
-        // default value for interval_pref preference summary
-        ListPreference lp = (ListPreference) findPreference("interval_pref");
-        String temp1 = getString(R.string.interval_pref_description_new).replace("%s", "");
-        String temp2 = lp.getSummary().toString();
-        if (temp1.equals(temp2))
-            lp.setValueIndex(2);
-
-        // listener for changing preferences (works after the value change)
-        prefChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
-            public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-                // service intent (start, stop)
-                final Intent intent = new Intent(context, NotificationsService.class);
-
-                switch (key) {
-                    case "interval_pref":
-                        // restart the service after time interval change
-                        if (prefs.getBoolean("notifications_activated", false) || prefs.getBoolean("message_notifications", false)) {
-                            context.stopService(intent);
-                            context.startService(intent);
-                        }
-                        break;
-                }
-            }
-        };
     }
 
     @Override

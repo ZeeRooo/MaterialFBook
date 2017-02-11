@@ -129,6 +129,13 @@
                 android:action="android.intent.action.VIEW"
                 android:data="http://forum.xda-developers.com/member.php?u=2946536"/>
         </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="PoP992"
+            android:title="Serbian">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/PoP992"/>
+        </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/about_translations">
         <PreferenceScreen

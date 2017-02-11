@@ -28,11 +28,6 @@
             android:title="@string/hide_birthdays_title" />
         <SwitchPreference
             android:defaultValue="false"
-            android:key="hide_newsfeed"
-            android:summary="@string/hide_newsfeedcontent_summary"
-            android:title="@string/hide_newsfeedcontent" />
-        <SwitchPreference
-            android:defaultValue="false"
             android:key="clear_cache"
             android:summary="@string/clearcache_summary"
             android:title="@string/clearcache" />

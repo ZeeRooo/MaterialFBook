@@ -2,6 +2,8 @@
 <resources>
     <!-- Notifications -->
     <string name="notifications_setting_title">BENACHRICHTIGUNGEN</string>
+    <string name="notif">Notifications</string>
+    <string name="notif_summary">New messages and general notifications.</string>
     <string name="you_have_one_message">Du hast eine Nachricht.</string>
     <string name="notification_viewall">Alle Benachrichtigungen anzeigen</string>
     <string name="messages_viewall">Alle Nachrichten anzeigen</string>
@@ -22,9 +24,6 @@
     <string name="led_light">LED-Licht</string>
     <string name="flashlight_as_led">Blitzlicht als LED</string>
     <string name="flashlight_as_led_summary">Nutze das Blitzlicht als LED für Benachrichtigungen (Kamera LED).</string>
-    <string name="notifications_extra">Zusätzlich</string>
-    <string name="notifications_everywhere">Immer benachrichtigen</string>
-    <string name="notifications_everywhere_description">Auch wenn du auf dem Hauptbildschirm der App bist.</string>
     <!-- End Notifications -->
 
     <!-- General -->
@@ -36,12 +35,12 @@
     <string name="hide_editor_newsfeed_snackbar">Lade neu, damit die Änderungen wirksam werden</string>
     <string name="stop_images_title">Bilder nicht laden</string>
     <string name="stop_images_summary">Aktivere, um Bilder nicht herunterzuladen. Einige Bilder könnten im Cache bleiben.</string>
-    <string name="hide_sponsored_title">Verstecke \'Sponsored\' Inhalte</string>
-    <string name="hide_sponsored_summary">Aktiviere, um \'Sponsored\' Inhalte (Werbung) aus dem News Feed zu entfernen.</string>
+    <string name="hide_sponsored_title">Verstecke &#8216;Sponsored&#8217; Inhalte</string>
+    <string name="hide_sponsored_summary">Aktiviere, um &#8216;Sponsored&#8217; Inhalte (Werbung) aus dem News Feed zu entfernen.</string>
     <string name="hide_birthdays_title">Verstecke Geburtstage</string>
     <string name="hide_birthdays_summary">Aktiviere, um Geburtstage im News Feed zu verstecken.</string>
-    <string name="hide_newsfeedcontent">Hide News Feed content</string>
-    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
+    <string name="clearcache">Clear cache on exit</string>
+    <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->
 
     <!-- About -->
@@ -83,30 +82,28 @@
     <!-- Navigation: items -->
     <string name="navigation_menu_title">NAVIGATIONS MENÜ ⟳</string>
     <string name="ic_menu_exitapp">App verlassen</string>
-    <string name="ic_menu_exitapp_summary">Wenn aktiviert, wird der \'App verlassen\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="ic_menu_exitapp_summary">Wenn aktiviert, wird der &#8216;App verlassen&#8217; Knopf im Navigationsmenu verschwinden.</string>
     <string name="ic_menu_fblogout">Ausloggen</string>
-    <string name="ic_menu_fblogout_summary">Wenn aktiviert, wird der \'Ausloggen\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="ic_menu_fblogout_summary">Wenn aktiviert, wird der &#8216;Ausloggen&#8217; Knopf im Navigationsmenu verschwinden.</string>
     <string name="menu_photos">Fotos</string>
-    <string name="menu_photos_summary">Wenn aktiviert, wird der \'Fotos\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="menu_photos_summary">Wenn aktiviert, wird der &#8216;Fotos&#8217; Knopf im Navigationsmenu verschwinden.</string>
     <string name="menu_events">Veranstaltungen</string>
-    <string name="menu_events_summary">Wenn aktiviert, wird der \'Veranstaltungen\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="menu_events_summary">Wenn aktiviert, wird der &#8216;Veranstaltungen&#8217; Knopf im Navigationsmenu verschwinden.</string>
     <string name="menu_back">Zurück</string>
-    <string name="menu_back_summary">Wenn nicht aktiviert, wird der \'Zurück\' Knopf im Navigationsmenu verschwinden.</string>
-    <string name="menu_news">News Feed</string>
-    <string name="menu_news_summary">Wenn nicht aktiviert, wird der \'News Feed\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="menu_back_summary">Wenn nicht aktiviert, wird der &#8216;Zurück&#8217; Knopf im Navigationsmenu verschwinden.</string>
     <string name="menu_top_stories">Top Meldungen</string>
-    <string name="menu_top_stories_summary">Wenn nicht aktiviert, wird der \'Top Meldungen\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="menu_top_stories_summary">Wenn nicht aktiviert, wird der &#8216;Top Meldungen&#8217; Knopf im Navigationsmenu verschwinden.</string>
     <string name="menu_most_recent">Neueste Meldungen</string>
-    <string name="menu_most_recent_summary">Wenn nicht aktiviert, wird der \'Neueste Meldungen\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="menu_most_recent_summary">Wenn nicht aktiviert, wird der &#8216;Neueste Meldungen&#8217; Knopf im Navigationsmenu verschwinden.</string>
     <string name="menu_friendreq">Freundschaftsanfragen</string>
-    <string name="menu_friendreq_summary">Wenn nicht aktiviert, wird der \'Freundschaftsanfragen\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="menu_friendreq_summary">Wenn nicht aktiviert, wird der &#8216;Freundschaftsanfragen&#8217; Knopf im Navigationsmenu verschwinden.</string>
     <string name="menu_groups">Gruppen</string>
-    <string name="menu_groups_summary">Wenn nicht aktiviert, wird der \'Gruppen\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="menu_groups_summary">Wenn nicht aktiviert, wird der &#8216;Gruppen&#8217; Knopf im Navigationsmenu verschwinden.</string>
     <string name="menu_messages">Nachrichten</string>
     <string name="menu_search">Suche</string>
-    <string name="menu_search_summary">Wenn nicht aktiviert, wird der \'Suche\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="menu_search_summary">Wenn nicht aktiviert, wird der &#8216;Suche&#8217; Knopf im Navigationsmenu verschwinden.</string>
     <string name="menu_mainmenu">Hauptmenü</string>
-    <string name="menu_mainmenu_summary">Wenn nicht aktiviert, wird der \'Hauptmenü\' Knopf im Navigationsmenu verschwinden.</string>
+    <string name="menu_mainmenu_summary">Wenn nicht aktiviert, wird der &#8216;Hauptmenü&#8217; Knopf im Navigationsmenu verschwinden.</string>
     <string name="messaging_enabled_title">Nachrichten</string>
     <string name="messaging_enabled_summary">Aktiviere, um Zugang zu Facebook-Nachrichten zu haben. Deaktivere, wenn du die Facebook-Messenging-App nutzt.</string>
     <!-- End navigation -->

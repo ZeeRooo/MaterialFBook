@@ -2,6 +2,8 @@
 <resources>
     <!-- Notifications -->
     <string name="notifications_setting_title">POWIADOMIENIA</string>
+    <string name="notif">Notifications</string>
+    <string name="notif_summary">New messages and general notifications.</string>
     <string name="you_have_one_message">Masz jedną wiadomość.</string>
     <string name="notification_viewall">Zobacz wszystkie powiadomienia</string>
     <string name="messages_viewall">Zobacz wszystkie wiadomości</string>
@@ -21,9 +23,6 @@
     <string name="led_light">Światło LED</string>
     <string name="flashlight_as_led">Latarka jako LED</string>
     <string name="flashlight_as_led_summary">Użyj latarki do powiadomień LED (flesz aparatu).</string>
-    <string name="notifications_extra">Dodatkowe</string>
-    <string name="notifications_everywhere">Zawsze powiadamiaj</string>
-    <string name="notifications_everywhere_description">Także, kiedy używasz aplikacji na pierwszym planie.</string>
     <!-- End Notifications -->
 
     <!-- General -->
@@ -39,8 +38,8 @@
     <string name="hide_sponsored_summary">Kiedy włączone, treści \„Sponsorowane\” (reklamy) będą ukryte z Aktualności.</string>
     <string name="hide_birthdays_title">Ukryj Urodziny</string>
     <string name="hide_birthdays_summary">Kiedy włączone, urodziny będą ukryte z Aktualności.</string>
-    <string name="hide_newsfeedcontent">Ukryj Aktualności</string>
-    <string name="hide_newsfeedcontent_summary">Kiedy włączone, treść Aktualności będzie ukryta.</string>
+    <string name="clearcache">Clear cache on exit</string>
+    <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->
 
     <!-- Appearence -->
@@ -77,8 +76,6 @@
     <string name="menu_events_summary">Jeśli wyłączone, przycisk \„Wydarzenia\” zniknie z menu nawigacji.</string>
     <string name="menu_back">Cofnij</string>
     <string name="menu_back_summary">Jeśli wyłączone, przycisk \„Cofnij\” zniknie z menu nawigacji.</string>
-    <string name="menu_news">Aktualności</string>
-    <string name="menu_news_summary">Jeśli wyłączone, przycisk \„Aktualności\” zniknie z menu nawigacji.</string>
     <string name="menu_top_stories">Najciekawsze zdarzenia</string>
     <string name="menu_top_stories_summary">Jeśli wyłączone, przycisk \„Najciekawsze zdarzenia\” zniknie z menu nawigacji.</string>
     <string name="menu_most_recent">Najnowsze</string>

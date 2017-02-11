@@ -2,10 +2,20 @@
 <resources>
     <string name="changelog_list" translatable="false"><![CDATA[
 <br>
-<b>Version 2.5.1:</b>
+<b>Version 2.6.0:</b>
 <br>
-- Fixed FC in "More and Settings".
-<br>	
+- Now the app hide the birthdays from "events" and feed. #25
+<br>
+- EXPERIMENTAL: Switched from HandlerRunnable to AlarmManager to schedule notification´s sync ==> The NotificationsService.java start only to check if a notification are avaible, the rest of the time it will be stopped. (Configure the time in Settings > Notifications > Time interval -- Highly recommended put it into 5 mins).
+<br>
+- "Search" fixed. #37
+<br>
+- Click on profile picture to open the profile page fixed.
+<br>
+- Translated to Serbian by PoP992.
+<br>
+- Fixed toolbar/keyboard issues on KitKat devices. #36
+<br>
 <br>
 <b>Version 2.5.0:</b>
 <br>

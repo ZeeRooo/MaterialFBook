@@ -4,23 +4,14 @@
 package me.zeeroooo.materialfb.Fragments;
 
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
-import android.support.v7.app.AlertDialog;
-import android.text.Html;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
-
 import me.zeeroooo.materialfb.Activities.More;
-import me.zeeroooo.materialfb.MaterialFBook;
 import me.zeeroooo.materialfb.R;
-import me.zeeroooo.materialfb.Notifications.NotificationsService;
 
 public class SettingsFragment extends PreferenceFragment implements Preference.OnPreferenceClickListener {
 
@@ -32,7 +23,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.settings);
-        mContext = MaterialFBook.getContextOfApplication();
+        mContext = getActivity();
         preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
 
         // set onPreferenceClickListener for a few preferences
@@ -48,31 +39,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         prefChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
             public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
                 // service intent (start, stop)
-                final Intent intent = new Intent(mContext, NotificationsService.class);
 
                 switch (key) {
-                    case "notifications_activated":
-                        if (prefs.getBoolean("notifications_activated", false) && preferences.getBoolean("message_notifications", false)) {
-                            mContext.stopService(intent);
-                            mContext.startService(intent);
-                        } else
-                            if (!prefs.getBoolean("notifications_activated", false) && preferences.getBoolean("message_notifications", false)) {
-                            } else if (prefs.getBoolean("notifications_activated", false) && !preferences.getBoolean("message_notifications", false)) {
-                                mContext.startService(intent);
-                            } else
-                                mContext.stopService(intent);
-                        break;
-                    case "message_notifications":
-                        if (prefs.getBoolean("message_notifications", false) && preferences.getBoolean("notifications_activated", false)) {
-                            mContext.stopService(intent);
-                            mContext.startService(intent);
-                        } else
-                            if (!prefs.getBoolean("message_notifications", false) && preferences.getBoolean("notifications_activated", false)) {
-                            } else if (prefs.getBoolean("message_notifications", false) && !preferences.getBoolean("notifications_activated", false)) {
-                                mContext.startService(intent);
-                            } else
-                                mContext.stopService(intent);
-                        break;
                     case "app_theme":
                         break;
                 }

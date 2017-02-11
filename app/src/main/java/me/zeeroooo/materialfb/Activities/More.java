@@ -89,7 +89,7 @@ public class More extends AppCompatActivity {
         public void changelog() {
             AlertDialog.Builder changelog = new AlertDialog.Builder(getActivity());
             LayoutInflater inflater = LayoutInflater.from(getActivity());
-            View view  = inflater.inflate(R.layout.dialog_custom_titile, null);
+            View view  = inflater.inflate(R.layout.dialog_custom_title, null);
             TextView changelog_title = (TextView)view.findViewById(R.id.title);
             changelog.setCustomTitle(view);
             changelog.setMessage(Html.fromHtml(getResources().getString(R.string.changelog_list)));

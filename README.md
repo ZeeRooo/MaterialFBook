@@ -152,7 +152,15 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Fixed double vibration issues.
 
 **Version 2.5.1:**
-- Fixed FC in "More and Credits".
+- Fixed FC in "More and credits".
+
+**Version 2.6.0:**
+- Now the app hide the birthdays from "events" and feed. #25
+- EXPERIMENTAL: Switched from HandlerRunnable to AlarmManager to schedule notification´s sync ==> The NotificationsService.java start only to check if a notification are avaible, the rest of the time it will be stopped. (Configure the time in Settings > Notifications > Time interval -- Highly recommended put it into 5 mins).
+- "Search" fixed. #37
+- Click on profile picture to open the profile page fixed.
+- Translated to Serbian by PoP992.
+- Fixed toolbar/keyboard issues on KitKat devices. #36
 
 ###########
 

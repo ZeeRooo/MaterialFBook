@@ -2,17 +2,15 @@
 <resources>
     <!-- Notifications -->
     <string name="notifications_setting_title">NOTIFICATIONS</string>
+    <string name="notif">Notifications</string>
+    <string name="notif_summary">New messages and general notifications.</string>
     <string name="you_have_one_message">You have one message.</string>
-    <string name="notification_viewall">View all notifications</string>
-    <string name="messages_viewall">View all messages</string>
     <string name="applying_changes">Applying changes</string>
     <string name="you_have_n_messages">You have %d messages.</string>
-    <string name="sync_problem">Cookies cannot be synced. First run, yeah? Please just restart the app :)</string>
+    <string name="sync_problem">Cookies cannot be synced. Try restarting the app</string>
     <string name="notification_sound_description">Choose a ringtone or silence: \u0020</string>
     <string name="notifications_settings">Notifications settings</string>
     <string name="notifications_settings_description">Additional settings. Choose time interval, set up sounds, LED and vibration.</string>
-    <string name="facebook_notifications">Facebook notifications</string>
-    <string name="message_notifications">Facebook messages</string>
     <string name="interval_pref">Time interval for checking</string>
     <string name="notification_sound">Notification sound</string>
     <string name="interval_pref_description_new">Notifications will be checked every %s.</string>
@@ -22,11 +20,8 @@
     <string name="led_light">LED light</string>
     <string name="flashlight_as_led">Flashlight as LED</string>
     <string name="flashlight_as_led_summary">Use the flashlight as LED for notifications (camera led).</string>
-    <string name="notifications_extra">Additional</string>
-    <string name="notifications_everywhere">Always notify</string>
-    <string name="notifications_everywhere_description">Also when you are on the main screen of the app.</string>
     <!-- End Notifications -->
-    <string name="fragment_main_downloading">Downloading&#8230;</string>
+
     <!-- General -->
     <string name="general_setting_title">GENERAL</string>
     <string name="location_enabled_title">Location access</string>
@@ -36,12 +31,10 @@
     <string name="hide_editor_newsfeed_snackbar">Reload for changes to take effect</string>
     <string name="stop_images_title">Don\'t load images</string>
     <string name="stop_images_summary">When enabled, will not download images. Some images may remain in the cache.</string>
-    <string name="hide_sponsored_title">Hide \'Sponsored\' Content</string>
-    <string name="hide_sponsored_summary">When enabled, will hide \'Sponsored\' Content (ads) from the News Feed.</string>
+    <string name="hide_sponsored_title">Hide &#8216;Sponsored&#8217; Content</string>
+    <string name="hide_sponsored_summary">Hide &#8216;Sponsored&#8217; content (ads) from the feed.</string>
     <string name="hide_birthdays_title">Hide Birthdays</string>
-    <string name="hide_birthdays_summary">When enabled, will hide birthdays from the News Feed.</string>
-    <string name="hide_newsfeedcontent">Hide News Feed content</string>
-    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
+    <string name="hide_birthdays_summary">Hide birthdays from the feed, events and notifications.</string>
     <string name="clearcache">Clear cache on exit</string>
     <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->
@@ -85,30 +78,28 @@
     <!-- Navigation: items -->
     <string name="navigation_menu_title">NAVIGATION MENU</string>
     <string name="ic_menu_exitapp">Exit app</string>
-    <string name="ic_menu_exitapp_summary">When enabled, \'Exit app\' button on navigation menu disappear.</string>
+    <string name="ic_menu_exitapp_summary">Hide &#8216;Exit app&#8217; button on navigation drawer.</string>
     <string name="ic_menu_fblogout">Log out</string>
-    <string name="ic_menu_fblogout_summary">When enabled, \'Log out\' button on navigation menu disappear.</string>
+    <string name="ic_menu_fblogout_summary">Hide &#8216;Log out&#8217; button on navigation drawer.</string>
     <string name="menu_photos">Photos</string>
-    <string name="menu_photos_summary">When enabled, \'Photos\' button on navigation menu disappear.</string>
+    <string name="menu_photos_summary">Hide &#8216;Photos&#8217; button on navigation drawer.</string>
     <string name="menu_events">Events</string>
-    <string name="menu_events_summary">When enabled, \'Events\' button on navigation menu disappear.</string>
+    <string name="menu_events_summary">Hide &#8216;Events&#8217; button on navigation drawer.</string>
     <string name="menu_back">Back</string>
-    <string name="menu_back_summary">If disabled, \'Back\' button on navigation menu disappear.</string>
-    <string name="menu_news">News Feed</string>
-    <string name="menu_news_summary">If disabled, \'News Feed\' button on navigation menu disappear.</string>
+    <string name="menu_back_summary">Hide &#8216;Back&#8217; button on navigation drawer.</string>
     <string name="menu_top_stories">Top stories</string>
-    <string name="menu_top_stories_summary">If disabled, \'Top stories\' button on navigation menu disappear.</string>
+    <string name="menu_top_stories_summary">Hide &#8216;Top stories&#8217; button on navigation drawer.</string>
     <string name="menu_most_recent">Most Recent</string>
-    <string name="menu_most_recent_summary">If disabled, \'Most Recent\' button on navigation menu disappear.</string>
+    <string name="menu_most_recent_summary">Hide &#8216;Most Recent&#8217; button on navigation drawer.</string>
     <string name="menu_friendreq">Friend Requests</string>
-    <string name="menu_friendreq_summary">If disabled, \'Friend Requests\' button on navigation menu disappear.</string>
+    <string name="menu_friendreq_summary">Hide &#8216;Friend Requests&#8217; button on navigation drawer.</string>
     <string name="menu_groups">Groups</string>
-    <string name="menu_groups_summary">If disabled, \'Groups\' button on navigation menu disappear.</string>
+    <string name="menu_groups_summary">Hide &#8216;Groups&#8217; button on navigation drawer.</string>
     <string name="menu_messages">Messages</string>
     <string name="menu_search">Search</string>
-    <string name="menu_search_summary">If disabled, \'Search\' button on navigation menu disappear.</string>
-    <string name="menu_mainmenu">Main Menu</string>
-    <string name="menu_mainmenu_summary">If disabled, \'Main Menu\' button on navigation menu disappear.</string>
+    <string name="menu_search_summary">Hide &#8216;Search&#8217; button on navigation drawer.</string>
+    <string name="menu_mainmenu">Main menu</string>
+    <string name="menu_mainmenu_summary">Hide &#8216;Main menu&#8217; button on navigation drawer.</string>
     <string name="messaging_enabled_title">Messaging</string>
     <string name="messaging_enabled_summary">When enabled, will provide access to Facebook Messages. Disable if you have a messaging app.</string>
     <!-- End navigation -->

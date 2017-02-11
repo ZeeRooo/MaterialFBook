@@ -2,6 +2,8 @@
 <resources>
     <!-- Notifications -->
     <string name="notifications_setting_title">NOTIFICATIONES</string>
+    <string name="notif">Notificaciones</string>
+    <string name="notif_summary">Nuevos mensajes y notificaciones.</string>
     <string name="you_have_one_message">Tienes un mensaje</string>
     <string name="notification_viewall">Ver todas las notificaciones</string>
     <string name="messages_viewall">Ver todos los mensajes</string>
@@ -22,9 +24,6 @@
     <string name="led_light">Luz LED</string>
     <string name="flashlight_as_led">Flashlight como luz LED</string>
     <string name="flashlight_as_led_summary">Usa el flash de la cámara como led de notificaciones.</string>
-    <string name="notifications_extra">Adicional</string>
-    <string name="notifications_everywhere">Notificarme siempre</string>
-    <string name="notifications_everywhere_description">También cuando estas en la pantalla principal</string>
     <!-- End Notifications -->
 
     <!-- General -->
@@ -40,8 +39,6 @@
     <string name="hide_sponsored_summary">Si está habilitado, la publicidad del patrocinador no se mostrará.</string>
     <string name="hide_birthdays_title">Oculta cumpleaños</string>
     <string name="hide_birthdays_summary">Si está habilitado, los cumpleaños no se mostrarán.</string>
-    <string name="hide_newsfeedcontent">Oculta todas las noticias</string>
-    <string name="hide_newsfeedcontent_summary">Si está habilitado, ninguna noticia aparecerá.</string>
     <string name="clearcache">Limpiar cache al salir</string>
     <string name="clearcache_summary">Tardará más tiempo en abrir la app.</string>
     <!-- End general -->
@@ -66,35 +63,33 @@
     <!-- Navigation: fab -->
     <string name="fab_text">Publica un estado</string>
     <string name="fab_photo">Publica una foto</string>
-    <string name="fab_checkin">Estoy en...</string>
+    <string name="fab_checkin">Estoy en&#8230;</string>
     <string name="fab_jump_top">Ir al principio</string>
     <!-- Navigation: items -->
     <string name="navigation_menu_title">MENÚ DE NAVEGACIÓN</string>
     <string name="ic_menu_exitapp">Salir</string>
-    <string name="ic_menu_exitapp_summary">Si está habilitado, el botón \'Salir\' desaparecerá del menú de navegación.</string>
+    <string name="ic_menu_exitapp_summary">Oculta &#8216;Salir&#8217; del menú de navegación.</string>
     <string name="ic_menu_fblogout">Cerrar sesión</string>
-    <string name="ic_menu_fblogout_summary">Si está habilitado, el botón \'Cerrar sesión\' desaparecerá del menú de navegación.</string>
+    <string name="ic_menu_fblogout_summary">Oculta &#8216;Cerrar sesión&#8217; del menú de navegación.</string>
     <string name="menu_photos">Fotos</string>
-    <string name="menu_photos_summary">Si está habilitado, el botón \'Fotos\' desaparecerá del menú de navegación.</string>
+    <string name="menu_photos_summary">Oculta &#8216;Fotos&#8217; del menú de navegación.</string>
     <string name="menu_events">Eventos</string>
-    <string name="menu_events_summary">Si está habilitado, el botón \'Eventos\' desaparecerá del menú de navegación.</string>
+    <string name="menu_events_summary">Oculta &#8216;Eventos&#8217; del menú de navegación.</string>
     <string name="menu_back">Atras</string>
-    <string name="menu_back_summary">Si está habilitado, el botón \'Atras\' desaparecerá del menú de navegación.</string>
-    <string name="menu_news">Noticias</string>
-    <string name="menu_news_summary">Si está habilitado, el botón \'Noticias\' desaparecerá del menú de navegación.</string>
+    <string name="menu_back_summary">Oculta &#8216;Atras&#8217; del menú de navegación.</string>
     <string name="menu_top_stories">Historias populares</string>
-    <string name="menu_top_stories_summary">Si está habilitado, el botón \'Historias populares\' desaparecerá del menú de navegación.</string>
+    <string name="menu_top_stories_summary">Oculta &#8216;Historias populares&#8217; del menú de navegación.</string>
     <string name="menu_most_recent">Más reciente</string>
-    <string name="menu_most_recent_summary">Si está habilitado, el botón \'Más reciente\' desaparecerá del menú de navegación.</string>
+    <string name="menu_most_recent_summary">Oculta &#8216;Más reciente&#8217; del menú de navegación.</string>
     <string name="menu_friendreq">Solicitudes de amistad</string>
-    <string name="menu_friendreq_summary">Si está habilitado, el botón \'Solicitudes de amistad\' desaparecerá del menú de navegación.</string>
+    <string name="menu_friendreq_summary">Oculta &#8216;Solicitudes de amistad&#8217; del menú de navegación.</string>
     <string name="menu_groups">Grupos</string>
-    <string name="menu_groups_summary">Si está habilitado, el botón \'Grupos\' desaparecerá del menú de navegación.</string>
+    <string name="menu_groups_summary">Oculta &#8216;Grupos&#8217; del menú de navegación.</string>
     <string name="menu_messages">Mensajes</string>
     <string name="menu_search">Buscar</string>
-    <string name="menu_search_summary">Si está habilitado, el botón \'Buscar\' desaparecerá del menú de navegación.</string>
+    <string name="menu_search_summary">Oculta &#8216;Buscar&#8217; del menú de navegación.</string>
     <string name="menu_mainmenu">Menú principal</string>
-    <string name="menu_mainmenu_summary">Si está habilitado, el botón \'Menú principal\' desaparecerá del menú de navegación.</string>
+    <string name="menu_mainmenu_summary">Oculta &#8216;Menú principal&#8217; del menú de navegación.</string>
     <string name="messaging_enabled_title">Mensajería</string>
     <string name="messaging_enabled_summary">Habilitalo para usar los mensajes de Facebook. Deshabilitalo si usas otra app de mensajería.</string>
     <!-- End navigation -->
@@ -114,7 +109,7 @@
     <string name="context_copy_image_link">Copiar link de la imágen</string>
     <string name="context_share_link">Compartir link</string>
     <string name="context_copy_link">Copiar link</string>
-    <string name="context_share_image_progress">Guardando imágen...</string>
+    <string name="context_share_image_progress">Guardando imágen&#8230;</string>
     <string name="content_copy_link_done">Link copiado</string>
     <string name="login_button">Iniciar seción</string>
     <string name="not_logged_in">No haz iniciado seción</string>

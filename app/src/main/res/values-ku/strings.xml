@@ -2,6 +2,8 @@
 <resources>
     <!-- Notifications -->
     <string name="notifications_setting_title">ئاگادارکردنەوەکان</string>
+    <string name="notif">Notifications</string>
+    <string name="notif_summary">New messages and general notifications.</string>
     <string name="you_have_one_message">یەک پەیامت بۆ هاتووە</string>
     <string name="notification_viewall">پیشاندانی هەموو ئاگادارکردنەوەکان</string>
     <string name="messages_viewall">پیشاندانی هەموو پەیامەکان</string>
@@ -21,9 +23,6 @@
     <string name="led_light">لایتی LED</string>
     <string name="flashlight_as_led">Flashlight as LED</string>
     <string name="flashlight_as_led_summary">Use the flashlight as LED for notifications (camera led).</string>
-    <string name="notifications_extra">ئاگادارکردنەوە</string>
-    <string name="notifications_everywhere">ئاگادارکردنەوە هەمیشە</string>
-    <string name="notifications_everywhere_description">ئاگاداکردنەوە لە هەموو کاتێکدا</string>
     <!-- End Notifications -->
 
     <!-- General -->
@@ -39,8 +38,8 @@
     <string name="hide_sponsored_summary">ئەگەر چالاک بێت، هەموو بابەتەکانی \'سپۆنسەر و ڕیکلامەکان\' دەشارێتەوە</string>
     <string name="hide_birthdays_title">شاردنەوەی ڕۆژی لەدایکبوون</string>
     <string name="hide_birthdays_summary">شاردنەوەی ڕۆژی لەدایکبوونەکان لە بەشی سەرەکیدا</string>
-    <string name="hide_newsfeedcontent">Hide News Feed content</string>
-    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
+    <string name="clearcache">Clear cache on exit</string>
+    <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->
 
     <!-- Appearence -->
@@ -77,8 +76,6 @@
     <string name="menu_events_summary">ئەگەر چالاک بێت دوگمەی \'ڕووداوەکان\' دەشارێتەوە لە لیستی هەڵبژاردندا</string>
     <string name="menu_back">گەڕانەوە</string>
     <string name="menu_back_summary">شاردنەوەی دوگمەی \'گەڕانەوە\' لەبەشی سەرەکیدا</string>
-    <string name="menu_news">نوێترین بابەت</string>
-    <string name="menu_news_summary">شاردنەوەی دوگمەی \'نوێترین بابەت\' لەبەشی سەرەکیدا</string>
     <string name="menu_top_stories">باشترین بابەت</string>
     <string name="menu_top_stories_summary">ئەگەر ناچالاک بێت دوگمەی \'باشترین بابەت\' دەشارێتەوە لەلیستی سەرەکیدا</string>
     <string name="menu_most_recent">دوایین بابەت</string>

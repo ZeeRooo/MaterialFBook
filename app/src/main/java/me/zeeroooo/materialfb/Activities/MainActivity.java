@@ -33,7 +33,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -57,8 +56,8 @@ import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import im.delight.android.webview.AdvancedWebView;
-import me.zeeroooo.materialfb.MaterialFBook;
 import me.zeeroooo.materialfb.Notifications.NotificationsService;
+import me.zeeroooo.materialfb.Notifications.Receiver;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.Ui.Theme;
 import me.zeeroooo.materialfb.WebView.Helpers;
@@ -74,12 +73,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private final String FACEBOOK_URL_BASE_ENCODED = "https%3A%2F%2Fm.facebook.com%2F";
     private final String FACEBOOK_URL_BASE_ENCODED_BASIC = "https%3A%2F%2Fmbasic.facebook.com%2F";
     private final BadgeStyle BADGE_SIDE_FULL = new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_full, R.color.MFBPrimaryDark, R.color.MFBPrimaryDark, Color.WHITE);
+    public static String UserAgent = "Mozilla/5.0 (BB10; Kbd) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.4633 Mobile Safari/537.10+";
 
     // Members
     AppCompatActivity MaterialFBookAct;
     public SwipeRefreshLayout swipeView;
     public NavigationView mNavigationView;
-    public View mCoordinatorLayoutView;
+    public static View mCoordinatorLayoutView;
     private FloatingActionMenu mMenuFAB;
     private AdvancedWebView mWebView;
     private final View.OnClickListener mFABClickListener = new View.OnClickListener() {
@@ -220,6 +220,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         case SettingsActivity.KEY_PREF_HIDE_BIRTHDAYS:
                             requiresReload = true;
                             break;
+                        case SettingsActivity.KEY_PREF_NOTIF:
+                            Receiver.ScheduleNotif(getApplication(), false);
+                            break;
+                        case SettingsActivity.KEY_PREF_NOTIF_INTERVAL:
+                            Receiver.ScheduleNotif(getApplication(), false);
+                            break;
                         default:
                             break;
                     }
@@ -279,15 +285,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_NAV_TOP_STORIES, false)) {
             mNavigationView.getMenu().findItem(R.id.nav_top_stories).setVisible(false);
         }
-        if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_NAV_NEWS, false)) {
-            mNavigationView.getMenu().findItem(R.id.nav_news).setVisible(false);
-        }
         if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_NAV_FRIENDREQ, false)) {
             mNavigationView.getMenu().findItem(R.id.nav_friendreq).setVisible(false);
-        }
-        if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_NOTIF_NOTIF, false) || mPreferences.getBoolean(SettingsActivity.KEY_PREF_NOTIF_MESSAGE, false)) {
-            final Intent intent = new Intent(MaterialFBook.getContextOfApplication(), NotificationsService.class);
-            MaterialFBook.getContextOfApplication().startService(intent);
         }
 
         // Bind the Coordinator to member
@@ -300,9 +299,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onRefresh() {
                 mWebView.reload();
-             /*   if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-                    updateUserInfo();
-                }*/
             }
         });
 
@@ -349,7 +345,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             mWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         }
-        mWebView.getSettings().setUserAgentString("Mozilla/5.0 (BB10; Kbd) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.4633 Mobile Safari/537.10+");
+        mWebView.getSettings().setUserAgentString(UserAgent);
         mWebView.setWebViewClient(new MFBWebViewClient());
 
         // Long press
@@ -359,6 +355,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onReceivedTitle(WebView view, String title) {
                     MainActivity.this.setTitle(title);
+            }
+        });
+
+        // Add OnClick listener to Profile picture
+        ImageView profileImage = (ImageView) mNavigationView.getHeaderView(0).findViewById(R.id.profile_picture);
+        profileImage.setClickable(true);
+        profileImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mUserLink != null) {
+                    drawer.closeDrawers();
+                    mWebView.loadUrl(mUserLink);
+                }
             }
         });
 
@@ -396,6 +405,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         }
     }
+
+
 
     @Override
     protected void onResume() {
@@ -497,8 +508,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             NotificationsService.ClearNotif();
         }
         if (id == R.id.nav_messages) {
-           /* Intent messagesActivity = new Intent(MainActivity.this, MessagesActivity.class);
-            startActivity(messagesActivity);*/
             if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                 mWebView.loadUrl(FACEBOOK_URL_BASE + "messages/");
             } else {
@@ -520,13 +529,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         switch (item.getItemId()) {
-            case R.id.nav_news:
-                if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23feed_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "home.php'%7D%7D)()");
-                } else {
-                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23feed_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED_BASIC + "home.php'%7D%7D)()");
-                }
-                item.setChecked(true);
             case R.id.nav_top_stories:
                 if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                     mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('a%5Bhref*%3D%22%2Fhome.php%3Fsk%3Dh_nor%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED + "home.php%3Fsk%3Dh_nor%22%7D%7D)()");
@@ -552,8 +554,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 item.setChecked(true);
                 break;
             case R.id.nav_messages:
-              /*  Intent messagesActivity = new Intent(MainActivity.this, MessagesActivity.class);
-                startActivity(messagesActivity);*/
                 if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                     mWebView.loadUrl(FACEBOOK_URL_BASE + "messages/");
                 } else {
@@ -564,9 +564,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_search:
                 if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-                    mWebView.loadUrl(FACEBOOK_URL_BASE + "/search/top/?q=");
+                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23search_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "search%2F'%7D%7D)()");
                 } else {
-                    mWebView.loadUrl(FACEBOOK_URL_BASE_BASIC + "/search/top/?q=");
+                    mWebView.loadUrl(FACEBOOK_URL_BASE_BASIC + "/search/");
                 }
                 item.setChecked(true);
                 break;
@@ -610,7 +610,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 LoginManager.getInstance().logInWithReadPermissions(this, Helpers.FB_PERMISSIONS);
                 break;
             case R.id.nav_settings:
-                Intent settingsActivity = new Intent(MainActivity.this, SettingsActivity.class);
+                Intent settingsActivity = new Intent(getApplication(), SettingsActivity.class);
                 startActivity(settingsActivity);
                 break;
             case R.id.nav_back:
@@ -682,7 +682,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         Glide.with(getApplication()).load("https://graph.facebook.com/" + userID + "/picture?type=large").into((ImageView) findViewById(R.id.profile_picture));
                         final View header = findViewById(R.id.header_layout);
 
-                        Glide.with(getApplicationContext()).load(object.getJSONObject("cover").getString("source")).into((ImageView) findViewById(R.id.cover));
+                        Glide.with(getApplication()).load(object.getJSONObject("cover").getString("source")).into((ImageView) findViewById(R.id.cover));
 
                     } catch (NullPointerException e) {
                         Snackbar.make(mCoordinatorLayoutView, R.string.error_facebook_noconnection, Snackbar.LENGTH_LONG).show();

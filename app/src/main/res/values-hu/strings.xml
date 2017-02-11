@@ -22,9 +22,6 @@
     <string name="led_light">LED fényjelzés</string>
     <string name="flashlight_as_led">Vaku használata értesítésként</string>
     <string name="flashlight_as_led_summary">Használja a vaku LED-et értesítések jelzéséhez (kamera vaku).</string>
-    <string name="notifications_extra">Továbbiak</string>
-    <string name="notifications_everywhere">Mindig értesítsen</string>
-    <string name="notifications_everywhere_description">Az alkalmazás főképernyőjén is értesítsen.</string>
     <!-- End Notifications -->
 
     <!-- General -->
@@ -32,7 +29,7 @@
     <string name="location_enabled_title">Helyhozzáférés</string>
     <string name="location_enabled_summary">Engedélyezd, ha szeretnéd, hogy a Facebook hozzáférjen tartózkodási helyedhez.</string>
     <string name="hide_editor_newsfeed_title">Állapot szerkesztő elrejtése a Hírfolyamban.</string>
-    <string name="hide_editor_newsfeed_summary">Bekapcsolva a "Mi jár a fejedben?" állapot hozzáadás rejtve lesz a Hírfolyamban.</string>
+    <string name="hide_editor_newsfeed_summary">Bekapcsolva a &#8220;Mi jár a fejedben?&#8221; állapot hozzáadás rejtve lesz a Hírfolyamban.</string>
     <string name="hide_editor_newsfeed_snackbar">A változtatások újratöltés után lépnek érvénybe.</string>
     <string name="stop_images_title">Képbetöltés kikapcsolása</string>
     <string name="stop_images_summary">Bekapcsolva a képek nem töltődnek be. Egyes képek megmaradhatnak az előzetes cache betöltés miatt.</string>
@@ -83,30 +80,30 @@
     <!-- Navigation: items -->
     <string name="navigation_menu_title">NAVIGÁCIÓS MENÜ</string>
     <string name="ic_menu_exitapp">Kilépés</string>
-    <string name="ic_menu_exitapp_summary">Engedélyezve a "Kilépés" gomb eltűnik a navigációs menüből.</string>
+    <string name="ic_menu_exitapp_summary">Engedélyezve a &#8220;Kilépés&#8221; gomb eltűnik a navigációs menüből.</string>
     <string name="ic_menu_fblogout">Kijelentkezés</string>
-    <string name="ic_menu_fblogout_summary">Engedélyezve a "Kijelentkezés" gomb eltűnik a navigációs menüből.</string>
+    <string name="ic_menu_fblogout_summary">Engedélyezve a &#8220;Kijelentkezés&#8221; gomb eltűnik a navigációs menüből.</string>
     <string name="menu_photos">Fotók</string>
-    <string name="menu_photos_summary">Engedélyezve a "Fotók" gomb eltűnik a navigációs menüből.</string>
+    <string name="menu_photos_summary">Engedélyezve a &#8220;Fotók&#8221; gomb eltűnik a navigációs menüből.</string>
     <string name="menu_events">Események</string>
-    <string name="menu_events_summary">Engedélyezve a "Események" gomb eltűnik a navigációs menüből.</string>
+    <string name="menu_events_summary">Engedélyezve a &#8220;Események&#8221; gomb eltűnik a navigációs menüből.</string>
     <string name="menu_back">Vissza</string>
-    <string name="menu_back_summary">Ha kikapcsolod a "Vissza" gomb eltűnik a navigációs menüből.</string>
+    <string name="menu_back_summary">Ha kikapcsolod a &#8220;Vissza&#8221; gomb eltűnik a navigációs menüből.</string>
     <string name="menu_news">Hírfolyam</string>
-    <string name="menu_news_summary">Ha kikapcsolod a "Hírfolyam" gomb eltűnik a navigációs menüből.</string>
+    <string name="menu_news_summary">Ha kikapcsolod a &#8220;Hírfolyam&#8221; gomb eltűnik a navigációs menüből.</string>
     <string name="menu_top_stories">Legjobb hírek</string>
-    <string name="menu_top_stories_summary">Ha kikapcsolod a "Legjobb hírek" gomb eltűnik a navigációs menüből.</string>
+    <string name="menu_top_stories_summary">Ha kikapcsolod a &#8220;Legjobb hírek&#8221; gomb eltűnik a navigációs menüből.</string>
     <string name="menu_most_recent">Legfrissebbek</string>
-    <string name="menu_most_recent_summary">Ha kikapcsolod a "Legfrissebbek" gomb eltűnik a navigációs menüből.</string>
+    <string name="menu_most_recent_summary">Ha kikapcsolod a &#8220;Legfrissebbek&#8221; gomb eltűnik a navigációs menüből.</string>
     <string name="menu_friendreq">Ismerősnek jelölések</string>
-    <string name="menu_friendreq_summary">Ha kikapcsolod az "Ismerősnek jelölések" gomb eltűnik a navigációs menüből.</string>
+    <string name="menu_friendreq_summary">Ha kikapcsolod az &#8220;Ismerősnek jelölések&#8221; gomb eltűnik a navigációs menüből.</string>
     <string name="menu_groups">Csoportok</string>
-    <string name="menu_groups_summary">Ha kikapcsolod az "Csoportok" gomb eltűnik a navigációs menüből.</string>
+    <string name="menu_groups_summary">Ha kikapcsolod az &#8220;Csoportok&#8221; gomb eltűnik a navigációs menüből.</string>
     <string name="menu_messages">Üzenetek</string>
     <string name="menu_search">Keresés</string>
-    <string name="menu_search_summary">Ha kikapcsolod a "Keresés" gomb eltűnik a navigációs menüből.</string>
+    <string name="menu_search_summary">Ha kikapcsolod a &#8220;Keresés&#8221; gomb eltűnik a navigációs menüből.</string>
     <string name="menu_mainmenu">Főmenü</string>
-    <string name="menu_mainmenu_summary">Ha kikapcsolod a "Főmenü" gomb eltűnik a navigációs menüből.</string>
+    <string name="menu_mainmenu_summary">Ha kikapcsolod a &#8220;Főmenü&#8221; gomb eltűnik a navigációs menüből.</string>
     <string name="messaging_enabled_title">Üzenetkezelés</string>
     <string name="messaging_enabled_summary">Bekapcsolva hozzáférhetsz a Facebook üzeneteidhez. Kapcsold ki, ha külön alkalmazást használsz erre.</string>
     <!-- End navigation -->

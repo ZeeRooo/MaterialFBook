@@ -26,7 +26,6 @@ import com.greysonparrelli.permiso.Permiso;
 import java.io.File;
 import im.delight.android.webview.AdvancedWebView;
 import me.zeeroooo.materialfb.Activities.MainActivity;
-import me.zeeroooo.materialfb.MaterialFBook;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.Activities.SettingsActivity;
 
@@ -46,7 +45,7 @@ public class WebViewListener implements AdvancedWebView.Listener {
     // article[data-ft*=ei]{display:none;}
     private static final String HIDE_SPONSORED = "article%5Bdata-ft*%3Dei%5D%7Bdisplay%3Anone%7D";
     // article#u_1j_4{display:none;}
-    private static final String HIDE_BIRTHDAYS = "article%23u_1j_4%7Bdisplay%3Anone%3B%7D";
+    private static final String HIDE_BIRTHDAYS = "article%23u_1j_4%7Bdisplay%3Anone%3B%7D" + "article._55wm._5e4e._5fjt%7Bdisplay:none%3B%7D";
 
     private final MainActivity mActivity;
     private final SharedPreferences mPreferences;
@@ -58,7 +57,6 @@ public class WebViewListener implements AdvancedWebView.Listener {
     private final View mCoordinatorLayoutView;
     private int Width = 512;
     private int Height = 384;
-
 
     public WebViewListener(MainActivity activity, WebView view) {
         mActivity = activity;
@@ -108,7 +106,7 @@ public class WebViewListener implements AdvancedWebView.Listener {
                 mMenuFAB.hideMenu(true);
             }
             // Show the FAB on the next sites
-            if (url.contains("photo") || url.endsWith("https://m.facebook.com/")) {
+            if (url.contains("photo") || url.endsWith(MainActivity.FACEBOOK_URL_BASE) || url.endsWith(MainActivity.FACEBOOK_URL_BASE_BASIC)) {
                 mMenuFAB.showMenu(true);
             }
 
@@ -125,11 +123,6 @@ public class WebViewListener implements AdvancedWebView.Listener {
             // Hide birthday content from News Feed
             if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_HIDE_BIRTHDAYS, true)) {
                 css += HIDE_BIRTHDAYS;
-            }
-
-            // Hide NewsFeed content (idk why... but user request this feature..)
-            if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_HIDE_NEWS_FEED, true)) {
-                mWebView.loadUrl("javascript:function addStyleString(str) { var node = document.createElement('style');node.innerHTML = str; document.body.appendChild(node); } addStyleString('#m_newsfeed_stream{ display: none; }');");
             }
 
 			// Web themes
@@ -234,7 +227,7 @@ public class WebViewListener implements AdvancedWebView.Listener {
                 } else if (i == ID_SHARE_IMAGE) {
                     final Uri uri = Uri.parse(result.getExtra());
                     // Share image
-                    Glide.with(MaterialFBook.getContextOfApplication()).load(uri).asBitmap().into(new SimpleTarget<Bitmap>(Width, Height) {
+                    Glide.with(mActivity).load(uri).asBitmap().into(new SimpleTarget<Bitmap>(Width, Height) {
                                 @Override
                                 public void onResourceReady(Bitmap bitmap, GlideAnimation anim) {
                                     String path = MediaStore.Images.Media.insertImage(mActivity.getContentResolver(), bitmap, uri.getLastPathSegment(), null);

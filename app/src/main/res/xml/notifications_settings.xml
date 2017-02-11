@@ -1,24 +1,24 @@
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android">
+
     <PreferenceCategory
         android:title="@string/notifications_settings">
         <SwitchPreference
-            android:key="notifications_activated"
-            android:title="@string/facebook_notifications"
-            android:defaultValue="false"/>
-        <SwitchPreference
-            android:key="message_notifications"
-            android:title="@string/message_notifications"
+            android:key="notif"
+            android:title="@string/notif"
+            android:summary="@string/notif_summary"
             android:defaultValue="false"/>
 		<ListPreference
             android:title="@string/interval_pref"
+            android:dependency="notif"
             android:summary="@string/interval_pref_description_new"
-            android:key="interval_pref"
+            android:key="notif_interval"
             android:entries="@array/intervalPrefTitles"
             android:entryValues="@array/intervalPrefValues"
-            android:defaultValue="1800000" />
+            android:defaultValue="300000" />
         <RingtonePreference
             android:key="ringtone"
+            android:dependency="notif"
             android:ringtoneType="notification"
             android:showDefault="true"
             android:showSilent="true"
@@ -27,6 +27,7 @@
             android:summary="@string/notification_sound_description" />
         <RingtonePreference
             android:key="ringtone_msg"
+            android:dependency="notif"
             android:ringtoneType="notification"
             android:showDefault="true"
             android:showSilent="true"
@@ -35,6 +36,7 @@
             android:summary="@string/notification_sound_description" />
         <SwitchPreference
             android:key="vibrate"
+            android:dependency="notif"
             android:title="@string/vibrate"
             android:defaultValue="false"/>
         <SwitchPreference
@@ -44,20 +46,14 @@
             android:defaultValue="false"/>
         <SwitchPreference
             android:key="led_light"
+            android:dependency="notif"
             android:title="@string/led_light"
             android:defaultValue="false"/>
         <SwitchPreference
             android:key="flashlight_as_led"
+            android:dependency="notif"
             android:title="@string/flashlight_as_led"
             android:summary="@string/flashlight_as_led_summary"
             android:defaultValue="false"/>
-    </PreferenceCategory>
-    <PreferenceCategory
-        android:title="@string/notifications_extra">
-        <SwitchPreference
-            android:key="notifications_everywhere"
-            android:title="@string/notifications_everywhere"
-            android:summary="@string/notifications_everywhere_description"
-            android:defaultValue="true"/>
     </PreferenceCategory>
 </PreferenceScreen>

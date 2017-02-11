@@ -35,11 +35,9 @@ public class JavaScriptInterfaces {
                 switch (value) {
                     case "top_stories":
                             mContext.mNavigationView.setCheckedItem(R.id.nav_top_stories);
-                            mContext.mNavigationView.setCheckedItem(R.id.nav_news);
                         break;
                     case "most_recent":
                             mContext.mNavigationView.setCheckedItem(R.id.nav_most_recent);
-                            mContext.mNavigationView.setCheckedItem(R.id.nav_news);
                         break;
                     case "requests_jewel":
                             mContext.mNavigationView.setCheckedItem(R.id.nav_friendreq);

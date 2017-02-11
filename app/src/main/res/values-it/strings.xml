@@ -2,6 +2,8 @@
 <resources>
     <!-- Notifications -->
     <string name="notifications_setting_title">NOTIFICHE</string>
+    <string name="notif">Notifications</string>
+    <string name="notif_summary">New messages and general notifications.</string>
     <string name="you_have_one_message">You have one message.</string>
     <string name="notification_viewall">Mostra tutte le Notifiche</string>
     <string name="messages_viewall">View all messages</string>
@@ -22,8 +24,6 @@
     <string name="flashlight_as_led">Flashlight as LED</string>
     <string name="flashlight_as_led_summary">Use the flashlight as LED for notifications (camera led).</string>
     <string name="notifications_extra">Additional</string>
-    <string name="notifications_everywhere">Always notify</string>
-    <string name="notifications_everywhere_description">Also when you are on the main screen of the app.</string>
     <!-- End Notifications -->
 
     <!-- General -->
@@ -35,12 +35,10 @@
     <string name="hide_editor_newsfeed_snackbar">Ricarica per applicare le modifiche</string>
     <string name="stop_images_title">Non visualizzare le immagini</string>
     <string name="stop_images_summary">Quando attiva, non verranno visualizzate le immagini. Alcune immagini potrebbero rimanere nella cache.</string>
-    <string name="hide_sponsored_title">Nascondi Contenuti "Sponsorizzati"</string>
+    <string name="hide_sponsored_title">Nascondi Contenuti &#8220;Sponsorizzati&#8221;</string>
     <string name="hide_sponsored_summary">Quando attiva, verrà nascosta la pubblicità nel News Feed.</string>
     <string name="hide_birthdays_title">Hide Birthdays</string>
     <string name="hide_birthdays_summary">When enabled, will hide birthdays from the News Feed.</string>
-    <string name="hide_newsfeedcontent">Hide News Feed content</string>
-    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
     <!-- End general -->
 
     <!-- Appearence -->
@@ -68,32 +66,30 @@
     <!-- Navigation: items -->
     <string name="navigation_menu_title">NAVIGATION MENU</string>
     <string name="ic_menu_exitapp">Exit app</string>
-    <string name="ic_menu_exitapp_summary">When enabled, \'Exit app\' button on navigation menu disappear.</string>
+    <string name="ic_menu_exitapp_summary">Hide &#8216;Exit app&#8217; button on navigation drawer.</string>
     <string name="ic_menu_fblogout">Log out</string>
-    <string name="ic_menu_fblogout_summary">When enabled, \'Log out\' button on navigation menu disappear.</string>
+    <string name="ic_menu_fblogout_summary">Hide &#8216;Log out&#8217; button on navigation drawer.</string>
     <string name="menu_photos">Photos</string>
-    <string name="menu_photos_summary">When enabled, \'Photos\' button on navigation menu disappear.</string>
+    <string name="menu_photos_summary">Hide &#8216;Photos&#8217; button on navigation drawer.</string>
     <string name="menu_events">Events</string>
-    <string name="menu_events_summary">When enabled, \'Events\' button on navigation menu disappear.</string>
-    <string name="menu_back">Indietro</string>
-    <string name="menu_back_summary">If disabled, \'Indietro\' button on navigation menu disappear.</string>
-    <string name="menu_news">News Feed</string>
-    <string name="menu_news_summary">If disabled, \'News Feed\' button on navigation menu disappear.</string>
+    <string name="menu_events_summary">Hide &#8216;Events&#8217; button on navigation drawer.</string>
+    <string name="menu_back">Back</string>
+    <string name="menu_back_summary">Hide &#8216;Back&#8217; button on navigation drawer.</string>
     <string name="menu_top_stories">Top stories</string>
-    <string name="menu_top_stories_summary">If disabled, \'Top stories\' button on navigation menu disappear.</string>
+    <string name="menu_top_stories_summary">Hide &#8216;Top stories&#8217; button on navigation drawer.</string>
     <string name="menu_most_recent">Most Recent</string>
-    <string name="menu_most_recent_summary">If disabled, \'Most Recent\' button on navigation menu disappear.</string>
-    <string name="menu_friendreq">Richieste di Amicizia</string>
-    <string name="menu_friendreq_summary">If disabled, \'Richieste di Amicizia\' button on navigation menu disappear.</string>
+    <string name="menu_most_recent_summary">Hide &#8216;Most Recent&#8217; button on navigation drawer.</string>
+    <string name="menu_friendreq">Friend Requests</string>
+    <string name="menu_friendreq_summary">Hide &#8216;Friend Requests&#8217; button on navigation drawer.</string>
     <string name="menu_groups">Groups</string>
-    <string name="menu_groups_summary">If disabled, \'Groups\' button on navigation menu disappear.</string>
-    <string name="menu_messages">Messaggi</string>
-    <string name="menu_search">Cerca</string>
-    <string name="menu_search_summary">If disabled, \'Cerca\' button on navigation menu disappear.</string>
-    <string name="menu_mainmenu">Menu Principale</string>
-    <string name="menu_mainmenu_summary">If disabled, \'Menu Principale\' button on navigation menu disappear.</string>
-    <string name="messaging_enabled_title">Messaggistica</string>
-    <string name="messaging_enabled_summary">Quando attiva, permetterà di accedere ai Messaggi di Facebook. Disattiva questa opzione se hai un\'app di messaggistica (Facebook Messenger).</string>
+    <string name="menu_groups_summary">Hide &#8216;Groups&#8217; button on navigation drawer.</string>
+    <string name="menu_messages">Messages</string>
+    <string name="menu_search">Search</string>
+    <string name="menu_search_summary">Hide &#8216;Search&#8217; button on navigation drawer.</string>
+    <string name="menu_mainmenu">Main menu</string>
+    <string name="menu_mainmenu_summary">Hide &#8216;Main menu&#8217; button on navigation drawer.</string>
+    <string name="messaging_enabled_title">Messaging</string>
+    <string name="messaging_enabled_summary">When enabled, will provide access to Facebook Messages. Disable if you have a messaging app.</string>
     <!-- End navigation -->
 
     <!-- App -->
@@ -122,7 +118,7 @@
     <string name="loading">Caricamento</string>
     <string name="permission_denied">Permesso negato</string>
 
-	<!-- About -->
+    <!-- About -->
     <string name="more">More and credits</string>
     <string name="about_updates">Updates</string>
     <string name="updates">Check for a new version</string>
@@ -135,5 +131,5 @@
     <string name="withYou">Report bugs or requst new features</string>
     <string name="changelog">Changelog</string>
     <!-- End about -->
-	
+
 </resources>

@@ -61,10 +61,5 @@
             android:key="nav_top_stories"
             android:summary="@string/menu_top_stories_summary"
             android:title="@string/menu_top_stories" />
-        <SwitchPreference
-            android:defaultValue="true"
-            android:key="nav_news"
-            android:summary="@string/menu_news_summary"
-            android:title="@string/menu_news" /> />
     </PreferenceCategory>
 </PreferenceScreen>

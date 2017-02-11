@@ -22,9 +22,6 @@
     <string name="led_light">Светодиод</string>
     <string name="flashlight_as_led">Вспышка вместо светодиода</string>
     <string name="flashlight_as_led_summary">Использовать вспышку камеры вместо светодиода для уведомлений.</string>
-    <string name="notifications_extra">Дополнительно</string>
-    <string name="notifications_everywhere">Постоянное уведомление</string>
-    <string name="notifications_everywhere_description">Даже когда вы находитесь в главном окне программы.</string>
     <!-- End Notifications -->
 
     <!-- General -->

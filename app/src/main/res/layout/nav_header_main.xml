@@ -25,34 +25,34 @@
         android:paddingStart="16dp"
         android:paddingTop="20dp">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_marginTop="15dp"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:layout_gravity="center_vertical">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_marginTop="15dp"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_vertical">
 
-    <de.hdodenhof.circleimageview.CircleImageView
-        android:id="@+id/profile_picture"
-        android:layout_width="75dp"
-        android:layout_marginStart="-80dp"
-        android:layout_height="75dp"
-        android:contentDescription="@string/header_profile_pic" />
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_picture"
+                android:layout_width="75dp"
+                android:layout_marginStart="-80dp"
+                android:layout_height="75dp"
+                android:contentDescription="@string/header_profile_pic" />
 
-    <TextView
-        android:id="@+id/profile_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="@dimen/nav_header_vertical_spacing"
-        android:text="@string/default_user"
-        android:textSize="14sp"
-        android:textColor="@android:color/white"
-        android:fontFamily="sans-serif-medium"
-        android:shadowColor="@android:color/black"
-        android:shadowRadius="4"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/profile_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/nav_header_vertical_spacing"
+                android:text="@string/default_user"
+                android:textSize="14sp"
+                android:textColor="@android:color/white"
+                android:fontFamily="sans-serif-medium"
+                android:shadowColor="@android:color/black"
+                android:shadowRadius="4"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        </LinearLayout>
     </RelativeLayout>
 
 </FrameLayout>

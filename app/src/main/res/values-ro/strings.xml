@@ -2,6 +2,8 @@
 <resources>
     <!-- Notifications -->
     <string name="notifications_setting_title">NOTIFICARI</string>
+    <string name="notif">Notifications</string>
+    <string name="notif_summary">New messages and general notifications.</string>
     <string name="you_have_one_message">Ai un mesaj.</string>
     <string name="notification_viewall">Vezi toate notificarile.</string>
     <string name="messages_viewall">Vezi toatele mesajele</string>
@@ -22,9 +24,6 @@
     <string name="led_light">LED de notificari</string>
     <string name="flashlight_as_led">Lanterna ca LED</string>
     <string name="flashlight_as_led_summary">Foloseste lanterna pentru notificari in loc de LED (blitul de la camera).</string>
-    <string name="notifications_extra">Aditionale</string>
-    <string name="notifications_everywhere">Mereu notifica</string>
-    <string name="notifications_everywhere_description">Chiar si cand esti pe ecranul principal.</string>
     <!-- End Notifications -->
 
     <!-- General -->
@@ -36,12 +35,12 @@
     <string name="hide_editor_newsfeed_snackbar">Reimprospatati pentru a vedea schimbarile</string>
     <string name="stop_images_title">Nu incarca imaginile</string>
     <string name="stop_images_summary">Cand este activat, nu se vor incarca imaginile. Niste imagini o sa ramana in cache.</string>
-    <string name="hide_sponsored_title">Ascunde continutul \'Sponsorizat\'</string>
-    <string name="hide_sponsored_summary">Cand este activat, se va ascunde continutul \'Sponsorizat\' (anunturi) din Feed.</string>
+    <string name="hide_sponsored_title">Ascunde continutul &#8216;Sponsorizat\'</string>
+    <string name="hide_sponsored_summary">Cand este activat, se va ascunde continutul &#8216;Sponsorizat\' (anunturi) din Feed.</string>
     <string name="hide_birthdays_title">Ascunde Zilele de Nastere</string>
     <string name="hide_birthdays_summary">Cand este activat, se vor ascunde zilele de nastere din Feed.</string>
-    <string name="hide_newsfeedcontent">Hide News Feed content</string>
-    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
+    <string name="clearcache">Clear cache on exit</string>
+    <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->
 
     <!-- About -->
@@ -83,30 +82,28 @@
     <!-- Navigation: items -->
     <string name="navigation_menu_title">MENIUL DE NAVIGARE</string>
     <string name="ic_menu_exitapp">Iesi din aplicatie</string>
-    <string name="ic_menu_exitapp_summary">Cand este activat, butonul \'Iesi din aplicatie\' dispare.</string>
+    <string name="ic_menu_exitapp_summary">Cand este activat, butonul &#8216;Iesi din aplicatie&#8217; dispare.</string>
     <string name="ic_menu_fblogout">Delogheaza-te</string>
-    <string name="ic_menu_fblogout_summary">Cand este activat, butonul \'Delogheaza-te\' dispare.</string>
+    <string name="ic_menu_fblogout_summary">Cand este activat, butonul &#8216;Delogheaza-te&#8217; dispare.</string>
     <string name="menu_photos">Fotografii</string>
-    <string name="menu_photos_summary">Cand este activat, butonul \'Fotografii\' dispare.</string>
+    <string name="menu_photos_summary">Cand este activat, butonul &#8216;Fotografii&#8217; dispare.</string>
     <string name="menu_events">Evenimente</string>
-    <string name="menu_events_summary">Cand este activat, butonul \'Evenimente\' dispare.</string>
+    <string name="menu_events_summary">Cand este activat, butonul &#8216;Evenimente&#8217; dispare.</string>
     <string name="menu_back">Inapoi</string>
-    <string name="menu_back_summary">Cand este dezactivat, butonul \'Inapoi\' dispare.</string>
-    <string name="menu_news">Feed</string>
-    <string name="menu_news_summary">Cand este dezactivat, butonul \'Feed\' dispare.</string>
+    <string name="menu_back_summary">Cand este dezactivat, butonul &#8216;Inapoi&#8217; dispare.</string>
     <string name="menu_top_stories">Povesti de top</string>
-    <string name="menu_top_stories_summary">Cand este dezactivat, butonul \'Povesti de top\' dispare.</string>
+    <string name="menu_top_stories_summary">Cand este dezactivat, butonul &#8216;Povesti de top&#8217; dispare.</string>
     <string name="menu_most_recent">Cele mai recente</string>
-    <string name="menu_most_recent_summary">Cand este dezactivat, butonul \'Cele mai recente\' dispare.</string>
+    <string name="menu_most_recent_summary">Cand este dezactivat, butonul &#8216;Cele mai recente&#8217; dispare.</string>
     <string name="menu_friendreq">Cereri de prietenie</string>
-    <string name="menu_friendreq_summary">Cand este dezactivat, butonul \'Cereri de prietenie\' dispare.</string>
+    <string name="menu_friendreq_summary">Cand este dezactivat, butonul &#8216;Cereri de prietenie&#8217; dispare.</string>
     <string name="menu_groups">Grupuri</string>
-    <string name="menu_groups_summary">Cand este dezactivat, butonul \'Grupuri\' dispare.</string>
+    <string name="menu_groups_summary">Cand este dezactivat, butonul &#8216;Grupuri&#8217; dispare.</string>
     <string name="menu_messages">Mesaje</string>
     <string name="menu_search">Cautare</string>
-    <string name="menu_search_summary">Cand este dezactivat, butonul \'Cautare\' dispare.</string>
+    <string name="menu_search_summary">Cand este dezactivat, butonul &#8216;Cautare&#8217; dispare.</string>
     <string name="menu_mainmenu">Meniu Principal</string>
-    <string name="menu_mainmenu_summary">Cand este dezactivat, butonul \'Meniu Principal\' dispare.</string>
+    <string name="menu_mainmenu_summary">Cand este dezactivat, butonul &#8216;Meniu Principal&#8217; dispare.</string>
     <string name="messaging_enabled_title">Mesagerie</string>
     <string name="messaging_enabled_summary">Cand este activat, va permite accesul la Mesajele Facebook. Dezactiveaza daca ai Messenger.</string>
     <!-- End navigation -->

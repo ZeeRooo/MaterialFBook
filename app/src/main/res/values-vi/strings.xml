@@ -2,6 +2,8 @@
 <resources>
     <!-- Notifications -->
     <string name="notifications_setting_title">Thông báo</string>
+    <string name="notif">Notifications</string>
+    <string name="notif_summary">New messages and general notifications.</string>
     <string name="you_have_one_message">Bạn có một tin nhắn.</string>
     <string name="notification_viewall">Xem tất cả thông báo</string>
     <string name="messages_viewall">Xem tất cả tin nhắn</string>
@@ -22,9 +24,6 @@
     <string name="led_light">Đèn LED</string>
 	<string name="flashlight_as_led">Đèn Flash dạng LED</string>
     <string name="flashlight_as_led_summary">Sử dụng Flash như đèn LED cho các thông báo (camera led).</string>
-	<string name="notifications_extra">Bổ sung</string>
-    <string name="notifications_everywhere">Luôn thông báo</string>
-    <string name="notifications_everywhere_description">Ngoài ra khi bạn đang ở trên màn hình chính của ứng dụng.</string>
     <!-- End Notifications -->
 
     <!-- General -->
@@ -40,8 +39,8 @@
     <string name="hide_sponsored_summary">Khi được kích hoạt, sẽ ẩn nội dung được tài trợ (quảng cáo) từ dòng thời gian.</string>
     <string name="hide_birthdays_title">Ẩn sinh nhật</string>
     <string name="hide_birthdays_summary">Khi được kích hoạt, sẽ ẩn sinh nhật từ dòng thời gian.</string>
-	<string name="hide_newsfeedcontent">Ẩn nội dung Bảng tin</string>
-    <string name="hide_newsfeedcontent_summary">Khi được kích hoạt, sẽ ẩn nội dung Bảng tin.</string>
+    <string name="clearcache">Clear cache on exit</string>
+    <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->
 
     <!-- About -->
@@ -83,30 +82,28 @@
     <!-- Navigation: items -->
     <string name="navigation_menu_title">Menu điều hướng</string>
     <string name="ic_menu_exitapp">Thoát ứng dụng</string>
-    <string name="ic_menu_exitapp_summary">Khi được kích hoạt, nút \'Thoát ứng dụng\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="ic_menu_exitapp_summary">Khi được kích hoạt, nút &#8216;Thoát ứng dụng&#8217; trên menu điều hướng sẽ biến mất.</string>
     <string name="ic_menu_fblogout">Đăng xuất</string>
-    <string name="ic_menu_fblogout_summary">Khi được kích hoạt, \'Đăng xuất\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="ic_menu_fblogout_summary">Khi được kích hoạt, &#8216;Đăng xuất&#8217; trên menu điều hướng sẽ biến mất.</string>
     <string name="menu_photos">Ảnh</string>
-    <string name="menu_photos_summary">Khi được kích hoạt, nút \'Ảnh\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="menu_photos_summary">Khi được kích hoạt, nút &#8216;Ảnh&#8217; trên menu điều hướng sẽ biến mất.</string>
     <string name="menu_events">Sự kiện</string>
-    <string name="menu_events_summary">Khi được kích hoạt, nút \'Sự kiện\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="menu_events_summary">Khi được kích hoạt, nút &#8216;Sự kiện&#8217; trên menu điều hướng sẽ biến mất.</string>
     <string name="menu_back">Quay lại</string>
-    <string name="menu_back_summary">Khi được vô hiệu hóa, nút \'Quay lại\' trên menu điều hướng sẽ biến mất.</string>
-    <string name="menu_news">Dòng thời gian</string>
-    <string name="menu_news_summary">Khi được vô hiệu hóa, \'Dòng thời gian\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="menu_back_summary">Khi được vô hiệu hóa, nút &#8216;Quay lại&#8217; trên menu điều hướng sẽ biến mất.</string>
     <string name="menu_top_stories">Top stories</string>
-    <string name="menu_top_stories_summary">Khi được vô hiệu hóa, \'Top stories\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="menu_top_stories_summary">Khi được vô hiệu hóa, &#8216;Top stories&#8217; trên menu điều hướng sẽ biến mất.</string>
     <string name="menu_most_recent">Most Recent</string>
-    <string name="menu_most_recent_summary">Khi được vô hiệu hóa, \'Most Recent\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="menu_most_recent_summary">Khi được vô hiệu hóa, &#8216;Most Recent&#8217; trên menu điều hướng sẽ biến mất.</string>
     <string name="menu_friendreq">Lời mời kết bạn</string>
-    <string name="menu_friendreq_summary">Khi được vô hiệu hóa, \'Lời mời kết bạn\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="menu_friendreq_summary">Khi được vô hiệu hóa, &#8216;Lời mời kết bạn&#8217; trên menu điều hướng sẽ biến mất.</string>
     <string name="menu_groups">Nhóm</string>
-    <string name="menu_groups_summary">Khi được vô hiệu hóa, \'Nhóm\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="menu_groups_summary">Khi được vô hiệu hóa, &#8216;Nhóm&#8217; trên menu điều hướng sẽ biến mất.</string>
     <string name="menu_messages">Tin nhắn</string>
     <string name="menu_search">Tìm kiếm</string>
-    <string name="menu_search_summary">Khi được vô hiệu hóa, \'Tìm kiếm\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="menu_search_summary">Khi được vô hiệu hóa, &#8216;Tìm kiếm&#8217; trên menu điều hướng sẽ biến mất.</string>
     <string name="menu_mainmenu">Menu chính</string>
-    <string name="menu_mainmenu_summary">Khi được vô hiệu hóa, \'Menu chính\' trên menu điều hướng sẽ biến mất.</string>
+    <string name="menu_mainmenu_summary">Khi được vô hiệu hóa, &#8216;Menu chính&#8217; trên menu điều hướng sẽ biến mất.</string>
     <string name="messaging_enabled_title">Tin nhắn</string>
     <string name="messaging_enabled_summary">Khi được kích hoạt, sẽ được cung cấp truy cập vào Facebook Messages. Vô hiệu hóa nếu bạn có một ứng dụng tin nhắn.</string>
     <!-- End navigation -->

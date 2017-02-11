@@ -32,14 +32,12 @@ public class SettingsActivity extends AppCompatActivity {
     public static final String KEY_PREF_NAV_BACK = "nav_back";
     public static final String KEY_PREF_NAV_PHOTOS = "nav_photos";
     public static final String KEY_PREF_NAV_TOP_STORIES = "nav_top_stories";
-    public static final String KEY_PREF_NAV_NEWS = "nav_news";
     public static final String KEY_PREF_NAV_FRIENDREQ = "nav_friendreq";
     public static final String KEY_PREF_NAV_EXIT = "nav_exitapp";
     public static final String KEY_PREF_SAVE_DATA = "save_data";
-    public static final String KEY_PREF_NOTIF_NOTIF = "notifications_activated";
-    public static final String KEY_PREF_NOTIF_MESSAGE = "message_notifications";
-    public static final String KEY_PREF_HIDE_NEWS_FEED = "hide_newsfeed";
     public static final String KEY_PREF_CLEAR_CACHE = "clear_cache";
+    public static final String KEY_PREF_NOTIF = "notif";
+    public static final String KEY_PREF_NOTIF_INTERVAL = "notif_interval";
 
     AppCompatActivity MaterialFBookAct;
 
