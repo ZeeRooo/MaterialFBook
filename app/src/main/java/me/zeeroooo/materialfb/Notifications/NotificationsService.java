@@ -56,8 +56,6 @@ public class NotificationsService extends IntentService {
     private static final String TAG;
     private SharedPreferences mPreferences;
     boolean syncProblemOccurred = false;
-    public View mCoordinatorLayoutView;
-
 
     // static initializer
     static {
@@ -101,17 +99,27 @@ public class NotificationsService extends IntentService {
             if (number.matches("^[+-]?\\d+$"))
                 result = number;
         }
-        int newMessages = Integer.parseInt(result);
+        try {
+            // parse a number of unread messages
+            int newMessages = Integer.parseInt(result);
 
-        if (newMessages == 1)
-            notifier(getString(R.string.you_have_one_message), NOTIFICATION_OLD_MESSAGE_URL, true);
-        else if (newMessages > 1)
-            notifier(String.format(getString(R.string.you_have_n_messages), newMessages), NOTIFICATION_OLD_MESSAGE_URL, true);
+            if (!mPreferences.getBoolean("activity_visible", false) || mPreferences.getBoolean("notifications_everywhere", true)) {
+                if (newMessages == 1)
+                    notifier(getString(R.string.you_have_one_message), NOTIFICATION_OLD_MESSAGE_URL, true);
+                else if (newMessages > 1)
+                    notifier(String.format(getString(R.string.you_have_n_messages), newMessages), NOTIFICATION_OLD_MESSAGE_URL, true);
+            }
 
-        // save this check status
-        mPreferences.edit().putBoolean("msg_last_status", true).apply();
-        Log.i("CheckMessagesTask", "onPostExecute: Aight biatch ;)");
+            // save this check status
+            mPreferences.edit().putBoolean("msg_last_status", true).apply();
+            Log.i("CheckMessagesTask", "onPostExecute: Aight biatch ;)");
+        } catch (NumberFormatException ex) {
+            // save this check status
+            mPreferences.edit().putBoolean("msg_last_status", false).apply();
+            Log.i("CheckMessagesTask", "onPostExecute: Failure");
+        }
     }
+
 
     private String getNumberMessages(String connectUrl) {
         try {

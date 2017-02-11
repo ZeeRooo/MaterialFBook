@@ -2,6 +2,11 @@
 <resources>
     <string name="changelog_list" translatable="false"><![CDATA[
 <br>
+<b>Version 2.6.1:</b>
+<br>
+- Fixed FC when the device is not connected and AlarmManager try to refresh the notifications.
+<br>
+<br>
 <b>Version 2.6.0:</b>
 <br>
 - Now the app hide the birthdays from "events" and feed. #25
