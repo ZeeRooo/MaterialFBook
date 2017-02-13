@@ -162,12 +162,12 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Translated to Serbian by PoP992.
 - Fixed toolbar/keyboard issues on KitKat devices. #36
 
-**Version 2.6.1:**
-- Fixed FC when the device is not connected and AlarmManager try to refresh the notifications. #40
-
 **Version 2.7.0:**
 - Notification now display the profile pic (messages and notifications) = BIIIIIIG THANKS to indywidualny!!!
 - Battery improvement: When the device is not connected to the internet, the app dont try to sync the notifications or messages (same result as disable the "Notifications" button in Settings > Notifications).
+
+**Version 2.6.1:**
+- Fixed FC when the device is not connected and AlarmManager try to refresh the notifications. #40
 
 ###########
 
