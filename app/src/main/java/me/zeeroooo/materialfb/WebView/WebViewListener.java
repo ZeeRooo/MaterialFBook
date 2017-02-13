@@ -138,7 +138,6 @@ public class WebViewListener implements AdvancedWebView.Listener {
 			    case "MaterialTheme": {
                    css += mActivity.getString(R.string.MaterialTheme);
             }
-			    break;
 		}
 
             // Inject the css
@@ -152,6 +151,8 @@ public class WebViewListener implements AdvancedWebView.Listener {
 
             // Stop loading
             mActivity.setLoading(false);
+
+
         }
     }
 

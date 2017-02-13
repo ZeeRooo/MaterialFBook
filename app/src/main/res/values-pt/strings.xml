@@ -4,11 +4,7 @@
     <string name="notifications_setting_title">NOTIFICAÇÕES</string>
     <string name="notif">Notifications</string>
     <string name="notif_summary">New messages and general notifications.</string>
-    <string name="you_have_one_message">Você tem uma mensagem.</string>
-    <string name="notification_viewall">Ver todas as notificações</string>
-    <string name="messages_viewall">Ver todas as mensagens</string>
     <string name="applying_changes">Aplicando altereções</string>
-    <string name="you_have_n_messages">Você tem %d mensagens.</string>
     <string name="sync_problem">Cookies não podem ser sincronizados. Primeira execução, certo? Por favor reinicie o app</string>
     <string name="notification_sound_description">Escolher um toque ou manter silêncio: \u0020</string>
     <string name="notifications_settings">Configurações de notificações</string>

@@ -29,6 +29,7 @@
         <receiver android:name="me.zeeroooo.materialfb.Notifications.Receiver" android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
             </intent-filter>
         </receiver>
 

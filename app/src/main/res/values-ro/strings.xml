@@ -4,11 +4,7 @@
     <string name="notifications_setting_title">NOTIFICARI</string>
     <string name="notif">Notifications</string>
     <string name="notif_summary">New messages and general notifications.</string>
-    <string name="you_have_one_message">Ai un mesaj.</string>
-    <string name="notification_viewall">Vezi toate notificarile.</string>
-    <string name="messages_viewall">Vezi toatele mesajele</string>
     <string name="applying_changes">Aplica schimbarile</string>
-    <string name="you_have_n_messages">Ai %d mesaje.</string>
     <string name="sync_problem">Cookieurile nu pot fi sincronizate. Prima rulare? Da-i un restart :)</string>
     <string name="notification_sound_description">Alege un ringtone sau deloc: \u0020</string>
     <string name="notifications_settings">Setarile notificarilor</string>

@@ -2,11 +2,7 @@
 <resources>
     <!-- Notifications -->
     <string name="notifications_setting_title">Уведомления</string>
-    <string name="you_have_one_message">У вас одно сообщение.</string>
-    <string name="notification_viewall">Показать все уведомления</string>
-    <string name="messages_viewall">Показать все сообщения</string>
     <string name="applying_changes">Сохранение изменений…</string>
-    <string name="you_have_n_messages">У вас %d сообщений.</string>
     <string name="sync_problem">Невозможно синхронизировать cookie-файлы. Пожалуйста, перезагрузите программу.</string>
     <string name="notification_sound_description">Выбор рингтона: \u0020</string>
     <string name="notifications_settings">Настройки уведомлений</string>

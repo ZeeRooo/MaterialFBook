@@ -4,11 +4,7 @@
     <string name="notifications_setting_title">NOTIFICATIONES</string>
     <string name="notif">Notificaciones</string>
     <string name="notif_summary">Nuevos mensajes y notificaciones.</string>
-    <string name="you_have_one_message">Tienes un mensaje</string>
-    <string name="notification_viewall">Ver todas las notificaciones</string>
-    <string name="messages_viewall">Ver todos los mensajes</string>
     <string name="applying_changes">Aplicando cambios</string>
-    <string name="you_have_n_messages">Tienes %d mensajes</string>
     <string name="sync_problem">Las cookies no pudieron sincronizarse. Por favor, reinicie la app</string>
     <string name="notification_sound_description">Elija un ringtone: \u0020</string>
     <string name="notifications_settings">Ajusted de notificaciones</string>

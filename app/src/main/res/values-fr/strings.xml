@@ -4,11 +4,7 @@
     <string name="notifications_setting_title">NOTIFICATIONS</string>
 	<string name="notif">Notifications</string>
     <string name="notif_summary">New messages and general notifications.</string>
-    <string name="you_have_one_message">Vous avez un message</string>
-    <string name="notification_viewall">Voir toutes les notifications</string>
-    <string name="messages_viewall">Voir tous les messages</string>
     <string name="applying_changes">Appliquer les changements</string>
-    <string name="you_have_n_messages">Vous avez %d messages.</string>
     <string name="sync_problem">Les cookies ne peuvent pas être synchronisés. Redémarrez l\'application.</string>
     <string name="notification_sound_description">Choisissez une sonnerie : \u0020</string>
     <string name="notifications_settings">Paramètres de notifications</string>

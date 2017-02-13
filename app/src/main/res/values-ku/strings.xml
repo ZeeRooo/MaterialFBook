@@ -4,11 +4,7 @@
     <string name="notifications_setting_title">ئاگادارکردنەوەکان</string>
     <string name="notif">Notifications</string>
     <string name="notif_summary">New messages and general notifications.</string>
-    <string name="you_have_one_message">یەک پەیامت بۆ هاتووە</string>
-    <string name="notification_viewall">پیشاندانی هەموو ئاگادارکردنەوەکان</string>
-    <string name="messages_viewall">پیشاندانی هەموو پەیامەکان</string>
     <string name="applying_changes">جێبەجێکردنی ئاگادارییەکان</string>
-    <string name="you_have_n_messages">تۆ %d پەیامت بۆ هاتووە</string>
     <string name="sync_problem">فایلە پاشەکەوتکراوەکان ناتوانرێ هاوکاتبکرێت، ئەگەر یەکەمجارە بەرنامەکە بەکاردێنیت، ئەوا دووبارە ئیشی پێبکەرەوە</string>
     <string name="notification_sound_description">زەنگ هەڵبژێرە: \u0020</string>
     <string name="notifications_settings">ڕێکخستنەکانی ئاگادارکردنەوە</string>

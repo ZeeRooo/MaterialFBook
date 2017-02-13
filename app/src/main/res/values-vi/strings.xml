@@ -4,11 +4,7 @@
     <string name="notifications_setting_title">Thông báo</string>
     <string name="notif">Notifications</string>
     <string name="notif_summary">New messages and general notifications.</string>
-    <string name="you_have_one_message">Bạn có một tin nhắn.</string>
-    <string name="notification_viewall">Xem tất cả thông báo</string>
-    <string name="messages_viewall">Xem tất cả tin nhắn</string>
 	<string name="applying_changes">Áp dụng thay đổi</string>
-    <string name="you_have_n_messages">Bạn có %d tin nhắn.</string>
 	<string name="sync_problem">Cookie chưa được đồng bộ hóa. Lần chạy đầu tiên hả? Hãy khởi động lại ứng dụng :)</string>
     <string name="notification_sound_description">Chọn nhạc chuông hoặc im lặng: \u0020</string>
     <string name="notifications_settings">Cài đặt thông báo</string>

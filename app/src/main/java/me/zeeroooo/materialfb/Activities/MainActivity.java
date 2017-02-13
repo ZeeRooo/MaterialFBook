@@ -406,8 +406,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-
-
     @Override
     protected void onResume() {
         super.onResume();
@@ -488,7 +486,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
         mNotificationButton = menu.findItem(R.id.action_notifications);
-        ActionItemBadge.update(this, mNotificationButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_menu_notifications_active_png, null), ActionItemBadge.BadgeStyles.RED, Integer.MIN_VALUE);
+        ActionItemBadge.update(this, mNotificationButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_notifications, null), ActionItemBadge.BadgeStyles.RED, Integer.MIN_VALUE);
         mMessagesButton = menu.findItem(R.id.nav_messages);
         ActionItemBadge.update(this, mMessagesButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_message, null), ActionItemBadge.BadgeStyles.RED, Integer.MIN_VALUE);
         return true;
@@ -705,9 +703,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     public void setNotificationNum(int num) {
         if (num > 0) {
-            ActionItemBadge.update(mNotificationButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_menu_notifications_active_png, null), num);
+            ActionItemBadge.update(mNotificationButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_notifications, null), num);
         } else {
-            ActionItemBadge.update(mNotificationButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_menu_notifications_active_png, null), Integer.MIN_VALUE);
+            ActionItemBadge.update(mNotificationButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_notifications, null), Integer.MIN_VALUE);
         }
     }
     public void setMessagessNum(int num) {

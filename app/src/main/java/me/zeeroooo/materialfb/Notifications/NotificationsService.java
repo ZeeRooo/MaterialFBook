@@ -14,6 +14,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
@@ -23,21 +24,19 @@ import android.support.design.widget.Snackbar;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v4.content.ContextCompat;
-import android.view.View;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
-import org.jsoup.select.Elements;
 import java.io.IOException;
 import android.os.Looper;
 import me.zeeroooo.materialfb.Activities.MainActivity;
 import me.zeeroooo.materialfb.MaterialFBook;
 import me.zeeroooo.materialfb.R;
+import me.zeeroooo.materialfb.WebView.Helpers;
 import android.util.Log;
 import android.hardware.Camera;
 import android.hardware.Camera.Parameters;
-
 import com.greysonparrelli.permiso.Permiso;
 
 public class NotificationsService extends IntentService {
@@ -49,8 +48,6 @@ public class NotificationsService extends IntentService {
     // Facebook URL constants
     final String NOTIFICATIONS_URL = "https://m.facebook.com/notifications/";
     final String MESSAGES_URL = "https://m.facebook.com/messages/";
-    private static final String MESSAGES_URL_BACKUP = "https://mobile.facebook.com/messages";
-    private static final String NOTIFICATION_OLD_MESSAGE_URL = "https://m.facebook.com/messages#";
     private final int MAX_RETRY = 3;
     private final int JSOUP_TIMEOUT = 10000;
     private static final String TAG;
@@ -83,54 +80,36 @@ public class NotificationsService extends IntentService {
 
     // Sync the messages
     private void SyncMessages() {
-        String result = null;
+        Element result = null;
         int tries = 0;
         syncCookies();
         while (tries++ < MAX_RETRY && result == null) {
-            Log.i("CheckMessagesTask", "doInBackground: Processing... Trial: " + tries);
-
-            // try to generate rss feed address
-            Log.i("CheckMsgTask:getNumber", "Trying: " + MESSAGES_URL);
-            String number = getNumberMessages(MESSAGES_URL);
-            if (!number.matches("^[+-]?\\d+$")) {
-                Log.i("CheckMsgTask:getNumber", "Trying: " + MESSAGES_URL_BACKUP);
-                number = getNumberMessages(MESSAGES_URL_BACKUP);
-            }
-            if (number.matches("^[+-]?\\d+$"))
-                result = number;
+            Log.i("CheckNotificationsTask", "doInBackground: Processing... Trial: " + tries);
+            Log.i("CheckNotificationsTask", "Trying: " + MESSAGES_URL);
+            Element message = getElementMes(MESSAGES_URL);
+            if (message != null)
+                result = message;
         }
-        try {
-            // parse a number of unread messages
-            int newMessages = Integer.parseInt(result);
+        if (result == null)
+            return;
 
-            if (!mPreferences.getBoolean("activity_visible", false) || mPreferences.getBoolean("notifications_everywhere", true)) {
-                if (newMessages == 1)
-                    notifier(getString(R.string.you_have_one_message), NOTIFICATION_OLD_MESSAGE_URL, true);
-                else if (newMessages > 1)
-                    notifier(String.format(getString(R.string.you_have_n_messages), newMessages), NOTIFICATION_OLD_MESSAGE_URL, true);
+            String time = result.select("div.time.r.nowrap.mfss.fcl").text();
+            String text = result.text().replaceAll(time, "");
+            String pictureStyle = result.select("i.img.profpic").attr("style");
+            if (!mPreferences.getBoolean("activity_visible", false)) {
+                Bitmap picprofile = Helpers.getBitmapFromURL(Helpers.extractUrl(pictureStyle));
+                notifier(text, (MainActivity.FACEBOOK_URL_BASE) + result.attr("href"), true, picprofile);
             }
-
-            // save this check status
             mPreferences.edit().putBoolean("msg_last_status", true).apply();
-            Log.i("CheckMessagesTask", "onPostExecute: Aight biatch ;)");
-        } catch (NumberFormatException ex) {
-            // save this check status
-            mPreferences.edit().putBoolean("msg_last_status", false).apply();
-            Log.i("CheckMessagesTask", "onPostExecute: Failure");
-        }
     }
 
-
-    private String getNumberMessages(String connectUrl) {
+    private Element getElementMes(String connectUrl) {
         try {
-            Elements message = Jsoup.connect(connectUrl).userAgent(MainActivity.UserAgent).timeout(JSOUP_TIMEOUT)
+            return Jsoup.connect(connectUrl).userAgent(MainActivity.UserAgent).timeout(JSOUP_TIMEOUT)
                     .cookie((MainActivity.FACEBOOK_URL_BASE), CookieManager.getInstance().getCookie((MainActivity.FACEBOOK_URL_BASE))).get()
-                    .select("div#viewport").select("div#page").select("div._129-")
-                    .select("#messages_jewel").select("span._59tg");
-
-            return message.html();
+                    .select("a.touchable").not("a._19no").not("a.button").first();
         } catch (IllegalArgumentException ex) {
-            Log.i("CheckMessagesTask", "Cookie sync problem occurred");
+            Log.i("CheckNotificationsTask", "Cookie sync problem occurred");
             if (!syncProblemOccurred) {
                 syncProblemSnackbar();
                 syncProblemOccurred = true;
@@ -138,7 +117,7 @@ public class NotificationsService extends IntentService {
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        return "failure";
+        return null;
     }
 
     // Sync the notifications
@@ -152,26 +131,36 @@ public class NotificationsService extends IntentService {
             Element notification = getElementNotif(NOTIFICATIONS_URL);
             if (notification != null)
                 result = notification;
+            try {
+                if (result == null)
+                    return;
+                if (result.text() == null)
+                    return;
+
+                final String time = result.select("span.mfss.fcg").text();
+                final String text = result.text().replace(time, "");
+                final String pictureStyle = result.select("i.img.l.profpic").attr("style");
+
+                if (!mPreferences.getBoolean("activity_visible", false)) {
+                    if (!mPreferences.getString("last_notification_text", "").equals(text)) {
+                        Bitmap picprofile = Helpers.getBitmapFromURL(Helpers.extractUrl(pictureStyle));
+                        notifier(text, MainActivity.FACEBOOK_URL_BASE + result.attr("href"), false, picprofile);
+                    }
+                }
+
+                // save as shown (or ignored) to avoid showing it again
+                mPreferences.edit().putString("last_notification_text", text).apply();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
-        // Handle the notification
-        if (result == null)
-            return;
-        if (result.text() == null)
-            return;
-
-        String time = result.select("span.mfss.fcg").text();
-        String text = result.text().replace(time, "");
-
-        if (!mPreferences.getString("last_notification_text", "").equals(text))
-            notifier(text, (MainActivity.FACEBOOK_URL_BASE) + result.attr("href"), false);
-        mPreferences.edit().putString("last_notification_text", text).apply();
     }
 
     private Element getElementNotif(String connectUrl) {
         try {
             return Jsoup.connect(connectUrl).userAgent(MainActivity.UserAgent).timeout(JSOUP_TIMEOUT)
                     .cookie((MainActivity.FACEBOOK_URL_BASE), CookieManager.getInstance().getCookie((MainActivity.FACEBOOK_URL_BASE))).get()
-                    .select("a.touchable").not("a._19no").not("a.button").first();
+                    .select("a.touchable").not("a._19no").not("a.button").last();
         } catch (IllegalArgumentException ex) {
             Log.i("CheckNotificationsTask", "Cookie sync problem occurred");
             if (!syncProblemOccurred) {
@@ -209,19 +198,18 @@ public class NotificationsService extends IntentService {
     }
 
     // create a notification and display it
-    private void notifier(String title, String url, boolean isMessage) {
-        // let's display a notification, dude!
-        final String contentTitle;
-        contentTitle = getString(R.string.app_name);
+    private void notifier(String title, String url, boolean isMessage, Bitmap picprofile) {
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setStyle(new NotificationCompat.BigTextStyle().bigText(title))
                         .setColor(ContextCompat.getColor(this, R.color.MFBPrimary))
-                        .setContentTitle(contentTitle)
+                        .setContentTitle(getString(R.string.app_name))
                         .setContentText(title)
                         .setTicker(title)
                         .setWhen(System.currentTimeMillis())
+                        .setLargeIcon(Helpers.Circle(picprofile))
+                        .setSmallIcon(R.drawable.ic_material)
                         .setAutoCancel(true);
 
         // ringtone
@@ -283,10 +271,9 @@ public class NotificationsService extends IntentService {
             Intent viewMessagesIntent = new Intent(this, MainActivity.class);
             viewMessagesIntent.setAction(Intent.ACTION_VIEW);
             viewMessagesIntent.setData(Uri.parse(url));
-            PendingIntent resultPendingIntent = PendingIntent.getActivity(getApplication(), 1, viewMessagesIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+            PendingIntent resultPendingIntent = PendingIntent.getActivity(getApplication(), 1, viewMessagesIntent, 0);
             mBuilder.setContentIntent(resultPendingIntent);
             mBuilder.setOngoing(false);
-            mBuilder.setSmallIcon(R.drawable.ic_message);
             mBuilder.setOnlyAlertOnce(true);
             Notification note = mBuilder.build();
             mNotificationManager.notify(1, note);
@@ -295,12 +282,11 @@ public class NotificationsService extends IntentService {
             Intent viewNotificationsIntent = new Intent(this, MainActivity.class);
             viewNotificationsIntent.setAction(Intent.ACTION_VIEW);
             viewNotificationsIntent.setData(Uri.parse(url));
-            mBuilder.setSmallIcon(R.drawable.ic_menu_notifications_active_png);
             TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
             stackBuilder.addParentStack(MainActivity.class);
             stackBuilder.addNextIntent(viewNotificationsIntent);
-            PendingIntent resultPendingIntent = PendingIntent.getActivity(getApplication(), 0, viewNotificationsIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-            mBuilder.setContentIntent(resultPendingIntent);
+            PendingIntent resultPendingIntent2 = PendingIntent.getActivity(getApplication(), 0, viewNotificationsIntent, 0);
+            mBuilder.setContentIntent(resultPendingIntent2);
             mBuilder.setOngoing(false);
             Notification note = mBuilder.build();
             mNotificationManager.notify(0, note);

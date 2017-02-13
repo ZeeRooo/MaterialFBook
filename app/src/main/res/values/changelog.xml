@@ -2,6 +2,13 @@
 <resources>
     <string name="changelog_list" translatable="false"><![CDATA[
 <br>
+<b>Version 2.7.0:</b>
+<br>
+- Notification now display the profile pic (messages and notifications) = BIIIIIIG THANKS to indywidualny!!!
+<br>
+- Battery improvement: When the device is not connected to the internet, the app dont try to sync the notifications or messages (same result as disable the "Notifications" button in Settings > Notifications).
+<br>
+<br>
 <b>Version 2.6.1:</b>
 <br>
 - Fixed FC when the device is not connected and AlarmManager try to refresh the notifications.

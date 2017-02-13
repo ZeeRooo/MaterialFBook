@@ -4,11 +4,7 @@
     <string name="notifications_setting_title">Obaveštenja</string>
     <string name="notif">Notifications</string>
     <string name="notif_summary">New messages and general notifications.</string>
-    <string name="you_have_one_message">Imaš jednu poruku.</string>
-    <string name="notification_viewall">Vidi sva obaveštenja</string>
-    <string name="messages_viewall">Vidi sve poruke</string>
     <string name="applying_changes">Primeni promene</string>
-    <string name="you_have_n_messages">Imaš %d poruka.</string>
     <string name="sync_problem">Kolačići ne mogu biti sinhronizovani. Prvo pokretanje? Molimo restartujte aplikaciju :)</string>
     <string name="notification_sound_description">izaberite melodiju zvona: \u0020</string>
     <string name="notifications_settings">Podešavanje obaveštenja</string>

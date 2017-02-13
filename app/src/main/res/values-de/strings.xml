@@ -4,11 +4,7 @@
     <string name="notifications_setting_title">BENACHRICHTIGUNGEN</string>
     <string name="notif">Notifications</string>
     <string name="notif_summary">New messages and general notifications.</string>
-    <string name="you_have_one_message">Du hast eine Nachricht.</string>
-    <string name="notification_viewall">Alle Benachrichtigungen anzeigen</string>
-    <string name="messages_viewall">Alle Nachrichten anzeigen</string>
     <string name="applying_changes">Änderungen anwenden</string>
-    <string name="you_have_n_messages">Du hast %d Nachrichten.</string>
     <string name="sync_problem">Cookies konnten nicht synchronisiert werden. Erster Start, oder? Bitte starte die App einmal neu :)</string>
     <string name="notification_sound_description">Wähle einen Klingelton oder lautlos: \u0020</string>
     <string name="notifications_settings">Benachrichtigungseinstellungen</string>
