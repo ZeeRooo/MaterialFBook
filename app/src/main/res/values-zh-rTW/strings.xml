@@ -2,11 +2,7 @@
 <resources>
     <!-- Notifications -->
     <string name="notifications_setting_title">NOTIFICATIONS</string>
-    <string name="you_have_one_message">您有一則新訊息.</string>
-    <string name="notification_viewall">查看全部通知</string>
-    <string name="messages_viewall">View all messages</string>
     <string name="applying_changes">正在套用變更…</string>
-    <string name="you_have_n_messages">您有 %d 則新訊息.</string>
     <string name="sync_problem">Cookies無法同步. 請重新啟動程式</string>
     <string name="notification_sound_description">選擇鈴聲或是將鈴聲靜音: \u0020</string>
     <string name="notifications_settings">通知設定</string>

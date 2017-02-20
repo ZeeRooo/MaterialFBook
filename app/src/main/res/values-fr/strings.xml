@@ -2,15 +2,14 @@
 <resources>
     <!-- Notifications -->
     <string name="notifications_setting_title">NOTIFICATIONS</string>
-	<string name="notif">Notifications</string>
-    <string name="notif_summary">New messages and general notifications.</string>
+    <string name="notif">Notifications</string>
     <string name="applying_changes">Appliquer les changements</string>
     <string name="sync_problem">Les cookies ne peuvent pas être synchronisés. Redémarrez l\'application.</string>
     <string name="notification_sound_description">Choisissez une sonnerie : \u0020</string>
     <string name="notifications_settings">Paramètres de notifications</string>
     <string name="notifications_settings_description">Paramètres additionnels. Choisissez l’intervalle d’actualisation, les sonneries, vibrations et LED.</string>
     <string name="facebook_notifications">Notifications Facebook</string>
-    <string name="message_notifications">Messages Facebook</string>
+    <string name="facebook_message">Messages Facebook</string>
     <string name="interval_pref">Intervalle d’actualisation</string>
     <string name="notification_sound">Sonnerie de notification</string>
     <string name="interval_pref_description_new">Les notifications seront actualisées toutes les %s.</string>
@@ -34,6 +33,8 @@
     <string name="hide_sponsored_summary">Masque les contenus sponsorisés (publicités) du fil d\'actualité.</string>
     <string name="hide_birthdays_title">Masquer les anniversaires</string>
     <string name="hide_birthdays_summary">Masque les anniversaires du fil d\'actualité.</string>
+    <string name="hide_newsfeedcontent">Hide News Feed content</string>
+    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
     <string name="clearcache">Clear cache on exit</string>
     <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->

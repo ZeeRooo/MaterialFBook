@@ -2,15 +2,14 @@
 <resources>
     <!-- Notifications -->
     <string name="notifications_setting_title">Thông báo</string>
-    <string name="notif">Notifications</string>
-    <string name="notif_summary">New messages and general notifications.</string>
+    <string name="notif">Thông báo</string>
 	<string name="applying_changes">Áp dụng thay đổi</string>
 	<string name="sync_problem">Cookie chưa được đồng bộ hóa. Lần chạy đầu tiên hả? Hãy khởi động lại ứng dụng :)</string>
     <string name="notification_sound_description">Chọn nhạc chuông hoặc im lặng: \u0020</string>
     <string name="notifications_settings">Cài đặt thông báo</string>
     <string name="notifications_settings_description">Cài đặt thêm. Chọn khoảng thời gian, thiết lập âm thanh, đèn LED và độ rung.</string>
     <string name="facebook_notifications">Thông báo trên Facebook</string>
-    <string name="message_notifications">Tin nhắn trên Facebook</string>
+    <string name="facebook_message">Tin nhắn trên Facebook</string>
     <string name="interval_pref">Khoảng thời gian để kiểm tra</string>
     <string name="notification_sound">Âm thanh thông báo</string>
     <string name="interval_pref_description_new">Thông báo sẽ được kiểm tra mỗi %s.</string>
@@ -35,6 +34,8 @@
     <string name="hide_sponsored_summary">Khi được kích hoạt, sẽ ẩn nội dung được tài trợ (quảng cáo) từ dòng thời gian.</string>
     <string name="hide_birthdays_title">Ẩn sinh nhật</string>
     <string name="hide_birthdays_summary">Khi được kích hoạt, sẽ ẩn sinh nhật từ dòng thời gian.</string>
+    <string name="hide_newsfeedcontent">Ẩn nội dung Bảng tin</string>
+    <string name="hide_newsfeedcontent_summary">Khi được kích hoạt, sẽ ẩn nội dung Bảng tin.</string>
     <string name="clearcache">Clear cache on exit</string>
     <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->

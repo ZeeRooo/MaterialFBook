@@ -2,13 +2,14 @@
 <resources>
     <!-- Notifications -->
     <string name="notifications_setting_title">Уведомления</string>
+    <string name="notif">Уведомления</string>
     <string name="applying_changes">Сохранение изменений…</string>
     <string name="sync_problem">Невозможно синхронизировать cookie-файлы. Пожалуйста, перезагрузите программу.</string>
     <string name="notification_sound_description">Выбор рингтона: \u0020</string>
     <string name="notifications_settings">Настройки уведомлений</string>
     <string name="notifications_settings_description">Дополнительные настройки: выбор интервала проверки, настройка звуков, светодиода и вибрации.</string>
     <string name="facebook_notifications">Уведомления Facebook</string>
-    <string name="message_notifications">СообщенияFacebook</string>
+    <string name="facebook_message">СообщенияFacebook</string>
     <string name="interval_pref">Интервал проверки</string>
     <string name="notification_sound">Звук уведомлений</string>
     <string name="interval_pref_description_new">Уведомления будут проверяться каждые %s.</string>
@@ -35,6 +36,8 @@
     <string name="hide_birthdays_summary">Дни рождения будут скрыты из ленты новостей.</string>
     <string name="hide_newsfeedcontent">Hide News Feed content</string>
     <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
+    <string name="clearcache">Clear cache on exit</string>
+    <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->
 
     <!-- About -->

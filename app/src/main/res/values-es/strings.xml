@@ -3,14 +3,13 @@
     <!-- Notifications -->
     <string name="notifications_setting_title">NOTIFICATIONES</string>
     <string name="notif">Notificaciones</string>
-    <string name="notif_summary">Nuevos mensajes y notificaciones.</string>
     <string name="applying_changes">Aplicando cambios</string>
     <string name="sync_problem">Las cookies no pudieron sincronizarse. Por favor, reinicie la app</string>
     <string name="notification_sound_description">Elija un ringtone: \u0020</string>
     <string name="notifications_settings">Ajusted de notificaciones</string>
     <string name="notifications_settings_description">Ajustes adicionales. Elija un intervalo de tiempoo, alija sonidos, LED y vibración.</string>
     <string name="facebook_notifications">Notificaciones de Facebook</string>
-    <string name="message_notifications">Mensajes de Facebook</string>
+    <string name="facebook_message">Mensajes de Facebook</string>
     <string name="interval_pref">Intervalo de tiempo para actualizar</string>
     <string name="notification_sound">Sonido de notificación</string>
     <string name="interval_pref_description_new">Las notificaciones seran checkeadas cada %s.</string>
@@ -35,6 +34,8 @@
     <string name="hide_sponsored_summary">Si está habilitado, la publicidad del patrocinador no se mostrará.</string>
     <string name="hide_birthdays_title">Oculta cumpleaños</string>
     <string name="hide_birthdays_summary">Si está habilitado, los cumpleaños no se mostrarán.</string>
+    <string name="hide_newsfeedcontent">Oculta todas las noticias</string>
+    <string name="hide_newsfeedcontent_summary">Si está habilitado, ninguna noticia aparecerá.</string>
     <string name="clearcache">Limpiar cache al salir</string>
     <string name="clearcache_summary">Tardará más tiempo en abrir la app.</string>
     <!-- End general -->

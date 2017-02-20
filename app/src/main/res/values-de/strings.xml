@@ -2,15 +2,14 @@
 <resources>
     <!-- Notifications -->
     <string name="notifications_setting_title">BENACHRICHTIGUNGEN</string>
-    <string name="notif">Notifications</string>
-    <string name="notif_summary">New messages and general notifications.</string>
+    <string name="notif">Benachrichtigungen</string>
     <string name="applying_changes">Änderungen anwenden</string>
     <string name="sync_problem">Cookies konnten nicht synchronisiert werden. Erster Start, oder? Bitte starte die App einmal neu :)</string>
     <string name="notification_sound_description">Wähle einen Klingelton oder lautlos: \u0020</string>
     <string name="notifications_settings">Benachrichtigungseinstellungen</string>
     <string name="notifications_settings_description">Zusätzliche Einstellungen. Wähle das Zeitintervall, setze die Töne, LED und Vibration.</string>
     <string name="facebook_notifications">Facebook Benachrichtigungen</string>
-    <string name="message_notifications">Facebook Nachrichten</string>
+    <string name="facebook_message">Facebook Nachrichten</string>
     <string name="interval_pref">Zeitintervall für Kontrolle</string>
     <string name="notification_sound">Benachrichtigungston</string>
     <string name="interval_pref_description_new">Benachrichtigunen werden alle %s kontrolliert.</string>
@@ -35,6 +34,8 @@
     <string name="hide_sponsored_summary">Aktiviere, um &#8216;Sponsored&#8217; Inhalte (Werbung) aus dem News Feed zu entfernen.</string>
     <string name="hide_birthdays_title">Verstecke Geburtstage</string>
     <string name="hide_birthdays_summary">Aktiviere, um Geburtstage im News Feed zu verstecken.</string>
+    <string name="hide_newsfeedcontent">Hide News Feed content</string>
+    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
     <string name="clearcache">Clear cache on exit</string>
     <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->

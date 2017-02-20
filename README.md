@@ -169,6 +169,13 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Notification now display the profile pic (messages and notifications) = BIIIIIIG THANKS to indywidualny!!!
 - Battery improvement: When the device is not connected to the internet, the app dont try to sync the notifications or messages (same result as disable the "Notifications" button in Settings > Notifications).
 
+**Version 2.7.5:**
+- Now we can choose between "Facebook Notifications", "Facebook Messages" or both.
+- Re-added "Hide News Feed content" option. #46
+- Some fixes with notifications.
+- Changes on the background of SwipeViewLayout.
+- Updated some translations.
+
 ###########
 
 ## - I recomend Android Studio to build this project -

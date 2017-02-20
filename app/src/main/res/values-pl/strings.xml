@@ -2,20 +2,20 @@
 <resources>
     <!-- Notifications -->
     <string name="notifications_setting_title">POWIADOMIENIA</string>
-    <string name="notif">Notifications</string>
-    <string name="notif_summary">New messages and general notifications.</string>
+    <string name="notif">Powiadomienia</string>
     <string name="applying_changes">Zastosuj zmiany</string>
     <string name="sync_problem">Nie można zsynchronizować ciasteczek. Pierwsze uruchomienie, tak? Wystarczy zrestartować aplikacje :)</string>
     <string name="notification_sound_description">Wybierz dzwonek, lub wyciszenie: \u0020</string>
     <string name="notifications_settings">Ustawienia powiadomień</string>
     <string name="notifications_settings_description">Ustawienia dodatkowe. Wybierz interwał czasu, ustaw dźwięki, LED i wibracje.</string>
     <string name="facebook_notifications">Powiadomienia z Facebooka</string>
-    <string name="message_notifications">Wiadomości z Facebooka</string>
+    <string name="facebook_message">Wiadomości z Facebooka</string>
     <string name="interval_pref">Sprawdzaj w interwale</string>
     <string name="notification_sound">Dźwięk powiadomień</string>
     <string name="interval_pref_description_new">Powiadomienia będą sprawdzane co %s.</string>
     <string name="notification_sound_msg">Dźwięk wiadomości</string>
     <string name="vibrate">Wibracje</string>
+    <string name="vibrate_double">Podwójna wibracja</string>
     <string name="led_light">Światło LED</string>
     <string name="flashlight_as_led">Latarka jako LED</string>
     <string name="flashlight_as_led_summary">Użyj latarki do powiadomień LED (flesz aparatu).</string>
@@ -34,8 +34,10 @@
     <string name="hide_sponsored_summary">Kiedy włączone, treści \„Sponsorowane\” (reklamy) będą ukryte z Aktualności.</string>
     <string name="hide_birthdays_title">Ukryj Urodziny</string>
     <string name="hide_birthdays_summary">Kiedy włączone, urodziny będą ukryte z Aktualności.</string>
-    <string name="clearcache">Clear cache on exit</string>
-    <string name="clearcache_summary">It will take more time to open the app.</string>
+    <string name="hide_newsfeedcontent">Ukryj Aktualności</string>
+    <string name="hide_newsfeedcontent_summary">Kiedy włączone, treść Aktualności będzie ukryta.</string>
+    <string name="clearcache">Wyczyść pamięć podręczną przy zamykaniu</string>
+    <string name="clearcache_summary">Kiedy włączone, aplikacja będzie uruchamiać się dłużej.</string>
     <!-- End general -->
 
     <!-- Appearence -->
@@ -53,8 +55,8 @@
     <string name="hide_fab_on_scroll_summary">Ukrywa FAB przy przewijaniu w dół.</string>
     <string name="navigation_menu_settings">Elementy menu nawigacji</string>
     <string name="navigation_menu_settings_description">Możesz dodać/ukryć elementy w menu nawigacyjnym aplikacji.</string>
-    <string name="save_data">Zapisywanie danych</string>
-    <string name="save_data_summary">Włączona aplikacja zużywa mniej danych.</string>
+    <string name="save_data">Niższe zużycie danych</string>
+    <string name="save_data_summary">Ładuje Facebooka w wersji podstawowej, a także wyłącza znaczniki oraz informacje profilowe.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Opublikuj status</string>
     <string name="fab_photo">Opublikuj zdjęcie</string>

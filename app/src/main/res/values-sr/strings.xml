@@ -2,15 +2,14 @@
 <resources>
     <!-- Notifications -->
     <string name="notifications_setting_title">Obaveštenja</string>
-    <string name="notif">Notifications</string>
-    <string name="notif_summary">New messages and general notifications.</string>
+    <string name="notif">Obaveštenja</string>
     <string name="applying_changes">Primeni promene</string>
     <string name="sync_problem">Kolačići ne mogu biti sinhronizovani. Prvo pokretanje? Molimo restartujte aplikaciju :)</string>
     <string name="notification_sound_description">izaberite melodiju zvona: \u0020</string>
     <string name="notifications_settings">Podešavanje obaveštenja</string>
     <string name="notifications_settings_description">Dodatna podešavanja. Izaberite vremenski razmak, podesite zvuk, LED i vibracije.</string>
     <string name="facebook_notifications">Facebook obaveštenja</string>
-    <string name="message_notifications">Facebook poruke</string>
+    <string name="facebook_message">Facebook poruke</string>
     <string name="interval_pref">Vremenski razmak za proveru</string>
     <string name="notification_sound">Zvuk obaveštenja</string>
     <string name="interval_pref_description_new">Obaveštenja će biti proveravana na svakih %s.</string>
@@ -35,6 +34,8 @@
     <string name="hide_sponsored_summary">Kada je omogućeno, sakriće &#8216;Sponsored&#8217; sadržaj (ads) u News Feed-u.</string>
     <string name="hide_birthdays_title">Sakriti rođendane</string>
     <string name="hide_birthdays_summary">Kada je omogućeno, sakrice rođendane u Najvažnijim vestima.</string>
+    <string name="hide_newsfeedcontent">Hide News Feed content</string>
+    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
     <string name="clearcache">Clear cache on exit</string>
     <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->

@@ -2,13 +2,14 @@
 <resources>
     <!-- Notifications -->
     <string name="notifications_setting_title">ÉRTESÍTÉSEK</string>
+    <string name="notif">Értesítések</string>
     <string name="applying_changes">Változtatások mentése</string>
     <string name="sync_problem">Cookie-k szinkronizálása sikertelen. Első indítás, igaz? Kérlek indítsd újra az alkalmazást :)</string>
     <string name="notification_sound_description">Válassz jelzőhangot vagy némítsd: \u0020</string>
     <string name="notifications_settings">Értesítési beállítások</string>
     <string name="notifications_settings_description">Additional settings. Értesítési időintervallum, hang, vaku és rezgés beállítások.</string>
     <string name="facebook_notifications">Facebook értesítések</string>
-    <string name="message_notifications">Facebook üzenetek</string>
+    <string name="facebook_message">Facebook üzenetek</string>
     <string name="interval_pref">Frissítési időintervallum</string>
     <string name="notification_sound">Értesítési hang</string>
     <string name="interval_pref_description_new">Értesítések ellenőrzése minden %. percben.</string>
@@ -35,6 +36,8 @@
     <string name="hide_birthdays_summary">Bekapcsolva elrejti a születésnapokat a hírfolyamból.</string>
     <string name="hide_newsfeedcontent">Hírfolyam elrejtése</string>
     <string name="hide_newsfeedcontent_summary">Bekapcsolva elrejti a hírfolyamot.</string>
+    <string name="clearcache">Clear cache on exit</string>
+    <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->
 
     <!-- About -->

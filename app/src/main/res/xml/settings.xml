@@ -28,6 +28,11 @@
             android:title="@string/hide_birthdays_title" />
         <SwitchPreference
             android:defaultValue="false"
+            android:key="hide_news_feed_content"
+            android:summary="@string/hide_newsfeedcontent_summary"
+            android:title="@string/hide_newsfeedcontent" />
+        <SwitchPreference
+            android:defaultValue="false"
             android:key="clear_cache"
             android:summary="@string/clearcache_summary"
             android:title="@string/clearcache" />
@@ -49,7 +54,12 @@
             android:defaultValue="MFB" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/notifications_setting_title">
+        <SwitchPreference
+            android:key="notif"
+            android:title="@string/notif"
+            android:defaultValue="false"/>
         <Preference
+            android:dependency="notif"
             android:key="notifications_settings"
             android:title="@string/notifications_settings"
             android:summary="@string/notifications_settings_description"/>

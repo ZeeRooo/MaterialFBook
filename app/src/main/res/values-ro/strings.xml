@@ -2,15 +2,14 @@
 <resources>
     <!-- Notifications -->
     <string name="notifications_setting_title">NOTIFICARI</string>
-    <string name="notif">Notifications</string>
-    <string name="notif_summary">New messages and general notifications.</string>
+    <string name="notif">Notificari</string>
     <string name="applying_changes">Aplica schimbarile</string>
     <string name="sync_problem">Cookieurile nu pot fi sincronizate. Prima rulare? Da-i un restart :)</string>
     <string name="notification_sound_description">Alege un ringtone sau deloc: \u0020</string>
     <string name="notifications_settings">Setarile notificarilor</string>
     <string name="notifications_settings_description">Setari aditionale. Alege intervalul de timp, adauga sunete, LED si vibratii.</string>
     <string name="facebook_notifications">Notificari Facebook</string>
-    <string name="message_notifications">Mesaje Facebook</string>
+    <string name="facebook_message">Mesaje Facebook</string>
     <string name="interval_pref">Intervalul de timp pentru verificare</string>
     <string name="notification_sound">Sunetul de notificare</string>
     <string name="interval_pref_description_new">Notificarile vor fi verificate la fiecare %s.</string>
@@ -35,6 +34,8 @@
     <string name="hide_sponsored_summary">Cand este activat, se va ascunde continutul &#8216;Sponsorizat\' (anunturi) din Feed.</string>
     <string name="hide_birthdays_title">Ascunde Zilele de Nastere</string>
     <string name="hide_birthdays_summary">Cand este activat, se vor ascunde zilele de nastere din Feed.</string>
+    <string name="hide_newsfeedcontent">Hide News Feed content</string>
+    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
     <string name="clearcache">Clear cache on exit</string>
     <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->

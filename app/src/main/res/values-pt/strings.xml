@@ -2,15 +2,14 @@
 <resources>
     <!-- Notifications -->
     <string name="notifications_setting_title">NOTIFICAÇÕES</string>
-    <string name="notif">Notifications</string>
-    <string name="notif_summary">New messages and general notifications.</string>
+    <string name="notif">Notificações</string>
     <string name="applying_changes">Aplicando altereções</string>
     <string name="sync_problem">Cookies não podem ser sincronizados. Primeira execução, certo? Por favor reinicie o app</string>
     <string name="notification_sound_description">Escolher um toque ou manter silêncio: \u0020</string>
     <string name="notifications_settings">Configurações de notificações</string>
     <string name="notifications_settings_description">Configurações adicionais. Escolha intervalo de tempo, sons, LED e vibração.</string>
     <string name="facebook_notifications">Notificações do Facebook</string>
-    <string name="message_notifications">Notificações de mensagens</string>
+    <string name="facebook_message">Notificações de mensagens</string>
     <string name="interval_pref">Intervalo de tempo para verificação</string>
     <string name="notification_sound">Som de notificação</string>
     <string name="interval_pref_description_new">Notificações serão verificadas a cada %s.</string>
@@ -34,6 +33,8 @@
     <string name="hide_sponsored_summary">Quando ativado, irá esconder Conteúdo &#8220;Patrocinado&#8221; (anúncios) do Feed de Notícias.</string>
     <string name="hide_birthdays_title">Ocultar Aniversários</string>
     <string name="hide_birthdays_summary">Quando ativado, irá ocultar aniversários do seu Feed de notícias.</string>
+    <string name="hide_newsfeedcontent">Ocultar Conteúdo do Feed de Notícias</string>
+    <string name="hide_newsfeedcontent_summary">Quando ativado, irá ocultar conteúdos do Feed de Notícias.</string>
     <string name="clearcache">Clear cache on exit</string>
     <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->

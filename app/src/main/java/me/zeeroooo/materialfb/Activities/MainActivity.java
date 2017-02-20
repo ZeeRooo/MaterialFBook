@@ -76,7 +76,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public static String UserAgent = "Mozilla/5.0 (BB10; Kbd) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.4633 Mobile Safari/537.10+";
 
     // Members
-    AppCompatActivity MaterialFBookAct;
     public SwipeRefreshLayout swipeView;
     public NavigationView mNavigationView;
     public static View mCoordinatorLayoutView;
@@ -129,109 +128,69 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        MaterialFBookAct = this;
-        boolean MFB = Theme.getInstance(this).setTheme().equals("MFB");
-        final boolean Pink = Theme.getInstance(this).setTheme().equals("Pink");
-        final boolean Grey = Theme.getInstance(this).setTheme().equals("Grey");
-        final boolean Green = Theme.getInstance(this).setTheme().equals("Green");
-        final boolean Red = Theme.getInstance(this).setTheme().equals("Red");
-        final boolean Lime = Theme.getInstance(this).setTheme().equals("Lime");
-        final boolean Yellow = Theme.getInstance(this).setTheme().equals("Yellow");
-        final boolean Purple = Theme.getInstance(this).setTheme().equals("Purple");
-        final boolean LightBlue = Theme.getInstance(this).setTheme().equals("LightBlue");
-        final boolean Black = Theme.getInstance(this).setTheme().equals("Black");
-        final boolean Orange = Theme.getInstance(this).setTheme().equals("Orange");
-        final boolean GooglePlayGreen = Theme.getInstance(this).setTheme().equals("GooglePlayGreen");
-        boolean mCreatingActivity = true;
-        if (!mCreatingActivity) {
-            if (MFB)
-                setTheme(R.style.MFB);
-        } else {
-            if (Pink)
-                setTheme(R.style.Pink);
-            if (Grey)
-                setTheme(R.style.Grey);
-            if (Green)
-                setTheme(R.style.Green);
-            if (Red)
-                setTheme(R.style.Red);
-            if (Lime)
-                setTheme(R.style.Lime);
-            if (Yellow)
-                setTheme(R.style.Yellow);
-            if (Purple)
-                setTheme(R.style.Purple);
-            if (LightBlue)
-                setTheme(R.style.LightBlue);
-            if (Black)
-                setTheme(R.style.Black);
-            if (Orange)
-                setTheme(R.style.Orange);
-            if (GooglePlayGreen)
-                setTheme(R.style.GooglePlayGreen);
+        Theme.getTheme(this);
+        super.onCreate(savedInstanceState);
+        FacebookSdk.sdkInitialize(this.getApplication());
+        setContentView(R.layout.activity_main);
+        Permiso.getInstance().setActivity(this);
 
-            super.onCreate(savedInstanceState);
-            FacebookSdk.sdkInitialize(this.getApplication());
-            setContentView(R.layout.activity_main);
-            Permiso.getInstance().setActivity(this);
-
-            // Preferences
-            PreferenceManager.setDefaultValues(this, R.xml.settings, false);
-            mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-            listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
-                public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-                    switch (key) {
-                        case SettingsActivity.KEY_PREF_STOP_IMAGES:
-                            mWebView.getSettings().setBlockNetworkImage(prefs.getBoolean(key, false));
-                            requiresReload = true;
-                            break;
-                        case SettingsActivity.KEY_PREF_MESSAGING:
-                            mNavigationView.getMenu().findItem(R.id.nav_messages).setVisible(prefs.getBoolean(key, false));
-                            break;
-                        case SettingsActivity.KEY_PREF_LOCATION:
-                            if (prefs.getBoolean(key, false)) {
-                                Permiso.getInstance().requestPermissions(new Permiso.IOnPermissionResult() {
-                                    @Override
-                                    public void onPermissionResult(Permiso.ResultSet resultSet) {
-                                        if (resultSet.areAllPermissionsGranted()) {
-                                            mWebView.setGeolocationEnabled(true);
-                                        } else {
-                                            Snackbar.make(mCoordinatorLayoutView, R.string.permission_denied, Snackbar.LENGTH_SHORT).show();
-                                        }
+        // Preferences
+        PreferenceManager.setDefaultValues(this, R.xml.settings, false);
+        mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+            public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+                switch (key) {
+                    case SettingsActivity.KEY_PREF_STOP_IMAGES:
+                        mWebView.getSettings().setBlockNetworkImage(prefs.getBoolean(key, false));
+                        requiresReload = true;
+                        break;
+                    case SettingsActivity.KEY_PREF_MESSAGING:
+                        mNavigationView.getMenu().findItem(R.id.nav_messages).setVisible(prefs.getBoolean(key, false));
+                        break;
+                    case SettingsActivity.KEY_PREF_LOCATION:
+                        if (prefs.getBoolean(key, false)) {
+                            Permiso.getInstance().requestPermissions(new Permiso.IOnPermissionResult() {
+                                @Override
+                                public void onPermissionResult(Permiso.ResultSet resultSet) {
+                                    if (resultSet.areAllPermissionsGranted()) {
+                                        mWebView.setGeolocationEnabled(true);
+                                    } else {
+                                        Snackbar.make(mCoordinatorLayoutView, R.string.permission_denied, Snackbar.LENGTH_SHORT).show();
                                     }
+                                }
 
-                                    @Override
-                                    public void onRationaleRequested(Permiso.IOnRationaleProvided callback, String... permissions) {
-                                        // TODO Permiso.getInstance().showRationaleInDialog("Title", "Message", null, callback);
-                                        callback.onRationaleProvided();
-                                    }
-                                }, Manifest.permission.ACCESS_FINE_LOCATION);
-                            }
-                            break;
-                        case SettingsActivity.KEY_PREF_FAB_SCROLL:
-                            mMenuFAB.showMenuButton(true);
-                            break;
-                        case SettingsActivity.KEY_PREF_HIDE_EDITOR:
-                            requiresReload = true;
-                            break;
-                        case SettingsActivity.KEY_PREF_HIDE_SPONSORED:
-                            requiresReload = true;
-                            break;
-                        case SettingsActivity.KEY_PREF_HIDE_BIRTHDAYS:
-                            requiresReload = true;
-                            break;
-                        case SettingsActivity.KEY_PREF_NOTIF:
-                            Receiver.ScheduleNotif(getApplication(), false);
-                            break;
-                        case SettingsActivity.KEY_PREF_NOTIF_INTERVAL:
-                            Receiver.ScheduleNotif(getApplication(), false);
-                            break;
-                        default:
-                            break;
-                    }
+                                @Override
+                                public void onRationaleRequested(Permiso.IOnRationaleProvided callback, String... permissions) {
+                                    // TODO Permiso.getInstance().showRationaleInDialog("Title", "Message", null, callback);
+                                    callback.onRationaleProvided();
+                                }
+                            }, Manifest.permission.ACCESS_FINE_LOCATION);
+                        }
+                        break;
+                    case SettingsActivity.KEY_PREF_FAB_SCROLL:
+                        mMenuFAB.showMenuButton(true);
+                        break;
+                    case SettingsActivity.KEY_PREF_HIDE_EDITOR:
+                        requiresReload = true;
+                        break;
+                    case SettingsActivity.KEY_PREF_HIDE_SPONSORED:
+                        requiresReload = true;
+                        break;
+                    case SettingsActivity.KEY_PREF_HIDE_BIRTHDAYS:
+                        requiresReload = true;
+                        break;
+                    case SettingsActivity.KEY_PREF_NOTIF:
+                        Receiver.ScheduleNotif(getApplication(), false);
+                        break;
+                    case SettingsActivity.KEY_PREF_NOTIF_INTERVAL:
+                        Receiver.ScheduleNotif(getApplication(), false);
+                        break;
+                    default:
+                        break;
                 }
-            };
-        }
+            }
+        };
+
         mPreferences.registerOnSharedPreferenceChangeListener(listener);
 
         // Setup the toolbar
@@ -294,7 +253,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // Start the Swipe to reload listener
         swipeView = (SwipeRefreshLayout) findViewById(R.id.swipeLayout);
-        swipeView.setColorSchemeResources(R.color.MFBPrimary);
+        swipeView.setColorSchemeResources(android.R.color.white);
+        swipeView.setProgressBackgroundColorSchemeColor(Theme.getColor(this));
         swipeView.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh() {
@@ -354,7 +314,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mWebView.setWebChromeClient(new CustomWebChromeClient(this, mWebView, (FrameLayout) findViewById(R.id.fullscreen_custom_content)) {
             @Override
             public void onReceivedTitle(WebView view, String title) {
-                    MainActivity.this.setTitle(title);
+                MainActivity.this.setTitle(title);
             }
         });
 
@@ -503,7 +463,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mWebView.loadUrl(FACEBOOK_URL_BASE_BASIC + "notifications.php");
             }
             Helpers.uncheckRadioMenu(mNavigationView.getMenu());
-            NotificationsService.ClearNotif();
+            NotificationsService.ClearNotif(this);
         }
         if (id == R.id.nav_messages) {
             if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
@@ -511,7 +471,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             } else {
                 mWebView.loadUrl(FACEBOOK_URL_BASE_BASIC + "messages/");
             }
-            NotificationsService.ClearMessages();
+            NotificationsService.ClearMessages(this);
             Helpers.uncheckRadioMenu(mNavigationView.getMenu());
         }
 
@@ -557,7 +517,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 } else {
                     mWebView.loadUrl(FACEBOOK_URL_BASE_BASIC + "messages/");
                 }
-                NotificationsService.ClearMessages();
+                NotificationsService.ClearMessages(this);
                 Helpers.uncheckRadioMenu(mNavigationView.getMenu());
                 break;
             case R.id.nav_search:

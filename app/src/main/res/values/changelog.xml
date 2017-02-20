@@ -2,6 +2,19 @@
 <resources>
     <string name="changelog_list" translatable="false"><![CDATA[
 <br>
+<b>Version 2.7.5:</b>
+<br>
+- Now we can choose between "Facebook Notifications", "Facebook Messages" or both.
+<br>
+- Re-added "Hide News Feed content" option. #46
+<br>
+- Some fixes with notifications.
+<br>
+- Changes on the background of SwipeViewLayout.
+<br>
+- Updated some translations.
+<br>
+<br>
 <b>Version 2.7.0:</b>
 <br>
 - Notification now display the profile pic (messages and notifications) = BIIIIIIG THANKS to indywidualny!!!

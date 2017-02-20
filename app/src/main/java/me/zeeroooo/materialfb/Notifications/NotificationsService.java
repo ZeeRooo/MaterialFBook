@@ -20,10 +20,10 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
-import android.support.v4.content.ContextCompat;
 import android.webkit.CookieManager;
 import android.webkit.CookieSyncManager;
 import org.jsoup.Jsoup;
@@ -31,8 +31,8 @@ import org.jsoup.nodes.Element;
 import java.io.IOException;
 import android.os.Looper;
 import me.zeeroooo.materialfb.Activities.MainActivity;
-import me.zeeroooo.materialfb.MaterialFBook;
 import me.zeeroooo.materialfb.R;
+import me.zeeroooo.materialfb.Ui.Theme;
 import me.zeeroooo.materialfb.WebView.Helpers;
 import android.util.Log;
 import android.hardware.Camera;
@@ -46,8 +46,8 @@ public class NotificationsService extends IntentService {
     }
 
     // Facebook URL constants
-    final String NOTIFICATIONS_URL = "https://m.facebook.com/notifications/";
-    final String MESSAGES_URL = "https://m.facebook.com/messages/";
+    final String NOTIFICATIONS_URL = MainActivity.FACEBOOK_URL_BASE + "notifications.php";
+    final String MESSAGES_URL = MainActivity.FACEBOOK_URL_BASE +"messages/";
     private final int MAX_RETRY = 3;
     private final int JSOUP_TIMEOUT = 10000;
     private static final String TAG;
@@ -63,6 +63,7 @@ public class NotificationsService extends IntentService {
     public void onCreate() {
         Log.i(TAG, "********** Service created! **********");
         super.onCreate();
+        Theme.getTheme(this);
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
     }
 
@@ -74,50 +75,10 @@ public class NotificationsService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        SyncNotifications();
+        if (mPreferences.getBoolean("facebook_messages", false))
         SyncMessages();
-    }
-
-    // Sync the messages
-    private void SyncMessages() {
-        Element result = null;
-        int tries = 0;
-        syncCookies();
-        while (tries++ < MAX_RETRY && result == null) {
-            Log.i("CheckNotificationsTask", "doInBackground: Processing... Trial: " + tries);
-            Log.i("CheckNotificationsTask", "Trying: " + MESSAGES_URL);
-            Element message = getElementMes(MESSAGES_URL);
-            if (message != null)
-                result = message;
-        }
-        if (result == null)
-            return;
-
-            String time = result.select("div.time.r.nowrap.mfss.fcl").text();
-            String text = result.text().replaceAll(time, "");
-            String pictureStyle = result.select("i.img.profpic").attr("style");
-            if (!mPreferences.getBoolean("activity_visible", false)) {
-                Bitmap picprofile = Helpers.getBitmapFromURL(Helpers.extractUrl(pictureStyle));
-                notifier(text, (MainActivity.FACEBOOK_URL_BASE) + result.attr("href"), true, picprofile);
-            }
-            mPreferences.edit().putBoolean("msg_last_status", true).apply();
-    }
-
-    private Element getElementMes(String connectUrl) {
-        try {
-            return Jsoup.connect(connectUrl).userAgent(MainActivity.UserAgent).timeout(JSOUP_TIMEOUT)
-                    .cookie((MainActivity.FACEBOOK_URL_BASE), CookieManager.getInstance().getCookie((MainActivity.FACEBOOK_URL_BASE))).get()
-                    .select("a.touchable").not("a._19no").not("a.button").first();
-        } catch (IllegalArgumentException ex) {
-            Log.i("CheckNotificationsTask", "Cookie sync problem occurred");
-            if (!syncProblemOccurred) {
-                syncProblemSnackbar();
-                syncProblemOccurred = true;
-            }
-        } catch (IOException ex) {
-            ex.printStackTrace();
-        }
-        return null;
+        if (mPreferences.getBoolean("facebook_notifications", false))
+        SyncNotifications();
     }
 
     // Sync the notifications
@@ -131,21 +92,19 @@ public class NotificationsService extends IntentService {
             Element notification = getElementNotif(NOTIFICATIONS_URL);
             if (notification != null)
                 result = notification;
+
             try {
                 if (result == null)
                     return;
                 if (result.text() == null)
                     return;
-
                 final String time = result.select("span.mfss.fcg").text();
                 final String text = result.text().replace(time, "");
                 final String pictureStyle = result.select("i.img.l.profpic").attr("style");
 
-                if (!mPreferences.getBoolean("activity_visible", false)) {
-                    if (!mPreferences.getString("last_notification_text", "").equals(text)) {
-                        Bitmap picprofile = Helpers.getBitmapFromURL(Helpers.extractUrl(pictureStyle));
-                        notifier(text, MainActivity.FACEBOOK_URL_BASE + result.attr("href"), false, picprofile);
-                    }
+                if (!mPreferences.getString("last_notification_text", "").equals(text)) {
+                    Bitmap picprofile = Helpers.getBitmapFromURL(Helpers.extractUrl(pictureStyle));
+                    notifier(text, MainActivity.FACEBOOK_URL_BASE + result.attr("href"), false, picprofile);
                 }
 
                 // save as shown (or ignored) to avoid showing it again
@@ -156,11 +115,64 @@ public class NotificationsService extends IntentService {
         }
     }
 
+    @Nullable
     private Element getElementNotif(String connectUrl) {
         try {
+            Log.d("Aca", "Notificaciones!...............");
+            return Jsoup.connect(connectUrl).userAgent(MainActivity.UserAgent).timeout(JSOUP_TIMEOUT)
+                    .cookie(("https://mobile.facebook.com"), CookieManager.getInstance().getCookie(("https://mobile.facebook.com"))).get()
+                    .select("div.touchable-notification").not("a._19no").not("a.button").first();
+        } catch (IllegalArgumentException ex) {
+            Log.i("CheckNotificationsTask", "Cookie sync problem occurred");
+            if (!syncProblemOccurred) {
+                syncProblemSnackbar();
+                syncProblemOccurred = true;
+            }
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
+
+    // Sync the messages
+    private void SyncMessages() {
+        Element result = null;
+        int tries = 0;
+        syncCookies();
+        while (tries++ < MAX_RETRY && result == null) {
+            Log.i("CheckNotificationsTask", "doInBackground: Processing... Trial: " + tries);
+            Log.i("CheckNotificationsTask", "Trying: " + MESSAGES_URL);
+            Element message = getElementMes(MESSAGES_URL);
+            if (message != null)
+                result = message;
+
+            try {
+                if (result == null)
+                    return;
+                final String time = result.select("div.time.r.nowrap.mfss.fcl").text();
+                final String text = result.text().replace(time, "");
+                final String pictureStyle = result.select("i.img.profpic").attr("style");
+
+                if (!mPreferences.getString("last_message", "").equals(text)) {
+                    Bitmap picprofile = Helpers.getBitmapFromURL(Helpers.extractUrl(pictureStyle));
+                    notifier(text, MainActivity.FACEBOOK_URL_BASE + result.attr("href"), true, picprofile);
+                }
+
+                // save as shown (or ignored) to avoid showing it again
+                mPreferences.edit().putString("last_message", text).apply();
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
+        }
+    }
+
+    @Nullable
+    private Element getElementMes(String connectUrl) {
+        try {
+            Log.d("Aca", "Mensajes!!!!...............");
             return Jsoup.connect(connectUrl).userAgent(MainActivity.UserAgent).timeout(JSOUP_TIMEOUT)
                     .cookie((MainActivity.FACEBOOK_URL_BASE), CookieManager.getInstance().getCookie((MainActivity.FACEBOOK_URL_BASE))).get()
-                    .select("a.touchable").not("a._19no").not("a.button").last();
+                    .select("a.touchable.primary").first();
         } catch (IllegalArgumentException ex) {
             Log.i("CheckNotificationsTask", "Cookie sync problem occurred");
             if (!syncProblemOccurred) {
@@ -203,7 +215,7 @@ public class NotificationsService extends IntentService {
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setStyle(new NotificationCompat.BigTextStyle().bigText(title))
-                        .setColor(ContextCompat.getColor(this, R.color.MFBPrimary))
+                        .setColor(Theme.getColor(NotificationsService.this))
                         .setContentTitle(getString(R.string.app_name))
                         .setContentText(title)
                         .setTicker(title)
@@ -262,32 +274,29 @@ public class NotificationsService extends IntentService {
         }
 
         // priority for Heads-up
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
             mBuilder.setPriority(Notification.PRIORITY_HIGH);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                mBuilder.setCategory(Notification.CATEGORY_MESSAGE);
+            }
+        }
+
+        Intent intent = new Intent(this, MainActivity.class);
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(url));
+        mBuilder.setOngoing(false);
+        mBuilder.setOnlyAlertOnce(true);
+        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
+        stackBuilder.addParentStack(MainActivity.class);
+        stackBuilder.addNextIntent(intent);
+        PendingIntent resultPendingIntent = PendingIntent.getActivity(getApplication(), 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
+        mBuilder.setContentIntent(resultPendingIntent);
 
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         if (isMessage) {
-            // Messages
-            Intent viewMessagesIntent = new Intent(this, MainActivity.class);
-            viewMessagesIntent.setAction(Intent.ACTION_VIEW);
-            viewMessagesIntent.setData(Uri.parse(url));
-            PendingIntent resultPendingIntent = PendingIntent.getActivity(getApplication(), 1, viewMessagesIntent, 0);
-            mBuilder.setContentIntent(resultPendingIntent);
-            mBuilder.setOngoing(false);
-            mBuilder.setOnlyAlertOnce(true);
             Notification note = mBuilder.build();
             mNotificationManager.notify(1, note);
         } else {
-            // Notif
-            Intent viewNotificationsIntent = new Intent(this, MainActivity.class);
-            viewNotificationsIntent.setAction(Intent.ACTION_VIEW);
-            viewNotificationsIntent.setData(Uri.parse(url));
-            TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-            stackBuilder.addParentStack(MainActivity.class);
-            stackBuilder.addNextIntent(viewNotificationsIntent);
-            PendingIntent resultPendingIntent2 = PendingIntent.getActivity(getApplication(), 0, viewNotificationsIntent, 0);
-            mBuilder.setContentIntent(resultPendingIntent2);
-            mBuilder.setOngoing(false);
             Notification note = mBuilder.build();
             mNotificationManager.notify(0, note);
 
@@ -296,15 +305,13 @@ public class NotificationsService extends IntentService {
                 note.flags |= Notification.FLAG_SHOW_LIGHTS;
         }
     }
-    public static void ClearMessages() {
-        NotificationManager notificationManager = (NotificationManager)
-                MaterialFBook.getContextOfApplication().getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.cancel(1);
+    public static void ClearMessages(Context context) {
+        NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.cancel(1);
     }
 
-    public static void ClearNotif() {
-        NotificationManager notificationManager = (NotificationManager)
-                MaterialFBook.getContextOfApplication().getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.cancel(0);
+    public static void ClearNotif(Context context) {
+        NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        mNotificationManager.cancel(0);
     }
 }
