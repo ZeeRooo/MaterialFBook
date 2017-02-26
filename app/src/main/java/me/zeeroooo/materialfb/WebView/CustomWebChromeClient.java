@@ -1,13 +1,15 @@
 package me.zeeroooo.materialfb.WebView;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
-import com.github.clans.fab.FloatingActionMenu;
 
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 import me.zeeroooo.materialfb.Activities.MainActivity;
 import me.zeeroooo.materialfb.R;
 
@@ -37,7 +39,7 @@ public class CustomWebChromeClient extends WebChromeClient {
 
         mCustomView = view;
         mWebView.setVisibility(View.GONE);
-        mMenuFAB.hideMenuButton(true);
+        mMenuFAB.hideMenuButton(false);
         mCustomViewContainer.setVisibility(View.VISIBLE);
         mCustomViewContainer.addView(view);
         customViewCallback = callback;

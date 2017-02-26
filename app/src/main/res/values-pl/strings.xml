@@ -18,7 +18,18 @@
     <string name="vibrate_double">Podwójna wibracja</string>
     <string name="led_light">Światło LED</string>
     <string name="flashlight_as_led">Latarka jako LED</string>
-    <string name="flashlight_as_led_summary">Użyj latarki do powiadomień LED (flesz aparatu).</string>
+    <string name="flashlight_as_led_summary_msg">Użyj latarki do Wiadomości z Facebooka LED (flesz aparatu).</string>
+    <string name="flashlight_as_led_summary_notif">Użyj latarki do Powiadomienia z Facebooka LED (flesz aparatu).</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 minuto</item>
+        <item>2 minutos</item>
+        <item>5 minutos</item>
+        <item>15 minutos</item>
+        <item>30 minutos</item>
+        <item>1 hora</item>
+        <item>3 horas</item>
+        <item>6 horas</item>
+    </string-array>
     <!-- End Notifications -->
 
     <!-- General -->
@@ -34,8 +45,8 @@
     <string name="hide_sponsored_summary">Kiedy włączone, treści \„Sponsorowane\” (reklamy) będą ukryte z Aktualności.</string>
     <string name="hide_birthdays_title">Ukryj Urodziny</string>
     <string name="hide_birthdays_summary">Kiedy włączone, urodziny będą ukryte z Aktualności.</string>
-    <string name="hide_newsfeedcontent">Ukryj Aktualności</string>
-    <string name="hide_newsfeedcontent_summary">Kiedy włączone, treść Aktualności będzie ukryta.</string>
+    <string name="messages_only">Messages only</string>
+    <string name="messages_only_summary">Load the message website when the app is opened.</string>
     <string name="clearcache">Wyczyść pamięć podręczną przy zamykaniu</string>
     <string name="clearcache_summary">Kiedy włączone, aplikacja będzie uruchamiać się dłużej.</string>
     <!-- End general -->
@@ -57,6 +68,8 @@
     <string name="navigation_menu_settings_description">Możesz dodać/ukryć elementy w menu nawigacyjnym aplikacji.</string>
     <string name="save_data">Niższe zużycie danych</string>
     <string name="save_data_summary">Ładuje Facebooka w wersji podstawowej, a także wyłącza znaczniki oraz informacje profilowe.</string>
+    <string name="fab_enable">Floating Action Button</string>
+    <string name="fab_enable_summary">Show the FAB.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Opublikuj status</string>
     <string name="fab_photo">Opublikuj zdjęcie</string>
@@ -116,7 +129,7 @@
     <string name="error_facebook_error">Coś poszło nie tak po stronie Facebooka</string>
     <string name="loading">Ładowanie</string>
     <string name="permission_denied">Odmowa pozwolenia. Nie można ukończyć zadania</string>
-	
+    <string name="downloaded">Downloaded</string>
 	<!-- About -->
     <string name="more">Więcej i zasługi</string>
     <string name="about_updates">Aktualizacje</string>

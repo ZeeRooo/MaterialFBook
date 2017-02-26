@@ -5,7 +5,7 @@
         <attr name="civ_border_overlay" format="boolean" />
         <attr name="civ_fill_color" format="color" />
     </declare-styleable>
-	    <declare-styleable name="FloatingActionButton">
+    <declare-styleable name="FloatingActionButton">
         <attr name="fab_colorNormal" format="color" />
         <attr name="fab_colorPressed" format="color" />
         <attr name="fab_colorDisabled" format="color" />
@@ -81,4 +81,14 @@
         <attr name="menu_fab_show_animation" format="reference" />
         <attr name="menu_fab_hide_animation" format="reference" />
     </declare-styleable>
+
+    <!-- Declare custom theme attributes that allow changing which styles are
+         used for button bars depending on the API level.
+         ?android:attr/buttonBarStyle is new as of API 11 so this is
+         necessary to support previous API levels. -->
+    <declare-styleable name="ButtonBarContainerTheme">
+        <attr name="metaButtonBarStyle" format="reference" />
+        <attr name="metaButtonBarButtonStyle" format="reference" />
+    </declare-styleable>
+
 </resources>

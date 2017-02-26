@@ -121,7 +121,7 @@ public class NotificationsService extends IntentService {
             Log.d("Aca", "Notificaciones!...............");
             return Jsoup.connect(connectUrl).userAgent(MainActivity.UserAgent).timeout(JSOUP_TIMEOUT)
                     .cookie(("https://mobile.facebook.com"), CookieManager.getInstance().getCookie(("https://mobile.facebook.com"))).get()
-                    .select("div.touchable-notification").not("a._19no").not("a.button").first();
+                    .select("a.touchable").not("a._19no").not("a.button").not("a.touchable.primary").first();
         } catch (IllegalArgumentException ex) {
             Log.i("CheckNotificationsTask", "Cookie sync problem occurred");
             if (!syncProblemOccurred) {
@@ -232,46 +232,13 @@ public class NotificationsService extends IntentService {
         Uri ringtoneUri = Uri.parse(mPreferences.getString(ringtoneKey, "content://settings/system/notification_sound"));
         mBuilder.setSound(ringtoneUri);
 
-        // vibration
-        if (mPreferences.getBoolean("vibrate", false)) {
-            mBuilder.setVibrate(new long[]{500, 500});
-            if (mPreferences.getBoolean("vibrate_double", false)) {
-                mBuilder.setVibrate(new long[]{500, 500, 500, 500});
-            }
-        } else {
-            mBuilder.setVibrate(new long[]{0L});
-        }
-
-        // LED light
+       /* // LED light
         if (mPreferences.getBoolean("led_light", false)) {
             Resources resources = getResources(), systemResources = Resources.getSystem();
             mBuilder.setLights(Color.CYAN,
                     resources.getInteger(systemResources.getIdentifier("config_defaultNotificationLedOn", "integer", "android")),
                     resources.getInteger(systemResources.getIdentifier("config_defaultNotificationLedOff", "integer", "android")));
-        }
-
-        // Flashlight
-        if (mPreferences.getBoolean("flashlight_as_led", false)) {
-            Permiso.getInstance().requestPermissions(new Permiso.IOnPermissionResult() {
-                @Override
-                public void onPermissionResult(Permiso.ResultSet resultSet) {
-                    if (resultSet.areAllPermissionsGranted()) {
-                        Camera cam = Camera.open();
-                        Parameters p = cam.getParameters();
-                        p.setFlashMode(Parameters.FLASH_MODE_TORCH);
-                        cam.setParameters(p);
-                        cam.startPreview();
-                    } else {
-                        Snackbar.make(MainActivity.mCoordinatorLayoutView, R.string.permission_denied, Snackbar.LENGTH_SHORT).show();
-                    }
-                }
-
-                @Override
-                public void onRationaleRequested(Permiso.IOnRationaleProvided callback, String... permissions) {
-                    Permiso.getInstance().showRationaleInDialog("Title", "Message", null, callback);
-                }
-            }, Manifest.permission.CAMERA);
-        }
+        }*/
 
         // priority for Heads-up
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -294,15 +261,44 @@ public class NotificationsService extends IntentService {
 
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         if (isMessage) {
+            // vibration
+            if (mPreferences.getBoolean("vibrate_msg", false)) {
+                mBuilder.setVibrate(new long[]{500, 500});
+                if (mPreferences.getBoolean("vibrate_double_msg", false)) {
+                    mBuilder.setVibrate(new long[]{500, 500, 500, 500});
+                }
+            } else {
+                mBuilder.setVibrate(new long[]{0L});
+            }
+           /* if (mPreferences.getBoolean("flashlight_as_led_msg", false)) {
+                flashlight();
+            }*/
+            if (mPreferences.getBoolean("led_msj", false)) {
+                mBuilder.setLights(Color.BLUE, 1000, 1000);
+            }
             Notification note = mBuilder.build();
             mNotificationManager.notify(1, note);
         } else {
+            if (mPreferences.getBoolean("vibrate_notif", false)) {
+                mBuilder.setVibrate(new long[]{500, 500});
+                if (mPreferences.getBoolean("vibrate_double_notif", false)) {
+                    mBuilder.setVibrate(new long[]{500, 500, 500, 500});
+                }
+            } else {
+                mBuilder.setVibrate(new long[]{0L});
+            }
+          /*  if (mPreferences.getBoolean("flashlight_as_led_notif", false)) {
+                flashlight();
+            }*/
+            if (mPreferences.getBoolean("led_notif", false)) {
+                mBuilder.setLights(Color.BLUE, 1000, 1000);
+            }
             Notification note = mBuilder.build();
             mNotificationManager.notify(0, note);
 
-            // LED light flag
+            /*// LED light flag
             if (mPreferences.getBoolean("led_light", false))
-                note.flags |= Notification.FLAG_SHOW_LIGHTS;
+                note.flags |= Notification.FLAG_SHOW_LIGHTS;*/
         }
     }
     public static void ClearMessages(Context context) {
@@ -314,4 +310,28 @@ public class NotificationsService extends IntentService {
         NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.cancel(0);
     }
+  /*  // Flashlight
+    private void flashlight() {
+        Permiso.getInstance().requestPermissions(new Permiso.IOnPermissionResult() {
+            @Override
+            public void onPermissionResult(Permiso.ResultSet resultSet) {
+                if (resultSet.areAllPermissionsGranted()) {
+                    Camera cam = Camera.open();
+                    Parameters p = cam.getParameters();
+                    p.setFlashMode(Parameters.FLASH_MODE_TORCH);
+                    cam.setParameters(p);
+                    cam.startPreview();
+                    cam.stopPreview();
+                    cam.release();
+                } else {
+                    Snackbar.make(MainActivity.mCoordinatorLayoutView, R.string.permission_denied, Snackbar.LENGTH_LONG).show();
+                }
+            }
+
+            @Override
+            public void onRationaleRequested(Permiso.IOnRationaleProvided callback, String... permissions) {
+                Permiso.getInstance().showRationaleInDialog("Title", "Message", null, callback);
+            }
+        }, Manifest.permission.CAMERA);
+    }*/
 }

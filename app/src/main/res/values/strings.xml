@@ -14,11 +14,23 @@
     <string name="notification_sound">Notification sound</string>
     <string name="interval_pref_description_new">Notifications will be checked every %s.</string>
     <string name="notification_sound_msg">Message sound</string>
-    <string name="vibrate">Vibrations</string>
+    <string name="vibrate">Vibration</string>
     <string name="vibrate_double">Double vibration</string>
     <string name="led_light">LED light</string>
     <string name="flashlight_as_led">Flashlight as LED</string>
-    <string name="flashlight_as_led_summary">Use the flashlight as LED for notifications (camera led).</string>
+    <string name="flashlight_as_led_summary_msg">Use the flashlight as LED for Facebook Messages (camera led).</string>
+    <string name="flashlight_as_led_summary_notif">Use the flashlight as LED for Facebook Notifications (camera led).</string>
+
+    <string-array name="intervalPrefTitles">
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>5 minutes</item>
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+    </string-array>
     <!-- End Notifications -->
 
     <!-- General -->
@@ -34,10 +46,10 @@
     <string name="hide_sponsored_summary">Hide &#8216;Sponsored&#8217; content (ads) from the feed.</string>
     <string name="hide_birthdays_title">Hide Birthdays</string>
     <string name="hide_birthdays_summary">Hide birthdays from the feed, events and notifications.</string>
-    <string name="hide_newsfeedcontent">Hide News Feed content</string>
-    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
-    <string name="clearcache">Clear cache on exit</string>
-    <string name="clearcache_summary">It will take more time to open the app.</string>
+    <string name="messages_only">Messages only</string>
+    <string name="messages_only_summary">Load the message website when the app is opened.</string>
+    <string name="hide_menu_bar_title">Hide Menu bar</string>
+    <string name="hide_menu_bar_summary">When enabled, the Facebook Menu bar will be hidden.</string>
     <!-- End general -->
 
     <!-- About -->
@@ -63,14 +75,16 @@
 
     <!-- Navigation -->
     <string name="navigation_setting_title">NAVIGATION</string>
-    <string name="hide_menu_bar_title">Hide Menu bar</string>
-    <string name="hide_menu_bar_summary">When enabled, the Facebook Menu bar will be hidden.</string>
     <string name="hide_fab_on_scroll_title">Hide Floating Action Button on scroll</string>
     <string name="hide_fab_on_scroll_summary">Hide the FAB when scrolling down.</string>
     <string name="navigation_menu_settings">Navigation menu items</string>
     <string name="navigation_menu_settings_description">You can show/hide items in the navigation menu.</string>
     <string name="save_data">Lower data mode</string>
     <string name="save_data_summary">Load the Facebook in basic version also disable the badges and profile info. updates.</string>
+    <string name="clearcache">Clear cache on exit</string>
+    <string name="clearcache_summary">It will take more time to open the app.</string>
+    <string name="fab_enable">Floating Action Button</string>
+    <string name="fab_enable_summary">Show the FAB.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Post a status</string>
     <string name="fab_photo">Post a photo</string>
@@ -79,28 +93,28 @@
     <!-- Navigation: items -->
     <string name="navigation_menu_title">NAVIGATION MENU</string>
     <string name="ic_menu_exitapp">Exit app</string>
-    <string name="ic_menu_exitapp_summary">Hide &#8216;Exit app&#8217; button on navigation drawer.</string>
+    <string name="ic_menu_exitapp_summary">Show &#8216;Exit app&#8217; button on navigation drawer.</string>
     <string name="ic_menu_fblogout">Log out</string>
-    <string name="ic_menu_fblogout_summary">Hide &#8216;Log out&#8217; button on navigation drawer.</string>
+    <string name="ic_menu_fblogout_summary">Show &#8216;Log out&#8217; button on navigation drawer.</string>
     <string name="menu_photos">Photos</string>
-    <string name="menu_photos_summary">Hide &#8216;Photos&#8217; button on navigation drawer.</string>
+    <string name="menu_photos_summary">Show &#8216;Photos&#8217; button on navigation drawer.</string>
     <string name="menu_events">Events</string>
-    <string name="menu_events_summary">Hide &#8216;Events&#8217; button on navigation drawer.</string>
+    <string name="menu_events_summary">Show &#8216;Events&#8217; button on navigation drawer.</string>
     <string name="menu_back">Back</string>
-    <string name="menu_back_summary">Hide &#8216;Back&#8217; button on navigation drawer.</string>
+    <string name="menu_back_summary">Show &#8216;Back&#8217; button on navigation drawer.</string>
     <string name="menu_top_stories">Top stories</string>
-    <string name="menu_top_stories_summary">Hide &#8216;Top stories&#8217; button on navigation drawer.</string>
+    <string name="menu_top_stories_summary">Show &#8216;Top stories&#8217; button on navigation drawer.</string>
     <string name="menu_most_recent">Most Recent</string>
-    <string name="menu_most_recent_summary">Hide &#8216;Most Recent&#8217; button on navigation drawer.</string>
+    <string name="menu_most_recent_summary">Show &#8216;Most Recent&#8217; button on navigation drawer.</string>
     <string name="menu_friendreq">Friend Requests</string>
-    <string name="menu_friendreq_summary">Hide &#8216;Friend Requests&#8217; button on navigation drawer.</string>
+    <string name="menu_friendreq_summary">Show &#8216;Friend Requests&#8217; button on navigation drawer.</string>
     <string name="menu_groups">Groups</string>
-    <string name="menu_groups_summary">Hide &#8216;Groups&#8217; button on navigation drawer.</string>
+    <string name="menu_groups_summary">Show &#8216;Groups&#8217; button on navigation drawer.</string>
     <string name="menu_messages">Messages</string>
     <string name="menu_search">Search</string>
-    <string name="menu_search_summary">Hide &#8216;Search&#8217; button on navigation drawer.</string>
+    <string name="menu_search_summary">Show &#8216;Search&#8217; button on navigation drawer.</string>
     <string name="menu_mainmenu">Main menu</string>
-    <string name="menu_mainmenu_summary">Hide &#8216;Main menu&#8217; button on navigation drawer.</string>
+    <string name="menu_mainmenu_summary">Show &#8216;Main menu&#8217; button on navigation drawer.</string>
     <string name="messaging_enabled_title">Messaging</string>
     <string name="messaging_enabled_summary">When enabled, will provide access to Facebook Messages. Disable if you have a messaging app.</string>
     <!-- End navigation -->
@@ -132,5 +146,5 @@
     <string name="error_facebook_error">Something went wrong on Facebook\'s end</string>
     <string name="loading">Loading</string>
     <string name="permission_denied">Permission denied, cannot complete action</string>
-
+    <string name="downloaded">Downloaded</string>
 </resources>

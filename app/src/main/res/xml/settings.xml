@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="@string/general_setting_title">
+    <PreferenceCategory android:title="@string/navigation_setting_title">
         <SwitchPreference
             android:defaultValue="false"
             android:key="location_enabled"
@@ -28,14 +28,14 @@
             android:title="@string/hide_birthdays_title" />
         <SwitchPreference
             android:defaultValue="false"
-            android:key="hide_news_feed_content"
-            android:summary="@string/hide_newsfeedcontent_summary"
-            android:title="@string/hide_newsfeedcontent" />
+            android:key="messages_only"
+            android:summary="@string/messages_only_summary"
+            android:title="@string/messages_only" />
         <SwitchPreference
-            android:defaultValue="false"
-            android:key="clear_cache"
-            android:summary="@string/clearcache_summary"
-            android:title="@string/clearcache" />
+            android:defaultValue="true"
+            android:key="hide_menu_bar"
+            android:summary="@string/hide_menu_bar_summary"
+            android:title="@string/hide_menu_bar_title" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/appearance_setting_title">
         <ListPreference
@@ -64,14 +64,15 @@
             android:title="@string/notifications_settings"
             android:summary="@string/notifications_settings_description"/>
     </PreferenceCategory>
-    <PreferenceCategory android:title="@string/navigation_setting_title">
+    <PreferenceCategory android:title="@string/general_setting_title">
         <SwitchPreference
             android:defaultValue="true"
-            android:key="hide_menu_bar"
-            android:summary="@string/hide_menu_bar_summary"
-            android:title="@string/hide_menu_bar_title" />
+            android:key="fab_enable"
+            android:summary="@string/fab_enable_summary"
+            android:title="@string/fab_enable" />
         <SwitchPreference
             android:defaultValue="true"
+            android:dependency="fab_enable"
             android:key="hide_fab_on_scroll"
             android:summary="@string/hide_fab_on_scroll_summary"
             android:title="@string/hide_fab_on_scroll_title" />
@@ -80,6 +81,11 @@
             android:key="save_data"
             android:summary="@string/save_data_summary"
             android:title="@string/save_data" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="clear_cache"
+            android:summary="@string/clearcache_summary"
+            android:title="@string/clearcache" />
         <Preference
             android:key="navigation_menu_settings"
             android:title="@string/navigation_menu_settings"

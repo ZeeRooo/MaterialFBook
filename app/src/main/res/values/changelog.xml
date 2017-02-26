@@ -2,6 +2,31 @@
 <resources>
     <string name="changelog_list" translatable="false"><![CDATA[
 <br>
+<b>Version 2.8.0:</b>
+<br>
+- Little changes when share an item (long press).
+<br>
+- Fixed top bar in events (bar who have "post" and "cancel" button).
+<br>
+- Fixed redirect to News Feed when we click in notification.
+<br>
+- "Hide news feed content" has been changed to "Messages mode" (load in the messages Facebook´s site instead of a blank page).
+<br>
+- Corrected some words in Spanish and English translation #51.
+<br>
+- Added a PhotoViewer who can load images and gifs (from Giphy, Gifspace, Tumblr and url´s with ".gif")
+<br>
+- Fixed "Exit" button.
+<br>
+- Added option to show or hide the FloatingActionButton.
+<br>
+- Now we can choose enable or disable the vibration (two times or one time) for notifications and messages separately.
+<br>
+- Now we can choose enable or disable the led light for notifications and messages separately.
+<br>
+- Improved image quality by sharing.
+<br>
+<br>
 <b>Version 2.7.5:</b>
 <br>
 - Now we can choose between "Facebook Notifications", "Facebook Messages" or both.

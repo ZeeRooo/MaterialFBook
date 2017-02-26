@@ -18,7 +18,18 @@
     <string name="vibrate_double">Doppelvibrationen</string>
     <string name="led_light">LED-Licht</string>
     <string name="flashlight_as_led">Blitzlicht als LED</string>
-    <string name="flashlight_as_led_summary">Nutze das Blitzlicht als LED für Benachrichtigungen (Kamera LED).</string>
+    <string name="flashlight_as_led_summary_msg">Nutze das Blitzlicht als LED für Facebook Nachrichten (Kamera LED).</string>
+    <string name="flashlight_as_led_summary_notif">Nutze das Blitzlicht als LED für Facebook Benachrichtigungen (Kamera LED).</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>5 minutes</item>
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+    </string-array>
     <!-- End Notifications -->
 
     <!-- General -->
@@ -34,8 +45,8 @@
     <string name="hide_sponsored_summary">Aktiviere, um &#8216;Sponsored&#8217; Inhalte (Werbung) aus dem News Feed zu entfernen.</string>
     <string name="hide_birthdays_title">Verstecke Geburtstage</string>
     <string name="hide_birthdays_summary">Aktiviere, um Geburtstage im News Feed zu verstecken.</string>
-    <string name="hide_newsfeedcontent">Hide News Feed content</string>
-    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
+    <string name="messages_only">Messages only</string>
+    <string name="messages_only_summary">Load the message website when the app is opened.</string>
     <string name="clearcache">Clear cache on exit</string>
     <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->
@@ -71,6 +82,8 @@
     <string name="navigation_menu_settings_description">Du kannst Elemente des Navigationsmenüs anzeigen/verstecken.</string>
     <string name="save_data">Daten speichern</string>
     <string name="save_data_summary">Aktiviere, damit die App automatisch Daten speichert.</string>
+    <string name="fab_enable">Floating Action Button</string>
+    <string name="fab_enable_summary">Show the FAB.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Statusmeldung</string>
     <string name="fab_photo">Ein Foto posten</string>
@@ -130,5 +143,5 @@
     <string name="error_facebook_error">Etwas ist bei Facebook schief gelaufen</string>
     <string name="loading">Lade</string>
     <string name="permission_denied">Rechte verweigert, kann die Aktion nicht ausführen</string>
-
+    <string name="downloaded">Downloaded</string>
 </resources>

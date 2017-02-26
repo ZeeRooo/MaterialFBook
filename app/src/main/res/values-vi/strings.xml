@@ -18,7 +18,18 @@
     <string name="vibrate_double">Độ rung kép</string>
     <string name="led_light">Đèn LED</string>
 	<string name="flashlight_as_led">Đèn Flash dạng LED</string>
-    <string name="flashlight_as_led_summary">Sử dụng Flash như đèn LED cho các thông báo (camera led).</string>
+    <string name="flashlight_as_led_summary_msg">Sử dụng Flash như đèn LED cho các Tin nhắn trên Facebook (camera led).</string>
+    <string name="flashlight_as_led_summary_notif">Sử dụng Flash như đèn LED cho các Thông báo trên Facebook (camera led).</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 minuto</item>
+        <item>2 minutos</item>
+        <item>5 minutos</item>
+        <item>15 minutos</item>
+        <item>30 minutos</item>
+        <item>1 hora</item>
+        <item>3 horas</item>
+        <item>6 horas</item>
+    </string-array>
     <!-- End Notifications -->
 
     <!-- General -->
@@ -34,8 +45,8 @@
     <string name="hide_sponsored_summary">Khi được kích hoạt, sẽ ẩn nội dung được tài trợ (quảng cáo) từ dòng thời gian.</string>
     <string name="hide_birthdays_title">Ẩn sinh nhật</string>
     <string name="hide_birthdays_summary">Khi được kích hoạt, sẽ ẩn sinh nhật từ dòng thời gian.</string>
-    <string name="hide_newsfeedcontent">Ẩn nội dung Bảng tin</string>
-    <string name="hide_newsfeedcontent_summary">Khi được kích hoạt, sẽ ẩn nội dung Bảng tin.</string>
+    <string name="messages_only">Messages only</string>
+    <string name="messages_only_summary">Load the message website when the app is opened.</string>
     <string name="clearcache">Clear cache on exit</string>
     <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->
@@ -71,6 +82,8 @@
     <string name="navigation_menu_settings_description">Bạn có thể hiển thị/ẩn các mục trong điều hướng menu.</string>
     <string name="save_data">Lưu dữ liệu</string>
     <string name="save_data_summary">Khi được kích hoạt, tự động cấu hình ứng dụng sẽ lưu dữ liệu</string>
+    <string name="fab_enable">Floating Action Button</string>
+    <string name="fab_enable_summary">Show the FAB.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Đăng trạng thái</string>
     <string name="fab_photo">Đăng ảnh</string>
@@ -130,5 +143,5 @@
     <string name="error_facebook_error">Một cái gì đó đã diễn ra sai lúc kết thúc Facebook</string>
     <string name="loading">Đang nạp</string>
     <string name="permission_denied">Quyền truy cập bị từ chối, không thể hoàn tất thao tác</string>
-
+    <string name="downloaded">Downloaded</string>
 </resources>

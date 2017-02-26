@@ -18,7 +18,18 @@
     <string name="vibrate_double">Vibratii duble</string>
     <string name="led_light">LED de notificari</string>
     <string name="flashlight_as_led">Lanterna ca LED</string>
-    <string name="flashlight_as_led_summary">Foloseste lanterna pentru notificari in loc de LED (blitul de la camera).</string>
+    <string name="flashlight_as_led_summary_msg">Foloseste lanterna pentru Mesaje Facebook in loc de LED (blitul de la camera).</string>
+    <string name="flashlight_as_led_summary_notif">Foloseste lanterna pentru Notificari Facebook in loc de LED (blitul de la camera).</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 minuto</item>
+        <item>2 minutos</item>
+        <item>5 minutos</item>
+        <item>15 minutos</item>
+        <item>30 minutos</item>
+        <item>1 hora</item>
+        <item>3 horas</item>
+        <item>6 horas</item>
+    </string-array>
     <!-- End Notifications -->
 
     <!-- General -->
@@ -34,10 +45,12 @@
     <string name="hide_sponsored_summary">Cand este activat, se va ascunde continutul &#8216;Sponsorizat\' (anunturi) din Feed.</string>
     <string name="hide_birthdays_title">Ascunde Zilele de Nastere</string>
     <string name="hide_birthdays_summary">Cand este activat, se vor ascunde zilele de nastere din Feed.</string>
-    <string name="hide_newsfeedcontent">Hide News Feed content</string>
-    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
+    <string name="messages_only">Messages only</string>
+    <string name="messages_only_summary">Load the message website when the app is opened.</string>
     <string name="clearcache">Clear cache on exit</string>
     <string name="clearcache_summary">It will take more time to open the app.</string>
+    <string name="fab_enable">Floating Action Button</string>
+    <string name="fab_enable_summary">Show the FAB.</string>
     <!-- End general -->
 
     <!-- About -->
@@ -130,5 +143,5 @@
     <string name="error_facebook_error">Ceva s-a intamplat la Facebook</string>
     <string name="loading">Se incarca</string>
     <string name="permission_denied">Permisiuni neacceptate, nu pot continua</string>
-
+    <string name="downloaded">Downloaded</string>
 </resources>

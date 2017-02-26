@@ -6,13 +6,18 @@
  */
 package me.zeeroooo.materialfb.Activities;
 
+import android.annotation.SuppressLint;
+import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v4.content.res.ResourcesCompat;
@@ -24,15 +29,19 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -64,7 +73,6 @@ import me.zeeroooo.materialfb.WebView.Helpers;
 import me.zeeroooo.materialfb.WebView.CustomWebChromeClient;
 import me.zeeroooo.materialfb.WebView.JavaScriptHelpers;
 import me.zeeroooo.materialfb.WebView.JavaScriptInterfaces;
-import me.zeeroooo.materialfb.WebView.MFBWebViewClient;
 import me.zeeroooo.materialfb.WebView.WebViewListener;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -296,8 +304,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         mWebView.getSettings().setBlockNetworkImage(mPreferences.getBoolean(SettingsActivity.KEY_PREF_STOP_IMAGES, false));
         mWebView.getSettings().setAppCacheEnabled(true);
-        mWebView.getSettings().setBuiltInZoomControls(true);
-        mWebView.getSettings().setDisplayZoomControls(false);
         mWebView.getSettings().setLoadWithOverviewMode(true);
         mWebView.getSettings().setUseWideViewPort(true);
         if (Build.VERSION.SDK_INT >= 19) {
@@ -306,7 +312,87 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             mWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         }
         mWebView.getSettings().setUserAgentString(UserAgent);
-        mWebView.setWebViewClient(new MFBWebViewClient());
+        mWebView.setWebViewClient(new WebViewClient() {
+
+            @Override
+            @SuppressLint("NewApi")
+            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+                return shouldOverrideUrlLoading(view, request.getUrl().toString());
+            }
+
+            @SuppressWarnings("deprecation")
+            @Override
+            public boolean shouldOverrideUrlLoading(WebView view, String url) {
+                // clean an url from facebook redirection before processing (no more blank pages on back)
+                if (url != null)
+                    url = Helpers.cleanAndDecodeUrl(url);
+
+                if (url.contains("fbcdn.net")) {
+                    Intent Photo = new Intent(MainActivity.this, Photo.class);
+                    Photo.putExtra("url", url);
+                    Photo.putExtra("title", view.getTitle());
+                    startActivity(Photo);
+                    return true;
+                } else if ((Uri.parse(url).getHost().endsWith("facebook.com")
+                            || Uri.parse(url).getHost().endsWith("*.facebook.com")
+                            || Uri.parse(url).getHost().endsWith("fbcdn.net")
+                            || Uri.parse(url).getHost().endsWith("akamaihd.net")
+                            || Uri.parse(url).getHost().endsWith("ad.doubleclick.net")
+                            || Uri.parse(url).getHost().endsWith("sync.liverail.com")
+                            || Uri.parse(url).getHost().endsWith("fb.me"))) {
+                        return false;
+                    }
+
+                if (url.contains("giphy") || url.contains("gifspace") || url.contains("tumblr") || url.contains("gph") || url.contains("gif")) {
+                    if (url.contains("giphy") || url.contains("gph")) {
+                        if (!url.endsWith(".gif")) {
+                             if (url.contains("giphy.com") || url.contains("html5")) {
+                                url = String.format("http://media.giphy.com/media/%s/giphy.gif", new Object[]{url.replace("http://giphy.com/gifs/", "")});
+                            } else if (url.contains("gph.is") && !url.contains("html5")) {
+                                mWebView.loadUrl(url);
+                            }
+
+                            if (url.contains("media.giphy.com/media/") && !url.contains("html5")) {
+                                String[] giphy = url.split("-");
+                                String giphy_id = giphy[giphy.length - 1];
+                                url = String.format("http://media.giphy.com/media/" + giphy_id);
+                            }
+                            if (url.contains("media.giphy.com/media/http://media")) {
+                                String[] gph = url.split("/");
+                                String gph_id = gph[gph.length - 2];
+                                url = String.format("http://media.giphy.com/media/" + gph_id + "/giphy.gif");
+                            }
+                            if (url.contains("html5/giphy.gif")) {
+                                String[] giphy_html5 = url.split("/");
+                                String giphy_html5_id = giphy_html5[giphy_html5.length - 3];
+                                url = String.format("http://media.giphy.com/media/" + giphy_html5_id + "/giphy.gif");
+                                System.out.println(giphy_html5_id);
+                            }
+                        }
+                    //    System.out.println(url);
+                    }
+
+                    if (url.contains("gifspace")) {
+                        if (!url.endsWith(".gif")) {
+                            url = String.format("http://gifspace.net/image/%s.gif", new Object[]{url.replace("http://gifspace.net/image/", "")});
+                        }
+                    }
+
+                    Intent Photo = new Intent(MainActivity.this, Photo.class);
+                    Photo.putExtra("url", url);
+                    Photo.putExtra("title", view.getTitle());
+                    startActivity(Photo);
+                    return true;
+                }
+
+                    // Open external links in browser
+                    Intent browser = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(browser);
+
+                    return true;
+            }
+
+        });
 
         // Long press
         registerForContextMenu(mWebView);
@@ -314,7 +400,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mWebView.setWebChromeClient(new CustomWebChromeClient(this, mWebView, (FrameLayout) findViewById(R.id.fullscreen_custom_content)) {
             @Override
             public void onReceivedTitle(WebView view, String title) {
-                MainActivity.this.setTitle(title);
+                if (title.contains("Facebook")) {
+                    MainActivity.this.setTitle(R.string.menu_most_recent);
+                } else {
+                    MainActivity.this.setTitle(title);
+                }
             }
         });
 
@@ -376,15 +466,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     protected void onDestroy() {
-        mWebView.onDestroy();
-        mWebView.removeAllViews();
-        mWebView.clearHistory();
-        mWebView.clearCache(true);
-        mWebView.freeMemory();
-        mWebView.pauseTimers();
         super.onDestroy();
+
+        mWebView.clearCache(true);
+        mWebView.clearHistory();
+        mWebView.removeAllViews();
+        mWebView.destroy();
+        
         if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_CLEAR_CACHE, false))
-        deleteCache(this);
+            deleteCache(this);
     }
 
     @Override
@@ -405,6 +495,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onStart();
         if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
             updateUserInfo();
+        }
+        if (mPreferences.getBoolean("messages_only", true)) {
+            if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
+                mWebView.loadUrl(FACEBOOK_URL_BASE + "messages/");
+            } else {
+                mWebView.loadUrl(FACEBOOK_URL_BASE_BASIC + "messages/");
+            }
         }
     }
 
@@ -488,6 +585,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         switch (item.getItemId()) {
             case R.id.nav_top_stories:
+                MainActivity.this.setTitle(R.string.menu_top_stories);
                 if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                     mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('a%5Bhref*%3D%22%2Fhome.php%3Fsk%3Dh_nor%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED + "home.php%3Fsk%3Dh_nor%22%7D%7D)()");
                 } else {
@@ -497,13 +595,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_most_recent:
                 if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('a%5Bhref*%3D%22%2Fhome.php%3Fsk%3Dh_chr%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED + "home.php%3Fsk%3Dh_chr%22%7D%7D)()");
+                    mWebView.loadUrl(FACEBOOK_URL_BASE);
                 } else {
-                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('a%5Bhref*%3D%22%2Fhome.php%3Fsk%3Dh_chr%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + FACEBOOK_URL_BASE_ENCODED_BASIC + "home.php%3Fsk%3Dh_chr%22%7D%7D)()");
+                    mWebView.loadUrl(FACEBOOK_URL_BASE_BASIC);
                 }
                 item.setChecked(true);
                 break;
             case R.id.nav_friendreq:
+                MainActivity.this.setTitle(R.string.menu_friendreq);
                 if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                     mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23requests_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "friends%2Fcenter%2Frequests%2F'%7D%7D)()");
                 } else {
@@ -521,6 +620,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Helpers.uncheckRadioMenu(mNavigationView.getMenu());
                 break;
             case R.id.nav_search:
+                MainActivity.this.setTitle(R.string.menu_search);
                 if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                     mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23search_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "search%2F'%7D%7D)()");
                 } else {
@@ -537,6 +637,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 item.setChecked(true);
                 break;
             case R.id.nav_mainmenu:
+                MainActivity.this.setTitle(R.string.menu_mainmenu);
                 if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                     mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23bookmarks_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + FACEBOOK_URL_BASE_ENCODED + "home.php'%7D%7D)()");
                 } else {
@@ -554,9 +655,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_photos:
                 if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-                    mWebView.loadUrl(FACEBOOK_URL_BASE + "profile.php?v=photos&soft=composer");
+                    mWebView.loadUrl(FACEBOOK_URL_BASE + "photos/");
                 } else {
-                    mWebView.loadUrl(FACEBOOK_URL_BASE_BASIC + "profile.php?v=photos&soft=composer");
+                    mWebView.loadUrl(FACEBOOK_URL_BASE_BASIC + "photos/");
                 }
                 item.setChecked(true);
                 break;
@@ -575,8 +676,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mWebView.goBack();
                 break;
             case R.id.nav_exitapp:
-                android.os.Process.killProcess(android.os.Process.myPid());
-                finish();
+                finishAffinity();
                 break;
             default:
                 break;
@@ -612,13 +712,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             // Not logged in (possibly logged into Facebook OAuth and/or webapp)
             loginSnackbar = Helpers.loginPrompt(mCoordinatorLayoutView);
             setLoading(false);
-            mWebView.setVisibility(View.GONE);
+         //   mWebView.setVisibility(View.GONE);
 
             // Show login button
             mNavigationView.getMenu().findItem(R.id.nav_fblogin).setVisible(true);
 
             // Disable navigation buttons
             mNavigationView.getMenu().setGroupEnabled(R.id.group_fbnav, false);
+
+            LoginManager.getInstance().logInWithReadPermissions(this, Helpers.FB_PERMISSIONS);
             return false;
         }
     }
@@ -637,10 +739,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         ((TextView) findViewById(R.id.profile_name)).setText(object.getString("name"));
 
                         // Set the cover photo with resizing
-                        Glide.with(getApplication()).load("https://graph.facebook.com/" + userID + "/picture?type=large").into((ImageView) findViewById(R.id.profile_picture));
+                        Glide.with(getApplication()).load("https://graph.facebook.com/" + userID + "/picture?type=large").diskCacheStrategy(DiskCacheStrategy.SOURCE).into((ImageView) findViewById(R.id.profile_picture));
                         final View header = findViewById(R.id.header_layout);
 
-                        Glide.with(getApplication()).load(object.getJSONObject("cover").getString("source")).into((ImageView) findViewById(R.id.cover));
+                        Glide.with(getApplication()).load(object.getJSONObject("cover").getString("source")).diskCacheStrategy(DiskCacheStrategy.SOURCE).into((ImageView) findViewById(R.id.cover));
 
                     } catch (NullPointerException e) {
                         Snackbar.make(mCoordinatorLayoutView, R.string.error_facebook_noconnection, Snackbar.LENGTH_LONG).show();
@@ -703,8 +805,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (Intent.ACTION_SEND.equals(action) && type != null) {
             if (URLUtil.isValidUrl(intent.getStringExtra(Intent.EXTRA_TEXT))) {
                 try {
-                    return FACEBOOK_URL_BASE_BASIC + "composer/?text=" + URLEncoder.encode(intent.getStringExtra(Intent.EXTRA_TEXT), "utf-8");
-                } catch (UnsupportedEncodingException e) {
+                    if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
+                        return FACEBOOK_URL_BASE + "sharer.php?u=" + intent.getStringExtra(Intent.EXTRA_TEXT);
+                    } else {
+                        try {
+                            return "https://mbasic.facebook.com/composer/?text=" + URLEncoder.encode(intent.getStringExtra(Intent.EXTRA_TEXT), "utf-8");
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                } catch (NullPointerException e) {
                     e.printStackTrace();
                 }
             }

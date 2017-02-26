@@ -69,4 +69,10 @@ public class SettingsActivity extends AppCompatActivity {
         }
         return false;
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        Runtime.getRuntime().gc();
+    }
 }

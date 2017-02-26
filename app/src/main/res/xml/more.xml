@@ -63,6 +63,34 @@
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/Clans/FloatingActionButton"/>
         </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="CircleImageView"
+            android:title="hdodenhof">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/hdodenhof/CircleImageView"/>
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="Glide"
+            android:title="bumptech">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/bumptech/glide"/>
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="permiso"
+            android:title="greysonp">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/greysonp/permiso"/>
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="PhotoView"
+            android:title="chrisbanes">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/chrisbanes/PhotoView"/>
+        </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/people_who_translated">
         <PreferenceScreen
@@ -135,6 +163,13 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/PoP992"/>
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="yarons"
+            android:title="Hebrew">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/yarons"/>
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/about_translations">

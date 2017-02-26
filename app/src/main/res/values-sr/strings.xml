@@ -18,7 +18,18 @@
     <string name="vibrate_double">Dupla vibracija</string>
     <string name="led_light">LED osvetljenje</string>
     <string name="flashlight_as_led">Baterijska lampa kao LED</string>
-    <string name="flashlight_as_led_summary">Koristi baterijsku lampu kao LED za obaveštenja (kamera led).</string>
+    <string name="flashlight_as_led_summary_msg">Koristi baterijsku lampu kao LED za Facebook poruke (kamera led).</string>
+    <string name="flashlight_as_led_summary_notif">Koristi baterijsku lampu kao LED za Facebook obaveštenja (kamera led).</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 minuto</item>
+        <item>2 minutos</item>
+        <item>5 minutos</item>
+        <item>15 minutos</item>
+        <item>30 minutos</item>
+        <item>1 hora</item>
+        <item>3 horas</item>
+        <item>6 horas</item>
+    </string-array>
     <!-- End Notifications -->
 
     <!-- General -->
@@ -34,8 +45,8 @@
     <string name="hide_sponsored_summary">Kada je omogućeno, sakriće &#8216;Sponsored&#8217; sadržaj (ads) u News Feed-u.</string>
     <string name="hide_birthdays_title">Sakriti rođendane</string>
     <string name="hide_birthdays_summary">Kada je omogućeno, sakrice rođendane u Najvažnijim vestima.</string>
-    <string name="hide_newsfeedcontent">Hide News Feed content</string>
-    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
+    <string name="messages_only">Messages only</string>
+    <string name="messages_only_summary">Load the message website when the app is opened.</string>
     <string name="clearcache">Clear cache on exit</string>
     <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->
@@ -71,10 +82,8 @@
     <string name="navigation_menu_settings_description">možeš da pokažeš/sakriješ stavke u navigacionom meniju.</string>
     <string name="save_data">Sačuvaj podatke</string>
     <string name="save_data_summary">Kada je omogućeno, Alpikacija ce bitit podešena da čuva podatke</string>
-    <string name="orbot">Koristi Orbot</string>
-    <string name="orbot_summary">Primoraj sav saobraćaj na Orbot.</string>
-    <string name="bottom_navigation_view">Donji navigacioni pregled</string>
-    <string name="summary_bottom_navigation_view">Konfigurišite donji navigacioni pregled.</string>
+    <string name="fab_enable">Floating Action Button</string>
+    <string name="fab_enable_summary">Show the FAB.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Postavi status</string>
     <string name="fab_photo">Postavi poruku</string>
@@ -135,5 +144,5 @@
     <string name="error_facebook_error">Nešto nije u redu na Facebook-ovom kraju</string>
     <string name="loading">Očitavam</string>
     <string name="permission_denied">Dozvola odbijena, ne mogu da završim akciju</string>
-
+    <string name="downloaded">Downloaded</string>
 </resources>

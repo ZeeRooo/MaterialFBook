@@ -6,8 +6,8 @@
     <string name="applying_changes">Aplicando cambios</string>
     <string name="sync_problem">Las cookies no pudieron sincronizarse. Por favor, reinicie la app</string>
     <string name="notification_sound_description">Elija un ringtone: \u0020</string>
-    <string name="notifications_settings">Ajusted de notificaciones</string>
-    <string name="notifications_settings_description">Ajustes adicionales. Elija un intervalo de tiempoo, alija sonidos, LED y vibración.</string>
+    <string name="notifications_settings">Ajustes de notificaciones</string>
+    <string name="notifications_settings_description">Ajustes adicionales. Elija un intervalo de tiempo, elija sonidos, LED y vibración.</string>
     <string name="facebook_notifications">Notificaciones de Facebook</string>
     <string name="facebook_message">Mensajes de Facebook</string>
     <string name="interval_pref">Intervalo de tiempo para actualizar</string>
@@ -19,6 +19,18 @@
     <string name="led_light">Luz LED</string>
     <string name="flashlight_as_led">Flashlight como luz LED</string>
     <string name="flashlight_as_led_summary">Usa el flash de la cámara como led de notificaciones.</string>
+    <string name="flashlight_as_led_summary_msg">Usa el flash de la cámara como led de mensajes de Facebook.</string>
+    <string name="flashlight_as_led_summary_notif">Usa el flash de la cámara como led de notificaciones de Facebook.</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 minuto</item>
+        <item>2 minutos</item>
+        <item>5 minutos</item>
+        <item>15 minutos</item>
+        <item>30 minutos</item>
+        <item>1 hora</item>
+        <item>3 horas</item>
+        <item>6 horas</item>
+    </string-array>
     <!-- End Notifications -->
 
     <!-- General -->
@@ -34,8 +46,8 @@
     <string name="hide_sponsored_summary">Si está habilitado, la publicidad del patrocinador no se mostrará.</string>
     <string name="hide_birthdays_title">Oculta cumpleaños</string>
     <string name="hide_birthdays_summary">Si está habilitado, los cumpleaños no se mostrarán.</string>
-    <string name="hide_newsfeedcontent">Oculta todas las noticias</string>
-    <string name="hide_newsfeedcontent_summary">Si está habilitado, ninguna noticia aparecerá.</string>
+    <string name="messages_only">Solo mensajes</string>
+    <string name="messages_only_summary">Carga la página de mensajes cuando se inicie la app.</string>
     <string name="clearcache">Limpiar cache al salir</string>
     <string name="clearcache_summary">Tardará más tiempo en abrir la app.</string>
     <!-- End general -->
@@ -57,6 +69,8 @@
     <string name="navigation_menu_settings_description">Elije los elementos que aparecen en la barra de navegación.</string>
     <string name="save_data">Ahorra datos</string>
     <string name="save_data_summary">Carga la versión básica de Facebook, deshabilita la sincronización de la info. del usuario.</string>
+    <string name="fab_enable">Botón flotante</string>
+    <string name="fab_enable_summary">Muestra el botón flotante (FAB).</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Publica un estado</string>
     <string name="fab_photo">Publica una foto</string>
@@ -65,28 +79,28 @@
     <!-- Navigation: items -->
     <string name="navigation_menu_title">MENÚ DE NAVEGACIÓN</string>
     <string name="ic_menu_exitapp">Salir</string>
-    <string name="ic_menu_exitapp_summary">Oculta &#8216;Salir&#8217; del menú de navegación.</string>
+    <string name="ic_menu_exitapp_summary">Muestra &#8216;Salir&#8217; del menú de navegación.</string>
     <string name="ic_menu_fblogout">Cerrar sesión</string>
-    <string name="ic_menu_fblogout_summary">Oculta &#8216;Cerrar sesión&#8217; del menú de navegación.</string>
+    <string name="ic_menu_fblogout_summary">Muestra &#8216;Cerrar sesión&#8217; del menú de navegación.</string>
     <string name="menu_photos">Fotos</string>
-    <string name="menu_photos_summary">Oculta &#8216;Fotos&#8217; del menú de navegación.</string>
+    <string name="menu_photos_summary">Muestra &#8216;Fotos&#8217; del menú de navegación.</string>
     <string name="menu_events">Eventos</string>
-    <string name="menu_events_summary">Oculta &#8216;Eventos&#8217; del menú de navegación.</string>
+    <string name="menu_events_summary">Muestra &#8216;Eventos&#8217; del menú de navegación.</string>
     <string name="menu_back">Atras</string>
-    <string name="menu_back_summary">Oculta &#8216;Atras&#8217; del menú de navegación.</string>
+    <string name="menu_back_summary">Muestra &#8216;Atras&#8217; del menú de navegación.</string>
     <string name="menu_top_stories">Historias populares</string>
-    <string name="menu_top_stories_summary">Oculta &#8216;Historias populares&#8217; del menú de navegación.</string>
+    <string name="menu_top_stories_summary">Muestra &#8216;Historias populares&#8217; del menú de navegación.</string>
     <string name="menu_most_recent">Más reciente</string>
-    <string name="menu_most_recent_summary">Oculta &#8216;Más reciente&#8217; del menú de navegación.</string>
+    <string name="menu_most_recent_summary">Muestra &#8216;Más reciente&#8217; del menú de navegación.</string>
     <string name="menu_friendreq">Solicitudes de amistad</string>
-    <string name="menu_friendreq_summary">Oculta &#8216;Solicitudes de amistad&#8217; del menú de navegación.</string>
+    <string name="menu_friendreq_summary">Muestra &#8216;Solicitudes de amistad&#8217; del menú de navegación.</string>
     <string name="menu_groups">Grupos</string>
-    <string name="menu_groups_summary">Oculta &#8216;Grupos&#8217; del menú de navegación.</string>
+    <string name="menu_groups_summary">Muestra &#8216;Grupos&#8217; del menú de navegación.</string>
     <string name="menu_messages">Mensajes</string>
     <string name="menu_search">Buscar</string>
-    <string name="menu_search_summary">Oculta &#8216;Buscar&#8217; del menú de navegación.</string>
+    <string name="menu_search_summary">Muestra &#8216;Buscar&#8217; del menú de navegación.</string>
     <string name="menu_mainmenu">Menú principal</string>
-    <string name="menu_mainmenu_summary">Oculta &#8216;Menú principal&#8217; del menú de navegación.</string>
+    <string name="menu_mainmenu_summary">Muestra &#8216;Menú principal&#8217; del menú de navegación.</string>
     <string name="messaging_enabled_title">Mensajería</string>
     <string name="messaging_enabled_summary">Habilitalo para usar los mensajes de Facebook. Deshabilitalo si usas otra app de mensajería.</string>
     <!-- End navigation -->
@@ -116,7 +130,7 @@
     <string name="error_facebook_error">Something went wrong on Facebook\'s end</string>
     <string name="loading">Cargando</string>
     <string name="permission_denied">Permiso denegado, la acción no se pudo completar</string>
-
+    <string name="downloaded">Descargado</string>
     <!-- About -->
     <string name="more">Créditos y más</string>
     <string name="about_updates">Actualizaciones</string>

@@ -18,7 +18,18 @@
     <string name="vibrate_double">Dupla rezgés</string>
     <string name="led_light">LED fényjelzés</string>
     <string name="flashlight_as_led">Vaku használata értesítésként</string>
-    <string name="flashlight_as_led_summary">Használja a vaku LED-et értesítések jelzéséhez (kamera vaku).</string>
+    <string name="flashlight_as_led_summary_msg">Használja a vaku LED-et Facebook üzenetek jelzéséhez (kamera vaku).</string>
+    <string name="flashlight_as_led_summary_notif">Használja a vaku LED-et Facebook értesítések jelzéséhez (kamera vaku).</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 minuto</item>
+        <item>2 minutos</item>
+        <item>5 minutos</item>
+        <item>15 minutos</item>
+        <item>30 minutos</item>
+        <item>1 hora</item>
+        <item>3 horas</item>
+        <item>6 horas</item>
+    </string-array>
     <!-- End Notifications -->
 
     <!-- General -->
@@ -34,8 +45,8 @@
     <string name="hide_sponsored_summary">Bekapcsolva elrejti a Szponzorált reklámtartalmakat a hírfolyamból.</string>
     <string name="hide_birthdays_title">Születésnapok elrejtése</string>
     <string name="hide_birthdays_summary">Bekapcsolva elrejti a születésnapokat a hírfolyamból.</string>
-    <string name="hide_newsfeedcontent">Hírfolyam elrejtése</string>
-    <string name="hide_newsfeedcontent_summary">Bekapcsolva elrejti a hírfolyamot.</string>
+    <string name="messages_only">Messages only</string>
+    <string name="messages_only_summary">Load the message website when the app is opened.</string>
     <string name="clearcache">Clear cache on exit</string>
     <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->
@@ -71,6 +82,8 @@
     <string name="navigation_menu_settings_description">Megjelenítheted/elrejtheted a navigációs menü elemeit.</string>
     <string name="save_data">Adatok mentése</string>
     <string name="save_data_summary">When enabled, the app autoconfigure to save data.</string>
+    <string name="fab_enable">Floating Action Button</string>
+    <string name="fab_enable_summary">Show the FAB.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Státusz megosztása</string>
     <string name="fab_photo">Kép megosztása</string>
@@ -132,5 +145,5 @@
     <string name="error_facebook_error">Hiba történt a Facebook-on</string>
     <string name="loading">Betöltés</string>
     <string name="permission_denied">Hozzáférés megtagadva, sikertelen művelet</string>
-
+    <string name="downloaded">Downloaded</string>
 </resources>

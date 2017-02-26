@@ -17,7 +17,18 @@
     <string name="vibrate">Vibrar</string>
     <string name="led_light">LED</string>
     <string name="flashlight_as_led">Lanterna como LED</string>
-    <string name="flashlight_as_led_summary">Use a lanterna como LED para as notificações (led da câmera).</string>
+    <string name="flashlight_as_led_summary_msg">Use a lanterna como LED para as Notificações de mensagens (led da câmera).</string>
+    <string name="flashlight_as_led_summary_notif">Use a lanterna como LED para as Notificações do Facebook (led da câmera).</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 minuto</item>
+        <item>2 minutos</item>
+        <item>5 minutos</item>
+        <item>15 minutos</item>
+        <item>30 minutos</item>
+        <item>1 hora</item>
+        <item>3 horas</item>
+        <item>6 horas</item>
+    </string-array>
     <!-- End Notifications -->
 
     <!-- General -->
@@ -33,8 +44,8 @@
     <string name="hide_sponsored_summary">Quando ativado, irá esconder Conteúdo &#8220;Patrocinado&#8221; (anúncios) do Feed de Notícias.</string>
     <string name="hide_birthdays_title">Ocultar Aniversários</string>
     <string name="hide_birthdays_summary">Quando ativado, irá ocultar aniversários do seu Feed de notícias.</string>
-    <string name="hide_newsfeedcontent">Ocultar Conteúdo do Feed de Notícias</string>
-    <string name="hide_newsfeedcontent_summary">Quando ativado, irá ocultar conteúdos do Feed de Notícias.</string>
+    <string name="messages_only">Messages only</string>
+    <string name="messages_only_summary">Load the message website when the app is opened.</string>
     <string name="clearcache">Clear cache on exit</string>
     <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->
@@ -56,6 +67,8 @@
     <string name="navigation_menu_settings_description">You can show/hide items in the navigation menu.</string>
     <string name="save_data">Save data</string>
     <string name="save_data_summary">When enabled, the app autoconfigure to save data</string>
+    <string name="fab_enable">Floating Action Button</string>
+    <string name="fab_enable_summary">Show the FAB.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Postar um status</string>
     <string name="fab_photo">Postar uma foto</string>
@@ -115,7 +128,7 @@
     <string name="error_facebook_error">Algo deu errado por parte do Facebook</string>
     <string name="loading">Carregando</string>
     <string name="permission_denied">Permissão negada, ação não pode ser finalizada</string>
-	
+    <string name="downloaded">Downloaded</string>
 	<!-- About -->
     <string name="more">Mais e créditos</string>
     <string name="about_updates">Atualizações</string>

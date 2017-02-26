@@ -1,6 +1,5 @@
 package me.zeeroooo.materialfb.WebView;
 
-import android.Manifest;
 import android.app.DownloadManager;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -10,29 +9,19 @@ import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.net.UrlQuerySanitizer;
-import android.os.Environment;
 import android.preference.PreferenceManager;
-import android.provider.MediaStore;
 import android.support.design.widget.Snackbar;
+import android.util.Log;
 import android.view.ContextMenu;
 import android.view.MenuItem;
-import android.view.View;
 import android.webkit.WebView;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.SimpleTarget;
 import com.github.clans.fab.FloatingActionMenu;
-import com.greysonparrelli.permiso.Permiso;
-import java.io.File;
 import im.delight.android.webview.AdvancedWebView;
 import me.zeeroooo.materialfb.Activities.MainActivity;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.Activities.SettingsActivity;
 
 public class WebViewListener implements AdvancedWebView.Listener {
-    private static final int ID_SAVE_IMAGE = 0;
-    private static final int ID_SHARE_IMAGE = 1;
-    private static final int ID_COPY_IMAGE_LINK = 2;
     private static final int ID_SHARE_LINK = 3;
     private static final int ID_COPY_LINK = 4;
 
@@ -46,22 +35,17 @@ public class WebViewListener implements AdvancedWebView.Listener {
     private static final String HIDE_SPONSORED = "article%5Bdata-ft*%3Dei%5D%7Bdisplay%3Anone%7D";
     // article#u_1j_4{display:none;}
     private static final String HIDE_BIRTHDAYS = "article%23u_1j_4%7Bdisplay%3Anone%3B%7D" + "article._55wm._5e4e._5fjt%7Bdisplay:none%3B%7D";
-    private static final String HIDE_NewsFeedContent = "div%23m_newsfeed_stream.storyStream%7Bdisplay%3Anone%7D";
+    private static final String messages_only = "div%23m_newsfeed_stream.storyStream%7Bdisplay%3Anone%7D";
 
     private final MainActivity mActivity;
     private final SharedPreferences mPreferences;
     private final AdvancedWebView mWebView;
     private final FloatingActionMenu mMenuFAB;
-    private final DownloadManager mDownloadManager;
-
+    public static DownloadManager mDownloadManager;
     private final int mScrollThreshold;
-    private final View mCoordinatorLayoutView;
-    private int Width = 512;
-    private int Height = 384;
 
     public WebViewListener(MainActivity activity, WebView view) {
         mActivity = activity;
-        mCoordinatorLayoutView = activity.mCoordinatorLayoutView;
         mWebView = (AdvancedWebView) view;
         mPreferences = PreferenceManager.getDefaultSharedPreferences(activity);
         mScrollThreshold = activity.getResources().getDimensionPixelOffset(R.dimen.fab_scroll_threshold);
@@ -86,28 +70,25 @@ public class WebViewListener implements AdvancedWebView.Listener {
             String css = HIDE_ORANGE_FOCUS;
 
             // Hide the menu bar (but not on the composer or if disabled)
-            if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_HIDE_MENU_BAR, true) && !url.contains("/composer/") && !url.contains("/friends/")) {
-                css += HIDE_MENU_BAR_CSS;
+            if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_HIDE_MENU_BAR, true) && !url.contains("/composer/") && !url.contains("/friends/") && !url.contains("sharer") && !url.contains("events")) {
                 mActivity.swipeView.setEnabled(true);
+                css += HIDE_MENU_BAR_CSS;
             } else {
                 mActivity.swipeView.setEnabled(false);
             }
 
-            if (url.contains("mbasic.facebook.com/composer/?text=")) {
+            if (url.contains("https://mbasic.facebook.com/composer/?text=")) {
                 UrlQuerySanitizer sanitizer = new UrlQuerySanitizer();
                 sanitizer.setAllowUnregisteredParamaters(true);
                 sanitizer.parseUrl(url);
                 String param = sanitizer.getValue("text");
-
                 mWebView.loadUrl("javascript:(function()%7Bdocument.querySelector('%23composerInput').innerHTML%3D'" + param + "'%7D)()");
             }
 
-            // FAB should be hiden in the next sites
-            if (url.contains("fbcdn.net") || url.endsWith("messages/")) {
+            // Enable or disable FAB
+            if (url.contains("messages/") || !mPreferences.getBoolean("fab_enable", false)) {
                 mMenuFAB.hideMenu(true);
-            }
-            // Show the FAB on the next sites
-            if (url.contains("photo") || url.endsWith(MainActivity.FACEBOOK_URL_BASE) || url.endsWith(MainActivity.FACEBOOK_URL_BASE_BASIC)) {
+            } else {
                 mMenuFAB.showMenu(true);
             }
 
@@ -126,9 +107,9 @@ public class WebViewListener implements AdvancedWebView.Listener {
                 css += HIDE_BIRTHDAYS;
             }
 
-            // Hide News Feed Content
-            if (mPreferences.getBoolean("hide_news_feed_content", true)) {
-                css += HIDE_NewsFeedContent;
+            // Messages only
+            if (mPreferences.getBoolean("messages_only", true)) {
+                css += messages_only;
             }
 
 			// Web themes
@@ -157,7 +138,6 @@ public class WebViewListener implements AdvancedWebView.Listener {
 
             // Stop loading
             mActivity.setLoading(false);
-
 
         }
     }
@@ -194,64 +174,11 @@ public class WebViewListener implements AdvancedWebView.Listener {
         MenuItem.OnMenuItemClickListener handler = new MenuItem.OnMenuItemClickListener() {
             public boolean onMenuItemClick(MenuItem item) {
                 int i = item.getItemId();
-                if (i == ID_SAVE_IMAGE) {
-                    Permiso.getInstance().requestPermissions(new Permiso.IOnPermissionResult() {
-                        @Override
-                        public void onPermissionResult(Permiso.ResultSet resultSet) {
-                            if (resultSet.areAllPermissionsGranted()) {
-                                // Save the image
-                                Uri uri = Uri.parse(result.getExtra());
-                                DownloadManager.Request request = new DownloadManager.Request(uri);
-
-                                // Set the download directory
-                                File downloads_dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-                                if (!downloads_dir.exists()) {
-                                    if (!downloads_dir.mkdirs()) {
-                                        return;
-                                    }
-                                }
-                                File destinationFile = new File(downloads_dir, uri.getLastPathSegment());
-                                request.setDestinationUri(Uri.fromFile(destinationFile));
-
-                                // Make notification stay after download
-                                request.setVisibleInDownloadsUi(true);
-                                request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-
-                                // Start the download
-                                mDownloadManager.enqueue(request);
-                            } else {
-                                Snackbar.make(mCoordinatorLayoutView, R.string.permission_denied, Snackbar.LENGTH_SHORT).show();
-                            }
-                        }
-
-                        @Override
-                        public void onRationaleRequested(Permiso.IOnRationaleProvided callback, String... permissions) {
-                            // TODO Permiso.getInstance().showRationaleInDialog("Title", "Message", null, callback);
-                            callback.onRationaleProvided();
-                        }
-                    }, Manifest.permission.WRITE_EXTERNAL_STORAGE);
-                    return true;
-                } else if (i == ID_SHARE_IMAGE) {
-                    final Uri uri = Uri.parse(result.getExtra());
-                    // Share image
-                    Glide.with(mActivity).load(uri).asBitmap().into(new SimpleTarget<Bitmap>(Width, Height) {
-                                @Override
-                                public void onResourceReady(Bitmap bitmap, GlideAnimation anim) {
-                                    String path = MediaStore.Images.Media.insertImage(mActivity.getContentResolver(), bitmap, uri.getLastPathSegment(), null);
-                                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                                    shareIntent.setType("image/*");
-                                    shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
-                                    mActivity.startActivity(Intent.createChooser(shareIntent, mActivity.getString(R.string.context_share_image)));
-                                }
-                            });
-                    Snackbar.make(mCoordinatorLayoutView, R.string.context_share_image_progress, Snackbar.LENGTH_SHORT).show();
-                    return true;
-                } else if (i == ID_COPY_IMAGE_LINK || i == ID_COPY_LINK) {
-                    // Copy the image link to the clipboard
+                if (i == ID_COPY_LINK) {
                     ClipboardManager clipboard = (ClipboardManager) mActivity.getSystemService(Context.CLIPBOARD_SERVICE);
                     ClipData clip = ClipData.newUri(mActivity.getContentResolver(), "URI", Uri.parse(result.getExtra()));
                     clipboard.setPrimaryClip(clip);
-                    Snackbar.make(mCoordinatorLayoutView, R.string.content_copy_link_done, Snackbar.LENGTH_LONG).show();
+                    Snackbar.make(MainActivity.mCoordinatorLayoutView, R.string.content_copy_link_done, Snackbar.LENGTH_LONG).show();
                     return true;
                 } else if (i == ID_SHARE_LINK) {
                     // Share the link
@@ -265,13 +192,6 @@ public class WebViewListener implements AdvancedWebView.Listener {
                 }
             }
         };
-
-        // Long pressed image
-        if (result.getType() == WebView.HitTestResult.IMAGE_TYPE || result.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {
-            contextMenu.add(0, ID_SAVE_IMAGE, 0, R.string.context_save_image).setOnMenuItemClickListener(handler);
-            contextMenu.add(0, ID_SHARE_IMAGE, 0, R.string.context_share_image).setOnMenuItemClickListener(handler);
-            contextMenu.add(0, ID_COPY_IMAGE_LINK, 0, R.string.context_copy_image_link).setOnMenuItemClickListener(handler);
-        }
 
         // Long pressed link
         if (result.getType() == WebView.HitTestResult.SRC_ANCHOR_TYPE || result.getType() == WebView.HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {

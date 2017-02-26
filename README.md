@@ -176,9 +176,24 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Changes on the background of SwipeViewLayout.
 - Updated some translations.
 
+**Version 2.8.0:**
+- Little changes when share an item (longpressing).
+- Fixed top bar in events (bar who have "post" and "cancel" button).
+- Fixed redirect to News Feed when we click in notification.
+- "Hide news feed content" has been changed to "Messages mode" (load in the messages Facebook´s site instead of a blank page).
+- Corrected some words in Spanish and English translation #51.
+- Added a PhotoViewer who can load images and gifs (from Giphy, Gifspace, Tumblr and url´s with ".gif") **See notes**
+- Fixed "Exit" button.
+- Added option to show or hide the FloatingActionButton.
+- Now we can choose enable or disable the vibration (two times or one time) for notifications and messages separately.
+- Now we can choose enable or disable the led light for notifications and messages separately.
+- Improved image quality by sharing.
+
+
 ###########
 
-## - I recomend Android Studio to build this project -
+**Notes:**
+_- Maybe some gifs cant be loaded because i need to add the url to the code. Report it as issue with the Facebook´s page link or website._
 
 ###########
 
@@ -194,6 +209,9 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - SlimSocial for Facebook by rignaneseleo.
 - AdvancedWebView by delight-im.
 - FloatingActionButton by Clans.
+- PhotoView by chrisbanes.
+- Permiso by greysonp.
+- Glide by bumptech.
 - All people who translated the app (more details in "More and Credits")
 
 

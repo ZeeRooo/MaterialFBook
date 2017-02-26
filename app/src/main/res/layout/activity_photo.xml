@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    android:id="@+id/PhotosRelativeLayout"
+    android:background="@android:color/black"
+    tools:context=".Activities.Photo">
+
+    <ImageView
+        android:id="@+id/container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <ProgressBar android:id="@android:id/progress"
+        style="?android:attr/progressBarStyleLarge"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            android:background="#26000000">
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar_ph"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:theme="@style/AppTheme.AppBarOverlay"/>
+
+        </android.support.design.widget.AppBarLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_alignParentBottom="true"
+        android:background="#26000000"
+        android:gravity="center"
+        android:baselineAligned="true">
+
+        <TextView
+            android:id="@+id/photo_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@android:color/white"
+            android:shadowColor="@android:color/black"
+            android:shadowRadius="4"
+            android:fontFamily="sans-serif-medium"
+            android:maxLines="1"/>
+
+    </RelativeLayout>
+
+</RelativeLayout>

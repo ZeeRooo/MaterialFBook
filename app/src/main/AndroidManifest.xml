@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA" />
+   <!-- <uses-permission android:name="android.permission.CAMERA" />-->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
@@ -22,13 +22,15 @@
         android:supportsRtl="true"
         android:theme="@style/MFB">
         <service
-            android:name="me.zeeroooo.materialfb.Notifications.NotificationsService" android:exported="false">
-        </service>
+            android:name=".Notifications.NotificationsService"
+            android:exported="false" />
 
-        <receiver android:name="me.zeeroooo.materialfb.Notifications.Receiver" android:exported="false">
+        <receiver
+            android:name=".Notifications.Receiver"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
             </intent-filter>
         </receiver>
 
@@ -37,24 +39,28 @@
             android:value="@string/facebook_app_id" />
 
         <activity
-            android:name="me.zeeroooo.materialfb.Activities.MainActivity"
+            android:name=".Activities.MainActivity"
             android:configChanges="orientation|screenSize"
             android:hardwareAccelerated="true"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
                     android:host="m.facebook.com"
                     android:scheme="http" />
@@ -82,17 +88,26 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="me.zeeroooo.materialfb.Activities.SettingsActivity"
+            android:name=".Activities.Photo"
+            android:theme="@style/Photo"
+            android:configChanges="screenSize|orientation"
+            android:noHistory="true">
+        </activity>
+        <activity
+            android:name=".Activities.SettingsActivity"
             android:configChanges="screenSize|orientation"
             android:label="@string/settings"
-            android:parentActivityName="me.zeeroooo.materialfb.Activities.MainActivity"
+            android:parentActivityName=".Activities.MainActivity"
             android:theme="@style/MFB"
-            tools:ignore="UnusedAttribute">
+            tools:ignore="UnusedAttribute"
+            android:launchMode="singleTask">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="me.zeeroooo.materialfb.Activities.MainActivity" />
         </activity>
-    <activity android:name="me.zeeroooo.materialfb.Activities.More" />
+        <activity
+            android:name=".Activities.More"
+            android:launchMode="singleTask"/>
         <activity
             android:name="com.facebook.FacebookActivity"
             android:label="@string/app_name"

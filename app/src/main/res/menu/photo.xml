@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" >
+
+    <item
+        android:id="@+id/download_image"
+        android:icon="@drawable/ic_download"
+        android:title="Download image"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/share_image"
+        android:icon="@drawable/ic_share"
+        android:title="Share image"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/oopy_url_image"
+        android:icon="@drawable/ic_copy_url"
+        android:title="Copy URL"
+        app:showAsAction="ifRoom"/>
+
+</menu>

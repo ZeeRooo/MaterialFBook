@@ -18,7 +18,18 @@
     <string name="vibrate_double">Двойная вибрация</string>
     <string name="led_light">Светодиод</string>
     <string name="flashlight_as_led">Вспышка вместо светодиода</string>
-    <string name="flashlight_as_led_summary">Использовать вспышку камеры вместо светодиода для уведомлений.</string>
+    <string name="flashlight_as_led_summary_msg">Use the flashlight as LED for Facebook Messages (camera led).</string>
+    <string name="flashlight_as_led_summary_notif">Use the flashlight as LED for Facebook Notifications (camera led).</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 minuto</item>
+        <item>2 minutos</item>
+        <item>5 minutos</item>
+        <item>15 minutos</item>
+        <item>30 minutos</item>
+        <item>1 hora</item>
+        <item>3 horas</item>
+        <item>6 horas</item>
+    </string-array>
     <!-- End Notifications -->
 
     <!-- General -->
@@ -34,8 +45,8 @@
     <string name="hide_sponsored_summary">Реклама будет скрыта из ленты новостей.</string>
     <string name="hide_birthdays_title">Скрыть дни рождения</string>
     <string name="hide_birthdays_summary">Дни рождения будут скрыты из ленты новостей.</string>
-    <string name="hide_newsfeedcontent">Hide News Feed content</string>
-    <string name="hide_newsfeedcontent_summary">When enabled, will hide News Feed content.</string>
+    <string name="messages_only">Messages only</string>
+    <string name="messages_only_summary">Load the message website when the app is opened.</string>
     <string name="clearcache">Clear cache on exit</string>
     <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->
@@ -71,6 +82,8 @@
     <string name="navigation_menu_settings_description">Выбрать элементы для показа в боковом меню программы.</string>
     <string name="save_data">Экономить трафик</string>
     <string name="save_data_summary">Автонастройка программы для экономии трафика</string>
+    <string name="fab_enable">Floating Action Button</string>
+    <string name="fab_enable_summary">Show the FAB.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Обновить статус</string>
     <string name="fab_photo">Отправить фото</string>
@@ -132,5 +145,5 @@
     <string name="error_facebook_error">Что то пошло не так со стороны Facebook.</string>
     <string name="loading">Загрузка…</string>
     <string name="permission_denied">Нет доступа, невозможно закончить операцию!</string>
-
+    <string name="downloaded">Downloaded</string>
 </resources>
