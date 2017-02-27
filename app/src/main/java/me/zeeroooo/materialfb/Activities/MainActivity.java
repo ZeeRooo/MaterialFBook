@@ -7,17 +7,14 @@
 package me.zeeroooo.materialfb.Activities;
 
 import android.annotation.SuppressLint;
-import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.v4.content.res.ResourcesCompat;
@@ -29,7 +26,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -458,21 +454,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     protected void onResume() {
-        super.onResume();
         mWebView.onResume();
+        super.onResume();
+        Runtime.getRuntime().gc();
         Permiso.getInstance().setActivity(this);
         registerForContextMenu(mWebView);
     }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
+    protected void onPause() {
+        mWebView.onPause();
+        super.onPause();
+    }
 
+    @Override
+    protected void onDestroy() {
         mWebView.clearCache(true);
         mWebView.clearHistory();
         mWebView.removeAllViews();
         mWebView.destroy();
-        
+        super.onDestroy();
         if (mPreferences.getBoolean(SettingsActivity.KEY_PREF_CLEAR_CACHE, false))
             deleteCache(this);
     }
@@ -493,10 +494,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public void onStart() {
         super.onStart();
-        if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
-            updateUserInfo();
-        }
-        if (mPreferences.getBoolean("messages_only", true)) {
+        if (mPreferences.getBoolean("start_messages", true)) {
             if (!mPreferences.getBoolean(SettingsActivity.KEY_PREF_SAVE_DATA, false)) {
                 mWebView.loadUrl(FACEBOOK_URL_BASE + "messages/");
             } else {

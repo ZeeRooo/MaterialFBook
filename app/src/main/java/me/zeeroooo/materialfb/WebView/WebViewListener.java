@@ -35,7 +35,7 @@ public class WebViewListener implements AdvancedWebView.Listener {
     private static final String HIDE_SPONSORED = "article%5Bdata-ft*%3Dei%5D%7Bdisplay%3Anone%7D";
     // article#u_1j_4{display:none;}
     private static final String HIDE_BIRTHDAYS = "article%23u_1j_4%7Bdisplay%3Anone%3B%7D" + "article._55wm._5e4e._5fjt%7Bdisplay:none%3B%7D";
-    private static final String messages_only = "div%23m_newsfeed_stream.storyStream%7Bdisplay%3Anone%7D";
+   // private static final String messages_only = "div%23m_newsfeed_stream.storyStream%7Bdisplay%3Anone%7D";
 
     private final MainActivity mActivity;
     private final SharedPreferences mPreferences;
@@ -108,9 +108,9 @@ public class WebViewListener implements AdvancedWebView.Listener {
             }
 
             // Messages only
-            if (mPreferences.getBoolean("messages_only", true)) {
+         /*   if (mPreferences.getBoolean("messages_only", true)) {
                 css += messages_only;
-            }
+            }*/
 
 			// Web themes
 		    switch (mPreferences.getString("web_themes", "default")) {

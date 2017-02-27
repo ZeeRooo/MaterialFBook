@@ -5,7 +5,6 @@
  */
 package me.zeeroooo.materialfb.Notifications;
 
-import android.Manifest;
 import android.app.IntentService;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -13,7 +12,6 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
@@ -35,9 +33,6 @@ import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.Ui.Theme;
 import me.zeeroooo.materialfb.WebView.Helpers;
 import android.util.Log;
-import android.hardware.Camera;
-import android.hardware.Camera.Parameters;
-import com.greysonparrelli.permiso.Permiso;
 
 public class NotificationsService extends IntentService {
 
@@ -46,22 +41,15 @@ public class NotificationsService extends IntentService {
     }
 
     // Facebook URL constants
-    final String NOTIFICATIONS_URL = MainActivity.FACEBOOK_URL_BASE + "notifications.php";
-    final String MESSAGES_URL = MainActivity.FACEBOOK_URL_BASE +"messages/";
+    final String NOTIFICATIONS_URL = "https://m.facebook.com/notifications.php";
+    final String MESSAGES_URL = "https://m.facebook.com/messages?soft=messages";
     private final int MAX_RETRY = 3;
     private final int JSOUP_TIMEOUT = 10000;
-    private static final String TAG;
     private SharedPreferences mPreferences;
     boolean syncProblemOccurred = false;
 
-    // static initializer
-    static {
-        TAG = NotificationsService.class.getSimpleName();
-    }
-
     @Override
     public void onCreate() {
-        Log.i(TAG, "********** Service created! **********");
         super.onCreate();
         Theme.getTheme(this);
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -69,16 +57,15 @@ public class NotificationsService extends IntentService {
 
     @Override
     public void onDestroy() {
-        Log.i(TAG, "onDestroy: Service stopping...");
         super.onDestroy();
     }
 
     @Override
     protected void onHandleIntent(Intent intent) {
         if (mPreferences.getBoolean("facebook_messages", false))
-        SyncMessages();
+            SyncMessages();
         if (mPreferences.getBoolean("facebook_notifications", false))
-        SyncNotifications();
+            SyncNotifications();
     }
 
     // Sync the notifications
@@ -98,13 +85,14 @@ public class NotificationsService extends IntentService {
                     return;
                 if (result.text() == null)
                     return;
+                final String content = result.select("div.c").text();
                 final String time = result.select("span.mfss.fcg").text();
                 final String text = result.text().replace(time, "");
                 final String pictureStyle = result.select("i.img.l.profpic").attr("style");
 
                 if (!mPreferences.getString("last_notification_text", "").equals(text)) {
                     Bitmap picprofile = Helpers.getBitmapFromURL(Helpers.extractUrl(pictureStyle));
-                    notifier(text, MainActivity.FACEBOOK_URL_BASE + result.attr("href"), false, picprofile);
+                    notifier(content, getString(R.string.app_name), text, "https://m.facebook.com/" + result.attr("href"), false, picprofile);
                 }
 
                 // save as shown (or ignored) to avoid showing it again
@@ -118,7 +106,6 @@ public class NotificationsService extends IntentService {
     @Nullable
     private Element getElementNotif(String connectUrl) {
         try {
-            Log.d("Aca", "Notificaciones!...............");
             return Jsoup.connect(connectUrl).userAgent(MainActivity.UserAgent).timeout(JSOUP_TIMEOUT)
                     .cookie(("https://mobile.facebook.com"), CookieManager.getInstance().getCookie(("https://mobile.facebook.com"))).get()
                     .select("a.touchable").not("a._19no").not("a.button").not("a.touchable.primary").first();
@@ -149,13 +136,15 @@ public class NotificationsService extends IntentService {
             try {
                 if (result == null)
                     return;
+                final String name = result.select("div.title.thread-title.mfsl.fcb").text();
+                final String content = result.select("div.oneLine.preview.mfss.fcg").text();
                 final String time = result.select("div.time.r.nowrap.mfss.fcl").text();
                 final String text = result.text().replace(time, "");
                 final String pictureStyle = result.select("i.img.profpic").attr("style");
 
                 if (!mPreferences.getString("last_message", "").equals(text)) {
                     Bitmap picprofile = Helpers.getBitmapFromURL(Helpers.extractUrl(pictureStyle));
-                    notifier(text, MainActivity.FACEBOOK_URL_BASE + result.attr("href"), true, picprofile);
+                    notifier(content, name, text, "https://m.facebook.com/" + result.attr("href"), true, picprofile);
                 }
 
                 // save as shown (or ignored) to avoid showing it again
@@ -169,9 +158,8 @@ public class NotificationsService extends IntentService {
     @Nullable
     private Element getElementMes(String connectUrl) {
         try {
-            Log.d("Aca", "Mensajes!!!!...............");
             return Jsoup.connect(connectUrl).userAgent(MainActivity.UserAgent).timeout(JSOUP_TIMEOUT)
-                    .cookie((MainActivity.FACEBOOK_URL_BASE), CookieManager.getInstance().getCookie((MainActivity.FACEBOOK_URL_BASE))).get()
+                    .cookie(("https://m.facebook.com/"), CookieManager.getInstance().getCookie(("https://m.facebook.com/"))).get()
                     .select("a.touchable.primary").first();
         } catch (IllegalArgumentException ex) {
             Log.i("CheckNotificationsTask", "Cookie sync problem occurred");
@@ -210,14 +198,14 @@ public class NotificationsService extends IntentService {
     }
 
     // create a notification and display it
-    private void notifier(String title, String url, boolean isMessage, Bitmap picprofile) {
+    private void notifier(String content, String name, String title, String url, boolean isMessage, Bitmap picprofile) {
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setStyle(new NotificationCompat.BigTextStyle().bigText(title))
                         .setColor(Theme.getColor(NotificationsService.this))
-                        .setContentTitle(getString(R.string.app_name))
-                        .setContentText(title)
+                        .setContentTitle(name)
+                        .setContentText(content)
                         .setTicker(title)
                         .setWhen(System.currentTimeMillis())
                         .setLargeIcon(Helpers.Circle(picprofile))

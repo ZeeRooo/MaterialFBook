@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="changelog_list" translatable="false"><![CDATA[
+    <string name="changelog_list" translatable="false">
+<![CDATA[
+<br>
+<b>Version 2.8.5:</b>
+<br>
+- Changed name from "Messages only" to "Start in messages" #52.
+<br>
+- Minor changes.
+<br>
+- Fixed FC when user try share an image in Marshmallow +.
+<br>
+- Notifications improved (In messages it will display the name of the user).
+<br>
 <br>
 <b>Version 2.8.0:</b>
 <br>

@@ -45,8 +45,8 @@
     <string name="hide_sponsored_summary">Aktiviere, um &#8216;Sponsored&#8217; Inhalte (Werbung) aus dem News Feed zu entfernen.</string>
     <string name="hide_birthdays_title">Verstecke Geburtstage</string>
     <string name="hide_birthdays_summary">Aktiviere, um Geburtstage im News Feed zu verstecken.</string>
-    <string name="messages_only">Messages only</string>
-    <string name="messages_only_summary">Load the message website when the app is opened.</string>
+    <string name="start_in_messages">Start in messages</string>
+    <string name="start_in_messages_summary">Load the message website when the app is opened.</string>
     <string name="clearcache">Clear cache on exit</string>
     <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->

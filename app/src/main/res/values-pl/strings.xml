@@ -45,8 +45,8 @@
     <string name="hide_sponsored_summary">Kiedy włączone, treści \„Sponsorowane\” (reklamy) będą ukryte z Aktualności.</string>
     <string name="hide_birthdays_title">Ukryj Urodziny</string>
     <string name="hide_birthdays_summary">Kiedy włączone, urodziny będą ukryte z Aktualności.</string>
-    <string name="messages_only">Messages only</string>
-    <string name="messages_only_summary">Load the message website when the app is opened.</string>
+    <string name="start_in_messages">Start in messages</string>
+    <string name="start_in_messages_summary">Load the message website when the app is opened.</string>
     <string name="clearcache">Wyczyść pamięć podręczną przy zamykaniu</string>
     <string name="clearcache_summary">Kiedy włączone, aplikacja będzie uruchamiać się dłużej.</string>
     <!-- End general -->

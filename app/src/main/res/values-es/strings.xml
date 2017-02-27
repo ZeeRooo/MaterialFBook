@@ -46,8 +46,8 @@
     <string name="hide_sponsored_summary">Si está habilitado, la publicidad del patrocinador no se mostrará.</string>
     <string name="hide_birthdays_title">Oculta cumpleaños</string>
     <string name="hide_birthdays_summary">Si está habilitado, los cumpleaños no se mostrarán.</string>
-    <string name="messages_only">Solo mensajes</string>
-    <string name="messages_only_summary">Carga la página de mensajes cuando se inicie la app.</string>
+    <string name="start_in_messages">Inicia en mensajes</string>
+    <string name="start_in_messages_summary">Carga la página de mensajes cuando se inicie la app.</string>
     <string name="clearcache">Limpiar cache al salir</string>
     <string name="clearcache_summary">Tardará más tiempo en abrir la app.</string>
     <!-- End general -->

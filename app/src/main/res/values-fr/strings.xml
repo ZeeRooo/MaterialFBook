@@ -44,8 +44,8 @@
     <string name="hide_sponsored_summary">Masque les contenus sponsorisés (publicités) du fil d\'actualité.</string>
     <string name="hide_birthdays_title">Masquer les anniversaires</string>
     <string name="hide_birthdays_summary">Masque les anniversaires du fil d\'actualité.</string>
-    <string name="messages_only">Messages only</string>
-    <string name="messages_only_summary">Load the message website when the app is opened.</string>
+    <string name="start_in_messages">Start in messages</string>
+    <string name="start_in_messages_summary">Load the message website when the app is opened.</string>
     <string name="clearcache">Clear cache on exit</string>
     <string name="clearcache_summary">It will take more time to open the app.</string>
     <!-- End general -->

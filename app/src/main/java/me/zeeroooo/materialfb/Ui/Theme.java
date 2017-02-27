@@ -29,7 +29,7 @@ public final class Theme {
         mPreferences = PreferenceManager.getDefaultSharedPreferences(context);
     }
 
-    private static Theme getInstance(final Context context) {
+    public static Theme getInstance(final Context context) {
         if (AppTheme == null) {
             AppTheme = new Theme(context.getApplicationContext());
         }

@@ -28,9 +28,9 @@
             android:title="@string/hide_birthdays_title" />
         <SwitchPreference
             android:defaultValue="false"
-            android:key="messages_only"
-            android:summary="@string/messages_only_summary"
-            android:title="@string/messages_only" />
+            android:key="start_messages"
+            android:summary="@string/start_in_messages_summary"
+            android:title="@string/start_in_messages" />
         <SwitchPreference
             android:defaultValue="true"
             android:key="hide_menu_bar"

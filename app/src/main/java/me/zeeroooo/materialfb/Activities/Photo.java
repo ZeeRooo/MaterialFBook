@@ -42,9 +42,8 @@ public class Photo extends AppCompatActivity {
     RelativeLayout PhotosRL;
     ImageView mImageView;
     PhotoViewAttacher mAttacher;
-    String url;
+    String url, title;
     TextView text;
-    String title;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -136,17 +135,31 @@ public class Photo extends AppCompatActivity {
             return true;
         }
         if (id == R.id.share_image) {
-            final Uri uri = Uri.parse(url);
-            Glide.with(this).load(uri).asBitmap().format(PREFER_ARGB_8888).into(new SimpleTarget<Bitmap>(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL) {
+            Permiso.getInstance().requestPermissions(new Permiso.IOnPermissionResult() {
+                final Uri uri = Uri.parse(url);
                 @Override
-                public void onResourceReady(Bitmap bitmap, GlideAnimation anim) {
-                    String path = MediaStore.Images.Media.insertImage(Photo.this.getContentResolver(), bitmap, uri.getLastPathSegment(), null);
-                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                    shareIntent.setType("image/*");
-                    shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
-                    Photo.this.startActivity(Intent.createChooser(shareIntent, Photo.this.getString(R.string.context_share_image)));
+                public void onPermissionResult(Permiso.ResultSet resultSet) {
+                    if (resultSet.areAllPermissionsGranted()) {
+                        Glide.with(Photo.this).load(uri).asBitmap().format(PREFER_ARGB_8888).into(new SimpleTarget<Bitmap>(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL) {
+                            @Override
+                            public void onResourceReady(Bitmap bitmap, GlideAnimation anim) {
+                                String path = MediaStore.Images.Media.insertImage(Photo.this.getContentResolver(), bitmap, uri.getLastPathSegment(), null);
+                                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                                shareIntent.setType("image/*");
+                                shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
+                                Photo.this.startActivity(Intent.createChooser(shareIntent, Photo.this.getString(R.string.context_share_image)));
+                            }
+                        });
+                    } else {
+                        Snackbar.make(PhotosRL, R.string.permission_denied, Snackbar.LENGTH_LONG).show();
+                    }
                 }
-            });
+                @Override
+                public void onRationaleRequested(Permiso.IOnRationaleProvided callback, String... permissions) {
+                    // TODO Permiso.getInstance().showRationaleInDialog("Title", "Message", null, callback);
+                    callback.onRationaleProvided();
+                }
+            }, Manifest.permission.WRITE_EXTERNAL_STORAGE);
             return true;
         }
         if (id == R.id.oopy_url_image) {

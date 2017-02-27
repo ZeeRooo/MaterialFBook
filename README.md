@@ -189,6 +189,12 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Now we can choose enable or disable the led light for notifications and messages separately.
 - Improved image quality by sharing.
 
+**Version 2.8.5:**
+- Changed name from "Messages only" to "Start in messages" #52.
+- Minor changes.
+- Fixed FC when user try share an image in Marshmallow +.
+- Notifications improved (In messages it will display the name of the user).
+
 
 ###########
 
