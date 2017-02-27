@@ -194,6 +194,7 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Minor changes.
 - Fixed FC when user try share an image in Marshmallow +.
 - Notifications improved (In messages it will display the name of the user).
+- Corrected a word in Spanish
 
 
 ###########
