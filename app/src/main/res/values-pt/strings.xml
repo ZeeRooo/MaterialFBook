@@ -16,9 +16,6 @@
     <string name="notification_sound_msg">Som de mensagens</string>
     <string name="vibrate">Vibrar</string>
     <string name="led_light">LED</string>
-    <string name="flashlight_as_led">Lanterna como LED</string>
-    <string name="flashlight_as_led_summary_msg">Use a lanterna como LED para as Notificações de mensagens (led da câmera).</string>
-    <string name="flashlight_as_led_summary_notif">Use a lanterna como LED para as Notificações do Facebook (led da câmera).</string>
     <string-array name="intervalPrefTitles">
         <item>1 minuto</item>
         <item>2 minutos</item>
@@ -61,8 +58,6 @@
     <string name="navigation_setting_title">NAVEGAÇÃO</string>
     <string name="hide_menu_bar_title">Esconder barra de menu</string>
     <string name="hide_menu_bar_summary">Quando ativado, a barra de menu do Facebook ira ser ocultada.</string>
-    <string name="hide_fab_on_scroll_title">Esconder Botão de Ação Flutuante (FAB) durante a navegação</string>
-    <string name="hide_fab_on_scroll_summary">Esconder o botão FAB quando estiver navegando para baixo</string>
     <string name="navigation_menu_settings">Navigation menu items</string>
     <string name="navigation_menu_settings_description">You can show/hide items in the navigation menu.</string>
     <string name="save_data">Save data</string>
@@ -111,7 +106,6 @@
     <string name="default_user">Usuário</string>
     <string name="header_profile_pic">Foto do perfil</string>
     <string name="nav_notifications">Notificações</string>
-    <string name="menu_fblogin">Login no Facebook</string>
     <string name="context_save_image">Salvar imagem</string>
     <string name="settings">Configurações</string>
     <string name="context_share_image">Compartilhar imagem</string>

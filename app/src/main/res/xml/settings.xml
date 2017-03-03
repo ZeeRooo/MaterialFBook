@@ -71,12 +71,6 @@
             android:summary="@string/fab_enable_summary"
             android:title="@string/fab_enable" />
         <SwitchPreference
-            android:defaultValue="true"
-            android:dependency="fab_enable"
-            android:key="hide_fab_on_scroll"
-            android:summary="@string/hide_fab_on_scroll_summary"
-            android:title="@string/hide_fab_on_scroll_title" />
-        <SwitchPreference
             android:defaultValue="false"
             android:key="save_data"
             android:summary="@string/save_data_summary"

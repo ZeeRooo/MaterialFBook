@@ -35,9 +35,6 @@ public class JavaScriptHelpers {
                 case "composer_checkin":
                     view.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('button%5Bname%3D%22view_location%22%5D').click()%7Dcatch(_)%7B%7D%7D)()");
                     break;
-                case "composer_top":
-                    view.scrollTo(0, 0);
-                    break;
                 default:
                     break;
             }
@@ -47,6 +44,6 @@ public class JavaScriptHelpers {
 
     static void loadCSS(WebView view, String css) {
         // Inject CSS string to the HEAD of the webpage
-        view.loadUrl("javascript:(function()%7Bvar%20styles%3Ddocument.createElement('style')%3Bstyles.innerHTML%3D'" + css + "'%2Cstyles.onload%3Dandroid.loadingCompleted()%2Cdocument.getElementsByTagName('head')%5B0%5D.appendChild(styles)%7D)()");
+        view.loadUrl("javascript:(function()%7Bvar%20styles%3Ddocument.createElement('style')%3Bstyles.innerHTML%3D'" + css + "'%2Cdocument.getElementsByTagName('head')%5B0%5D.appendChild(styles)%7D)()");
     }
 }

@@ -36,9 +36,9 @@
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/profile_picture"
                 android:layout_width="75dp"
-                android:layout_marginStart="-80dp"
+                android:layout_gravity="start"
                 android:layout_height="75dp"
-                android:contentDescription="@string/header_profile_pic" />
+                android:contentDescription="@string/header_profile_pic"/>
 
             <TextView
                 android:id="@+id/profile_name"
@@ -51,7 +51,8 @@
                 android:fontFamily="sans-serif-medium"
                 android:shadowColor="@android:color/black"
                 android:shadowRadius="4"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:layout_gravity="start"/>
         </LinearLayout>
     </RelativeLayout>
 

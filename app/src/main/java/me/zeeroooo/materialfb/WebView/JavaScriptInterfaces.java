@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.webkit.JavascriptInterface;
 import me.zeeroooo.materialfb.Activities.MainActivity;
-import me.zeeroooo.materialfb.R;
 
 @SuppressWarnings("unused")
 public class JavaScriptInterfaces {
@@ -15,54 +14,6 @@ public class JavaScriptInterfaces {
     public JavaScriptInterfaces(MainActivity c) {
         mContext = c;
         mPreferences = PreferenceManager.getDefaultSharedPreferences(c);
-    }
-
-    @JavascriptInterface
-    public void loadingCompleted() {
-        mContext.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                mContext.setLoading(false);
-            }
-        });
-    }
-
-    @JavascriptInterface
-    public void getCurrent(final String value) {
-        mContext.runOnUiThread(new Runnable() {
-            @Override
-            public void run() {
-                switch (value) {
-                    case "top_stories":
-                            mContext.mNavigationView.setCheckedItem(R.id.nav_top_stories);
-                        break;
-                    case "most_recent":
-                            mContext.mNavigationView.setCheckedItem(R.id.nav_most_recent);
-                        break;
-                    case "requests_jewel":
-                            mContext.mNavigationView.setCheckedItem(R.id.nav_friendreq);
-                        break;
-                    case "messages_jewel":
-                        mContext.mNavigationView.setCheckedItem(R.id.nav_messages);
-                        break;
-                    case "messages":
-                        mContext.mNavigationView.setCheckedItem(R.id.nav_messages);
-                        break;
-                    case "notifications_jewel":
-                        Helpers.uncheckRadioMenu(mContext.mNavigationView.getMenu());
-                        break;
-                    case "search_jewel":
-                        mContext.mNavigationView.setCheckedItem(R.id.nav_search);
-                        break;
-                    case "bookmarks_jewel":
-                        mContext.mNavigationView.setCheckedItem(R.id.nav_mainmenu);
-                        break;
-                    default:
-                        Helpers.uncheckRadioMenu(mContext.mNavigationView.getMenu());
-                        break;
-                }
-            }
-        });
     }
 
     @JavascriptInterface

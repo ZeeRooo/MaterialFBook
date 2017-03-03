@@ -19,7 +19,6 @@ import android.os.Build;
 import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.webkit.CookieManager;
@@ -30,6 +29,7 @@ import java.io.IOException;
 import android.os.Looper;
 import me.zeeroooo.materialfb.Activities.MainActivity;
 import me.zeeroooo.materialfb.R;
+import me.zeeroooo.materialfb.Ui.CookingAToast;
 import me.zeeroooo.materialfb.Ui.Theme;
 import me.zeeroooo.materialfb.WebView.Helpers;
 import android.util.Log;
@@ -112,7 +112,7 @@ public class NotificationsService extends IntentService {
         } catch (IllegalArgumentException ex) {
             Log.i("CheckNotificationsTask", "Cookie sync problem occurred");
             if (!syncProblemOccurred) {
-                syncProblemSnackbar();
+                syncProblemAlert();
                 syncProblemOccurred = true;
             }
         } catch (IOException ex) {
@@ -164,7 +164,7 @@ public class NotificationsService extends IntentService {
         } catch (IllegalArgumentException ex) {
             Log.i("CheckNotificationsTask", "Cookie sync problem occurred");
             if (!syncProblemOccurred) {
-                syncProblemSnackbar();
+                syncProblemAlert();
                 syncProblemOccurred = true;
             }
         } catch (IOException ex) {
@@ -186,13 +186,13 @@ public class NotificationsService extends IntentService {
         }
     }
 
-    // show a Sync Problem Snackbar while not being on UI Thread
-    public void syncProblemSnackbar() {
+    // show a Sync Problem Alert while not being on UI Thread
+    public void syncProblemAlert() {
         Handler handler = new Handler(Looper.getMainLooper());
         handler.post(new Runnable() {
             @Override
             public void run() {
-                Snackbar.make(MainActivity.mCoordinatorLayoutView, R.string.sync_problem, Snackbar.LENGTH_LONG).show();
+                CookingAToast.cooking(NotificationsService.this, R.string.sync_problem, Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
             }
         });
     }
@@ -219,14 +219,6 @@ public class NotificationsService extends IntentService {
 
         Uri ringtoneUri = Uri.parse(mPreferences.getString(ringtoneKey, "content://settings/system/notification_sound"));
         mBuilder.setSound(ringtoneUri);
-
-       /* // LED light
-        if (mPreferences.getBoolean("led_light", false)) {
-            Resources resources = getResources(), systemResources = Resources.getSystem();
-            mBuilder.setLights(Color.CYAN,
-                    resources.getInteger(systemResources.getIdentifier("config_defaultNotificationLedOn", "integer", "android")),
-                    resources.getInteger(systemResources.getIdentifier("config_defaultNotificationLedOff", "integer", "android")));
-        }*/
 
         // priority for Heads-up
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
@@ -258,9 +250,6 @@ public class NotificationsService extends IntentService {
             } else {
                 mBuilder.setVibrate(new long[]{0L});
             }
-           /* if (mPreferences.getBoolean("flashlight_as_led_msg", false)) {
-                flashlight();
-            }*/
             if (mPreferences.getBoolean("led_msj", false)) {
                 mBuilder.setLights(Color.BLUE, 1000, 1000);
             }
@@ -275,18 +264,11 @@ public class NotificationsService extends IntentService {
             } else {
                 mBuilder.setVibrate(new long[]{0L});
             }
-          /*  if (mPreferences.getBoolean("flashlight_as_led_notif", false)) {
-                flashlight();
-            }*/
             if (mPreferences.getBoolean("led_notif", false)) {
                 mBuilder.setLights(Color.BLUE, 1000, 1000);
             }
             Notification note = mBuilder.build();
             mNotificationManager.notify(0, note);
-
-            /*// LED light flag
-            if (mPreferences.getBoolean("led_light", false))
-                note.flags |= Notification.FLAG_SHOW_LIGHTS;*/
         }
     }
     public static void ClearMessages(Context context) {
@@ -298,28 +280,4 @@ public class NotificationsService extends IntentService {
         NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.cancel(0);
     }
-  /*  // Flashlight
-    private void flashlight() {
-        Permiso.getInstance().requestPermissions(new Permiso.IOnPermissionResult() {
-            @Override
-            public void onPermissionResult(Permiso.ResultSet resultSet) {
-                if (resultSet.areAllPermissionsGranted()) {
-                    Camera cam = Camera.open();
-                    Parameters p = cam.getParameters();
-                    p.setFlashMode(Parameters.FLASH_MODE_TORCH);
-                    cam.setParameters(p);
-                    cam.startPreview();
-                    cam.stopPreview();
-                    cam.release();
-                } else {
-                    Snackbar.make(MainActivity.mCoordinatorLayoutView, R.string.permission_denied, Snackbar.LENGTH_LONG).show();
-                }
-            }
-
-            @Override
-            public void onRationaleRequested(Permiso.IOnRationaleProvided callback, String... permissions) {
-                Permiso.getInstance().showRationaleInDialog("Title", "Message", null, callback);
-            }
-        }, Manifest.permission.CAMERA);
-    }*/
 }

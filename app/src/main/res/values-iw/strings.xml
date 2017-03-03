@@ -3,8 +3,6 @@
     <!-- Notifications -->
     <string name="notifications_setting_title">דיווחים</string>
     <string name="notif">דיווחים</string>
-    <string name="notif_summary">הודעות חדשות ודיווחים כלליים</string>
-    <string name="you_have_one_message">יש לך הודעה אחת.</string>
     <string name="applying_changes">החלת השינויים</string>
     <string name="you_have_n_messages">יש לך %d הודעות.</string>
     <string name="sync_problem">העוגיות אינן מסונכרנות. נא לנסות להפעיל את היישומון מחדש</string>
@@ -18,9 +16,6 @@
     <string name="vibrate">רטט</string>
     <string name="vibrate_double">רטט כפול</string>
     <string name="led_light">נורית</string>
-    <string name="flashlight_as_led">פנס כחיווי</string>
-    <string name="flashlight_as_led_summary_msg">Use the flashlight as LED for Facebook Messages (camera led).</string>
-    <string name="flashlight_as_led_summary_notif">Use the flashlight as LED for Facebook Notifications (camera led).</string>
     <string-array name="intervalPrefTitles">
         <item>1 minuto</item>
         <item>2 minutos</item>
@@ -77,8 +72,6 @@
     <string name="navigation_setting_title">ניווט</string>
     <string name="hide_menu_bar_title">הסתרת סרגל התפריטים</string>
     <string name="hide_menu_bar_summary">כאשר תכונה זו פעילה, סרגל התפריט של פייסבוק יוסתר.</string>
-    <string name="hide_fab_on_scroll_title">הסתרת כפתור הפעילות הצף בעת גלילה</string>
-    <string name="hide_fab_on_scroll_summary">הסתרת הלחצן העגול הצף בעת גלילה למטה.</string>
     <string name="navigation_menu_settings">פריטים בתפריט הניווט</string>
     <string name="navigation_menu_settings_description">ניתן להציג/להסתיר פריטים בתפריט הניווט.</string>
     <string name="save_data">הפחתת כמות נתונים</string>
@@ -128,7 +121,6 @@
     <string name="default_user">משתמש</string>
     <string name="header_profile_pic">תמונת פרופיל</string>
     <string name="nav_notifications">דיווחים</string>
-    <string name="menu_fblogin">כניסה לפייסבוק</string>
     <string name="context_save_image">שמירת התמונה</string>
     <string name="settings">הגדרות</string>
     <string name="context_share_image">שיתוף התמונה</string>

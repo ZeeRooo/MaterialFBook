@@ -10,7 +10,6 @@
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-   <!-- <uses-permission android:name="android.permission.CAMERA" />-->
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
@@ -41,8 +40,7 @@
         <activity
             android:name=".Activities.MainActivity"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="adjustResize"
-			android:launchMode="singleTask">
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -55,6 +53,7 @@
 
                 <data android:mimeType="text/plain" />
             </intent-filter>
+
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -85,13 +84,25 @@
                 <data
                     android:host="www.facebook.com"
                     android:scheme="https" />
+                <data
+                    android:host="mobile.facebook.com"
+                    android:scheme="https" />
+                <data
+                    android:host="mobile.facebook.com"
+                    android:scheme="http" />
+                <data
+                    android:host="mbasic.facebook.com"
+                    android:scheme="https" />
+                <data
+                    android:host="mbasic.facebook.com"
+                    android:scheme="http" />
             </intent-filter>
         </activity>
         <activity
             android:name=".Activities.Photo"
             android:theme="@style/Photo"
             android:configChanges="screenSize|orientation"
-            android:noHistory="true">
+            android:launchMode="singleTask">
         </activity>
         <activity
             android:name=".Activities.SettingsActivity"

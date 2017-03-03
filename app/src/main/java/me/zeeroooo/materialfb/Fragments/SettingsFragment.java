@@ -3,28 +3,35 @@
   **/
 package me.zeeroooo.materialfb.Fragments;
 
+import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.widget.Toast;
+import com.greysonparrelli.permiso.Permiso;
+import me.zeeroooo.materialfb.Activities.MainActivity;
 import me.zeeroooo.materialfb.Activities.More;
+import me.zeeroooo.materialfb.Notifications.Receiver;
 import me.zeeroooo.materialfb.R;
+import me.zeeroooo.materialfb.Ui.CookingAToast;
 
 public class SettingsFragment extends PreferenceFragment implements Preference.OnPreferenceClickListener {
 
-    private Context mContext;
-    private SharedPreferences.OnSharedPreferenceChangeListener prefChangeListener;
-    private SharedPreferences preferences;
+    private MainActivity mActivity;
+    Context mContext;
+    private SharedPreferences mPreferences;
+    private SharedPreferences.OnSharedPreferenceChangeListener listener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        addPreferencesFromResource(R.xml.settings);
         mContext = getActivity();
-        preferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        addPreferencesFromResource(R.xml.settings);
 
         // set onPreferenceClickListener for a few preferences
         Preference notificationsSettingsPref = findPreference("notifications_settings");
@@ -34,18 +41,45 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         navigationmenuSettingsPref.setOnPreferenceClickListener(this);
         More.setOnPreferenceClickListener(this);
 
-
-        // listener for changing preferences (works after the value change)
-        prefChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+        mPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
+        listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
             public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-                // service intent (start, stop)
-
                 switch (key) {
-                    case "app_theme":
+                    case "stop_images":
+                        mActivity.mWebView.getSettings().setBlockNetworkImage(prefs.getBoolean(key, false));
+                        break;
+                    case "location_enabled":
+                        if (prefs.getBoolean(key, false)) {
+                            Permiso.getInstance().requestPermissions(new Permiso.IOnPermissionResult() {
+                                @Override
+                                public void onPermissionResult(Permiso.ResultSet resultSet) {
+                                    if (resultSet.areAllPermissionsGranted()) {
+                                        mActivity.mWebView.getSettings().setGeolocationEnabled(true);
+                                    } else {
+                                        CookingAToast.cooking(mContext, R.string.permission_denied, Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
+                                    }
+                                }
+                                @Override
+                                public void onRationaleRequested(Permiso.IOnRationaleProvided callback, String... permissions) {
+                                    // TODO Permiso.getInstance().showRationaleInDialog("Title", "Message", null, callback);
+                                    callback.onRationaleProvided();
+                                }
+                            }, Manifest.permission.ACCESS_FINE_LOCATION);
+                        }
+                        break;
+                    case "notif":
+                        Receiver.ScheduleNotif(mContext, false);
+                        break;
+                    case "notif_interval":
+                        Receiver.ScheduleNotif(mContext, false);
+                        break;
+                    default:
                         break;
                 }
             }
         };
+
+        mPreferences.registerOnSharedPreferenceChangeListener(listener);
     }
 
     @Override
@@ -72,11 +106,4 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
 
         return false;
     }
-
-    @Override
-    public void onPause() {
-        super.onPause();
-        preferences.unregisterOnSharedPreferenceChangeListener(prefChangeListener);
-    }
-
 }

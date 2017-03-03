@@ -50,13 +50,6 @@
                 android:data="https://github.com/indywidualny/FaceSlim"/>
         </PreferenceScreen>
         <PreferenceScreen
-            android:summary="Android-AdvancedWebView"
-            android:title="delight-im">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://github.com/delight-im/Android-AdvancedWebView"/>
-        </PreferenceScreen>
-        <PreferenceScreen
             android:summary="FloatingActionButton"
             android:title="Clans">
             <intent

@@ -21,7 +21,6 @@ public class More extends AppCompatActivity {
         Theme.getTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_more);
-
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
     }

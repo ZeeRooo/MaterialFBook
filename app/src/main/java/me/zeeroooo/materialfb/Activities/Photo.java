@@ -7,12 +7,13 @@ import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.design.widget.Snackbar;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -33,7 +34,7 @@ import com.bumptech.glide.request.target.Target;
 import com.greysonparrelli.permiso.Permiso;
 import java.io.File;
 import me.zeeroooo.materialfb.R;
-import me.zeeroooo.materialfb.WebView.WebViewListener;
+import me.zeeroooo.materialfb.Ui.CookingAToast;
 import uk.co.senab.photoview.PhotoViewAttacher;
 import static com.bumptech.glide.load.DecodeFormat.PREFER_ARGB_8888;
 
@@ -44,10 +45,12 @@ public class Photo extends AppCompatActivity {
     PhotoViewAttacher mAttacher;
     String url, title;
     TextView text;
+    private DownloadManager mDownloadManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Permiso.getInstance().setActivity(this);
         setContentView(R.layout.activity_photo);
         PhotosRL = (RelativeLayout) findViewById(R.id.PhotosRelativeLayout);
         url = getIntent().getStringExtra("url");
@@ -62,6 +65,7 @@ public class Photo extends AppCompatActivity {
 
         Load();
         mAttacher = new PhotoViewAttacher(mImageView);
+        mDownloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
     }
 
     private void Load() {
@@ -96,12 +100,11 @@ public class Photo extends AppCompatActivity {
         int id = item.getItemId();
         if (id == R.id.download_image) {
             Permiso.getInstance().requestPermissions(new Permiso.IOnPermissionResult() {
-                final Uri uri = Uri.parse(url);
                 @Override
                 public void onPermissionResult(Permiso.ResultSet resultSet) {
                     if (resultSet.areAllPermissionsGranted()) {
                         // Save the image
-                        DownloadManager.Request request = new DownloadManager.Request(uri);
+                        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
 
                         // Set the download directory
                         File downloads_dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
@@ -110,7 +113,7 @@ public class Photo extends AppCompatActivity {
                                 return;
                             }
                         }
-                        File destinationFile = new File(downloads_dir, uri.getLastPathSegment());
+                        File destinationFile = new File(downloads_dir, Uri.parse(url).getLastPathSegment());
                         request.setDestinationUri(Uri.fromFile(destinationFile));
 
                         // Make notification stay after download
@@ -118,11 +121,11 @@ public class Photo extends AppCompatActivity {
                         request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 
                         // Start the download
-                        WebViewListener.mDownloadManager.enqueue(request);
+                        mDownloadManager.enqueue(request);
 
-                        Snackbar.make(PhotosRL, R.string.downloaded, Snackbar.LENGTH_SHORT).show();
+                        CookingAToast.cooking(Photo.this, R.string.downloaded, Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_download, false).show();
                     } else {
-                        Snackbar.make(PhotosRL, R.string.permission_denied, Snackbar.LENGTH_LONG).show();
+                        CookingAToast.cooking(Photo.this, R.string.permission_denied, Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
                     }
                 }
 
@@ -136,22 +139,23 @@ public class Photo extends AppCompatActivity {
         }
         if (id == R.id.share_image) {
             Permiso.getInstance().requestPermissions(new Permiso.IOnPermissionResult() {
-                final Uri uri = Uri.parse(url);
                 @Override
                 public void onPermissionResult(Permiso.ResultSet resultSet) {
                     if (resultSet.areAllPermissionsGranted()) {
-                        Glide.with(Photo.this).load(uri).asBitmap().format(PREFER_ARGB_8888).into(new SimpleTarget<Bitmap>(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL) {
+                        // Share image
+                        Glide.with(Photo.this).load(Uri.parse(url)).asBitmap().format(PREFER_ARGB_8888).into(new SimpleTarget<Bitmap>(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL) {
                             @Override
                             public void onResourceReady(Bitmap bitmap, GlideAnimation anim) {
-                                String path = MediaStore.Images.Media.insertImage(Photo.this.getContentResolver(), bitmap, uri.getLastPathSegment(), null);
+                                String path = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, Uri.parse(url).getLastPathSegment(), null);
                                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                                 shareIntent.setType("image/*");
                                 shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
-                                Photo.this.startActivity(Intent.createChooser(shareIntent, Photo.this.getString(R.string.context_share_image)));
+                                startActivity(Intent.createChooser(shareIntent, getString(R.string.context_share_image)));
                             }
                         });
+                        CookingAToast.cooking(Photo.this, R.string.context_share_image_progress, Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_share, false).show();
                     } else {
-                        Snackbar.make(PhotosRL, R.string.permission_denied, Snackbar.LENGTH_LONG).show();
+                        CookingAToast.cooking(Photo.this, R.string.permission_denied, Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
                     }
                 }
                 @Override
@@ -166,7 +170,7 @@ public class Photo extends AppCompatActivity {
             ClipboardManager clipboard = (ClipboardManager) getApplication().getSystemService(Context.CLIPBOARD_SERVICE);
             ClipData clip = ClipData.newUri(getApplication().getContentResolver(), "URI", Uri.parse(url));
             clipboard.setPrimaryClip(clip);
-            Snackbar.make(PhotosRL, R.string.content_copy_link_done, Snackbar.LENGTH_LONG).show();
+            CookingAToast.cooking(Photo.this, R.string.content_copy_link_done, Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_copy_url, true).show();
             return true;
         }
         if (id == android.R.id.home) {
@@ -195,6 +199,18 @@ public class Photo extends AppCompatActivity {
     public void onDestroy() {
         super.onDestroy();
         Runtime.getRuntime().gc();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Permiso.getInstance().setActivity(this);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        Permiso.getInstance().onRequestPermissionResult(requestCode, permissions, grantResults);
     }
 
     @Override

@@ -194,7 +194,15 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Minor changes.
 - Fixed FC when user try share an image in Marshmallow +.
 - Notifications improved (In messages it will display the name of the user).
-- Corrected a word in Spanish
+- Corrected a word in Spanish.
+
+**Version 2.9.0:**
+- Code cleaned.
+- Changes in the WebView.
+- Bugfixes.
+- Fullscreen on videos.
+- Fixed wrong sizes on PhotoViewer (better image quality).
+- Able to download archives from groups without open external browser.
 
 
 ###########
@@ -214,7 +222,7 @@ _- Maybe some gifs cant be loaded because i need to add the url to the code. Rep
 - FaceSlim  by indywidualny.
 - Toffeed  by JakeLane.
 - SlimSocial for Facebook by rignaneseleo.
-- AdvancedWebView by delight-im.
+- AdvancedWebView by delight-im. // Since 2.9, it was remplaced with own WebView.
 - FloatingActionButton by Clans.
 - PhotoView by chrisbanes.
 - Permiso by greysonp.

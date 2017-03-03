@@ -44,10 +44,6 @@
             android:id="@+id/nav_back"
             android:icon="@drawable/ic_menu_back"
             android:title="@string/menu_back" />
-        <item
-            android:id="@+id/nav_fblogin"
-            android:icon="@drawable/ic_menu_fblogin"
-            android:title="@string/menu_fblogin" />
 		<item
             android:id="@+id/nav_fblogout"
             android:icon="@drawable/ic_menu_fblogout"

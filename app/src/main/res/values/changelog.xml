@@ -2,6 +2,20 @@
 <resources>
     <string name="changelog_list" translatable="false">
 <![CDATA[
+<b>Version 2.9.0:</b>
+<br>
+- Code cleaned.
+<br>
+- Changes in the WebView.
+<br>
+- Bugfixes.
+<br>
+- Fullscreen on videos.
+<br>
+- Fixed wrong sizes on PhotoViewer (better image quality).
+<br>
+- Able to download archives from groups without open external browser.
+<br>
 <br>
 <b>Version 2.8.5:</b>
 <br>

@@ -7,10 +7,6 @@
         android:entries="@array/intervalPrefTitles"
         android:entryValues="@array/intervalPrefValues"
         android:defaultValue="300000" />
-  <!--  <SwitchPreference
-        android:key="led_light"
-        android:title="@string/led_light"
-        android:defaultValue="false"/>-->
     <PreferenceCategory
         android:title="@string/nav_notifications">
         <SwitchPreference

@@ -12,5 +12,4 @@ public class NavigationMenuFragment extends PreferenceFragment {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.navigation_menu_settings);
     }
-
 }

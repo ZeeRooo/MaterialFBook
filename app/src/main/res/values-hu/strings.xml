@@ -17,9 +17,6 @@
     <string name="vibrate">Rezgések</string>
     <string name="vibrate_double">Dupla rezgés</string>
     <string name="led_light">LED fényjelzés</string>
-    <string name="flashlight_as_led">Vaku használata értesítésként</string>
-    <string name="flashlight_as_led_summary_msg">Használja a vaku LED-et Facebook üzenetek jelzéséhez (kamera vaku).</string>
-    <string name="flashlight_as_led_summary_notif">Használja a vaku LED-et Facebook értesítések jelzéséhez (kamera vaku).</string>
     <string-array name="intervalPrefTitles">
         <item>1 minuto</item>
         <item>2 minutos</item>
@@ -76,8 +73,6 @@
     <string name="navigation_setting_title">NAVIGÁCIÓ</string>
     <string name="hide_menu_bar_title">Menüsáv elrejtése</string>
     <string name="hide_menu_bar_summary">Bekapcsolva a Facebook felső menü rejtve lesz.</string>
-    <string name="hide_fab_on_scroll_title">Lebegő gyors művelet gomb görgetéskor</string>
-    <string name="hide_fab_on_scroll_summary">Rejtsd el a gombot görgetéskor.</string>
     <string name="navigation_menu_settings">Navigációs menü elemek</string>
     <string name="navigation_menu_settings_description">Megjelenítheted/elrejtheted a navigációs menü elemeit.</string>
     <string name="save_data">Adatok mentése</string>
@@ -101,8 +96,6 @@
     <string name="menu_events_summary">Engedélyezve a &#8220;Események&#8221; gomb eltűnik a navigációs menüből.</string>
     <string name="menu_back">Vissza</string>
     <string name="menu_back_summary">Ha kikapcsolod a &#8220;Vissza&#8221; gomb eltűnik a navigációs menüből.</string>
-    <string name="menu_news">Hírfolyam</string>
-    <string name="menu_news_summary">Ha kikapcsolod a &#8220;Hírfolyam&#8221; gomb eltűnik a navigációs menüből.</string>
     <string name="menu_top_stories">Legjobb hírek</string>
     <string name="menu_top_stories_summary">Ha kikapcsolod a &#8220;Legjobb hírek&#8221; gomb eltűnik a navigációs menüből.</string>
     <string name="menu_most_recent">Legfrissebbek</string>
@@ -128,7 +121,6 @@
     <string name="default_user">Felhasználó</string>
     <string name="header_profile_pic">Profilkép</string>
     <string name="nav_notifications">Értesítések</string>
-    <string name="menu_fblogin">Bejelentkezés a Facebook-ba</string>
     <string name="context_save_image">Kép mentése</string>
     <string name="settings">Beállítások</string>
     <string name="context_share_image">Kép megosztása</string>

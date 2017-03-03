@@ -17,9 +17,6 @@
 	<string name="vibrate">Độ rung</string>
     <string name="vibrate_double">Độ rung kép</string>
     <string name="led_light">Đèn LED</string>
-	<string name="flashlight_as_led">Đèn Flash dạng LED</string>
-    <string name="flashlight_as_led_summary_msg">Sử dụng Flash như đèn LED cho các Tin nhắn trên Facebook (camera led).</string>
-    <string name="flashlight_as_led_summary_notif">Sử dụng Flash như đèn LED cho các Thông báo trên Facebook (camera led).</string>
     <string-array name="intervalPrefTitles">
         <item>1 minuto</item>
         <item>2 minutos</item>
@@ -76,8 +73,6 @@
     <string name="navigation_setting_title">Điều hướng</string>
     <string name="hide_menu_bar_title">Ẩn thanh menu</string>
     <string name="hide_menu_bar_summary">Khi kích hoạt, thanh menu Facebook sẽ được ẩn.</string>
-    <string name="hide_fab_on_scroll_title">Ẩn nút cuộn thực thi nổi</string>
-    <string name="hide_fab_on_scroll_summary">Ẩn FAB khi cuộn xuống.</string>
     <string name="navigation_menu_settings">Điều hướng các mục menu</string>
     <string name="navigation_menu_settings_description">Bạn có thể hiển thị/ẩn các mục trong điều hướng menu.</string>
     <string name="save_data">Lưu dữ liệu</string>
@@ -126,7 +121,6 @@
     <string name="default_user">Người dùng</string>
     <string name="header_profile_pic">Hình đại diện</string>
     <string name="nav_notifications">Thông báo</string>
-    <string name="menu_fblogin">Đăng nhập vào Facebook</string>
     <string name="context_save_image">Lưu ảnh</string>
     <string name="settings">Thiết lập</string>
     <string name="context_share_image">Chia sẻ ảnh</string>

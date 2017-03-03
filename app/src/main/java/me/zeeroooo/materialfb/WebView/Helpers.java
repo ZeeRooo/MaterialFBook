@@ -44,19 +44,6 @@ public class Helpers {
         return null;
     }
 
-    // Prompt a login
-    public static Snackbar loginPrompt(final View view) {
-        final Snackbar snackBar = Snackbar.make(view, R.string.not_logged_in, Snackbar.LENGTH_INDEFINITE);
-        snackBar.setAction(R.string.login_button, new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                LoginManager.getInstance().logInWithReadPermissions((Activity) view.getContext(), FB_PERMISSIONS);
-            }
-        });
-        snackBar.show();
-        return snackBar;
-    }
-
     // Uncheck all items menu
     public static void uncheckRadioMenu(Menu menu) {
         for (int i = 0; i < menu.size(); i++) {

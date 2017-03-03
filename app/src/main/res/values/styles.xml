@@ -4,6 +4,11 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <style name="Photo" parent="MFB">
+        <item name="windowActionBar">false</item>
+        <item name="windowActionModeOverlay">true</item>
+    </style>
+
     <style name="MFB" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/MFBPrimary</item>
         <item name="colorPrimaryDark">@color/MFBPrimaryDark</item>
