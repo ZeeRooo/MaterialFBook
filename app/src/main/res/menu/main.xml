@@ -5,12 +5,12 @@
         android:id="@+id/nav_messages"
         android:icon="@drawable/ic_message"
         android:title="@string/menu_messages"
-        app:actionLayout="@layout/menu_badge"
+        android:actionLayout="@layout/menu_badge"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/action_notifications"
         android:icon="@drawable/ic_notifications"
         android:title="@string/nav_notifications"
-        app:actionLayout="@layout/menu_badge"
+        android:actionLayout="@layout/menu_badge"
         app:showAsAction="ifRoom"/>
 </menu>

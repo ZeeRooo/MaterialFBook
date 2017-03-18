@@ -5,10 +5,19 @@
 <!-- Themes -->
     <string-array name="WebThemes">
         <item>Facebook Mobile</item>
-        <item>DarkTheme</item>
-		<item>MaterialDarkTheme</item>
-		<item>MaterialTheme</item>
-        <item>PinkTheme</item>
+        <item>Material</item>
+        <item>MaterialAmoled</item>
+        <item>MaterialBlack</item>
+        <item>MaterialPink</item>
+        <item>MaterialGrey</item>
+        <item>MaterialGreen</item>
+        <item>MaterialRed</item>
+        <item>MaterialLime</item>
+        <item>MaterialYellow</item>
+        <item>MaterialPurple</item>
+        <item>MaterialLightBlue</item>
+        <item>MaterialOrange</item>
+        <item>MaterialGooglePlayGreen</item>
     </string-array>
     <string-array name="AppThemes">
         <item>MaterialFBook</item>

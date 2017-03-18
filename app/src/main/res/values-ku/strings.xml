@@ -34,7 +34,6 @@
     <string name="location_enabled_summary">ئەمە هەڵبژاردنە چالاک بکە بۆ بەکارهێنانی شوێن لە فەیسبووکدا</string>
     <string name="hide_editor_newsfeed_title">شاردنەوەی بەشی بڵاوکردنەوەی بابەتی نوێ</string>
     <string name="hide_editor_newsfeed_summary">ئەگەر چالاک بێت ئەوا بڵاوکردنەوەی بابەتی نوێ لە شاشەی سەرەکیدا دەشارێتەوە</string>
-    <string name="hide_editor_newsfeed_snackbar">تازەی بکەرەوە بۆ جێبەجێکردنی گۆڕانکارییەکان</string>
     <string name="stop_images_title">پیشان نەدانی وێنەکان</string>
     <string name="stop_images_summary">ئەگەر چالاک بێت ئەوا وێنەکان پیشان نادرێن، بەڵام لەوانەیە هەندێ وێنە دیاربن بەهۆی پاشەکەوتبوون لە فۆڵدەری کاتیدا</string>
     <string name="hide_sponsored_title">شاردنەوەی \'ڕیکلام وپۆنسەرەکان</string>
@@ -45,6 +44,8 @@
     <string name="start_in_messages_summary">Load the message website when the app is opened.</string>
     <string name="clearcache">Clear cache on exit</string>
     <string name="clearcache_summary">It will take more time to open the app.</string>
+    <string name="hide_recently_commented">Hide recently commented</string>
+    <string name="hide_recently_commented_summary">X people recently commented on this.</string>
     <!-- End general -->
 
     <!-- Appearence -->

@@ -1,245 +1,1225 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- DarkTheme based on SlimSocial for Facebook. Thanks @rignaneseleo -->
-    <string name="DarkTheme" translatable="false">
-        body, #root, .storyStream, ._2v9s, ._4nmh, ._4u3j, ._35aq, ._146a, ._4g34, ._5pxb, ._55wq, ._53_-, ._55ws, ._u42, .jx-result, .jx-typeahead-results, ._56bt, ._52x7, ._vqv, ._4g33, ._5rgt, .popover_flyout, .flyout, #m_newsfeed_stream, ._55wo, ._3iln, .mentions-suggest, #header, ._xy, ._bgx, .acb, .acg, .aclb, .touch ._4g34, ._59e9, .nontouch ._5ui0, input[type=text], .acw, ._5up8, ._5kgn, .tlLinkContainer, .aps, .jewel .flyout .header, .appCenterCategorySelectorButton, .tlBody, #timelineBody, .timelineX, .timeline .feed, .timeline .tlPrelude, .timeline .tlFeedPlaceholder, .touch ._5c9u, .touch ._5ca9, .innerLink, ._5dy4, ._52x3, #m_group_stories_container, .albums, .subpage, ._uwu, ._uww, .scrollAreaBody, .al, .apl, .structuredPublisher, .groupChromeView, ._djv, ._bjg, ._5kgn, ._3f50, ._55wm, ._58f0 {
-        background: #000 !important; /* the background */
-        -webkit-user-select: initial;
+    <string name="Material" translatable="false">
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+            background: transparent;
+            border-radius: 200px;
+            border: 0px solid transparent;
         }
-        ._50cg._2ss {
-        background: #000 !important;
+        article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
+            margin: 7px 5px;
+            border-radius: 5px;
         }
-        .composerLinkText, .fcg {
-        color: #d2d2d2 !important;
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i {
+            background: transparent;
         }
-
-        /* white text */
-
-        body, .touch ._2ya3, .composerTextSelected, .composerInput, .mentions-input, input[type=text], ._5001, .timeline .cover .profileName, .appListTitle, ._52jd, ._52jb, ._52jg, ._5qc3, .tlActorText, .tlLinkTitle, ._5379, ._5cqn, ._592p, ._3c9l, ._4yrh, .name, .btn, .upText, .tlLinkTitleOnly, ._5rgt, ._52x2, ._52jh, ._52ja, ._56bz, ._2tbu, ._1mwn, ._55sr, ._5t6r, ._1_oe, ._52lz, ._2l5v, .inputtext, .inputpassword, .touch, .touch tr, .touch input, .touch textarea, .touch .mfsm {
-        color: #d2d2d2 !important;
+        .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
+            margin: 5px 3px;
+            border-radius: 5px;
         }
-        .touch ._2ya3 {
-        border-radius: 5px;
-        padding: 5px;
+        .aclb {
+            margin: 5px 3px;
+            border-radius: 5px;
+            border-left: 2px solid #3B5998;
+            background-color: rgba(59, 89, 152, 0.2) !important;
         }
-
-        /* blue link text */
-
-        a, .actor, .mfsl, .fcw, .title, .blueName, ._5aw4, ._vqv, ._5yll, ._5qc3, ._52lz, ._4nwe, ._27vp, ._ir4, ._5wsv, ._46pa {
-        color: #DFEFF0 !important;
+        ._5msj {
+            display: none;
         }
-
-        /* dark important */
-
-        .acy, .nontouch ._55mb .actor-link, .nontouch a.btnD, .inlineMedia.storyAttachment {
-        background: #304702 !important;
+        ._5rgr {
+            -webkit-user-select: initial;
         }
-        .statusBox, ._5whq, ._56bt, .composerInput, .mentions-input, ._1svy, ._bji {
-        background: #323232 !important;
+        .voice.acw.abt, ._55x2>*, ._55x2._55x2>*, .touch ._55wr {
+            border: 0px transparent;
         }
-        .ufiBorder, ._5as0, ._5ef_, ._35aq {
-        border-color: #555 !important;
+        .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
+            border-radius: 200px;
+            color: white;
+            background: #243c6d;
+            border-color: #243c6d;
         }
-
-        /* buttons */
-
-        .button>a.touchable, .btn, .touch ._5c9u, ._2l5v, ._52x1, ._tn0, ._52ja, ._5lm6 {
-        background: #323232 !important;
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, ._vqv {
+            color: #3B5998 !important;
         }
-        .flyout {
-        border: 1px solid #fff !important;
+        ._32l5._2rec {
+            background: #595959;
         }
-
-        /* context menu */
-
-        ._5c0e, ._5bn_ {
-        background: #4e4e4e !important;
+        .abt {
+            border-top: 0px;
         }
-        article, ._4o50, .acw, ._53_-, ._3wjp, ._usq, ._55wq, ._400s {
-        border: 1px dotted #383838 !important;
-        border-radius: 4px;
+        .touch .btnC, .touch .btnI.bgb {
+            border: 0px;
         }
-        ._1_oa, ._bmx, ._52x1 {
-        border-bottom: 1px dotted #383838 !important;
+        .touch .btnD.bgb[disabled], .touch .btnC[disabled], .touch .btnI.bgb[disabled] {
+            color: white;
         }
-        article h3 {
-        color: #999 !important;
+        ._3bg5 ._52x1 {
+            background: rgba(59, 89, 152, 0.2);
+            border-bottom: 0px;
+            border-top: 0px;
+            text-align: center;
         }
-
-        /* no border */
-
-        .aclb, ._53_-, ._52x6, ._52x1, ._2l5v, ._tn0, ._52ja, ._5lm6 {
-        border-top: 0px;
-        border-bottom: 0px;
+        .touch ._5c9u, .touch ._5ca9, .touch button._5c9u {
+            background-color: rgba(59, 89, 152, 0.2);
+            color: black;
+            text-shadow: 0px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            border: 1px white;
         }
-        ._59te.popoverOpen, ._59te.isActivem, ._59te {
-        background: #000;/*topbar*/
-        border-bottom: 1px solid #444;
-        border-right: 1px solid #444;
+        .touch ._56bt {
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            text-shadow: 0px;
         }
-        ._2lut {
-        border: 1px dotted #e9eaed !important;
+        ._5ecn._1n29._2fv6, a._5ecn {
+            background: linear-gradient(rgba(252, 252, 252, 0), rgba(121, 255, 0, 0));
+            background-color: transparent !important;
+            border: 0px;
         }
-	</string>
-    <!-- Material based on Folio for Facebook. Thanks @creativetrendsapps -->
-    <string name="MaterialTheme" translatable="false">
-article, #mbasic_inline_feed_composer, .timelinePublisher, ._10c_ ._2jl2, ._55wr._4g33._52wc._2-ck._51s,
-._59e9._55wr._4g33._400s, ._55wo._4g34, #friends_center_main, .touch ._5b6o, ._2ykg .unreadMessage,
-#owned_pages_section, #liked_pages_section, .item.tall.acw.abb, ._4g34._5o41 {
-margin: 7px 5px !important;
--webkit-user-select: initial;
-border-radius: 2px;
-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.12);
-}
-
-._3bg5 ._53_-, .touchable-notification, ._55wq ._4g33 ._5pxa ._5vbx,
-._1_oa._4gvh._1w-s._1_od, ._1_oa._4gvh._1w-s, .item.buddylistItem.itemWithAction.acw.abt{
-display: block;
-margin: 4px 12px !important;
-border-radius: 2px;
-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14),0 3px 1px -2px rgba(0,0,0,0.2),0 1px 5px 0 rgba(0,0,0,0.12);
-}
-
-
-._55x2>*, ._55x2._55x2>*{
-border-bottom-color: transparent;
-border-bottom: 1px solid transparent;
-}
-
-._3bg5 ._52x1, .abb {
-border-top: none;
-border-bottom: none;
-padding: 4px 24px;
-}
-
-.profpic, .item ._1_0l {
-border-radius: 100px !important;
-}
-
-.jewel .flyout, #page, #notifications_list, ._3bg5 ._52x1, ._vqv, #threadlist_rows, ._djv._bjn._bjp._5ek4._3gwg._2c_g{
-background: solid white;
-}
-
-.aclb{
-border-left: 3px solid #3b5998;
-border-right: 3px solid #3b5998;
-}
-
-.touchable-notification, .touch ._55wr, .touch ._5b6o,
-._1_oa._4gvh._1w-s._1_od, ._1_oa._4gvh._1w-s, ._3to4,
-#owned_pages_section, #liked_pages_section,
-.item.tall.acw.abb, .item.buddylistItem.itemWithAction.acw.abt{
-background:white;
-}
-
-.touch ._5b6o {
-padding:5px;}
-
-
-._2k51, ._bji {
-border-bottom: 2px solid #e9eaed;
-background: white;
-
-}
-
-._4prr::after {
-border: none !important;
-}
-	</string>
-    <!-- MaterialDarkTheme based on Folio for Facebook. Thanks @creativetrendsapps -->
-    <string name="MaterialDarkTheme" translatable="false">
-        body, #root, .storyStream, ._2v9s, ._4nmh, ._4u3j, ._35aq, ._146a, ._4g34, ._5pxb, ._55wq, ._53_-, ._55ws, ._u42, .jx-result, .jx-typeahead-results, ._56bt, ._52x7, ._vqv, ._4g33, ._5rgt, .popover_flyout, .flyout, #m_newsfeed_stream, ._55wo, ._3iln, .mentions-suggest, #header, ._xy, ._bgx, .acb, .acg, .aclb, .touch ._4g34, ._59e9, .nontouch ._5ui0, input[type=text], .acw, ._5up8, ._5kgn, .tlLinkContainer, .aps, .jewel .flyout .header, .appCenterCategorySelectorButton, .tlBody, #timelineBody, .timelineX, .timeline .feed, .timeline .tlPrelude, .timeline .tlFeedPlaceholder, .touch ._5c9u, .touch ._5ca9, .innerLink, ._5dy4, ._52x3, #m_group_stories_container, .albums, .subpage, ._uwu, ._uww, .scrollAreaBody, .al, .apl, .structuredPublisher, .groupChromeView, ._djv, ._bjg, ._5kgn, ._3f50, ._55wm, ._58f0 {
-        background: #000 !important; /* the background */
-        -webkit-user-select: initial;
+        .touch a._57um {
+            color: #243c6d;
         }
-        ._50cg._2ss {
-        background: #000 !important;
+        header._59e9._55wr {
+            background: rgba(59, 89, 152, 0.2);
         }
-        .composerLinkText, .fcg {
-        color: #d2d2d2 !important;
+    </string>
+    <string name="MaterialAmoled" translatable="false">
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+            border-radius: 200px;
+            border: 0px solid transparent;
         }
-
-        /* white text */
-
-        body, .touch ._2ya3, .composerTextSelected, .composerInput, .mentions-input, input[type=text], ._5001, .timeline .cover .profileName, .appListTitle, ._52jd, ._52jb, ._52jg, ._5qc3, .tlActorText, .tlLinkTitle, ._5379, ._5cqn, ._592p, ._3c9l, ._4yrh, .name, .btn, .upText, .tlLinkTitleOnly, ._5rgt, ._52x2, ._52jh, ._52ja, ._56bz, ._2tbu, ._1mwn, ._55sr, ._5t6r, ._1_oe, ._52lz, ._2l5v, .inputtext, .inputpassword, .touch, .touch tr, .touch input, .touch textarea, .touch .mfsm {
-        color: #d2d2d2 !important;
+        body, .touch ._3bg5.mSearchOverlay .mSearchTypeahead .mTypeahead .jx-typeahead-results, .touch ._3bg5 .mSideSearch, .jewel .flyout, article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2, .touch ._52t1 {
+            background: black !important;
         }
-        .touch ._2ya3 {
-        border-radius: 5px;
-        padding: 5px;
+        body, .touch ._5iev, .touch ._5d19, .touch a, ._rnk, ._5c4t ._1g06, ._3qet .fcg, .item .title, .touch .mfss, .touch .snippet, .touch textarea._5whq, ._2tbu, ._52jb {
+            color: #e8eaed;
         }
-
-        /* blue link text */
-
-        a, .actor, .mfsl, .fcw, .title, .blueName, ._5aw4, ._vqv, ._5yll, ._5qc3, ._52lz, ._4nwe, ._27vp, ._ir4, ._5wsv, ._46pa {
-        color: #DFEFF0 !important;
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i, ._2v9s, #root  {
+            background: black;
         }
-
-        /* dark important */
-
-        .acy, .nontouch ._55mb .actor-link, .nontouch a.btnD, .inlineMedia.storyAttachment {
-        background: #304702 !important;
+        .aclb {
+            border-left: 2px solid white;
+            background-color: #bbbdbf !important;
         }
-        .statusBox, ._5whq, ._56bt, .composerInput, .mentions-input, ._1svy, ._bji {
-        background: #323232 !important;
+        ._5msj {
+            display: none;
         }
-        .ufiBorder, ._5as0, ._5ef_, ._35aq {
-        border-color: #555 !important;
+        ._5rgr {
+            -webkit-user-select: initial;
         }
-
-        /* buttons */
-
-        .button>a.touchable, .btn, .touch ._5c9u, ._2l5v, ._52x1, ._tn0, ._52ja, ._5lm6 {
-        background: #323232 !important;
+        .voice.acw.abt, ._55x2>*, ._55x2._55x2>*, .touch ._55wr {
+            border: 0px transparent;
         }
-        .flyout {
-        border: 1px solid #fff !important;
+        a.actor-link, .touch a._57um, ._3bg5 ._52x2, .touch a._57ul, ._5qc3._5qc3 a, ._1p79, ._52ja, ._391s, ._52jh, .blueName, ._5wbp, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, ._15ks ._15kl::before, ._vqv, .touch ._uwx, .touch ._uwx.mentions-input, ._5wbp, .touch .btnD.bgb[disabled], .touch .btnC[disabled], .touch .btnI.bgb[disabled], .touch ._3bg5 ._53_- ._5lut, .touch ._3bg5 ._53_- ._53__ {
+            color: white;
         }
-
-        /* context menu */
-
-        ._5c0e, ._5bn_ {
-        background: #4e4e4e !important;
+        ._2ip_ ._2zh4::before, ._2ip_ ._15kk::before, ._2ip_ ._15kk+._4u3j::before {
+            background: white;
         }
-        article, ._4o50, .acw, ._53_-, ._3wjp, ._usq, ._55wq, ._400s {
-        border: 1px dotted #383838 !important;
-        border-radius: 4px;
+        .abt {
+            border-top: 0px;
         }
-        ._1_oa, ._bmx, ._52x1 {
-        border-bottom: 1px dotted #383838 !important;
+        .touch .btnC, .touch .btnI.bgb {
+            border: 0px;
         }
-        article h3 {
-        color: #999 !important;
+        body * {
+            background-color: transparent !important;
         }
-
-.profpic{
-border-radius: 200px !important;
-}
-
-._129_ > :first-child {
-    border-top: 0px solid transparent;
-        border-top-width: 0px;
-        border-top-style: none;
-        border-top-color: transparent;
-}
-
-._129- {
-    border-top: none;
-}
-
-        /* no border */
-
-        .aclb, ._53_-, ._52x6, ._52x1, ._2l5v, ._tn0, ._52ja, ._5lm6 {
-        border-top: 0px;
-        border-bottom: 0px;
+        .acb .btnD, .btnC, .acb .btnI, .touch .btnC, .touch .btnI.bgb, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before {
+            background: black;
+            border-color: 1px solid white;
         }
-        ._59te.popoverOpen, ._59te.isActivem, ._59te {
-        background: #000;/*topbar*/
-        border-bottom: 1px solid #444;
-        border-right: 1px solid #444;
+        .chatHighlight {
+            -webkit-animation-duration: 0s;
         }
-        ._2lut {
-        border: 1px dotted #e9eaed !important;
+        .acw {
+            border-color: transparent;
         }
-	</string>
+        .touch ._3bg5 .mSearchTypeahead .jx-result .primary span, .touch ._3bg5 .mSearchTypeahead .jx-result .primary span.name.name, .touch ._3bg5.mSearchOverlay .mTypeahead .jx-typeahead-results .viewMore, .touch ._5whq, .touch ._3bg5 .mSideSearch .mSearchInput, ._5pxa ._5pxc a, a._1s79 {
+            color: white !important;
+        }
+        .touch ._55ws._5as-, .touch ._5c58._5c5f ._5c5a._5c5b, ._5fjv>:first-child, ._5fjw>:first-child, ._5fjw>div {
+            border-bottom: 0px solid transparent;
+        }
+        ._3bg5 ._52x6 {
+            border-top-color: transparent;
+        }
+        ._3bg5 ._52x1 {
+            background: rgba(255, 119, 119, 0.94);
+            border-bottom: 0px;
+            border-top: 0px;
+            text-align: center;
+        }
+        .touch ._5c9u, .touch ._5ca9, .touch button._5c9u {
+            background-color: transparent;
+            color: white;
+            text-shadow: 0px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            border: 1px white;
+        }
+        .touch ._56bt {
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            text-shadow: 0px;
+        }
+        ._5ecn._1n29._2fv6, a._5ecn {
+            background: linear-gradient(rgba(252, 252, 252, 0), rgba(121, 255, 0, 0));
+            background-color: transparent !important;
+            border: 0px;
+        }
+    </string>
+    <string name="MaterialBlack" translatable="false">
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+            background: transparent;
+            border-radius: 200px;
+            border: 0px solid transparent;
+        }
+        article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
+            margin: 7px 5px;
+            border-radius: 5px;
+        }
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+            background: transparent;
+        }
+        .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
+            margin: 5px 3px;
+            border-radius: 5px;
+        }
+        .aclb {
+            margin: 5px 3px;
+            border-radius: 5px;
+            border-left: 2px solid black;
+            background-color: rgba(0, 0, 0, 0.2) !important;
+        }
+        ._5msj {
+            display: none;
+        }
+        ._5rgr {
+            -webkit-user-select: initial;
+        }
+        .voice.acw.abt, ._55x2>*, ._55x2._55x2>*, .touch ._55wr {
+            border: 0px transparent;
+        }
+        .touch .mCount, ._u42 ._55fj, .touch ._5h8e, .touch ._5h8f {
+            border-radius: 200px;
+            background: black;
+            color: white;
+            border-color: black;
+        }
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv {
+            color: black !important;
+        }
+        ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d {
+            background: black;
+        }
+        ._52z5, .touch .btnC, .touch .btnI.bgb {
+        background: #424242;
+        }
+        ._59te.popoverOpen, ._59te.isActive {
+            background: #595959;
+        }
+        .touch ._52t1 {
+            border: 1px solid black;
+        }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid black;
+            color: black;
+        }
+        .abt {
+            border-top: 0px;
+        }
+        .touch .btnC, .touch .btnI.bgb {
+            background: black;
+            border: 0px;
+        }
+        .touch .btnD.bgb[disabled], .touch .btnC[disabled], .touch .btnI.bgb[disabled] {
+            color: white;
+        }
+        ._3bg5 ._52x1 {
+            background: rgba(0, 0, 0, 0.2);
+            border-bottom: 0px;
+            border-top: 0px;
+            text-align: center;
+        }
+        .touch ._5c9u, .touch ._5ca9, .touch button._5c9u {
+            background-color: rgba(0, 0, 0, 0.2);
+            color: black;
+            text-shadow: 0px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            border: 1px white;
+        }
+        .touch ._56bt {
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            text-shadow: 0px;
+        }
+        ._5ecn._1n29._2fv6, a._5ecn {
+            background: linear-gradient(rgba(252, 252, 252, 0), rgba(121, 255, 0, 0));
+            background-color: transparent !important;
+            border: 0px;
+        }
+        .touch a._57um {
+            color: black;
+        }
+        header._59e9._55wr {
+            background: rgba(0, 0, 0, 0.2);
+        }
+    </string>
+    <string name="MaterialPink" translatable="false">
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+            background: transparent;
+            border-radius: 200px;
+            border: 0px solid transparent;
+        }
+        article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
+            margin: 7px 5px;
+            border-radius: 5px;
+        }
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+            background: transparent;
+        }
+        .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
+            margin: 5px 3px;
+            border-radius: 5px;
+        }
+        .aclb {
+            margin: 5px 3px;
+            border-radius: 5px;
+            border-left: 2px solid #E91E63;
+            background-color: rgba(230, 30, 93, 0.20) !important;
+        }
+        ._5msj {
+            display: none;
+        }
+        ._5rgr {
+            -webkit-user-select: initial;
+        }
+        .voice.acw.abt, ._55x2>*, ._55x2._55x2>*, .touch ._55wr {
+            border: 0px transparent;
+        }
+        .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
+            border-radius: 200px;
+            background: #C2185B;
+            color: white;
+            border-color: #C2185B;
+        }
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv {
+            color: #E91E63 !important;
+        }
+        ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d, ._52z5 {
+            background: #E91E63;
+        }
+        ._59te.popoverOpen, ._59te.isActive {
+            background: #C2185B;
+        }
+        .touch ._52t1 {
+            border: 1px solid #E91E63;
+        }
+        ._32l5._2rec {
+            background: #E91E63;
+        }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid #E91E63;
+            color: #E91E63;
+        }
+        .abt {
+            border-top: 0px;
+        }
+        .touch .btnC, .touch .btnI.bgb {
+            background: #E91E63;
+            border: 0px;
+        }
+        .touch .btnD.bgb[disabled], .touch .btnC[disabled], .touch .btnI.bgb[disabled] {
+            color: white;
+        }
+        ._3bg5 ._52x1 {
+            background: rgba(230, 30, 93, 0.20);
+            border-bottom: 0px;
+            border-top: 0px;
+            text-align: center;
+        }
+        .touch ._5c9u, .touch ._5ca9, .touch button._5c9u {
+            background-color: rgba(230, 30, 93, 0.20);
+            color: black;
+            text-shadow: 0px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            border: 1px white;
+        }
+        .touch ._56bt {
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            text-shadow: 0px;
+        }
+        ._5ecn._1n29._2fv6, a._5ecn {
+            background: linear-gradient(rgba(252, 252, 252, 0), rgba(121, 255, 0, 0));
+            background-color: transparent !important;
+            border: 0px;
+        }
+        .touch a._57um {
+            color: #C2185B;
+        }
+        header._59e9._55wr {
+            background: rgba(230, 30, 93, 0.20);
+        }
+    </string>
+    <string name="MaterialGrey" translatable="false">
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+            background: transparent;
+            border-radius: 200px;
+            border: 0px solid transparent;
+        }
+        article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
+            margin: 7px 5px;
+            border-radius: 5px;
+        }
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+            background: transparent;
+        }
+        .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
+            margin: 5px 3px;
+            border-radius: 5px;
+        }
+        .aclb {
+            margin: 5px 3px;
+            border-radius: 5px;
+            border-left: 2px solid #607D8B;
+            background-color: rgba(7, 216, 0, 0.20) !important;
+        }
+        ._5msj {
+            display: none;
+        }
+        ._5rgr {
+            -webkit-user-select: initial;
+        }
+        .voice.acw.abt, ._55x2>*, ._55x2._55x2>*, .touch ._55wr {
+            border: 0px transparent;
+        }
+        .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
+            border-radius: 200px;
+            color: white;
+            background: #455A64;
+            border-color: #455A64;
+        }
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv {
+            color: #607D8B !important;
+        }
+        ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d, ._52z5 {
+            background: #607D8B;
+        }
+        ._59te.popoverOpen, ._59te.isActive {
+            background: #455A64;
+        }
+        .touch ._52t1 {
+            border: 1px solid #455A64;
+        }
+        ._32l5._2rec {
+            background: #607D8B;
+        }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid #607D8B;
+            color: #607D8B;
+        }
+        .abt {
+            border-top: 0px;
+        }
+        .touch .btnC, .touch .btnI.bgb {
+            background: #607D8B;
+            border: 0px;
+        }
+        .touch .btnD.bgb[disabled], .touch .btnC[disabled], .touch .btnI.bgb[disabled] {
+            color: white;
+        }
+        ._3bg5 ._52x1 {
+            background: rgba(7, 216, 0, 0.20);
+            border-bottom: 0px;
+            border-top: 0px;
+            text-align: center;
+        }
+        .touch ._5c9u, .touch ._5ca9, .touch button._5c9u {
+            background-color: transparent;
+            color: black;
+            text-shadow: 0px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            border: 1px white;
+        }
+        .touch ._56bt {
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            text-shadow: 0px;
+        }
+        ._5ecn._1n29._2fv6, a._5ecn {
+            background: linear-gradient(rgba(252, 252, 252, 0), rgba(121, 255, 0, 0));
+            background-color: transparent !important;
+            border: 0px;
+        }
+        .touch a._57um {
+            color: #455A64;
+        }
+        header._59e9._55wr {
+            background: rgba(7, 216, 0, 0.20);
+        }
+    </string>
+    <string name="MaterialGreen" translatable="false">
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+            background: transparent;
+            border-radius: 200px;
+            border: 0px solid transparent;
+        }
+        article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
+            margin: 7px 5px;
+            border-radius: 5px;
+        }
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+            background: transparent;
+        }
+        .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
+            margin: 5px 3px;
+            border-radius: 5px;
+        }
+        .aclb {
+            margin: 5px 3px;
+            border-radius: 5px;
+            border-left: 2px solid #4CAF50;
+            background-color: rgba(76, 175, 80, 0.2) !important;
+        }
+        ._5msj {
+            display: none;
+        }
+        ._5rgr {
+            -webkit-user-select: initial;
+        }
+        .voice.acw.abt, ._55x2>*, ._55x2._55x2>*, .touch ._55wr {
+            border: 0px transparent;
+        }
+        .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
+            border-radius: 200px;
+            color: white;
+            background: #388E3C;
+            border-color: #388E3C;
+        }
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv {
+            color: #4CAF50 !important;
+        }
+        ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d, ._52z5 {
+            background: #4CAF50;
+        }
+        ._59te.popoverOpen, ._59te.isActive {
+            background: #388E3C;
+        }
+        .touch ._52t1 {
+            border: 1px solid rgba(76, 175, 80, 0.2);
+        }
+        ._32l5._2rec {
+            background: #4CAF50;
+        }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid rgba(76, 175, 80, 0.2);
+            color: rgba(76, 175, 80, 0.2);
+        }
+        .abt {
+            border-top: 0px;
+        }
+        .touch .btnC, .touch .btnI.bgb {
+            background: #4CAF50;
+            border: 0px;
+        }
+        .touch .btnD.bgb[disabled], .touch .btnC[disabled], .touch .btnI.bgb[disabled] {
+            color: white;
+        }
+        ._3bg5 ._52x1 {
+            background: rgba(76, 175, 80, 0.2);
+            border-bottom: 0px;
+            border-top: 0px;
+            text-align: center;
+        }
+        .touch ._5c9u, .touch ._5ca9, .touch button._5c9u {
+            background-color: rgba(76, 175, 80, 0.2);
+            color: black;
+            text-shadow: 0px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            border: 1px white;
+        }
+        .touch ._56bt {
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            text-shadow: 0px;
+        }
+        ._5ecn._1n29._2fv6, a._5ecn {
+            background: linear-gradient(rgba(252, 252, 252, 0), rgba(121, 255, 0, 0));
+            background-color: transparent !important;
+            border: 0px;
+        }
+        .touch a._57um {
+            color: #388E3C;
+        }
+        header._59e9._55wr {
+            background: rgba(76, 175, 80, 0.2);
+        }
+    </string>
+    <string name="MaterialRed" translatable="false">
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+            background: transparent;
+            border-radius: 200px;
+            border: 0px solid transparent;
+        }
+        article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
+            margin: 7px 5px;
+            border-radius: 5px;
+        }
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+            background: transparent;
+        }
+        .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
+            margin: 5px 3px;
+            border-radius: 5px;
+        }
+        .aclb {
+            margin: 5px 3px;
+            border-radius: 5px;
+            border-left: 2px solid #F44336;
+            background-color: rgba(244, 67, 54, 0.2) !important;
+        }
+        ._5msj {
+            display: none;
+        }
+        ._5rgr {
+            -webkit-user-select: initial;
+        }
+        .voice.acw.abt, ._55x2>*, ._55x2._55x2>*, .touch ._55wr {
+            border: 0px transparent;
+        }
+        .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
+            border-radius: 200px;
+            color: white;
+            background: #D32F2F;
+            border-color: #D32F2F;
+        }
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv {
+            color: #F44336 !important;
+        }
+        ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d, ._52z5 {
+            background: #F44336;
+        }
+        ._59te.popoverOpen, ._59te.isActive {
+            background: #D32F2F;
+        }
+        .touch ._52t1 {
+            border: 1px solid rgba(244, 67, 54, 0.2);
+        }
+        ._32l5._2rec {
+            background: #F44336;
+        }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid #F44336;
+            color: rgba(244, 67, 54, 0.2);
+        }
+        .abt {
+            border-top: 0px;
+        }
+        .touch .btnC, .touch .btnI.bgb {
+            background: #F44336;
+            border: 0px;
+        }
+        .touch .btnD.bgb[disabled], .touch .btnC[disabled], .touch .btnI.bgb[disabled] {
+            color: white;
+        }
+        ._3bg5 ._52x1 {
+            background: rgba(244, 67, 54, 0.2);
+            border-bottom: 0px;
+            border-top: 0px;
+            text-align: center;
+        }
+        .touch ._5c9u, .touch ._5ca9, .touch button._5c9u {
+            background-color: rgba(244, 67, 54, 0.2);
+            color: black;
+            text-shadow: 0px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            border: 1px white;
+        }
+        .touch ._56bt {
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            text-shadow: 0px;
+        }
+        ._5ecn._1n29._2fv6, a._5ecn {
+            background: linear-gradient(rgba(252, 252, 252, 0), rgba(121, 255, 0, 0));
+            background-color: transparent !important;
+            border: 0px;
+        }
+        .touch a._57um {
+            color: #D32F2F;
+        }
+        header._59e9._55wr {
+            background: rgba(244, 67, 54, 0.2);
+        }
+    </string>
+    <string name="MaterialLime" translatable="false">
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+            background: transparent;
+            border-radius: 200px;
+            border: 0px solid transparent;
+        }
+        article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
+            margin: 7px 5px;
+            border-radius: 5px;
+        }
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+            background: transparent;
+        }
+        .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
+            margin: 5px 3px;
+            border-radius: 5px;
+        }
+        .aclb {
+            margin: 5px 3px;
+            border-radius: 5px;
+            border-left: 2px solid #CDDC39;
+            background-color: rgba(205, 220, 57, 0.2) !important;
+        }
+        ._5msj {
+            display: none;
+        }
+        ._5rgr {
+            -webkit-user-select: initial;
+        }
+        .voice.acw.abt, ._55x2>*, ._55x2._55x2>*, .touch ._55wr {
+            border: 0px transparent;
+        }
+        .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
+            border-radius: 200px;
+            color: white;
+            background: #AFB42B;
+            border-color: #AFB42B;
+        }
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv {
+            color: #CDDC39 !important;
+        }
+        ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d, ._52z5 {
+            background: #CDDC39;
+        }
+        ._59te.popoverOpen, ._59te.isActive {
+            background: #AFB42B;
+        }
+        .touch ._52t1 {
+            border: 1px solid rgba(205, 220, 57, 0.2);
+        }
+        ._32l5._2rec {
+            background: #CDDC39;
+        }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid #CDDC39;
+            color: rgba(205, 220, 57, 0.2);
+        }
+        .abt {
+            border-top: 0px;
+        }
+        .touch .btnC, .touch .btnI.bgb {
+            background: #CDDC39;
+            border: 0px;
+        }
+        .touch .btnD.bgb[disabled], .touch .btnC[disabled], .touch .btnI.bgb[disabled] {
+            color: white;
+        }
+        ._3bg5 ._52x1 {
+            background: rgba(205, 220, 57, 0.2);
+            border-bottom: 0px;
+            border-top: 0px;
+            text-align: center;
+        }
+        .touch ._5c9u, .touch ._5ca9, .touch button._5c9u {
+            background-color: rgba(205, 220, 57, 0.2);
+            color: black;
+            text-shadow: 0px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            border: 1px white;
+        }
+        .touch ._56bt {
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            text-shadow: 0px;
+        }
+        ._5ecn._1n29._2fv6, a._5ecn {
+            background: linear-gradient(rgba(252, 252, 252, 0), rgba(121, 255, 0, 0));
+            background-color: transparent !important;
+            border: 0px;
+        }
+        .touch a._57um {
+            color: #AFB42B;
+        }
+        header._59e9._55wr {
+            background: rgba(205, 220, 57, 0.2);
+        }
+    </string>
+    <string name="MaterialYellow" translatable="false">
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+            background: transparent;
+            border-radius: 200px;
+            border: 0px solid transparent;
+        }
+        article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
+            margin: 7px 5px;
+            border-radius: 5px;
+        }
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+            background: transparent;
+        }
+        .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
+            margin: 5px 3px;
+            border-radius: 5px;
+        }
+        .aclb {
+            margin: 5px 3px;
+            border-radius: 5px;
+            border-left: 2px solid #FFEB3B;
+            background-color: rgba(255, 235, 59, 0.2) !important;
+        }
+        ._5msj {
+            display: none;
+        }
+        ._5rgr {
+            -webkit-user-select: initial;
+        }
+        .voice.acw.abt, ._55x2>*, ._55x2._55x2>*, .touch ._55wr {
+            border: 0px transparent;
+        }
+        .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
+            border-radius: 200px;
+            color: white;
+            background: #FBC02D;
+            border-color: #FBC02D;
+        }
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv {
+            color: #FFEB3B !important;
+        }
+        ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d, ._52z5 {
+            background: #FFEB3B;
+        }
+        ._59te.popoverOpen, ._59te.isActive {
+            background: #FBC02D;
+        }
+        .touch ._52t1 {
+            border: 1px solid rgba(255, 235, 59, 0.2);
+        }
+        ._32l5._2rec {
+            background: #FFEB3B;
+        }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid #FFEB3B;
+            color: #FFEB3B;
+        }
+        .abt {
+            border-top: 0px;
+        }
+        .touch .btnC, .touch .btnI.bgb {
+            background: #FFEB3B;
+            border: 0px;
+        }
+        .touch .btnD.bgb[disabled], .touch .btnC[disabled], .touch .btnI.bgb[disabled] {
+            color: white;
+        }
+        ._3bg5 ._52x1 {
+            background: rgba(255, 235, 59, 0.2);
+            border-bottom: 0px;
+            border-top: 0px;
+            text-align: center;
+        }
+        .touch ._5c9u, .touch ._5ca9, .touch button._5c9u {
+            background-color: rgba(255, 235, 59, 0.2);
+            color: black;
+            text-shadow: 0px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            border: 1px white;
+        }
+        .touch ._56bt {
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            text-shadow: 0px;
+        }
+        ._5ecn._1n29._2fv6, a._5ecn {
+            background: linear-gradient(rgba(252, 252, 252, 0), rgba(121, 255, 0, 0));
+            background-color: transparent !important;
+            border: 0px;
+        }
+        .touch a._57um {
+            color: #FBC02D;
+        }
+        header._59e9._55wr {
+            background: rgba(255, 235, 59, 0.2);
+        }
+    </string>
+    <string name="MaterialPurple" translatable="false">
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+            background: transparent;
+            border-radius: 200px;
+            border: 0px solid transparent;
+        }
+        article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
+            margin: 7px 5px;
+            border-radius: 5px;
+        }
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+            background: transparent;
+        }
+        .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
+            margin: 5px 3px;
+            border-radius: 5px;
+        }
+        .aclb {
+            margin: 5px 3px;
+            border-radius: 5px;
+            border-left: 2px solid #9C27B0;
+            background-color: rgba(156, 39, 176, 0.2) !important;
+        }
+        ._5msj {
+            display: none;
+        }
+        ._5rgr {
+            -webkit-user-select: initial;
+        }
+        .voice.acw.abt, ._55x2>*, ._55x2._55x2>*, .touch ._55wr {
+            border: 0px transparent;
+        }
+        .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
+            border-radius: 200px;
+            color: white;
+            background: #7B1FA2;
+            border-color: #7B1FA2;
+        }
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv {
+            color: #9C27B0 !important;
+        }
+        ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d, ._52z5 {
+            background: #9C27B0;
+        }
+        ._59te.popoverOpen, ._59te.isActive {
+            background: #7B1FA2;
+        }
+        .touch ._52t1 {
+            border: 1px solid rgba(156, 39, 176, 0.2);
+        }
+        ._32l5._2rec {
+            background: #9C27B0;
+        }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid #9C27B0;
+            color: #9C27B0;
+        }
+        .abt {
+            border-top: 0px;
+        }
+        .touch .btnC, .touch .btnI.bgb {
+            background: #9C27B0;
+            border: 0px;
+        }
+        .touch .btnD.bgb[disabled], .touch .btnC[disabled], .touch .btnI.bgb[disabled] {
+            color: white;
+        }
+        ._3bg5 ._52x1 {
+            background: rgba(156, 39, 176, 0.2);
+            border-bottom: 0px;
+            border-top: 0px;
+            text-align: center;
+        }
+        .touch ._5c9u, .touch ._5ca9, .touch button._5c9u {
+            background-color: rgba(156, 39, 176, 0.2);
+            color: black;
+            text-shadow: 0px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            border: 1px white;
+        }
+        .touch ._56bt {
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            text-shadow: 0px;
+        }
+        ._5ecn._1n29._2fv6, a._5ecn {
+            background: linear-gradient(rgba(252, 252, 252, 0), rgba(121, 255, 0, 0));
+            background-color: transparent !important;
+            border: 0px;
+        }
+        .touch a._57um {
+            color: #7B1FA2;
+        }
+        header._59e9._55wr {
+            background: rgba(156, 39, 176, 0.2);
+        }
+    </string>
+    <string name="MaterialLightBlue" translatable="false">
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+            background: transparent;
+            border-radius: 200px;
+            border: 0px solid transparent;
+        }
+        article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
+            margin: 7px 5px;
+            border-radius: 5px;
+        }
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+            background: transparent;
+        }
+        .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
+            margin: 5px 3px;
+            border-radius: 5px;
+        }
+        .aclb {
+            margin: 5px 3px;
+            border-radius: 5px;
+            border-left: 2px solid #03A9F4;
+            background-color: rgba(3, 169, 244, 0.2) !important;
+        }
+        ._5msj {
+            display: none;
+        }
+        ._5rgr {
+            -webkit-user-select: initial;
+        }
+        .voice.acw.abt, ._55x2>*, ._55x2._55x2>*, .touch ._55wr {
+            border: 0px transparent;
+        }
+        .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
+            border-radius: 200px;
+            color: white;
+            background: #0288D1;
+            border-color: #0288D1;
+        }
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv {
+            color: #03A9F4 !important;
+        }
+        ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d, ._52z5 {
+            background: #03A9F4;
+        }
+        ._59te.popoverOpen, ._59te.isActive {
+            background: #0288D1;
+        }
+        .touch ._52t1 {
+            border: 1px solid rgba(3, 169, 244, 0.2);
+        }
+        ._32l5._2rec {
+            background: #03A9F4;
+        }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid #03A9F4;
+            color: #03A9F4;
+        }
+        .abt {
+            border-top: 0px;
+        }
+        .touch .btnC, .touch .btnI.bgb {
+            background: #03A9F4;
+            border: 0px;
+        }
+        .touch .btnD.bgb[disabled], .touch .btnC[disabled], .touch .btnI.bgb[disabled] {
+            color: white;
+        }
+        ._3bg5 ._52x1 {
+            background: rgba(3, 169, 244, 0.2);
+            border-bottom: 0px;
+            border-top: 0px;
+            text-align: center;
+        }
+        .touch ._5c9u, .touch ._5ca9, .touch button._5c9u {
+            background-color: rgba(3, 169, 244, 0.2);
+            color: black;
+            text-shadow: 0px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            border: 1px white;
+        }
+        .touch ._56bt {
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            text-shadow: 0px;
+        }
+        ._5ecn._1n29._2fv6, a._5ecn {
+            background: linear-gradient(rgba(252, 252, 252, 0), rgba(121, 255, 0, 0));
+            background-color: transparent !important;
+            border: 0px;
+        }
+        .touch a._57um {
+            color: #0288D1;
+        }
+        header._59e9._55wr {
+            background: rgba(3, 169, 244, 0.2);
+        }
+    </string>
+    <string name="MaterialOrange" translatable="false">
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+            background: transparent;
+            border-radius: 200px;
+            border: 0px solid transparent;
+        }
+        article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
+            margin: 7px 5px;
+            border-radius: 5px;
+        }
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+            background: transparent;
+        }
+        .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
+            margin: 5px 3px;
+            border-radius: 5px;
+        }
+        .aclb {
+            margin: 5px 3px;
+            border-radius: 5px;
+            border-left: 2px solid #FF5722;
+            background-color: rgba(255, 87, 34, 0.2) !important;
+        }
+        ._5msj {
+            display: none;
+        }
+        ._5rgr {
+            -webkit-user-select: initial;
+        }
+        .voice.acw.abt, ._55x2>*, ._55x2._55x2>*, .touch ._55wr {
+            border: 0px transparent;
+        }
+        .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
+            border-radius: 200px;
+            background: #E64A19;
+            border-color: #E64A19;
+            color: white;
+        }
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv {
+            color: #FF5722 !important;
+        }
+        ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d, ._52z5 {
+            background: #FF5722;
+        }
+        ._59te.popoverOpen, ._59te.isActive {
+            background: #E64A19;
+        }
+        .touch ._52t1 {
+            border: 1px solid rgba(255, 87, 34, 0.2);
+        }
+        ._32l5._2rec {
+            background: #FF5722;
+        }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid #FF5722;
+            color: #FF5722;
+        }
+        .abt {
+            border-top: 0px;
+        }
+        .touch .btnC, .touch .btnI.bgb {
+            background: #FF5722;
+            border: 0px;
+        }
+        .touch .btnD.bgb[disabled], .touch .btnC[disabled], .touch .btnI.bgb[disabled] {
+            color: white;
+        }
+        ._3bg5 ._52x1 {
+            background: rgba(255, 87, 34, 0.2);
+            border-bottom: 0px;
+            border-top: 0px;
+            text-align: center;
+        }
+        .touch ._5c9u, .touch ._5ca9, .touch button._5c9u {
+            background-color: rgba(255, 87, 34, 0.2);
+            color: black;
+            text-shadow: 0px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            border: 1px white;
+        }
+        .touch ._56bt {
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            text-shadow: 0px;
+        }
+        ._5ecn._1n29._2fv6, a._5ecn {
+            background: linear-gradient(rgba(252, 252, 252, 0), rgba(121, 255, 0, 0));
+            background-color: transparent !important;
+            border: 0px;
+        }
+        .touch a._57um {
+            color: #E64A19;
+        }
+        header._59e9._55wr {
+            background: rgba(255, 87, 34, 0.2);
+        }
+    </string>
+    <string name="MaterialGPG" translatable="false">
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+            background: transparent;
+            border-radius: 200px;
+            border: 0px solid transparent;
+        }
+        article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
+            margin: 7px 5px;
+            border-radius: 5px;
+        }
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+            background: transparent;
+        }
+        .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
+            margin: 5px 3px;
+            border-radius: 5px;
+        }
+        .aclb {
+            margin: 5px 3px;
+            border-radius: 5px;
+            border-left: 2px solid #109c56;
+            background-color: rgba(16, 156, 86, 0.2) !important;
+        }
+        ._5msj {
+            display: none;
+        }
+        ._5rgr {
+            -webkit-user-select: initial;
+        }
+        .voice.acw.abt, ._55x2>*, ._55x2._55x2>*, .touch ._55wr {
+            border: 0px transparent;
+        }
+        .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
+            border-radius: 200px;
+            background: #0c7d45;
+            border-color: #0c7d45;
+            color: white;
+        }
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv {
+            color: #109c56 !important;
+        }
+        ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d, ._52z5 {
+            background: #109c56;
+        }
+        ._59te.popoverOpen, ._59te.isActive {
+            background: #0c7d45;
+        }
+        .touch ._52t1 {
+            border: 1px solid rgba(16, 156, 86, 0.2);
+        }
+        ._32l5._2rec {
+            background: #109c56;
+        }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid #109c56;
+            color: #b8d9c8;
+        }
+        .abt {
+            border-top: 0px;
+        }
+        .touch .btnC, .touch .btnI.bgb {
+            background: #109c56;
+            border: 0px;
+        }
+        .touch .btnD.bgb[disabled], .touch .btnC[disabled], .touch .btnI.bgb[disabled] {
+            color: white;
+        }
+        ._3bg5 ._52x1 {
+            background: rgba(16, 156, 86, 0.2);
+            border-bottom: 0px;
+            border-top: 0px;
+            text-align: center;
+        }
+        .touch ._5c9u, .touch ._5ca9, .touch button._5c9u {
+            background-color: rgba(16, 156, 86, 0.2);
+            color: black;
+            text-shadow: 0px;
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            border: 1px white;
+        }
+        .touch ._56bt {
+            background-image: linear-gradient(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));
+            text-shadow: 0px;
+        }
+        ._5ecn._1n29._2fv6, a._5ecn {
+            background: linear-gradient(rgba(252, 252, 252, 0), rgba(121, 255, 0, 0));
+            background-color: transparent !important;
+            border: 0px;
+        }
+        .touch a._57um {
+            color: #0c7d45;
+        }
+        header._59e9._55wr {
+            background: rgba(16, 156, 86, 0.2);
+        }
+    </string>
 </resources>

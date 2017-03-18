@@ -24,7 +24,7 @@
     <style name="Grey" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/GreyPrimary</item>
         <item name="colorPrimaryDark">@color/GreyDark</item>
-        <item name="colorAccent">@color/GreyAccent</item>
+        <item name="colorAccent">@color/GreyDark</item>
     </style>
 
     <style name="Green" parent="Theme.AppCompat.Light.NoActionBar">

@@ -34,7 +34,6 @@
     <string name="location_enabled_summary">הפעלת תכונה זו תאפשר לפייסבוק לאתר את המיקום שלך.</string>
     <string name="hide_editor_newsfeed_title">הסתרת עורך הודעות המצב בציר החדשות</string>
     <string name="hide_editor_newsfeed_summary">אם תכונה זו פעילה, עורך הודעות המצב יוסתר בציר החדשות.</string>
-    <string name="hide_editor_newsfeed_snackbar">יש לרענן כדי שהשינויים ייכנסו לתוקף</string>
     <string name="stop_images_title">לא לטעון תמונות</string>
     <string name="stop_images_summary">כאשר תכונה זו פעילה, התמונות לא יוצגו. חלק מהתמונות עשויות להישאר בזכרון המטמון.</string>
     <string name="hide_sponsored_title">הסתרת תוכן &#8216;ממומן&#8217;</string>
@@ -45,6 +44,8 @@
     <string name="start_in_messages_summary">Load the message website when the app is opened.</string>
     <string name="clearcache">מחיקת המטמון עם היציאה</string>
     <string name="clearcache_summary">הפעלת היישומון עשויה לארוך זמן רב יותר.</string>
+    <string name="hide_recently_commented">Hide recently commented</string>
+    <string name="hide_recently_commented_summary">X people recently commented on this.</string>
     <!-- End general -->
 
     <!-- About -->
@@ -113,7 +114,6 @@
     <!-- End navigation -->
 
     <!-- App -->
-    <string name="app_name">MaterialFBook</string>
     <string name="silent">ללא צליל</string>
     <string name="file_logger_needs_permission">אין גישה לאחסון חיצוני. לא ניתן לשמור יומן</string>
     <string name="navigation_drawer_open">פתיחת מגירת הניווט</string>

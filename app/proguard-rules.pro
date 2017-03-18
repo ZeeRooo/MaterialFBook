@@ -16,13 +16,6 @@
 #   public *;
 #}
 
-# Picasso
--dontwarn com.squareup.okhttp.**
-
-# AdvancedWebView
--keep class * extends android.webkit.WebChromeClient { *; }
--dontwarn im.delight.android.webview.**
-
 # Local fun
 -keepclassmembers class * {
     @android.webkit.JavascriptInterface <methods>;

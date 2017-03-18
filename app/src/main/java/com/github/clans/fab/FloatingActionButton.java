@@ -31,7 +31,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import me.zeeroooo.materialfb.R;
+import me.zeerooo.materialfb.R;
 
 public class FloatingActionButton extends ImageButton {
 

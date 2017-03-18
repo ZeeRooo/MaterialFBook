@@ -36,6 +36,11 @@
             android:key="hide_menu_bar"
             android:summary="@string/hide_menu_bar_summary"
             android:title="@string/hide_menu_bar_title" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="comments_recently"
+            android:summary="@string/hide_recently_commented_summary"
+            android:title="@string/hide_recently_commented" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/appearance_setting_title">
         <ListPreference

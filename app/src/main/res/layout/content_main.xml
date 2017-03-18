@@ -11,7 +11,7 @@
     tools:context=".Activities.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <me.zeeroooo.materialfb.WebView.MFBWebView
+    <me.zeerooo.materialfb.WebView.MFBWebView
         android:id="@+id/webview"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />

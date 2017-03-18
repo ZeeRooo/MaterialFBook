@@ -204,6 +204,15 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Fixed wrong sizes on PhotoViewer (better image quality).
 - Able to download archives from groups without open external browser.
 
+**Version 3.0.0:**
+- Translated to Filipino by klayd krta.
+- Translated to Arabic by akkk33.
+- Updated Vietnamese.
+- Fixed video uploads.
+- Changed the url when click on notification (no more "Most recent").
+- Fixed all the issues with "Start in messages" enabled.
+- Added 13 new Web Themes.
+- Added: "Hide recently commented" option.
 
 ###########
 

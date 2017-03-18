@@ -35,7 +35,6 @@
     <string name="location_enabled_summary">Habilitalo para que Facebook sepa donde estas (GPS).</string>
     <string name="hide_editor_newsfeed_title">Oculta el editor de estado</string>
     <string name="hide_editor_newsfeed_summary">Si está habilitado, el editor de estado desaparecerá.</string>
-    <string name="hide_editor_newsfeed_snackbar">Recargue la página para que tenga efecto</string>
     <string name="stop_images_title">No cargar imágenes</string>
     <string name="stop_images_summary">Si está habilitado, las imágenes no se descargarán</string>
     <string name="hide_sponsored_title">Oculta publicidad del patrocinador</string>
@@ -46,6 +45,8 @@
     <string name="start_in_messages_summary">Carga la página de mensajes cuando se inicie la app.</string>
     <string name="clearcache">Limpiar cache al salir</string>
     <string name="clearcache_summary">Tardará más tiempo en abrir la app.</string>
+    <string name="hide_recently_commented">Oculta comentarios recientes</string>
+    <string name="hide_recently_commented_summary">X persona comentó recientemente.</string>
     <!-- End general -->
 
     <!-- Appearence -->

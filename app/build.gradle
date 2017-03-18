@@ -10,11 +10,11 @@ android {
     }
 
     defaultConfig {
-        applicationId "me.zeeroooo.materialfb"
+        applicationId "me.zeerooo.materialfb"
         minSdkVersion 17
         targetSdkVersion 25
-        versionCode 42
-        versionName "2.9.0"
+        versionCode 43
+        versionName "3.0.0"
     }
     buildTypes {
         release {
@@ -34,7 +34,6 @@ dependencies {
     compile 'org.jsoup:jsoup:1.10.2'
     compile 'com.facebook.android:facebook-android-sdk:4.15.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
-    compile 'com.greysonparrelli.permiso:permiso:0.3.0'
     compile 'com.android.support:support-v4:25.2.0'
     testCompile 'junit:junit:4.12'
     compile 'com.github.chrisbanes:PhotoView:1.2.6'

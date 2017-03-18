@@ -2,6 +2,25 @@
 <resources>
     <string name="changelog_list" translatable="false">
 <![CDATA[
+<b>Version 3.0.0:</b>
+<br>
+- Translated to Filipino by klayd krta.
+<br>
+- Translated to Arabic by akkk33.
+<br>
+- Updated Vietnamese.
+<br>
+- Fixed video uploads.
+<br>
+- Changed the url when click on notification (no more "Most recent").
+<br>
+- Fixed all the issues with "Start in messages" enabled.
+<br>
+- Added: 13 new Web Themes.
+<br>
+- Added: "Hide recently commented" option.
+<br>
+<br>
 <b>Version 2.9.0:</b>
 <br>
 - Code cleaned.

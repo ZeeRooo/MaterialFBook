@@ -37,7 +37,7 @@
     <style name="Grey" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorPrimary">@color/GreyPrimary</item>
         <item name="colorPrimaryDark">@color/GreyDark</item>
-        <item name="colorAccent">@color/GreyAccent</item>
+        <item name="colorAccent">@color/GreyDark</item>
         <item name="android:colorControlHighlight">@color/GreyRipple</item>
         <item name="windowActionBar">false</item>
         <item name="windowActionModeOverlay">true</item>

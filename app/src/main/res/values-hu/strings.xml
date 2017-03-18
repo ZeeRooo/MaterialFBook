@@ -35,7 +35,6 @@
     <string name="location_enabled_summary">Engedélyezd, ha szeretnéd, hogy a Facebook hozzáférjen tartózkodási helyedhez.</string>
     <string name="hide_editor_newsfeed_title">Állapot szerkesztő elrejtése a Hírfolyamban.</string>
     <string name="hide_editor_newsfeed_summary">Bekapcsolva a &#8220;Mi jár a fejedben?&#8221; állapot hozzáadás rejtve lesz a Hírfolyamban.</string>
-    <string name="hide_editor_newsfeed_snackbar">A változtatások újratöltés után lépnek érvénybe.</string>
     <string name="stop_images_title">Képbetöltés kikapcsolása</string>
     <string name="stop_images_summary">Bekapcsolva a képek nem töltődnek be. Egyes képek megmaradhatnak az előzetes cache betöltés miatt.</string>
     <string name="hide_sponsored_title">Szponzorált reklámok elrejtése</string>
@@ -46,6 +45,8 @@
     <string name="start_in_messages_summary">Load the message website when the app is opened.</string>
     <string name="clearcache">Clear cache on exit</string>
     <string name="clearcache_summary">It will take more time to open the app.</string>
+    <string name="hide_recently_commented">Hide recently commented</string>
+    <string name="hide_recently_commented_summary">X people recently commented on this.</string>
     <!-- End general -->
 
     <!-- About -->

@@ -103,7 +103,7 @@
     </RelativeLayout>
     <fragment android:id="@+id/fragment_settings"
         android:layout_width="fill_parent"
-        android:name="me.zeeroooo.materialfb.Activities.More$MoreAndCredits"
+        android:name="me.zeerooo.materialfb.Activities.More$MoreAndCredits"
         android:layout_height="fill_parent"
         android:layout_below="@id/More"/>
 

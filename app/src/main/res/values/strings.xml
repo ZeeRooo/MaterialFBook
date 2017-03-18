@@ -36,7 +36,6 @@
     <string name="location_enabled_summary">Enable this to allow Facebook to obtain your location.</string>
     <string name="hide_editor_newsfeed_title">Hide Status editor in News Feed</string>
     <string name="hide_editor_newsfeed_summary">When enabled, the status editor will be hidden on the News Feed.</string>
-    <string name="hide_editor_newsfeed_snackbar">Reload for changes to take effect</string>
     <string name="stop_images_title">Don\'t load images</string>
     <string name="stop_images_summary">When enabled, wont download images. Some images may remain in the cache.</string>
     <string name="hide_sponsored_title">Hide &#8216;Sponsored&#8217; Content</string>
@@ -47,6 +46,8 @@
     <string name="start_in_messages_summary">Load the message website when the app is opened.</string>
     <string name="hide_menu_bar_title">Hide Menu bar</string>
     <string name="hide_menu_bar_summary">When enabled, the Facebook Menu bar will be hidden.</string>
+    <string name="hide_recently_commented">Hide recently commented</string>
+    <string name="hide_recently_commented_summary">X people recently commented on this.</string>
     <!-- End general -->
 
     <!-- About -->
@@ -115,10 +116,9 @@
     <!-- End navigation -->
 
     <!-- App -->
-    <string name="app_name">MaterialFBook</string>
+    <string name="facebook_app_id" translatable="false">1440102826005611</string>
     <string name="silent">No sound</string>
     <string name="file_logger_needs_permission">No access to external storage. Log cannot be saved</string>
-    <string name="facebook_app_id" translatable="false">1440102826005611</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="default_user">User</string>

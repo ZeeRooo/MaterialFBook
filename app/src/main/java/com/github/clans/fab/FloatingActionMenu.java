@@ -23,7 +23,7 @@ import android.view.animation.AnticipateInterpolator;
 import android.view.animation.Interpolator;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
-import me.zeeroooo.materialfb.R;
+import me.zeerooo.materialfb.R;
 
 public class FloatingActionMenu extends ViewGroup {
 

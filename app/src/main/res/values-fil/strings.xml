@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Notifications -->
+    <string name="notifications_setting_title">NOTIPIKASYON</string>
+    <string name="notif">notipikasyon</string>
+    <string name="facebook_message">Notipikasyon ng Mensahe</string>
+    <string name="facebook_notifications">Notipikasyon ng Facebook</string>
+    <string name="applying_changes">Ina-apply ang Pagbabago</string>
+    <string name="sync_problem">Hindi ma i-sync ang cookies. Subukang i-restart ang app</string>
+    <string name="notification_sound_description">Pumili ng ringtone o i-silence: \u0020</string>
+    <string name="notifications_settings">Setting ng notipikasyon</string>
+    <string name="notifications_settings_description">Dag-dag na settings. Pumili ng oras ng interval, i-set ang tunog, LED o vibration.</string>
+    <string name="interval_pref">Oras ng interval para sa pag wa-wasto</string>
+    <string name="notification_sound">Notipikasyon ng tunog</string>
+    <string name="interval_pref_description_new">Ang mga notipikasyon ay ina-update kada %s.</string>
+    <string name="notification_sound_msg">Tunog ng mensahe</string>
+    <string name="vibrate">Vibration</string>
+    <string name="vibrate_double">Doble ang vibration</string>
+    <string name="led_light">LED light</string>
+    <string name="flashlight_as_led">LED na Flashlight</string>
+    <string name="flashlight_as_led_summary_msg">Gamitin ang flashlight na LED para sa mga Mensahe ng Facebook (camera led).</string>
+    <string name="flashlight_as_led_summary_notif">Gamitin ang flashlight na LED para sa mga Notipikasyon ng Facebook (camera led).</string>
+
+    <string-array name="intervalPrefTitles">
+        <item>1 minuto</item>
+        <item>2 minuto</item>
+        <item>5 minuto</item>
+        <item>15 minuto</item>
+        <item>30 minuto</item>
+        <item>1 oras</item>
+        <item>3 oras</item>
+        <item>6 oras</item>
+    </string-array>
+    <!-- End Notifications -->
+
+    <!-- General -->
+    <string name="general_setting_title">KABUUHAN</string>
+    <string name="location_enabled_title">Acces ng lokasyon</string>
+    <string name="location_enabled_summary">Paganahin ito para malaman ng Facebook ang lokasyon mo.</string>
+    <string name="hide_editor_newsfeed_title">Itago ang editor sa News Feed</string>
+    <string name="hide_editor_newsfeed_summary">Pag pinagana, ang editor ay hindi makikita sa News Feed.</string>
+    <string name="stop_images_title">Huwag mag load ng imahe</string>
+    <string name="stop_images_summary">Pag pinagana, hindi mag do-downloadng mga imahe. Ang mga ibang imahe ay mananatili sa cache.</string>
+    <string name="hide_sponsored_title">Itago ang &#8216;Sponsored&#8217; na laman</string>
+    <string name="hide_sponsored_summary">Itago ang &#8216;Sponsored&#8217; na laman (ads) sa feed.</string>
+    <string name="hide_birthdays_title">Itago ang Kaarawan</string>
+    <string name="hide_birthdays_summary">Itago ang kaarawan sa feed, events at notipikasyon.</string>
+    <string name="start_in_messages">Mag simula ng mga mensahe</string>
+    <string name="start_in_messages_summary">I-load ang mensahe sa website pag ang app ay naka bukas.</string>
+    <string name="hide_menu_bar_title">Itago ang bar ng menu</string>
+    <string name="hide_menu_bar_summary">Pag pinagana, ang Menu bar ng Facebook ay matatago.</string>
+    <string name="hide_recently_commented">Hide recently commented</string>
+    <string name="hide_recently_commented_summary">X people recently commented on this.</string>
+    <!-- End general -->
+
+    <!-- About -->
+    <string name="more">Credits at Higit pa</string>
+    <string name="about_updates">Mga Updates</string>
+    <string name="updates">Tingnan kung may bagong bersyon</string>
+    <string name="updates_summary">I-load ang pahina at i-download ang pinaka bagong bersyon</string>
+    <string name="people_who_translated">Ang mga taong nag translate ng app</string>
+    <string name="devs_who_helped_me">Ang mga Developer na tumulong sa akin na sagutin ang aking mga katanungan at kinunan ko ng code.</string>
+    <string name="help_translations">Tulungan niyo ako\'ng i-translate ang app sa inyong lengwahe</string>
+    <string name="about_translations">Tulong, kailangan namin kayo</string>
+    <string name="source_code">Source code sa Github</string>
+    <string name="withYou">I-report ang mga bugs o humiling ng mga bagong features</string>
+    <string name="changelog">Bagong talaan</string>
+    <!-- End about -->
+
+    <!-- Appearence -->
+    <string name="appearance_setting_title">HITSURA</string>
+    <string name="web_themes">Tema ng web</string>
+    <string name="web_themes_summary">Pwede ka pang pumili ng iba pang tema para sa web.</string>
+    <string name="app_themes">Tema ng app</string>
+    <string name="app_themes_summary">Pwede ka pang pumili ng iba pang tema para sa app.</string>
+
+    <!-- Navigation -->
+    <string name="navigation_setting_title">NABIGASYON</string>
+    <string name="hide_fab_on_scroll_title">Itago ang Lumilitaw na Action Button sa pag scroll</string>
+    <string name="hide_fab_on_scroll_summary">Itago ang FAB pag nag scro-scroll pababa.</string>
+    <string name="navigation_menu_settings">Mga items ng menu sa nabigasyon</string>
+    <string name="navigation_menu_settings_description">Pwede mong ipakita/itago ang mga items sa menu ng nabigasyon.</string>
+    <string name="save_data">Mababang modo ng data</string>
+    <string name="save_data_summary">I-load ang Facebook sa basic na bersyon at tsaka huwag paganahin ang badges at profile info. updates.</string>
+    <string name="clearcache">Burahin ang cache paglabas</string>
+    <string name="clearcache_summary">Aabot ng ilang minuto bago bumukas ang app.</string>
+    <string name="fab_enable">Lumilitaw na Aksyon Button</string>
+    <string name="fab_enable_summary">Ipakita ang FAB.</string>
+    <!-- Navigation: fab -->
+    <string name="fab_text">Magpaskil ng status</string>
+    <string name="fab_photo">Magpaskil ng imahe</string>
+    <string name="fab_checkin">Mag check In</string>
+    <string name="fab_jump_top">Tumalon sa pinaka taas</string>
+    <!-- Navigation: items -->
+    <string name="navigation_menu_title">MENU ng NABIGASYON</string>
+    <string name="ic_menu_exitapp">Lumabas</string>
+    <string name="ic_menu_exitapp_summary">Ipakita ang button na &#8216;Lumabas&#8217; sa nabigasyon ng drawer.</string>
+    <string name="ic_menu_fblogout">Mag log out</string>
+    <string name="ic_menu_fblogout_summary">Ipakita ang button na &#8216;Mag Log out&#8217; sa nabigasyon ng drawer.</string>
+    <string name="menu_photos">Mga Imahe</string>
+    <string name="menu_photos_summary">Ipakita ang button na &#8216;Mga Imahe&#8217; sa nabigasyon ng drawer.</string>
+    <string name="menu_events">Mga Events</string>
+    <string name="menu_events_summary">Ipakita ang button na &#8216;Mga Events&#8217; sa nabigasyon ng drawer.</string>
+    <string name="menu_back">Bumalik</string>
+    <string name="menu_back_summary">Ipakita ang button na &#8216;Bumalik&#8217; sa nabigasyon ng drawer.</string>
+    <string name="menu_top_stories">Nangungunang istorya</string>
+    <string name="menu_top_stories_summary">Ipakita ang button na &#8216;Nangungunang Istorya&#8217; sa nabigasyon ng drawer.</string>
+    <string name="menu_most_recent">Pinakabago</string>
+    <string name="menu_most_recent_summary">Ipakita ang button na &#8216;Pinakabago&#8217; sa nabigasyon ng drawer.</string>
+    <string name="menu_friendreq">Hiling ng Kaibigan</string>
+    <string name="menu_friendreq_summary">Ipakita ang button na &#8216;Hiling ng Kaibigan&#8217; sa nabigasyon ng drawer.</string>
+    <string name="menu_groups">Mga Grupo</string>
+    <string name="menu_groups_summary">Ipakita ang button na &#8216;Mga Grupo&#8217; sa nabigasyon ng drawer</string>
+    <string name="menu_messages">Mga Mensahe</string>
+    <string name="menu_search">Paghahanap</string>
+    <string name="menu_search_summary">Ipakita ang button na &#8216;Paghahanap&#8217; sa nabigasyon ng drawer.</string>
+    <string name="menu_mainmenu">Pangunahing menu</string>
+    <string name="menu_mainmenu_summary">Ipakita ang button na &#8216;Pangunahing menu&#8217; sa drawer ng nabigasyon.</string>
+    <string name="messaging_enabled_title">Mensahe</string>
+    <string name="messaging_enabled_summary">Pag pinagana, pinapayagan na maka pasok sa Mensahe ng Facebook. I-off kung may messaging app ka.</string>
+    <!-- End navigation -->
+
+    <!-- App -->
+    <string name="silent">Walang tunog</string>
+    <string name="file_logger_needs_permission">Hindi makapasok sa external na imbakan. Hindi ma i-save ang talaan</string>
+    <string name="navigation_drawer_open">Buksan ang nabigasyon ng drawer</string>
+    <string name="navigation_drawer_close">Isara ang nabigasyon ng drawer</string>
+    <string name="default_user">Gumagamit</string>
+    <string name="header_profile_pic">Imahe sa Profile</string>
+    <string name="nav_notifications">Notipikasyon</string>
+    <string name="menu_fblogin">Mag log in sa Facebook</string>
+    <string name="context_save_image">I-save ang imahe</string>
+    <string name="settings">Mga Settings</string>
+    <string name="context_share_image">Ibahagi ang imahe</string>
+    <string name="context_copy_image_link">Kopyahin ang link ng imahe</string>
+    <string name="context_share_link">Ibahagi ang link</string>
+    <string name="context_copy_link">Kopyahin ang link</string>
+    <string name="context_share_image_progress">Ibinabahagi ang imahe��</string>
+    <string name="content_copy_link_done">Ang link ay na kopya sa clipboard</string>
+    <string name="login_button">Login</string>
+    <string name="not_logged_in">Hindi ka naka log in</string>
+    <string name="error_login">May hindi tama, subukang mag log in uli</string>
+    <string name="error_super_wrong">May hindi tama</string>
+    <string name="error_facebook_noconnection">Hindi makapasok sa Facebook</string>
+    <string name="error_facebook_error">May hindi tama sa bahagi ng Facebook\'s</string>
+    <string name="loading">Nag lo-loading</string>
+    <string name="permission_denied">Hindi pinayagan, hindi ma kumpleto ang aksyon</string>
+    <string name="downloaded">Na i-download</string>
+</resources>

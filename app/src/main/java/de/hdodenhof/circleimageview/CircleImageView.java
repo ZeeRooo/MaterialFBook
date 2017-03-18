@@ -34,7 +34,7 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import me.zeeroooo.materialfb.R;
+import me.zeerooo.materialfb.R;
 
 public class CircleImageView extends ImageView {
 

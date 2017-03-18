@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="me.zeeroooo.materialfb"
+    package="me.zeerooo.materialfb"
     android:installLocation="auto">
 
     <uses-permission android:name="android.permission.INTERNET" />
@@ -17,7 +17,7 @@
         android:fullBackupContent="true"
         android:hardwareAccelerated="true"
         android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
+        android:label="MaterialFBook"
         android:supportsRtl="true"
         android:theme="@style/MFB">
         <service
@@ -114,14 +114,14 @@
             android:launchMode="singleTask">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="me.zeeroooo.materialfb.Activities.MainActivity" />
+                android:value=".Activities.MainActivity" />
         </activity>
         <activity
             android:name=".Activities.More"
             android:launchMode="singleTask"/>
         <activity
             android:name="com.facebook.FacebookActivity"
-            android:label="@string/app_name"
+            android:label="MaterialFBook"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
     </application>
 
