@@ -33,6 +33,7 @@ public class SettingsActivity extends AppCompatActivity {
         int count = getFragmentManager().getBackStackEntryCount();
         if (count == 0) {
             Intent apply = new Intent(this, MainActivity.class);
+            apply.putExtra("apply", true);
             startActivity(apply);
             finish();
         } else
@@ -46,10 +47,5 @@ public class SettingsActivity extends AppCompatActivity {
             return true;
         }
         return false;
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
     }
 }

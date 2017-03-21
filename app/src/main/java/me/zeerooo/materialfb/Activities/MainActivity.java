@@ -15,6 +15,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
@@ -26,6 +27,7 @@ import android.os.Handler;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
+import android.provider.Settings;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -88,8 +90,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Uri mCapturedImageURI = null;
     private ValueCallback<Uri> mUploadMessage;
     private static final int FILECHOOSER_RESULTCODE = 2888;
-
-    // Members
+    private String baseURL;
+    private String URLBase;
     private SwipeRefreshLayout swipeView;
     private NavigationView mNavigationView;
     private FloatingActionMenu mMenuFAB;
@@ -266,7 +268,35 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
             }
         });
+
+         if (!mPreferences.getBoolean("save_data", false)) {
+            URLBase = String.format("https://m.facebook.com/");
+            baseURL = String.format("https://m.facebook.com/");
+        } else {
+            URLBase = String.format("https://mbasic.facebook.com/");
+            baseURL = String.format("https://mbasic.facebook.com/");
+        }
+
+        switch (mPreferences.getString("start_url", "MostRecent")) {
+            case "Most_recent": {
+                URLBase = String.format(URLBase + "home.php?sk=h_chr");
+            }
+            break;
+            case "Top_stories": {
+                URLBase = String.format(URLBase + "home.php?sk=h_nor");
+            }
+            break;
+            case "Messages": {
+                URLBase = String.format(URLBase + "messages/");
+            }
+            break;
+        }
+
         assert mWebView != null;
+
+        if (checkLoggedInState()) {
+            mWebView.loadUrl(URLBase);
+        }
         mWebView.getSettings().setGeolocationEnabled(mPreferences.getBoolean("location_enabled", false));
         mWebView.addJavascriptInterface(new JavaScriptInterfaces(this), "android");
         mWebView.getSettings().setBlockNetworkImage(mPreferences.getBoolean("stop_images", false));
@@ -307,8 +337,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         || Uri.parse(url).getHost().endsWith("akamaihd.net")
                         || Uri.parse(url).getHost().endsWith("ad.doubleclick.net")
                         || Uri.parse(url).getHost().endsWith("sync.liverail.com")
-                        || Uri.parse(url).getHost().endsWith("lookaside.fbsbx.com")
-                        || Uri.parse(url).getHost().endsWith("fb.me"))) {
+                        || Uri.parse(url).getHost().endsWith("lookaside.fbsbx.com"))) {
                     return false;
                 }
 
@@ -318,7 +347,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             if (url.contains("giphy.com") || url.contains("html5")) {
                                 url = String.format("http://media.giphy.com/media/%s/giphy.gif", new Object[]{url.replace("http://giphy.com/gifs/", "")});
                             } else if (url.contains("gph.is") && !url.contains("html5")) {
-                                mWebView.loadUrl(url);
+                                view.loadUrl(url);
                             }
 
                             if (url.contains("media.giphy.com/media/") && !url.contains("html5")) {
@@ -358,6 +387,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 return true;
             }
+            @Override
+            public void onPageStarted(WebView view, String url, Bitmap favicon) {
+                if (url.contains("https://mbasic.facebook.com/home.php?s=")) {
+                    view.loadUrl("https://m.facebook.com/");
+                }
+            }
 
             @Override
             public void onPageFinished(WebView view, final String url) {
@@ -382,7 +417,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     sanitizer.setAllowUnregisteredParamaters(true);
                     sanitizer.parseUrl(url);
                     String param = sanitizer.getValue("text");
-                    mWebView.loadUrl("javascript:(function()%7Bdocument.querySelector('%23composerInput').innerHTML%3D'" + param + "'%7D)()");
+                    view.loadUrl("javascript:(function()%7Bdocument.querySelector('%23composerInput').innerHTML%3D'" + param + "'%7D)()");
                 }
 
                 // Hide the menu bar (but not on the composer or if disabled)
@@ -412,7 +447,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 css += "article#u_0_q._d2r%7Bdisplay%3Anone%3B%7D";
 
                 // Web themes
-                switch (mPreferences.getString("web_themes", "default")) {
+                switch (mPreferences.getString("web_themes", "Material")) {
                     case "Material": {
                         css += getString(R.string.Material);
                     }
@@ -536,10 +571,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mCustomViewCallback = null;
 
             }
+
             public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, WebChromeClient.FileChooserParams fileChooserParams) {
 
                 // Double check that we don't have any existing callbacks
-                if(mFilePathCallback != null) {
+                if (mFilePathCallback != null) {
                     mFilePathCallback.onReceiveValue(null);
                 }
                 mFilePathCallback = filePathCallback;
@@ -571,7 +607,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 // Set up the intents for the Intent chooser
                 Intent[] intentArray;
-                if(takePictureIntent != null) {
+                if (takePictureIntent != null) {
                     intentArray = new Intent[]{takePictureIntent};
                 } else {
                     intentArray = new Intent[0];
@@ -637,7 +673,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onReceivedTitle(WebView view, String title) {
-                if (title.contains("Facebook")) {
+                if (view.getUrl().contains("home.php?sk=h_nor")) {
+                    setTitle(R.string.menu_top_stories);
+                } else if (title.contains("Facebook")) {
                     setTitle(R.string.menu_most_recent);
                 } else {
                     setTitle(title);
@@ -662,7 +700,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         FacebookCallback<LoginResult> loginResult = new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                mWebView.loadUrl(chooseUrl());
+                mWebView.loadUrl(URLBase);
                 updateUserInfo();
             }
 
@@ -682,18 +720,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         LoginManager.getInstance().setLoginBehavior(LoginBehavior.WEB_ONLY);
         LoginManager.getInstance().registerCallback(callbackManager, loginResult);
 
-        if (checkLoggedInState()) {
-            mWebView.loadUrl(chooseUrl());
-        }
-
         mDownloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
 
-        if (mPreferences.getBoolean("start_messages", false)) {
-            if (!mPreferences.getBoolean("save_data", false)) {
-                mWebView.loadUrl("https://m.facebook.com/" + "messages/");
-            } else {
-                mWebView.loadUrl("https://mbasic.facebook.com/" + "messages/");
+        // Handling the intents
+        if (getIntent() != null && getIntent().getExtras() != null) {
+            URLBase = getIntent().getExtras().getString("url");
+            mWebView.loadUrl(URLBase);
+        }
+
+        if (Intent.ACTION_SEND.equals(getIntent().getAction()) && getIntent().getType() != null) {
+            if (URLUtil.isValidUrl(getIntent().getStringExtra(Intent.EXTRA_TEXT))) {
+                try {
+                    mWebView.loadUrl("https://mbasic.facebook.com/composer/?text=" + URLEncoder.encode(getIntent().getStringExtra(Intent.EXTRA_TEXT), "utf-8"));
+                } catch (UnsupportedEncodingException uee) {
+                    uee.printStackTrace();
+                }
             }
+        }
+
+        if (getIntent() != null && getIntent().getDataString() != null) {
+            URLBase = getIntent().getDataString();
+            mWebView.loadUrl(URLBase.replace("fb://profile/", "https://facebook.com/"));
         }
     }
 
@@ -731,31 +778,58 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
+
+        if (getIntent().getBooleanExtra("apply", false)) {
+            finish();
+            Intent apply = new Intent(this, MainActivity.class);
+            startActivity(apply);
+        }
+
+        // Handling the intents
+        if (getIntent() != null && getIntent().getExtras() != null) {
+            URLBase = getIntent().getExtras().getString("url");
+        }
+
+        if (Intent.ACTION_SEND.equals(getIntent().getAction()) && getIntent().getType() != null) {
+            if (URLUtil.isValidUrl(getIntent().getStringExtra(Intent.EXTRA_TEXT))) {
+                try {
+                    mWebView.loadUrl("https://mbasic.facebook.com/composer/?text=" + URLEncoder.encode(getIntent().getStringExtra(Intent.EXTRA_TEXT), "utf-8"));
+                } catch (UnsupportedEncodingException uee) {
+                    uee.printStackTrace();
+                }
+            }
+        }
+
+        if (getIntent() != null && getIntent().getDataString() != null) {
+            URLBase = getIntent().getDataString();
+            URLBase.replace("fb://profile/", "https://facebook.com/");
+        }
+
+        if (checkLoggedInState()) {
+            mWebView.loadUrl(URLBase);
+        }
     }
 
     @Override
     protected void onResume() {
-        mWebView.onResume();
         super.onResume();
-
-        final Intent intent = getIntent();
-        final String url = intent.getStringExtra("url");
-        mWebView.loadUrl(url);
+        mWebView.onResume();
+        mWebView.resumeTimers();
     }
 
     @Override
     protected void onPause() {
-        mWebView.onPause();
         super.onPause();
+        mWebView.onPause();
     }
 
     @Override
     protected void onDestroy() {
+        super.onDestroy();
         mWebView.clearCache(true);
         mWebView.clearHistory();
         mWebView.removeAllViews();
         mWebView.destroy();
-        super.onDestroy();
 
         if (mPreferences.getBoolean("clear_cache", false))
             deleteCache(this);
@@ -870,20 +944,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle action bar item clicks here
         int id = item.getItemId();
         if (id == R.id.action_notifications) {
-            if (!mPreferences.getBoolean("save_data", false)) {
-                mWebView.loadUrl("https://m.facebook.com/" + "notifications.php");
-            } else {
-                mWebView.loadUrl("https://mbasic.facebook.com/" + "notifications.php");
-            }
+            mWebView.loadUrl(baseURL + "notifications.php");
             Helpers.uncheckRadioMenu(mNavigationView.getMenu());
             NotificationsService.ClearNotif(this);
         }
         if (id == R.id.nav_messages) {
-            if (!mPreferences.getBoolean("save_data", false)) {
-                mWebView.loadUrl("https://m.facebook.com/" + "messages/");
-            } else {
-                mWebView.loadUrl("https://mbasic.facebook.com/" + "messages/");
-            }
+            mWebView.loadUrl(baseURL + "messages/");
             NotificationsService.ClearMessages(this);
             Helpers.uncheckRadioMenu(mNavigationView.getMenu());
         }
@@ -900,20 +966,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         switch (item.getItemId()) {
             case R.id.nav_top_stories:
-                setTitle(R.string.menu_top_stories);
-                if (!mPreferences.getBoolean("save_data", false)) {
-                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('a%5Bhref*%3D%22%2Fhome.php%3Fsk%3Dh_nor%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + "https%3A%2F%2Fm.facebook.com%2F" + "home.php%3Fsk%3Dh_nor%22%7D%7D)()");
-                } else {
-                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('a%5Bhref*%3D%22%2Fhome.php%3Fsk%3Dh_nor%22%5D').click()%7Dcatch(_)%7Bwindow.location.href%3D%22" + "https%3A%2F%2Fmbasic.facebook.com%2F" + "home.php%3Fsk%3Dh_nor%22%7D%7D)()");
-                }
+                mWebView.loadUrl(baseURL + "home.php?sk=h_nor");
                 item.setChecked(true);
                 break;
             case R.id.nav_most_recent:
-                if (!mPreferences.getBoolean("save_data", false)) {
-                    mWebView.loadUrl("https://m.facebook.com/");
-                } else {
-                    mWebView.loadUrl("https://mbasic.facebook.com/");
-                }
+                mWebView.loadUrl(baseURL + "home.php?sk=h_chr");
                 item.setChecked(true);
                 break;
             case R.id.nav_friendreq:
@@ -926,11 +983,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 item.setChecked(true);
                 break;
             case R.id.nav_messages:
-                if (!mPreferences.getBoolean("save_data", false)) {
-                    mWebView.loadUrl("https://m.facebook.com/" + "messages/");
-                } else {
-                    mWebView.loadUrl("https://mbasic.facebook.com/" + "messages/");
-                }
+                mWebView.loadUrl(baseURL + "messages/");
                 NotificationsService.ClearMessages(this);
                 Helpers.uncheckRadioMenu(mNavigationView.getMenu());
                 break;
@@ -944,11 +997,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 item.setChecked(true);
                 break;
             case R.id.nav_groups:
-                if (!mPreferences.getBoolean("save_data", false)) {
-                    mWebView.loadUrl("https://m.facebook.com/" + "groups/?category=membership");
-                } else {
-                    mWebView.loadUrl("https://mbasic.facebook.com/" + "groups/?category=membership");
-                }
+                mWebView.loadUrl(baseURL + "groups/?category=membership");
                 item.setChecked(true);
                 break;
             case R.id.nav_mainmenu:
@@ -961,19 +1010,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 item.setChecked(true);
                 break;
             case R.id.nav_events:
-                if (!mPreferences.getBoolean("save_data", false)) {
-                    mWebView.loadUrl("https://m.facebook.com/" + "events");
-                } else {
-                    mWebView.loadUrl("https://mbasic.facebook.com/" + "events");
-                }
+                mWebView.loadUrl(baseURL + "events");
                 item.setChecked(true);
                 break;
             case R.id.nav_photos:
-                if (!mPreferences.getBoolean("save_data", false)) {
-                    mWebView.loadUrl("https://m.facebook.com/" + "photos/");
-                } else {
-                    mWebView.loadUrl("https://mbasic.facebook.com/" + "photos/");
-                }
+                mWebView.loadUrl(baseURL + "photos/");
                 item.setChecked(true);
                 break;
             case R.id.nav_fblogout:
@@ -1089,28 +1130,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             // Hide the badge and show the washed-out button
             ActionItemBadge.update(mNavigationView.getMenu().findItem(R.id.nav_friendreq), Integer.MIN_VALUE);
-        }
-    }
-
-    private String chooseUrl() {
-        // Handle intents
-        Intent intent = getIntent();
-        String action = intent.getAction();
-        String type = intent.getType();
-
-        if (Intent.ACTION_SEND.equals(action) && type != null) {
-            if (URLUtil.isValidUrl(intent.getStringExtra(Intent.EXTRA_TEXT))) {
-                try {
-                    return "https://mbasic.facebook.com/composer/?text=" + URLEncoder.encode(intent.getStringExtra(Intent.EXTRA_TEXT), "utf-8");
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-        if (!mPreferences.getBoolean("save_data", false)) {
-            return "https://m.facebook.com/";
-        } else {
-            return "https://mbasic.facebook.com/";
         }
     }
 }

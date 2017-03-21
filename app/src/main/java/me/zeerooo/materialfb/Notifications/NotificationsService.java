@@ -225,7 +225,6 @@ public class NotificationsService extends IntentService {
         Intent intent = new Intent(this, MainActivity.class);
         intent.setAction(Intent.ACTION_VIEW);
         intent.putExtra("url", url);
-        intent.setFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP);
         mBuilder.setOngoing(false);
         mBuilder.setOnlyAlertOnce(true);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);

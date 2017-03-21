@@ -214,6 +214,13 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Added 13 new Web Themes.
 - Added: "Hide recently commented" option.
 
+**Version 3.1.0:**
+- Handled Facebook profiles links #57.
+- Fixed share in Nougat 7.1.1 #57.
+- Notifications improvements.
+- Bugfixes.
+- Added: "Start URL" option #52.
+
 ###########
 
 **Notes:**

@@ -41,12 +41,16 @@
     <string name="hide_sponsored_summary">Si está habilitado, la publicidad del patrocinador no se mostrará.</string>
     <string name="hide_birthdays_title">Oculta cumpleaños</string>
     <string name="hide_birthdays_summary">Si está habilitado, los cumpleaños no se mostrarán.</string>
-    <string name="start_in_messages">Inicia en mensajes</string>
-    <string name="start_in_messages_summary">Carga la página de mensajes cuando se inicie la app.</string>
     <string name="clearcache">Limpiar cache al salir</string>
     <string name="clearcache_summary">Tardará más tiempo en abrir la app.</string>
     <string name="hide_recently_commented">Oculta comentarios recientes</string>
     <string name="hide_recently_commented_summary">X persona comentó recientemente.</string>
+    <string name="start_url">URL de inicio</string>
+    <string-array name="Start">
+        <item>MásReciente</item>
+        <item>HistoriasPopulares</item>
+        <item>Mensajes</item>
+    </string-array>
     <!-- End general -->
 
     <!-- Appearence -->

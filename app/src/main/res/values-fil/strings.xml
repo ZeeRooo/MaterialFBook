@@ -45,12 +45,16 @@
     <string name="hide_sponsored_summary">Itago ang &#8216;Sponsored&#8217; na laman (ads) sa feed.</string>
     <string name="hide_birthdays_title">Itago ang Kaarawan</string>
     <string name="hide_birthdays_summary">Itago ang kaarawan sa feed, events at notipikasyon.</string>
-    <string name="start_in_messages">Mag simula ng mga mensahe</string>
-    <string name="start_in_messages_summary">I-load ang mensahe sa website pag ang app ay naka bukas.</string>
     <string name="hide_menu_bar_title">Itago ang bar ng menu</string>
     <string name="hide_menu_bar_summary">Pag pinagana, ang Menu bar ng Facebook ay matatago.</string>
     <string name="hide_recently_commented">Hide recently commented</string>
     <string name="hide_recently_commented_summary">X people recently commented on this.</string>
+    <string name="start_url">Start URL</string>
+    <string-array name="Start">
+        <item>MostRecent</item>
+        <item>TopStories</item>
+        <item>Messages</item>
+    </string-array>
     <!-- End general -->
 
     <!-- About -->

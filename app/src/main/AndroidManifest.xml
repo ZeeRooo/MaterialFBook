@@ -40,7 +40,8 @@
         <activity
             android:name=".Activities.MainActivity"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="adjustResize">
+            android:windowSoftInputMode="adjustResize"
+            android:launchMode="singleTask">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -96,6 +97,8 @@
                 <data
                     android:host="mbasic.facebook.com"
                     android:scheme="http" />
+                <data
+                    android:scheme="fb" />
             </intent-filter>
         </activity>
         <activity

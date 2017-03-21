@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/navigation_setting_title">
+        <ListPreference
+            android:defaultValue="MostRecent"
+            android:entries="@array/Start"
+            android:entryValues="@array/StartValues"
+            android:key="start_url"
+            android:title="@string/start_url"
+            android:summary="%s."/>
         <SwitchPreference
             android:defaultValue="false"
             android:key="location_enabled"
@@ -27,11 +34,6 @@
             android:summary="@string/hide_birthdays_summary"
             android:title="@string/hide_birthdays_title" />
         <SwitchPreference
-            android:defaultValue="false"
-            android:key="start_messages"
-            android:summary="@string/start_in_messages_summary"
-            android:title="@string/start_in_messages" />
-        <SwitchPreference
             android:defaultValue="true"
             android:key="hide_menu_bar"
             android:summary="@string/hide_menu_bar_summary"
@@ -44,7 +46,7 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/appearance_setting_title">
         <ListPreference
-            android:defaultValue="MaterialTheme"
+            android:defaultValue="Material"
             android:entries="@array/WebThemes"
             android:entryValues="@array/WebThemes"
             android:key="web_themes"
@@ -56,7 +58,7 @@
             android:key="app_theme"
             android:summary="@string/app_themes_summary"
             android:title="@string/app_themes"
-            android:defaultValue="MFB" />
+            android:defaultValue="MaterialFBook" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/notifications_setting_title">
         <SwitchPreference
