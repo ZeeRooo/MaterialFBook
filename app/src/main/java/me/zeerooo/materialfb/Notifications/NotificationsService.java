@@ -16,17 +16,14 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
-import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.webkit.CookieManager;
-import android.webkit.CookieSyncManager;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import java.io.IOException;
-import android.os.Looper;
 import me.zeerooo.materialfb.Activities.MainActivity;
 import me.zeerooo.materialfb.R;
 import me.zeerooo.materialfb.Ui.CookingAToast;
@@ -35,25 +32,18 @@ import me.zeerooo.materialfb.WebView.Helpers;
 import android.util.Log;
 
 public class NotificationsService extends IntentService {
+    private SharedPreferences mPreferences;
+    boolean syncProblemOccurred = false;
 
     public NotificationsService() {
         super("NotificationsService");
     }
-
-    // Facebook URL constants
-    private SharedPreferences mPreferences;
-    boolean syncProblemOccurred = false;
 
     @Override
     public void onCreate() {
         super.onCreate();
         Theme.getTheme(this);
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-    }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
     }
 
     @Override
@@ -68,34 +58,30 @@ public class NotificationsService extends IntentService {
     private void SyncNotifications() {
         Element result = null;
         int tries = 0;
-        syncCookies();
+        Helpers.getCookie();
         while (tries++ < 3 && result == null) {
             Log.i("CheckNotificationsTask", "doInBackground: Processing... Trial: " + tries);
             Log.i("CheckNotificationsTask", "Trying: " + "https://m.facebook.com/notifications.php");
-            Element notification = getElementNotif("https://m.facebook.com/notifications.php");
+            final Element notification = getElementNotif("https://m.facebook.com/notifications.php");
             if (notification != null)
                 result = notification;
+        }
+        try {
+            if (result == null || result.text() == null)
+                return;
+            final String content = result.select("div.c").text();
+            final String time = result.select("span.mfss.fcg").text();
+            final String text = result.text().replace(time, "");
+            final String pictureStyle = result.select("i.img.l.profpic").attr("style");
 
-            try {
-                if (result == null)
-                    return;
-                if (result.text() == null)
-                    return;
-                final String content = result.select("div.c").text();
-                final String time = result.select("span.mfss.fcg").text();
-                final String text = result.text().replace(time, "");
-                final String pictureStyle = result.select("i.img.l.profpic").attr("style");
-
-                if (!mPreferences.getString("last_notification_text", "").equals(text)) {
-                    Bitmap picprofile = Helpers.getBitmapFromURL(Helpers.extractUrl(pictureStyle));
-                    notifier(content, "MaterialFBook", text, "https://m.facebook.com/notifications.php", false, picprofile);
-                }
-
-                // save as shown (or ignored) to avoid showing it again
-                mPreferences.edit().putString("last_notification_text", text).apply();
-            } catch (Exception ex) {
-                ex.printStackTrace();
+            if (!mPreferences.getString("last_notification_text", "").equals(text)) {
+                notifier(content, "MaterialFBook", text, "https://m.facebook.com/notifications.php", false, pictureStyle);
             }
+
+            // save as shown (or ignored) to avoid showing it again
+            mPreferences.edit().putString("last_notification_text", text).apply();
+        } catch (NullPointerException ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -121,11 +107,11 @@ public class NotificationsService extends IntentService {
     private void SyncMessages() {
         Element result = null;
         int tries = 0;
-        syncCookies();
+        Helpers.getCookie();
         while (tries++ < 3 && result == null) {
             Log.i("CheckNotificationsTask", "doInBackground: Processing... Trial: " + tries);
             Log.i("CheckNotificationsTask", "Trying: " + "https://m.facebook.com/messages?soft=messages");
-            Element message = getElementMes("https://m.facebook.com/messages?soft=messages");
+            final Element message = getElementMes("https://m.facebook.com/messages?soft=messages");
             if (message != null)
                 result = message;
 
@@ -136,11 +122,10 @@ public class NotificationsService extends IntentService {
                 final String content = result.select("div.oneLine.preview.mfss.fcg").text();
                 final String time = result.select("div.time.r.nowrap.mfss.fcl").text();
                 final String text = result.text().replace(time, "");
-                final String pictureStyle = result.select("i.img.profpic").attr("style");
+                final String pictureStyle = result.select(".img").attr("style");
 
                 if (!mPreferences.getString("last_message", "").equals(text)) {
-                    Bitmap picprofile = Helpers.getBitmapFromURL(Helpers.extractUrl(pictureStyle));
-                    notifier(content, name, text, "https://m.facebook.com/" + result.attr("href"), true, picprofile);
+                    notifier(content, name, text, "https://m.facebook.com/" + result.attr("href"), true, pictureStyle);
                 }
 
                 // save as shown (or ignored) to avoid showing it again
@@ -169,32 +154,14 @@ public class NotificationsService extends IntentService {
         return null;
     }
 
-    /**
-     * CookieSyncManager was deprecated in API level 21.
-     * We need it for API level lower than 21 though.
-     * In API level >= 21 it's done automatically.
-     */
-    @SuppressWarnings("deprecation")
-    private void syncCookies() {
-        if (Build.VERSION.SDK_INT < 21) {
-            CookieSyncManager.createInstance(getApplication());
-            CookieSyncManager.getInstance().sync();
-        }
-    }
-
-    // show a Sync Problem Alert while not being on UI Thread
-    public void syncProblemAlert() {
-        Handler handler = new Handler(Looper.getMainLooper());
-        handler.post(new Runnable() {
-            @Override
-            public void run() {
-                CookingAToast.cooking(NotificationsService.this, R.string.sync_problem, Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
-            }
-        });
+    private void syncProblemAlert() {
+        CookingAToast.cooking(NotificationsService.this, getString(R.string.sync_problem), Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
     }
 
     // create a notification and display it
-    private void notifier(String content, String name, String title, String url, boolean isMessage, Bitmap picprofile) {
+    private void notifier(final String content, final String name, final String title, final String url, boolean isMessage, final String image_url) {
+
+        Bitmap picprofile = Helpers.getBitmapFromURL(Helpers.extractUrl(image_url));
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)

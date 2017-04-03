@@ -143,4 +143,7 @@
     <string name="loading">Betöltés</string>
     <string name="permission_denied">Hozzáférés megtagadva, sikertelen művelet</string>
     <string name="downloaded">Downloaded</string>
+	<string name="bookmarks">Bookmarks</string>
+    <string name="new_bookmark">Added:</string>
+    <string name="remove_bookmark">Removed:</string>
 </resources>

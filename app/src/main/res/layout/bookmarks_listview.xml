@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight"
+    android:padding="12dp"
+    android:layout_marginStart="16dp"
+    android:descendantFocusability="blocksDescendants" >
+
+    <TextView
+        android:textSize="14sp"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:fontFamily="sans-serif-medium"
+        android:id="@+id/bookmark_title"
+        android:layout_toStartOf="@+id/delete_bookmark"
+        android:layout_alignParentStart="true"
+        android:gravity="center_vertical"
+        style="?android:attr/textAppearanceListItem" />
+
+    <ImageButton
+        android:id="@+id/delete_bookmark"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_delete"
+        android:tint="?attr/textColorAlertDialogListItem"
+        android:background="@android:color/transparent"/>
+
+</RelativeLayout>

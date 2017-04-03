@@ -21,7 +21,6 @@ import android.util.TypedValue;
 import me.zeerooo.materialfb.R;
 
 public final class Theme {
-    private static final String APP_THEME = "app_theme";
     private static Theme AppTheme;
     private static SharedPreferences mPreferences;
 
@@ -37,18 +36,18 @@ public final class Theme {
     }
 
     private String setTheme() {
-        return mPreferences.getString(APP_THEME, "MaterialFBook");
+        return mPreferences.getString("app_theme", "MaterialFBook");
     }
 
-    public static int getColor(Context context) {
+    public static int getColor(final Context context) {
         int Attr;
         Attr = R.attr.colorPrimary;
-        TypedValue outValue = new TypedValue();
+        final TypedValue outValue = new TypedValue();
         context.getTheme().resolveAttribute(Attr, outValue, true);
         return outValue.data;
     }
 
-    public static void getTheme(Context ctxt) {
+    public static void getTheme(final Context ctxt) {
         final boolean MFB = Theme.getInstance(ctxt).setTheme().equals("MFB");
         final boolean Pink = Theme.getInstance(ctxt).setTheme().equals("Pink");
         final boolean Grey = Theme.getInstance(ctxt).setTheme().equals("Grey");
@@ -61,33 +60,29 @@ public final class Theme {
         final boolean Black = Theme.getInstance(ctxt).setTheme().equals("Black");
         final boolean Orange = Theme.getInstance(ctxt).setTheme().equals("Orange");
         final boolean GooglePlayGreen = Theme.getInstance(ctxt).setTheme().equals("GooglePlayGreen");
-        boolean mCreatingActivity = true;
-        if (!mCreatingActivity) {
-            if (MFB)
-                ctxt.setTheme(R.style.MFB);
-        } else {
-            if (Pink)
-                ctxt.setTheme(R.style.Pink);
-            if (Grey)
-                ctxt.setTheme(R.style.Grey);
-            if (Green)
-                ctxt.setTheme(R.style.Green);
-            if (Red)
-                ctxt.setTheme(R.style.Red);
-            if (Lime)
-                ctxt.setTheme(R.style.Lime);
-            if (Yellow)
-                ctxt.setTheme(R.style.Yellow);
-            if (Purple)
-                ctxt.setTheme(R.style.Purple);
-            if (LightBlue)
-                ctxt.setTheme(R.style.LightBlue);
-            if (Black)
-                ctxt.setTheme(R.style.Black);
-            if (Orange)
-                ctxt.setTheme(R.style.Orange);
-            if (GooglePlayGreen)
-                ctxt.setTheme(R.style.GooglePlayGreen);
-        }
+        if (MFB)
+            ctxt.setTheme(R.style.MFB);
+        if (Pink)
+            ctxt.setTheme(R.style.Pink);
+        if (Grey)
+            ctxt.setTheme(R.style.Grey);
+        if (Green)
+            ctxt.setTheme(R.style.Green);
+        if (Red)
+            ctxt.setTheme(R.style.Red);
+        if (Lime)
+            ctxt.setTheme(R.style.Lime);
+        if (Yellow)
+            ctxt.setTheme(R.style.Yellow);
+        if (Purple)
+            ctxt.setTheme(R.style.Purple);
+        if (LightBlue)
+            ctxt.setTheme(R.style.LightBlue);
+        if (Black)
+            ctxt.setTheme(R.style.Black);
+        if (Orange)
+            ctxt.setTheme(R.style.Orange);
+        if (GooglePlayGreen)
+            ctxt.setTheme(R.style.GooglePlayGreen);
     }
 }

@@ -145,4 +145,7 @@
     <string name="loading">Loading</string>
     <string name="permission_denied">Permission denied, cannot complete action</string>
     <string name="downloaded">Downloaded</string>
+    <string name="add">Bookmarks</string>
+    <string name="new_bookmark">Added:</string>
+    <string name="remove_bookmark">Removed:</string>
 </resources>

@@ -13,8 +13,8 @@ import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
@@ -27,7 +27,7 @@ import android.os.Handler;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
-import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.res.ResourcesCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -39,16 +39,18 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.webkit.GeolocationPermissions;
+import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.FrameLayout;
+import android.widget.AdapterView;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -63,9 +65,6 @@ import com.facebook.login.LoginBehavior;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.github.clans.fab.FloatingActionMenu;
-import com.mikepenz.actionitembadge.library.ActionItemBadge;
-import com.mikepenz.actionitembadge.library.utils.BadgeStyle;
-import org.json.JSONException;
 import org.json.JSONObject;
 import android.support.v4.view.GravityCompat;
 import android.webkit.URLUtil;
@@ -73,6 +72,10 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
+
+import me.zeerooo.materialfb.Bookmarks.DatabaseHelper;
+import me.zeerooo.materialfb.Bookmarks.ListAdapter;
 import me.zeerooo.materialfb.Notifications.NotificationsService;
 import me.zeerooo.materialfb.Ui.CookingAToast;
 import me.zeerooo.materialfb.Ui.Theme;
@@ -81,19 +84,18 @@ import me.zeerooo.materialfb.WebView.JavaScriptHelpers;
 import me.zeerooo.materialfb.WebView.JavaScriptInterfaces;
 import me.zeerooo.materialfb.WebView.MFBWebView;
 import me.zeerooo.materialfb.R;
+import com.mikepenz.actionitembadge.library.ActionItemBadge;
+import com.mikepenz.actionitembadge.library.utils.BadgeStyle;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private final BadgeStyle BADGE_SIDE_FULL = new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_full, R.color.MFBPrimaryDark, R.color.MFBPrimaryDark, Color.WHITE);
-    private final int INPUT_FILE_REQUEST_CODE = 1;
+    private final BadgeStyle BADGE_SIDE_FULL = new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_full, Color.RED, Color.RED, Color.WHITE);
     private ValueCallback<Uri[]> mFilePathCallback;
-    private String mCameraPhotoPath;
     private Uri mCapturedImageURI = null;
     private ValueCallback<Uri> mUploadMessage;
-    private static final int FILECHOOSER_RESULTCODE = 2888;
-    private String baseURL;
-    private String URLBase;
+    private static final int FILECHOOSER_RESULTCODE = 2888, INPUT_FILE_REQUEST_CODE = 1;
+    private String baseURL, URLBase, mCameraPhotoPath, Url, mUserLink = null;
     private SwipeRefreshLayout swipeView;
-    private NavigationView mNavigationView;
+    private NavigationView mNavigationView, BookmarksView;
     private FloatingActionMenu mMenuFAB;
     public MFBWebView mWebView;
     private final View.OnClickListener mFABClickListener = new View.OnClickListener() {
@@ -138,18 +140,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     };
 
-    private MenuItem mNotificationButton;
-    private MenuItem mMessagesButton;
+    private MenuItem mNotificationButton, mMessagesButton;
     private CallbackManager callbackManager;
     @SuppressWarnings("FieldCanBeLocal") // Will be garbage collected as a local variable
-    private String mUserLink = null;
-    private SharedPreferences mPreferences;
+    public static SharedPreferences mPreferences;
     private DownloadManager mDownloadManager;
-    private View mCustomView;
-    private int mOriginalSystemUiVisibility;
-    private int mOriginalOrientation;
-    private WebChromeClient.CustomViewCallback mCustomViewCallback;
-    private String Url;
+    private DatabaseHelper DBHelper;
+    private ListAdapter BLAdapter;
+    private ListView BookmarksListView;
+    private ArrayList<Helpers> bookmarks;
+    private Helpers bk;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -173,6 +173,37 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         mNavigationView = (NavigationView) findViewById(R.id.nav_view);
         mNavigationView.setNavigationItemSelectedListener(this);
+        BookmarksView = (NavigationView) findViewById(R.id.BookmarksView);
+
+        DBHelper = new DatabaseHelper(this);
+        bookmarks = new ArrayList<>();
+        Cursor data = DBHelper.getListContents();
+        while(data.moveToNext()) {
+            bk = new Helpers(data.getString(1), data.getString(2));
+            bookmarks.add(bk);
+        }
+        BLAdapter =  new ListAdapter(this, bookmarks, DBHelper);
+        BookmarksListView = (ListView) findViewById(R.id.listView);
+        BookmarksListView.setAdapter(BLAdapter);
+
+        BookmarksListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView adapter, View view, int position, long arg) {
+                Helpers item = (Helpers) BookmarksListView.getAdapter().getItem(position);
+                mWebView.loadUrl(item.getUrl());
+            }
+        });
+
+        ImageButton newbookmark = (ImageButton) findViewById(R.id.add_bookmark);
+        newbookmark.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                bk = new Helpers(mWebView.getTitle(), mWebView.getUrl());
+                DBHelper.addData(bk.getTitle(), bk.getUrl());
+                bookmarks.add(bk);
+                BLAdapter.notifyDataSetChanged();
+                CookingAToast.cooking(MainActivity.this, getString(R.string.new_bookmark) + " " + mWebView.getTitle(), Color.WHITE, Color.parseColor("#214594"), R.drawable.ic_bookmarks, false).show();
+            }
+        });
 
         // Create the badge for messages
         ActionItemBadge.update(this, mNavigationView.getMenu().findItem(R.id.nav_messages), (Drawable) null, BADGE_SIDE_FULL, Integer.MIN_VALUE);
@@ -297,10 +328,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (checkLoggedInState()) {
             mWebView.loadUrl(URLBase);
         }
+
         mWebView.getSettings().setGeolocationEnabled(mPreferences.getBoolean("location_enabled", false));
         mWebView.addJavascriptInterface(new JavaScriptInterfaces(this), "android");
+        mWebView.addJavascriptInterface(this, "Vid");
         mWebView.getSettings().setBlockNetworkImage(mPreferences.getBoolean("stop_images", false));
-        mWebView.getSettings().setAppCacheEnabled(false);
+        mWebView.getSettings().setAppCacheEnabled(true);
         mWebView.getSettings().setLoadWithOverviewMode(true);
         mWebView.getSettings().setUseWideViewPort(true);
         mWebView.getSettings().setJavaScriptEnabled(true);
@@ -309,116 +342,99 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             mWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         }
+
         mWebView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
         mWebView.getSettings().setUserAgentString("Mozilla/5.0 (BB10; Kbd) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.4633 Mobile Safari/537.10+");
         mWebView.setWebViewClient(new WebViewClient() {
             @SuppressLint("NewApi")
             @Override
-            public boolean shouldOverrideUrlLoading(WebView view, WebResourceRequest request) {
+            public boolean shouldOverrideUrlLoading(WebView view, final WebResourceRequest request) {
                 return shouldOverrideUrlLoading(view, request.getUrl().toString());
             }
 
-            @SuppressWarnings("deprecation")
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                // clean an url from facebook redirection before processing (no more blank pages on back)
-                if (url != null)
-                    url = Helpers.cleanAndDecodeUrl(url);
+                try {
+                    // clean an url from facebook redirection before processing (no more blank pages on back)
+                    if (url != null)
+                        url = Helpers.cleanAndDecodeUrl(url);
 
-                if (url.contains("fbcdn.net")) {
-                    Intent Photo = new Intent(MainActivity.this, Photo.class);
-                    Photo.putExtra("url", url);
-                    Photo.putExtra("title", view.getTitle());
-                    startActivity(Photo);
-                    return true;
-                } else if ((Uri.parse(url).getHost().endsWith("facebook.com")
-                        || Uri.parse(url).getHost().endsWith("*.facebook.com")
-                        || Uri.parse(url).getHost().endsWith("fbcdn.net")
-                        || Uri.parse(url).getHost().endsWith("akamaihd.net")
-                        || Uri.parse(url).getHost().endsWith("ad.doubleclick.net")
-                        || Uri.parse(url).getHost().endsWith("sync.liverail.com")
-                        || Uri.parse(url).getHost().endsWith("lookaside.fbsbx.com"))) {
-                    return false;
-                }
-
-                if (url.contains("giphy") || url.contains("gifspace") || url.contains("tumblr") || url.contains("gph") || url.contains("gif")) {
-                    if (url.contains("giphy") || url.contains("gph")) {
-                        if (!url.endsWith(".gif")) {
-                            if (url.contains("giphy.com") || url.contains("html5")) {
-                                url = String.format("http://media.giphy.com/media/%s/giphy.gif", new Object[]{url.replace("http://giphy.com/gifs/", "")});
-                            } else if (url.contains("gph.is") && !url.contains("html5")) {
-                                view.loadUrl(url);
-                            }
-
-                            if (url.contains("media.giphy.com/media/") && !url.contains("html5")) {
-                                String[] giphy = url.split("-");
-                                String giphy_id = giphy[giphy.length - 1];
-                                url = String.format("http://media.giphy.com/media/" + giphy_id);
-                            }
-                            if (url.contains("media.giphy.com/media/http://media")) {
-                                String[] gph = url.split("/");
-                                String gph_id = gph[gph.length - 2];
-                                url = String.format("http://media.giphy.com/media/" + gph_id + "/giphy.gif");
-                            }
-                            if (url.contains("html5/giphy.gif")) {
-                                String[] giphy_html5 = url.split("/");
-                                String giphy_html5_id = giphy_html5[giphy_html5.length - 3];
-                                url = String.format("http://media.giphy.com/media/" + giphy_html5_id + "/giphy.gif");
-                            }
-                        }
+                    if (url.contains("mailto:")) {
+                        Intent mailto = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                        startActivity(mailto);
                     }
 
-                    if (url.contains("gifspace")) {
-                        if (!url.endsWith(".gif")) {
-                            url = String.format("http://gifspace.net/image/%s.gif", new Object[]{url.replace("http://gifspace.net/image/", "")});
-                        }
+                    if ((Uri.parse(url).getHost().endsWith("facebook.com")
+                            || Uri.parse(url).getHost().endsWith("*.facebook.com")
+                            || Uri.parse(url).getHost().endsWith("akamaihd.net")
+                            || Uri.parse(url).getHost().endsWith("ad.doubleclick.net")
+                            || Uri.parse(url).getHost().endsWith("sync.liverail.com")
+                            || Uri.parse(url).getHost().endsWith("lookaside.fbsbx.com"))) {
+                        return false;
                     }
 
-                    Intent Photo = new Intent(MainActivity.this, Photo.class);
-                    Photo.putExtra("url", url);
-                    Photo.putExtra("title", view.getTitle());
-                    startActivity(Photo);
+                    if (url.contains("giphy") || url.contains("gifspace") || url.contains("tumblr") || url.contains("gph") || url.contains("gif") || url.contains("fbcdn.net")) {
+                        if (url.contains("giphy") || url.contains("gph")) {
+                            if (!url.endsWith(".gif")) {
+                                if (url.contains("giphy.com") || url.contains("html5")) {
+                                    url = String.format("http://media.giphy.com/media/%s/giphy.gif", url.replace("http://giphy.com/gifs/", ""));
+                                } else if (url.contains("gph.is") && !url.contains("html5")) {
+                                    view.loadUrl(url);
+                                }
+
+                                if (url.contains("media.giphy.com/media/") && !url.contains("html5")) {
+                                    String[] giphy = url.split("-");
+                                    String giphy_id = giphy[giphy.length - 1];
+                                    url = String.format("http://media.giphy.com/media/" + giphy_id);
+                                }
+                                if (url.contains("media.giphy.com/media/http://media")) {
+                                    String[] gph = url.split("/");
+                                    String gph_id = gph[gph.length - 2];
+                                    url = String.format("http://media.giphy.com/media/" + gph_id + "/giphy.gif");
+                                }
+                                if (url.contains("html5/giphy.gif")) {
+                                    String[] giphy_html5 = url.split("/");
+                                    String giphy_html5_id = giphy_html5[giphy_html5.length - 3];
+                                    url = String.format("http://media.giphy.com/media/" + giphy_html5_id + "/giphy.gif");
+                                }
+                            }
+                        }
+
+                        if (url.contains("gifspace")) {
+                            if (!url.endsWith(".gif")) {
+                                url = String.format("http://gifspace.net/image/%s.gif", url.replace("http://gifspace.net/image/", ""));
+                            }
+                        }
+
+                        Intent Photo = new Intent(MainActivity.this, Photo.class);
+                        Photo.putExtra("url", url);
+                        Photo.putExtra("title", view.getTitle());
+                        startActivity(Photo);
+                        return true;
+                    }
+
+                    // Open external links in browser
+                    Intent browser = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(browser);
+
+                    return true;
+                } catch (NullPointerException npe) {
                     return true;
                 }
-
-                // Open external links in browser
-                Intent browser = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                startActivity(browser);
-
-                return true;
             }
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 if (url.contains("https://mbasic.facebook.com/home.php?s=")) {
-                    view.loadUrl("https://m.facebook.com/");
+                    view.loadUrl(baseURL);
                 }
             }
 
             @Override
-            public void onPageFinished(WebView view, final String url) {
-                // Load a certain page if there is a parameter
-                JavaScriptHelpers.paramLoader(view, url);
+            public void onLoadResource(final WebView view, final String url) {
+                JavaScriptHelpers.videoView(view);
 
                 // Hide Orange highlight on focus
                 String css = "*%7B-webkit-tap-highlight-color%3Atransparent%3Boutline%3A0%7D";
-
-                // Stop loading
-                setLoading(false);
-
-                // Enable or disable FAB
-                if (url.contains("messages/") || !mPreferences.getBoolean("fab_enable", false)) {
-                    mMenuFAB.hideMenu(true);
-                } else {
-                    mMenuFAB.showMenu(true);
-                }
-
-                if (url.contains("https://mbasic.facebook.com/composer/?text=")) {
-                    UrlQuerySanitizer sanitizer = new UrlQuerySanitizer();
-                    sanitizer.setAllowUnregisteredParamaters(true);
-                    sanitizer.parseUrl(url);
-                    String param = sanitizer.getValue("text");
-                    view.loadUrl("javascript:(function()%7Bdocument.querySelector('%23composerInput').innerHTML%3D'" + param + "'%7D)()");
-                }
 
                 // Hide the menu bar (but not on the composer or if disabled)
                 if (mPreferences.getBoolean("hide_menu_bar", true) && !url.contains("/composer/") && !url.contains("/friends/") && !url.contains("sharer") && !url.contains("events")) {
@@ -448,6 +464,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 // Web themes
                 switch (mPreferences.getString("web_themes", "Material")) {
+                    case "FacebookMobile": {
+                        css += "i.img {\nborder-radius: 0;\n}";
+                    }
+                    break;
                     case "Material": {
                         css += getString(R.string.Material);
                     }
@@ -512,6 +532,44 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 // Get the currently open tab and check on the navigation menu
                 JavaScriptHelpers.updateCurrentTab(view);
+            }
+
+            @Override
+            public void onPageFinished(WebView view, final String url) {
+                // Load a certain page if there is a parameter
+                JavaScriptHelpers.paramLoader(view, url);
+
+                // Hide Orange highlight on focus
+                String css = "*%7B-webkit-tap-highlight-color%3Atransparent%3Boutline%3A0%7D";
+
+                // Stop loading
+                setLoading(false);
+
+                // Enable or disable FAB
+                if (url.contains("messages/") || !mPreferences.getBoolean("fab_enable", false)) {
+                    mMenuFAB.hideMenu(true);
+                } else {
+                    mMenuFAB.showMenu(true);
+                }
+
+                if (url.contains("messages/")) {
+                    css += ".touch ._52we, .fcl {text-align: center;}";
+                    css += "i.img {border-radius: 200px;}";
+                }
+
+                if (url.contains("https://mbasic.facebook.com/composer/?text=")) {
+                    UrlQuerySanitizer sanitizer = new UrlQuerySanitizer();
+                    sanitizer.setAllowUnregisteredParamaters(true);
+                    sanitizer.parseUrl(url);
+                    String param = sanitizer.getValue("text");
+                    view.loadUrl("javascript:(function()%7Bdocument.querySelector('%23composerInput').innerHTML%3D'" + param + "'%7D)()");
+                }
+
+                // Inject the css
+                JavaScriptHelpers.loadCSS(view, css);
+
+                // Get the currently open tab and check on the navigation menu
+                JavaScriptHelpers.updateCurrentTab(view);
 
                 // Get the notification number
                 JavaScriptHelpers.updateNumsService(view);
@@ -523,54 +581,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         // Long press
         mWebView.setWebChromeClient(new WebChromeClient() {
-            @Override
-            public void onShowCustomView(View view, WebChromeClient.CustomViewCallback callback) {
-                // if a view already exists then immediately terminate the new one
-                if (mCustomView != null) {
-                    onHideCustomView();
-                    return;
-                }
-
-                // 1. Stash the current state
-                mCustomView = view;
-                mOriginalSystemUiVisibility = getWindow().getDecorView().getSystemUiVisibility();
-                mOriginalOrientation = getRequestedOrientation();
-
-                // 2. Stash the custom view callback
-                mCustomViewCallback = callback;
-
-                // 3. Add the custom view to the view hierarchy
-                FrameLayout decor = (FrameLayout) getWindow().getDecorView();
-                decor.addView(mCustomView, new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
-
-
-                // 4. Change the state of the window
-                getWindow().getDecorView().setSystemUiVisibility(
-                        View.SYSTEM_UI_FLAG_LAYOUT_STABLE |
-                                View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION |
-                                View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN |
-                                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION |
-                                View.SYSTEM_UI_FLAG_FULLSCREEN |
-                                View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-                setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-            }
-
-            @Override
-            public void onHideCustomView() {
-                // 1. Remove the custom view
-                FrameLayout decor = (FrameLayout) getWindow().getDecorView();
-                decor.removeView(mCustomView);
-                mCustomView = null;
-
-                // 2. Restore the state to it's original form
-                getWindow().getDecorView().setSystemUiVisibility(mOriginalSystemUiVisibility);
-                setRequestedOrientation(mOriginalOrientation);
-
-                // 3. Call the custom view callback
-                mCustomViewCallback.onCustomViewHidden();
-                mCustomViewCallback = null;
-
-            }
 
             public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, WebChromeClient.FileChooserParams fileChooserParams) {
 
@@ -631,7 +641,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mUploadMessage = uploadMsg;
                 File imageStorageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
                 if (!imageStorageDir.exists()) {
-                    // Create AndroidExampleFolder at sdcard
                     imageStorageDir.mkdirs();
                 }
                 // Create camera captured image file path and name
@@ -661,9 +670,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             private File createImageFile() throws IOException {
                 // Create an image file name
-                String imageFileName = "JPEG_" + String.valueOf(System.currentTimeMillis()) + "_";
+                final String imageFileName = "JPEG_" + String.valueOf(System.currentTimeMillis()) + "_";
                 File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-                File imageFile = File.createTempFile(imageFileName, ".jpg", storageDir);
+                final File imageFile = File.createTempFile(imageFileName, ".jpg", storageDir);
                 return imageFile;
             }
 
@@ -711,7 +720,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onError(FacebookException error) {
-                CookingAToast.cooking(MainActivity.this, R.string.error_login, Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
+                CookingAToast.cooking(MainActivity.this, getString(R.string.error_login), Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
                 LoginManager.getInstance().logOut();
                 checkLoggedInState();
             }
@@ -742,6 +751,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             URLBase = getIntent().getDataString();
             mWebView.loadUrl(URLBase.replace("fb://profile/", "https://facebook.com/"));
         }
+
     }
 
     public void RequestStoragePermission() {
@@ -749,7 +759,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
         switch (requestCode) {
             case 1: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -766,9 +776,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
                     mDownloadManager.enqueue(request);
 
-                    CookingAToast.cooking(this, R.string.downloaded, Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_download, false).show();
+                    CookingAToast.cooking(this, getString(R.string.downloaded), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_download, false).show();
                 } else {
-                    CookingAToast.cooking(this, R.string.permission_denied, Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
+                    CookingAToast.cooking(this, getString(R.string.permission_denied), Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
                 }
             }
         }
@@ -810,6 +820,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+
     @Override
     protected void onResume() {
         super.onResume();
@@ -825,6 +836,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     protected void onDestroy() {
+        DBHelper.close();
         super.onDestroy();
         mWebView.clearCache(true);
         mWebView.clearHistory();
@@ -833,6 +845,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (mPreferences.getBoolean("clear_cache", false))
             deleteCache(this);
+
     }
 
     @Override
@@ -907,18 +920,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
-    public static void deleteCache(Context context) {
+    private static void deleteCache(Context context) {
         try {
-            File dir = context.getCacheDir();
+            final File dir = context.getCacheDir();
             if (dir != null && dir.isDirectory()) {
                 deleteDir(dir);
             }
-        } catch (Exception e) {}
+        } catch (Exception e) {
+            //
+        }
     }
 
-    public static boolean deleteDir(File dir) {
+    private static boolean deleteDir(File dir) {
         if (dir != null && dir.isDirectory()) {
-            String[] children = dir.list();
+            final String[] children = dir.list();
             for (int i = 0; i < children.length; i++) {
                 boolean success = deleteDir(new File(dir, children[i]));
                 if (!success) {
@@ -962,7 +977,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         // Handle navigation view item clicks here.
         switch (item.getItemId()) {
             case R.id.nav_top_stories:
@@ -981,6 +996,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23requests_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + "https%3A%2F%2Fmbasic.facebook.com%2F" + "friends%2Fcenter%2Frequests%2F'%7D%7D)()");
                 }
                 item.setChecked(true);
+                Helpers.uncheckRadioMenu(mNavigationView.getMenu());
                 break;
             case R.id.nav_messages:
                 mWebView.loadUrl(baseURL + "messages/");
@@ -1022,11 +1038,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mWebView.reload();
                 break;
             case R.id.nav_settings:
-                Intent settingsActivity = new Intent(getApplication(), SettingsActivity.class);
+                Intent settingsActivity = new Intent(this, SettingsActivity.class);
                 startActivity(settingsActivity);
                 break;
             case R.id.nav_back:
-                mWebView.goBack();
+                if (mWebView.canGoBack())
+                    mWebView.goBack();
                 break;
             case R.id.nav_exitapp:
                 finishAffinity();
@@ -1058,6 +1075,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    @JavascriptInterface
+    public void LoadVideo(final String video_url) {
+        Intent Video = new Intent(this, Video.class);
+        Video.putExtra("video_url", video_url);
+        startActivity(Video);
+    }
+
     private void updateUserInfo() {
         if (!mPreferences.getBoolean("save_data", false)) {
             GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
@@ -1065,26 +1089,18 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 public void onCompleted(JSONObject object, GraphResponse response) {
                     // Update header
                     try {
-                        String userID = object.getString("id");
                         mUserLink = object.getString("link");
 
                         // Set the user's name under the header
                         ((TextView) findViewById(R.id.profile_name)).setText(object.getString("name"));
 
                         // Set the cover photo with resizing
-                        Glide.with(MainActivity.this).load("https://graph.facebook.com/" + userID + "/picture?type=large").diskCacheStrategy(DiskCacheStrategy.SOURCE).into((ImageView) findViewById(R.id.profile_picture));
-                        final View header = findViewById(R.id.header_layout);
+                        Glide.with(MainActivity.this).load("https://graph.facebook.com/" + object.getString("id") + "/picture?type=large").diskCacheStrategy(DiskCacheStrategy.SOURCE).into((ImageView) findViewById(R.id.profile_picture));
 
                         Glide.with(MainActivity.this).load(object.getJSONObject("cover").getString("source")).diskCacheStrategy(DiskCacheStrategy.SOURCE).into((ImageView) findViewById(R.id.cover));
 
-                    } catch (NullPointerException e) {
-                        CookingAToast.cooking(MainActivity.this, R.string.error_facebook_noconnection, Color.WHITE, Color.parseColor("#ffbb33"), R.drawable.ic_warning, false).show();
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        CookingAToast.cooking(MainActivity.this, R.string.error_facebook_error, Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
                     } catch (Exception e) {
                         e.printStackTrace();
-                        CookingAToast.cooking(MainActivity.this, R.string.error_super_wrong, Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
                     }
                 }
             });
@@ -1095,20 +1111,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             request.executeAsync();
         }
     }
-
     public void setNotificationNum(int num) {
         if (num > 0) {
             ActionItemBadge.update(mNotificationButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_notifications, null), num);
         } else {
             ActionItemBadge.update(mNotificationButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_notifications, null), Integer.MIN_VALUE);
-        }
-    }
-
-    public void setMessagessNum(int num) {
-        if (num > 0) {
-            ActionItemBadge.update(mMessagesButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_message, null), num);
-        } else {
-            ActionItemBadge.update(mMessagesButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_message, null), Integer.MIN_VALUE);
         }
     }
 
@@ -1122,14 +1129,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 ActionItemBadge.update(mNavigationView.getMenu().findItem(R.id.nav_messages), Integer.MIN_VALUE);
             }
         }
+        if (num > 0) {
+            ActionItemBadge.update(mMessagesButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_message, null), num);
+        } else {
+            ActionItemBadge.update(mMessagesButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_message, null), Integer.MIN_VALUE);
+        }
     }
 
     public void setRequestsNum(int num) {
-        if (num > 0) {
-            ActionItemBadge.update(mNavigationView.getMenu().findItem(R.id.nav_friendreq), num);
-        } else {
-            // Hide the badge and show the washed-out button
-            ActionItemBadge.update(mNavigationView.getMenu().findItem(R.id.nav_friendreq), Integer.MIN_VALUE);
+        if (mPreferences.getBoolean("nav_friendreq", false)) {
+            if (num > 0) {
+                ActionItemBadge.update(mNavigationView.getMenu().findItem(R.id.nav_friendreq), num);
+            } else {
+                // Hide the badge and show the washed-out button
+                ActionItemBadge.update(mNavigationView.getMenu().findItem(R.id.nav_friendreq), Integer.MIN_VALUE);
+            }
         }
     }
 }

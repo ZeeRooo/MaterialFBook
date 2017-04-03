@@ -20,6 +20,12 @@ import java.util.regex.Pattern;
 
 public class Helpers {
     public static final List<String> FB_PERMISSIONS = Arrays.asList("public_profile", "user_friends");
+    public String url, title;
+
+    public Helpers(String title, String url) {
+        this.url = url;
+        this.title = title;
+    }
 
     // Method to retrieve a single cookie
     public static String getCookie() {
@@ -75,8 +81,7 @@ public class Helpers {
      */
     public static String extractUrl(String string) {
         final Pattern urlPattern = Pattern.compile(
-                "(?:^|[\\W])((ht|f)tp(s?):\\/\\/|www\\.)" + "(([\\w\\-]+\\.){1,}?([\\w\\-.~]+\\/?)*"
-                        + "[\\p{Alnum}.,%_=?&#\\-+()\\[\\]\\*$~@!:/{};']*)",
+                "(?:^|[\\W])((ht|f)tp(s?):\\/\\/|www\\.)(([\\w\\-]+\\.){1,}?([\\w\\-.~]+\\/?)*[\\p{Alnum}.,%_=?&#\\-+()\\[\\]\\*$~@!:/{};']*)",
                 Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.DOTALL);
         final Matcher matcher = urlPattern.matcher(string);
         int matchStart = 0;
@@ -97,7 +102,7 @@ public class Helpers {
             final HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setDoInput(true);
             connection.connect();
-            InputStream input = connection.getInputStream();
+            final InputStream input = connection.getInputStream();
             return BitmapFactory.decodeStream(input);
         } catch (IOException e) {
             return null;
@@ -117,7 +122,7 @@ public class Helpers {
                 .replace("https://m.facebook.com/l.php?u=", "")
                 .replace("http://0.facebook.com/l.php?u=", "")
                 .replace("https://lm.facebook.com/l.php?u=", "")
-                .replaceAll("&h=.*", "").replaceAll("\\?acontext=.*", "");
+                .replaceAll("&h=.*", "").replaceAll("\\?acontext=.*", "").replaceAll("&SharedWith=", "");
     }
 
     // url decoder, recreate all the special characters
@@ -129,5 +134,21 @@ public class Helpers {
                 .replace("%3A", ":").replace("%40", "@").replace("%3D", "=").replace("%26", "&")
                 .replace("%24", "$").replace("%2B", "+").replace("%22", "\"").replace("%2C", ",")
                 .replace("%20", " ");
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

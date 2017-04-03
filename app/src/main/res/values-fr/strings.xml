@@ -17,14 +17,14 @@
     <string name="vibrate">Vibrations</string>
     <string name="led_light">LED de notification</string>
     <string-array name="intervalPrefTitles">
-        <item>1 minuto</item>
-        <item>2 minutos</item>
-        <item>5 minutos</item>
-        <item>15 minutos</item>
-        <item>30 minutos</item>
-        <item>1 hora</item>
-        <item>3 horas</item>
-        <item>6 horas</item>
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>5 minutes</item>
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 heure</item>
+        <item>3 heures</item>
+        <item>6 heures</item>
     </string-array>
     <!-- End Notifications -->
 
@@ -40,14 +40,14 @@
     <string name="hide_sponsored_summary">Masque les contenus sponsorisés (publicités) du fil d\'actualité.</string>
     <string name="hide_birthdays_title">Masquer les anniversaires</string>
     <string name="hide_birthdays_summary">Masque les anniversaires du fil d\'actualité.</string>
-    <string name="clearcache">Clear cache on exit</string>
-    <string name="clearcache_summary">It will take more time to open the app.</string>
-    <string name="hide_recently_commented">Hide recently commented</string>
-    <string name="hide_recently_commented_summary">X people recently commented on this.</string>
-    <string name="start_url">Start URL</string>
+    <string name="clearcache">Vider le cache lors de la fermeture</string>
+    <string name="clearcache_summary">L\'application mettra plus de temps dmarrer.</string>
+    <string name="hide_recently_commented">Masquer les commentaires recents</string>
+    <string name="hide_recently_commented_summary">Masque X personne a comment cela recemment.</string>
+    <string name="start_url">Page de demarrage</string>
     <string-array name="Start">
-        <item>MostRecent</item>
-        <item>TopStories</item>
+        <item>Le plus recent</item>
+        <item>A la une</item>
         <item>Messages</item>
     </string-array>
     <!-- End general -->
@@ -67,8 +67,8 @@
     <string name="navigation_menu_settings_description">Vous pouvez afficher/masquer les objets du menu de navigation.</string>
     <string name="save_data">Enregistrer les données</string>
     <string name="save_data_summary">activé, l\'application consomment moins de données</string>
-    <string name="fab_enable">Floating Action Button</string>
-    <string name="fab_enable_summary">Show the FAB.</string>
+    <string name="fab_enable">Bouton d\'action flottant</string>
+    <string name="fab_enable_summary">Afiche le bouton d\'action flottant</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Poster un statut</string>
     <string name="fab_photo">Poster une photo</string>
@@ -128,6 +128,9 @@
     <string name="loading">Chargement</string>
     <string name="permission_denied">Permission refusée, impossible de terminer l’action</string>
     <string name="downloaded">Downloaded</string>
+	<string name="bookmarks">Bookmarks</string>
+    <string name="new_bookmark">Added:</string>
+    <string name="remove_bookmark">Removed:</string>
     <!-- About -->
     <string name="more">Plus d\'infos et crédits</string>
     <string name="about_updates">Mise a à jour</string>

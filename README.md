@@ -221,6 +221,15 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Bugfixes.
 - Added: "Start URL" option #52.
 
+**Version 3.2.0:**
+- Fixes on MaterialBlack theme.
+- Updated French translation.
+- Notifications improvements: Now the chat group image is displayed in the notification too.
+- Fixed FC when the user goes to FB Page > about > send mail.
+- Improved Web Themes.
+- Updated Hebrew translation.
+- Added bookmarks #60.
+
 ###########
 
 **Notes:**

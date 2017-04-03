@@ -129,6 +129,9 @@
     <string name="loading">Cargando</string>
     <string name="permission_denied">Permiso denegado, la acción no se pudo completar</string>
     <string name="downloaded">Descargado</string>
+	<string name="bookmarks">Marcadores</string>
+    <string name="new_bookmark">Agregando:</string>
+    <string name="remove_bookmark">Eliminado:</string>
     <!-- About -->
     <string name="more">Créditos y más</string>
     <string name="about_updates">Actualizaciones</string>

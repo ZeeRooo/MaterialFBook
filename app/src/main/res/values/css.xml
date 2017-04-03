@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="Material" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
             background: transparent;
             border-radius: 200px;
             border: 0px solid transparent;
@@ -10,7 +10,7 @@
             margin: 7px 5px;
             border-radius: 5px;
         }
-        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i {
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._5i2i, ._2zh4, ._15ks  {
             background: transparent;
         }
         .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
@@ -83,17 +83,17 @@
         }
     </string>
     <string name="MaterialAmoled" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
             border-radius: 200px;
             border: 0px solid transparent;
         }
         body, .touch ._3bg5.mSearchOverlay .mSearchTypeahead .mTypeahead .jx-typeahead-results, .touch ._3bg5 .mSideSearch, .jewel .flyout, article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2, .touch ._52t1 {
             background: black !important;
         }
-        body, .touch ._5iev, .touch ._5d19, .touch a, ._rnk, ._5c4t ._1g06, ._3qet .fcg, .item .title, .touch .mfss, .touch .snippet, .touch textarea._5whq, ._2tbu, ._52jb {
+        body, .touch ._5iev, .touch ._5d19, .touch a, ._rnk, ._5c4t ._1g06, ._3qet .fcg, .item .title, .touch .mfss, .touch .snippet, .touch textarea._5whq, ._2tbu, ._52jb, ._52j9 {
             color: #e8eaed;
         }
-        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i, ._2v9s, #root  {
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._5i2i, ._2v9s, #root  {
             background: black;
         }
         .aclb {
@@ -109,8 +109,8 @@
         .voice.acw.abt, ._55x2>*, ._55x2._55x2>*, .touch ._55wr {
             border: 0px transparent;
         }
-        a.actor-link, .touch a._57um, ._3bg5 ._52x2, .touch a._57ul, ._5qc3._5qc3 a, ._1p79, ._52ja, ._391s, ._52jh, .blueName, ._5wbp, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, ._15ks ._15kl::before, ._vqv, .touch ._uwx, .touch ._uwx.mentions-input, ._5wbp, .touch .btnD.bgb[disabled], .touch .btnC[disabled], .touch .btnI.bgb[disabled], .touch ._3bg5 ._53_- ._5lut, .touch ._3bg5 ._53_- ._53__ {
-            color: white;
+        a.actor-link, .touch a._57um, ._3bg5 ._52x2, .touch a._57ul, ._5qc3._5qc3 a, ._1p79, ._52ja, ._391s, ._52jh, .blueName, ._5wbp, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, ._15ks ._15kl::before, ._vqv, .touch ._uwx, .touch ._uwx.mentions-input, ._5wbp, .touch .btnD.bgb[disabled], .touch .btnC[disabled], .touch .btnI.bgb[disabled], .touch ._3bg5 ._53_- ._5lut, .touch ._3bg5 ._53_- ._53__, span {
+            color: white !important;
         }
         ._2ip_ ._2zh4::before, ._2ip_ ._15kk::before, ._2ip_ ._15kk+._4u3j::before {
             background: white;
@@ -123,6 +123,7 @@
         }
         body * {
             background-color: transparent !important;
+            border: 0px black !important;
         }
         .acb .btnD, .btnC, .acb .btnI, .touch .btnC, .touch .btnI.bgb, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before {
             background: black;
@@ -165,9 +166,12 @@
             background-color: transparent !important;
             border: 0px;
         }
+        ._u2d {
+             background: #2e2e2e !important;
+        }
     </string>
     <string name="MaterialBlack" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
             background: transparent;
             border-radius: 200px;
             border: 0px solid transparent;
@@ -176,7 +180,7 @@
             margin: 7px 5px;
             border-radius: 5px;
         }
-        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._5i2i, ._2zh4, ._15ks  {
             background: transparent;
         }
         .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
@@ -208,7 +212,7 @@
             color: black !important;
         }
         ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d {
-            background: black;
+            background: black !important;
         }
         ._52z5, .touch .btnC, .touch .btnI.bgb {
         background: #424242;
@@ -218,10 +222,6 @@
         }
         .touch ._52t1 {
             border: 1px solid black;
-        }
-        ._484w.selected>._6zf {
-            border-bottom: 1px solid black;
-            color: black;
         }
         .abt {
             border-top: 0px;
@@ -261,9 +261,16 @@
         header._59e9._55wr {
             background: rgba(0, 0, 0, 0.2);
         }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid black !important;
+            color: black !important;
+        }
+        ._5ayu {
+            color: #3b5998;
+        }
     </string>
     <string name="MaterialPink" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
             background: transparent;
             border-radius: 200px;
             border: 0px solid transparent;
@@ -272,7 +279,7 @@
             margin: 7px 5px;
             border-radius: 5px;
         }
-        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._5i2i, ._2zh4, ._15ks  {
             background: transparent;
         }
         .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
@@ -300,11 +307,11 @@
             color: white;
             border-color: #C2185B;
         }
-        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv {
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv, ._5aw4, .touch ._1w6b {
             color: #E91E63 !important;
         }
         ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d, ._52z5 {
-            background: #E91E63;
+            background: #E91E63 !important;
         }
         ._59te.popoverOpen, ._59te.isActive {
             background: #C2185B;
@@ -314,10 +321,6 @@
         }
         ._32l5._2rec {
             background: #E91E63;
-        }
-        ._484w.selected>._6zf {
-            border-bottom: 1px solid #E91E63;
-            color: #E91E63;
         }
         .abt {
             border-top: 0px;
@@ -357,9 +360,13 @@
         header._59e9._55wr {
             background: rgba(230, 30, 93, 0.20);
         }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid #C2185B !important;
+            color: #C2185B !important;
+        }
     </string>
     <string name="MaterialGrey" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
             background: transparent;
             border-radius: 200px;
             border: 0px solid transparent;
@@ -368,7 +375,7 @@
             margin: 7px 5px;
             border-radius: 5px;
         }
-        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._5i2i, ._2zh4, ._15ks  {
             background: transparent;
         }
         .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
@@ -396,11 +403,11 @@
             background: #455A64;
             border-color: #455A64;
         }
-        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv {
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv, ._5aw4, .touch ._1w6b {
             color: #607D8B !important;
         }
         ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d, ._52z5 {
-            background: #607D8B;
+            background: #607D8B !important;
         }
         ._59te.popoverOpen, ._59te.isActive {
             background: #455A64;
@@ -410,10 +417,6 @@
         }
         ._32l5._2rec {
             background: #607D8B;
-        }
-        ._484w.selected>._6zf {
-            border-bottom: 1px solid #607D8B;
-            color: #607D8B;
         }
         .abt {
             border-top: 0px;
@@ -453,9 +456,13 @@
         header._59e9._55wr {
             background: rgba(7, 216, 0, 0.20);
         }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid #455A64 !important;
+            color: #455A64 !important;
+        }
     </string>
     <string name="MaterialGreen" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
             background: transparent;
             border-radius: 200px;
             border: 0px solid transparent;
@@ -464,7 +471,7 @@
             margin: 7px 5px;
             border-radius: 5px;
         }
-        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._5i2i, ._2zh4, ._15ks  {
             background: transparent;
         }
         .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
@@ -492,11 +499,11 @@
             background: #388E3C;
             border-color: #388E3C;
         }
-        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv {
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv, ._5aw4, .touch ._1w6b {
             color: #4CAF50 !important;
         }
         ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d, ._52z5 {
-            background: #4CAF50;
+            background: #4CAF50 !important;
         }
         ._59te.popoverOpen, ._59te.isActive {
             background: #388E3C;
@@ -506,10 +513,6 @@
         }
         ._32l5._2rec {
             background: #4CAF50;
-        }
-        ._484w.selected>._6zf {
-            border-bottom: 1px solid rgba(76, 175, 80, 0.2);
-            color: rgba(76, 175, 80, 0.2);
         }
         .abt {
             border-top: 0px;
@@ -549,9 +552,13 @@
         header._59e9._55wr {
             background: rgba(76, 175, 80, 0.2);
         }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid #388E3C !important;
+            color: #388E3C !important;
+        }
     </string>
     <string name="MaterialRed" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
             background: transparent;
             border-radius: 200px;
             border: 0px solid transparent;
@@ -560,7 +567,7 @@
             margin: 7px 5px;
             border-radius: 5px;
         }
-        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._5i2i, ._2zh4, ._15ks  {
             background: transparent;
         }
         .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
@@ -588,11 +595,11 @@
             background: #D32F2F;
             border-color: #D32F2F;
         }
-        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv {
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv, ._5aw4, .touch ._1w6b {
             color: #F44336 !important;
         }
         ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d, ._52z5 {
-            background: #F44336;
+            background: #F44336 !important;
         }
         ._59te.popoverOpen, ._59te.isActive {
             background: #D32F2F;
@@ -602,10 +609,6 @@
         }
         ._32l5._2rec {
             background: #F44336;
-        }
-        ._484w.selected>._6zf {
-            border-bottom: 1px solid #F44336;
-            color: rgba(244, 67, 54, 0.2);
         }
         .abt {
             border-top: 0px;
@@ -645,9 +648,13 @@
         header._59e9._55wr {
             background: rgba(244, 67, 54, 0.2);
         }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid #D32F2F !important;
+            color: #D32F2F !important;
+        }
     </string>
     <string name="MaterialLime" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
             background: transparent;
             border-radius: 200px;
             border: 0px solid transparent;
@@ -656,7 +663,7 @@
             margin: 7px 5px;
             border-radius: 5px;
         }
-        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._5i2i, ._2zh4, ._15ks  {
             background: transparent;
         }
         .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
@@ -684,11 +691,11 @@
             background: #AFB42B;
             border-color: #AFB42B;
         }
-        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv {
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv, ._5aw4, .touch ._1w6b {
             color: #CDDC39 !important;
         }
         ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d, ._52z5 {
-            background: #CDDC39;
+            background: #CDDC39 !important;
         }
         ._59te.popoverOpen, ._59te.isActive {
             background: #AFB42B;
@@ -698,10 +705,6 @@
         }
         ._32l5._2rec {
             background: #CDDC39;
-        }
-        ._484w.selected>._6zf {
-            border-bottom: 1px solid #CDDC39;
-            color: rgba(205, 220, 57, 0.2);
         }
         .abt {
             border-top: 0px;
@@ -741,9 +744,13 @@
         header._59e9._55wr {
             background: rgba(205, 220, 57, 0.2);
         }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid #AFB42B !important;
+            color: #AFB42B !important;
+        }
     </string>
     <string name="MaterialYellow" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
             background: transparent;
             border-radius: 200px;
             border: 0px solid transparent;
@@ -752,7 +759,7 @@
             margin: 7px 5px;
             border-radius: 5px;
         }
-        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._5i2i, ._2zh4, ._15ks  {
             background: transparent;
         }
         .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
@@ -780,11 +787,11 @@
             background: #FBC02D;
             border-color: #FBC02D;
         }
-        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv {
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv, ._5aw4, .touch ._1w6b {
             color: #FFEB3B !important;
         }
         ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d, ._52z5 {
-            background: #FFEB3B;
+            background: #FFEB3B !important;
         }
         ._59te.popoverOpen, ._59te.isActive {
             background: #FBC02D;
@@ -794,10 +801,6 @@
         }
         ._32l5._2rec {
             background: #FFEB3B;
-        }
-        ._484w.selected>._6zf {
-            border-bottom: 1px solid #FFEB3B;
-            color: #FFEB3B;
         }
         .abt {
             border-top: 0px;
@@ -837,9 +840,13 @@
         header._59e9._55wr {
             background: rgba(255, 235, 59, 0.2);
         }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid #FBC02D !important;
+            color: #FBC02D !important;
+        }
     </string>
     <string name="MaterialPurple" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
             background: transparent;
             border-radius: 200px;
             border: 0px solid transparent;
@@ -848,7 +855,7 @@
             margin: 7px 5px;
             border-radius: 5px;
         }
-        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._5i2i, ._2zh4, ._15ks  {
             background: transparent;
         }
         .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
@@ -876,11 +883,11 @@
             background: #7B1FA2;
             border-color: #7B1FA2;
         }
-        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv {
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv, ._5aw4, .touch ._1w6b {
             color: #9C27B0 !important;
         }
         ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d, ._52z5 {
-            background: #9C27B0;
+            background: #9C27B0 !important;
         }
         ._59te.popoverOpen, ._59te.isActive {
             background: #7B1FA2;
@@ -890,10 +897,6 @@
         }
         ._32l5._2rec {
             background: #9C27B0;
-        }
-        ._484w.selected>._6zf {
-            border-bottom: 1px solid #9C27B0;
-            color: #9C27B0;
         }
         .abt {
             border-top: 0px;
@@ -933,9 +936,13 @@
         header._59e9._55wr {
             background: rgba(156, 39, 176, 0.2);
         }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid #7B1FA2 !important;
+            color: #7B1FA2 !important;
+        }
     </string>
     <string name="MaterialLightBlue" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
             background: transparent;
             border-radius: 200px;
             border: 0px solid transparent;
@@ -944,7 +951,7 @@
             margin: 7px 5px;
             border-radius: 5px;
         }
-        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._5i2i, ._2zh4, ._15ks  {
             background: transparent;
         }
         .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
@@ -972,11 +979,11 @@
             background: #0288D1;
             border-color: #0288D1;
         }
-        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv {
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv, ._5aw4, .touch ._1w6b {
             color: #03A9F4 !important;
         }
         ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d, ._52z5 {
-            background: #03A9F4;
+            background: #03A9F4 !important;
         }
         ._59te.popoverOpen, ._59te.isActive {
             background: #0288D1;
@@ -986,10 +993,6 @@
         }
         ._32l5._2rec {
             background: #03A9F4;
-        }
-        ._484w.selected>._6zf {
-            border-bottom: 1px solid #03A9F4;
-            color: #03A9F4;
         }
         .abt {
             border-top: 0px;
@@ -1029,9 +1032,13 @@
         header._59e9._55wr {
             background: rgba(3, 169, 244, 0.2);
         }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid #0288D1 !important;
+            color: #0288D1 !important;
+        }
     </string>
     <string name="MaterialOrange" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
             background: transparent;
             border-radius: 200px;
             border: 0px solid transparent;
@@ -1040,7 +1047,7 @@
             margin: 7px 5px;
             border-radius: 5px;
         }
-        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._5i2i, ._2zh4, ._15ks  {
             background: transparent;
         }
         .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
@@ -1068,11 +1075,11 @@
             border-color: #E64A19;
             color: white;
         }
-        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv {
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv, ._5aw4, .touch ._1w6b {
             color: #FF5722 !important;
         }
         ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d, ._52z5 {
-            background: #FF5722;
+            background: #FF5722 !important;
         }
         ._59te.popoverOpen, ._59te.isActive {
             background: #E64A19;
@@ -1082,10 +1089,6 @@
         }
         ._32l5._2rec {
             background: #FF5722;
-        }
-        ._484w.selected>._6zf {
-            border-bottom: 1px solid #FF5722;
-            color: #FF5722;
         }
         .abt {
             border-top: 0px;
@@ -1125,9 +1128,13 @@
         header._59e9._55wr {
             background: rgba(255, 87, 34, 0.2);
         }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid #E64A19 !important;
+            color: #E64A19 !important;
+        }
     </string>
     <string name="MaterialGPG" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
             background: transparent;
             border-radius: 200px;
             border: 0px solid transparent;
@@ -1136,7 +1143,7 @@
             margin: 7px 5px;
             border-radius: 5px;
         }
-        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._4g33, .touch ._5i2i  {
+        ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._5i2i, ._2zh4, ._15ks  {
             background: transparent;
         }
         .jewel .touchable-notification, .touchable-notification .touchable, .acw, ._3bg5 ._53_-, .jewel ._4l9h, .touch ._55wq {
@@ -1164,11 +1171,11 @@
             border-color: #0c7d45;
             color: white;
         }
-        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv {
+        a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, .fcl, ._vqv, ._5aw4, .touch ._1w6b {
             color: #109c56 !important;
         }
         ._527y.btn.btnC.mfss.touchable.iconOnly, .touch ._56bu::before, .touch.wp.x1-5 ._56bu::before, .touch.wp.x2 ._56bu::before, .touch ._56bv::before, .touch.wp.x1-5 ._56bv::before, .touch.wp.x2 ._56bv::before, ._u2d, ._52z5 {
-            background: #109c56;
+            background: #109c56 !important;
         }
         ._59te.popoverOpen, ._59te.isActive {
             background: #0c7d45;
@@ -1178,10 +1185,6 @@
         }
         ._32l5._2rec {
             background: #109c56;
-        }
-        ._484w.selected>._6zf {
-            border-bottom: 1px solid #109c56;
-            color: #b8d9c8;
         }
         .abt {
             border-top: 0px;
@@ -1221,5 +1224,10 @@
         header._59e9._55wr {
             background: rgba(16, 156, 86, 0.2);
         }
+        ._484w.selected>._6zf {
+            border-bottom: 1px solid #0c7d45 !important;
+            color: #0c7d45 !important;
+        }
+
     </string>
 </resources>

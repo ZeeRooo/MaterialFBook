@@ -5,6 +5,7 @@
 package me.zeerooo.materialfb.Ui;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.annotation.CheckResult;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -16,7 +17,7 @@ import me.zeerooo.materialfb.R;
 
 public class CookingAToast {
 
-    public static @CheckResult Toast cooking(Context context, int message_to_show, int text_color, int background, int icon_toast, boolean duration) {
+    public static @CheckResult Toast cooking(Context context, CharSequence message_to_show, int text_color, int background, int icon_toast, boolean duration) {
 
         View view = ((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.cooking_a_toast, null);
         view.setBackgroundColor(background);

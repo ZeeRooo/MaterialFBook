@@ -78,7 +78,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     mActivity.mWebView.getSettings().setGeolocationEnabled(true);
                 } else {
-                    CookingAToast.cooking(getActivity(), R.string.permission_denied, Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
+                    CookingAToast.cooking(getActivity(), getString(R.string.permission_denied), Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
                 }
             }
         }

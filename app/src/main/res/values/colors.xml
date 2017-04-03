@@ -36,5 +36,7 @@
     <color name="OrangeRipple">#40FF5722</color>
     <color name="GooglePlayGreenRipple">#40109c56</color>
 
+    <color name="black_overlay">#66000000</color>
+
 
 </resources>

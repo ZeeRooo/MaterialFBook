@@ -4,7 +4,7 @@
     tools:ignore="MissingTranslation">
 <!-- Themes -->
     <string-array name="WebThemes">
-        <item>Facebook Mobile</item>
+        <item>FacebookMobile</item>
         <item>Material</item>
         <item>MaterialAmoled</item>
         <item>MaterialBlack</item>

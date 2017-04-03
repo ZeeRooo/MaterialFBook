@@ -144,4 +144,7 @@
     <string name="loading">Đang nạp</string>
     <string name="permission_denied">Quyền truy cập bị từ chối, không thể hoàn tất thao tác</string>
     <string name="downloaded">Downloaded</string>
+	<string name="bookmarks">Bookmarks</string>
+    <string name="new_bookmark">Added:</string>
+    <string name="remove_bookmark">Removed:</string>
 </resources>

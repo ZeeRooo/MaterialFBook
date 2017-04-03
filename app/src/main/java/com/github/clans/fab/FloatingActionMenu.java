@@ -10,6 +10,7 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
+import android.support.v4.content.res.ResourcesCompat;
 import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
@@ -101,7 +102,7 @@ public class FloatingActionMenu extends ViewGroup {
     private String mMenuLabelText;
     private boolean mUsingMenuLabel;
 
-    public interface OnMenuToggleListener {
+    private interface OnMenuToggleListener {
         void onMenuToggle(boolean opened);
     }
 
@@ -153,7 +154,7 @@ public class FloatingActionMenu extends ViewGroup {
         mAnimationDelayPerItem = attr.getInt(R.styleable.FloatingActionMenu_menu_animationDelayPerItem, 50);
         mIcon = attr.getDrawable(R.styleable.FloatingActionMenu_menu_icon);
         if (mIcon == null) {
-            mIcon = getResources().getDrawable(R.drawable.ic_fab_menu);
+            mIcon = ResourcesCompat.getDrawable(getResources(), R.drawable.ic_fab_menu, null);
         }
         mLabelsSingleLine = attr.getBoolean(R.styleable.FloatingActionMenu_menu_labels_singleLine, false);
         mLabelsEllipsize = attr.getInt(R.styleable.FloatingActionMenu_menu_labels_ellipsize, 0);
@@ -301,7 +302,6 @@ public class FloatingActionMenu extends ViewGroup {
 
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-        int width = 0;
         int height = 0;
         mMaxButtonWidth = 0;
         int maxLabelWidth = 0;
@@ -336,20 +336,20 @@ public class FloatingActionMenu extends ViewGroup {
             }
         }
 
-        width = Math.max(mMaxButtonWidth, maxLabelWidth + mLabelsMargin) + getPaddingLeft() + getPaddingRight();
+        maxLabelWidth = Math.max(mMaxButtonWidth, maxLabelWidth + mLabelsMargin) + getPaddingLeft() + getPaddingRight();
 
         height += mButtonSpacing * (mButtonsCount - 1) + getPaddingTop() + getPaddingBottom();
         height = adjustForOvershoot(height);
 
         if (getLayoutParams().width == LayoutParams.MATCH_PARENT) {
-            width = getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec);
+            maxLabelWidth = getDefaultSize(getSuggestedMinimumWidth(), widthMeasureSpec);
         }
 
         if (getLayoutParams().height == LayoutParams.MATCH_PARENT) {
             height = getDefaultSize(getSuggestedMinimumHeight(), heightMeasureSpec);
         }
 
-        setMeasuredDimension(width, height);
+        setMeasuredDimension(maxLabelWidth, height);
     }
 
     @Override
@@ -550,12 +550,6 @@ public class FloatingActionMenu extends ViewGroup {
     @Override
     protected MarginLayoutParams generateLayoutParams(LayoutParams p) {
         return new MarginLayoutParams(p);
-    }
-
-    @Override
-    protected MarginLayoutParams generateDefaultLayoutParams() {
-        return new MarginLayoutParams(MarginLayoutParams.WRAP_CONTENT,
-                MarginLayoutParams.WRAP_CONTENT);
     }
 
     @Override

@@ -64,9 +64,4 @@ public class More extends AppCompatActivity {
     public void onBackPressed() {
        finish();
     }
-
-    @Override
-    public void onDestroy() {
-        super.onDestroy();
-    }
 }

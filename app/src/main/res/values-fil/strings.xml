@@ -150,4 +150,7 @@
     <string name="loading">Nag lo-loading</string>
     <string name="permission_denied">Hindi pinayagan, hindi ma kumpleto ang aksyon</string>
     <string name="downloaded">Na i-download</string>
+	<string name="bookmarks">Bookmarks</string>
+    <string name="new_bookmark">Added:</string>
+    <string name="remove_bookmark">Removed:</string>
 </resources>

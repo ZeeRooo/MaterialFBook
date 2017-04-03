@@ -21,6 +21,8 @@ import android.graphics.drawable.StateListDrawable;
 import android.graphics.drawable.shapes.OvalShape;
 import android.graphics.drawable.shapes.Shape;
 import android.os.Build;
+import android.support.v4.content.res.ResourcesCompat;
+import android.support.v7.widget.AppCompatImageButton;
 import android.util.AttributeSet;
 import android.view.GestureDetector;
 import android.view.MotionEvent;
@@ -29,11 +31,10 @@ import android.view.ViewGroup;
 import android.view.ViewOutlineProvider;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import me.zeerooo.materialfb.R;
 
-public class FloatingActionButton extends ImageButton {
+public class FloatingActionButton extends AppCompatImageButton {
 
     public static final int SIZE_NORMAL = 0;
 
@@ -45,9 +46,6 @@ public class FloatingActionButton extends ImageButton {
     int mShadowYOffset = Util.dpToPx(getContext(), 3f);
 
     private static final Xfermode PORTER_DUFF_CLEAR = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
-    private static final long PAUSE_GROWING_TIME = 200;
-    private static final double BAR_SPIN_CYCLE_TIME = 500;
-    private static final int BAR_MAX_LENGTH = 270;
 
     private int mColorNormal;
     private int mColorPressed;
@@ -66,12 +64,6 @@ public class FloatingActionButton extends ImageButton {
     private float mOriginalX = -1;
     private float mOriginalY = -1;
     private boolean mButtonPositionSaved;
-    private long mPausedTimeWithoutGrowing = 0;
-    private double mTimeStartGrowing;
-    private boolean mBarGrowingFromFront = true;
-    private int mBarLength = 16;
-    private float mBarExtraLength;
-    private float mCurrentProgress;
 
     public FloatingActionButton(Context context) {
         this(context, null);
@@ -83,12 +75,6 @@ public class FloatingActionButton extends ImageButton {
 
     public FloatingActionButton(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
-        init(context, attrs, defStyleAttr);
-    }
-
-    @TargetApi(Build.VERSION_CODES.LOLLIPOP)
-    public FloatingActionButton(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
-        super(context, attrs, defStyleAttr, defStyleRes);
         init(context, attrs, defStyleAttr);
     }
 
@@ -174,31 +160,6 @@ public class FloatingActionButton extends ImageButton {
     @Override
     protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
         setMeasuredDimension(calculateMeasuredWidth(), calculateMeasuredHeight());
-    }
-
-    private void updateProgressLength(long deltaTimeInMillis) {
-        if (mPausedTimeWithoutGrowing >= PAUSE_GROWING_TIME) {
-            mTimeStartGrowing += deltaTimeInMillis;
-
-            if (mTimeStartGrowing > BAR_SPIN_CYCLE_TIME) {
-                mTimeStartGrowing -= BAR_SPIN_CYCLE_TIME;
-                mPausedTimeWithoutGrowing = 0;
-                mBarGrowingFromFront = !mBarGrowingFromFront;
-            }
-
-            float distance = (float) Math.cos((mTimeStartGrowing / BAR_SPIN_CYCLE_TIME + 1) * Math.PI) / 2 + 0.5f;
-            float length = BAR_MAX_LENGTH - mBarLength;
-
-            if (mBarGrowingFromFront) {
-                mBarExtraLength = distance * length;
-            } else {
-                float newLength = length * (1 - distance);
-                mCurrentProgress += (mBarExtraLength - newLength);
-                mBarExtraLength = newLength;
-            }
-        } else {
-            mPausedTimeWithoutGrowing += deltaTimeInMillis;
-        }
     }
 
     @Override
@@ -497,7 +458,7 @@ public class FloatingActionButton extends ImageButton {
 
     @Override
     public void setImageResource(int resId) {
-        Drawable drawable = getResources().getDrawable(resId);
+        Drawable drawable = ResourcesCompat.getDrawable(getResources(), resId, null);
         if (mIcon != drawable) {
             mIcon = drawable;
             updateBackground();
@@ -518,27 +479,6 @@ public class FloatingActionButton extends ImageButton {
                     }
                 }
             });
-        }
-    }
-
-    public void setColorNormal(int color) {
-        if (mColorNormal != color) {
-            mColorNormal = color;
-            updateBackground();
-        }
-    }
-
-    public void setColorPressed(int color) {
-        if (color != mColorPressed) {
-            mColorPressed = color;
-            updateBackground();
-        }
-    }
-
-    public void setColorRipple(int color) {
-        if (color != mColorRipple) {
-            mColorRipple = color;
-            updateBackground();
         }
     }
 

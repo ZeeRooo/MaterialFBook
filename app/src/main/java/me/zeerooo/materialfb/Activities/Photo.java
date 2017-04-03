@@ -10,10 +10,11 @@ import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
+import android.provider.BaseColumns;
 import android.provider.MediaStore;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -41,25 +42,33 @@ import static com.bumptech.glide.load.DecodeFormat.PREFER_ARGB_8888;
 public class Photo extends AppCompatActivity {
 
     private ImageView mImageView;
-    private PhotoViewAttacher mAttacher;
-    private String url, title;
-    private TextView text;
+    PhotoViewAttacher mAttacher;
+    TextView text;
     private DownloadManager mDownloadManager;
+    String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
-        url = getIntent().getStringExtra("url");
         mImageView = (ImageView) findViewById(R.id.container);
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar_ph);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
-        title = getIntent().getStringExtra("title");
-        text = (TextView) findViewById(R.id.photo_title);
-        text.setText(title);
 
+        getWindow().getDecorView().setSystemUiVisibility(
+                View.SYSTEM_UI_FLAG_LOW_PROFILE
+                        | View.SYSTEM_UI_FLAG_FULLSCREEN
+                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+
+        text = (TextView) findViewById(R.id.photo_title);
+        url = getIntent().getStringExtra("url");
+        text.setText(getIntent().getStringExtra("title"));
         Load();
         mAttacher = new PhotoViewAttacher(mImageView);
         mDownloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
@@ -100,23 +109,23 @@ public class Photo extends AppCompatActivity {
         }
         if (id == R.id.share_image) {
             // Share image
-            Glide.with(Photo.this).load(Uri.parse(url)).asBitmap().format(PREFER_ARGB_8888).into(new SimpleTarget<Bitmap>(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL) {
+            Glide.with(Photo.this).load(url).asBitmap().format(PREFER_ARGB_8888).into(new SimpleTarget<Bitmap>(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL) {
                 @Override
                 public void onResourceReady(Bitmap bitmap, GlideAnimation anim) {
-                    String path = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, Uri.parse(url).getLastPathSegment(), null);
+                    final String path = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, Uri.parse(url).getLastPathSegment(), null);
                     Intent shareIntent = new Intent(Intent.ACTION_SEND);
                     shareIntent.setType("image/*");
                     shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
                     startActivity(Intent.createChooser(shareIntent, getString(R.string.context_share_image)));
                 }
             });
-            CookingAToast.cooking(Photo.this, R.string.context_share_image_progress, Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_share, false).show();
+            CookingAToast.cooking(Photo.this, getString(R.string.context_share_image_progress), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_share, false).show();
         }
         if (id == R.id.oopy_url_image) {
-            ClipboardManager clipboard = (ClipboardManager) this.getSystemService(Context.CLIPBOARD_SERVICE);
-            ClipData clip = ClipData.newUri(this.getContentResolver(), "URI", Uri.parse(url));
+            final ClipboardManager clipboard = (ClipboardManager) this.getSystemService(Context.CLIPBOARD_SERVICE);
+            final ClipData clip = ClipData.newUri(this.getContentResolver(), "", Uri.parse(url));
             clipboard.setPrimaryClip(clip);
-            CookingAToast.cooking(Photo.this, R.string.content_copy_link_done, Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_copy_url, true).show();
+            CookingAToast.cooking(Photo.this, getString(R.string.content_copy_link_done), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_copy_url, true).show();
             return true;
         }
         if (id == android.R.id.home) {
@@ -131,7 +140,7 @@ public class Photo extends AppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
         switch (requestCode) {
             case 1: {
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -139,7 +148,7 @@ public class Photo extends AppCompatActivity {
                     DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
 
                     // Set the download directory
-                    File downloads_dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+                    File downloads_dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
                     if (!downloads_dir.exists()) {
                         if (!downloads_dir.mkdirs()) {
                             return;
@@ -155,27 +164,12 @@ public class Photo extends AppCompatActivity {
                     // Start the download
                     mDownloadManager.enqueue(request);
 
-                    CookingAToast.cooking(this, R.string.downloaded, Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_download, false).show();
+                    CookingAToast.cooking(this, getString(R.string.downloaded), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_download, false).show();
                 } else {
-                    CookingAToast.cooking(this, R.string.permission_denied, Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
+                    CookingAToast.cooking(this, getString(R.string.permission_denied), Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
                 }
             }
         }
-    }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        if (Build.VERSION.SDK_INT >= 19) {
-            getWindow().getDecorView().setSystemUiVisibility(
-                    View.SYSTEM_UI_FLAG_LOW_PROFILE
-                            | View.SYSTEM_UI_FLAG_FULLSCREEN
-                            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-        }
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
     @Override

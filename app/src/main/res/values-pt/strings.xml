@@ -128,6 +128,9 @@
     <string name="loading">Carregando</string>
     <string name="permission_denied">Permissão negada, ação não pode ser finalizada</string>
     <string name="downloaded">Downloaded</string>
+	<string name="bookmarks">Bookmarks</string>
+    <string name="new_bookmark">Added:</string>
+    <string name="remove_bookmark">Removed:</string>
 	<!-- About -->
     <string name="more">Mais e créditos</string>
     <string name="about_updates">Atualizações</string>

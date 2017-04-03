@@ -3,8 +3,9 @@
     <!-- Notifications -->
     <string name="notifications_setting_title">דיווחים</string>
     <string name="notif">דיווחים</string>
+    <string name="facebook_message">דיווח על הודעות</string>
+    <string name="facebook_notifications">דיווחי פייסבוק</string>
     <string name="applying_changes">החלת השינויים</string>
-    <string name="you_have_n_messages">יש לך %d הודעות.</string>
     <string name="sync_problem">העוגיות אינן מסונכרנות. נא לנסות להפעיל את היישומון מחדש</string>
     <string name="notification_sound_description">נא לבחור בצלצול או בשקט: \u0020</string>
     <string name="notifications_settings">הגדרות דיווחים</string>
@@ -16,15 +17,16 @@
     <string name="vibrate">רטט</string>
     <string name="vibrate_double">רטט כפול</string>
     <string name="led_light">נורית</string>
+
     <string-array name="intervalPrefTitles">
-        <item>1 minuto</item>
-        <item>2 minutos</item>
-        <item>5 minutos</item>
-        <item>15 minutos</item>
-        <item>30 minutos</item>
-        <item>1 hora</item>
-        <item>3 horas</item>
-        <item>6 horas</item>
+        <item>דקה אחת</item>
+        <item>2 דקות</item>
+        <item>5 דקות</item>
+        <item>רבע שעה</item>
+        <item>חצי שעה</item>
+        <item>שעה</item>
+        <item>3 שעות</item>
+        <item>6 שעות</item>
     </string-array>
     <!-- End Notifications -->
 
@@ -35,20 +37,20 @@
     <string name="hide_editor_newsfeed_title">הסתרת עורך הודעות המצב בציר החדשות</string>
     <string name="hide_editor_newsfeed_summary">אם תכונה זו פעילה, עורך הודעות המצב יוסתר בציר החדשות.</string>
     <string name="stop_images_title">לא לטעון תמונות</string>
-    <string name="stop_images_summary">כאשר תכונה זו פעילה, התמונות לא יוצגו. חלק מהתמונות עשויות להישאר בזכרון המטמון.</string>
+    <string name="stop_images_summary">כשאפשרות זו פעילה, לא תתקבלנה תמונות. חלק מהתמונות עשויות עדיין להופיע מזיכרון המטמון.</string>
     <string name="hide_sponsored_title">הסתרת תוכן &#8216;ממומן&#8217;</string>
     <string name="hide_sponsored_summary">הסתרת תוכן &#8216;ממומן&#8217; (פרסומות) מציר הזמן.</string>
     <string name="hide_birthdays_title">הסתרת ימי הולדת</string>
     <string name="hide_birthdays_summary">הסתרת ימי הולדת מציר הזמן, לרבות אירועים ודיווחים.</string>
-    <string name="clearcache">מחיקת המטמון עם היציאה</string>
-    <string name="clearcache_summary">הפעלת היישומון עשויה לארוך זמן רב יותר.</string>
-    <string name="hide_recently_commented">Hide recently commented</string>
-    <string name="hide_recently_commented_summary">X people recently commented on this.</string>
-    <string name="start_url">Start URL</string>
+    <string name="hide_menu_bar_title">הסתרת סרגל התפריטים</string>
+    <string name="hide_menu_bar_summary">כאשר תכונה זו פעילה, סרגל התפריט של פייסבוק יוסתר.</string>
+    <string name="hide_recently_commented">הסתרת תגובות אחרונות</string>
+    <string name="hide_recently_commented_summary">X אנשים הגיבו על זה לאחרונה.</string>
+    <string name="start_url">כתובת התחלה</string>
     <string-array name="Start">
-        <item>MostRecent</item>
-        <item>TopStories</item>
-        <item>Messages</item>
+        <item>עדכניים_ביותר</item>
+        <item>סיפורים_מובילים</item>
+        <item>הודעות</item>
     </string-array>
     <!-- End general -->
 
@@ -66,7 +68,7 @@
     <string name="changelog">יומן שינויים</string>
     <!-- End about -->
 
-    <!-- Appearence -->
+    <!-- APPEARANCE -->
     <string name="appearance_setting_title">מראה</string>
     <string name="web_themes">ערכות עיצוב פנימיות</string>
     <string name="web_themes_summary">ניתן לבחור ערכות עיצוב לתצוגה של פייסבוק.</string>
@@ -75,14 +77,14 @@
 
     <!-- Navigation -->
     <string name="navigation_setting_title">ניווט</string>
-    <string name="hide_menu_bar_title">הסתרת סרגל התפריטים</string>
-    <string name="hide_menu_bar_summary">כאשר תכונה זו פעילה, סרגל התפריט של פייסבוק יוסתר.</string>
     <string name="navigation_menu_settings">פריטים בתפריט הניווט</string>
     <string name="navigation_menu_settings_description">ניתן להציג/להסתיר פריטים בתפריט הניווט.</string>
     <string name="save_data">הפחתת כמות נתונים</string>
-    <string name="save_data_summary">טעינת פייסבוק במצב בסיסי מנטרלת גם את הטלאים ואת פרטי הפרופיל.</string>
-	<string name="fab_enable">Floating Action Button</string>
-    <string name="fab_enable_summary">Show the FAB.</string>
+    <string name="save_data_summary">טעינת פייסבוק במצב בסיסי מנטרל גם את הטלאים ואת פרטי הפרופיל.</string>
+    <string name="clearcache">מחיקת המטמון עם היציאה</string>
+    <string name="clearcache_summary">הפעלת היישומון עשויה לארוך זמן רב יותר.</string>
+    <string name="fab_enable">כפתור פעולה צף</string>
+    <string name="fab_enable_summary">הצגת הכפתור הצף.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">פרסום הודעת מצב</string>
     <string name="fab_photo">פרסום תמונה</string>
@@ -91,33 +93,30 @@
     <!-- Navigation: items -->
     <string name="navigation_menu_title">תפריט ניווט</string>
     <string name="ic_menu_exitapp">יציאה מהיישומון</string>
-    <string name="ic_menu_exitapp_summary">הסתרת הכפתור &#8216;יציאה מהיישומון&#8217; במגירת הניווט.</string>
+    <string name="ic_menu_exitapp_summary">הצגת הכפתור &#8216;יציאה מהיישומון&#8217; במגירת הניווט.</string>
     <string name="ic_menu_fblogout">יציאה מהחשבון</string>
-    <string name="ic_menu_fblogout_summary">הסתרת הכפתור &#8216;יציאה מהחשבון&#8217; במגירת הניווט.</string>
+    <string name="ic_menu_fblogout_summary">הצגת הכפתור &#8216;יציאה מהחשבון&#8217; במגירת הניווט.</string>
     <string name="menu_photos">תמונות</string>
-    <string name="menu_photos_summary">הסתרת הכפתור &#8216;תמונות&#8217; במגירת הניווט.</string>
+    <string name="menu_photos_summary">הצגת הכפתור &#8216;תמונות&#8217; במגירת הניווט.</string>
     <string name="menu_events">אירועים</string>
-    <string name="menu_events_summary">הסתרת הכפתור &#8216;אירועים&#8217; במגירת הניווט.</string>
+    <string name="menu_events_summary">הצגת הכפתור &#8216;אירועים&#8217; במגירת הניווט.</string>
     <string name="menu_back">חזרה</string>
-    <string name="menu_back_summary">הסתרת הכפתור &#8216;חזרה&#8217; במגירת הניווט.</string>
+    <string name="menu_back_summary">הצגת הכפתור &#8216;חזרה&#8217; במגירת הניווט.</string>
     <string name="menu_top_stories">סיפורים מובילים</string>
-    <string name="menu_top_stories_summary">הסתרת הכפתור &#8216;סיפורים מובילים&#8217; במגירת הניווט.</string>
+    <string name="menu_top_stories_summary">הצגת הכפתור &#8216;סיפורים מובילים&#8217; במגירת הניווט.</string>
     <string name="menu_most_recent">העדכניים ביותר</string>
-    <string name="menu_most_recent_summary">הסתרת הכפתור &#8216;העדכניים ביותר&#8217; במגירת הניווט.</string>
+    <string name="menu_most_recent_summary">הצגת הכפתור &#8216;העדכניים ביותר&#8217; במגירת הניווט.</string>
     <string name="menu_friendreq">בקשות חברות</string>
-    <string name="menu_friendreq_summary">הסתרת הכפתור &#8216;בקשות חברות&#8217; במגירת הניווט.</string>
+    <string name="menu_friendreq_summary">הצגת הכפתור &#8216;בקשות חברות&#8217; במגירת הניווט.</string>
     <string name="menu_groups">קבוצות</string>
-    <string name="menu_groups_summary">הסתרת הכפתור &#8216;Groups&#8217; במגירת הניווט.</string>
+    <string name="menu_groups_summary">הצגת הכפתור &#8216;קבוצות&#8217; במגירת הניווט.</string>
     <string name="menu_messages">הודעות</string>
     <string name="menu_search">חיפוש</string>
-    <string name="menu_search_summary">הסתרת הכפתור &#8216;חיפוש&#8217; במגירת הניווט.</string>
+    <string name="menu_search_summary">הצגת הכפתור &#8216;חיפוש&#8217; במגירת הניווט.</string>
     <string name="menu_mainmenu">תפריט ראשי</string>
-    <string name="menu_mainmenu_summary">הסתרת הכפתור &#8216;תפריט ראשי&#8217; במגירת הניווט.</string>
+    <string name="menu_mainmenu_summary">הצגת הכפתור &#8216;תפריט ראשי&#8217; במגירת הניווט.</string>
     <string name="messaging_enabled_title">הודעות</string>
     <string name="messaging_enabled_summary">כאשר תכונה זו פעילה, תהיה מכאן גישה להודעות בפייסבוק. כדאי לנטרל אם כבר יש לך יישומון הודעות.</string>
-    <!-- End navigation -->
-
-    <!-- App -->
     <string name="silent">ללא צליל</string>
     <string name="file_logger_needs_permission">אין גישה לאחסון חיצוני. לא ניתן לשמור יומן</string>
     <string name="navigation_drawer_open">פתיחת מגירת הניווט</string>
@@ -141,5 +140,8 @@
     <string name="error_facebook_error">משהו לא תקין בצד של פייסבוק</string>
     <string name="loading">בטעינה</string>
     <string name="permission_denied">ההרשאה נדחיתה, לא ניתן להשלים את הפעולה</string>
-    <string name="downloaded">Downloaded</string>
+    <string name="downloaded">התקבל</string>
+	<string name="bookmarks">Bookmarks</string>
+    <string name="new_bookmark">Added:</string>
+    <string name="remove_bookmark">Removed:</string>
 </resources>

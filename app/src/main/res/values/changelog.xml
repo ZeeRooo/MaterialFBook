@@ -2,6 +2,24 @@
 <resources>
     <string name="changelog_list" translatable="false">
 <![CDATA[
+<br>
+<b>Version 3.2.0:</b>
+<br>
+- Fixes on MaterialBlack theme.
+<br>
+- Updated French translation.
+<br>
+- Notifications improvements: Now the chat group image is displayed in the notification too.
+<br>
+- Fixed FC when the user goes to FB Page > about > send mail.
+<br>
+- Improved Web Themes.
+<br>
+- Updated Hebrew translation.
+<br>
+- Added bookmarks #60.
+<br>
+<br>
 <b>Version 3.1.0:</b>
 <br>
 - Handled Facebook profiles links #57.

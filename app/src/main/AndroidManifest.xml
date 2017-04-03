@@ -40,8 +40,8 @@
         <activity
             android:name=".Activities.MainActivity"
             android:configChanges="orientation|screenSize"
-            android:windowSoftInputMode="adjustResize"
-            android:launchMode="singleTask">
+            android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -54,7 +54,6 @@
 
                 <data android:mimeType="text/plain" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -97,35 +96,37 @@
                 <data
                     android:host="mbasic.facebook.com"
                     android:scheme="http" />
-                <data
-                    android:scheme="fb" />
+                <data android:scheme="fb" />
             </intent-filter>
         </activity>
         <activity
             android:name=".Activities.Photo"
-            android:theme="@style/Photo"
             android:configChanges="screenSize|orientation"
-            android:launchMode="singleTask">
-        </activity>
+            android:launchMode="singleTask"
+            android:theme="@style/Photo" />
         <activity
             android:name=".Activities.SettingsActivity"
             android:configChanges="screenSize|orientation"
             android:label="@string/settings"
+            android:launchMode="singleTask"
             android:parentActivityName=".Activities.MainActivity"
             android:theme="@style/MFB"
-            tools:ignore="UnusedAttribute"
-            android:launchMode="singleTask">
+            tools:ignore="UnusedAttribute">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.MainActivity" />
         </activity>
         <activity
             android:name=".Activities.More"
-            android:launchMode="singleTask"/>
+            android:launchMode="singleTask" />
         <activity
             android:name="com.facebook.FacebookActivity"
             android:label="MaterialFBook"
             android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+        <activity
+            android:name=".Activities.Video"
+            android:launchMode="singleTask"
+            android:theme="@style/Photo" />
     </application>
 
 </manifest>

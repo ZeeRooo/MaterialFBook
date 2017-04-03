@@ -150,4 +150,7 @@
     <string name="loading">جار التحميل</string>
     <string name="permission_denied">تم رفض إعطاء الصلاحيات المطلوبة، للأسف لا يمكن إتمام طلبك</string>
     <string name="downloaded">تم التحميل</string>
+	<string name="bookmarks">Bookmarks</string>
+    <string name="new_bookmark">Added:</string>
+    <string name="remove_bookmark">Removed:</string>
 </resources>

@@ -71,13 +71,6 @@
                 android:data="https://github.com/bumptech/glide"/>
         </PreferenceScreen>
         <PreferenceScreen
-            android:summary="permiso"
-            android:title="greysonp">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://github.com/greysonp/permiso"/>
-        </PreferenceScreen>
-        <PreferenceScreen
             android:summary="PhotoView"
             android:title="chrisbanes">
             <intent
@@ -101,7 +94,7 @@
                 android:data="http://forum.xda-developers.com/member.php?u=7490500"/>
         </PreferenceScreen>
 		<PreferenceScreen
-            android:summary="Sebastien Durussel"
+            android:summary="Sebacestmoi"
             android:title="French">
         </PreferenceScreen>
         <PreferenceScreen
