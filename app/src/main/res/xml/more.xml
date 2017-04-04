@@ -157,6 +157,13 @@
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/yarons"/>
         </PreferenceScreen>
+		<PreferenceScreen
+            android:summary="akkk33"
+            android:title="Arabic">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/akkk33"/>
+        </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/about_translations">
         <PreferenceScreen
