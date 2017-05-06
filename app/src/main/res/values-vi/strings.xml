@@ -3,8 +3,7 @@
     <!-- Notifications -->
     <string name="notifications_setting_title">Thông báo</string>
     <string name="notif">Thông báo</string>
-	<string name="applying_changes">Áp dụng thay đổi</string>
-	<string name="sync_problem">Cookie chưa được đồng bộ hóa. Lần chạy đầu tiên hả? Hãy khởi động lại ứng dụng :)</string>
+    <string name="sync_problem">Cookie chưa được đồng bộ hóa. Lần chạy đầu tiên hả? Hãy khởi động lại ứng dụng :)</string>
     <string name="notification_sound_description">Chọn nhạc chuông hoặc im lặng: \u0020</string>
     <string name="notifications_settings">Cài đặt thông báo</string>
     <string name="notifications_settings_description">Cài đặt thêm. Chọn khoảng thời gian, thiết lập âm thanh, đèn LED và độ rung.</string>
@@ -35,7 +34,6 @@
     <string name="location_enabled_summary">Kích hoạt tính năng này để cho phép Facebook để có được vị trí của bạn.</string>
     <string name="hide_editor_newsfeed_title">Ẩn trình sửa trạng thái trên dòng thời gian</string>
     <string name="hide_editor_newsfeed_summary">Khi được kích hoạt, trình sửa trạng thái sẽ được ẩn trên dòng thời gian.</string>
-    <string name="hide_editor_newsfeed_snackbar">Nạp lại thay đổi để áp dụng</string>
     <string name="stop_images_title">Đừng nạp ảnh</string>
     <string name="stop_images_summary">Khi được kích hoạt, sẽ không tải về hình ảnh. Một số hình ảnh có thể vẫn còn trong bộ nhớ cache.</string>
     <string name="hide_sponsored_title">Ẩn nội dung được tài trợ</string>
@@ -105,7 +103,6 @@
     <string name="menu_top_stories">Top stories</string>
     <string name="menu_top_stories_summary">Khi được vô hiệu hóa, &#8216;Top stories&#8217; trên menu điều hướng sẽ biến mất.</string>
     <string name="menu_most_recent">Most Recent</string>
-    <string name="menu_most_recent_summary">Khi được vô hiệu hóa, &#8216;Most Recent&#8217; trên menu điều hướng sẽ biến mất.</string>
     <string name="menu_friendreq">Lời mời kết bạn</string>
     <string name="menu_friendreq_summary">Khi được vô hiệu hóa, &#8216;Lời mời kết bạn&#8217; trên menu điều hướng sẽ biến mất.</string>
     <string name="menu_groups">Nhóm</string>
@@ -121,30 +118,19 @@
 
     <!-- App -->
 	<string name="silent">Im lặng</string>
-	<string name="file_logger_needs_permission">Không có quyền truy cập vào bộ nhớ ngòai. Không thể lưu việc đăng nhập</string>
     <string name="navigation_drawer_open">Mở ngăn điều hướng</string>
     <string name="navigation_drawer_close">Thoát ngăn điều hướng</string>
     <string name="default_user">Người dùng</string>
-    <string name="header_profile_pic">Hình đại diện</string>
     <string name="nav_notifications">Thông báo</string>
-    <string name="context_save_image">Lưu ảnh</string>
     <string name="settings">Thiết lập</string>
     <string name="context_share_image">Chia sẻ ảnh</string>
-    <string name="context_copy_image_link">Sao chép liên kết ảnh</string>
     <string name="context_share_link">Chia sẻ liên kết</string>
-    <string name="context_copy_link">Sao chép liên kết</string>
     <string name="context_share_image_progress">Đang chia sẻ ảnh…</string>
     <string name="content_copy_link_done">Đường dẫn đã được sao chép vào bảng tạm</string>
-    <string name="login_button">Đăng nhập</string>
-    <string name="not_logged_in">Bạn chưa đăng nhập</string>
     <string name="error_login">Một cái gì đó đã diễn ra sai, hãy thử đăng nhập lại</string>
-    <string name="error_super_wrong">Một cái gì đó đã diễn ra sai</string>
-    <string name="error_facebook_noconnection">Không thể truy cập Facebook</string>
-    <string name="error_facebook_error">Một cái gì đó đã diễn ra sai lúc kết thúc Facebook</string>
-    <string name="loading">Đang nạp</string>
     <string name="permission_denied">Quyền truy cập bị từ chối, không thể hoàn tất thao tác</string>
     <string name="downloaded">Downloaded</string>
-	<string name="bookmarks">Bookmarks</string>
+	<string name="bookmarks_header">Bookmarks</string>
     <string name="new_bookmark">Added:</string>
     <string name="remove_bookmark">Removed:</string>
 </resources>

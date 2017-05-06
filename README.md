@@ -1,9 +1,11 @@
-# MaterialFBook #
+<p align="center">
 A light client for Facebook with a modern look (Material Design).
+_This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed). Thanks JakeLane_
 
-_This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed). Thanks JakeLane._
+ 
+<img src="http://i.imgur.com/VctN6iC.png"> </p>
 
-[![MaterialFBook on fdroid.org](https://f-droid.org/wiki/images/0/06/F-Droid-button_get-it-on.png "Download from fdroid.org")](https://f-droid.org/app/me.zeeroooo.materialfb)
+[![MaterialFBook on fdroid.org](http://i.imgur.com/nyp9kHq.png "Download from fdroid.org")](https://f-droid.org/app/me.zeeroooo.materialfb) [![MaterialFBook on xda labs](http://i.imgur.com/yQrfgN8.png "Download from xda labs")](https://labs.xda-developers.com/store/app/me.zeerooo.materialfb)
 
 ## Changelog
 
@@ -230,15 +232,26 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Updated Hebrew translation.
 - Added bookmarks #60.
 
-###########
+**Version 3.3.0:**
+- Translated to Dutch.
+- Translated to Turkish by Baran Aydin.
+- Updated some translations.
+- Auto-rotate the screen when video is playing (no more only-landscape mode).
+- Ability to download documents attached in chats inside MFB.
+- Added: Option to share bookmarks.
+- Added: QuickShare option for videos and images (to share images from gallery) _(ONLY FOR BETA TESTERS)_.
+- Deleted unnecessary Facebook permissions #67.
+- Handled public profiles links #69.
+- Fixed missing post button #70.
+- Added support for Phygee and Imgur images and gifs.
+- Updated Serbian translation.
+- Bugfixes.
+
 
 **Notes:**
 _- Maybe some gifs cant be loaded because i need to add the url to the code. Report it as issue with the Facebook´s page link or website._
 
-###########
-
-
-###########
+**Translations:** https://www.transifex.com/yaron/materialfbook/translate/
 
 
 ## Credits:
@@ -255,9 +268,5 @@ _- Maybe some gifs cant be loaded because i need to add the url to the code. Rep
 - All people who translated the app (more details in "More and Credits")
 
 
-###########
-
-
-
 ## Screens:
-<center> <img src="http://i.imgur.com/nHSTvJh.png" width="22%" height=""> <img src="http://i.imgur.com/lG0ks6C.png" width="22%" height=""> <img src="http://i.imgur.com/iwwOetJ.png" width="22%" height=""> <img src="http://i.imgur.com/Y1wivll.png" width="22%" height=""> <img src="http://i.imgur.com/O7Zajff.png" width="22%" height=""> <img src="http://i.imgur.com/JQKZ9IE.png" width="22%" height=""> <img src="http://i.imgur.com/oWNBQyy.png" width="22%" height=""> </center>
+<center> <img src="http://i.imgur.com/thUumVk.png"> <img src="http://i.imgur.com/Lv12hwg.png"> <img src="http://i.imgur.com/OZYVtbA.png"> <img src="http://i.imgur.com/wEngW4M.png"> <img src="http://i.imgur.com/o2phVsQ.png"> <img src="http://i.imgur.com/4SvUcBL.png"> <img src="http://i.imgur.com/hp0aNj5.png"> </center>

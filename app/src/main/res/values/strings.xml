@@ -5,7 +5,6 @@
     <string name="notif">Notifications</string>
     <string name="facebook_message">Message notifications</string>
     <string name="facebook_notifications">Facebook notifications</string>
-    <string name="applying_changes">Applying changes</string>
     <string name="sync_problem">Cookies cannot be synced. Try restarting the app</string>
     <string name="notification_sound_description">Choose a ringtone or silence: \u0020</string>
     <string name="notifications_settings">Notifications settings</string>
@@ -105,7 +104,6 @@
     <string name="menu_top_stories">Top stories</string>
     <string name="menu_top_stories_summary">Show &#8216;Top stories&#8217; button on navigation drawer.</string>
     <string name="menu_most_recent">Most Recent</string>
-    <string name="menu_most_recent_summary">Show &#8216;Most Recent&#8217; button on navigation drawer.</string>
     <string name="menu_friendreq">Friend Requests</string>
     <string name="menu_friendreq_summary">Show &#8216;Friend Requests&#8217; button on navigation drawer.</string>
     <string name="menu_groups">Groups</string>
@@ -121,31 +119,23 @@
 
     <!-- App -->
     <string name="facebook_app_id" translatable="false">1440102826005611</string>
+    <string name="app_name" translatable="false">MaterialFBook</string>
     <string name="silent">No sound</string>
-    <string name="file_logger_needs_permission">No access to external storage. Log cannot be saved</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="default_user">User</string>
-    <string name="header_profile_pic">Profile Picture</string>
     <string name="nav_notifications">Notifications</string>
-    <string name="context_save_image">Save image</string>
     <string name="settings">Settings</string>
     <string name="context_share_image">Share image</string>
-    <string name="context_copy_image_link">Copy image link</string>
     <string name="context_share_link">Share link</string>
-    <string name="context_copy_link">Copy link</string>
     <string name="context_share_image_progress">Sharing image…</string>
+    <string name="sharing_video">Sharing video…</string>
+    <string name="quick_description">Add a quick description</string>
     <string name="content_copy_link_done">Link copied to clipboard</string>
-    <string name="login_button">Login</string>
-    <string name="not_logged_in">You are not logged in</string>
     <string name="error_login">Something went wrong, please try logging in again</string>
-    <string name="error_super_wrong">Something went super wrong</string>
-    <string name="error_facebook_noconnection">Could not access Facebook</string>
-    <string name="error_facebook_error">Something went wrong on Facebook\'s end</string>
-    <string name="loading">Loading</string>
     <string name="permission_denied">Permission denied, cannot complete action</string>
     <string name="downloaded">Downloaded</string>
-    <string name="add">Bookmarks</string>
+    <string name="bookmarks_header">Bookmarks</string>
     <string name="new_bookmark">Added:</string>
     <string name="remove_bookmark">Removed:</string>
 </resources>

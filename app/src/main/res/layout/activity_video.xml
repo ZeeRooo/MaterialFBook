@@ -1,9 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
-    android:background="#CC000000">
+    android:background="@android:color/black">
+
+    <FrameLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent">
 
     <VideoView
         android:id="@+id/video_view"
@@ -11,72 +15,72 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"/>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:id="@+id/buttons_header"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
-
-        <android.support.v7.widget.AppCompatSeekBar
-            android:id="@+id/progress"
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_above="@+id/pauseplay_btn"
-            style="?android:attr/progressBarStyleHorizontal"/>
+            android:orientation="horizontal"
+            android:id="@+id/buttons_header">
 
-        <ImageButton
-            android:id="@+id/pauseplay_btn"
-            android:layout_centerHorizontal="true"
-            android:layout_alignParentBottom="true"
-            style="@android:style/MediaButton.Pause"/>
+            <android.support.v7.widget.AppCompatSeekBar
+                android:id="@+id/progress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/pauseplay_btn"
+                style="?android:attr/progressBarStyleHorizontal"/>
 
-        <ImageButton
-            android:id="@+id/previous_btn"
-            android:layout_toStartOf="@+id/pauseplay_btn"
-            android:layout_alignParentBottom="true"
-            style="@android:style/MediaButton.Previous"/>
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/pauseplay_btn"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentBottom="true"
+                style="@android:style/MediaButton.Pause"/>
 
-        <ImageButton
-            android:id="@+id/download_btn"
-            android:src="@drawable/ic_download"
-            android:layout_toEndOf="@+id/pauseplay_btn"
-            android:layout_alignParentBottom="true"
-            style="@android:style/MediaButton.Next"/>
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/previous_btn"
+                android:layout_toStartOf="@+id/pauseplay_btn"
+                android:layout_alignParentBottom="true"
+                style="@android:style/MediaButton.Previous"/>
 
-        <ImageButton
-            android:id="@+id/share_btn"
-            android:src="@drawable/ic_share"
-            style="@android:style/MediaButton.Next"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentEnd="true" />
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/download_btn"
+                android:src="@drawable/ic_download"
+                android:layout_toEndOf="@+id/pauseplay_btn"
+                android:layout_alignParentBottom="true"
+                style="@android:style/MediaButton.Next"/>
 
-        <TextView
-            android:id="@+id/elapsed_time"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="3dp"
-            android:layout_below="@+id/progress"
-            android:textColor="@android:color/white"
-            android:textAppearance="@style/TextAppearance.Design.Snackbar.Message"/>
+            <android.support.v7.widget.AppCompatImageButton
+                android:id="@+id/share_btn"
+                android:src="@drawable/ic_share"
+                style="@android:style/MediaButton.Next"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true" />
 
-        <TextView
-            android:id="@+id/remaining_time"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:layout_gravity="center_horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/progress"
-            android:layout_marginEnd="3dp"
-            android:layout_alignParentEnd="true"
-            android:textColor="@android:color/white"
-            android:textAppearance="@style/TextAppearance.Design.Snackbar.Message"/>
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/elapsed_time"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_below="@+id/progress"
+                android:textColor="@android:color/white"
+                android:textAppearance="@style/TextAppearance.Design.Snackbar.Message"/>
 
-    </RelativeLayout>
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/remaining_time"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/progress"
+                android:layout_marginEnd="3dp"
+                android:layout_alignParentEnd="true"
+                android:textColor="@android:color/white"
+                android:textAppearance="@style/TextAppearance.Design.Snackbar.Message"/>
 
-</RelativeLayout>
+        </RelativeLayout>
+
+    </FrameLayout>
+
+</FrameLayout>

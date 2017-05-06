@@ -5,13 +5,12 @@
 package me.zeerooo.materialfb.Ui;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.support.annotation.CheckResult;
+import android.support.v7.widget.AppCompatImageView;
+import android.support.v7.widget.AppCompatTextView;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 import me.zeerooo.materialfb.R;
 
@@ -22,10 +21,10 @@ public class CookingAToast {
         View view = ((LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE)).inflate(R.layout.cooking_a_toast, null);
         view.setBackgroundColor(background);
 
-        ImageView icon = (ImageView) view.findViewById(R.id.icon);
+        AppCompatImageView icon = (AppCompatImageView) view.findViewById(R.id.icon);
         icon.setImageResource(icon_toast);
 
-        TextView message = (TextView) view.findViewById(R.id.message);
+        AppCompatTextView message = (AppCompatTextView) view.findViewById(R.id.message);
         message.setText(message_to_show);
         message.setTextColor(text_color);
 

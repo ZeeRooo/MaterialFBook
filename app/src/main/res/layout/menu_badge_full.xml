@@ -8,7 +8,7 @@
     android:listSelector="?attr/colorPrimary"
     android:gravity="center">
 
-    <TextView
+    <android.support.v7.widget.AppCompatTextView
         android:id="@+id/menu_badge"
         android:clickable="false"
         android:focusable="false"

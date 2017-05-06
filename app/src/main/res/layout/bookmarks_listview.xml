@@ -6,7 +6,7 @@
     android:layout_marginStart="16dp"
     android:descendantFocusability="blocksDescendants" >
 
-    <TextView
+    <android.support.v7.widget.AppCompatTextView
         android:textSize="14sp"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -17,12 +17,22 @@
         android:gravity="center_vertical"
         style="?android:attr/textAppearanceListItem" />
 
-    <ImageButton
+    <android.support.v7.widget.AppCompatImageButton
         android:id="@+id/delete_bookmark"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:src="@drawable/ic_delete"
+        android:tint="?attr/textColorAlertDialogListItem"
+        android:background="@android:color/transparent"/>
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/share_bookmark"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_toStartOf="@+id/delete_bookmark"
+        android:src="@drawable/ic_share"
+        android:layout_marginEnd="5dp"
         android:tint="?attr/textColorAlertDialogListItem"
         android:background="@android:color/transparent"/>
 

@@ -1,4 +1,4 @@
-package zeerooo.myapplication;
+package me.zeerooo.materialfb;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

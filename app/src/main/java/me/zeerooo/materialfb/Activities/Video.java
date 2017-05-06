@@ -4,7 +4,6 @@ import android.Manifest;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
@@ -16,14 +15,15 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.AppCompatImageButton;
 import android.support.v7.widget.AppCompatSeekBar;
+import android.support.v7.widget.AppCompatTextView;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
-import android.widget.TextView;
 import android.widget.VideoView;
 import java.io.File;
 import java.util.Locale;
@@ -39,7 +39,7 @@ public class Video extends AppCompatActivity {
     private RelativeLayout mButtonsHeader;
     private AppCompatSeekBar mSeekbar;
     private String url;
-    private TextView mElapsedTime, mRemainingTime;
+    private AppCompatTextView mElapsedTime, mRemainingTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,8 +52,8 @@ public class Video extends AppCompatActivity {
         mButtonsHeader = (RelativeLayout) findViewById(R.id.buttons_header);
         mSeekbar = (AppCompatSeekBar) findViewById(R.id.progress);
         mDownloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
-        mElapsedTime = (TextView) findViewById(R.id.elapsed_time);
-        mRemainingTime = (TextView) findViewById(R.id.remaining_time);
+        mElapsedTime = (AppCompatTextView) findViewById(R.id.elapsed_time);
+        mRemainingTime = (AppCompatTextView) findViewById(R.id.remaining_time);
 
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LOW_PROFILE
@@ -63,7 +63,6 @@ public class Video extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 
         mSeekbar.getProgressDrawable().setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN);
         mSeekbar.getThumb().setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN);
@@ -86,7 +85,7 @@ public class Video extends AppCompatActivity {
         });
 
         // Buttons
-        final ImageButton pause = (ImageButton) findViewById(R.id.pauseplay_btn);
+        final AppCompatImageButton pause = (AppCompatImageButton) findViewById(R.id.pauseplay_btn);
         pause.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (mVideoView.isPlaying()) {
@@ -99,7 +98,7 @@ public class Video extends AppCompatActivity {
             }
         });
 
-        final ImageButton previous = (ImageButton) findViewById(R.id.previous_btn);
+        final AppCompatImageButton previous = (AppCompatImageButton) findViewById(R.id.previous_btn);
         previous.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mVideoView.seekTo(0);
@@ -107,7 +106,7 @@ public class Video extends AppCompatActivity {
             }
         });
 
-        final ImageButton download = (ImageButton) findViewById(R.id.download_btn);
+        final AppCompatImageButton download = (AppCompatImageButton) findViewById(R.id.download_btn);
         download.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 RequestStoragePermission();
@@ -129,7 +128,7 @@ public class Video extends AppCompatActivity {
             }
         });
 
-        final ImageButton share = (ImageButton) findViewById(R.id.share_btn);
+        final AppCompatImageButton share = (AppCompatImageButton) findViewById(R.id.share_btn);
         share.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);

@@ -2,6 +2,34 @@
 <resources>
     <string name="changelog_list" translatable="false">
 <![CDATA[
+<b>Version 3.3.0:</b>
+<br>
+- Translated to Dutch.
+<br>
+- Translated to Turkish by Baran Aydin.
+<br>
+- Updated some translations.
+<br>
+- Auto-rotate the screen when video is playing (no more only-landscape mode).
+<br>
+- Ability to download documents attached in chats inside MFB.
+<br>
+- Added: Option to share bookmarks.
+<br>
+- Added: QuickShare option for videos and images (to share images from gallery) <b>(ONLY FOR BETA TESTERS)</b>.
+<br>
+- Deleted unnecessary Facebook permissions #67.
+<br>
+- Handled public profiles links #69.
+<br>
+- Fixed missing post button #70.
+<br>
+- Added support for Phygee and Imgur images and gifs.
+<br>
+- Updated Serbian translation.
+<br>
+- Bugfixes.
+<br>
 <br>
 <b>Version 3.2.0:</b>
 <br>

@@ -8,9 +8,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.TextView;
 import me.zeerooo.materialfb.Ui.Theme;
 import me.zeerooo.materialfb.R;
 
@@ -45,10 +42,7 @@ public class More extends AppCompatActivity {
         }
         public void changelog() {
             AlertDialog.Builder changelog = new AlertDialog.Builder(getActivity());
-            LayoutInflater inflater = LayoutInflater.from(getActivity());
-            View view  = inflater.inflate(R.layout.dialog_custom_title, null);
-            TextView changelog_title = (TextView)view.findViewById(R.id.title);
-            changelog.setCustomTitle(view);
+            changelog.setTitle(getResources().getString(R.string.changelog));
             changelog.setMessage(Html.fromHtml(getResources().getString(R.string.changelog_list)));
             changelog.setCancelable(false);
             changelog.setPositiveButton("Ok!", new DialogInterface.OnClickListener() {

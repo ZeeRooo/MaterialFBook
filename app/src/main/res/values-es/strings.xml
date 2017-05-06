@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Notifications -->
-    <string name="notifications_setting_title">NOTIFICATIONES</string>
+    <string name="notifications_setting_title">NOTIFICACIONES</string>
     <string name="notif">Notificaciones</string>
-    <string name="applying_changes">Aplicando cambios</string>
     <string name="sync_problem">Las cookies no pudieron sincronizarse. Por favor, reinicie la app</string>
     <string name="notification_sound_description">Elija un ringtone: \u0020</string>
     <string name="notifications_settings">Ajustes de notificaciones</string>
@@ -90,7 +89,6 @@
     <string name="menu_top_stories">Historias populares</string>
     <string name="menu_top_stories_summary">Muestra &#8216;Historias populares&#8217; del menú de navegación.</string>
     <string name="menu_most_recent">Más reciente</string>
-    <string name="menu_most_recent_summary">Muestra &#8216;Más reciente&#8217; del menú de navegación.</string>
     <string name="menu_friendreq">Solicitudes de amistad</string>
     <string name="menu_friendreq_summary">Muestra &#8216;Solicitudes de amistad&#8217; del menú de navegación.</string>
     <string name="menu_groups">Grupos</string>
@@ -106,30 +104,21 @@
 
     <!-- App -->
     <string name="silent">Silencio</string>
-    <string name="file_logger_needs_permission">Sin acceso al almacenamiento, el archivo no podrá ser guardado</string>
     <string name="navigation_drawer_open">Abrir cajón de navegación</string>
     <string name="navigation_drawer_close">Cerrar cajón de navegación</string>
     <string name="default_user">Usuario</string>
-    <string name="header_profile_pic">Imágen de perfil</string>
-    <string name="nav_notifications">Notificationes</string>
-    <string name="context_save_image">Guardar imágen</string>
+    <string name="nav_notifications">Notificaciones</string>
     <string name="settings">Ajustes</string>
     <string name="context_share_image">Compartir imágen</string>
-    <string name="context_copy_image_link">Copiar link de la imágen</string>
     <string name="context_share_link">Compartir link</string>
-    <string name="context_copy_link">Copiar link</string>
     <string name="context_share_image_progress">Compartiendo imágen&#8230;</string>
+    <string name="sharing_video">Compartiendo video…</string>
+    <string name="quick_description">Añade una descripción</string>
     <string name="content_copy_link_done">Link copiado</string>
-    <string name="login_button">Iniciar sesión</string>
-    <string name="not_logged_in">No haz iniciado sesión</string>
     <string name="error_login">Algo extraño ha pasado, por favor inicie sesión nuevamente</string>
-    <string name="error_super_wrong">Algo super extraño ha pasado, lo siento</string>
-    <string name="error_facebook_noconnection">No se puede acceder a Facebook</string>
-    <string name="error_facebook_error">Something went wrong on Facebook\'s end</string>
-    <string name="loading">Cargando</string>
     <string name="permission_denied">Permiso denegado, la acción no se pudo completar</string>
     <string name="downloaded">Descargado</string>
-	<string name="bookmarks">Marcadores</string>
+	<string name="bookmarks_header">Marcadores</string>
     <string name="new_bookmark">Agregando:</string>
     <string name="remove_bookmark">Eliminado:</string>
     <!-- About -->

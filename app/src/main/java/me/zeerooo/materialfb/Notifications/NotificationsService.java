@@ -34,24 +34,36 @@ import android.util.Log;
 public class NotificationsService extends IntentService {
     private SharedPreferences mPreferences;
     boolean syncProblemOccurred = false;
+    String baseURL;
+    Bitmap picprofile;
 
     public NotificationsService() {
         super("NotificationsService");
     }
 
     @Override
-    public void onCreate() {
-        super.onCreate();
+    protected void onHandleIntent(Intent intent) {
         Theme.getTheme(this);
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-    }
-
-    @Override
-    protected void onHandleIntent(Intent intent) {
+        URLs();
         if (mPreferences.getBoolean("facebook_messages", false))
             SyncMessages();
         if (mPreferences.getBoolean("facebook_notifications", false))
             SyncNotifications();
+    }
+
+    @Override
+    public void onDestroy() {
+        if (picprofile != null)
+            picprofile.recycle();
+    }
+
+    private void URLs() {
+        if (!mPreferences.getBoolean("save_data", false)) {
+            baseURL = "https://m.facebook.com/";
+        } else {
+            baseURL = "https://mbasic.facebook.com/";
+        }
     }
 
     // Sync the notifications
@@ -75,7 +87,7 @@ public class NotificationsService extends IntentService {
             final String pictureStyle = result.select("i.img.l.profpic").attr("style");
 
             if (!mPreferences.getString("last_notification_text", "").equals(text)) {
-                notifier(content, "MaterialFBook", text, "https://m.facebook.com/notifications.php", false, pictureStyle);
+                notifier(content, getString(R.string.app_name), text, baseURL + "notifications.php", false, pictureStyle);
             }
 
             // save as shown (or ignored) to avoid showing it again
@@ -125,7 +137,7 @@ public class NotificationsService extends IntentService {
                 final String pictureStyle = result.select(".img").attr("style");
 
                 if (!mPreferences.getString("last_message", "").equals(text)) {
-                    notifier(content, name, text, "https://m.facebook.com/" + result.attr("href"), true, pictureStyle);
+                    notifier(content, name, text, baseURL + result.attr("href"), true, pictureStyle);
                 }
 
                 // save as shown (or ignored) to avoid showing it again
@@ -161,7 +173,7 @@ public class NotificationsService extends IntentService {
     // create a notification and display it
     private void notifier(final String content, final String name, final String title, final String url, boolean isMessage, final String image_url) {
 
-        Bitmap picprofile = Helpers.getBitmapFromURL(Helpers.extractUrl(image_url));
+       picprofile = Helpers.getBitmapFromURL(Helpers.extractUrl(image_url));
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)

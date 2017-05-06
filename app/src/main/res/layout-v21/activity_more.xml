@@ -15,13 +15,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/More">
-        <TextView
-            android:id="@+id/header"
+        <android.support.v7.widget.AppCompatTextView
             android:layout_width="match_parent"
             android:layout_height="170dp"
             android:scaleType="centerCrop"
             android:background="?attr/colorPrimaryDark" />
-        <TextView
+        <android.support.v7.widget.AppCompatTextView
             android:id="@+id/thankyou"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -36,7 +35,7 @@
             android:shadowColor="@android:color/black"
             android:shadowRadius="4"
             android:layout_toEndOf="@+id/gracias"/>
-        <TextView
+        <android.support.v7.widget.AppCompatTextView
             android:id="@+id/gracias"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -49,7 +48,7 @@
             android:shadowColor="@android:color/black"
             android:shadowRadius="4"
             android:layout_alignTop="@+id/thankyou" />
-        <TextView
+        <android.support.v7.widget.AppCompatTextView
             android:id="@+id/grazie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -63,8 +62,7 @@
             android:shadowColor="@android:color/black"
             android:shadowRadius="4"
             android:layout_toEndOf="@+id/thankyou"/>
-        <TextView
-            android:id="@+id/спасибо"
+        <android.support.v7.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -78,7 +76,7 @@
             android:shadowColor="@android:color/black"
             android:shadowRadius="4"
             android:layout_toEndOf="@+id/grazie"/>
-        <ImageView
+        <android.support.v7.widget.AppCompatImageView
             android:id="@+id/app_icon"
             android:layout_width="95dp"
             android:layout_height="95dp"
@@ -87,8 +85,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             tools:ignore="ContentDescription" />
-        <TextView
-            android:id="@+id/oc"
+        <android.support.v7.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Me, ZeeRooo say to all..."

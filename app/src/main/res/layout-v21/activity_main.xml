@@ -50,9 +50,8 @@
                 android:layout_marginStart="16dp"
                 android:paddingTop="23dp"/>
 
-            <TextView
-                android:id="@+id/bookmarks"
-                android:text="@string/bookmarks"
+            <android.support.v7.widget.AppCompatTextView
+                android:text="@string/bookmarks_header"
                 android:layout_width="fill_parent"
                 android:textSize="25sp"
                 android:layout_height="60dp"
@@ -64,7 +63,7 @@
         </RelativeLayout>
 
         <ListView
-            android:id="@+id/listView"
+            android:id="@+id/bookmarksListView"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1" />

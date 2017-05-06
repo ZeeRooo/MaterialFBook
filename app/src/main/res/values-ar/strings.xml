@@ -5,7 +5,6 @@
     <string name="notif">الإشعارات</string>
     <string name="facebook_message">رسالة جديدة</string>
     <string name="facebook_notifications">إشعار من فيسبوك</string>
-    <string name="applying_changes">جار تنفيذ التغييرات</string>
     <string name="sync_problem">لا يمكن مزامنة الكعكات ، حاول إعادة تشغيل التطبيق</string>
     <string name="notification_sound_description">اختر نغمة الإشعار ، أو الوضع الصامت \u0020</string>
     <string name="notifications_settings">إعدادات الإشعارات</string>
@@ -17,9 +16,6 @@
     <string name="vibrate">الإهتزاز</string>
     <string name="vibrate_double">الإهتزاز المزدوج</string>
     <string name="led_light">ضوء الإشعارات</string>
-    <string name="flashlight_as_led">استخدام فلاش الكاميرا كمصباح للإشعارات</string>
-    <string name="flashlight_as_led_summary_msg">استخدام فلاش الكاميرا كوسيلة تنبيه للرسائل الجديدة (مصباح الكاميرا).</string>
-    <string name="flashlight_as_led_summary_notif">استخدام فلاش الكاميرا كوسيلة تنبيه للإشعارات الجديدة (مصباح الكاميرا).</string>
 
     <string-array name="intervalPrefTitles">
         <item>دقيقة</item>
@@ -80,8 +76,6 @@
 
     <!-- Navigation -->
     <string name="navigation_setting_title">التنقل</string>
-    <string name="hide_fab_on_scroll_title">إخفاء الزر العائم عند النزول لأسفل</string>
-    <string name="hide_fab_on_scroll_summary">إخفاء الزر العائم عند النزول لأسفل.</string>
     <string name="navigation_menu_settings">عناصر قائمة التنقل</string>
     <string name="navigation_menu_settings_description">يمكنك إظهار/إخفاء عناصر قائمة التنقل.</string>
     <string name="save_data">وضع توفير البيانات</string>
@@ -110,7 +104,6 @@
     <string name="menu_top_stories">أهم الأخبار</string>
     <string name="menu_top_stories_summary">إظهار &#8216;زر أهم الأخبار&#8217;  في درج التنقل.</string>
     <string name="menu_most_recent">آخر الأخبار</string>
-    <string name="menu_most_recent_summary">إظهار &#8216;زر آخر الأخبار&#8217;  في درج التنقل.</string>
     <string name="menu_friendreq">طلبات الصداقة</string>
     <string name="menu_friendreq_summary">إظهار &#8216;زر طلبات الصداقة&#8217;  في درج التنقل.</string>
     <string name="menu_groups">المجموعات</string>
@@ -126,31 +119,19 @@
 
     <!-- App -->
     <string name="silent">صامت</string>
-    <string name="file_logger_needs_permission">التطبيق لا يستطيع الولوج إلى ذاكرة التخزين. لا يمكن حفظ السجل</string>
     <string name="navigation_drawer_open">فتح درج التنقل</string>
     <string name="navigation_drawer_close">غلق درج التنقل</string>
     <string name="default_user">المستخدم</string>
-    <string name="header_profile_pic">الصورة الشخصية</string>
     <string name="nav_notifications">الإشعارات</string>
-    <string name="menu_fblogin">تسجيل الدخول إلى فيسبوك</string>
-    <string name="context_save_image">حفظ الصورة</string>
     <string name="settings">الإعدادات</string>
     <string name="context_share_image">مشاركة الصورة</string>
-    <string name="context_copy_image_link">نسخ رابط الصورة</string>
     <string name="context_share_link">مشاركة الرابط</string>
-    <string name="context_copy_link">نسخ الرابط</string>
     <string name="context_share_image_progress">جار مشاركة الصورة…</string>
     <string name="content_copy_link_done">تم نسخ الرابط في الحافظة</string>
-    <string name="login_button">تسجيل الدخول</string>
-    <string name="not_logged_in">لم يتم تسجيل الدخول</string>
     <string name="error_login">حدث خطأ، من فضلك حاول تسجيل الدخول مجددا</string>
-    <string name="error_super_wrong">حدث خطأ جسيم</string>
-    <string name="error_facebook_noconnection">لا يمكن الولوج للفيسبوك</string>
-    <string name="error_facebook_error">حدثت مشكلة من طرف فيسبوك</string>
-    <string name="loading">جار التحميل</string>
     <string name="permission_denied">تم رفض إعطاء الصلاحيات المطلوبة، للأسف لا يمكن إتمام طلبك</string>
     <string name="downloaded">تم التحميل</string>
-	<string name="bookmarks">Bookmarks</string>
+	<string name="bookmarks_header">Bookmarks</string>
     <string name="new_bookmark">Added:</string>
     <string name="remove_bookmark">Removed:</string>
 </resources>

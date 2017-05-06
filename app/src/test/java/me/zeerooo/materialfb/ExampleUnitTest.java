@@ -1,4 +1,4 @@
-package zeerooo.myapplication;
+package me.zeerooo.materialfb;
 
 import org.junit.Test;
 

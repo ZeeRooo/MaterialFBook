@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:background="@android:color/black">
 
-    <ImageView
+    <android.support.v7.widget.AppCompatImageView
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -46,7 +46,7 @@
         android:gravity="center"
         android:baselineAligned="true">
 
-        <TextView
+        <android.support.v7.widget.AppCompatTextView
             android:id="@+id/photo_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

@@ -164,13 +164,17 @@
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/akkk33"/>
         </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="Baran Aydin"
+            android:title="Turkish">
+        </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/about_translations">
         <PreferenceScreen
             android:title="@string/help_translations">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/ZeeRooo/Translations"/>
+                android:data="https://www.transifex.com/yaron/materialfbook/translate/"/>
         </PreferenceScreen>
         <PreferenceScreen
             android:title="@string/withYou">

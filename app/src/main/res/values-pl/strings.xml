@@ -3,7 +3,6 @@
     <!-- Notifications -->
     <string name="notifications_setting_title">POWIADOMIENIA</string>
     <string name="notif">Powiadomienia</string>
-    <string name="applying_changes">Zastosuj zmiany</string>
     <string name="sync_problem">Nie można zsynchronizować ciasteczek. Pierwsze uruchomienie, tak? Wystarczy zrestartować aplikacje :)</string>
     <string name="notification_sound_description">Wybierz dzwonek, lub wyciszenie: \u0020</string>
     <string name="notifications_settings">Ustawienia powiadomień</string>
@@ -17,9 +16,6 @@
     <string name="vibrate">Wibracje</string>
     <string name="vibrate_double">Podwójna wibracja</string>
     <string name="led_light">Światło LED</string>
-    <string name="flashlight_as_led">Latarka jako LED</string>
-    <string name="flashlight_as_led_summary_msg">Użyj latarki do Wiadomości z Facebooka LED (flesz aparatu).</string>
-    <string name="flashlight_as_led_summary_notif">Użyj latarki do Powiadomienia z Facebooka LED (flesz aparatu).</string>
     <string-array name="intervalPrefTitles">
         <item>1 minuta</item>
         <item>2 minuty</item>
@@ -46,13 +42,13 @@
     <string name="hide_birthdays_summary">Kiedy włączone, urodziny będą ukryte z Aktualności.</string>
     <string name="clearcache">Wyczyść pamięć podręczną przy zamykaniu</string>
     <string name="clearcache_summary">Kiedy włączone, aplikacja będzie uruchamiać się dłużej.</string>
-    <string name="hide_recently_commented">Hide recently commented</string>
-    <string name="hide_recently_commented_summary">X people recently commented on this.</string>
-    <string name="start_url">Start URL</string>
+    <string name="hide_recently_commented">Ukryj ostatnio skomentowane.</string>
+    <string name="hide_recently_commented_summary">X osób ostatnio skomentowało to.</string>
+    <string name="start_url">Zaczynaj w</string>
     <string-array name="Start">
-        <item>MostRecent</item>
-        <item>TopStories</item>
-        <item>Messages</item>
+        <item>Najnowsze</item>
+        <item>Najciekawsze</item>
+        <item>Wiadomości</item>
     </string-array>
     <!-- End general -->
 
@@ -67,14 +63,12 @@
     <string name="navigation_setting_title">NAWIGACJA</string>
     <string name="hide_menu_bar_title">Ukryj pasek Menu</string>
     <string name="hide_menu_bar_summary">Kiedy włączone, górny pasek Menu Facebooka będzie ukryty.</string>
-    <string name="hide_fab_on_scroll_title">Ukryj \„Floating Action Button\” przy przewijaniu</string>
-    <string name="hide_fab_on_scroll_summary">Ukrywa FAB przy przewijaniu w dół.</string>
     <string name="navigation_menu_settings">Elementy menu nawigacji</string>
     <string name="navigation_menu_settings_description">Możesz dodać/ukryć elementy w menu nawigacyjnym aplikacji.</string>
     <string name="save_data">Niższe zużycie danych</string>
     <string name="save_data_summary">Ładuje Facebooka w wersji podstawowej, a także wyłącza znaczniki oraz informacje profilowe.</string>
     <string name="fab_enable">Floating Action Button</string>
-    <string name="fab_enable_summary">Show the FAB.</string>
+    <string name="fab_enable_summary">Pokaż FAB.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Opublikuj status</string>
     <string name="fab_photo">Opublikuj zdjęcie</string>
@@ -95,7 +89,6 @@
     <string name="menu_top_stories">Najciekawsze zdarzenia</string>
     <string name="menu_top_stories_summary">Jeśli wyłączone, przycisk \„Najciekawsze zdarzenia\” zniknie z menu nawigacji.</string>
     <string name="menu_most_recent">Najnowsze</string>
-    <string name="menu_most_recent_summary">Jeśli wyłączone, przycisk \„Najnowsze\” zniknie z menu nawigacji.</string>
     <string name="menu_friendreq">Zaproszenia do grona znajomych</string>
     <string name="menu_friendreq_summary">Jeśli wyłączone, przycisk \„Zaproszenia do grona znajomych\” zniknie z menu nawigacji.</string>
     <string name="menu_groups">Grupy</string>
@@ -111,33 +104,20 @@
 
     <!-- App -->
     <string name="silent">Brak dźwięku</string>
-    <string name="file_logger_needs_permission">Brak dostępu do pamięci zewnętrznej. Log nie może być zapisany.</string>
     <string name="navigation_drawer_open">Otwórz szufladę nawigacji</string>
     <string name="navigation_drawer_close">Zamknij szufladę nawigacji</string>
     <string name="default_user">Kim jesteś?</string>
-    <string name="header_profile_pic">Zdjęcie profilowe</string>
     <string name="nav_notifications">Powiadomienia</string>
-    <string name="menu_fblogin">Zaloguj się do Facebooka</string>
-    <string name="context_save_image">Zapisz obraz</string>
     <string name="settings">Ustawienia</string>
     <string name="context_share_image">Udostępnij obraz</string>
-    <string name="context_copy_image_link">Kopiuj link obrazu</string>
     <string name="context_share_link">Udostępnij link</string>
-    <string name="context_copy_link">Kopiuj link</string>
     <string name="context_share_image_progress">Udostępnianie obrazu…</string>
     <string name="content_copy_link_done">Link skopiowany do schowka</string>
-    <string name="login_button">Zaloguj</string>
-    <string name="not_logged_in">Nie jesteś zalogowany</string>
     <string name="error_login">Coś poszło nie tak. Spróbuj zalogować się ponownie</string>
-    <string name="error_super_wrong">Coś poszło bardzo nie tak</string>
-    <string name="error_facebook_noconnection">Brak dostępu do Facebooka</string>
-    <string name="error_facebook_error">Coś poszło nie tak po stronie Facebooka</string>
-    <string name="loading">Ładowanie</string>
     <string name="permission_denied">Odmowa pozwolenia. Nie można ukończyć zadania</string>
-    <string name="downloaded">Downloaded</string>
-	<string name="bookmarks">Bookmarks</string>
-    <string name="new_bookmark">Added:</string>
-    <string name="remove_bookmark">Removed:</string>
+    <string name="downloaded">Pobrane</string>
+    <string name="new_bookmark">Dodano:</string>
+    <string name="remove_bookmark">Usunięto:</string>
     <!-- About -->
     <string name="more">Więcej i zasługi</string>
     <string name="about_updates">Aktualizacje</string>

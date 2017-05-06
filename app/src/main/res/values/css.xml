@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="Material" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
             background: transparent;
-            border-radius: 200px;
-            border: 0px solid transparent;
+            border-radius: 50%;
+            border: 0px;
         }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
@@ -33,7 +33,7 @@
             border: 0px transparent;
         }
         .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
-            border-radius: 200px;
+            border-radius: 50%;
             color: white;
             background: #243c6d;
             border-color: #243c6d;
@@ -81,11 +81,14 @@
         header._59e9._55wr {
             background: rgba(59, 89, 152, 0.2);
         }
+        ._56bs ._55sr {
+         color: #d6d8db;
+        }
     </string>
     <string name="MaterialAmoled" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
-            border-radius: 200px;
-            border: 0px solid transparent;
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
+            border-radius: 50%;
+            border: 0px;
         }
         body, .touch ._3bg5.mSearchOverlay .mSearchTypeahead .mTypeahead .jx-typeahead-results, .touch ._3bg5 .mSideSearch, .jewel .flyout, article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2, .touch ._52t1 {
             background: black !important;
@@ -171,10 +174,10 @@
         }
     </string>
     <string name="MaterialBlack" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
             background: transparent;
-            border-radius: 200px;
-            border: 0px solid transparent;
+            border-radius: 50%;
+            border: 0px;
         }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
@@ -203,7 +206,7 @@
             border: 0px transparent;
         }
         .touch .mCount, ._u42 ._55fj, .touch ._5h8e, .touch ._5h8f {
-            border-radius: 200px;
+            border-radius: 50%;
             background: black;
             color: white;
             border-color: black;
@@ -268,12 +271,15 @@
         ._5ayu {
             color: #3b5998;
         }
+        ._56bs ._55sr {
+         color: #d6d8db;
+        }
     </string>
     <string name="MaterialPink" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
             background: transparent;
-            border-radius: 200px;
-            border: 0px solid transparent;
+            border-radius: 50%;
+            border: 0px;
         }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
@@ -302,7 +308,7 @@
             border: 0px transparent;
         }
         .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
-            border-radius: 200px;
+            border-radius: 50%;
             background: #C2185B;
             color: white;
             border-color: #C2185B;
@@ -364,12 +370,15 @@
             border-bottom: 1px solid #C2185B !important;
             color: #C2185B !important;
         }
+        ._56bs ._55sr {
+         color: #d6d8db;
+        }
     </string>
     <string name="MaterialGrey" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
             background: transparent;
-            border-radius: 200px;
-            border: 0px solid transparent;
+            border-radius: 50%;
+            border: 0px;
         }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
@@ -398,7 +407,7 @@
             border: 0px transparent;
         }
         .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
-            border-radius: 200px;
+            border-radius: 50%;
             color: white;
             background: #455A64;
             border-color: #455A64;
@@ -460,12 +469,15 @@
             border-bottom: 1px solid #455A64 !important;
             color: #455A64 !important;
         }
+        ._56bs ._55sr {
+         color: #d6d8db;
+        }
     </string>
     <string name="MaterialGreen" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
             background: transparent;
-            border-radius: 200px;
-            border: 0px solid transparent;
+            border-radius: 50%;
+            border: 0px;
         }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
@@ -494,7 +506,7 @@
             border: 0px transparent;
         }
         .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
-            border-radius: 200px;
+            border-radius: 50%;
             color: white;
             background: #388E3C;
             border-color: #388E3C;
@@ -556,12 +568,15 @@
             border-bottom: 1px solid #388E3C !important;
             color: #388E3C !important;
         }
+        ._56bs ._55sr {
+         color: #d6d8db;
+        }
     </string>
     <string name="MaterialRed" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
             background: transparent;
-            border-radius: 200px;
-            border: 0px solid transparent;
+            border-radius: 50%;
+            border: 0px;
         }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
@@ -590,7 +605,7 @@
             border: 0px transparent;
         }
         .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
-            border-radius: 200px;
+            border-radius: 50%;
             color: white;
             background: #D32F2F;
             border-color: #D32F2F;
@@ -652,12 +667,15 @@
             border-bottom: 1px solid #D32F2F !important;
             color: #D32F2F !important;
         }
+        ._56bs ._55sr {
+         color: #d6d8db;
+        }
     </string>
     <string name="MaterialLime" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
             background: transparent;
-            border-radius: 200px;
-            border: 0px solid transparent;
+            border-radius: 50%;
+            border: 0px;
         }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
@@ -686,7 +704,7 @@
             border: 0px transparent;
         }
         .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
-            border-radius: 200px;
+            border-radius: 50%;
             color: white;
             background: #AFB42B;
             border-color: #AFB42B;
@@ -748,12 +766,15 @@
             border-bottom: 1px solid #AFB42B !important;
             color: #AFB42B !important;
         }
+        ._56bs ._55sr {
+         color: #d6d8db;
+        }
     </string>
     <string name="MaterialYellow" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
             background: transparent;
-            border-radius: 200px;
-            border: 0px solid transparent;
+            border-radius: 50%;
+            border: 0px;
         }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
@@ -782,7 +803,7 @@
             border: 0px transparent;
         }
         .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
-            border-radius: 200px;
+            border-radius: 50%;
             color: white;
             background: #FBC02D;
             border-color: #FBC02D;
@@ -844,12 +865,15 @@
             border-bottom: 1px solid #FBC02D !important;
             color: #FBC02D !important;
         }
+        ._56bs ._55sr {
+         color: #d6d8db;
+        }
     </string>
     <string name="MaterialPurple" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
             background: transparent;
-            border-radius: 200px;
-            border: 0px solid transparent;
+            border-radius: 50%;
+            border: 0px;
         }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
@@ -878,7 +902,7 @@
             border: 0px transparent;
         }
         .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
-            border-radius: 200px;
+            border-radius: 50%;
             color: white;
             background: #7B1FA2;
             border-color: #7B1FA2;
@@ -940,12 +964,15 @@
             border-bottom: 1px solid #7B1FA2 !important;
             color: #7B1FA2 !important;
         }
+        ._56bs ._55sr {
+         color: #d6d8db;
+        }
     </string>
     <string name="MaterialLightBlue" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
             background: transparent;
-            border-radius: 200px;
-            border: 0px solid transparent;
+            border-radius: 50%;
+            border: 0px;
         }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
@@ -974,7 +1001,7 @@
             border: 0px transparent;
         }
         .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
-            border-radius: 200px;
+            border-radius: 50%;
             color: white;
             background: #0288D1;
             border-color: #0288D1;
@@ -1036,12 +1063,15 @@
             border-bottom: 1px solid #0288D1 !important;
             color: #0288D1 !important;
         }
+        ._56bs ._55sr {
+         color: #d6d8db;
+        }
     </string>
     <string name="MaterialOrange" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
             background: transparent;
-            border-radius: 200px;
-            border: 0px solid transparent;
+            border-radius: 50%;
+            border: 0px;
         }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
@@ -1070,7 +1100,7 @@
             border: 0px transparent;
         }
         .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
-            border-radius: 200px;
+            border-radius: 50%;
             background: #E64A19;
             border-color: #E64A19;
             color: white;
@@ -1132,12 +1162,15 @@
             border-bottom: 1px solid #E64A19 !important;
             color: #E64A19 !important;
         }
+        ._56bs ._55sr {
+         color: #d6d8db;
+        }
     </string>
     <string name="MaterialGPG" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt {
+        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
             background: transparent;
-            border-radius: 200px;
-            border: 0px solid transparent;
+            border-radius: 50%;
+            border: 0px;
         }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
@@ -1166,7 +1199,7 @@
             border: 0px transparent;
         }
         .touch ._5h8e, .touch ._5h8f, ._u42 ._55fj, .touch .mCount, .touch ._590n  {
-            border-radius: 200px;
+            border-radius: 50%;
             background: #0c7d45;
             border-color: #0c7d45;
             color: white;
@@ -1228,6 +1261,8 @@
             border-bottom: 1px solid #0c7d45 !important;
             color: #0c7d45 !important;
         }
-
+        ._56bs ._55sr {
+         color: #d6d8db;
+        }
     </string>
 </resources>

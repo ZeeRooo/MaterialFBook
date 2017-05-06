@@ -3,7 +3,6 @@
     <!-- Notifications -->
     <string name="notifications_setting_title">Уведомления</string>
     <string name="notif">Уведомления</string>
-    <string name="applying_changes">Сохранение изменений…</string>
     <string name="sync_problem">Невозможно синхронизировать cookie-файлы. Пожалуйста, перезагрузите программу.</string>
     <string name="notification_sound_description">Выбор рингтона: \u0020</string>
     <string name="notifications_settings">Настройки уведомлений</string>
@@ -104,7 +103,6 @@
     <string name="menu_top_stories">Популярные</string>
     <string name="menu_top_stories_summary">В боковом меню появляется кнопка популярных новостей.</string>
     <string name="menu_most_recent">Последние</string>
-    <string name="menu_most_recent_summary">В боковом меню появляется кнопка последних новостей.</string>
     <string name="menu_friendreq">Запросы</string>
     <string name="menu_friendreq_summary">В боковом меню появляется кнопка новых запросов в друзья.</string>
     <string name="menu_groups">Группы</string>
@@ -120,30 +118,19 @@
 
     <!-- App -->
     <string name="silent">Без звука</string>
-    <string name="file_logger_needs_permission">Нет доступа к внешнему накопителю. Невозможно сохранить лог.</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="default_user">Пользователь</string>
-    <string name="header_profile_pic">Фото профиля</string>
     <string name="nav_notifications">Уведомления</string>
-    <string name="context_save_image">Сохранить изображение</string>
     <string name="settings">Настройки</string>
     <string name="context_share_image">Поделиться изображением</string>
-    <string name="context_copy_image_link">Копировать ссылку на изображение</string>
     <string name="context_share_link">Поделиться ссылкой</string>
-    <string name="context_copy_link">Копировать ссылку</string>
     <string name="context_share_image_progress">Отправка изображения…</string>
     <string name="content_copy_link_done">Ссылка скопирована в буфер обмена</string>
-    <string name="login_button">Вход</string>
-    <string name="not_logged_in">Вы не вошли в учетную запись!</string>
     <string name="error_login">Что то пошло не так. Попробуйте войти еще раз.</string>
-    <string name="error_super_wrong">Произошла критическая ошибка!</string>
-    <string name="error_facebook_noconnection">Нет доступа к Facebook…</string>
-    <string name="error_facebook_error">Что то пошло не так со стороны Facebook.</string>
-    <string name="loading">Загрузка…</string>
     <string name="permission_denied">Нет доступа, невозможно закончить операцию!</string>
     <string name="downloaded">Downloaded</string>
-	<string name="bookmarks">Bookmarks</string>
+	<string name="bookmarks_header">Bookmarks</string>
     <string name="new_bookmark">Added:</string>
     <string name="remove_bookmark">Removed:</string>
 </resources>

@@ -24,10 +24,10 @@
 
     <android.support.design.widget.NavigationView
         android:id="@+id/BookmarksView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="end"
-        android:fitsSystemWindows="true">
+        android:fitsSystemWindows="false">
 
         <LinearLayout
             android:orientation="vertical"
@@ -39,30 +39,31 @@
                 android:layout_height="80dp"
                 android:background="?attr/colorPrimary"
                 android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center_vertical">
 
-                <ImageButton
+                <android.support.v7.widget.AppCompatImageButton
                     android:id="@+id/add_bookmark"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:src="@drawable/ic_bookmarks"
                     android:background="?attr/selectableItemBackground"
-                    android:layout_alignBottom="@+id/bookmarks"/>
+                    android:layout_marginStart="16dp"
+                    android:paddingTop="23dp"/>
 
-                <TextView
-                    android:id="@+id/bookmarks"
-                    android:text="@string/bookmarks"
+                <android.support.v7.widget.AppCompatTextView
+                    android:text="@string/bookmarks_header"
                     android:layout_width="fill_parent"
                     android:textSize="25sp"
                     android:layout_height="60dp"
-                    android:paddingTop="15dp"
+                    android:paddingTop="23dp"
                     android:textAlignment="center"
                     android:textColor="@android:color/white"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    android:layout_centerVertical="true"/>
             </RelativeLayout>
 
             <ListView
-                android:id="@+id/listView"
+                android:id="@+id/bookmarksListView"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1" />

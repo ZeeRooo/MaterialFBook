@@ -14,7 +14,6 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
-
 import me.zeerooo.materialfb.Activities.MainActivity;
 import me.zeerooo.materialfb.Activities.More;
 import me.zeerooo.materialfb.Notifications.Receiver;
@@ -23,10 +22,10 @@ import me.zeerooo.materialfb.R;
 
 public class SettingsFragment extends PreferenceFragment implements Preference.OnPreferenceClickListener {
 
-    private MainActivity mActivity;
+    MainActivity mActivity;
     Context mContext;
-    private SharedPreferences mPreferences;
-    private SharedPreferences.OnSharedPreferenceChangeListener listener;
+    SharedPreferences mPreferences;
+    SharedPreferences.OnSharedPreferenceChangeListener listener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -53,10 +52,10 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                         RequestLocationPermission();
                         break;
                     case "notif":
-                        Receiver.ScheduleNotif(mContext, false);
+                        Receiver.ScheduleNotif(mContext);
                         break;
                     case "notif_interval":
-                        Receiver.ScheduleNotif(mContext, false);
+                        Receiver.ScheduleNotif(mContext);
                         break;
                     default:
                         break;

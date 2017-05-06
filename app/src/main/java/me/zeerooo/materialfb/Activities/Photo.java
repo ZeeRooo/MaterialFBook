@@ -12,20 +12,19 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
-import android.provider.BaseColumns;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.AppCompatImageView;
+import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.resource.drawable.GlideDrawable;
@@ -41,9 +40,9 @@ import static com.bumptech.glide.load.DecodeFormat.PREFER_ARGB_8888;
 
 public class Photo extends AppCompatActivity {
 
-    private ImageView mImageView;
+    private AppCompatImageView mImageView;
     PhotoViewAttacher mAttacher;
-    TextView text;
+    AppCompatTextView text;
     private DownloadManager mDownloadManager;
     String url;
 
@@ -51,7 +50,7 @@ public class Photo extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
-        mImageView = (ImageView) findViewById(R.id.container);
+        mImageView = (AppCompatImageView) findViewById(R.id.container);
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar_ph);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -66,7 +65,7 @@ public class Photo extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        text = (TextView) findViewById(R.id.photo_title);
+        text = (AppCompatTextView) findViewById(R.id.photo_title);
         url = getIntent().getStringExtra("url");
         text.setText(getIntent().getStringExtra("title"));
         Load();
@@ -109,7 +108,7 @@ public class Photo extends AppCompatActivity {
         }
         if (id == R.id.share_image) {
             // Share image
-            Glide.with(Photo.this).load(url).asBitmap().format(PREFER_ARGB_8888).into(new SimpleTarget<Bitmap>(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL) {
+            Glide.with(Photo.this).load(url).asBitmap().diskCacheStrategy(DiskCacheStrategy.NONE).skipMemoryCache(true).format(PREFER_ARGB_8888).into(new SimpleTarget<Bitmap>(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL) {
                 @Override
                 public void onResourceReady(Bitmap bitmap, GlideAnimation anim) {
                     final String path = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, Uri.parse(url).getLastPathSegment(), null);
@@ -117,6 +116,7 @@ public class Photo extends AppCompatActivity {
                     shareIntent.setType("image/*");
                     shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
                     startActivity(Intent.createChooser(shareIntent, getString(R.string.context_share_image)));
+                    bitmap.recycle();
                 }
             });
             CookingAToast.cooking(Photo.this, getString(R.string.context_share_image_progress), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_share, false).show();
@@ -174,9 +174,9 @@ public class Photo extends AppCompatActivity {
 
     @Override
     public void onDestroy() {
-        super.onDestroy();
         Glide.clear(mImageView);
         mImageView.setImageDrawable(null);
+        super.onDestroy();
     }
 
     @Override

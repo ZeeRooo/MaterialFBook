@@ -3,7 +3,6 @@
  */
 package me.zeerooo.materialfb.Fragments;
 
-import android.content.Context;
 import android.content.SharedPreferences;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
@@ -17,7 +16,7 @@ import me.zeerooo.materialfb.R;
 public class NotificationsSettingsFragment extends PreferenceFragment {
 
     private SharedPreferences preferences;
-    private SharedPreferences.OnSharedPreferenceChangeListener prefChangeListener;
+    SharedPreferences.OnSharedPreferenceChangeListener prefChangeListener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

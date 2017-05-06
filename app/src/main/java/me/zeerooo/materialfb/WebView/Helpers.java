@@ -13,13 +13,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Arrays;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Helpers {
-    public static final List<String> FB_PERMISSIONS = Arrays.asList("public_profile", "user_friends");
     public String url, title;
 
     public Helpers(String title, String url) {

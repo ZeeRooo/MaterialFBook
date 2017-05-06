@@ -58,7 +58,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
     }
 
-    public void remove(String title, String url){
+    void remove(String title, String url){
         SQLiteDatabase db = this.getWritableDatabase();
         String query = "DELETE FROM " + TABLE_NAME + " WHERE " + COL2 + " = '" + title + "'" + " AND " + COL3 + " = '" + url + "'";
         db.execSQL(query);

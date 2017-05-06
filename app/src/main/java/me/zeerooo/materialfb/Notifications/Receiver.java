@@ -15,7 +15,7 @@ import android.util.Log;
 public class Receiver extends BroadcastReceiver {
 
     // Lets start the {@code NotificationsService.java}
-    public static void ScheduleNotif(Context context, boolean cancel) {
+    public static void ScheduleNotif(Context context) {
         AlarmManager AlarmM = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
         Intent intent = new Intent(context, NotificationsService.class);
         PendingIntent pendingIntent = PendingIntent.getService(context, 1, intent, 0);
@@ -23,7 +23,7 @@ public class Receiver extends BroadcastReceiver {
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
 
         SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-        if (mPreferences.getBoolean("notif", false) && (activeNetwork != null && activeNetwork.isConnected() && !cancel)) {
+        if (mPreferences.getBoolean("notif", false) && (activeNetwork != null && activeNetwork.isConnected())) {
             // Lets stop the AlarmManager if the device is not connected :) ====== less battery drain
             int interval = Integer.parseInt(mPreferences.getString("notif_interval", "300000"));
             AlarmM.setInexactRepeating(AlarmManager.ELAPSED_REALTIME, SystemClock.elapsedRealtime(), interval, pendingIntent);
@@ -36,6 +36,6 @@ public class Receiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        ScheduleNotif(context, false);
+        ScheduleNotif(context);
     }
 }

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Notifications -->
+    <string name="notifications_setting_title">BİLDİRİMLER</string>
+    <string name="notif">Bildirimler</string>
+    <string name="facebook_message">Mesaj bildirimleri</string>
+    <string name="facebook_notifications">Facebook bildirimleri</string>
+    <string name="sync_problem">Çerezler senkronize edilemez. Uygulamayı yeniden başlatmayı deneyin</string>
+    <string name="notification_sound_description">Bir zil sesi veya sessize alın: \u0020</string>
+    <string name="notifications_settings">Bildirim ayarları</string>
+    <string name="notifications_settings_description">Ek ayarlar. Zaman aralığı seçin, sesler ayarlayın, LED ve titreşim.</string>
+    <string name="interval_pref">Kontrol için zaman aralığı</string>
+    <string name="notification_sound">Bildirim sesi</string>
+    <string name="interval_pref_description_new">Bildirimler her %s de kontrol edilecek.</string>
+    <string name="notification_sound_msg">Mesaj sesi</string>
+    <string name="vibrate">Titreşim</string>
+    <string name="vibrate_double">Çift titreşim</string>
+    <string name="led_light">LED ışık</string>
+
+    <string-array name="intervalPrefTitles">
+        <item>1 dakika</item>
+        <item>2 dakika</item>
+        <item>5 dakika</item>
+        <item>15 dakika</item>
+        <item>30 dakika</item>
+        <item>1 saat</item>
+        <item>3 saat</item>
+        <item>6 saat</item>
+    </string-array>
+    <!-- End Notifications -->
+
+    <!-- General -->
+    <string name="general_setting_title">GENEL</string>
+    <string name="location_enabled_title">Konum erişimi</string>
+    <string name="location_enabled_summary">Facebook\'un konumunuzu almasını sağlamak için bunu etkinleştirin.</string>
+    <string name="hide_editor_newsfeed_title">Haber Kaynağı\'nda Durum düzenleyicisini gizle</string>
+    <string name="hide_editor_newsfeed_summary">Etkinleştirildiğinde, durum düzenleyicisi Haber Kaynağı\'nda gizlenecektir.</string>
+    <string name="stop_images_title">Resimleri yükleme</string>
+    <string name="stop_images_summary">Etkinleştirildiğinde resim indirmeyecektir. Bazı görüntüler önbellekte kalabilir.</string>
+    <string name="hide_sponsored_title">&#8216;Sponsorlu&#8217;  içerikleri gizle</string>
+    <string name="hide_sponsored_summary">&#8216;Sponsorlu&#8217;  içerikleri(reklamlar) haber kaynağından gizle.</string>
+    <string name="hide_birthdays_title">Doğum günlerini gizle</string>
+    <string name="hide_birthdays_summary">Doğum günlerini, haber kaynağı, olaylar ve bildirimlerden gizleyin.</string>
+    <string name="hide_menu_bar_title">Menü çubuğunu gizle</string>
+    <string name="hide_menu_bar_summary">Etkinleştirildiğinde, Facebook Menü çubuğu gizlenecektir.</string>
+    <string name="hide_recently_commented">Son zamanlarda yapılmış yorumları gizle</string>
+    <string name="hide_recently_commented_summary">X kişi yakın zamanda bu konuyla ilgili yorum yaptı.</string>
+    <string name="start_url">URL başlat</string>
+    <string-array name="Start">
+        <item>EnYeni</item>
+        <item>EnİyiHikayeler</item>
+        <item>Mesajlar</item>
+    </string-array>
+    <!-- End general -->
+
+    <!-- About -->
+    <string name="more">Daha fazla ve oluşturanlar </string>
+    <string name="about_updates">Güncellemer</string>
+    <string name="updates">Yeni versiyonu kontrol et</string>
+    <string name="updates_summary">Sayfayı yükleyin ve en yeni sürümü indirin</string>
+    <string name="people_who_translated">Uygulamayı çevirenler</string>
+    <string name="devs_who_helped_me">Sorularıma cevap veren ve uygulamalarından kod almama yardımcı olan geliştiriciler</string>
+    <string name="help_translations">Uygulamayı dilinize çevirmek için bana yardım edin</string>
+    <string name="about_translations">Yardım edin, size ihtiyacımız var</string>
+    <string name="source_code">Github üzerinde kaynak kodu</string>
+    <string name="withYou">Hataları bildirin veya yeni özellikler isteyin</string>
+    <string name="changelog">Değişim günlüğü</string>
+    <!-- End about -->
+
+    <!-- APPEARANCE -->
+    <string name="appearance_setting_title">GÖRÜNÜM</string>
+    <string name="web_themes">Web temaları</string>
+    <string name="web_themes_summary">Farklı bir web teması seçebilirsiniz.</string>
+    <string name="app_themes">Uygulama temaları</string>
+    <string name="app_themes_summary">Farklı bir uygulama teması seçebilirsiniz</string>
+
+    <!-- Navigation -->
+    <string name="navigation_setting_title">GEZİNME</string>
+    <string name="navigation_menu_settings">Gezinme menüsü öğeleri</string>
+    <string name="navigation_menu_settings_description">Gezinme menüsünde öğeleri gösterebilir / gizleyebilirsiniz.</string>
+    <string name="save_data">Düşük veri modu</string>
+    <string name="save_data_summary">Facebook\'u temel sürüme yükle, rozetleri ve profil bilgilerini, güncellemeleri devre dışı bırak.</string>
+    <string name="clearcache">Çıkışta ön belleği temizle</string>
+    <string name="clearcache_summary">Uygulamanın açılması daha uzun sürecektir.</string>
+    <string name="fab_enable">Hareketli Eylem Düğmesi</string>
+    <string name="fab_enable_summary">HAD\'ı göster</string>
+    <!-- Navigation: fab -->
+    <string name="fab_text">Bir durum paylaş</string>
+    <string name="fab_photo">Bir fotoğraf paylaş</string>
+    <string name="fab_checkin">Yer bildirimi</string>
+    <string name="fab_jump_top">Yukarıya çık</string>
+    <!-- Navigation: items -->
+    <string name="navigation_menu_title">GEZİNME MENÜSÜ</string>
+    <string name="ic_menu_exitapp">Uygulamayı kapat</string>
+    <string name="ic_menu_exitapp_summary">Gezinme çekmecesinde &#8216;Uygulamayı kapatma&#8217; düğmesini göster.</string>
+    <string name="ic_menu_fblogout">Çıkış</string>
+    <string name="ic_menu_fblogout_summary">Gezinme çekmecesinde &#8216;Çıkış&#8217; düğmesini göster.</string>
+    <string name="menu_photos">Fotoğraflar</string>
+    <string name="menu_photos_summary">Gezinme çekmecesinde &#8216;Fotoğraflar&#8217; düğmesini göster.</string>
+    <string name="menu_events">Olaylar</string>
+    <string name="menu_events_summary">Gezinme çekmecesinde &#8216;Olaylar&#8217; düğmesini göster.</string>
+    <string name="menu_back">Geri</string>
+    <string name="menu_back_summary">Gezinme çekmecesinde &#8216;Geri&#8217;  düğmesini göster.</string>
+    <string name="menu_top_stories">En iyi hikayeler</string>
+    <string name="menu_top_stories_summary">Gezinme çekmecesinde &#8216;En İyi Hikayeler&#8217; düğmesini göster.</string>
+    <string name="menu_most_recent">En Yeni</string>
+    <string name="menu_friendreq">Arkadaşlık İstekleri</string>
+    <string name="menu_friendreq_summary">Gezinme çekmecesinde  &#8216;Arkadaşlık İstekleri&#8217; düğmesini göster.</string>
+    <string name="menu_groups">Gruplar</string>
+    <string name="menu_groups_summary">Gezinme çekmecesinde &#8216;Gruplar&#8217; düğmesini göster.</string>
+    <string name="menu_messages">Mesajlar</string>
+    <string name="menu_search">Arama</string>
+    <string name="menu_search_summary">Gezinme çekmecesinde &#8216;Arama&#8217; düğmesini göster.</string>
+    <string name="menu_mainmenu">Ana menü</string>
+    <string name="menu_mainmenu_summary">Gezinme çekmecesinde &#8216;Ana menü&#8217; düğmesini göster.</string>
+    <string name="messaging_enabled_title">Mesajlaşma</string>
+    <string name="messaging_enabled_summary">Etkinleştirildiğinde, Facebook Mesajlar\'a erişim sağlayacaktır. Bir mesajlaşma uygulamanız varsa devre dışı bırakın.</string>
+    <string name="silent">Ses yok</string>
+    <string name="navigation_drawer_open">Gezinme çekmecesini aç</string>
+    <string name="navigation_drawer_close">Gezinme çekmecesini kapat</string>
+    <string name="default_user">Kullanıcı</string>
+    <string name="nav_notifications">Bildirimler</string>
+    <string name="settings">Ayarlar</string>
+    <string name="context_share_image">Resim paylaş</string>
+    <string name="context_share_link">Linki paylaş</string>
+    <string name="context_share_image_progress">Resim paylaşılıyor&#8230;</string>
+    <string name="content_copy_link_done">Link panoya kopyalandı</string>
+    <string name="error_login">Bir sorun oluştu, lütfen tekrar giriş yapmayı deneyin.</string>
+    <string name="permission_denied">İzin reddedildi, işlem tamamlanamadı</string>
+    <string name="downloaded">İndirildi</string>
+    <string name="new_bookmark">Eklendi:</string>
+    <string name="remove_bookmark">Silindi:</string>
+</resources>

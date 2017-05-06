@@ -1,5 +1,4 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/header_layout"
     android:layout_width="match_parent"
     android:layout_height="@dimen/nav_header_height"
     android:background="?attr/colorPrimary"
@@ -7,8 +6,7 @@
     android:orientation="vertical"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-
-    <ImageView
+    <android.support.v7.widget.AppCompatImageView
         android:id="@+id/cover"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -37,10 +35,9 @@
                 android:id="@+id/profile_picture"
                 android:layout_width="75dp"
                 android:layout_gravity="start"
-                android:layout_height="75dp"
-                android:contentDescription="@string/header_profile_pic"/>
+                android:layout_height="75dp"/>
 
-            <TextView
+            <android.support.v7.widget.AppCompatTextView
                 android:id="@+id/profile_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Notifications -->
+    <string name="notifications_setting_title">MELDINGEN</string>
+    <string name="notif">Meldingen</string>
+    <string name="facebook_message">Berichtmeldingen</string>
+    <string name="facebook_notifications">Facebook-meldingen</string>
+    <string name="sync_problem">De cookies kunnen niet worden gesynchroniseerd. Herstart de app.</string>
+    <string name="notification_sound_description">Kies een beltoon of stilte: \u0020</string>
+    <string name="notifications_settings">Meldingsinstellingen</string>
+    <string name="notifications_settings_description">Aanvullende instellingen. Kies de tijdstussenpoos en stel geluiden, LED en trillen in.</string>
+    <string name="interval_pref">Tijdstussenpoos voor controleren</string>
+    <string name="notification_sound">Meldingsgeluid</string>
+    <string name="interval_pref_description_new">Er zal elke %s worden gecontroleerd op meldingen.</string>
+    <string name="notification_sound_msg">Berichtgeluid</string>
+    <string name="vibrate">Trillen</string>
+    <string name="vibrate_double">Tweemaal trillen</string>
+    <string name="led_light">LED-lampje</string>
+
+    <string-array name="intervalPrefTitles">
+        <item>1 minuut</item>
+        <item>2 minuten</item>
+        <item>5 minuten</item>
+        <item>15 minuten</item>
+        <item>30 minuten</item>
+        <item>1 uur</item>
+        <item>3 uur</item>
+        <item>6 uur</item>
+    </string-array>
+    <!-- End Notifications -->
+
+    <!-- General -->
+    <string name="general_setting_title">ALGEMEEN</string>
+    <string name="location_enabled_title">Locatietoegang</string>
+    <string name="location_enabled_summary">Schakel dit in om Facebook toestemming te geven uw locatie te bepalen.</string>
+    <string name="hide_editor_newsfeed_title">Statusbewerker verbergen in Nieuwsoverzicht</string>
+    <string name="hide_editor_newsfeed_summary">Als dit is ingeschakeld dan zal de statusbewerker verborgen zijn in het Nieuwsoverzicht.</string>
+    <string name="stop_images_title">Afbeeldingen niet laden</string>
+    <string name="stop_images_summary">Als dit is ingeschakeld dan zullen afbeeldingen niet worden gedownload. Het kan zijn dat er afbeeldingen achterblijven in de cache.</string>
+    <string name="hide_sponsored_title">&#8216;Gesponsorde&#8217; inhoud verbergen</string>
+    <string name="hide_sponsored_summary">&#8216;Gesponsorde&#8217; inhoud (advertenties) verbergen in het Nieuwsoverzicht.</string>
+    <string name="hide_birthdays_title">Verjaardagen verbergen</string>
+    <string name="hide_birthdays_summary">Verjaardagen verbergen in het Nieuwsoverzicht, in evenementen en in meldingen.</string>
+    <string name="hide_menu_bar_title">Menubalk verbergen</string>
+    <string name="hide_menu_bar_summary">Als dit is ingeschakeld dan zal de Facebook-menubalk verborgen zijn.</string>
+    <string name="hide_recently_commented">Recent beantwoord verbergen</string>
+    <string name="hide_recently_commented_summary">X mensen hebben hier recent op geantwoord.</string>
+    <string name="start_url">Start-URL</string>
+    <string-array name="Start">
+        <item>Meest recent</item>
+        <item>Topverslagen</item>
+        <item>Berichten</item>
+    </string-array>
+    <!-- End general -->
+
+    <!-- About -->
+    <string name="more">Meer en bedankjes</string>
+    <string name="about_updates">Updates</string>
+    <string name="updates">Controleren op nieuwe versie</string>
+    <string name="updates_summary">Laad de pagina en download de nieuwste versie</string>
+    <string name="people_who_translated">Gebruikers die de app vertaald hebben</string>
+    <string name="devs_who_helped_me">Ontwikkelaars die me hebben geholpen bij het beantwoorden van mijn vragen en van wie ik code heb mogen gebruiken</string>
+    <string name="help_translations">Help mee deze te app te vertalen naar uw taal</string>
+    <string name="about_translations">Help, we hebben u nodig</string>
+    <string name="source_code">Broncode op GitHub</string>
+    <string name="withYou">Fouten (bugs) rapporteren of nieuwe mogelijkheden aanvragen</string>
+    <string name="changelog">Wijzigingslog</string>
+    <!-- End about -->
+
+    <!-- APPEARANCE -->
+    <string name="appearance_setting_title">UITERLIJK</string>
+    <string name="web_themes">Webthema\'s</string>
+    <string name="web_themes_summary">U kunt kiezen uit verschillende webthema\'s.</string>
+    <string name="app_themes">App-thema\'s</string>
+    <string name="app_themes_summary">U kunt kiezen uit verschillende app-thema\'s.</string>
+
+    <!-- Navigation -->
+    <string name="navigation_setting_title">NAVIGATIE</string>
+    <string name="navigation_menu_settings">Items in navigatiemenu</string>
+    <string name="navigation_menu_settings_description">U kunt items van het navigatiemenu weergeven/verbergen.</string>
+    <string name="save_data">Gegevensverbruik verminderen</string>
+    <string name="save_data_summary">Facebook laden in de lichtste modus. Dit schakelt profielfoto\'s en het bijwerken van profielinformatie uit.</string>
+    <string name="clearcache">Cache wissen bij afsluiten</string>
+    <string name="clearcache_summary">De app heeft meer tijd nodig om op te starten.</string>
+    <string name="fab_enable">Zwevende actieknop</string>
+    <string name="fab_enable_summary">De zwevende actieknop weergeven.</string>
+    <!-- Navigation: fab -->
+    <string name="fab_text">Status bijwerken</string>
+    <string name="fab_photo">Foto plaatsen</string>
+    <string name="fab_checkin">Inchecken</string>
+    <string name="fab_jump_top">Scrollen naar bovenkant</string>
+    <!-- Navigation: items -->
+    <string name="navigation_menu_title">NAVIGATIEMENU</string>
+    <string name="ic_menu_exitapp">App afsluiten</string>
+    <string name="ic_menu_exitapp_summary">&#8216;App afsluiten&#8217;-knop weergeven op de navigatiebalk.</string>
+    <string name="ic_menu_fblogout">Uitloggen</string>
+    <string name="ic_menu_fblogout_summary">&#8216;Uitloggen&#8217;-knop weergeven op de navigatiebalk.</string>
+    <string name="menu_photos">Foto\'s</string>
+    <string name="menu_photos_summary">&#8216;Foto\'s&#8217;-knop weergeven op de navigatiebalk.</string>
+    <string name="menu_events">Evenementen</string>
+    <string name="menu_events_summary">&#8216;Evenementen&#8217;-knop weergeven op de navigatiebalk.</string>
+    <string name="menu_back">Terug</string>
+    <string name="menu_back_summary">&#8216;Terug&#8217;-knop weergeven op de navigatiebalk.</string>
+    <string name="menu_top_stories">Topverslagen</string>
+    <string name="menu_top_stories_summary">&#8216;Topverslagen&#8217;-knop weergeven op de navigatiebalk.</string>
+    <string name="menu_most_recent">Meest recent</string>
+    <string name="menu_friendreq">Vriendschapsverzoeken</string>
+    <string name="menu_friendreq_summary">&#8216;Vriendschapsverzoeken&#8217;-knop weergeven op de navigatiebalk.</string>
+    <string name="menu_groups">Groepen</string>
+    <string name="menu_groups_summary">&#8216;Groepen&#8217;-knop weergeven op de navigatiebalk.</string>
+    <string name="menu_messages">Berichten</string>
+    <string name="menu_search">Zoeken</string>
+    <string name="menu_search_summary">&#8216;Zoeken&#8217;-knop weergeven op de navigatiebalk.</string>
+    <string name="menu_mainmenu">Hoofdmenu</string>
+    <string name="menu_mainmenu_summary">&#8216;Hoofdmenu&#8217;-knop weergeven op de navigatiebalk.</string>
+    <string name="messaging_enabled_title">Chats</string>
+    <string name="messaging_enabled_summary">Als dit is ingeschakeld zal toegang worden gegeven tot Facebook-chats. Schakel dit uit als u een chat-app heeft.</string>
+    <string name="silent">Geen geluid</string>
+    <string name="navigation_drawer_open">Navigatiebalk openen</string>
+    <string name="navigation_drawer_close">Navigatiebalk sluiten</string>
+    <string name="default_user">Gebruiker</string>
+    <string name="nav_notifications">Meldingen</string>
+    <string name="settings">Instellingen</string>
+    <string name="context_share_image">Afbeelding delen</string>
+    <string name="context_share_link">Link delen</string>
+    <string name="context_share_image_progress">Bezig met delen van afbeelding...</string>
+    <string name="content_copy_link_done">De link is gekopieerd naar het klembord</string>
+    <string name="error_login">Er is iets fout gegaan. Probeer opnieuw in te loggen.</string>
+    <string name="permission_denied">Toegang geweigerd; de actie kan niet worden voltooid.</string>
+    <string name="downloaded">Gedownload</string>
+    <string name="new_bookmark">Toegevoegd:</string>
+    <string name="remove_bookmark">Verwijderd:</string>
+</resources>
