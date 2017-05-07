@@ -141,6 +141,7 @@
 
         <activity
             android:name=".Activities.Video"
+            android:configChanges="orientation|screenSize"
             android:launchMode="singleTask"
             android:theme="@style/Photo" />
     </application>
