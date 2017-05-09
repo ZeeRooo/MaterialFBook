@@ -16,6 +16,15 @@ android {
         versionCode 47
         versionName "3.3.0"
     }
+    
+    productFlavors {
+        labs {
+        }
+        fdroid {
+            applicationId "me.zeeroooo.materialfb"
+        }
+    }
+    
     buildTypes {
         release {
             zipAlignEnabled true
