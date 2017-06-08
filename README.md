@@ -247,9 +247,20 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Updated Serbian translation.
 - Bugfixes.
 
+**Version 3.4.0:**
+- Start URL fixed. #77
+- Disabled Swipe Refresh when you are writing a state, posting a photo or sharing your location. #56
+- Translated to Danish by mhtorp.
+- Translated to Indonesian by Aditya Prasetyo.
+- Updated some translations.
+- Changed text color from black to white in "post status" with MaterialAmoled Web Theme. #83
+- Now the video player save the position when you minimize the app and continue it when the app is reopened. #82
+- Enabled QuickShare for photos and videos.
+
 
 **Notes:**
 _- Maybe some gifs cant be loaded because i need to add the url to the code. Report it as issue with the Facebook´s page link or website._
+- You can allow or deny the "publish actions" from the Facebook settings. If disabled, you cant use QuickShare.
 
 **Translations:** https://www.transifex.com/yaron/materialfbook/translate/
 

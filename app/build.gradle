@@ -13,9 +13,18 @@ android {
         applicationId "me.zeerooo.materialfb"
         minSdkVersion 17
         targetSdkVersion 25
-        versionCode 47
-        versionName "3.3.0"
+        versionCode 48
+        versionName "3.4.0"
     }
+
+    productFlavors {
+        labs {
+        }
+        fdroid {
+            applicationId "me.zeeroooo.materialfb"
+        }
+    }
+    
     buildTypes {
         release {
             zipAlignEnabled true
@@ -35,6 +44,6 @@ dependencies {
     compile 'com.github.bumptech.glide:glide:3.7.0'
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.github.chrisbanes:PhotoView:1.2.6'
-    compile 'com.facebook.android:facebook-android-sdk:4.+'
+    compile 'com.facebook.android:facebook-android-sdk:[4,5)'
     testCompile 'junit:junit:4.12'
 }

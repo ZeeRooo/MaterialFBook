@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Notifications -->
+    <string name="notifications_setting_title">NOTIFIKATIONER</string>
+    <string name="notif">Notifikationer</string>
+    <string name="facebook_message">Besked notifikationer</string>
+    <string name="facebook_notifications">Facebook notifikationer</string>
+    <string name="sync_problem">Cookies blev ikke synkroniseret. Prøv at genstarte app\'en</string>
+    <string name="notification_sound_description">Vælg en ringetone eller stilhed: \u0020</string>
+    <string name="notifications_settings">Notifikationindstillinger</string>
+    <string name="notifications_settings_description">Yderligere indstillinger. Vælg tidsinterval, konfigurer lyde, LED og vibration.</string>
+    <string name="interval_pref">Tidsinterval for tjek</string>
+    <string name="notification_sound">Notifikationslyd</string>
+    <string name="interval_pref_description_new">Notifikationer vil blive opdateret hvert %s.</string>
+    <string name="notification_sound_msg">Beskedlyd</string>
+    <string name="vibrate">Vibration</string>
+    <string name="vibrate_double">Dobbelt vibration</string>
+    <string name="led_light">LED-lys</string>
+
+    <string-array name="intervalPrefTitles">
+        <item>1 minut</item>
+        <item>2 minutter</item>
+        <item>5 minutter</item>
+        <item>15 minutter</item>
+        <item>30 minutter</item>
+        <item>1 time</item>
+        <item>3 timer</item>
+        <item>6 timer</item>
+    </string-array>
+    <!-- End Notifications -->
+
+    <!-- General -->
+    <string name="general_setting_title">GENERELT</string>
+    <string name="location_enabled_title">Placeringsadgang</string>
+    <string name="location_enabled_summary">Aktivér denne for at give Facebook adgang til din placering.</string>
+    <string name="hide_editor_newsfeed_title">Skjul Status editor i Nyhedsfeedet</string>
+    <string name="hide_editor_newsfeed_summary">Aktivér for at skjule status editor fra Nyhedsfeedet.</string>
+    <string name="stop_images_title">Hent ikke billeder</string>
+    <string name="stop_images_summary">Aktivér for ikke at hente billeder. Nogle billeder forbliver i cachen.</string>
+    <string name="hide_sponsored_title">Skjul &#8216;Sponsoreret&#8217; indhold</string>
+    <string name="hide_sponsored_summary">Skjul &#8216;Sponsoreret&#8217; indhold (reklamer) fra feedet.</string>
+    <string name="hide_birthdays_title">Skjul fødselsdage</string>
+    <string name="hide_birthdays_summary">Skjul fødselsdage fra feedet, begivenheder og notifikationer.</string>
+    <string name="hide_menu_bar_title">Skjul menubjælke</string>
+    <string name="hide_menu_bar_summary">Aktivér for at skjule Facebooks menubjælke.</string>
+    <string name="hide_recently_commented">Skjul nyligt kommenterede</string>
+    <string name="hide_recently_commented_summary">X personer har for nyligt kommenteret dette.</string>
+    <string name="start_url">Start URL</string>
+    <string-array name="Start">
+        <item>Seneste</item>
+        <item>TopHistorier</item>
+        <item>Beskeder</item>
+    </string-array>
+    <!-- End general -->
+
+    <!-- About -->
+    <string name="more">Mere og anerkendelser</string>
+    <string name="about_updates">Opdateringer</string>
+    <string name="updates">Check for ny version</string>
+    <string name="updates_summary">Indlæs siden og hent den nyeste version</string>
+    <string name="people_who_translated">Brugere, som har oversat app\'en</string>
+    <string name="devs_who_helped_me">Udviklere, som har hjulpet mig med at svare på mine spørgsmål og ved at tilbyde kode fra deres apps</string>
+    <string name="help_translations">Hjælp mig med at oversætte appen til dit sprog</string>
+    <string name="about_translations">Hjælp, vi har brug for dig</string>
+    <string name="source_code">Kildekode på Github</string>
+    <string name="withYou">Rapportér fejl eller foreslå nye funktioner</string>
+    <string name="changelog">Ændringslog</string>
+    <!-- End about -->
+
+    <!-- APPEARANCE -->
+    <string name="appearance_setting_title">UDSEENDE</string>
+    <string name="web_themes">Webtemaer</string>
+    <string name="web_themes_summary">Du kan vælge forskellige webtemaer.</string>
+    <string name="app_themes">Apptemaer</string>
+    <string name="app_themes_summary">Du kan vælge forskellige apptemaer.</string>
+
+    <!-- Navigation -->
+    <string name="navigation_setting_title">NAVIGATION</string>
+    <string name="navigation_menu_settings">Navigationsmenu indhold</string>
+    <string name="navigation_menu_settings_description">Du kan vise/skjule emner fra navigationsmenuen.</string>
+    <string name="save_data">Begræns dataforbrug</string>
+    <string name="save_data_summary">Indlæs Facebook i en enkel udgave og deaktiver badges, profilinfo og opdateringer.</string>
+    <string name="clearcache">Ryd cache ved afslutning</string>
+    <string name="clearcache_summary">Det vil tage længere tid at åbne appen.</string>
+    <string name="fab_enable">Flydende handlingsknap</string>
+    <string name="fab_enable_summary">Vis den flydende handlingsknap.</string>
+    <!-- Navigation: fab -->
+    <string name="fab_text">Lav statusopdatering</string>
+    <string name="fab_photo">Læg billede op</string>
+    <string name="fab_checkin">Check Ind</string>
+    <string name="fab_jump_top">Gå til toppen</string>
+    <!-- Navigation: items -->
+    <string name="navigation_menu_title">NAVIGATIONSMENU</string>
+    <string name="ic_menu_exitapp">Afslut app</string>
+    <string name="ic_menu_exitapp_summary">Vis &#8216;Afslut app&#8217; knap i navigationsskuffen.</string>
+    <string name="ic_menu_fblogout">Log af</string>
+    <string name="ic_menu_fblogout_summary">Vis &#8216;Log af&#8217; knap i navigationsskuffen.</string>
+    <string name="menu_photos">Fotos</string>
+    <string name="menu_photos_summary">Vis &#8216;Fotos&#8217; knap i navigationsskuffen.</string>
+    <string name="menu_events">Begivenheder</string>
+    <string name="menu_events_summary">Vis &#8216;Begivenheder&#8217; knap i navigationsskuffen.</string>
+    <string name="menu_back">Tilbage</string>
+    <string name="menu_back_summary">Vis &#8216;Tilbage&#8217; knap i navigationsskuffen.</string>
+    <string name="menu_top_stories">Top historier</string>
+    <string name="menu_top_stories_summary">Vis &#8216;Top historier&#8217; knap i navigationsskuffen.</string>
+    <string name="menu_most_recent">Seneste</string>
+    <string name="menu_friendreq">Venneanmodninger</string>
+    <string name="menu_friendreq_summary">Vis &#8216;Venneanmodninger&#8217; knap i navigationsskuffen.</string>
+    <string name="menu_groups">Grupper</string>
+    <string name="menu_groups_summary">Vis &#8216;Grupper&#8217; knap i navigationsskuffen.</string>
+    <string name="menu_messages">Beskeder</string>
+    <string name="menu_search">Søg</string>
+    <string name="menu_search_summary">Vis &#8216;Søg&#8217; knap i navigationsskuffen.</string>
+    <string name="menu_mainmenu">Hovedmenu</string>
+    <string name="menu_mainmenu_summary">Vis &#8216;Hovedmenu&#8217; knap i navigationsskuffen.</string>
+    <string name="messaging_enabled_title">Beskeder</string>
+    <string name="messaging_enabled_summary">Slå til for at aktivere Facebook Messanger. Slå fra, hvis du har en Messenger app.</string>
+    <!-- End navigation -->
+
+    <!-- App -->
+    <string name="silent">Lydløs</string>
+    <string name="navigation_drawer_open">Åben navigationsskuffen</string>
+    <string name="navigation_drawer_close">Luk navigationsskuffen</string>
+    <string name="default_user">Bruger</string>
+    <string name="nav_notifications">Notifikationer</string>
+    <string name="settings">Indstillinger</string>
+    <string name="context_share_image">Del billede</string>
+    <string name="context_share_link">Del link</string>
+    <string name="context_share_image_progress">Deler billede…</string>
+    <string name="content_copy_link_done">Link kopieret til udklipsholder</string>
+    <string name="error_login">Noget gik galt. Prøv at logge ind igen</string>
+    <string name="permission_denied">Adgang nægtet. Kan ikke fuldføre handlingen</string>
+    <string name="downloaded">Hentet</string>
+    <string name="new_bookmark">Tilføjet:</string>
+    <string name="remove_bookmark">Fjernet:</string>
+</resources>

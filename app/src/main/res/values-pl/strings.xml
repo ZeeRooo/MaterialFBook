@@ -3,19 +3,20 @@
     <!-- Notifications -->
     <string name="notifications_setting_title">POWIADOMIENIA</string>
     <string name="notif">Powiadomienia</string>
+    <string name="facebook_message">Wiadomości z Facebooka</string>
+    <string name="facebook_notifications">Powiadomienia z Facebooka</string>
     <string name="sync_problem">Nie można zsynchronizować ciasteczek. Pierwsze uruchomienie, tak? Wystarczy zrestartować aplikacje :)</string>
     <string name="notification_sound_description">Wybierz dzwonek, lub wyciszenie: \u0020</string>
     <string name="notifications_settings">Ustawienia powiadomień</string>
     <string name="notifications_settings_description">Ustawienia dodatkowe. Wybierz interwał czasu, ustaw dźwięki, LED i wibracje.</string>
-    <string name="facebook_notifications">Powiadomienia z Facebooka</string>
-    <string name="facebook_message">Wiadomości z Facebooka</string>
     <string name="interval_pref">Sprawdzaj w interwale</string>
     <string name="notification_sound">Dźwięk powiadomień</string>
     <string name="interval_pref_description_new">Powiadomienia będą sprawdzane co %s.</string>
     <string name="notification_sound_msg">Dźwięk wiadomości</string>
     <string name="vibrate">Wibracje</string>
     <string name="vibrate_double">Podwójna wibracja</string>
-    <string name="led_light">Światło LED</string>
+    <string name="led_light">Dioda LED</string>
+
     <string-array name="intervalPrefTitles">
         <item>1 minuta</item>
         <item>2 minuty</item>
@@ -40,11 +41,11 @@
     <string name="hide_sponsored_summary">Kiedy włączone, treści \„Sponsorowane\” (reklamy) będą ukryte z Aktualności.</string>
     <string name="hide_birthdays_title">Ukryj Urodziny</string>
     <string name="hide_birthdays_summary">Kiedy włączone, urodziny będą ukryte z Aktualności.</string>
-    <string name="clearcache">Wyczyść pamięć podręczną przy zamykaniu</string>
-    <string name="clearcache_summary">Kiedy włączone, aplikacja będzie uruchamiać się dłużej.</string>
-    <string name="hide_recently_commented">Ukryj ostatnio skomentowane.</string>
-    <string name="hide_recently_commented_summary">X osób ostatnio skomentowało to.</string>
-    <string name="start_url">Zaczynaj w</string>
+    <string name="hide_menu_bar_title">Ukryj pasek Menu</string>
+    <string name="hide_menu_bar_summary">Kiedy włączone, górny pasek Menu Facebooka będzie ukryty.</string>
+    <string name="hide_recently_commented">Ukryj ostatnio skomentowane</string>
+    <string name="hide_recently_commented_summary">\"X\" ludzi niedawno skomentowało to.</string>
+    <string name="start_url">Start URL</string>
     <string-array name="Start">
         <item>Najnowsze</item>
         <item>Najciekawsze</item>
@@ -52,7 +53,21 @@
     </string-array>
     <!-- End general -->
 
-    <!-- Appearence -->
+    <!-- About -->
+    <string name="more">Więcej i zasługi</string>
+    <string name="about_updates">Aktualizacje</string>
+    <string name="updates">Sprawdź czy jest nowsza wersja</string>
+    <string name="updates_summary">Załaduj stronę i ściągnij najnowszą wersję</string>
+    <string name="people_who_translated">Użytkownicy, którzy przetłumaczyli aplikację</string>
+    <string name="devs_who_helped_me">Deweloperzy, którzy pomogli z pytaniami, oraz użyczyli kod z ich aplikacji</string>
+    <string name="help_translations">Pomóż przetłumaczyć aplikację na Twój język</string>
+    <string name="about_translations">Pomóż, potrzebujemy Cię!</string>
+    <string name="source_code">Kod źródłowy na Github</string>
+    <string name="withYou">Zaraportuj błędy, lub poproś o nową funkcję</string>
+    <string name="changelog">Lista zmian</string>
+    <!-- End about -->
+
+    <!-- APPEARANCE -->
     <string name="appearance_setting_title">WYGLĄD</string>
     <string name="web_themes">Wygląd facebooka </string>
     <string name="web_themes_summary">Możesz wybrać wzornictwo facebooka.</string>
@@ -61,14 +76,14 @@
 
     <!-- Navigation -->
     <string name="navigation_setting_title">NAWIGACJA</string>
-    <string name="hide_menu_bar_title">Ukryj pasek Menu</string>
-    <string name="hide_menu_bar_summary">Kiedy włączone, górny pasek Menu Facebooka będzie ukryty.</string>
     <string name="navigation_menu_settings">Elementy menu nawigacji</string>
     <string name="navigation_menu_settings_description">Możesz dodać/ukryć elementy w menu nawigacyjnym aplikacji.</string>
     <string name="save_data">Niższe zużycie danych</string>
     <string name="save_data_summary">Ładuje Facebooka w wersji podstawowej, a także wyłącza znaczniki oraz informacje profilowe.</string>
-    <string name="fab_enable">Floating Action Button</string>
-    <string name="fab_enable_summary">Pokaż FAB.</string>
+    <string name="clearcache">Wyczyść pamięć podręczną przy zamykaniu</string>
+    <string name="clearcache_summary">Kiedy włączone, aplikacja będzie uruchamiać się dłużej.</string>
+    <string name="fab_enable">Ruchomy przycisk akcji</string>
+    <string name="fab_enable_summary">Pokaż przycisk.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Opublikuj status</string>
     <string name="fab_photo">Opublikuj zdjęcie</string>
@@ -100,9 +115,6 @@
     <string name="menu_mainmenu_summary">Jeśli wyłączone, przycisk \„Menu Główne\” zniknie z menu nawigacji.</string>
     <string name="messaging_enabled_title">Wiadomości</string>
     <string name="messaging_enabled_summary">Włączone zapewnia dostęp do Wiadomości z Facebooka. Wyłącz, jeśli używasz innej aplikacji do wiadomości.</string>
-    <!-- End navigation -->
-
-    <!-- App -->
     <string name="silent">Brak dźwięku</string>
     <string name="navigation_drawer_open">Otwórz szufladę nawigacji</string>
     <string name="navigation_drawer_close">Zamknij szufladę nawigacji</string>
@@ -118,18 +130,4 @@
     <string name="downloaded">Pobrane</string>
     <string name="new_bookmark">Dodano:</string>
     <string name="remove_bookmark">Usunięto:</string>
-    <!-- About -->
-    <string name="more">Więcej i zasługi</string>
-    <string name="about_updates">Aktualizacje</string>
-    <string name="updates">Sprawdź czy jest nowsza wersja</string>
-    <string name="updates_summary">Załaduj stronę i ściągnij najnowszą wersję</string>
-    <string name="people_who_translated">Użytkownicy, którzy przetłumaczyli aplikację</string>
-    <string name="devs_who_helped_me">Deweloperzy, którzy pomogli z pytaniami, oraz użyczyli kod z ich aplikacji</string>
-    <string name="help_translations">Pomóż przetłumaczyć aplikację na Twój język</string>
-    <string name="about_translations">Pomóż, potrzebujemy Cię!</string>
-    <string name="source_code">Kod źródłowy na Github</string>
-    <string name="withYou">Zaraportuj błędy, lub poproś o nowa funkcję</string>
-    <string name="changelog">Lista zmian</string>
-    <!-- End about -->
-
 </resources>

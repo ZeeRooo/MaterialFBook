@@ -121,6 +121,7 @@
 	<string name="bookmarks_header">Marcadores</string>
     <string name="new_bookmark">Agregando:</string>
     <string name="remove_bookmark">Eliminado:</string>
+    <string name="sharing_info">Puede tardar algo de tiempo, depende del peso del archivo</string>
     <!-- About -->
     <string name="more">Créditos y más</string>
     <string name="about_updates">Actualizaciones</string>

@@ -168,6 +168,20 @@
             android:summary="Baran Aydin"
             android:title="Turkish">
         </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="mhtorp"
+            android:title="Danish">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/mhtorp" />
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="Aditya Prasetyo"
+            android:title="Indonesian">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://forum.xda-developers.com/member.php?u=4563814" />
+        </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/about_translations">
         <PreferenceScreen

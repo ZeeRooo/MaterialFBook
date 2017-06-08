@@ -18,29 +18,6 @@ public class JavaScriptHelpers {
         view.loadUrl("javascript:( window.onload=prepareVideo;)()");
     }
 
-    public static void paramLoader(WebView view, String url) {
-        UrlQuerySanitizer sanitizer = new UrlQuerySanitizer();
-        sanitizer.setAllowUnregisteredParamaters(true);
-        sanitizer.parseUrl(url);
-        String param = sanitizer.getValue("pageload");
-        if (param != null) {
-            switch (param) {
-                case "composer":
-                    view.loadUrl("javascript:(function(){try{document.querySelector('button[name=\"view_overview\"]').click()}catch(_){}})()");
-                    break;
-                case "composer_photo":
-                    view.loadUrl("javascript:(function(){try{document.querySelector('button[name=\"view_photo\"]').click()}catch(_){}})()");
-                    break;
-                case "composer_checkin":
-                    view.loadUrl("javascript:(function(){try{document.querySelector('button[name=\"view_location\"]').click()}catch(_){}})()");
-                    break;
-                default:
-                    break;
-            }
-        }
-
-    }
-
     public static void loadCSS(WebView view, String css) {
         try {
             InputStream inputStream = new ByteArrayInputStream(css.getBytes("UTF-8"));

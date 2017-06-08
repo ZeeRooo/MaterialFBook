@@ -119,6 +119,7 @@
 
     <!-- App -->
     <string name="facebook_app_id" translatable="false">1440102826005611</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb1440102826005611</string>
     <string name="app_name" translatable="false">MaterialFBook</string>
     <string name="silent">No sound</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -128,7 +129,7 @@
     <string name="settings">Settings</string>
     <string name="context_share_image">Share image</string>
     <string name="context_share_link">Share link</string>
-    <string name="context_share_image_progress">Sharing image…</string>
+    <string name="context_share_image_progress">Sharing image&#8230;</string>
     <string name="sharing_video">Sharing video…</string>
     <string name="quick_description">Add a quick description</string>
     <string name="content_copy_link_done">Link copied to clipboard</string>
@@ -138,4 +139,5 @@
     <string name="bookmarks_header">Bookmarks</string>
     <string name="new_bookmark">Added:</string>
     <string name="remove_bookmark">Removed:</string>
+    <string name="sharing_info">It can take some time, depending on the file size</string>
 </resources>

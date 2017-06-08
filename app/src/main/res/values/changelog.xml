@@ -2,6 +2,25 @@
 <resources>
     <string name="changelog_list" translatable="false">
 <![CDATA[
+<b>Version 3.4.0:</b>
+<br>
+- Start URL fixed. #77
+<br>
+- Disabled Swipe Refresh when you are writing a state, posting a photo or sharing your location. #56
+<br>
+- Translated to Danish by mhtorp.
+<br>
+- Translated to Indonesian by Aditya Prasetyo.
+<br>
+- Updated some translations.
+<br>
+- Changed text color from black to white in "post status" with MaterialAmoled Web Theme. #83
+<br>
+- Now the video player save the position when you minimize the app and continue it when the app is reopened. #82
+<br>
+- Enabled QuickShare for photos and videos.
+<br>
+<br>
 <b>Version 3.3.0:</b>
 <br>
 - Translated to Dutch.

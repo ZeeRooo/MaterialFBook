@@ -206,4 +206,18 @@ public class Video extends AppCompatActivity {
             }
         }
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        position = mVideoView.getCurrentPosition();
+        mVideoView.pause();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mVideoView.seekTo(position);
+        mVideoView.start();
+    }
 }

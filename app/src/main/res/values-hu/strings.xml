@@ -125,7 +125,7 @@
     <string name="settings">Beállítások</string>
     <string name="context_share_image">Kép megosztása</string>
     <string name="context_share_link">Hivatkozás megosztása</string>
-    <string name="context_share_image_progress">Kép megosztása…</string>
+    <string name="context_share_image_progress">Kép megosztása&#8230;</string>
     <string name="content_copy_link_done">Hivatkozás másolása a vágólapra</string>
     <string name="error_login">Valami hiba történt a bejelentkezéskor, kérjük próbáld újra.</string>
     <string name="permission_denied">Hozzáférés megtagadva, sikertelen művelet</string>

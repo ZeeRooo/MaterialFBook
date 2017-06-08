@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Notifications -->
+    <string name="notifications_setting_title">NOTIFICHE</string>
+    <string name="notif">Notifiche</string>
+    <string name="facebook_message">Notifiche messaggio</string>
+    <string name="facebook_notifications">Notifiche Facebook</string>
+    <string name="sync_problem">I cookie non possono essere sincronizzati. Prova a riavviare l\'app</string>
+    <string name="notification_sound_description">Scegli una suoneria o silenzioso:  \u0020</string>
+    <string name="notifications_settings">Impostazioni notifiche</string>
+    <string name="notifications_settings_description">Impostazioni aggiuntive. Scegli l\'intervallo di tempo, imposta i suoni, LED e vibrazione.</string>
+    <string name="interval_pref">Intervallo di tempo per il controllo</string>
+    <string name="notification_sound">Suono notifiche</string>
+    <string name="interval_pref_description_new">Le notifiche verranno controllate ogni %s.</string>
+    <string name="notification_sound_msg">Suono messaggio</string>
+    <string name="vibrate">Vibrazione</string>
+    <string name="vibrate_double">Doppia vibrazione</string>
+    <string name="led_light">Luce LED</string>
+
+    <string-array name="intervalPrefTitles">
+        <item>1 minuto</item>
+        <item>2 minuti</item>
+        <item>5 minuti</item>
+        <item>15 minuti</item>
+        <item>30 minuti</item>
+        <item>1 ora</item>
+        <item>3 ore</item>
+        <item>6 ore</item>
+    </string-array>
+    <!-- End Notifications -->
+
+    <!-- General -->
+    <string name="general_setting_title">GENERALE</string>
+    <string name="location_enabled_title">Accesso posizione</string>
+    <string name="location_enabled_summary">Abilita questo per permettere a Facebook di ottenere la tua posizione.</string>
+    <string name="hide_editor_newsfeed_title">Nascondi l\'editor di stato nel News Feed</string>
+    <string name="hide_editor_newsfeed_summary">Quando abilitato, l\'editor di status verrà nascosto nel News Feed.</string>
+    <string name="stop_images_title">Non caricare immagini</string>
+    <string name="stop_images_summary">Quando abilitato, non scaricherà le immagini. Alcune immagini potrebbero rimanere nella cache.</string>
+    <string name="hide_sponsored_title">Nascondi Contenuto &#8216;Sponsorizzato&#8217;</string>
+    <string name="hide_sponsored_summary">Nascondi contenuto &#8216;sponsorizzato&#8217; (pubblicità) dal feed.</string>
+    <string name="hide_birthdays_title">Nascondi compleanni</string>
+    <string name="hide_birthdays_summary">Nascondi compleanni da feed, eventi e notifiche.</string>
+    <string name="hide_menu_bar_title">Nascondi barra del menu</string>
+    <string name="hide_menu_bar_summary">Quando abilitato, la barra del menu di Facebook verrà nascosta.</string>
+    <string name="hide_recently_commented">Nascondi commentati di recente</string>
+    <string name="hide_recently_commented_summary">X persone hanno recentemente commentato su questo.</string>
+    <string name="start_url">URL iniziale</string>
+    <string-array name="Start">
+        <item>Più Recenti</item>
+        <item>Migliori Storie</item>
+        <item>Messaggi</item>
+    </string-array>
+    <!-- End general -->
+
+    <!-- About -->
+    <string name="more">Altro e crediti</string>
+    <string name="about_updates">Aggiornamenti</string>
+    <string name="updates">Controlla presenza nuova versione</string>
+    <string name="updates_summary">Carica la pagina e scarica l\'ultima versione</string>
+    <string name="people_who_translated">Utenti che hanno tradotto l\'app</string>
+    <string name="devs_who_helped_me">Gli sviluppatori che mi hanno aiutato a rispondere alla mie domande e fatto prendere il codice dalle loro app.</string>
+    <string name="help_translations">Aiutami a tradurre l\'app nella tua lingua</string>
+    <string name="about_translations">Aiuto, abbiamo bisogno di te</string>
+    <string name="source_code">Codice sorgente su Github</string>
+    <string name="withYou">Segnala bug o richiedi nuove caratteristiche</string>
+    <string name="changelog">Changelog</string>
+    <!-- End about -->
+
+    <!-- APPEARANCE -->
+    <string name="appearance_setting_title">ASPETTO</string>
+    <string name="web_themes">Temi web</string>
+    <string name="web_themes_summary">Puoi scegliere differenti temi web.</string>
+    <string name="app_themes">Temi app</string>
+    <string name="app_themes_summary">Puoi scegliere differenti temi app.</string>
+
+    <!-- Navigation -->
+    <string name="navigation_setting_title">NAVIGAZIONE</string>
+    <string name="navigation_menu_settings">Navigazione voci di menu</string>
+    <string name="navigation_menu_settings_description">Puoi mostrare/nascondere le voci nel menu di navigazione.</string>
+    <string name="save_data">Modalità basso utilizzo dati</string>
+    <string name="save_data_summary">Carica Facebook in versione basilare e disabilita i badge e le informazioni di profilo. aggiornamenti.</string>
+    <string name="clearcache">Pulisci la cache all\'uscita</string>
+    <string name="clearcache_summary">Potrebbe richiedere più tempo per aprire l\'app.</string>
+    <string name="fab_enable">Pulsante d\'Azione Fluttuante</string>
+    <string name="fab_enable_summary">Mostra il PAF.</string>
+    <!-- Navigation: fab -->
+    <string name="fab_text">Posta uno stato</string>
+    <string name="fab_photo">Posta una foto</string>
+    <string name="fab_checkin">Check In</string>
+    <string name="fab_jump_top">Vai in alto</string>
+    <!-- Navigation: items -->
+    <string name="navigation_menu_title">MENU DI NAVIGAZIONE</string>
+    <string name="ic_menu_exitapp">Esci dall\'app</string>
+    <string name="ic_menu_exitapp_summary">Mostra il pulsante di &#8216;Uscita app&#8217; sul drawer di navigazione.</string>
+    <string name="ic_menu_fblogout">Esci</string>
+    <string name="ic_menu_fblogout_summary">Mostra il pulsante di &#8216;Uscita&#8217; sul drawer di navigazione.</string>
+    <string name="menu_photos">Foto</string>
+    <string name="menu_photos_summary">Mostra il pulsante di &#8216;Foto&#8217; sul drawer di navigazione.</string>
+    <string name="menu_events">Eventi</string>
+    <string name="menu_events_summary">Mostra il pulsante di &#8216;Eventi&#8217; sul drawer di navigazione.</string>
+    <string name="menu_back">Indietro</string>
+    <string name="menu_back_summary">Mostra il pulsante di &#8216;Indietro&#8217; sul drawer di navigazione.</string>
+    <string name="menu_top_stories">Migliori storie</string>
+    <string name="menu_top_stories_summary">Mostra il pulsante di &#8216;Migliori storie&#8217; sul drawer di navigazione.</string>
+    <string name="menu_most_recent">Più recente</string>
+    <string name="menu_friendreq">Richieste di amicizia</string>
+    <string name="menu_friendreq_summary">Mostra il pulsante di &#8216;Richieste di amicizia&#8217; sul drawer di navigazione.</string>
+    <string name="menu_groups">Gruppi</string>
+    <string name="menu_groups_summary">Mostra il pulsante di &#8216;Gruppi&#8217; sul drawer di navigazione.</string>
+    <string name="menu_messages">Messaggi</string>
+    <string name="menu_search">Cerca</string>
+    <string name="menu_search_summary">Mostra il pulsante di &#8216;Cerca&#8217; sul drawer di navigazione.</string>
+    <string name="menu_mainmenu">Menu principale</string>
+    <string name="menu_mainmenu_summary">Mostra il pulsante di &#8216;Menu principale&#8217; sul drawer di navigazione.</string>
+    <string name="messaging_enabled_title">Messaggi</string>
+    <string name="messaging_enabled_summary">Quando abilitato, offrirà accesso ai messaggi Facebook. Disabilitalo se hai una app di messaggistica.</string>
+    <string name="silent">Nessun suono</string>
+    <string name="navigation_drawer_open">Apri Drawer di navigazione</string>
+    <string name="navigation_drawer_close">Chiudi il drawer di navigazione</string>
+    <string name="default_user">Utente</string>
+    <string name="nav_notifications">Notifiche</string>
+    <string name="settings">Impostazioni</string>
+    <string name="context_share_image">Condividi immagine</string>
+    <string name="context_share_link">Condividi link</string>
+    <string name="context_share_image_progress">Condivisione immagine&#8230;</string>
+    <string name="content_copy_link_done">Link copiato negli appunti</string>
+    <string name="error_login">Qualcosa è andato storto, prova a collegarti di nuovo</string>
+    <string name="permission_denied">Permesso negato, impossibile completare l\'azione</string>
+    <string name="downloaded">Scaricato</string>
+    <string name="new_bookmark">Aggiunti:</string>
+    <string name="remove_bookmark">Rimossi:</string>
+</resources>

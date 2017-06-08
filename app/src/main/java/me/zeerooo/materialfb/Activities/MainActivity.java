@@ -20,6 +20,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
+import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.net.UrlQuerySanitizer;
 import android.os.AsyncTask;
@@ -65,7 +66,6 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
-import com.bumptech.glide.request.target.Target;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -109,6 +109,8 @@ import me.zeerooo.materialfb.R;
 import com.mikepenz.actionitembadge.library.ActionItemBadge;
 import com.mikepenz.actionitembadge.library.utils.BadgeStyle;
 import static com.bumptech.glide.load.DecodeFormat.PREFER_ARGB_8888;
+import com.facebook.FacebookSdk;
+import com.facebook.appevents.AppEventsLogger;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private final BadgeStyle BADGE_SIDE_FULL = new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_full, Color.RED, Color.RED, Color.WHITE);
@@ -116,7 +118,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Uri mCapturedImageURI = null;
     private ValueCallback<Uri> mUploadMessage;
     private final int FILECHOOSER_RESULTCODE = 2888, INPUT_FILE_REQUEST_CODE = 1;
-    private String baseURL, mCameraPhotoPath, Url, css, mUserLink = null;
+    private String baseURL, mCameraPhotoPath, Url, css;
     private SwipeRefreshLayout swipeView;
     NavigationView mNavigationView, BookmarksView;
     private FloatingActionMenu mMenuFAB;
@@ -161,23 +163,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         URLs();
 
-        switch (mPreferences.getString("start_url", "Most_recent")) {
-            case "Most_recent":
-                mWebView.loadUrl(baseURL + "home.php?sk=h_chr");
-            break;
-            case "Top_stories":
-                mWebView.loadUrl(baseURL + "home.php?sk=h_nor");
-            break;
-            case "Messages":
-                mWebView.loadUrl(baseURL + "messages/");
-            break;
-            default:
-                break;
-        }
-
-        if (checkLoggedInState()) {
-            mWebView.loadUrl(baseURL);
-        }
+        if (checkLoggedInState())
+            switch (mPreferences.getString("start_url", "Most_recent")) {
+                case "Most_recent":
+                    mWebView.loadUrl(baseURL + "home.php?sk=h_chr");
+                    break;
+                case "Top_stories":
+                    mWebView.loadUrl(baseURL + "home.php?sk=h_nor");
+                    break;
+                case "Messages":
+                    mWebView.loadUrl(baseURL + "messages/");
+                    break;
+                default:
+                    break;
+            }
 
         DBHelper = new DatabaseHelper(this);
         bookmarks = new ArrayList<>();
@@ -288,14 +287,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.textFAB:
+                        mWebView.loadUrl("javascript:(function(){try{document.querySelector('button[name=\"view_overview\"]').click()}catch(_){window.location.href=\"" + baseURL + "?pageload=composer\"}})()");
                         css += "#page{top:0}";
-                        mWebView.loadUrl("javascript:(function(){try{document.querySelector('button[name=\"view_overview\"]').click()}catch(_){window.location.href=\"" + baseURL + "/?pageload=composer\"}})()");
+                        swipeView.setEnabled(false);
                         break;
                     case R.id.photoFAB:
                         mWebView.loadUrl("javascript:(function(){try{document.querySelector('button[name=\"view_photo\"]').click()}catch(_){window.location.href=\"" + baseURL + "?pageload=composer_photo\"}})()");
+                        css += "#page{top:0}";
+                        swipeView.setEnabled(false);
                         break;
                     case R.id.checkinFAB:
                         mWebView.loadUrl("javascript:(function(){try{document.querySelector('button[name=\"view_location\"]').click()}catch(_){window.location.href=\"" + baseURL + "?pageload=composer_checkin\"}})()");
+                        css += "#page{top:0}";
+                        swipeView.setEnabled(false);
                         break;
                     case R.id.topFAB:
                         mWebView.scrollTo(0, 0);
@@ -409,6 +413,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                     url = "http://media.giphy.com/media/" + giphy_html5_id + "/giphy.gif";
                                 }
                             }
+                            if (url.contains("?")) {
+                                String[] giphy1 = url.split("\\?");
+                                String giphy_html5_id = giphy1[0];
+                                url = giphy_html5_id + "/giphy.gif";
+                                System.out.println(url);
+                            }
                         }
 
                         if (url.contains("gifspace")) {
@@ -483,7 +493,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 JavaScriptHelpers.videoView(view);
                 if (!mPreferences.getBoolean("save_data", false))
                     JavaScriptHelpers.updateNumsService(view);
-                // JavaScriptHelpers.paramLoader(view, url);
                 if (swipeView.isRefreshing()) {
                     JavaScriptHelpers.loadCSS(view, css);
                 }
@@ -585,14 +594,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 // Hide birthday content from News Feed
                 if (mPreferences.getBoolean("hide_birthdays", true)) {
-                    css += "article#u_1j_4{display:none;}" + "article._55wm._5e4e._5fjt{display:none;}";
+                    css += "article#u_1j_4{display:none}" + "article._55wm._5e4e._5fjt{display:none}";
                 }
 
                 if (mPreferences.getBoolean("comments_recently", true)) {
-                    css += "div._4nmh._2g7c._4u3j{display:none;}" + "header._5rgs._5sg5{display:none;}";
+                    css += "div._4nmh._2g7c._4u3j{display:non;}" + "header._5rgs._5sg5{display:none}" + "._15ks+._4u3j{display:none}";
                 }
 
-                css += "article#u_0_q._d2r{display:none;}";
+                css += "article#u_0_q._d2r{display:none}";
             }
         });
         mWebView.setWebChromeClient(new WebChromeClient() {
@@ -713,10 +722,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         profileImage.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (mUserLink != null) {
-                    drawer.closeDrawers();
-                    mWebView.loadUrl(mUserLink);
-                }
+                drawer.closeDrawers();
+                mWebView.loadUrl(baseURL + "me");
             }
         });
 
@@ -726,7 +733,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onSuccess(LoginResult loginResult) {
                 updateUserInfo();
                 mWebView.setVisibility(View.VISIBLE);
-                mWebView.reload();
+                mWebView.loadUrl("https://m.facebook.com/");
             }
 
             @Override
@@ -804,13 +811,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         final AlertDialog QuickUpload = new AlertDialog.Builder(this).create();
         final EditText quick_description = (EditText) view.findViewById(R.id.quick_description);
         UploadFAB = (FloatingActionButton) view.findViewById(R.id.upload_fab);
-        final String getUri = intent.getParcelableExtra(Intent.EXTRA_STREAM).toString();
+        final Uri uriToShare = intent.getParcelableExtra(Intent.EXTRA_STREAM);
         final AppCompatImageView preview = (AppCompatImageView) view.findViewById(R.id.preview_img);
 
-        Glide.with(this).load(getUri).asBitmap().diskCacheStrategy(DiskCacheStrategy.NONE).skipMemoryCache(true).format(PREFER_ARGB_8888).into(new SimpleTarget<Bitmap>(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL) {
+        Glide.with(this).load(uriToShare).asBitmap().diskCacheStrategy(DiskCacheStrategy.NONE).skipMemoryCache(true).format(PREFER_ARGB_8888).into(new SimpleTarget<Bitmap>() {
             @Override
             public void onResourceReady(final Bitmap bitmap, GlideAnimation anim) {
-                preview.setImageBitmap(bitmap);
+
+                if (bitmap.getWidth() >= 4096 || bitmap.getHeight() >= 4096) {
+                    Bitmap resized = ThumbnailUtils.extractThumbnail(bitmap, 400, 400);
+                    preview.setImageBitmap(resized);
+                }  else {
+                    preview.setImageBitmap(bitmap);
+                }
+
                 UploadFAB.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         if (quick_description.getText().toString().isEmpty()) {
@@ -820,12 +834,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             SharePhoto photo = new SharePhoto.Builder().setBitmap(bitmap).setCaption(quick_description.getText().toString()).setUserGenerated(true).build();
                             SharePhotoContent content = new SharePhotoContent.Builder().addPhoto(photo).build();
                             ShareApi.share(content, null);
-                            CookingAToast.cooking(MainActivity.this, getString(R.string.context_share_image_progress), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_share, false).show();
+                            CookingAToast.cooking(MainActivity.this, getString(R.string.sharing_info), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_share, false).show();
                         } else {
-                            ShareVideo video = new ShareVideo.Builder().setLocalUrl(Uri.parse(getUri)).build();
+                            ShareVideo video = new ShareVideo.Builder().setLocalUrl(uriToShare).build();
                             ShareVideoContent contentVid = new ShareVideoContent.Builder().setVideo(video).setContentDescription(quick_description.getText().toString()).build();
                             ShareApi.share(contentVid, null);
-                            CookingAToast.cooking(MainActivity.this, getString(R.string.sharing_video), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_share, false).show();
+                            CookingAToast.cooking(MainActivity.this, getString(R.string.sharing_info), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_share, false).show();
                         }
 
                         QuickUpload.dismiss();
@@ -864,12 +878,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (mPreferences.getBoolean("clear_cache", false))
             deleteCache(this);
-
     }
 
     @Override
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
-       // super.onActivityResult(requestCode, resultCode, data);
+        // super.onActivityResult(requestCode, resultCode, data);
         callbackManager.onActivityResult(requestCode, resultCode, data);
         // Thanks to Koras for the tutorial. http://dev.indywidualni.org/2015/02/an-advanced-webview-with-some-cool-features
         if (Build.VERSION.SDK_INT >= 21) {
@@ -899,7 +912,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
 
-                if(requestCode==FILECHOOSER_RESULTCODE) {
+                if (requestCode == FILECHOOSER_RESULTCODE) {
                     if (null == this.mUploadMessage) {
                         return;
                     }
@@ -1025,6 +1038,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 break;
             case R.id.nav_groups:
                 mWebView.loadUrl(baseURL + "groups/?category=membership");
+                css += "._129- {position:initial}";
                 item.setChecked(true);
                 break;
             case R.id.nav_mainmenu:
@@ -1093,7 +1107,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onCompleted(JSONObject object, GraphResponse response) {
                 // Update header
                 try {
-                    mUserLink = object.getString("link");
                     // Set the user's name under the header
                     ((AppCompatTextView) findViewById(R.id.profile_name)).setText(object.getString("name"));
 
@@ -1107,7 +1120,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
         Bundle parameters = new Bundle();
-        parameters.putString("fields", "id,name,cover,link");
+        parameters.putString("fields", "id,name,cover");
         request.setParameters(parameters);
         request.executeAsync();
     }

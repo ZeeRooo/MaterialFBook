@@ -93,7 +93,7 @@
         body, .touch ._3bg5.mSearchOverlay .mSearchTypeahead .mTypeahead .jx-typeahead-results, .touch ._3bg5 .mSideSearch, .jewel .flyout, article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2, .touch ._52t1 {
             background: black !important;
         }
-        body, .touch ._5iev, .touch ._5d19, .touch a, ._rnk, ._5c4t ._1g06, ._3qet .fcg, .item .title, .touch .mfss, .touch .snippet, .touch textarea._5whq, ._2tbu, ._52jb, ._52j9 {
+        body, .touch ._5iev, .touch ._5d19, .touch a, ._rnk, ._5c4t ._1g06, ._3qet .fcg, .item .title, .touch .mfss, .touch .snippet, .touch textarea._5whq, ._2tbu, ._52jb, ._52j9, ._1553._1553 {
             color: #e8eaed;
         }
         ._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j, ._div._4g33._52we._5fjk._55so._5i-i._ydx, ._15ks:last-child, ._15ks+._4u3j, ._59e9, ._15n_, .touch ._5i2i, ._2v9s, #root  {
