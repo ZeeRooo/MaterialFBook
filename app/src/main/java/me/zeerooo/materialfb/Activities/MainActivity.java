@@ -288,17 +288,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 switch (v.getId()) {
                     case R.id.textFAB:
                         mWebView.loadUrl("javascript:(function(){try{document.querySelector('button[name=\"view_overview\"]').click()}catch(_){window.location.href=\"" + baseURL + "?pageload=composer\"}})()");
-                        css += "#page{top:0}";
                         swipeView.setEnabled(false);
                         break;
                     case R.id.photoFAB:
                         mWebView.loadUrl("javascript:(function(){try{document.querySelector('button[name=\"view_photo\"]').click()}catch(_){window.location.href=\"" + baseURL + "?pageload=composer_photo\"}})()");
-                        css += "#page{top:0}";
                         swipeView.setEnabled(false);
                         break;
                     case R.id.checkinFAB:
                         mWebView.loadUrl("javascript:(function(){try{document.querySelector('button[name=\"view_location\"]').click()}catch(_){window.location.href=\"" + baseURL + "?pageload=composer_checkin\"}})()");
-                        css += "#page{top:0}";
                         swipeView.setEnabled(false);
                         break;
                     case R.id.topFAB:
@@ -496,6 +493,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (swipeView.isRefreshing()) {
                     JavaScriptHelpers.loadCSS(view, css);
                 }
+                if (url.contains("facebook.com/composer/mbasic/") || url.contains("https://m.facebook.com/sharer.php?sid=")) {
+                    css += "#page{top:0}";
+                    Log.d("Contiene", "mal ahi");
+                }
             }
 
             @Override
@@ -598,7 +599,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
 
                 if (mPreferences.getBoolean("comments_recently", true)) {
-                    css += "div._4nmh._2g7c._4u3j{display:non;}" + "header._5rgs._5sg5{display:none}" + "._15ks+._4u3j{display:none}";
+                    css +=  "._15ks+._4u3j{display:none}";
                 }
 
                 css += "article#u_0_q._d2r{display:none}";
@@ -1032,7 +1033,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Helpers.uncheckRadioMenu(mNavigationView.getMenu());
                 break;
             case R.id.nav_search:
-                mWebView.loadUrl(baseURL + "search/");
+                if (!mPreferences.getBoolean("save_data", false)) {
+                    mWebView.loadUrl("javascript:(function(){try{document.querySelector('#search_jewel > a').click()}catch(_){window.location.href='" + baseURL + "search/?refid=8'}})()");
+                } else {
+                    mWebView.loadUrl(baseURL + "search/");
+                }
                 setTitle(R.string.menu_search);
                 item.setChecked(true);
                 break;
