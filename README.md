@@ -257,7 +257,7 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Now the video player save the position when you minimize the app and continue it when the app is reopened. #82
 - Enabled QuickShare for photos and videos.
 
-**Version 3.4.0:**
+**Version 3.4.1:**
 - Bugfixes and minor improvements.
 
 
