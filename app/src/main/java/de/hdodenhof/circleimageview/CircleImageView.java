@@ -34,7 +34,7 @@ import android.support.annotation.ColorInt;
 import android.support.annotation.DrawableRes;
 import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
-import me.zeerooo.materialfb.R;
+import me.zeeroooo.materialfb.R;
 
 public class CircleImageView extends AppCompatImageView {
 

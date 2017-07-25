@@ -4,11 +4,12 @@
     <string name="notifications_setting_title">NOTIFIKASI</string>
     <string name="notif">Notifikasi</string>
     <string name="facebook_message">Notifikasi Pesan</string>
-    <string name="facebook_notifications">Facebook notifikasi</string>
-    <string name="sync_problem">Cookies tidak bisa disinkron. Coba ulang aplikasi.</string>
-    <string name="notification_sound_description">Pilih nada dering atau diam: \u0020</string>
+    <string name="facebook_notifications">Notifikasi Facebook</string>
+    <string name="applying_changes">Menerapkan perubahan</string>
+    <string name="sync_problem">Cookies tidak bisa disinkron. Coba mulai ulang aplikasi</string>
+    <string name="notification_sound_description">Pilih sebuah nada atau bisu: \u0020</string>
     <string name="notifications_settings">Pengaturan notifikasi</string>
-    <string name="notifications_settings_description">Pengaturan tambahan. Pilih interval waktu, mengatur suara, LED dan getaran.</string>
+    <string name="notifications_settings_description">Pengaturan tambahan. Pilih interval waktu, atur suara, LED dan getaran.</string>
     <string name="interval_pref">Interval waktu untuk pengecekan</string>
     <string name="notification_sound">Suara notifikasi</string>
     <string name="interval_pref_description_new">Notifikasi akan dicek setiap %s.</string>
@@ -30,40 +31,40 @@
     <!-- End Notifications -->
 
     <!-- General -->
-    <string name="general_setting_title">UMUM</string>
+    <string name="general_setting_title">Umum</string>
     <string name="location_enabled_title">Akses lokasi</string>
-    <string name="location_enabled_summary">Nyalakan untuk mengizinkan Facebook mencocokkan lokasi anda.</string>
-    <string name="hide_editor_newsfeed_title">Sembunyikan status editor di Beranda</string>
-    <string name="hide_editor_newsfeed_summary">Jika diaktifkan, status editor akan disembunyikan di Beranda.</string>
-    <string name="stop_images_title">Jangan perlihatkan gambar</string>
-    <string name="stop_images_summary">Jika diaktifkan, tidak mengunduh gambar. Beberapa gambar tetap ada di cache.</string>
-    <string name="hide_sponsored_title">Sembunyikan &#8216;Sponsored&#8217; Konten</string>
-    <string name="hide_sponsored_summary">Sembunyikan &#8216;Sponsored&#8217; konten (iklan) dari Beranda.</string>
+    <string name="location_enabled_summary">Aktifkan untuk mengizikan Facebook mendapatkan lokasi anda.</string>
+    <string name="hide_editor_newsfeed_title">Sembunyikan editor Status di News Feed</string>
+    <string name="hide_editor_newsfeed_summary">Jika diaktifkan, editor status akan disembunyikan di News Feed.</string>
+    <string name="stop_images_title">Jangan muat gambar</string>
+    <string name="stop_images_summary">Jika diaktifkan, tidak akan mengunduh gambar. Beberapa gambar mungkin tersisa di cache</string>
+    <string name="hide_sponsored_title">Sembunyikan Konten &#8216;Sponsor&#8217;</string>
+    <string name="hide_sponsored_summary">Sembunyikan konten &#8216;Sponsor&#8217; (iklan) dari Beranda</string>
     <string name="hide_birthdays_title">Sembunyikan ulang tahun</string>
     <string name="hide_birthdays_summary">Sembunyikan ulang tahun dari beranda, acara dan notifikasi.</string>
-    <string name="hide_menu_bar_title">Sembunyikan Menu bar</string>
-    <string name="hide_menu_bar_summary">Jika diaktifkan, menu bar Facebook akan disembunyikan.</string>
-    <string name="hide_recently_commented">Sembunyikan komentar terkini</string>
+    <string name="hide_menu_bar_title">Sembunyikan bar Menu</string>
+    <string name="hide_menu_bar_summary">Jika diaktifkan, bar Menu Facebook akan disembunyikan.</string>
+    <string name="hide_recently_commented">Sembunyikan komentar terbaru</string>
     <string name="hide_recently_commented_summary">X orang baru saja komentar di sini.</string>
     <string name="start_url">Mulai URL</string>
     <string-array name="Start">
         <item>PalingTerbaru</item>
-        <item>CeritaPopuler</item>
+        <item>BeritaTeratas</item>
         <item>Pesan</item>
     </string-array>
     <!-- End general -->
 
     <!-- About -->
-    <string name="more">Kredit dan lainnya</string>
+    <string name="more">Lainnya dan kredit</string>
     <string name="about_updates">Pembaharuan</string>
-    <string name="updates">Cek versi terbaru</string>
+    <string name="updates">Cek untuk versi terbaru</string>
     <string name="updates_summary">Muat laman dan unduh versi terbaru</string>
     <string name="people_who_translated">Pengguna yang menterjemahkan aplikasi</string>
     <string name="devs_who_helped_me">Pengembang yang membantu menjawab pertanyaan saya dan mengambil kode dari aplikasi mereka</string>
-    <string name="help_translations">Tolong saya untuk menterjemahkan aplikasi ke bahasa anda</string>
+    <string name="help_translations">Bantu saya untuk menterjemahkan aplikasi ini ke bahasa anda</string>
     <string name="about_translations">Tolong, kami membutuhkan anda</string>
     <string name="source_code">Sumber kode di Github</string>
-    <string name="withYou">Laporkan bugs atau permintaan fitur baru</string>
+    <string name="withYou">Laporan bugs atau minta fitur baru</string>
     <string name="changelog">Perubahan</string>
     <!-- End about -->
 
@@ -76,61 +77,20 @@
 
     <!-- Navigation -->
     <string name="navigation_setting_title">NAVIGASI</string>
-    <string name="navigation_menu_settings">Item menu navigasi</string>
-    <string name="navigation_menu_settings_description">Anda bisa memunculkan/sembunyikan item di menu navigasi.</string>
+    <string name="navigation_menu_settings">Navigasi item menu.</string>
+    <string name="navigation_menu_settings_description">Anda bisa tampilkan/sembunyikan item di menu Navigasi.</string>
     <string name="save_data">Mode hemat data</string>
-    <string name="save_data_summary">Muat Facebook dalam versi biasa juga mematikan badge dan info pembaharuan profil.</string>
+    <string name="save_data_summary">Muat Facebook di versi biasa juga mematikan badge dan Info pembaharuan profil.</string>
     <string name="clearcache">Hapus cache saat keluar</string>
-    <string name="clearcache_summary">Membutuhkan beberapa waktu untuk membuka aplikasi.</string>
+    <string name="clearcache_summary">Akan memakan banyak waktu untuk membuka aplikasi.</string>
     <string name="fab_enable">Tombol Floating Action</string>
-    <string name="fab_enable_summary">Munculkan FAB.</string>
+    <string name="fab_enable_summary">Tampilkan FAB.</string>
     <!-- Navigation: fab -->
-    <string name="fab_text">Pos kan status</string>
+    <string name="fab_text">Pos sebuah status</string>
     <string name="fab_photo">Pos sebuah foto</string>
     <string name="fab_checkin">Singgah</string>
     <string name="fab_jump_top">Lompat ke atas</string>
     <!-- Navigation: items -->
-    <string name="navigation_menu_title">NAVIGASI MENU</string>
-    <string name="ic_menu_exitapp">Keluar aplikasi</string>
-    <string name="ic_menu_exitapp_summary">Munculkan &#8216;Exit app&#8217; tombol di drawer navigasi.</string>
-    <string name="ic_menu_fblogout">Log out</string>
-    <string name="ic_menu_fblogout_summary">Munculkan &#8216;Log out&#8217; tombol di drawer navigasi.</string>
-    <string name="menu_photos">Photos</string>
-    <string name="menu_photos_summary">Munculkan &#8216;Photos&#8217; tombol di drawer navigasi.</string>
-    <string name="menu_events">Events</string>
-    <string name="menu_events_summary">Munculkan &#8216;Events&#8217; tombol di drawer navigasi.</string>
-    <string name="menu_back">Back</string>
-    <string name="menu_back_summary">Munculkan &#8216;Back&#8217; tombol di drawer navigasi.</string>
-    <string name="menu_top_stories">Top stories</string>
-    <string name="menu_top_stories_summary">Munculkan &#8216;Top stories&#8217; tombol di drawer navigasi.</string>
-    <string name="menu_most_recent">Most Recent</string>
-    <string name="menu_friendreq">Friend Requests</string>
-    <string name="menu_friendreq_summary">Munculkan &#8216;Friend Requests&#8217; tombol di drawer navigasi.</string>
-    <string name="menu_groups">Groups</string>
-    <string name="menu_groups_summary">Munculkan &#8216;Groups&#8217; tombol di drawer navigasi.</string>
-    <string name="menu_messages">Messages</string>
-    <string name="menu_search">Search</string>
-    <string name="menu_search_summary">Munculkan &#8216;Search&#8217; tombol di drawer navigasi.</string>
-    <string name="menu_mainmenu">Main menu</string>
-    <string name="menu_mainmenu_summary">Munculkan &#8216;Main menu&#8217; tombol di drawer navigasi.</string>
-    <string name="messaging_enabled_title">Pesan</string>
-    <string name="messaging_enabled_summary">Jika diaktifkan, akan mengizinkan akses ke Pesan Facebook. Matikan jika anda punya aplikasi pesan.</string>
-    <!-- End navigation -->
-
-    <!-- App -->
-    <string name="silent">Tanpa suara</string>
-    <string name="navigation_drawer_open">Buka drawer navigasi</string>
-    <string name="navigation_drawer_close">Tutup drawer navigasi</string>
-    <string name="default_user">Pengguna</string>
-    <string name="nav_notifications">Notifikasi</string>
-    <string name="settings">Pengaturan</string>
-    <string name="context_share_image">Bagikan gambar</string>
-    <string name="context_share_link">Bagikan tautan</string>
-    <string name="context_share_image_progress">Membagikan gambar…</string>
-    <string name="content_copy_link_done">Tautan tersalin di Clipboard</string>
-    <string name="error_login">Terjadi kesalahan, silahkan coba masuk kembali</string>
-    <string name="permission_denied">Izin ditolak, tidak bisa menyelesaikan tindakan</string>
-    <string name="downloaded">Terunduh</string>
-    <string name="new_bookmark">Ditambahkan:</string>
-    <string name="remove_bookmark">Dihapus:</string>
-</resources>
+    <string name="navigation_menu_title">MENU NAVIGASI</string>
+    <string name="ic_menu_exitapp">Keluar dari aplikasi</string>
+    </resources>

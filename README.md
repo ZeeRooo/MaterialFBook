@@ -260,6 +260,11 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 **Version 3.4.1:**
 - Bugfixes and minor improvements.
 
+**Version 3.4.5:**
+- Fixed notifications issues. #98
+- Updated some translations.
+- Switched to the old package id to fix F-Droid issues.
+
 
 **Notes:**
 _- Maybe some gifs cant be loaded because i need to add the url to the code. Report it as issue with the Facebook´s page link or website._

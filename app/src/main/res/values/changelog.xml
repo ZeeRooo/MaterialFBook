@@ -2,6 +2,15 @@
 <resources>
     <string name="changelog_list" translatable="false">
 <![CDATA[
+<b>Version 3.4.5:</b>
+<br>
+- Fixed notifications issues. #98
+<br>
+- Updated some translations.
+<br>
+- Switched to the old package id to fix F-Droid issues.
+<br>
+<br>
 <b>Version 3.4.1:</b>
 <br>
 - Bugfixed and minor improvements.

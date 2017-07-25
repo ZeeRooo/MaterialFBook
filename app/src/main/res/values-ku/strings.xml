@@ -1,20 +1,22 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Notifications -->
     <string name="notifications_setting_title">ئاگادارکردنەوەکان</string>
     <string name="notif">Notifications</string>
+    <string name="facebook_message">پەیامەکانی فەیسبووک</string>
+    <string name="facebook_notifications">ئاگادارکردنەوەکانی فەیسبووک</string>
+    <string name="applying_changes">جێبەجێکردنی ئاگادارییەکان</string>
     <string name="sync_problem">فایلە پاشەکەوتکراوەکان ناتوانرێ هاوکاتبکرێت، ئەگەر یەکەمجارە بەرنامەکە بەکاردێنیت، ئەوا دووبارە ئیشی پێبکەرەوە</string>
     <string name="notification_sound_description">زەنگ هەڵبژێرە: \u0020</string>
     <string name="notifications_settings">ڕێکخستنەکانی ئاگادارکردنەوە</string>
     <string name="notifications_settings_description">ڕێکخستنە زیادەکان بۆ هەڵبژاردنی کاتی دیاریکراو، دیاریکردنی زەنگی ئاگادارکردنەوە، وە هەروەها لەرزین و ڕووناکی لایتی LED</string>
-    <string name="facebook_notifications">ئاگادارکردنەوەکانی فەیسبووک</string>
-    <string name="facebook_message">پەیامەکانی فەیسبووک</string>
     <string name="interval_pref">کاتی دیاریکراو بۆ پشکنین</string>
     <string name="notification_sound">دەنگی ئاگادارکردنەوە</string>
     <string name="interval_pref_description_new">ئاگادارکردنەوەکان دەپشکنرێن هەموو %s.</string>
     <string name="notification_sound_msg">دەنگی پەیام</string>
     <string name="vibrate">لەرزین</string>
     <string name="led_light">لایتی LED</string>
+
     <string-array name="intervalPrefTitles">
         <item>1 minuto</item>
         <item>2 minutos</item>
@@ -39,8 +41,8 @@
     <string name="hide_sponsored_summary">ئەگەر چالاک بێت، هەموو بابەتەکانی \'سپۆنسەر و ڕیکلامەکان\' دەشارێتەوە</string>
     <string name="hide_birthdays_title">شاردنەوەی ڕۆژی لەدایکبوون</string>
     <string name="hide_birthdays_summary">شاردنەوەی ڕۆژی لەدایکبوونەکان لە بەشی سەرەکیدا</string>
-    <string name="clearcache">Clear cache on exit</string>
-    <string name="clearcache_summary">It will take more time to open the app.</string>
+    <string name="hide_menu_bar_title">شاردنەوەی شریتی لیستی هەڵبژاردن</string>
+    <string name="hide_menu_bar_summary">شاردنەوەی شریتی لیستی هەڵبژاردنەکانی فەیسبووک</string>
     <string name="hide_recently_commented">Hide recently commented</string>
     <string name="hide_recently_commented_summary">X people recently commented on this.</string>
     <string name="start_url">Start URL</string>
@@ -51,7 +53,21 @@
     </string-array>
     <!-- End general -->
 
-    <!-- Appearence -->
+    <!-- About -->
+    <string name="more">More and credits</string>
+    <string name="about_updates">Updates</string>
+    <string name="updates">Check for a new version</string>
+    <string name="updates_summary">Load the page and download the latest version</string>
+    <string name="people_who_translated">Users who translated the app</string>
+    <string name="devs_who_helped_me">Developers who helped me asking my questions and taking code from their apps</string>
+    <string name="help_translations">Help me to translate the app to your language</string>
+    <string name="about_translations">¡Help, we need you!</string>
+    <string name="source_code">Source code on Github</string>
+    <string name="withYou">Report bugs or requst new features</string>
+    <string name="changelog">Changelog</string>
+    <!-- End about -->
+
+    <!-- APPEARANCE -->
     <string name="appearance_setting_title">ڕووکارەکان</string>
     <string name="web_themes">ڕووکاری فەیسبووک</string>
     <string name="web_themes_summary">ڕووکاری جیاوازی فەیسبووک</string>
@@ -60,12 +76,12 @@
 
     <!-- Navigation -->
     <string name="navigation_setting_title">دوگمەکان</string>
-    <string name="hide_menu_bar_title">شاردنەوەی شریتی لیستی هەڵبژاردن</string>
-    <string name="hide_menu_bar_summary">شاردنەوەی شریتی لیستی هەڵبژاردنەکانی فەیسبووک</string>
     <string name="navigation_menu_settings">دوگمەکانی بەشی لیستی هەڵبژاردن</string>
     <string name="navigation_menu_settings_description">شاردنەوەی دوگمەی لیستی هەڵبژاردنەکان</string>
     <string name="save_data">Save data</string>
     <string name="save_data_summary">When enabled, the app autoconfigure to save data</string>
+    <string name="clearcache">Clear cache on exit</string>
+    <string name="clearcache_summary">It will take more time to open the app.</string>
     <string name="fab_enable">Floating Action Button</string>
     <string name="fab_enable_summary">Show the FAB.</string>
     <!-- Navigation: fab -->
@@ -88,6 +104,7 @@
     <string name="menu_top_stories">باشترین بابەت</string>
     <string name="menu_top_stories_summary">ئەگەر ناچالاک بێت دوگمەی \'باشترین بابەت\' دەشارێتەوە لەلیستی سەرەکیدا</string>
     <string name="menu_most_recent">دوایین بابەت</string>
+    <string name="menu_most_recent_summary">ئەگەر ناچالاک بێت دوگمەی \'دوایین بابەت\' دەشارێتەوە لەلیستی سەرەکیدا</string>
     <string name="menu_friendreq">داواکاری هاوڕێیەتی</string>
     <string name="menu_friendreq_summary">ئەگەر ناچالاک بێت دوگمەی \'داواکاری بابەت\' دەشارێتەوە لەلیستی سەرەکیدا</string>
     <string name="menu_groups">گرووپەکان</string>
@@ -99,37 +116,30 @@
     <string name="menu_mainmenu_summary">ئەگەر ناچالاک بێت دوگمەی \'لیستی هەڵبژاردن\' دەشارێتەوە</string>
     <string name="messaging_enabled_title">پەیامەکان</string>
     <string name="messaging_enabled_summary">ئەگەر چالاک بێت یەکسەر دەچێتە ناو پەیامەکانی فەیسبووک، ناچالاکی بکە ئەگەر بەرنامەی نامەناردن بەکاردێنیت</string>
-    <!-- End navigation -->
-
-    <!-- App -->
     <string name="silent">بێ دەنگ</string>
+    <string name="file_logger_needs_permission">ڕێگەپێدان ڕەتکرایەوە بۆ کردنەوەی بیرگەی دەرەکی، ناتوانرێ تۆمار پاشەکەوت بکرێ</string>
     <string name="navigation_drawer_open">کردنەوەی بەشەکانی لیستی هەڵبژاردنەکان</string>
     <string name="navigation_drawer_close">داخستنی بەشەکانی لیستی هەڵبژاردنەکان</string>
     <string name="default_user">بچۆ ژوورەوە بۆ بینینی پرۆفایلەکەت</string>
+    <string name="header_profile_pic">وێنەی پرۆفایل</string>
     <string name="nav_notifications">ئاگادارکردنەوەکان</string>
+    <string name="context_save_image">پاشەکەوتکردنی وێنە</string>
     <string name="settings">ڕێکخستنەکان</string>
     <string name="context_share_image">بڵاوکردنەوەی وێنە</string>
+    <string name="context_copy_image_link">لەبەرگرتنەوەی بەستەری وێنە</string>
     <string name="context_share_link">بڵاوکردنەوەی بەستەر</string>
+    <string name="context_copy_link">لەبەرگرتنەوەی بەستەر</string>
     <string name="context_share_image_progress">بڵاوکردنەوەی وێنە…</string>
     <string name="content_copy_link_done">بەستەر لەبەریگیرایەوە بۆ فۆڵدەری کاتی</string>
+    <string name="login_button">چوونەژورەوە</string>
+    <string name="not_logged_in">نەچویتە ژوورەوە</string>
     <string name="error_login">هەڵە ڕوویدا، تکایە دووبارە هەوڵبدەرەوە</string>
+    <string name="error_super_wrong">هەڵەیەک ڕوویدا</string>
+    <string name="error_facebook_noconnection">هێڵی ئینتەرنێت نیە، فەیسبووک ناتوانرێ بکرێتەوە</string>
+    <string name="error_facebook_error">هەڵەیەک هەیە لە فەیسبووکدا</string>
+    <string name="loading">چاوەڕوانبە</string>
     <string name="permission_denied">ڕێگەپێدان ڕەتکرایەوە، فرمان ناتوانرێ ئەنجام بدرێ</string>
     <string name="downloaded">Downloaded</string>
-	<string name="bookmarks_header">Bookmarks</string>
     <string name="new_bookmark">Added:</string>
     <string name="remove_bookmark">Removed:</string>
-	<!-- About -->
-    <string name="more">More and credits</string>
-    <string name="about_updates">Updates</string>
-    <string name="updates">Check for a new version</string>
-    <string name="updates_summary">Load the page and download the latest version</string>
-    <string name="people_who_translated">Users who translated the app</string>
-    <string name="devs_who_helped_me">Developers who helped me asking my questions and taking code from their apps</string>
-    <string name="help_translations">Help me to translate the app to your language</string>
-    <string name="about_translations">¡Help, we need you!</string>
-    <string name="source_code">Source code on Github</string>
-    <string name="withYou">Report bugs or requst new features</string>
-    <string name="changelog">Changelog</string>
-    <!-- End about -->
-	
 </resources>

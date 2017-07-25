@@ -32,7 +32,7 @@ import android.view.ViewOutlineProvider;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
-import me.zeerooo.materialfb.R;
+import me.zeeroooo.materialfb.R;
 
 public class FloatingActionButton extends AppCompatImageButton {
 

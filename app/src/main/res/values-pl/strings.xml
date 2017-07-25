@@ -5,6 +5,7 @@
     <string name="notif">Powiadomienia</string>
     <string name="facebook_message">Wiadomości z Facebooka</string>
     <string name="facebook_notifications">Powiadomienia z Facebooka</string>
+    <string name="applying_changes">Zastosuj zmiany</string>
     <string name="sync_problem">Nie można zsynchronizować ciasteczek. Pierwsze uruchomienie, tak? Wystarczy zrestartować aplikacje :)</string>
     <string name="notification_sound_description">Wybierz dzwonek, lub wyciszenie: \u0020</string>
     <string name="notifications_settings">Ustawienia powiadomień</string>
@@ -104,6 +105,7 @@
     <string name="menu_top_stories">Najciekawsze zdarzenia</string>
     <string name="menu_top_stories_summary">Jeśli wyłączone, przycisk \„Najciekawsze zdarzenia\” zniknie z menu nawigacji.</string>
     <string name="menu_most_recent">Najnowsze</string>
+    <string name="menu_most_recent_summary">Jeśli wyłączone, przycisk \„Najnowsze\” zniknie z menu nawigacji.</string>
     <string name="menu_friendreq">Zaproszenia do grona znajomych</string>
     <string name="menu_friendreq_summary">Jeśli wyłączone, przycisk \„Zaproszenia do grona znajomych\” zniknie z menu nawigacji.</string>
     <string name="menu_groups">Grupy</string>
@@ -116,18 +118,30 @@
     <string name="messaging_enabled_title">Wiadomości</string>
     <string name="messaging_enabled_summary">Włączone zapewnia dostęp do Wiadomości z Facebooka. Wyłącz, jeśli używasz innej aplikacji do wiadomości.</string>
     <string name="silent">Brak dźwięku</string>
+    <string name="file_logger_needs_permission">Brak dostępu do pamięci zewnętrznej. Log nie może być zapisany.</string>
     <string name="navigation_drawer_open">Otwórz szufladę nawigacji</string>
     <string name="navigation_drawer_close">Zamknij szufladę nawigacji</string>
     <string name="default_user">Kim jesteś?</string>
+    <string name="header_profile_pic">Zdjęcie profilowe</string>
     <string name="nav_notifications">Powiadomienia</string>
+    <string name="context_save_image">Zapisz obraz</string>
     <string name="settings">Ustawienia</string>
     <string name="context_share_image">Udostępnij obraz</string>
+    <string name="context_copy_image_link">Kopiuj link obrazu</string>
     <string name="context_share_link">Udostępnij link</string>
+    <string name="context_copy_link">Kopiuj link</string>
     <string name="context_share_image_progress">Udostępnianie obrazu…</string>
     <string name="content_copy_link_done">Link skopiowany do schowka</string>
+    <string name="login_button">Zaloguj</string>
+    <string name="not_logged_in">Nie jesteś zalogowany</string>
     <string name="error_login">Coś poszło nie tak. Spróbuj zalogować się ponownie</string>
+    <string name="error_super_wrong">Coś poszło bardzo nie tak</string>
+    <string name="error_facebook_noconnection">Brak dostępu do Facebooka</string>
+    <string name="error_facebook_error">Coś poszło nie tak po stronie Facebooka</string>
+    <string name="loading">Ładowanie</string>
     <string name="permission_denied">Odmowa pozwolenia. Nie można ukończyć zadania</string>
     <string name="downloaded">Pobrane</string>
+    <string name="add">Zakładki</string>
     <string name="new_bookmark">Dodano:</string>
     <string name="remove_bookmark">Usunięto:</string>
 </resources>

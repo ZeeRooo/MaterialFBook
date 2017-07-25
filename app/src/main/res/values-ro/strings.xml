@@ -3,12 +3,13 @@
     <!-- Notifications -->
     <string name="notifications_setting_title">NOTIFICARI</string>
     <string name="notif">Notificari</string>
+    <string name="facebook_message">Mesaje Facebook</string>
+    <string name="facebook_notifications">Notificari Facebook</string>
+    <string name="applying_changes">Aplica schimbarile</string>
     <string name="sync_problem">Cookieurile nu pot fi sincronizate. Prima rulare? Da-i un restart :)</string>
     <string name="notification_sound_description">Alege un ringtone sau deloc: \u0020</string>
     <string name="notifications_settings">Setarile notificarilor</string>
     <string name="notifications_settings_description">Setari aditionale. Alege intervalul de timp, adauga sunete, LED si vibratii.</string>
-    <string name="facebook_notifications">Notificari Facebook</string>
-    <string name="facebook_message">Mesaje Facebook</string>
     <string name="interval_pref">Intervalul de timp pentru verificare</string>
     <string name="notification_sound">Sunetul de notificare</string>
     <string name="interval_pref_description_new">Notificarile vor fi verificate la fiecare %s.</string>
@@ -16,6 +17,7 @@
     <string name="vibrate">Vibratii</string>
     <string name="vibrate_double">Vibratii duble</string>
     <string name="led_light">LED de notificari</string>
+
     <string-array name="intervalPrefTitles">
         <item>1 minuto</item>
         <item>2 minutos</item>
@@ -40,10 +42,8 @@
     <string name="hide_sponsored_summary">Cand este activat, se va ascunde continutul &#8216;Sponsorizat\' (anunturi) din Feed.</string>
     <string name="hide_birthdays_title">Ascunde Zilele de Nastere</string>
     <string name="hide_birthdays_summary">Cand este activat, se vor ascunde zilele de nastere din Feed.</string>
-    <string name="clearcache">Clear cache on exit</string>
-    <string name="clearcache_summary">It will take more time to open the app.</string>
-    <string name="fab_enable">Floating Action Button</string>
-    <string name="fab_enable_summary">Show the FAB.</string>
+    <string name="hide_menu_bar_title">Ascunde bara de meniu</string>
+    <string name="hide_menu_bar_summary">Cand este activat, Bara de Meniu Facebook va fi ascunsa.</string>
     <string name="hide_recently_commented">Hide recently commented</string>
     <string name="hide_recently_commented_summary">X people recently commented on this.</string>
     <string name="start_url">Start URL</string>
@@ -68,7 +68,7 @@
     <string name="changelog">Jurnalul schimbarilor</string>
     <!-- End about -->
 
-    <!-- Appearence -->
+    <!-- APPEARANCE -->
     <string name="appearance_setting_title">INTERFATA</string>
     <string name="web_themes">Teme web</string>
     <string name="web_themes_summary">De aici poti alege diferite teme web.</string>
@@ -77,12 +77,14 @@
 
     <!-- Navigation -->
     <string name="navigation_setting_title">NAVIGATIE</string>
-    <string name="hide_menu_bar_title">Ascunde bara de meniu</string>
-    <string name="hide_menu_bar_summary">Cand este activat, Bara de Meniu Facebook va fi ascunsa.</string>
     <string name="navigation_menu_settings">Itemii meniului de navigare</string>
     <string name="navigation_menu_settings_description">Aici se pot afisa/ascunde itemi din meniul de navigare.</string>
     <string name="save_data">Economizator de date</string>
     <string name="save_data_summary">Cand este activat, aplicatia se autoconfigureaza intr-un mod de economisire a datelor</string>
+    <string name="clearcache">Clear cache on exit</string>
+    <string name="clearcache_summary">It will take more time to open the app.</string>
+    <string name="fab_enable">Floating Action Button</string>
+    <string name="fab_enable_summary">Show the FAB.</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Posteaza un status</string>
     <string name="fab_photo">Posteaza o fotografie</string>
@@ -103,6 +105,7 @@
     <string name="menu_top_stories">Povesti de top</string>
     <string name="menu_top_stories_summary">Cand este dezactivat, butonul &#8216;Povesti de top&#8217; dispare.</string>
     <string name="menu_most_recent">Cele mai recente</string>
+    <string name="menu_most_recent_summary">Cand este dezactivat, butonul &#8216;Cele mai recente&#8217; dispare.</string>
     <string name="menu_friendreq">Cereri de prietenie</string>
     <string name="menu_friendreq_summary">Cand este dezactivat, butonul &#8216;Cereri de prietenie&#8217; dispare.</string>
     <string name="menu_groups">Grupuri</string>
@@ -114,23 +117,30 @@
     <string name="menu_mainmenu_summary">Cand este dezactivat, butonul &#8216;Meniu Principal&#8217; dispare.</string>
     <string name="messaging_enabled_title">Mesagerie</string>
     <string name="messaging_enabled_summary">Cand este activat, va permite accesul la Mesajele Facebook. Dezactiveaza daca ai Messenger.</string>
-    <!-- End navigation -->
-
-    <!-- App -->
     <string name="silent">Fara sunet</string>
+    <string name="file_logger_needs_permission">Nu am acces la cardul extern. Nu pot fi salvate jurnalele</string>
     <string name="navigation_drawer_open">Deschide serarul de navigatie</string>
     <string name="navigation_drawer_close">Inchide serarul de navigatie</string>
     <string name="default_user">Utilizator</string>
+    <string name="header_profile_pic">Poza de Profil</string>
     <string name="nav_notifications">Notificari</string>
+    <string name="context_save_image">Salveaza imaginea</string>
     <string name="settings">Setari</string>
     <string name="context_share_image">Distribuie imaginea</string>
+    <string name="context_copy_image_link">Copiaza linkul imaginii</string>
     <string name="context_share_link">Distribuie linkul</string>
+    <string name="context_copy_link">Copiaza linkul</string>
     <string name="context_share_image_progress">Distribuie imaginea</string>
     <string name="content_copy_link_done">Link copiat in clipboard</string>
+    <string name="login_button">Logare</string>
+    <string name="not_logged_in">Nu esti logat</string>
     <string name="error_login">Ceva s-a intamplat, mai incearca o data</string>
+    <string name="error_super_wrong">Ceva grav s-a intamplat</string>
+    <string name="error_facebook_noconnection">Nu pot accesa Facebook</string>
+    <string name="error_facebook_error">Ceva s-a intamplat la Facebook</string>
+    <string name="loading">Se incarca</string>
     <string name="permission_denied">Permisiuni neacceptate, nu pot continua</string>
     <string name="downloaded">Downloaded</string>
-	<string name="bookmarks_header">Bookmarks</string>
     <string name="new_bookmark">Added:</string>
     <string name="remove_bookmark">Removed:</string>
 </resources>

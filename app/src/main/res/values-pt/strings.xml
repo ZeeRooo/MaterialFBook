@@ -3,18 +3,20 @@
     <!-- Notifications -->
     <string name="notifications_setting_title">NOTIFICAÇÕES</string>
     <string name="notif">Notificações</string>
+    <string name="facebook_message">Notificações de mensagens</string>
+    <string name="facebook_notifications">Notificações do Facebook</string>
+    <string name="applying_changes">Aplicando altereções</string>
     <string name="sync_problem">Cookies não podem ser sincronizados. Primeira execução, certo? Por favor reinicie o app</string>
     <string name="notification_sound_description">Escolher um toque ou manter silêncio: \u0020</string>
     <string name="notifications_settings">Configurações de notificações</string>
     <string name="notifications_settings_description">Configurações adicionais. Escolha intervalo de tempo, sons, LED e vibração.</string>
-    <string name="facebook_notifications">Notificações do Facebook</string>
-    <string name="facebook_message">Notificações de mensagens</string>
     <string name="interval_pref">Intervalo de tempo para verificação</string>
     <string name="notification_sound">Som de notificação</string>
     <string name="interval_pref_description_new">Notificações serão verificadas a cada %s.</string>
     <string name="notification_sound_msg">Som de mensagens</string>
     <string name="vibrate">Vibrar</string>
     <string name="led_light">LED</string>
+
     <string-array name="intervalPrefTitles">
         <item>1 minuto</item>
         <item>2 minutos</item>
@@ -39,8 +41,8 @@
     <string name="hide_sponsored_summary">Quando ativado, irá esconder Conteúdo &#8220;Patrocinado&#8221; (anúncios) do Feed de Notícias.</string>
     <string name="hide_birthdays_title">Ocultar Aniversários</string>
     <string name="hide_birthdays_summary">Quando ativado, irá ocultar aniversários do seu Feed de notícias.</string>
-    <string name="clearcache">Clear cache on exit</string>
-    <string name="clearcache_summary">It will take more time to open the app.</string>
+    <string name="hide_menu_bar_title">Esconder barra de menu</string>
+    <string name="hide_menu_bar_summary">Quando ativado, a barra de menu do Facebook ira ser ocultada.</string>
     <string name="hide_recently_commented">Hide recently commented</string>
     <string name="hide_recently_commented_summary">X people recently commented on this.</string>
     <string name="start_url">Start URL</string>
@@ -51,7 +53,21 @@
     </string-array>
     <!-- End general -->
 
-    <!-- Appearence -->
+    <!-- About -->
+    <string name="more">Mais e créditos</string>
+    <string name="about_updates">Atualizações</string>
+    <string name="updates">Verifique se há uma nova versão</string>
+    <string name="updates_summary">Carregar a página e baixar a última versão</string>
+    <string name="people_who_translated">Os usuários que traduziram o aplicativo</string>
+    <string name="devs_who_helped_me">Os devs que me ajudaram em minhas perguntas e a ter o código a partir de seus aplicativos</string>
+    <string name="help_translations">Ajuda a traduzir o aplicativo para seu idioma</string>
+    <string name="about_translations">Ajude, precisamos de você!</string>
+    <string name="source_code">O código fonte no Github</string>
+    <string name="withYou">Relatar erros ou solicitar novos recursos</string>
+    <string name="changelog">Mudanças</string>
+    <!-- End about -->
+
+    <!-- APPEARANCE -->
     <string name="appearance_setting_title">APARÊNCIA</string>
     <string name="web_themes">Temas da web</string>
     <string name="web_themes_summary">Você pode escolher diferentes temas da web.</string>
@@ -60,12 +76,12 @@
 
     <!-- Navigation -->
     <string name="navigation_setting_title">NAVEGAÇÃO</string>
-    <string name="hide_menu_bar_title">Esconder barra de menu</string>
-    <string name="hide_menu_bar_summary">Quando ativado, a barra de menu do Facebook ira ser ocultada.</string>
     <string name="navigation_menu_settings">Navigation menu items</string>
     <string name="navigation_menu_settings_description">You can show/hide items in the navigation menu.</string>
     <string name="save_data">Save data</string>
     <string name="save_data_summary">When enabled, the app autoconfigure to save data</string>
+    <string name="clearcache">Clear cache on exit</string>
+    <string name="clearcache_summary">It will take more time to open the app.</string>
     <string name="fab_enable">Floating Action Button</string>
     <string name="fab_enable_summary">Show the FAB.</string>
     <!-- Navigation: fab -->
@@ -88,6 +104,7 @@
     <string name="menu_top_stories">Top stories</string>
     <string name="menu_top_stories_summary">If disabled, &#8216;Top stories&#82167; button on navigation menu disappear.</string>
     <string name="menu_most_recent">Most Recent</string>
+    <string name="menu_most_recent_summary">If disabled, &#8216;Most Recent&#82167; button on navigation menu disappear.</string>
     <string name="menu_friendreq">Solicitações de Amizade</string>
     <string name="menu_friendreq_summary">If disabled, &#8216;Solicitações de Amizade&#82167; button on navigation menu disappear.</string>
     <string name="menu_groups">Groups</string>
@@ -99,37 +116,30 @@
     <string name="menu_mainmenu_summary">If disabled, &#8216;Menu Principal&#82167; button on navigation menu disappear.</string>
     <string name="messaging_enabled_title">Mensagens</string>
     <string name="messaging_enabled_summary">Quando ativado, irá proporcionar o acesso as Mensagens do Facebook. Desative se você tiver um aplicativo de mensagens.</string>
-    <!-- End navigation -->
-
-    <!-- App -->
     <string name="silent">Sem sons</string>
+    <string name="file_logger_needs_permission">Sem acesso para o armazenamento externo. Log não pode ser salvo.</string>
     <string name="navigation_drawer_open">Abrir gaveta de navegação</string>
     <string name="navigation_drawer_close">Fechar gaveta de navegação</string>
     <string name="default_user">Usuário</string>
+    <string name="header_profile_pic">Foto do perfil</string>
     <string name="nav_notifications">Notificações</string>
+    <string name="context_save_image">Salvar imagem</string>
     <string name="settings">Configurações</string>
     <string name="context_share_image">Compartilhar imagem</string>
+    <string name="context_copy_image_link">Copiar link da imagem</string>
     <string name="context_share_link">Compartilhar link</string>
+    <string name="context_copy_link">Copiar link</string>
     <string name="context_share_image_progress">Compartilhando imagem…</string>
     <string name="content_copy_link_done">Link copiado para área de transferência</string>
+    <string name="login_button">Login</string>
+    <string name="not_logged_in">Você não está logado</string>
     <string name="error_login">Algo deu errado, por favor tente fazer login novamente</string>
+    <string name="error_super_wrong">Algo deu muito errado</string>
+    <string name="error_facebook_noconnection">Não foi possível acessar o Facebook</string>
+    <string name="error_facebook_error">Algo deu errado por parte do Facebook</string>
+    <string name="loading">Carregando</string>
     <string name="permission_denied">Permissão negada, ação não pode ser finalizada</string>
     <string name="downloaded">Downloaded</string>
-	<string name="bookmarks_header">Bookmarks</string>
     <string name="new_bookmark">Added:</string>
     <string name="remove_bookmark">Removed:</string>
-	<!-- About -->
-    <string name="more">Mais e créditos</string>
-    <string name="about_updates">Atualizações</string>
-    <string name="updates">Verifique se há uma nova versão</string>
-    <string name="updates_summary">Carregar a página e baixar a última versão</string>
-    <string name="people_who_translated">Os usuários que traduziram o aplicativo</string>
-    <string name="devs_who_helped_me">Os devs que me ajudaram em minhas perguntas e a ter o código a partir de seus aplicativos</string>
-    <string name="help_translations">Ajuda a traduzir o aplicativo para seu idioma</string>
-    <string name="about_translations">Ajude, precisamos de você!</string>
-    <string name="source_code">O código fonte no Github</string>
-    <string name="withYou">Relatar erros ou solicitar novos recursos</string>
-    <string name="changelog">Mudanças</string>
-    <!-- End about -->
-
 </resources>
