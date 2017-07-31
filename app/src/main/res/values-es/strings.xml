@@ -54,8 +54,6 @@
 
     <!-- Appearence -->
     <string name="appearance_setting_title">APARIENCIA</string>
-    <string name="web_themes">Temas Web</string>
-    <string name="web_themes_summary">Elije diferentes temas para la web.</string>
     <string name="app_themes">Temas de la app</string>
     <string name="app_themes_summary">Elije diferentes temas para la app.</string>
 

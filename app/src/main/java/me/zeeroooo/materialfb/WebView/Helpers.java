@@ -1,20 +1,12 @@
 package me.zeeroooo.materialfb.WebView;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
-import android.view.Menu;
 import android.webkit.CookieManager;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class Helpers {
     public String url, title;
@@ -41,16 +33,6 @@ public class Helpers {
         return null;
     }
 
-    // Uncheck all items menu
-    public static void uncheckRadioMenu(Menu menu) {
-        for (int i = 0; i < menu.size(); i++) {
-            if (menu.getItem(i).isChecked()) {
-                menu.getItem(i).setChecked(false);
-                return;
-            }
-        }
-    }
-
     static boolean isInteger(String str) {
         return (str.matches("^-?\\d+$"));
     }
@@ -58,35 +40,15 @@ public class Helpers {
     public static Bitmap Circle(Bitmap circle) {
         final Bitmap bitmap = Bitmap.createBitmap(circle.getWidth(), circle.getHeight(), Bitmap.Config.ARGB_8888);
         final Canvas canvas = new Canvas(bitmap);
-        final int color = 0xff424242;
         final Paint paint = new Paint();
         final Rect rect = new Rect(0, 0, circle.getWidth(), circle.getHeight());
         paint.setAntiAlias(true);
         canvas.drawARGB(0, 0, 0, 0);
-        paint.setColor(color);
         canvas.drawCircle(circle.getWidth() / 2, circle.getHeight() / 2, circle.getWidth() / 2, paint);
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
         canvas.drawBitmap(circle, rect, rect, paint);
         circle.recycle();
         return bitmap;
-    }
-
-    /**
-     * Download an image as Bitmap object (run always outside the Main Thread)
-     */
-    public static Bitmap getBitmapFromURL(String src) {
-        try {
-            final URL url = new URL(src);
-            final HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-            connection.setDoInput(true);
-            connection.connect();
-            final InputStream input = connection.getInputStream();
-            return BitmapFactory.decodeStream(input);
-        } catch (IOException e) {
-            return null;
-        } catch (Exception e) {
-            return null;
-        }
     }
 
     // "clean" and decode an url, all in one

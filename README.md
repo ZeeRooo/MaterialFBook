@@ -265,6 +265,13 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Updated some translations.
 - Switched to the old package id to fix F-Droid issues.
 
+**Version B-3.5.0:**
+- Minor changes and fixes.
+- Deleted Facebook SDK. You can remove it from Facebook apps.
+- Redesigned.
+- Code cleanned.
+- Posibility to upload videos, photos, or audios from gallery/music player to Facebook´s wall.
+- Posibility to view album photos (longpress).
 
 **Notes:**
 _- Maybe some gifs cant be loaded because i need to add the url to the code. Report it as issue with the Facebook´s page link or website._
@@ -282,8 +289,9 @@ _- Maybe some gifs cant be loaded because i need to add the url to the code. Rep
 - AdvancedWebView by delight-im. // Since 2.9, it was remplaced with own WebView.
 - FloatingActionButton by Clans.
 - PhotoView by chrisbanes.
-- Permiso by greysonp.
+- Permiso by greysonp. // Removed.
 - Glide by bumptech.
+- Badger by volders.
 - All people who translated the app (more details in "More and Credits")
 
 

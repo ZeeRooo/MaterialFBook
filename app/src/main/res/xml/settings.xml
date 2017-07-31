@@ -2,11 +2,11 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/navigation_setting_title">
         <ListPreference
-            android:defaultValue="MostRecent"
             android:entries="@array/Start"
             android:entryValues="@array/StartValues"
             android:key="start_url"
             android:title="@string/start_url"
+            android:defaultValue="Most_recent"
             android:summary="%s."/>
         <SwitchPreference
             android:defaultValue="false"
@@ -46,13 +46,6 @@
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/appearance_setting_title">
         <ListPreference
-            android:defaultValue="Material"
-            android:entries="@array/WebThemes"
-            android:entryValues="@array/WebThemes"
-            android:key="web_themes"
-            android:summary="@string/web_themes_summary"
-            android:title="@string/web_themes"/>
-        <ListPreference
             android:entries="@array/AppThemes"
             android:entryValues="@array/AppThemes"
             android:key="app_theme"
@@ -87,10 +80,10 @@
             android:key="clear_cache"
             android:summary="@string/clearcache_summary"
             android:title="@string/clearcache" />
-        <Preference
+     <!--   <Preference
             android:key="navigation_menu_settings"
             android:title="@string/navigation_menu_settings"
-            android:summary="@string/navigation_menu_settings_description"/>
+            android:summary="@string/navigation_menu_settings_description"/>-->
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/more">
         <Preference

@@ -6,7 +6,9 @@
 package me.zeeroooo.materialfb.Activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
@@ -15,10 +17,12 @@ import me.zeeroooo.materialfb.Ui.Theme;
 import me.zeeroooo.materialfb.R;
 
 public class SettingsActivity extends AppCompatActivity {
+    private SharedPreferences mPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Theme.getTheme(this);
+        mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        Theme.Temas(this, mPreferences);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);

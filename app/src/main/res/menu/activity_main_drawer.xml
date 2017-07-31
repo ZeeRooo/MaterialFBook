@@ -37,6 +37,10 @@
             android:id="@+id/nav_photos"
             android:icon="@drawable/ic_menu_photos"
             android:title="@string/menu_photos" />
+        <item
+            android:id="@+id/lol"
+            android:icon="@drawable/ic_menu_photos"
+            android:title="string/menu_photos" />
     </group>
 
     <group android:checkableBehavior="none">

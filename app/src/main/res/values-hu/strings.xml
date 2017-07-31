@@ -70,8 +70,6 @@
 
     <!-- APPEARANCE -->
     <string name="appearance_setting_title">MEGJELENÉS</string>
-    <string name="web_themes">Web kinézet</string>
-    <string name="web_themes_summary">Különböző web témák kiválasztása.</string>
     <string name="app_themes">Alkalmazás témák</string>
     <string name="app_themes_summary">Különböző alkalmazás témák kiválasztása.</string>
 

@@ -66,7 +66,7 @@ public class Photo extends AppCompatActivity {
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         text = (AppCompatTextView) findViewById(R.id.photo_title);
-        url = getIntent().getStringExtra("url");
+        url = getIntent().getStringExtra("link");
         text.setText(getIntent().getStringExtra("title"));
         Load();
         mAttacher = new PhotoViewAttacher(mImageView);

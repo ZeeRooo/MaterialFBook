@@ -70,8 +70,6 @@
 
     <!-- APPEARANCE -->
     <string name="appearance_setting_title">AUSSEHEN</string>
-    <string name="web_themes">Web Designs</string>
-    <string name="web_themes_summary">Wähle aus verschiedenen Web Designs.</string>
     <string name="app_themes">App Designs</string>
     <string name="app_themes_summary">Wähle aus verschiedenen App Designs.</string>
 

@@ -1,6 +1,5 @@
 package me.zeeroooo.materialfb.WebView;
 
-import android.net.UrlQuerySanitizer;
 import android.util.Base64;
 import android.webkit.WebView;
 import java.io.ByteArrayInputStream;

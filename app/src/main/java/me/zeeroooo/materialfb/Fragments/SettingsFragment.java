@@ -35,10 +35,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
 
         // set onPreferenceClickListener for a few preferences
         Preference notificationsSettingsPref = findPreference("notifications_settings");
-        Preference navigationmenuSettingsPref = findPreference("navigation_menu_settings");
         Preference More = findPreference("moreandcredits");
         notificationsSettingsPref.setOnPreferenceClickListener(this);
-        navigationmenuSettingsPref.setOnPreferenceClickListener(this);
         More.setOnPreferenceClickListener(this);
 
         mPreferences = PreferenceManager.getDefaultSharedPreferences(mContext);
@@ -93,11 +91,6 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 getFragmentManager().beginTransaction()
                         .addToBackStack(null).replace(R.id.content_frame,
                         new NotificationsSettingsFragment()).commit();
-                return true;
-            case "navigation_menu_settings":
-                getFragmentManager().beginTransaction()
-                        .addToBackStack(null).replace(R.id.content_frame,
-                        new NavigationMenuFragment()).commit();
                 return true;
             case "moreandcredits":
                 Intent moreandcredits = new Intent(getActivity(), More.class);

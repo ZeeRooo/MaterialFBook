@@ -70,8 +70,6 @@
 
     <!-- APPEARANCE -->
     <string name="appearance_setting_title">المظهر</string>
-    <string name="web_themes">سِمات الويب</string>
-    <string name="web_themes_summary">يمكنك اختيار سمة مختلفة لصفحة الويب.</string>
     <string name="app_themes">سمات التطبيق</string>
     <string name="app_themes_summary">يمكنك اختيار سمة مختلفة للتطبيق.</string>
 

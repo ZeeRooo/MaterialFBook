@@ -70,8 +70,6 @@
 
     <!-- APPEARANCE -->
     <string name="appearance_setting_title">ASPETTO</string>
-    <string name="web_themes">Temi web</string>
-    <string name="web_themes_summary">Puoi scegliere differenti temi web.</string>
     <string name="app_themes">Temi app</string>
     <string name="app_themes_summary">Puoi scegliere differenti temi app.</string>
 

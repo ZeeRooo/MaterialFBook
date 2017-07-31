@@ -7,20 +7,18 @@
 package me.zeeroooo.materialfb.Activities;
 
 import android.Manifest;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
-import android.content.pm.Signature;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
-import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.net.UrlQuerySanitizer;
 import android.os.AsyncTask;
@@ -28,28 +26,33 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
+import android.os.Message;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.res.ResourcesCompat;
-import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
+import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatImageButton;
-import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.AppCompatTextView;
+import android.support.v7.widget.SearchView;
+import android.support.v7.widget.ThemedSpinnerAdapter;
 import android.support.v7.widget.Toolbar;
-import android.util.Base64;
 import android.util.Log;
-import android.view.LayoutInflater;
+import android.view.Gravity;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewAnimationUtils;
+import android.webkit.CookieManager;
 import android.webkit.GeolocationPermissions;
 import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
@@ -59,43 +62,30 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AdapterView;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
-import com.facebook.AccessToken;
-import com.facebook.CallbackManager;
-import com.facebook.FacebookCallback;
-import com.facebook.FacebookException;
-import com.facebook.GraphRequest;
-import com.facebook.GraphResponse;
-import com.facebook.login.LoginManager;
-import com.facebook.login.LoginResult;
-import com.facebook.share.ShareApi;
-import com.facebook.share.model.SharePhoto;
-import com.facebook.share.model.SharePhotoContent;
-import com.facebook.share.model.ShareVideo;
-import com.facebook.share.model.ShareVideoContent;
-import com.github.clans.fab.FloatingActionButton;
 import com.github.clans.fab.FloatingActionMenu;
-import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import android.support.v4.view.GravityCompat;
 import android.webkit.URLUtil;
+import android.widget.TextView;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Field;
 import java.net.URLEncoder;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import de.hdodenhof.circleimageview.CircleImageView;
+import berlin.volders.badger.BadgeShape;
+import berlin.volders.badger.Badger;
+import berlin.volders.badger.CountBadge;
 import me.zeeroooo.materialfb.Bookmarks.DatabaseHelper;
 import me.zeeroooo.materialfb.Bookmarks.ListAdapter;
 import me.zeeroooo.materialfb.Notifications.NotificationsService;
@@ -106,25 +96,16 @@ import me.zeeroooo.materialfb.WebView.JavaScriptHelpers;
 import me.zeeroooo.materialfb.WebView.JavaScriptInterfaces;
 import me.zeeroooo.materialfb.WebView.MFBWebView;
 import me.zeeroooo.materialfb.R;
-import com.mikepenz.actionitembadge.library.ActionItemBadge;
-import com.mikepenz.actionitembadge.library.utils.BadgeStyle;
-import static com.bumptech.glide.load.DecodeFormat.PREFER_ARGB_8888;
-import com.facebook.FacebookSdk;
-import com.facebook.appevents.AppEventsLogger;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
-    private final BadgeStyle BADGE_SIDE_FULL = new BadgeStyle(BadgeStyle.Style.LARGE, R.layout.menu_badge_full, Color.RED, Color.RED, Color.WHITE);
     private ValueCallback<Uri[]> mFilePathCallback;
-    private Uri mCapturedImageURI = null;
+    private Uri mCapturedImageURI = null, sharedFromGallery;
     private ValueCallback<Uri> mUploadMessage;
     private final int FILECHOOSER_RESULTCODE = 2888, INPUT_FILE_REQUEST_CODE = 1;
-    private String baseURL, mCameraPhotoPath, Url, css;
+    private String baseURL, mCameraPhotoPath, Url, urlIntent, cookies = Helpers.getCookie();
     private SwipeRefreshLayout swipeView;
-    NavigationView mNavigationView, BookmarksView;
     private FloatingActionMenu mMenuFAB;
     public MFBWebView mWebView;
-    private MenuItem mNotificationButton, mMessagesButton;
-    private CallbackManager callbackManager;
     private SharedPreferences mPreferences;
     private DownloadManager mDownloadManager;
     private DatabaseHelper DBHelper;
@@ -133,50 +114,86 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ArrayList<Helpers> bookmarks;
     private Helpers bk;
     private DrawerLayout drawer;
-    private FloatingActionButton UploadFAB;
-    Elements elements;
-    AsyncTask mTask;
+    private Elements elements;
+    private Toolbar mToolbar, searchToolbar;
+    private BottomNavigationView mBottomNav;
+    private Menu menu, search_menu;
+    private CountBadge.Factory circleFactory;
+    public static String css;
+    private Element eName;
+    private Document dName;
+    private MenuItem searchItem;
+    private SearchView searchView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Theme.getTheme(this);
+        mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        Theme.Temas(this, mPreferences);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Preferences
-        mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        circleFactory = new CountBadge.Factory(this, BadgeShape.circle(.7f, Gravity.END | Gravity.TOP));
 
         mWebView = (MFBWebView) findViewById(R.id.webview);
-        mNavigationView = (NavigationView) findViewById(R.id.nav_view);
-        mNavigationView.setNavigationItemSelectedListener(this);
-        BookmarksView = (NavigationView) findViewById(R.id.BookmarksView);
+        NavigationView BookmarksView = (NavigationView) findViewById(R.id.BookmarksView);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         // Setup the toolbar
-        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
-
-        // Setup the DrawLayout
-        final ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.addDrawerListener(toggle);
-        toggle.syncState();
+        searchToolbar();
 
         URLs();
 
-        if (checkLoggedInState())
-            switch (mPreferences.getString("start_url", "Most_recent")) {
-                case "Most_recent":
-                    mWebView.loadUrl(baseURL + "home.php?sk=h_chr");
-                    break;
-                case "Top_stories":
-                    mWebView.loadUrl(baseURL + "home.php?sk=h_nor");
-                    break;
-                case "Messages":
-                    mWebView.loadUrl(baseURL + "messages/");
-                    break;
-                default:
-                    break;
+        mBottomNav = (BottomNavigationView) findViewById(R.id.bottom_navigation_view);
+        menu = mBottomNav.getMenu();
+
+        switch (mPreferences.getString("start_url", "Most_recent")) {
+            case "Most_recent":
+                mWebView.loadUrl(baseURL + "home.php?sk=h_chr");
+                menu.getItem(0).setIcon(R.drawable.ic_menu_most_recent);
+                menu.getItem(0).setTitle(R.string.menu_most_recent);
+                break;
+            case "Top_stories":
+                mWebView.loadUrl(baseURL + "home.php?sk=h_nor");
+                menu.getItem(0).setIcon(R.drawable.ic_menu_top_stories);
+                menu.getItem(0).setTitle(R.string.menu_top_stories);
+                break;
+            case "Messages":
+                mWebView.loadUrl(baseURL + "messages/");
+                break;
+        }
+
+        mBottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.bottom_home:
+                        mWebView.loadUrl(baseURL + "home.php?sk=h_chr");
+                        Badger.sett(menu.getItem(0), circleFactory).setCount(0);
+                        break;
+                    case R.id.bottom_message:
+                        mWebView.loadUrl(baseURL + "messages/");
+                        NotificationsService.ClearMessages(MainActivity.this);
+                        Badger.sett(menu.getItem(1), circleFactory).setCount(0);
+                        break;
+                    case R.id.bottom_notifications:
+                        mWebView.loadUrl(baseURL + "notifications.php");
+                        setTitle(R.string.nav_notifications);
+                        NotificationsService.ClearNotif(MainActivity.this);
+                        Badger.sett(menu.getItem(2), circleFactory).setCount(0);
+                        break;
+                    case R.id.bottom_more:
+                        if (!mPreferences.getBoolean("save_data", false)) {
+                            mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23bookmarks_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + "https%3A%2F%2Fm.facebook.com%2F" + "home.php'%7D%7D)()");
+                        } else {
+                            mWebView.loadUrl("https://mbasic.facebook.com/menu/bookmarks/?ref_component=mbasic_home_header&ref_page=%2Fwap%2Fhome.php&refid=8");
+                        }
+                        setTitle(R.string.menu_mainmenu);
+                        break;
+                }
+                return true;
             }
+        });
 
         DBHelper = new DatabaseHelper(this);
         bookmarks = new ArrayList<>();
@@ -208,49 +225,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 CookingAToast.cooking(MainActivity.this, getString(R.string.new_bookmark) + " " + mWebView.getTitle(), Color.WHITE, Color.parseColor("#214594"), R.drawable.ic_bookmarks, false).show();
             }
         });
-
-        // Create the badge for messages
-        ActionItemBadge.update(this, mNavigationView.getMenu().findItem(R.id.nav_messages), (Drawable) null, BADGE_SIDE_FULL, Integer.MIN_VALUE);
-        ActionItemBadge.update(this, mNavigationView.getMenu().findItem(R.id.nav_friendreq), (Drawable) null, BADGE_SIDE_FULL, Integer.MIN_VALUE);
-        ActionItemBadge.update(this, mNavigationView.getMenu().findItem(R.id.nav_most_recent), (Drawable) null, BADGE_SIDE_FULL, Integer.MIN_VALUE);
-
-        // Hide buttons if they are disabled
-        if (!mPreferences.getBoolean("messaging_enabled", false)) {
-            mNavigationView.getMenu().findItem(R.id.nav_messages).setVisible(false);
-        }
-        if (!mPreferences.getBoolean("nav_groups", false)) {
-            mNavigationView.getMenu().findItem(R.id.nav_groups).setVisible(false);
-        }
-        if (!mPreferences.getBoolean("nav_search", false)) {
-            mNavigationView.getMenu().findItem(R.id.nav_search).setVisible(false);
-        }
-        if (!mPreferences.getBoolean("nav_mainmenu", false)) {
-            mNavigationView.getMenu().findItem(R.id.nav_mainmenu).setVisible(false);
-        }
-        if (!mPreferences.getBoolean("nav_most_recent", false)) {
-            mNavigationView.getMenu().findItem(R.id.nav_most_recent).setVisible(false);
-        }
-        if (!mPreferences.getBoolean("nav_fblogout", false)) {
-            mNavigationView.getMenu().findItem(R.id.nav_fblogout).setVisible(false);
-        }
-        if (!mPreferences.getBoolean("nav_events", false)) {
-            mNavigationView.getMenu().findItem(R.id.nav_events).setVisible(false);
-        }
-        if (!mPreferences.getBoolean("nav_photos", false)) {
-            mNavigationView.getMenu().findItem(R.id.nav_photos).setVisible(false);
-        }
-        if (!mPreferences.getBoolean("nav_back", false)) {
-            mNavigationView.getMenu().findItem(R.id.nav_back).setVisible(false);
-        }
-        if (!mPreferences.getBoolean("nav_exitapp", false)) {
-            mNavigationView.getMenu().findItem(R.id.nav_exitapp).setVisible(false);
-        }
-        if (!mPreferences.getBoolean("nav_top_stories", false)) {
-            mNavigationView.getMenu().findItem(R.id.nav_top_stories).setVisible(false);
-        }
-        if (!mPreferences.getBoolean("nav_friendreq", false)) {
-            mNavigationView.getMenu().findItem(R.id.nav_friendreq).setVisible(false);
-        }
 
         // Start the Swipe to reload listener
         swipeView = (SwipeRefreshLayout) findViewById(R.id.swipeLayout);
@@ -345,6 +319,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mWebView.getSettings().setJavaScriptEnabled(true);
         mWebView.getSettings().setAllowFileAccess(true);
         mWebView.getSettings().setAllowContentAccess(true);
+        mWebView.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
 
         if (Build.VERSION.SDK_INT >= 19) {
             mWebView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
@@ -352,8 +327,23 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             mWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
         }
 
-        mWebView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
         mWebView.getSettings().setUserAgentString("Mozilla/5.0 (BB10; Kbd) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.4633 Mobile Safari/537.10+");
+
+        mWebView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                if (mWebView.getUrl().contains("posts/pcb.")) {
+                    WebView.HitTestResult result = mWebView.getHitTestResult();
+                    if (result.getType() == WebView.HitTestResult.IMAGE_TYPE) {
+                        Message msg = mHandler.obtainMessage();
+                        mWebView.requestImageRef(msg);
+                    }
+                }
+                return false;
+            }
+
+        });
+
         mWebView.setWebViewClient(new WebViewClient() {
             @SuppressLint("NewApi")
             @Override
@@ -446,7 +436,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         }
 
                         Intent Photo = new Intent(MainActivity.this, Photo.class);
-                        Photo.putExtra("url", url);
+                        Photo.putExtra("link", url);
                         Photo.putExtra("title", view.getTitle());
                         startActivity(Photo);
                         return true;
@@ -463,9 +453,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
 
             private void getSrc(final String url, final String select, final String select2) {
-                 mTask = new AsyncTask<Void, Void, Void>() {
+                new AsyncTask<Void, Void, Void>() {
                     @Override
-                    protected Void doInBackground (Void[] params){
+                    protected Void doInBackground(Void[] params) {
                         try {
                             Document document = Jsoup.connect(url).get();
                             elements = document.select(select).select(select2);
@@ -488,78 +478,45 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onLoadResource(WebView view, String url) {
                 JavaScriptHelpers.videoView(view);
-                if (!mPreferences.getBoolean("save_data", false))
-                    JavaScriptHelpers.updateNumsService(view);
-                if (swipeView.isRefreshing()) {
+                if (swipeView.isRefreshing())
                     JavaScriptHelpers.loadCSS(view, css);
-                }
-                if (url.contains("facebook.com/composer/mbasic/") || url.contains("https://m.facebook.com/sharer.php?sid=")) {
+                if (url.contains("facebook.com/composer/mbasic/") || url.contains("https://m.facebook.com/sharer.php?sid="))
                     css += "#page{top:0}";
-                    Log.d("Contiene", "mal ahi");
-                }
             }
 
             @Override
             public void onPageFinished(WebView view, String url) {
                 swipeView.setRefreshing(false);
 
-                switch (mPreferences.getString("web_themes", "Material")) {
-                    case "FacebookMobile":
-                    break;
-                    case "Material":
-                        css += getString(R.string.Material);
-                    break;
-                    case "MaterialAmoled":
-                        css += getString(R.string.MaterialAmoled);
-                    break;
-                    case "MaterialBlack":
-                        css += getString(R.string.MaterialBlack);
-                    break;
-                    case "MaterialPink":
-                        css += getString(R.string.MaterialPink);
-                    break;
-                    case "MaterialGrey":
-                        css += getString(R.string.MaterialGrey);
-                    break;
-                    case "MaterialGreen":
-                        css += getString(R.string.MaterialGreen);
-                    break;
-                    case "MaterialRed":
-                        css += getString(R.string.MaterialRed);
-                    break;
-                    case "MaterialLime":
-                        css += getString(R.string.MaterialLime);
-                    break;
-                    case "MaterialYellow":
-                        css += getString(R.string.MaterialYellow);
-                    break;
-                    case "MaterialPurple":
-                        css += getString(R.string.MaterialPurple);
-                    break;
-                    case "MaterialLightBlue":
-                        css += getString(R.string.MaterialLightBlue);
-                    break;
-                    case "MaterialOrange":
-                        css += getString(R.string.MaterialOrange);
-                    break;
-                    case "MaterialGooglePlayGreen":
-                        css += getString(R.string.MaterialGPG);
-                    break;
-                    default:
-                        break;
-                }
+                Theme.Temas(MainActivity.this, mPreferences);
+
+                if (cookies != null && !mPreferences.getBoolean("save_data", false))
+                    JavaScriptHelpers.updateNumsService(view);
 
                 if (url.contains("lookaside") || url.contains("cdn.fbsbx.com")) {
                     Url = url;
                     RequestStoragePermission();
                 }
 
-                // Enable or disable FAB
-                if (url.contains("messages") || !mPreferences.getBoolean("fab_enable", false)) {
-                    mMenuFAB.setVisibility(View.GONE);
-                } else {
-                    mMenuFAB.setVisibility(View.VISIBLE);
+                if (cookies != null && !mPreferences.getBoolean("save_data", false) && !url.contains("messages"))
+                    updateUserInfo();
+
+                if (url.contains("messages")) {
+                    mToolbar.setSubtitle(null);
+                    mToolbar.setLogo(null);
                 }
+
+                if (url.contains("/?stype=lo") || cookies == null) {
+                    mToolbar.setLogo(null);
+                    mToolbar.setTitle(R.string.app_name);
+                    mToolbar.setSubtitle(null);
+                }
+
+                // Enable or disable FAB
+                if (url.contains("messages") || !mPreferences.getBoolean("fab_enable", false))
+                    mMenuFAB.setVisibility(View.GONE);
+                else
+                    mMenuFAB.setVisibility(View.VISIBLE);
 
                 if (url.contains("https://mbasic.facebook.com/composer/?text=")) {
                     final UrlQuerySanitizer sanitizer = new UrlQuerySanitizer();
@@ -577,32 +534,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     view.loadUrl("javascript:(function(){try{document.querySelector('button#u_0_1.btn.btnD.mfss.touchable').click()}catch(_){}})()");
                 }
 
-                // Hide Orange highlight on focus
-                css += "*{-webkit-tap-highlight-color:transparent;outline:0}";
-
-                if (mPreferences.getBoolean("hide_menu_bar", true)) {
+                if (mPreferences.getBoolean("hide_menu_bar", true))
                     css += "#page{top:-45px}";
-                }
+
                 // Hide the status editor on the News Feed if setting is enabled
-                if (mPreferences.getBoolean("hide_editor_newsfeed", true)) {
+                if (mPreferences.getBoolean("hide_editor_newsfeed", true))
                     css += "#mbasic_inline_feed_composer{display:none}";
-                }
 
                 // Hide 'Sponsored' content (ads)
-                if (mPreferences.getBoolean("hide_sponsored", true)) {
+                if (mPreferences.getBoolean("hide_sponsored", true))
                     css += "article[data-ft*=ei]{display:none}";
-                }
 
                 // Hide birthday content from News Feed
-                if (mPreferences.getBoolean("hide_birthdays", true)) {
+                if (mPreferences.getBoolean("hide_birthdays", true))
                     css += "article#u_1j_4{display:none}" + "article._55wm._5e4e._5fjt{display:none}";
-                }
 
-                if (mPreferences.getBoolean("comments_recently", true)) {
-                    css +=  "._15ks+._4u3j{display:none}";
-                }
+                if (mPreferences.getBoolean("comments_recently", true))
+                    css += "._15ks+._4u3j{display:none}";
 
-                css += "article#u_0_q._d2r{display:none}";
+                if (url.contains("posts/pcb."))
+                    css += "._i81:after {display: none;}";
+
+                if (sharedFromGallery != null)
+                    view.loadUrl("javascript:(function(){try{document.getElementsByClassName(\"_56bz _54k8 _52jh _5j35 _157e\")[0].click()}catch(_){document.getElementsByClassName(\"_50ux\")[0].click()}})()");
+
             }
         });
         mWebView.setWebChromeClient(new WebChromeClient() {
@@ -610,8 +565,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, WebChromeClient.FileChooserParams fileChooserParams) {
 
                 // Double check that we don't have any existing callbacks
-                if (mFilePathCallback != null) {
-                    mFilePathCallback.onReceiveValue(null);
+                if (sharedFromGallery != null) {
+                    filePathCallback.onReceiveValue(new Uri[]{sharedFromGallery});
                 }
                 mFilePathCallback = filePathCallback;
 
@@ -647,11 +602,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 } else {
                     intentArray = new Intent[0];
                 }
-                Intent chooserIntent = new Intent(Intent.ACTION_CHOOSER);
-                chooserIntent.putExtra(Intent.EXTRA_INTENT, contentSelectionIntent);
-                chooserIntent.putExtra(Intent.EXTRA_TITLE, "Image Chooser");
-                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, intentArray);
-                startActivityForResult(chooserIntent, INPUT_FILE_REQUEST_CODE);
+                if (sharedFromGallery == null) {
+                    Intent chooserIntent = new Intent(Intent.ACTION_CHOOSER);
+                    chooserIntent.putExtra(Intent.EXTRA_INTENT, contentSelectionIntent);
+                    chooserIntent.putExtra(Intent.EXTRA_TITLE, "Image Chooser");
+                    chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, intentArray);
+                    startActivityForResult(chooserIntent, INPUT_FILE_REQUEST_CODE);
+                }
                 return true;
             }
 
@@ -662,8 +619,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             // openFileChooser for Android 3.0+
             private void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType) {
 
-                // Update message
-                mUploadMessage = uploadMsg;
+                if (sharedFromGallery != null) {
+                    uploadMsg.onReceiveValue(sharedFromGallery);
+                } else {
+                    mUploadMessage = uploadMsg;
+                }
+
                 File imageStorageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
                 if (!imageStorageDir.exists()) {
                     imageStorageDir.mkdirs();
@@ -674,9 +635,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mCapturedImageURI = Uri.fromFile(file);
 
                 // Camera capture image intent
-                final Intent captureIntent = new Intent(
-                        android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
-
+                final Intent captureIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
                 captureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mCapturedImageURI);
 
                 Intent i = new Intent(Intent.ACTION_GET_CONTENT);
@@ -684,13 +643,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 i.setType("*/*");
 
                 // Create file chooser intent
-                Intent chooserIntent = Intent.createChooser(i, "Image Chooser");
-
-                // Set camera intent to file chooser
-                chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Parcelable[]{captureIntent});
-
-                // On select image call onActivityResult method of activity
-                startActivityForResult(chooserIntent, FILECHOOSER_RESULTCODE);
+                if (sharedFromGallery == null) {
+                    Intent chooserIntent = Intent.createChooser(i, "Image Chooser");
+                    chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Parcelable[]{captureIntent});
+                    startActivityForResult(chooserIntent, FILECHOOSER_RESULTCODE);
+                }
             }
 
             private File createImageFile() throws IOException {
@@ -707,47 +664,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             public void onReceivedTitle(WebView view, String title) {
-                if (view.getUrl().contains("home.php?sk=h_nor")) {
+                if (view.getUrl().contains("home.php?sk=h_nor"))
                     setTitle(R.string.menu_top_stories);
-                } else if (title.contains("Facebook")) {
+                else if (title.contains("Facebook"))
                     setTitle(R.string.menu_most_recent);
-                } else {
+                else
                     setTitle(title);
-                }
             }
         });
-
-        // Add OnClick listener to Profile picture
-        ImageView profileImage = (ImageView) mNavigationView.getHeaderView(0).findViewById(R.id.profile_picture);
-        profileImage.setClickable(true);
-        profileImage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                drawer.closeDrawers();
-                mWebView.loadUrl(baseURL + "me");
-            }
-        });
-
-        callbackManager = CallbackManager.Factory.create();
-        FacebookCallback<LoginResult> loginResult = new FacebookCallback<LoginResult>() {
-            @Override
-            public void onSuccess(LoginResult loginResult) {
-                updateUserInfo();
-                mWebView.setVisibility(View.VISIBLE);
-                mWebView.loadUrl("https://m.facebook.com/");
-            }
-
-            @Override
-            public void onCancel() { }
-
-            @Override
-            public void onError(FacebookException error) {
-                CookingAToast.cooking(MainActivity.this, getString(R.string.error_login), Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
-                LoginManager.getInstance().logOut();
-            }
-        };
-
-        LoginManager.getInstance().registerCallback(callbackManager, loginResult);
 
         mDownloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
 
@@ -806,60 +730,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         UrlIntent(intent);
     }
 
-    private void QuickUpload(final Intent intent) {
-        final LayoutInflater inflater = LayoutInflater.from(this);
-        final View view = inflater.inflate(R.layout.share_dialog, null);
-        final AlertDialog QuickUpload = new AlertDialog.Builder(this).create();
-        final EditText quick_description = (EditText) view.findViewById(R.id.quick_description);
-        UploadFAB = (FloatingActionButton) view.findViewById(R.id.upload_fab);
-        final Uri uriToShare = intent.getParcelableExtra(Intent.EXTRA_STREAM);
-        final AppCompatImageView preview = (AppCompatImageView) view.findViewById(R.id.preview_img);
-
-        Glide.with(this).load(uriToShare).asBitmap().diskCacheStrategy(DiskCacheStrategy.NONE).skipMemoryCache(true).format(PREFER_ARGB_8888).into(new SimpleTarget<Bitmap>() {
-            @Override
-            public void onResourceReady(final Bitmap bitmap, GlideAnimation anim) {
-
-                if (bitmap.getWidth() >= 4096 || bitmap.getHeight() >= 4096) {
-                    Bitmap resized = ThumbnailUtils.extractThumbnail(bitmap, 400, 400);
-                    preview.setImageBitmap(resized);
-                }  else {
-                    preview.setImageBitmap(bitmap);
-                }
-
-                UploadFAB.setOnClickListener(new View.OnClickListener() {
-                    public void onClick(View v) {
-                        if (quick_description.getText().toString().isEmpty()) {
-                            quick_description.setText(" ");
-                        }
-                        if (intent.getType().startsWith("image/")) {
-                            SharePhoto photo = new SharePhoto.Builder().setBitmap(bitmap).setCaption(quick_description.getText().toString()).setUserGenerated(true).build();
-                            SharePhotoContent content = new SharePhotoContent.Builder().addPhoto(photo).build();
-                            ShareApi.share(content, null);
-                            CookingAToast.cooking(MainActivity.this, getString(R.string.sharing_info), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_share, false).show();
-                        } else {
-                            ShareVideo video = new ShareVideo.Builder().setLocalUrl(uriToShare).build();
-                            ShareVideoContent contentVid = new ShareVideoContent.Builder().setVideo(video).setContentDescription(quick_description.getText().toString()).build();
-                            ShareApi.share(contentVid, null);
-                            CookingAToast.cooking(MainActivity.this, getString(R.string.sharing_info), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_share, false).show();
-                        }
-
-                        QuickUpload.dismiss();
-                        bitmap.recycle();
-                    }
-                });
-            }
-        });
-
-        QuickUpload.setView(view);
-        QuickUpload.show();
-    }
-
     @Override
     protected void onResume() {
         super.onResume();
         mWebView.onResume();
         mWebView.resumeTimers();
-        JavaScriptHelpers.updateNumsService(mWebView);
     }
 
     @Override
@@ -884,7 +759,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         // super.onActivityResult(requestCode, resultCode, data);
-        callbackManager.onActivityResult(requestCode, resultCode, data);
         // Thanks to Koras for the tutorial. http://dev.indywidualni.org/2015/02/an-advanced-webview-with-some-cool-features
         if (Build.VERSION.SDK_INT >= 21) {
             if (requestCode != INPUT_FILE_REQUEST_CODE || mFilePathCallback == null) {
@@ -934,13 +808,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public void onStart() {
-        super.onStart();
-        if (!mPreferences.getBoolean("save_data", false))
-            updateUserInfo();
-    }
-
-    @Override
     public void onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawers();
@@ -949,6 +816,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else {
             super.onBackPressed();
         }
+        if (searchView.isSelected())
+            searchItem.collapseActionView();
     }
 
     private static void deleteCache(Context context) {
@@ -977,39 +846,36 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        mNotificationButton = menu.findItem(R.id.action_notifications);
-        ActionItemBadge.update(this, mNotificationButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_notifications, null), ActionItemBadge.BadgeStyles.RED, Integer.MIN_VALUE);
-        mMessagesButton = menu.findItem(R.id.nav_messages);
-        ActionItemBadge.update(this, mMessagesButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_message, null), ActionItemBadge.BadgeStyles.RED, Integer.MIN_VALUE);
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         URLs();
-        // Handle action bar item clicks here
         int id = item.getItemId();
-        if (id == R.id.action_notifications) {
-            mWebView.loadUrl(baseURL + "notifications.php");
-            setTitle(R.string.nav_notifications);
-            Helpers.uncheckRadioMenu(mNavigationView.getMenu());
-            NotificationsService.ClearNotif(this);
+        if (id == R.id.toolbar_settings) {
+            Intent settingsActivity = new Intent(this, SettingsActivity.class);
+            startActivity(settingsActivity);
         }
-        if (id == R.id.nav_messages) {
-            mWebView.loadUrl(baseURL + "messages/");
-            NotificationsService.ClearMessages(this);
-            Helpers.uncheckRadioMenu(mNavigationView.getMenu());
+        if (id == R.id.action_search) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                circleReveal(R.id.searchtoolbar, 1, true, true);
+            else
+                searchToolbar.setVisibility(View.VISIBLE);
+
+            searchItem.expandActionView();
         }
-        return super.onOptionsItemSelected(item);
+        return true;
 
     }
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-        URLs();
+        //   URLs();
         // Handle navigation view item clicks here.
-        switch (item.getItemId()) {
+       /* switch (item.getItemId()) {
             case R.id.nav_top_stories:
                 mWebView.loadUrl(baseURL + "home.php?sk=h_nor");
                 setTitle(R.string.menu_top_stories);
@@ -1019,18 +885,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mWebView.loadUrl(baseURL + "home.php?sk=h_chr'");
                 setTitle(R.string.menu_most_recent);
                 item.setChecked(true);
-                Helpers.uncheckRadioMenu(mNavigationView.getMenu());
                 break;
             case R.id.nav_friendreq:
                 mWebView.loadUrl(baseURL + "friends/center/requests/");
                 setTitle(R.string.menu_friendreq);
                 item.setChecked(true);
-                Helpers.uncheckRadioMenu(mNavigationView.getMenu());
                 break;
             case R.id.nav_messages:
                 mWebView.loadUrl(baseURL + "messages/");
                 NotificationsService.ClearMessages(this);
-                Helpers.uncheckRadioMenu(mNavigationView.getMenu());
                 break;
             case R.id.nav_search:
                 if (!mPreferences.getBoolean("save_data", false)) {
@@ -1065,7 +928,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 item.setChecked(true);
                 break;
             case R.id.nav_fblogout:
-                LoginManager.getInstance().logOut();
                 mWebView.reload();
                 break;
             case R.id.nav_settings:
@@ -1079,23 +941,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_exitapp:
                 finishAffinity();
                 break;
+            case R.id.lol:
+                mWebView.loadUrl("javascript:document.querySelector('[name*=\"view_photo\"]').click();");
+                break;
             default:
                 break;
         }
 
-        drawer.closeDrawers();
+        drawer.closeDrawers();*/
         return true;
-    }
-
-    public boolean checkLoggedInState() {
-        if (AccessToken.getCurrentAccessToken() != null && Helpers.getCookie() != null) {
-            mWebView.setVisibility(View.VISIBLE);
-            return true;
-        } else {
-            LoginManager.getInstance().logInWithPublishPermissions(this, Arrays.asList("publish_actions"));
-            mWebView.setVisibility(View.GONE);
-            return false;
-        }
     }
 
     @JavascriptInterface
@@ -1107,72 +961,69 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void updateUserInfo() {
-        GraphRequest request = GraphRequest.newMeRequest(AccessToken.getCurrentAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
+        // Set the user name
+        new AsyncTask<Void, Void, String>() {
             @Override
-            public void onCompleted(JSONObject object, GraphResponse response) {
-                // Update header
+            protected String doInBackground(Void[] params) {
                 try {
-                    // Set the user's name under the header
-                    ((AppCompatTextView) findViewById(R.id.profile_name)).setText(object.getString("name"));
-
-                    Glide.with(MainActivity.this).load("https://graph.facebook.com/" + object.getString("id") + "/picture?type=large").diskCacheStrategy(DiskCacheStrategy.SOURCE).into((CircleImageView) findViewById(R.id.profile_picture));
-
-                    Glide.with(MainActivity.this).load(object.getJSONObject("cover").getString("source")).diskCacheStrategy(DiskCacheStrategy.SOURCE).into((AppCompatImageView) findViewById(R.id.cover));
-
+                    dName = Jsoup.connect("https://mbasic.facebook.com/me").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).get();
+                    eName = dName.select("span > strong").first();
                 } catch (Exception e) {
-                    e.printStackTrace();
                 }
+                return null;
             }
-        });
-        Bundle parameters = new Bundle();
-        parameters.putString("fields", "id,name,cover");
-        request.setParameters(parameters);
-        request.executeAsync();
+
+            @Override
+            protected void onPostExecute(String string) {
+                if (eName.text() != null)
+                    mToolbar.setSubtitle(eName.text());
+            }
+        }.execute();
+
+        // Set the profile picture
+        Glide.with(this)
+                .load("https://graph.facebook.com/" + cookies + "/picture?type=large")
+                .asBitmap()
+                .centerCrop()
+                .diskCacheStrategy(DiskCacheStrategy.SOURCE)
+                .into(new SimpleTarget<Bitmap>(90, 90) {
+                    @Override
+                    public void onResourceReady(Bitmap bitmap, GlideAnimation anim) {
+                        RoundedBitmapDrawable drawable = RoundedBitmapDrawableFactory.create(mToolbar.getResources(), bitmap);
+                        drawable.setCircular(true);
+                        mToolbar.setLogo(drawable);
+                        mToolbar.getChildAt(2).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                mWebView.loadUrl(baseURL + "me");
+                            }
+                        });
+                    }
+                });
     }
 
     public void setNotificationNum(int num) {
         if (num > 0) {
-            ActionItemBadge.update(mNotificationButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_notifications, null), num);
+            Badger.sett(menu.findItem(R.id.bottom_notifications), circleFactory).setCount(num);
         } else {
-            ActionItemBadge.update(mNotificationButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_notifications, null), Integer.MIN_VALUE);
+            Badger.sett(menu.findItem(R.id.bottom_notifications), circleFactory).setCount(0);
         }
     }
 
     public void setMessagesNum(int num) {
-        // Only update message count if enabled
-        if (mPreferences.getBoolean("messaging_enabled", false)) {
-            if (num > 0) {
-                ActionItemBadge.update(mNavigationView.getMenu().findItem(R.id.nav_messages), num);
-            } else {
-                // Hide the badge and show the washed-out button
-                ActionItemBadge.update(mNavigationView.getMenu().findItem(R.id.nav_messages), Integer.MIN_VALUE);
-            }
-        }
         if (num > 0) {
-            ActionItemBadge.update(mMessagesButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_message, null), num);
+            Badger.sett(menu.findItem(R.id.bottom_message), circleFactory).setCount(num);
         } else {
-            ActionItemBadge.update(mMessagesButton, ResourcesCompat.getDrawable(getResources(), R.drawable.ic_message, null), Integer.MIN_VALUE);
-        }
-    }
-
-    public void setRequestsNum(int num) {
-        if (mPreferences.getBoolean("nav_friendreq", false)) {
-            if (num > 0) {
-                ActionItemBadge.update(mNavigationView.getMenu().findItem(R.id.nav_friendreq), num);
-            } else {
-                // Hide the badge and show the washed-out button
-                ActionItemBadge.update(mNavigationView.getMenu().findItem(R.id.nav_friendreq), Integer.MIN_VALUE);
-            }
+            Badger.sett(menu.findItem(R.id.bottom_message), circleFactory).setCount(0);
         }
     }
 
     public void setMrNum(int num) {
         if (mPreferences.getBoolean("nav_most_recent", false)) {
             if (num > 0) {
-                ActionItemBadge.update(mNavigationView.getMenu().findItem(R.id.nav_most_recent), num);
+                Badger.sett(menu.findItem(R.id.bottom), circleFactory).setCount(num);
             } else {
-                // Hide the badge and show the washed-out button
-                ActionItemBadge.update(mNavigationView.getMenu().findItem(R.id.nav_most_recent), Integer.MIN_VALUE);
+                Badger.sett(menu.findItem(R.id.bottom_message), circleFactory).setCount(num);
             }
         }
     }
@@ -1189,20 +1040,135 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         if (intent.getExtras() != null) {
-            baseURL = intent.getExtras().getString("url");
+            urlIntent = intent.getExtras().getString("url");
         }
 
         if (intent.getDataString() != null) {
-            baseURL = getIntent().getDataString();
+            urlIntent = getIntent().getDataString();
             if (intent.getDataString().contains("profile"))
-                baseURL.replace("fb://profile/", "https://facebook.com/");
+                urlIntent.replace("fb://profile/", "https://facebook.com/");
         }
 
         if (Intent.ACTION_SEND.equals(intent.getAction()) && intent.getType() != null) {
-            if (intent.getType().startsWith("image/") || intent.getType().startsWith("video/"))
-                QuickUpload(intent);
+            if (intent.getType().startsWith("image/") || intent.getType().startsWith("video/") || intent.getType().startsWith("audio/")) {
+                sharedFromGallery = (Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM);
+                css += "#mbasic_inline_feed_composer{display:initial}";
+                mWebView.loadUrl("https://m.faceboom.com");
+            }
         }
 
-        mWebView.loadUrl(baseURL);
+        mWebView.loadUrl(urlIntent);
     }
+
+    // Thanks to Jaison Fernando for the great tutorial.
+    // http://droidmentor.com/searchview-animation-like-whatsapp/
+    public void searchToolbar() {
+        searchToolbar = (Toolbar) findViewById(R.id.searchtoolbar);
+        searchToolbar.inflateMenu(R.menu.menu_search);
+        search_menu = searchToolbar.getMenu();
+
+        searchItem = search_menu.findItem(R.id.action_filter_search);
+
+        MenuItemCompat.setOnActionExpandListener(searchItem, new MenuItemCompat.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem item) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    circleReveal(R.id.searchtoolbar, 1, true, false);
+                } else
+                    searchToolbar.setVisibility(View.INVISIBLE);
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem item) {
+                return true;
+            }
+        });
+
+        searchView = (SearchView) search_menu.findItem(R.id.action_filter_search).getActionView();
+
+        // set hint and the text colors
+        EditText txtSearch = ((EditText) searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text));
+        txtSearch.setHint(R.string.menu_search);
+        txtSearch.setHintTextColor(Color.DKGRAY);
+        txtSearch.setTextColor(Theme.getColor(this));
+
+        // set the cursor
+        AutoCompleteTextView searchTextView = (AutoCompleteTextView) searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
+        try {
+            Field mCursorDrawableRes = TextView.class.getDeclaredField("mCursorDrawableRes");
+            mCursorDrawableRes.setAccessible(true);
+            mCursorDrawableRes.set(searchTextView, R.drawable.ic_search_cursor); //This sets the cursor resource ID to 0 or @null which will make it visible on white background
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                searchView.clearFocus();
+                mWebView.loadUrl(baseURL + "/search/?query=" + query);
+                searchItem.collapseActionView();
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return true;
+            }
+
+        });
+    }
+
+    public void circleReveal(int viewID, int posFromRight, boolean containsOverflow, final boolean isShow) {
+        final View v = findViewById(viewID);
+
+        int width = v.getWidth();
+
+        if (posFromRight > 0)
+            width -= (posFromRight * getResources().getDimensionPixelSize(R.dimen.abc_action_button_min_width_material)) - (getResources().getDimensionPixelSize(R.dimen.abc_action_button_min_width_material) / 2);
+        if (containsOverflow)
+            width -= getResources().getDimensionPixelSize(R.dimen.abc_action_button_min_width_overflow_material);
+
+        int cx = width;
+        int cy = v.getHeight() / 2;
+
+        Animator anim;
+        if (isShow)
+            anim = ViewAnimationUtils.createCircularReveal(v, cx, cy, 0, (float) width);
+        else
+            anim = ViewAnimationUtils.createCircularReveal(v, cx, cy, (float) width, 0);
+
+        anim.setDuration((long) 220);
+
+        // make the view invisible when the animation is done
+        anim.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                if (!isShow) {
+                    super.onAnimationEnd(animation);
+                    v.setVisibility(View.INVISIBLE);
+                }
+            }
+        });
+
+        // make the view visible and start the animation
+        if (isShow)
+            v.setVisibility(View.VISIBLE);
+
+        // start the animation
+        anim.start();
+    }
+
+    private Handler mHandler = new Handler() {
+
+        @Override
+        public void handleMessage(Message msg) {
+            String url = (String) msg.getData().get("url");
+            Intent Photo = new Intent(MainActivity.this, Photo.class);
+            Photo.putExtra("link", url);
+            Photo.putExtra("title", mWebView.getTitle());
+            startActivity(Photo);
+        }
+    };
 }

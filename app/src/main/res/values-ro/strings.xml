@@ -70,8 +70,6 @@
 
     <!-- APPEARANCE -->
     <string name="appearance_setting_title">INTERFATA</string>
-    <string name="web_themes">Teme web</string>
-    <string name="web_themes_summary">De aici poti alege diferite teme web.</string>
     <string name="app_themes">Tema aplicatiei</string>
     <string name="app_themes_summary">De aici se poate alege tema aplicatiei.</string>
 

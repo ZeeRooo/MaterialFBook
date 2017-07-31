@@ -70,8 +70,6 @@
 
     <!-- APPEARANCE -->
     <string name="appearance_setting_title">Внешний вид</string>
-    <string name="web_themes">Стиль страницы</string>
-    <string name="web_themes_summary">Выбор стиля страницы.</string>
     <string name="app_themes">Стиль программы</string>
     <string name="app_themes_summary">Выбор стиля программы.</string>
 

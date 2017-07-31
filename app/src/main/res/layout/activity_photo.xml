@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_height="match_parent"
@@ -44,7 +43,8 @@
         android:layout_alignParentBottom="true"
         android:background="#26000000"
         android:gravity="center"
-        android:baselineAligned="true">
+        android:baselineAligned="true"
+        android:id="@+id/relativeLayout">
 
         <android.support.v7.widget.AppCompatTextView
             android:id="@+id/photo_title"
@@ -57,5 +57,4 @@
             android:maxLines="1"/>
 
     </RelativeLayout>
-
 </RelativeLayout>

@@ -70,8 +70,6 @@
 
     <!-- APPEARANCE -->
     <string name="appearance_setting_title">GÖRÜNÜM</string>
-    <string name="web_themes">Web temaları</string>
-    <string name="web_themes_summary">Farklı bir web teması seçebilirsiniz.</string>
     <string name="app_themes">Uygulama temaları</string>
     <string name="app_themes_summary">Farklı bir uygulama teması seçebilirsiniz</string>
 

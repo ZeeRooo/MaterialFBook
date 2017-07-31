@@ -57,13 +57,6 @@
                 android:data="https://github.com/Clans/FloatingActionButton"/>
         </PreferenceScreen>
         <PreferenceScreen
-            android:summary="CircleImageView"
-            android:title="hdodenhof">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://github.com/hdodenhof/CircleImageView"/>
-        </PreferenceScreen>
-        <PreferenceScreen
             android:summary="Glide"
             android:title="bumptech">
             <intent
@@ -76,6 +69,13 @@
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/chrisbanes/PhotoView"/>
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="Badger"
+            android:title="volders">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/volders/Badger"/>
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/people_who_translated">

@@ -70,8 +70,6 @@
 
     <!-- APPEARANCE -->
     <string name="appearance_setting_title">Giao diện</string>
-    <string name="web_themes">Chủ đề web</string>
-    <string name="web_themes_summary">Bạn có thể chọn chủ đề web khác.</string>
     <string name="app_themes">Chủ đề ứng dụng</string>
     <string name="app_themes_summary">Bạn có thể chọn chủ đề ứng dụng khác.</string>
 

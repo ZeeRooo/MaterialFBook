@@ -2,6 +2,27 @@
 <resources>
     <string name="changelog_list" translatable="false">
 <![CDATA[
+**Version B-3.5.0:**
+<br>
+<br>
+- Minor changes and fixes.
+<br>
+- Deleted Facebook SDK. You can remove it from Facebook apps.
+<br>
+- Redesigned.
+<br>
+- Code cleanned.
+<br>
+- Posibility to upload videos, photos, or audios from gallery/music player to Facebook´s wall.
+<br>
+- Posibility to view album photos (longpress).
+<br>
+<br>
+<b>Version 3.4.6:</b>
+<br>
+- Minor changes and fixes.
+<br>
+<br>
 <b>Version 3.4.5:</b>
 <br>
 - Fixed notifications issues. #98

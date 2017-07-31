@@ -21,17 +21,6 @@
         android:supportsRtl="true"
         android:theme="@style/MFB">
 
-        <meta-data android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id"/>
-
-        <activity android:name="com.facebook.FacebookActivity"
-            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:label="@string/app_name"/>
-
-        <provider android:authorities="com.facebook.app.FacebookContentProvider1440102826005611"
-            android:name="com.facebook.FacebookContentProvider"
-            android:exported="true"/>
-
         <service
             android:name=".Notifications.NotificationsService"
             android:exported="false" />
@@ -63,6 +52,11 @@
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="video/*" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="audio/*" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />

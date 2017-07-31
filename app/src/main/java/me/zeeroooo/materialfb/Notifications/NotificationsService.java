@@ -14,7 +14,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.icu.text.LocaleDisplayNames;
 import android.net.Uri;
 import android.os.Build;
 import android.preference.PreferenceManager;
@@ -25,20 +24,20 @@ import android.webkit.CookieManager;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Element;
 import java.io.IOException;
-import java.lang.reflect.Array;
-
 import me.zeeroooo.materialfb.Activities.MainActivity;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.Ui.CookingAToast;
 import me.zeeroooo.materialfb.Ui.Theme;
 import me.zeeroooo.materialfb.WebView.Helpers;
 import android.util.Log;
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.engine.DiskCacheStrategy;
 
 public class NotificationsService extends IntentService {
     private SharedPreferences mPreferences;
     boolean syncProblemOccurred = false;
-    String messageImg, notifImg, baseURL;
-    Bitmap picprofile;
+    private String messageImg, notifImg, baseURL;
+    private Bitmap picprofile;
 
     public NotificationsService() {
         super("NotificationsService");
@@ -46,7 +45,6 @@ public class NotificationsService extends IntentService {
 
     @Override
     protected void onHandleIntent(Intent intent) {
-        Theme.getTheme(this);
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         URLs();
         if (mPreferences.getBoolean("facebook_messages", false))
@@ -63,7 +61,7 @@ public class NotificationsService extends IntentService {
 
     private void URLs() {
         if (!mPreferences.getBoolean("save_data", false)) {
-            baseURL = "https://mobile.facebook.com/";
+            baseURL = "https://m.facebook.com/";
         } else {
             baseURL = "https://mbasic.facebook.com/";
         }
@@ -76,8 +74,8 @@ public class NotificationsService extends IntentService {
         Helpers.getCookie();
         while (tries++ < 3 && result == null) {
             Log.i("CheckNotificationsTask", "doInBackground: Processing... Trial: " + tries);
-            Log.i("CheckNotificationsTask", "Trying: " + "https://mobile.facebook.com/notifications.php");
-            final Element notification = getElementNotif("https://mobile.facebook.com/notifications.php");
+            Log.i("CheckNotificationsTask", "Trying: " + "https://m.facebook.com/notifications.php");
+            final Element notification = getElementNotif("https://m.facebook.com/notifications.php");
             if (notification != null)
                 result = notification;
         }
@@ -89,7 +87,8 @@ public class NotificationsService extends IntentService {
             final String text = result.text().replace(time, "");
             final String pictureStyle = result.select("i.img.l.profpic").attr("style");
 
-            splitUrl(pictureStyle, true);
+            if (!pictureStyle.isEmpty())
+                splitUrl(pictureStyle, true);
 
             if (!mPreferences.getString("last_notification_text", "").equals(text)) {
                 notifier(content, getString(R.string.app_name), text, baseURL + "notifications.php", false, notifImg);
@@ -105,8 +104,8 @@ public class NotificationsService extends IntentService {
     @Nullable
     private Element getElementNotif(String connectUrl) {
         try {
-            return Jsoup.connect(connectUrl).userAgent("Mozilla/5.0 (BB10; Kbd) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.4633 Mobile Safari/537.10+").timeout(10000)
-                    .cookie(("https://mobile.facebook.com"), CookieManager.getInstance().getCookie(("https://mobile.facebook.com"))).get()
+            return Jsoup.connect(connectUrl).timeout(10000)
+                    .cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).get()
                     .select("a.touchable").not("a._19no").not("a.button").not("a.touchable.primary").first();
         } catch (IllegalArgumentException ex) {
             Log.i("CheckNotificationsTask", "Cookie sync problem occurred");
@@ -141,7 +140,8 @@ public class NotificationsService extends IntentService {
                 final String text = result.text().replace(time, "");
                 final String pictureStyle = result.select(".img").attr("style");
 
-                splitUrl(pictureStyle, false);
+                if (!pictureStyle.isEmpty())
+                    splitUrl(pictureStyle, false);
 
                 if (!mPreferences.getString("last_message", "").equals(text)) {
                     notifier(content, name, text, baseURL + result.attr("href"), true, messageImg);
@@ -158,9 +158,7 @@ public class NotificationsService extends IntentService {
     @Nullable
     private Element getElementMes(String connectUrl) {
         try {
-            return Jsoup.connect(connectUrl).userAgent("Mozilla/5.0 (BB10; Kbd) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.4633 Mobile Safari/537.10+").timeout(10000)
-                    .cookie(("https://m.facebook.com/"), CookieManager.getInstance().getCookie(("https://m.facebook.com/"))).get()
-                    .select("a.touchable.primary").first();
+            return Jsoup.connect(connectUrl).timeout(10000).cookie(("https://m.facebook.com/"), CookieManager.getInstance().getCookie(("https://m.facebook.com/"))).get().getElementsByClass("item messages-flyout-item aclb abt").select("a.touchable.primary").first();
         } catch (IllegalArgumentException ex) {
             Log.i("CheckNotificationsTask", "Cookie sync problem occurred");
             if (!syncProblemOccurred) {
@@ -180,7 +178,9 @@ public class NotificationsService extends IntentService {
     // create a notification and display it
     private void notifier(final String content, final String name, final String title, final String url, boolean isMessage, final String image_url) {
 
-       picprofile = Helpers.getBitmapFromURL(Helpers.decodeImg(image_url));
+        try {
+            picprofile = Glide.with(this).load(Helpers.decodeImg(image_url)).asBitmap().diskCacheStrategy(DiskCacheStrategy.NONE).skipMemoryCache(true).centerCrop().into(100, 100).get();
+        } catch (Exception e) {/**/}
 
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
@@ -190,8 +190,8 @@ public class NotificationsService extends IntentService {
                         .setContentText(content)
                         .setTicker(title)
                         .setWhen(System.currentTimeMillis())
-                        .setLargeIcon(Helpers.Circle(picprofile))
                         .setSmallIcon(R.drawable.ic_material)
+                        .setLargeIcon(Helpers.Circle(picprofile))
                         .setAutoCancel(true);
 
         // ringtone
@@ -251,6 +251,7 @@ public class NotificationsService extends IntentService {
             mNotificationManager.notify(0, note);
         }
     }
+
     public static void ClearMessages(Context context) {
         NotificationManager mNotificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
         mNotificationManager.cancel(1);
@@ -261,7 +262,7 @@ public class NotificationsService extends IntentService {
         mNotificationManager.cancel(0);
     }
 
-    private String splitUrl (String url, boolean isNotif) {
+    private String splitUrl(String url, boolean isNotif) {
         String[] pic = url.split("\"");
         if (!isNotif) {
             messageImg = pic[1];

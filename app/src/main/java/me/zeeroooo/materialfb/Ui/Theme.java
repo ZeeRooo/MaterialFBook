@@ -1,45 +1,19 @@
 /*
- * Copyright (C) 2015 Naman Dwivedi
- *
- * Licensed under the GNU General Public License v3
- *
- * This is free software: you can redistribute it and/or modify it
- * under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
- *
- * This software is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY;
- * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
- * See the GNU General Public License for more details.
+ * Created by ZeeRooo
+ * https://github.com/ZeeRooo
  */
-
 package me.zeeroooo.materialfb.Ui;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
 import android.util.TypedValue;
+import me.zeeroooo.materialfb.Activities.MainActivity;
 import me.zeeroooo.materialfb.R;
 
 public final class Theme {
-    private static Theme AppTheme;
-    private static SharedPreferences mPreferences;
 
-    public Theme(final Context context) {
-        mPreferences = PreferenceManager.getDefaultSharedPreferences(context);
-    }
-
-    private static Theme getInstance(final Context context) {
-        if (AppTheme == null) {
-            AppTheme = new Theme(context.getApplicationContext());
-        }
-        return AppTheme;
-    }
-
-    private String setTheme() {
-        return mPreferences.getString("app_theme", "MaterialFBook");
-    }
-
-    public static int getColor(final Context context) {
+    // Thanks to Naman Dwivedi
+    public static int getColor(Context context) {
         int Attr;
         Attr = R.attr.colorPrimary;
         final TypedValue outValue = new TypedValue();
@@ -47,42 +21,61 @@ public final class Theme {
         return outValue.data;
     }
 
-    public static void getTheme(final Context ctxt) {
-        final boolean MFB = Theme.getInstance(ctxt).setTheme().equals("MFB");
-        final boolean Pink = Theme.getInstance(ctxt).setTheme().equals("Pink");
-        final boolean Grey = Theme.getInstance(ctxt).setTheme().equals("Grey");
-        final boolean Green = Theme.getInstance(ctxt).setTheme().equals("Green");
-        final boolean Red = Theme.getInstance(ctxt).setTheme().equals("Red");
-        final boolean Lime = Theme.getInstance(ctxt).setTheme().equals("Lime");
-        final boolean Yellow = Theme.getInstance(ctxt).setTheme().equals("Yellow");
-        final boolean Purple = Theme.getInstance(ctxt).setTheme().equals("Purple");
-        final boolean LightBlue = Theme.getInstance(ctxt).setTheme().equals("LightBlue");
-        final boolean Black = Theme.getInstance(ctxt).setTheme().equals("Black");
-        final boolean Orange = Theme.getInstance(ctxt).setTheme().equals("Orange");
-        final boolean GooglePlayGreen = Theme.getInstance(ctxt).setTheme().equals("GooglePlayGreen");
-        if (MFB)
-            ctxt.setTheme(R.style.MFB);
-        if (Pink)
-            ctxt.setTheme(R.style.Pink);
-        if (Grey)
-            ctxt.setTheme(R.style.Grey);
-        if (Green)
-            ctxt.setTheme(R.style.Green);
-        if (Red)
-            ctxt.setTheme(R.style.Red);
-        if (Lime)
-            ctxt.setTheme(R.style.Lime);
-        if (Yellow)
-            ctxt.setTheme(R.style.Yellow);
-        if (Purple)
-            ctxt.setTheme(R.style.Purple);
-        if (LightBlue)
-            ctxt.setTheme(R.style.LightBlue);
-        if (Black)
-            ctxt.setTheme(R.style.Black);
-        if (Orange)
-            ctxt.setTheme(R.style.Orange);
-        if (GooglePlayGreen)
-            ctxt.setTheme(R.style.GooglePlayGreen);
+    public static void Temas(Context ctxt, SharedPreferences mPreferences) {
+        switch (mPreferences.getString("app_theme", "MaterialFBook")) {
+            case "MaterialFBook":
+                MainActivity.css += ctxt.getString(R.string.Material);
+                ctxt.setTheme(R.style.MFB);
+                break;
+            case "Amoled":
+                MainActivity.css += ctxt.getString(R.string.MaterialAmoled);
+                MainActivity.css += "::selection {background: #D3D3D3;}";
+                ctxt.setTheme(R.style.Black);
+                break;
+            case "Black":
+                MainActivity.css += ctxt.getString(R.string.MaterialBlack);
+                ctxt.setTheme(R.style.Black);
+                break;
+            case "Pink":
+                MainActivity.css += ctxt.getString(R.string.MaterialPink);
+                ctxt.setTheme(R.style.Pink);
+                break;
+            case "Grey":
+                MainActivity.css += ctxt.getString(R.string.MaterialGrey);
+                ctxt.setTheme(R.style.Grey);
+                break;
+            case "Green":
+                MainActivity.css += ctxt.getString(R.string.MaterialGreen);
+                ctxt.setTheme(R.style.Green);
+                break;
+            case "Red":
+                MainActivity.css += ctxt.getString(R.string.MaterialRed);
+                ctxt.setTheme(R.style.Red);
+                break;
+            case "Lime":
+                MainActivity.css += ctxt.getString(R.string.MaterialLime);
+                ctxt.setTheme(R.style.Lime);
+                break;
+            case "Yellow":
+                MainActivity.css += ctxt.getString(R.string.MaterialYellow);
+                ctxt.setTheme(R.style.Yellow);
+                break;
+            case "Purple":
+                MainActivity.css += ctxt.getString(R.string.MaterialPurple);
+                ctxt.setTheme(R.style.Purple);
+                break;
+            case "LightBlue":
+                MainActivity.css += ctxt.getString(R.string.MaterialLightBlue);
+                ctxt.setTheme(R.style.LightBlue);
+                break;
+            case "Orange":
+                MainActivity.css += ctxt.getString(R.string.MaterialOrange);
+                ctxt.setTheme(R.style.Orange);
+                break;
+            case "GooglePlayGreen":
+                MainActivity.css += ctxt.getString(R.string.MaterialGPG);
+                ctxt.setTheme(R.style.GooglePlayGreen);
+                break;
+        }
     }
 }

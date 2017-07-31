@@ -70,8 +70,6 @@
 
     <!-- APPEARANCE -->
     <string name="appearance_setting_title">ИЗГЛЕД</string>
-    <string name="web_themes">Веб теме</string>
-    <string name="web_themes_summary">Избор различитих тема приказа страница.</string>
     <string name="app_themes">Теме апликације</string>
     <string name="app_themes_summary">Избор различитих тема апликације.</string>
 

@@ -69,8 +69,6 @@
 
     <!-- APPEARANCE -->
     <string name="appearance_setting_title">APPEARANCE</string>
-    <string name="web_themes">Web themes</string>
-    <string name="web_themes_summary">You can choose different web themes.</string>
     <string name="app_themes">App themes</string>
     <string name="app_themes_summary">You can choose different app themes.</string>
 
