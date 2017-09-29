@@ -85,7 +85,7 @@ public class NotificationsService extends IntentService {
             final String content = result.select("div.c").text();
             final String time = result.select("span.mfss.fcg").text();
             final String text = result.text().replace(time, "");
-            final String pictureStyle = result.select("i.img.l.profpic").attr("style");
+            final String pictureStyle = result.select("i.img[style*=url]").attr("style");
 
             if (!pictureStyle.isEmpty())
                 splitUrl(pictureStyle, true);
@@ -138,7 +138,7 @@ public class NotificationsService extends IntentService {
                 final String content = result.select("div.oneLine.preview.mfss.fcg").text();
                 final String time = result.select("div.time.r.nowrap.mfss.fcl").text();
                 final String text = result.text().replace(time, "");
-                final String pictureStyle = result.select(".img").attr("style");
+                final String pictureStyle = result.select("i.img[style*=url]").attr("style");
 
                 if (!pictureStyle.isEmpty())
                     splitUrl(pictureStyle, false);
@@ -179,7 +179,7 @@ public class NotificationsService extends IntentService {
     private void notifier(final String content, final String name, final String title, final String url, boolean isMessage, final String image_url) {
 
         try {
-            picprofile = Glide.with(this).load(Helpers.decodeImg(image_url)).asBitmap().diskCacheStrategy(DiskCacheStrategy.NONE).skipMemoryCache(true).centerCrop().into(100, 100).get();
+            picprofile = Glide.with(this).load(Helpers.decodeImg(image_url)).asBitmap().fitCenter().into(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL).get();
         } catch (Exception e) {/**/}
 
         NotificationCompat.Builder mBuilder =
