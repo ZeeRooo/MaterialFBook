@@ -1053,7 +1053,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             if (intent.getType().startsWith("image/") || intent.getType().startsWith("video/") || intent.getType().startsWith("audio/")) {
                 sharedFromGallery = (Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM);
                 css += "#mbasic_inline_feed_composer{display:initial}";
-                mWebView.loadUrl("https://m.faceboom.com");
+                mWebView.loadUrl("https://m.facebook.com");
             }
         }
 
