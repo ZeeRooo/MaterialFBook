@@ -975,8 +975,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             @Override
             protected void onPostExecute(String string) {
-                if (eName.text() != null)
-                    mToolbar.setSubtitle(eName.text());
+             try {
+                    if (eName.text() != null) {
+                        mToolbar.setSubtitle(eName.text());
+                    }
+                } catch (NullPointerException i) {
+                } catch (Exception i) {
+                    i.printStackTrace();
             }
         }.execute();
 
