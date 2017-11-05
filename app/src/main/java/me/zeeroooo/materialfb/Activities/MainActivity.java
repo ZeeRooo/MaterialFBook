@@ -31,30 +31,30 @@ import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.NavigationView;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawable;
 import android.support.v4.graphics.drawable.RoundedBitmapDrawableFactory;
-import android.support.design.widget.NavigationView;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatImageButton;
 import android.support.v7.widget.SearchView;
-import android.support.v7.widget.ThemedSpinnerAdapter;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewAnimationUtils;
 import android.webkit.CookieManager;
 import android.webkit.GeolocationPermissions;
 import android.webkit.JavascriptInterface;
+import android.webkit.URLUtil;
 import android.webkit.ValueCallback;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
@@ -65,37 +65,39 @@ import android.widget.AdapterView;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.github.clans.fab.FloatingActionMenu;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import android.support.v4.view.GravityCompat;
-import android.webkit.URLUtil;
-import android.widget.TextView;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+
 import berlin.volders.badger.BadgeShape;
 import berlin.volders.badger.Badger;
 import berlin.volders.badger.CountBadge;
 import me.zeeroooo.materialfb.Bookmarks.DatabaseHelper;
 import me.zeeroooo.materialfb.Bookmarks.ListAdapter;
 import me.zeeroooo.materialfb.Notifications.NotificationsService;
+import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.Ui.CookingAToast;
 import me.zeeroooo.materialfb.Ui.Theme;
 import me.zeeroooo.materialfb.WebView.Helpers;
 import me.zeeroooo.materialfb.WebView.JavaScriptHelpers;
 import me.zeeroooo.materialfb.WebView.JavaScriptInterfaces;
 import me.zeeroooo.materialfb.WebView.MFBWebView;
-import me.zeeroooo.materialfb.R;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     private ValueCallback<Uri[]> mFilePathCallback;
@@ -124,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Document dName;
     private MenuItem searchItem;
     private SearchView searchView;
-
+    AppBarLayout appBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -138,6 +140,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
         // Setup the toolbar
+        appBar = (AppBarLayout) findViewById(R.id.appbarlayout);
         mToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
         searchToolbar();
@@ -194,6 +197,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 return true;
             }
         });
+
+
+        appBar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                mMenuFAB.setTranslationY((float) (verticalOffset * -4));
+                mBottomNav.setTranslationY((float) (verticalOffset * -4));
+            }
+        });
+
 
         DBHelper = new DatabaseHelper(this);
         bookmarks = new ArrayList<>();
@@ -297,16 +309,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mWebView.setOnScrollChangedCallback(new MFBWebView.OnScrollChangedCallback() {
             @Override
             public void onScrollChange(WebView view, int scrollX, int scrollY, int oldScrollX, int oldScrollY) {
-                // Make sure the hiding is enabled and the scroll was significant
-                if (Math.abs(oldScrollY - scrollY) > getApplication().getResources().getDimensionPixelOffset(R.dimen.fab_scroll_threshold)) {
-                    if (scrollY > oldScrollY) {
-                        // User scrolled down, hide the button
-                        mMenuFAB.hideMenuButton(true);
-                    } else if (scrollY < oldScrollY) {
-                        // User scrolled up, show the button
-                        mMenuFAB.showMenuButton(true);
-                    }
-                }
             }
         });
 
@@ -976,7 +978,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             protected void onPostExecute(String string) {
                 if (eName.text() != null)
-                    mToolbar.setSubtitle(eName.text());
+                    try {
+                        mToolbar.setSubtitle(eName.text());
+                    }catch (NullPointerException ignored){
+                    }catch (Exception i){
+                    i.printStackTrace();
+                    }
             }
         }.execute();
 
@@ -1051,9 +1058,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         if (Intent.ACTION_SEND.equals(intent.getAction()) && intent.getType() != null) {
             if (intent.getType().startsWith("image/") || intent.getType().startsWith("video/") || intent.getType().startsWith("audio/")) {
-                sharedFromGallery = (Uri) intent.getParcelableExtra(Intent.EXTRA_STREAM);
+                sharedFromGallery = intent.getParcelableExtra(Intent.EXTRA_STREAM);
                 css += "#mbasic_inline_feed_composer{display:initial}";
-                mWebView.loadUrl("https://m.faceboom.com");
+                mWebView.loadUrl("https://m.facebook.com");
             }
         }
 
