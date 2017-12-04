@@ -265,9 +265,9 @@ public class NotificationsService extends IntentService {
     private String splitUrl(String url, boolean isNotif) {
         String[] pic = url.split("\"");
         if (!isNotif) {
-            messageImg = pic[1];
+            messageImg = pic[0];
         } else {
-            notifImg = pic[1];
+            notifImg = pic[0];
         }
         return null;
     }
