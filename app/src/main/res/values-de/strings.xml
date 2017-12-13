@@ -31,7 +31,7 @@
     <!-- End Notifications -->
 
     <!-- General -->
-    <string name="general_setting_title">Allgemeine Einstellungen</string>
+    <string name="general_setting_title">ALLGEMEIN</string>
     <string name="location_enabled_title">Standortzugriff</string>
     <string name="location_enabled_summary">Aktivieren, um Facebook Standortzugriff zu erlauben.</string>
     <string name="hide_editor_newsfeed_title">Verstecke den Status-Editor im News Feed</string>
@@ -89,7 +89,7 @@
     <string name="fab_checkin">Einchecken</string>
     <string name="fab_jump_top">Springe nach ganz oben</string>
     <!-- Navigation: items -->
-    <string name="navigation_menu_title">NAVIGATIONSLEISTE ⟳</string>
+    <string name="navigation_menu_title">NAVIGATIONSLEISTE</string>
     <string name="ic_menu_exitapp">App verlassen</string>
     <string name="ic_menu_exitapp_summary">Aktivieren um &#8216;App verlassen&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
     <string name="ic_menu_fblogout">Ausloggen</string>
@@ -142,4 +142,6 @@
     <string name="add">Lesezeichen</string>
     <string name="new_bookmark">Hinzugefügt:</string>
     <string name="remove_bookmark">Entfernt:</string>
+    <string name="bookmarks_header">Lesezeichen</string>
+    <string name="sharing_info">Je nach Dateigröße kann es etwas dauern</string>
 </resources>

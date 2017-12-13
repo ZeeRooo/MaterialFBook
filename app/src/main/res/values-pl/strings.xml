@@ -70,6 +70,8 @@
 
     <!-- APPEARANCE -->
     <string name="appearance_setting_title">WYGLĄD</string>
+    <string name="web_themes">Wygląd facebooka </string>
+    <string name="web_themes_summary">Możesz wybrać wzornictwo facebooka.</string>
     <string name="app_themes">Wygląd aplikacji</string>
     <string name="app_themes_summary">Możesz wybrać wzornictwo aplikacji.</string>
 

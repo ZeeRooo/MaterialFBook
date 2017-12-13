@@ -1,4 +1,4 @@
-package me.zeeroooo.materialfb.Bookmarks;
+package me.zeeroooo.materialfb.Misc;
 
 import android.content.Context;
 import android.content.Intent;
@@ -9,21 +9,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
+import android.widget.TextView;
+
 import java.util.ArrayList;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.Ui.CookingAToast;
 import me.zeeroooo.materialfb.WebView.Helpers;
 
-public class ListAdapter extends ArrayAdapter<Helpers> {
-    private ArrayList<Helpers> bookmarks;
+public class BookmarksAdapter extends ArrayAdapter<BookmarksH> {
+    private ArrayList<BookmarksH> bookmarks;
     private DatabaseHelper DBHelper;
 
     private static class ViewHolder {
-        AppCompatTextView title;
-        AppCompatImageButton delete, share;
+        TextView title;
+        ImageButton delete, share;
     }
 
-    public ListAdapter(Context context, ArrayList<Helpers> bk, DatabaseHelper db) {
+    public BookmarksAdapter(Context context, ArrayList<BookmarksH> bk, DatabaseHelper db) {
         super(context, R.layout.bookmarks_listview, bk);
         this.bookmarks = bk;
         this.DBHelper = db;
@@ -32,7 +35,7 @@ public class ListAdapter extends ArrayAdapter<Helpers> {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
-        final Helpers bookmark = getItem(position);
+        final BookmarksH bookmark = getItem(position);
         // Check if an existing view is being reused, otherwise inflate the view
         ViewHolder viewHolder; // view lookup cache stored in tag
         if (convertView == null) {
@@ -54,7 +57,7 @@ public class ListAdapter extends ArrayAdapter<Helpers> {
 
         viewHolder.delete.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DBHelper.remove(bookmark.getTitle(), bookmark.getUrl());
+                DBHelper.remove(bookmark.getTitle(), bookmark.getUrl(), null);
                 bookmarks.remove(position);
                 notifyDataSetChanged();
                 CookingAToast.cooking(getContext(), getContext().getString(R.string.remove_bookmark) + " " + bookmark.getTitle(), Color.WHITE, Color.parseColor("#fcd90f"), R.drawable.ic_delete, false).show();

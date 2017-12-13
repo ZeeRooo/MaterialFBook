@@ -15,12 +15,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/More">
-        <android.support.v7.widget.AppCompatTextView
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="170dp"
             android:scaleType="centerCrop"
             android:background="?attr/colorPrimaryDark" />
-        <android.support.v7.widget.AppCompatTextView
+        <TextView
             android:id="@+id/thankyou"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -35,7 +35,7 @@
             android:shadowColor="@android:color/black"
             android:shadowRadius="4"
             android:layout_toEndOf="@+id/gracias"/>
-        <android.support.v7.widget.AppCompatTextView
+        <TextView
             android:id="@+id/gracias"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -48,7 +48,7 @@
             android:shadowColor="@android:color/black"
             android:shadowRadius="4"
             android:layout_alignTop="@+id/thankyou" />
-        <android.support.v7.widget.AppCompatTextView
+        <TextView
             android:id="@+id/grazie"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -62,7 +62,7 @@
             android:shadowColor="@android:color/black"
             android:shadowRadius="4"
             android:layout_toEndOf="@+id/thankyou"/>
-        <android.support.v7.widget.AppCompatTextView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -76,7 +76,7 @@
             android:shadowColor="@android:color/black"
             android:shadowRadius="4"
             android:layout_toEndOf="@+id/grazie"/>
-        <android.support.v7.widget.AppCompatImageView
+        <ImageView
             android:id="@+id/app_icon"
             android:layout_width="95dp"
             android:layout_height="95dp"
@@ -85,7 +85,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             tools:ignore="ContentDescription" />
-        <android.support.v7.widget.AppCompatTextView
+        <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Me, ZeeRooo say to all..."

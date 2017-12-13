@@ -4,10 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/appbarlayout"
-    android:theme="@style/AppTheme.AppBarOverlay">
+    android:theme="@style/AppTheme.AppBarOverlay"
+    android:fitsSystemWindows="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
+		app:layout_scrollFlags="scroll|enterAlways|snap"
         android:layout_height="wrap_content">
 
     <android.support.v7.widget.Toolbar

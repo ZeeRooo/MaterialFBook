@@ -70,6 +70,8 @@
 
     <!-- APPEARANCE -->
     <string name="appearance_setting_title">מראה</string>
+    <string name="web_themes">ערכות עיצוב פנימיות</string>
+    <string name="web_themes_summary">ניתן לבחור ערכות עיצוב לתצוגה של פייסבוק.</string>
     <string name="app_themes">ערכות עיצוב יישומון</string>
     <string name="app_themes_summary">ניתן לבחור ערכות עיצוב שונות ליישומון.</string>
 

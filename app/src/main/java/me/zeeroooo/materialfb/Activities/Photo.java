@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -16,42 +17,45 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatImageView;
-import android.support.v7.widget.AppCompatTextView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.resource.drawable.GlideDrawable;
+import com.bumptech.glide.load.engine.GlideException;
 import com.bumptech.glide.request.RequestListener;
-import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.request.transition.Transition;
 import java.io.File;
 import me.zeeroooo.materialfb.Ui.CookingAToast;
 import me.zeeroooo.materialfb.R;
 import uk.co.senab.photoview.PhotoViewAttacher;
-import static com.bumptech.glide.load.DecodeFormat.PREFER_ARGB_8888;
 
 public class Photo extends AppCompatActivity {
 
-    private AppCompatImageView mImageView;
+    private ImageView mImageView;
     PhotoViewAttacher mAttacher;
-    AppCompatTextView text;
+    TextView text;
     private DownloadManager mDownloadManager;
-    String url;
+    private String url;
+    private Target<Bitmap> ShareTarget;
+    public static int closed = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_photo);
-        mImageView = (AppCompatImageView) findViewById(R.id.container);
-        Toolbar mToolbar = (Toolbar) findViewById(R.id.toolbar_ph);
+        mImageView = findViewById(R.id.container);
+        Toolbar mToolbar = findViewById(R.id.toolbar_ph);
         setSupportActionBar(mToolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -65,7 +69,7 @@ public class Photo extends AppCompatActivity {
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        text = (AppCompatTextView) findViewById(R.id.photo_title);
+        text = findViewById(R.id.photo_title);
         url = getIntent().getStringExtra("link");
         text.setText(getIntent().getStringExtra("title"));
         Load();
@@ -76,21 +80,20 @@ public class Photo extends AppCompatActivity {
     private void Load() {
         Glide.with(this)
                 .load(url)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
-                .skipMemoryCache(true)
-                .listener(new RequestListener<String, GlideDrawable>() {
+                .listener(new RequestListener<Drawable>() {
                     @Override
-                    public boolean onException(Exception e, String model, Target<GlideDrawable> target, boolean isFirstResource) {
+                    public boolean onLoadFailed(GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
                         return false;
                     }
 
                     @Override
-                    public boolean onResourceReady(GlideDrawable resource, String model, Target<GlideDrawable> target, boolean isFromMemoryCache, boolean isFirstResource) {
+                    public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
                         mImageView.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
                         findViewById(android.R.id.progress).setVisibility(View.GONE);
                         return false;
                     }
                 })
+                .apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE))
                 .into(mImageView);
     }
 
@@ -103,36 +106,35 @@ public class Photo extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.download_image) {
+        if (id == R.id.download_image)
             RequestStoragePermission();
-        }
         if (id == R.id.share_image) {
             // Share image
-            Glide.with(Photo.this).load(url).asBitmap().diskCacheStrategy(DiskCacheStrategy.NONE).skipMemoryCache(true).format(PREFER_ARGB_8888).into(new SimpleTarget<Bitmap>(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL) {
+            ShareTarget = new SimpleTarget<Bitmap>() {
                 @Override
-                public void onResourceReady(Bitmap bitmap, GlideAnimation anim) {
+                public void onResourceReady(Bitmap bitmap, Transition<? super Bitmap> transition) {
+                    RequestStoragePermission();
                     final String path = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, Uri.parse(url).getLastPathSegment(), null);
                     Intent shareIntent = new Intent(Intent.ACTION_SEND);
                     shareIntent.setType("image/*");
                     shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
                     startActivity(Intent.createChooser(shareIntent, getString(R.string.context_share_image)));
-                    bitmap.recycle();
+                    if (!bitmap.isRecycled())
+                        bitmap.recycle();
+                    CookingAToast.cooking(Photo.this, getString(R.string.context_share_image_progress), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_share, false).show();
                 }
-            });
-            CookingAToast.cooking(Photo.this, getString(R.string.context_share_image_progress), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_share, false).show();
+            };
+            Glide.with(Photo.this).asBitmap().load(url).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into(ShareTarget);
         }
         if (id == R.id.oopy_url_image) {
             final ClipboardManager clipboard = (ClipboardManager) this.getSystemService(Context.CLIPBOARD_SERVICE);
             final ClipData clip = ClipData.newUri(this.getContentResolver(), "", Uri.parse(url));
             clipboard.setPrimaryClip(clip);
             CookingAToast.cooking(Photo.this, getString(R.string.content_copy_link_done), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_copy_url, true).show();
-            return true;
         }
-        if (id == android.R.id.home) {
+        if (id == android.R.id.home)
             onBackPressed();
-            return true;
-        }
-        return super.onOptionsItemSelected(item);
+        return false;
     }
 
     private void RequestStoragePermission() {
@@ -150,9 +152,8 @@ public class Photo extends AppCompatActivity {
                     // Set the download directory
                     File downloads_dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
                     if (!downloads_dir.exists()) {
-                        if (!downloads_dir.mkdirs()) {
+                        if (!downloads_dir.mkdirs())
                             return;
-                        }
                     }
                     File destinationFile = new File(downloads_dir, Uri.parse(url).getLastPathSegment());
                     request.setDestinationUri(Uri.fromFile(destinationFile));
@@ -165,23 +166,26 @@ public class Photo extends AppCompatActivity {
                     mDownloadManager.enqueue(request);
 
                     CookingAToast.cooking(this, getString(R.string.downloaded), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_download, false).show();
-                } else {
+                } else
                     CookingAToast.cooking(this, getString(R.string.permission_denied), Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
-                }
             }
         }
     }
 
     @Override
-    public void onDestroy() {
-        Glide.clear(mImageView);
-        mImageView.setImageDrawable(null);
-        super.onDestroy();
+    public void onBackPressed() {
+        super.onBackPressed();
+        closed = 1;
+        finish();
     }
 
     @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
+    public void onDestroy() {
+        super.onDestroy();
+        if (ShareTarget != null)
+            Glide.with(Photo.this).clear(ShareTarget);
+        if (mImageView != null)
+            mImageView.setImageDrawable(null);
+        closed = 1;
     }
 }

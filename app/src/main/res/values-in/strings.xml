@@ -70,6 +70,8 @@
 
     <!-- APPEARANCE -->
     <string name="appearance_setting_title">PENAMPILAN</string>
+    <string name="web_themes">Tema web</string>
+    <string name="web_themes_summary">Anda bisa memilih tema web berbeda.</string>
     <string name="app_themes">Tema aplikasi</string>
     <string name="app_themes_summary">Anda bisa memilih tema aplikasi berbeda.</string>
 

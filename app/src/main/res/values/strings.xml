@@ -16,6 +16,9 @@
     <string name="vibrate">Vibration</string>
     <string name="vibrate_double">Double vibration</string>
     <string name="led_light">LED light</string>
+    <string name="blacklist_title">Black list</string>
+    <string name="new_black_word">Write a new word to block</string>
+    <string name="blacklist_summary">List of words to block the notifications</string>
 
     <string-array name="intervalPrefTitles">
         <item>1 minute</item>
@@ -69,6 +72,8 @@
 
     <!-- APPEARANCE -->
     <string name="appearance_setting_title">APPEARANCE</string>
+    <string name="web_themes">Web themes</string>
+    <string name="web_themes_summary">You can choose different web themes.</string>
     <string name="app_themes">App themes</string>
     <string name="app_themes_summary">You can choose different app themes.</string>
 
@@ -91,8 +96,6 @@
     <string name="navigation_menu_title">NAVIGATION MENU</string>
     <string name="ic_menu_exitapp">Exit app</string>
     <string name="ic_menu_exitapp_summary">Show &#8216;Exit app&#8217; button on navigation drawer.</string>
-    <string name="ic_menu_fblogout">Log out</string>
-    <string name="ic_menu_fblogout_summary">Show &#8216;Log out&#8217; button on navigation drawer.</string>
     <string name="menu_photos">Photos</string>
     <string name="menu_photos_summary">Show &#8216;Photos&#8217; button on navigation drawer.</string>
     <string name="menu_events">Events</string>
@@ -111,31 +114,22 @@
     <string name="menu_search_summary">Show &#8216;Search&#8217; button on navigation drawer.</string>
     <string name="menu_mainmenu">Main menu</string>
     <string name="menu_mainmenu_summary">Show &#8216;Main menu&#8217; button on navigation drawer.</string>
-    <string name="messaging_enabled_title">Messaging</string>
-    <string name="messaging_enabled_summary">When enabled, will provide access to Facebook Messages. Disable if you have a messaging app.</string>
     <!-- End navigation -->
 
     <!-- App -->
-    <string name="facebook_app_id" translatable="false">1440102826005611</string>
-    <string name="fb_login_protocol_scheme" translatable="false">fb1440102826005611</string>
     <string name="app_name" translatable="false">MaterialFBook</string>
     <string name="silent">No sound</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-    <string name="default_user">User</string>
     <string name="nav_notifications">Notifications</string>
     <string name="settings">Settings</string>
     <string name="context_share_image">Share image</string>
     <string name="context_share_link">Share link</string>
     <string name="context_share_image_progress">Sharing image&#8230;</string>
-    <string name="sharing_video">Sharing video…</string>
-    <string name="quick_description">Add a quick description</string>
     <string name="content_copy_link_done">Link copied to clipboard</string>
-    <string name="error_login">Something went wrong, please try logging in again</string>
-    <string name="permission_denied">Permission denied, cannot complete action</string>
+    <string name="permission_denied">Permission denied, can\'t complete action</string>
     <string name="downloaded">Downloaded</string>
     <string name="bookmarks_header">Bookmarks</string>
     <string name="new_bookmark">Added:</string>
     <string name="remove_bookmark">Removed:</string>
-    <string name="sharing_info">It can take some time, depending on the file size</string>
 </resources>

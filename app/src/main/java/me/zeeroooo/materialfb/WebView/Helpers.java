@@ -1,20 +1,9 @@
 package me.zeeroooo.materialfb.WebView;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffXfermode;
-import android.graphics.Rect;
+import android.view.Menu;
 import android.webkit.CookieManager;
 
 public class Helpers {
-    public String url, title;
-
-    public Helpers(String title, String url) {
-        this.url = url;
-        this.title = title;
-    }
 
     // Method to retrieve a single cookie
     public static String getCookie() {
@@ -33,22 +22,18 @@ public class Helpers {
         return null;
     }
 
-    static boolean isInteger(String str) {
-        return (str.matches("^-?\\d+$"));
+    // Uncheck all items menu
+    public static void uncheckRadioMenu(Menu menu) {
+        for (int i = 0; i < menu.size(); i++) {
+            if (menu.getItem(i).isChecked()) {
+                menu.getItem(i).setChecked(false);
+                return;
+            }
+        }
     }
 
-    public static Bitmap Circle(Bitmap circle) {
-        final Bitmap bitmap = Bitmap.createBitmap(circle.getWidth(), circle.getHeight(), Bitmap.Config.ARGB_8888);
-        final Canvas canvas = new Canvas(bitmap);
-        final Paint paint = new Paint();
-        final Rect rect = new Rect(0, 0, circle.getWidth(), circle.getHeight());
-        paint.setAntiAlias(true);
-        canvas.drawARGB(0, 0, 0, 0);
-        canvas.drawCircle(circle.getWidth() / 2, circle.getHeight() / 2, circle.getWidth() / 2, paint);
-        paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-        canvas.drawBitmap(circle, rect, rect, paint);
-        circle.recycle();
-        return bitmap;
+    static boolean isInteger(String str) {
+        return (str.matches("^-?\\d+$"));
     }
 
     // "clean" and decode an url, all in one
@@ -76,23 +61,7 @@ public class Helpers {
                 .replace("%20", " ");
     }
 
-    public static String decodeImg (String img_url) {
-        return img_url.replace("\\3a ", ":").replace("efg\\3d ", "oh=").replace("\\3d ", "=").replace("\\26 ", "&").replace("\\", "");
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
+    public static String decodeImg(String img_url) {
+        return img_url.replace("\\3a ", ":").replace("efg\\3d ", "oh=").replace("\\3d ", "=").replace("\\26 ", "&").replace("\\", "").replace("&amp;", "&");
     }
 }

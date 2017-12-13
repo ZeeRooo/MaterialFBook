@@ -70,6 +70,8 @@
 
     <!-- APPEARANCE -->
     <string name="appearance_setting_title">UITERLIJK</string>
+    <string name="web_themes">Webthema\'s</string>
+    <string name="web_themes_summary">U kunt kiezen uit verschillende webthema\'s.</string>
     <string name="app_themes">App-thema\'s</string>
     <string name="app_themes_summary">U kunt kiezen uit verschillende app-thema\'s.</string>
 

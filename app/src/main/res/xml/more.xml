@@ -71,11 +71,11 @@
                 android:data="https://github.com/chrisbanes/PhotoView"/>
         </PreferenceScreen>
         <PreferenceScreen
-            android:summary="Badger"
-            android:title="volders">
+            android:summary="Firebase JobDispatcher"
+            android:title="firebase">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/volders/Badger"/>
+                android:data="https://github.com/firebase/firebase-jobdispatcher-android"/>
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/people_who_translated">

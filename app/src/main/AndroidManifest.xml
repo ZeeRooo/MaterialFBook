@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
         android:allowBackup="true"
@@ -22,17 +23,16 @@
         android:theme="@style/MFB">
 
         <service
-            android:name=".Notifications.NotificationsService"
-            android:exported="false" />
-
-        <receiver
-            android:name=".Notifications.Receiver"
+            android:name=".Notifications.NotificationsJS"
             android:exported="false">
             <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
             </intent-filter>
-        </receiver>
+        </service>
+
+        <service
+            android:name=".Notifications.NotificationsJIS"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <activity
             android:name=".Activities.MainActivity"
@@ -41,30 +41,34 @@
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="image/*" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="video/*" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
+
                 <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="audio/*" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-                <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
+
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
+
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
 
@@ -113,7 +117,6 @@
             android:configChanges="screenSize|orientation"
             android:launchMode="singleTask"
             android:theme="@style/Photo" />
-
         <activity
             android:name=".Activities.SettingsActivity"
             android:configChanges="screenSize|orientation"
@@ -126,15 +129,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.MainActivity" />
         </activity>
+
         <activity
             android:name=".Activities.More"
             android:launchMode="singleTask" />
-
         <activity
             android:name=".Activities.Video"
             android:configChanges="orientation|screenSize"
             android:launchMode="singleTask"
             android:theme="@style/Photo" />
-    </application>
 
+    </application>
 </manifest>

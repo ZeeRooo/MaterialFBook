@@ -44,9 +44,9 @@
     <string name="hide_birthdays_summary">Khi được kích hoạt, sẽ ẩn sinh nhật từ dòng thời gian.</string>
     <string name="hide_menu_bar_title">Ẩn thanh menu</string>
     <string name="hide_menu_bar_summary">Khi kích hoạt, thanh menu Facebook sẽ được ẩn.</string>
-    <string name="hide_recently_commented">Hide recently commented</string>
-    <string name="hide_recently_commented_summary">X people recently commented on this.</string>
-    <string name="start_url">Start URL</string>
+	<string name="hide_recently_commented">Ẩn bình luận gần đây</string>
+    <string name="hide_recently_commented_summary">X người gần đây đã bình luận điều này.</string>
++    <string name="start_url">Khởi chạy URL</string>
     <string-array name="Start">
         <item>MostRecent</item>
         <item>TopStories</item>
@@ -70,6 +70,8 @@
 
     <!-- APPEARANCE -->
     <string name="appearance_setting_title">Giao diện</string>
+    <string name="web_themes">Chủ đề web</string>
+    <string name="web_themes_summary">Bạn có thể chọn chủ đề web khác.</string>
     <string name="app_themes">Chủ đề ứng dụng</string>
     <string name="app_themes_summary">Bạn có thể chọn chủ đề ứng dụng khác.</string>
 
@@ -79,8 +81,8 @@
     <string name="navigation_menu_settings_description">Bạn có thể hiển thị/ẩn các mục trong điều hướng menu.</string>
     <string name="save_data">Lưu dữ liệu</string>
     <string name="save_data_summary">Khi được kích hoạt, tự động cấu hình ứng dụng sẽ lưu dữ liệu</string>
-    <string name="clearcache">Clear cache on exit</string>
-    <string name="clearcache_summary">It will take more time to open the app.</string>
+    <string name="clearcache">Xóa cache lúc thoát</string>
+    <string name="clearcache_summary">Sẽ mất nhiều thời gian để mở ứng dụng.</string>
     <string name="fab_enable">Floating Action Button</string>
     <string name="fab_enable_summary">Show the FAB.</string>
     <!-- Navigation: fab -->
@@ -138,7 +140,8 @@
     <string name="error_facebook_error">Một cái gì đó đã diễn ra sai lúc kết thúc Facebook</string>
     <string name="loading">Đang nạp</string>
     <string name="permission_denied">Quyền truy cập bị từ chối, không thể hoàn tất thao tác</string>
-    <string name="downloaded">Downloaded</string>
-    <string name="new_bookmark">Added:</string>
-    <string name="remove_bookmark">Removed:</string>
+    <string name="downloaded">Đã tải</string>
+	<string name="bookmarks">Bookmark</string>
+    <string name="new_bookmark">Đã thêm:</string>
+    <string name="remove_bookmark">Đã gỡ bỏ:</string>
 </resources>

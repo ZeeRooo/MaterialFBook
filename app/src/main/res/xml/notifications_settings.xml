@@ -6,7 +6,11 @@
         android:key="notif_interval"
         android:entries="@array/intervalPrefTitles"
         android:entryValues="@array/intervalPrefValues"
-        android:defaultValue="300000" />
+        android:defaultValue="60000" />
+    <Preference
+        android:key="BlackList"
+        android:title="@string/blacklist_title"
+        android:summary="@string/blacklist_summary"/>
     <PreferenceCategory
         android:title="@string/nav_notifications">
         <SwitchPreference
@@ -34,12 +38,6 @@
             android:title="@string/vibrate_double"
             android:summary="@string/facebook_notifications"
             android:defaultValue="false"/>
-       <!-- <SwitchPreference
-            android:key="flashlight_as_led_notif"
-            android:dependency="facebook_notifications"
-            android:title="@string/flashlight_as_led"
-            android:summary="@string/flashlight_as_led_summary_notif"
-            android:defaultValue="false"/>-->
         <SwitchPreference
             android:key="led_notif"
             android:dependency="facebook_notifications"
@@ -75,12 +73,6 @@
             android:title="@string/vibrate_double"
             android:summary="@string/facebook_message"
             android:defaultValue="false"/>
-       <!-- <SwitchPreference
-            android:key="flashlight_as_led_msg"
-            android:dependency="facebook_messages"
-            android:title="@string/flashlight_as_led"
-            android:summary="@string/flashlight_as_led_summary_msg"
-            android:defaultValue="false"/>-->
         <SwitchPreference
             android:key="led_msj"
             android:dependency="facebook_messages"

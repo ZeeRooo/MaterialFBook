@@ -69,6 +69,8 @@
 
     <!-- APPEARANCE -->
     <string name="appearance_setting_title">ڕووکارەکان</string>
+    <string name="web_themes">ڕووکاری فەیسبووک</string>
+    <string name="web_themes_summary">ڕووکاری جیاوازی فەیسبووک</string>
     <string name="app_themes">ڕووکاری بەرنامە</string>
     <string name="app_themes_summary">ڕووکاری جیاوازی بەرنامەکە</string>
 

@@ -8,7 +8,7 @@ import java.io.InputStream;
 public class JavaScriptHelpers {
 
     public static void updateNumsService(WebView view) {
-        view.loadUrl("javascript:(function(){function n_s(){android.getNums(document.querySelector(\"#notifications_jewel > a > div > span[data-sigil=count]\").innerHTML,document.querySelector(\"#messages_jewel > a > div > span[data-sigil=count]\").innerHTML,document.querySelector(\"#requests_jewel > a > div > span[data-sigil=count]\").innerHTML,document.querySelector(\"#feed_jewel > a > div > span[data-sigil=count]\").innerHTML),setTimeout(n_s,5000)}try{n_s()}catch(_){}})()");
+        view.loadUrl("javascript:(function(){function n_s(){android.getNums(document.querySelector(\"#notifications_jewel > a > div > div > span\").innerHTML,document.querySelector(\"#messages_jewel > a > div > div > span\").innerHTML,document.querySelector(\"#requests_jewel > a > div > div > span\").innerHTML,document.querySelector(\"#feed_jewel > a > div > div > span\").innerHTML),setTimeout(n_s,5000)}try{n_s()}catch(_){}})()");
     }
 
     // Thanks to Simple for Facebook. - https://github.com/creativetrendsapps/SimpleForFacebook/blob/master/app/src/main/java/com/creativetrends/simple/app/helpers/BadgeHelper.java#L36
@@ -19,20 +19,22 @@ public class JavaScriptHelpers {
 
     public static void loadCSS(WebView view, String css) {
         try {
-            InputStream inputStream = new ByteArrayInputStream(css.getBytes("UTF-8"));
-            byte[] buffer = new byte[inputStream.available()];
-            inputStream.read(buffer);
-            inputStream.close();
-            css = Base64.encodeToString(buffer, Base64.NO_WRAP);
-            view.loadUrl("javascript:(function() {" +
-                    "var parent = document.getElementsByTagName('head').item(0);" +
-                    "var style = document.createElement('style');" +
-                    "style.type = 'text/css';" +
-                    "style.innerHTML = window.atob('" + css + "');" +
-                    "parent.appendChild(style)" +
-                    "})()");
+            if (css != null) {
+                InputStream inputStream = new ByteArrayInputStream(css.getBytes("UTF-8"));
+                byte[] buffer = new byte[inputStream.available()];
+                inputStream.read(buffer);
+                inputStream.close();
+                css = Base64.encodeToString(buffer, Base64.NO_WRAP);
+                view.loadUrl("javascript:(function() {" +
+                        "var parent = document.getElementsByTagName('head').item(0);" +
+                        "var style = document.createElement('style');" +
+                        "style.type = 'text/css';" +
+                        "style.innerHTML = window.atob('" + css + "');" +
+                        "parent.appendChild(style)" +
+                        "})()");
+            }
         } catch (Exception e) {
-            e.printStackTrace();
+            e.getStackTrace();
         }
     }
 }

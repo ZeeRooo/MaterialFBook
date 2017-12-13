@@ -70,6 +70,8 @@
 
     <!-- APPEARANCE -->
     <string name="appearance_setting_title">HITSURA</string>
+    <string name="web_themes">Tema ng web</string>
+    <string name="web_themes_summary">Pwede ka pang pumili ng iba pang tema para sa web.</string>
     <string name="app_themes">Tema ng app</string>
     <string name="app_themes_summary">Pwede ka pang pumili ng iba pang tema para sa app.</string>
 

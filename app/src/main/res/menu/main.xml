@@ -1,25 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-	<!--<item
-        android:id="@+id/nav_messages"
+	<item
+        android:id="@+id/action_messages"
         android:icon="@drawable/ic_message"
         android:title="@string/menu_messages"
-        android:actionLayout="@layout/menu_action_item_badge"
+        app:actionLayout="@layout/menu_badge_full"
+        android:background="@drawable/circle"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/action_notifications"
         android:icon="@drawable/ic_notifications"
         android:title="@string/nav_notifications"
-        android:actionLayout="@layout/menu_action_item_badge"
-        app:showAsAction="ifRoom"/>-->
-    <item android:id="@+id/action_search"
-        android:orderInCategory="0"
-        android:title="@string/menu_search"
-        android:icon="@drawable/ic_menu_search"
-        app:showAsAction="always" />
-    <item
-        android:id="@+id/toolbar_settings"
-        android:title="@string/settings"
-        app:showAsAction="collapseActionView" />
+        app:actionLayout="@layout/menu_badge_full"
+        app:showAsAction="ifRoom"/>
 </menu>

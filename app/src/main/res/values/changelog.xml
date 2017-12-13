@@ -2,25 +2,19 @@
 <resources>
     <string name="changelog_list" translatable="false">
 <![CDATA[
-**Version B-3.5.0:**
+<b>Version 3.6.0:</b>
 <br>
+- Bugfixes.
 <br>
-- Minor changes and fixes.
+- Added support for emojis in notifications. #84
 <br>
-- Deleted Facebook SDK. You can remove it from Facebook apps.
+- Added a blacklist to notifications.
 <br>
-- Redesigned.
+- Added support for Oreo devices.
 <br>
-- Code cleanned.
+- Translations updates.
 <br>
-- Posibility to upload videos, photos, or audios from gallery/music player to Facebook´s wall.
-<br>
-- Posibility to view album photos (longpress).
-<br>
-<br>
-<b>Version 3.4.6:</b>
-<br>
-- Minor changes and fixes.
+- Switched from AlarmManager to JobScheduler <b>(less battery usage)</b>
 <br>
 <br>
 <b>Version 3.4.5:</b>

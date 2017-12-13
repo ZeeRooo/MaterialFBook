@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<menu xmlns:android="http://schemas.android.com/apk/res/android">
+<menu xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto">
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_top_stories"
@@ -8,15 +8,13 @@
         <item
             android:id="@+id/nav_most_recent"
             android:icon="@drawable/ic_menu_most_recent"
+            app:actionViewClass="android.widget.TextView"
             android:title="@string/menu_most_recent" />
         <item
             android:id="@+id/nav_friendreq"
             android:icon="@drawable/ic_menu_friendreq"
+            app:actionViewClass="android.widget.TextView"
             android:title="@string/menu_friendreq" />
-        <item
-            android:id="@+id/nav_messages"
-            android:icon="@drawable/ic_message"
-            android:title="@string/menu_messages" />
         <item
             android:id="@+id/nav_search"
             android:icon="@drawable/ic_menu_search"
@@ -37,10 +35,6 @@
             android:id="@+id/nav_photos"
             android:icon="@drawable/ic_menu_photos"
             android:title="@string/menu_photos" />
-        <item
-            android:id="@+id/lol"
-            android:icon="@drawable/ic_menu_photos"
-            android:title="string/menu_photos" />
     </group>
 
     <group android:checkableBehavior="none">
@@ -48,10 +42,6 @@
             android:id="@+id/nav_back"
             android:icon="@drawable/ic_menu_back"
             android:title="@string/menu_back" />
-		<item
-            android:id="@+id/nav_fblogout"
-            android:icon="@drawable/ic_menu_fblogout"
-            android:title="@string/ic_menu_fblogout" />
 		<item
             android:id="@+id/nav_exitapp"
             android:icon="@android:drawable/ic_lock_power_off"

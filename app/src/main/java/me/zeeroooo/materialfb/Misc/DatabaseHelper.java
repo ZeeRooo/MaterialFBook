@@ -1,4 +1,4 @@
-package me.zeeroooo.materialfb.Bookmarks;
+package me.zeeroooo.materialfb.Misc;
 
 import android.content.ContentValues;
 import android.content.Context;
@@ -15,9 +15,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "MFBBookmarks.db";
     private static final String TABLE_NAME = "mfb_table";
-    public static final String COL1 = "ID";
-    private static final String COL2 = "TITLE";
-    private static final String COL3 = "URL";
+    private static final String COL1 = "TITLE";
+    private static final String COL2 = "URL";
+    private static final String COL3 = "BL";
     private SQLiteDatabase db;
 
     public DatabaseHelper(Context context) {
@@ -27,7 +27,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String createTable = "CREATE TABLE " + TABLE_NAME + " (ID INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                " TITLE TEXT, URL TEXT)";
+                " TITLE TEXT, URL TEXT, BL TEXT)";
         db.execSQL(createTable);
     }
 
@@ -37,19 +37,21 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean addData(String title, String url) {
+    public boolean addData(String title, String url, String blackword) {
         db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL2, title);
-        contentValues.put(COL3, url);
+        if (title!=null && url!=null) {
+            contentValues.put(COL1, title);
+            contentValues.put(COL2, url);
+        } else
+            contentValues.put(COL3, blackword);
 
         long result = db.insert(TABLE_NAME, null, contentValues);
 
-        if (result == -1) {
+        if (result == -1)
             return false;
-        } else {
+        else
             return true;
-        }
     }
 
     public Cursor getListContents() {
@@ -58,9 +60,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return data;
     }
 
-    void remove(String title, String url){
+    public void remove(String title, String url, String s){
         SQLiteDatabase db = this.getWritableDatabase();
-        String query = "DELETE FROM " + TABLE_NAME + " WHERE " + COL2 + " = '" + title + "'" + " AND " + COL3 + " = '" + url + "'";
+        String query = null;
+        if (s==null)
+            query = "DELETE FROM " + TABLE_NAME + " WHERE " + COL1 + " = '" + title + "'" + " AND " + COL2 + " = '" + url + "'";
+        else
+            query = "DELETE FROM " + TABLE_NAME + " WHERE " + COL3 + " = '" + s + "'";
         db.execSQL(query);
     }
 }

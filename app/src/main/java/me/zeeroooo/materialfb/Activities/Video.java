@@ -24,6 +24,7 @@ import android.view.WindowManager;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.VideoView;
 import java.io.File;
 import java.util.Locale;
@@ -37,9 +38,9 @@ public class Video extends AppCompatActivity {
     private int position = 0;
     private DownloadManager mDownloadManager;
     private RelativeLayout mButtonsHeader;
-    private AppCompatSeekBar mSeekbar;
+    private SeekBar mSeekbar;
     private String url;
-    private AppCompatTextView mElapsedTime, mRemainingTime;
+    private TextView mElapsedTime, mRemainingTime;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,12 +49,12 @@ public class Video extends AppCompatActivity {
 
         url = getIntent().getStringExtra("video_url");
 
-        mVideoView = (VideoView) findViewById(R.id.video_view);
-        mButtonsHeader = (RelativeLayout) findViewById(R.id.buttons_header);
-        mSeekbar = (AppCompatSeekBar) findViewById(R.id.progress);
+        mVideoView = findViewById(R.id.video_view);
+        mButtonsHeader = findViewById(R.id.buttons_header);
+        mSeekbar = findViewById(R.id.progress);
         mDownloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
-        mElapsedTime = (AppCompatTextView) findViewById(R.id.elapsed_time);
-        mRemainingTime = (AppCompatTextView) findViewById(R.id.remaining_time);
+        mElapsedTime = findViewById(R.id.elapsed_time);
+        mRemainingTime = findViewById(R.id.remaining_time);
 
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LOW_PROFILE
@@ -85,7 +86,7 @@ public class Video extends AppCompatActivity {
         });
 
         // Buttons
-        final AppCompatImageButton pause = (AppCompatImageButton) findViewById(R.id.pauseplay_btn);
+        final ImageButton pause = findViewById(R.id.pauseplay_btn);
         pause.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (mVideoView.isPlaying()) {
@@ -98,7 +99,7 @@ public class Video extends AppCompatActivity {
             }
         });
 
-        final AppCompatImageButton previous = (AppCompatImageButton) findViewById(R.id.previous_btn);
+        final ImageButton previous = findViewById(R.id.previous_btn);
         previous.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mVideoView.seekTo(0);
@@ -106,7 +107,7 @@ public class Video extends AppCompatActivity {
             }
         });
 
-        final AppCompatImageButton download = (AppCompatImageButton) findViewById(R.id.download_btn);
+        final ImageButton download = findViewById(R.id.download_btn);
         download.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 RequestStoragePermission();
@@ -128,7 +129,7 @@ public class Video extends AppCompatActivity {
             }
         });
 
-        final AppCompatImageButton share = (AppCompatImageButton) findViewById(R.id.share_btn);
+        final ImageButton share = findViewById(R.id.share_btn);
         share.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);

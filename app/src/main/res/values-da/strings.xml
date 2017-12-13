@@ -70,6 +70,8 @@
 
     <!-- APPEARANCE -->
     <string name="appearance_setting_title">UDSEENDE</string>
+    <string name="web_themes">Webtemaer</string>
+    <string name="web_themes_summary">Du kan vælge forskellige webtemaer.</string>
     <string name="app_themes">Apptemaer</string>
     <string name="app_themes_summary">Du kan vælge forskellige apptemaer.</string>
 

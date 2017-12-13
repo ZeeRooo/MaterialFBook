@@ -21,40 +21,40 @@
             android:orientation="horizontal"
             android:id="@+id/buttons_header">
 
-            <android.support.v7.widget.AppCompatSeekBar
+            <SeekBar
                 android:id="@+id/progress"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_above="@+id/pauseplay_btn"
                 style="?android:attr/progressBarStyleHorizontal"/>
 
-            <android.support.v7.widget.AppCompatImageButton
+            <ImageButton
                 android:id="@+id/pauseplay_btn"
                 android:layout_centerHorizontal="true"
                 android:layout_alignParentBottom="true"
                 style="@android:style/MediaButton.Pause"/>
 
-            <android.support.v7.widget.AppCompatImageButton
+            <ImageButton
                 android:id="@+id/previous_btn"
                 android:layout_toStartOf="@+id/pauseplay_btn"
                 android:layout_alignParentBottom="true"
                 style="@android:style/MediaButton.Previous"/>
 
-            <android.support.v7.widget.AppCompatImageButton
+            <ImageButton
                 android:id="@+id/download_btn"
                 android:src="@drawable/ic_download"
                 android:layout_toEndOf="@+id/pauseplay_btn"
                 android:layout_alignParentBottom="true"
                 style="@android:style/MediaButton.Next"/>
 
-            <android.support.v7.widget.AppCompatImageButton
+            <ImageButton
                 android:id="@+id/share_btn"
                 android:src="@drawable/ic_share"
                 style="@android:style/MediaButton.Next"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true" />
 
-            <android.support.v7.widget.AppCompatTextView
+            <TextView
                 android:id="@+id/elapsed_time"
                 android:textSize="14sp"
                 android:textStyle="bold"
@@ -66,7 +66,7 @@
                 android:textColor="@android:color/white"
                 android:textAppearance="@style/TextAppearance.Design.Snackbar.Message"/>
 
-            <android.support.v7.widget.AppCompatTextView
+            <TextView
                 android:id="@+id/remaining_time"
                 android:textSize="14sp"
                 android:textStyle="bold"

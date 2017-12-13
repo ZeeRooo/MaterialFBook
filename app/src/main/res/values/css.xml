@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="Material" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
+        .profpic, ._508n {
             background: transparent;
             border-radius: 50%;
             border: 0px;
@@ -86,7 +86,7 @@
         }
     </string>
     <string name="MaterialAmoled" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
+        .profpic, ._508n {
             border-radius: 50%;
             border: 0px;
         }
@@ -174,7 +174,7 @@
         }
     </string>
     <string name="MaterialBlack" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
+        .profpic, ._508n {
             background: transparent;
             border-radius: 50%;
             border: 0px;
@@ -276,7 +276,7 @@
         }
     </string>
     <string name="MaterialPink" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
+        .profpic, ._508n {
             background: transparent;
             border-radius: 50%;
             border: 0px;
@@ -375,7 +375,7 @@
         }
     </string>
     <string name="MaterialGrey" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
+        .profpic, ._508n {
             background: transparent;
             border-radius: 50%;
             border: 0px;
@@ -474,7 +474,7 @@
         }
     </string>
     <string name="MaterialGreen" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
+        .profpic, ._508n {
             background: transparent;
             border-radius: 50%;
             border: 0px;
@@ -573,7 +573,7 @@
         }
     </string>
     <string name="MaterialRed" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
+        .profpic, ._508n {
             background: transparent;
             border-radius: 50%;
             border: 0px;
@@ -672,7 +672,7 @@
         }
     </string>
     <string name="MaterialLime" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
+        .profpic, ._508n {
             background: transparent;
             border-radius: 50%;
             border: 0px;
@@ -771,7 +771,7 @@
         }
     </string>
     <string name="MaterialYellow" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
+        .profpic, ._508n {
             background: transparent;
             border-radius: 50%;
             border: 0px;
@@ -870,7 +870,7 @@
         }
     </string>
     <string name="MaterialPurple" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
+        .profpic, ._508n {
             background: transparent;
             border-radius: 50%;
             border: 0px;
@@ -969,7 +969,7 @@
         }
     </string>
     <string name="MaterialLightBlue" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
+        .profpic, ._508n {
             background: transparent;
             border-radius: 50%;
             border: 0px;
@@ -1068,7 +1068,7 @@
         }
     </string>
     <string name="MaterialOrange" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
+        .profpic, ._508n {
             background: transparent;
             border-radius: 50%;
             border: 0px;
@@ -1167,7 +1167,7 @@
         }
     </string>
     <string name="MaterialGPG" translatable="false">
-        .profpic, ._42b6._42b6, ._4prr::after, .mTypeahead .jx-result .primary .profile-icon, ._1e_c, ._u42 ._5i9c, ._2rgt, ._508n {
+        .profpic, ._508n {
             background: transparent;
             border-radius: 50%;
             border: 0px;

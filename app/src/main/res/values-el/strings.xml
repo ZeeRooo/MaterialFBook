@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Notifications -->
+    <string name="notifications_setting_title">ΕΙΔΟΠΟΙΗΣΕΙΣ</string>
+    <string name="notif">Ειδοποιήσεις</string>
+    <string name="facebook_message">Ειδοποιήσεις μηνυμάτων</string>
+    <string name="facebook_notifications">Ειδοποιήσεις Facebook</string>
+    <string name="applying_changes">Οι αλλαγές εφαρμόζονται</string>
+    <string name="sync_problem">Τα Cookies δεν μπορούν να συγχρονιστούν. Προσπάθησε να επανεκκινήσεις την εφαρμογή</string>
+    <string name="notification_sound_description">Επέλεξε έναν ήχο κλήσης ή σίγαση: \u0020</string>
+    <string name="notifications_settings">Επιλογές ειδοποιήσεων</string>
+    <string name="notifications_settings_description">Επιπλέον ρυθμίσεις. Επέλεξε χρονικό διάστημα, ρύθμισε ήχους, LED και δόνηση.</string>
+    <string name="interval_pref">Χρονικό διάσημα για τον έλεγχο</string>
+    <string name="notification_sound">Ήχος ειδοποίησης</string>
+    <string name="interval_pref_description_new">Οι ειδοποιήσεις θα ελέγχονται κάθε %s.</string>
+    <string name="notification_sound_msg">Ήχος μηνύματος</string>
+    <string name="vibrate">Δόνηση</string>
+    <string name="vibrate_double">Διπλή δόνηση</string>
+    <string name="led_light">Φως LED</string>
+
+    <string-array name="intervalPrefTitles">
+        <item>1 λεπτό</item>
+        <item>2 λεπτά</item>
+        <item>5 λεπτά</item>
+        <item>15 λεπτά</item>
+        <item>30 λεπτά</item>
+        <item>1 ώρα</item>
+        <item>3 ώρες</item>
+        <item>6 ώρες</item>
+    </string-array>
+    <!-- End Notifications -->
+
+    <!-- General -->
+    <string name="general_setting_title">ΓΕΝΙΚΑ</string>
+    <string name="location_enabled_title">Πρόσβαση στην τοποθεσία</string>
+    <string name="location_enabled_summary">Ενεργοποίησε αυτό για να επιτρέψεις στο Facebook να λάβει την τοποθεσία σου.</string>
+    <string name="hide_editor_newsfeed_title">Απόκρυψη της ενημέρωσης κατάστασης στην Ροή Νέων</string>
+    <string name="hide_editor_newsfeed_summary">Όταν είναι ενεργοποιημένο, η ενημέρωση κατάστασης θα είναι κρυμμένη στην Ροή Νέων.</string>
+    <string name="stop_images_title">Να μην φορτώνονται εικόνες</string>
+    <string name="stop_images_summary">Όταν είναι ενεργοποιημένο, δεν θα φορτώνονται οι εικόνες. Κάποιες εικόνες μπορεί να παραμείνουν στην μνήμη cache.</string>
+    <string name="hide_sponsored_title">Απόκρυψη &#8216;Προωθητικού&#8217;  Περιεχομένου</string>
+    <string name="hide_sponsored_summary">Απόκρυψη του &#8216;Προωθητικού&#8217; περιεχομένου (διαφημίσεις) από την ροή.</string>
+    <string name="hide_birthdays_title">Απόκρυψη Γενεθλίων</string>
+    <string name="hide_birthdays_summary">Απόκρυψη γενεθλίων από την ροή, εκδηλώσεις και ειδοποιήσεις.</string>
+    <string name="hide_menu_bar_title">Απόκρυψη μπάρας Μενού</string>
+    <string name="hide_menu_bar_summary">Όταν είναι ενεργοποιημένο, η μπάρα Μενού του Facebook θα είναι κρυμμένη.</string>
+    <string name="hide_recently_commented">Απόκρυψη προσφάτως σχολιασμένων</string>
+    <string name="hide_recently_commented_summary">Χ άτομα σχολίασαν πρόσφατα σε αυτό.</string>
+    <string name="start_url">Διεύθυνση Έναρξης</string>
+    <string-array name="Start">
+        <item>Πρόσφατα</item>
+        <item>ΤοπΙστορίες</item>
+        <item>Μηνύματα</item>
+    </string-array>
+    <!-- End general -->
+
+    <!-- About -->
+    <string name="more">Περισσότερα και συντελεστές</string>
+    <string name="about_updates">Αναβαθμίσεις</string>
+    <string name="updates">Έλεγχος για νέα έκδοση</string>
+    <string name="updates_summary">Φόρτωμα της σελίδας και κατέβασμα της τελευταίας έκδοσης</string>
+    <string name="people_who_translated">Χρήστες που μετάφρασαν την εφαρμογή</string>
+    <string name="devs_who_helped_me">Προγραμματιστές που με βοήθησαν απαντώντας σε ερωτήσεις μου και που πήρα κώδικα από εφαρμογές τους</string>
+    <string name="help_translations">Βοήθησέ με με την μετάφραση της εφαρμογής στην γλώσσα σου</string>
+    <string name="about_translations">Βοήθεια, σε χρειαζόμαστε</string>
+    <string name="source_code">Πηγαίος κώδικας στο Github</string>
+    <string name="withYou">Αναφορά σφαλμάτων ή αίτηση νέων δυνατοτήτων</string>
+    <string name="changelog">Λίστα Αλλαγών</string>
+    <!-- End about -->
+
+    <!-- APPEARANCE -->
+    <string name="appearance_setting_title">ΕΜΦΑΝΙΣΗ</string>
+    <string name="web_themes">Θέματα web</string>
+    <string name="web_themes_summary">Μπορείς να επιλέξεις διαφορετικά θέματα web.</string>
+    <string name="app_themes">Θέματα Εφαρμογής</string>
+    <string name="app_themes_summary">Μπορείς να επιλέξεις διαφορετικά θέματα εφαρμογής.</string>
+
+    <!-- Navigation -->
+    <string name="navigation_setting_title">ΠΛΟΗΓΗΣΗ</string>
+    <string name="navigation_menu_settings">Αντικείμενα του μενού πλοήγησης</string>
+    <string name="navigation_menu_settings_description">Μπορείς να φανερώσεις/κρύψεις αντικείμενα στο μενού πλοήγησης</string>
+    <string name="save_data">Χαμηλότερη χρήση δεδομένων</string>
+    <string name="save_data_summary">Φορτώνει την βασική έκδοση του Facebook και απενεργοποιεί τα λογότυπα και τις ενημερώσεις πληροφοριών προφίλ.</string>
+    <string name="clearcache">Καθάρισμα μνήμης cache κατά την έξοδο</string>
+    <string name="clearcache_summary">Θα παίρνει περισσότερη ώρα να ανοίξει η εφαρμογή</string>
+    <string name="fab_enable">Αιωρούμενο Κουμπί Ενεργειών</string>
+    <string name="fab_enable_summary">Εμφάνιση του ΑΚΕ.</string>
+    <!-- Navigation: fab -->
+    <string name="fab_text">Δημοσίευση ενημέρωσης</string>
+    <string name="fab_photo">Δημοσίευση φωτογραφίας</string>
+    <string name="fab_checkin">Check In</string>
+    <string name="fab_jump_top">Μετάβαση στην Κορυφή</string>
+    <!-- Navigation: items -->
+    <string name="navigation_menu_title">ΜΕΝΟΥ ΠΛΟΗΓΗΣΗ</string>
+    <string name="ic_menu_exitapp">Έξοδος από την εφαρμογή</string>
+    <string name="ic_menu_exitapp_summary">Εμφάνιση κουμπιού &#8216;Έξοδος από την εφαρμογή&#8217; στο μενού πλοήγησης.</string>
+    <string name="ic_menu_fblogout">Αποσύνδεση</string>
+    <string name="ic_menu_fblogout_summary">Εμφάνιση κουμπιού &#8216;Αποσύνδεση&#8217; στο μενού πλοήγησης.</string>
+    <string name="menu_photos">Φωτογραφίες</string>
+    <string name="menu_photos_summary">Εμφάνιση κουμπιού &#8216;Φωτογραφίες&#8217; στο μενού πλοήγησης.</string>
+    <string name="menu_events">Εκδηλώσεις</string>
+    <string name="menu_events_summary">Εμφάνιση κουμπιού &#8216;Εκδηλώσεις&#8217; στο μενού πλοήγησης.</string>
+    <string name="menu_back">Πίσω</string>
+    <string name="menu_back_summary">Εμφάνιση κουμπιού &#8216;Πίσω&#8217; στο μενού πλοήγησης.</string>
+    <string name="menu_top_stories">Δημοφιλείς ιστορίες</string>
+    <string name="menu_top_stories_summary">Εμφάνιση κουμπιού &#8216;Δημοφιλείς ιστορίες&#8217; στο μενού πλοήγησης.</string>
+    <string name="menu_most_recent">Πρόσφατα</string>
+    <string name="menu_most_recent_summary">Εμφάνιση κουμπιού &#8216;Πρόσφατα&#8217; στο μενού πλοήγησης.</string>
+    <string name="menu_friendreq">Αιτήματα φιλίας</string>
+    <string name="menu_friendreq_summary">Εμφάνιση κουμπιού &#8216;Αιτήματα φιλίας&#8217; στο μενού πλοήγησης.</string>
+    <string name="menu_groups">Ομάδες</string>
+    <string name="menu_groups_summary">Εμφάνιση κουμπιού &#8216;Ομάδες&#8217; στο μενού πλοήγησης.</string>
+    <string name="menu_messages">Μηνύματα</string>
+    <string name="menu_search">Αναζήτηση</string>
+    <string name="menu_search_summary">Εμφάνιση κουμπιού &#8216;Αναζήτηση&#8217; στο μενού πλοήγησης.</string>
+    <string name="menu_mainmenu">Κύριο μενού</string>
+    <string name="menu_mainmenu_summary">Εμφάνιση κουμπιού &#8216;Κύριο μενού&#8217; στο μενού πλοήγησης.</string>
+    <string name="messaging_enabled_title">Μηνύματα</string>
+    <string name="messaging_enabled_summary">Όταν είναι ενεργοποιημένο, προσφέρει πρόσβαση στα Μηνύματα Facebook. Απενεργοποίησέ το αν έχεις εφαρμογή για μηνύματα.</string>
+    <string name="silent">Χωρίς ήχο</string>
+    <string name="file_logger_needs_permission">Δεν υπάρχει πρόσβαση στην εξωτερική αποθηκευτική μνήμη. Το αρχείο καταγραφής δεν μπορεί να αποθηκευτεί</string>
+    <string name="navigation_drawer_open">Άνοιγμα μενού πλοήγησης</string>
+    <string name="navigation_drawer_close">Κλείσιμο μενού πλοήγησης</string>
+    <string name="default_user">Χρήστης</string>
+    <string name="header_profile_pic">Φωτογραφία Προφίλ</string>
+    <string name="nav_notifications">Ειδοποιήσεις</string>
+    <string name="context_save_image">Αποθήκευση εικόνας</string>
+    <string name="settings">Ρυθμίσεις</string>
+    <string name="context_share_image">Διαμοιρασμός εικόνας</string>
+    <string name="context_copy_image_link">Αντιγραφή συνδέσμου εικόνας</string>
+    <string name="context_share_link">Διαμοιρασμός συνδέσμου</string>
+    <string name="context_copy_link">Αντιγραφή συνδέσμου</string>
+    <string name="context_share_image_progress">Η εικόνα μοιράζεται...</string>
+    <string name="content_copy_link_done">Ο σύνδεσμος αντιγράφτηκε στο πρόχειρο</string>
+    <string name="login_button">Σύνδεση</string>
+    <string name="not_logged_in">Δεν είσαι συνδεμένος/η</string>
+    <string name="error_login">Κάτι πήγε στραβά, παρακαλώ προσπάθησε να συνδεθείς ξανά</string>
+    <string name="error_super_wrong">Κάτι πήγε πολύ στραβά</string>
+    <string name="error_facebook_noconnection">Αποτυχία πρόσβασής στο Facebook</string>
+    <string name="error_facebook_error">Κάτι πήγε στραβά στην μεριά του Facebook</string>
+    <string name="loading">Φορτώνει</string>
+    <string name="permission_denied">Άρνηση έγκρισης, δεν μπορεί να ολοκληρωθεί η ενέργεια</string>
+    <string name="downloaded">Κατεβασμένα</string>
+    <string name="add">Σελιδοδείκτες</string>
+    <string name="new_bookmark">Προσθεμένα:</string>
+    <string name="remove_bookmark">Αφαιρεμένα:</string>
+</resources>

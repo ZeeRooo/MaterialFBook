@@ -265,13 +265,14 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Updated some translations.
 - Switched to the old package id to fix F-Droid issues.
 
-**Version B-3.5.0:**
-- Minor changes and fixes.
-- Deleted Facebook SDK. You can remove it from Facebook apps.
-- Redesigned.
-- Code cleanned.
-- Posibility to upload videos, photos, or audios from gallery/music player to Facebook´s wall.
-- Posibility to view album photos (longpress).
+**Version 3.6.0:**
+- Bugfixes.
+- Added support for emojis in notifications. #84
+- Added a blacklist to notifications.
+- Added support for Oreo devices.
+- Translations updates.
+- Switched from AlarmManager to JobScheduler (less battery usage).
+
 
 **Notes:**
 _- Maybe some gifs cant be loaded because i need to add the url to the code. Report it as issue with the Facebook´s page link or website._
@@ -286,13 +287,11 @@ _- Maybe some gifs cant be loaded because i need to add the url to the code. Rep
 - FaceSlim  by indywidualny.
 - Toffeed  by JakeLane.
 - SlimSocial for Facebook by rignaneseleo.
-- AdvancedWebView by delight-im. // Since 2.9, it was remplaced with own WebView.
 - FloatingActionButton by Clans.
 - PhotoView by chrisbanes.
-- Permiso by greysonp. // Removed.
 - Glide by bumptech.
-- Badger by volders.
-- All people who translated the app (more details in "More and Credits")
+- Firebase JobDispatcher by Firebase.
+- All people who translated the app (more details in "More and Credits" and Transifex)
 
 
 ## Screens:

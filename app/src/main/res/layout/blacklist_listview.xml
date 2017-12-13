@@ -11,28 +11,18 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:fontFamily="sans-serif-medium"
-        android:id="@+id/bookmark_title"
-        android:layout_toStartOf="@+id/delete_bookmark"
+        android:id="@+id/blacklist_word"
+        android:layout_toStartOf="@+id/delete_word"
         android:layout_alignParentStart="true"
         android:gravity="center_vertical"
         style="?android:attr/textAppearanceListItem" />
 
     <ImageButton
-        android:id="@+id/delete_bookmark"
+        android:id="@+id/delete_word"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_alignParentEnd="true"
         android:src="@drawable/ic_delete"
-        android:tint="?attr/textColorAlertDialogListItem"
-        android:background="@android:color/transparent"/>
-
-    <ImageButton
-        android:id="@+id/share_bookmark"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_toStartOf="@+id/delete_bookmark"
-        android:src="@drawable/ic_share"
-        android:layout_marginEnd="5dp"
         android:tint="?attr/textColorAlertDialogListItem"
         android:background="@android:color/transparent"/>
 

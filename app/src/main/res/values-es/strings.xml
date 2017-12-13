@@ -16,6 +16,10 @@
     <string name="vibrate">Vibración</string>
     <string name="vibrate_double">Vibración doble</string>
     <string name="led_light">Luz LED</string>
+    <string name="blacklist_title">Bloqueo por palabra</string>
+    <string name="new_black_word">Escriba una nueva palabra a bloquear</string>
+    <string name="blacklist_summary">Lista de palabras para bloquear las notificaciones</string>
+
     <string-array name="intervalPrefTitles">
         <item>1 minuto</item>
         <item>2 minutos</item>
@@ -54,6 +58,8 @@
 
     <!-- Appearence -->
     <string name="appearance_setting_title">APARIENCIA</string>
+    <string name="web_themes">Temas Web</string>
+    <string name="web_themes_summary">Elije diferentes temas para la web.</string>
     <string name="app_themes">Temas de la app</string>
     <string name="app_themes_summary">Elije diferentes temas para la app.</string>
 
@@ -76,8 +82,6 @@
     <string name="navigation_menu_title">MENÚ DE NAVEGACIÓN</string>
     <string name="ic_menu_exitapp">Salir</string>
     <string name="ic_menu_exitapp_summary">Muestra &#8216;Salir&#8217; del menú de navegación.</string>
-    <string name="ic_menu_fblogout">Cerrar sesión</string>
-    <string name="ic_menu_fblogout_summary">Muestra &#8216;Cerrar sesión&#8217; del menú de navegación.</string>
     <string name="menu_photos">Fotos</string>
     <string name="menu_photos_summary">Muestra &#8216;Fotos&#8217; del menú de navegación.</string>
     <string name="menu_events">Eventos</string>
@@ -96,30 +100,23 @@
     <string name="menu_search_summary">Muestra &#8216;Buscar&#8217; del menú de navegación.</string>
     <string name="menu_mainmenu">Menú principal</string>
     <string name="menu_mainmenu_summary">Muestra &#8216;Menú principal&#8217; del menú de navegación.</string>
-    <string name="messaging_enabled_title">Mensajería</string>
-    <string name="messaging_enabled_summary">Habilitalo para usar los mensajes de Facebook. Deshabilitalo si usas otra app de mensajería.</string>
     <!-- End navigation -->
 
     <!-- App -->
     <string name="silent">Silencio</string>
     <string name="navigation_drawer_open">Abrir cajón de navegación</string>
     <string name="navigation_drawer_close">Cerrar cajón de navegación</string>
-    <string name="default_user">Usuario</string>
     <string name="nav_notifications">Notificaciones</string>
     <string name="settings">Ajustes</string>
     <string name="context_share_image">Compartir imágen</string>
     <string name="context_share_link">Compartir link</string>
     <string name="context_share_image_progress">Compartiendo imágen&#8230;</string>
-    <string name="sharing_video">Compartiendo video…</string>
-    <string name="quick_description">Añade una descripción</string>
     <string name="content_copy_link_done">Link copiado</string>
-    <string name="error_login">Algo extraño ha pasado, por favor inicie sesión nuevamente</string>
     <string name="permission_denied">Permiso denegado, la acción no se pudo completar</string>
     <string name="downloaded">Descargado</string>
 	<string name="bookmarks_header">Marcadores</string>
     <string name="new_bookmark">Agregando:</string>
     <string name="remove_bookmark">Eliminado:</string>
-    <string name="sharing_info">Puede tardar algo de tiempo, depende del peso del archivo</string>
     <!-- About -->
     <string name="more">Créditos y más</string>
     <string name="about_updates">Actualizaciones</string>

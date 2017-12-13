@@ -12,9 +12,9 @@
 # If your project uses WebView with JS, uncomment the following
 # and specify the fully qualified class name to the JavaScript interface
 # class:
-#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
-#   public *;
-#}
+-keepclassmembers class me.zeeroooo.materialfb.WebView.JavaScriptInterfaces {
+   public *;
+}
 
 # Local fun
 -keepclassmembers class * {
@@ -25,3 +25,4 @@
 
 -keep class android.support.v7.widget.SearchView { *; }
 
+-keepnames class com.mypackage.MyGlideModule
