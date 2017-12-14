@@ -6,11 +6,12 @@
     android:layout_width="match_parent"
     android:background="@android:color/black">
 
-    <ImageView
+    <com.github.chrisbanes.photoview.PhotoView
         android:id="@+id/container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:foregroundGravity="center|fill_horizontal"
         android:scaleType="fitXY" />
 
     <ProgressBar android:id="@android:id/progress"
