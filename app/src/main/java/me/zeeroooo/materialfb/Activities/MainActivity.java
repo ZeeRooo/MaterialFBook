@@ -762,7 +762,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onPause();
         mWebView.onPause();
         if (Helpers.getCookie() != null && !mPreferences.getBoolean("save_data", false))
-            badgeUpdate.removeCallbacks(badgeTask);
+            if (badgeTask != null && badgeUpdate != null){
+                badgeUpdate.removeCallbacks(badgeTask);
+            }
     }
 
     @Override
@@ -774,7 +776,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mWebView.removeAllViews();
         mWebView.destroy();
         if (Helpers.getCookie() != null && !mPreferences.getBoolean("save_data", false))
+        if (badgeTask != null && badgeUpdate != null){
             badgeUpdate.removeCallbacks(badgeTask);
+        }
         if (mPreferences.getBoolean("clear_cache", false))
             deleteCache(this);
     }
@@ -1060,7 +1064,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public boolean onQueryTextSubmit(String query) {
                 searchView.clearFocus();
-                mWebView.loadUrl(baseURL + "/search/?query=" + query);
+                mWebView.loadUrl(baseURL + "search/top/?q=" + query);
                 searchItem.collapseActionView();
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
                     circleReveal(R.id.searchtoolbar, 1, true, false);
