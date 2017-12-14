@@ -1,6 +1,7 @@
 package me.zeeroooo.materialfb.Activities;
 
 import android.Manifest;
+import android.annotation.TargetApi;
 import android.app.DownloadManager;
 import android.content.ClipData;
 import android.content.ClipboardManager;
@@ -11,6 +12,7 @@ import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
@@ -23,9 +25,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -35,21 +37,23 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
+import com.github.chrisbanes.photoview.PhotoView;
+
 import java.io.File;
-import me.zeeroooo.materialfb.Ui.CookingAToast;
+
 import me.zeeroooo.materialfb.R;
-import uk.co.senab.photoview.PhotoViewAttacher;
+import me.zeeroooo.materialfb.Ui.CookingAToast;
 
 public class Photo extends AppCompatActivity {
 
-    private ImageView mImageView;
-    PhotoViewAttacher mAttacher;
+    private PhotoView mImageView;
     TextView text;
     private DownloadManager mDownloadManager;
     private String url;
     private Target<Bitmap> ShareTarget;
     public static int closed = 0;
 
+    @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,8 +61,10 @@ public class Photo extends AppCompatActivity {
         mImageView = findViewById(R.id.container);
         Toolbar mToolbar = findViewById(R.id.toolbar_ph);
         setSupportActionBar(mToolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowTitleEnabled(false);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
 
         getWindow().getDecorView().setSystemUiVisibility(
                 View.SYSTEM_UI_FLAG_LOW_PROFILE
@@ -73,7 +79,6 @@ public class Photo extends AppCompatActivity {
         url = getIntent().getStringExtra("link");
         text.setText(getIntent().getStringExtra("title"));
         Load();
-        mAttacher = new PhotoViewAttacher(mImageView);
         mDownloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
     }
 
@@ -129,7 +134,9 @@ public class Photo extends AppCompatActivity {
         if (id == R.id.oopy_url_image) {
             final ClipboardManager clipboard = (ClipboardManager) this.getSystemService(Context.CLIPBOARD_SERVICE);
             final ClipData clip = ClipData.newUri(this.getContentResolver(), "", Uri.parse(url));
-            clipboard.setPrimaryClip(clip);
+            if (clipboard != null) {
+                clipboard.setPrimaryClip(clip);
+            }
             CookingAToast.cooking(Photo.this, getString(R.string.content_copy_link_done), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_copy_url, true).show();
         }
         if (id == android.R.id.home)
