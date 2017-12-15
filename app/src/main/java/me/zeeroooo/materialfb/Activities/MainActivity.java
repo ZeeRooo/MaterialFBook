@@ -772,7 +772,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mWebView.clearHistory();
         mWebView.removeAllViews();
         mWebView.destroy();
-        if (badgeTask != null && badgeUpdate != null)
+		if (badgeTask != null && badgeUpdate != null)
             badgeUpdate.removeCallbacks(badgeTask);
         if (mPreferences.getBoolean("clear_cache", false))
             deleteCache(this);
