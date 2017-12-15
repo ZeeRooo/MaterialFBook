@@ -38,7 +38,7 @@ import me.zeeroooo.materialfb.WebView.Helpers;
 
 public class NotificationsJIS extends JobIntentService {
     private SharedPreferences mPreferences;
-    boolean msg_notAWhiteList = false, notif_notAWhiteList = false;
+    private boolean msg_notAWhiteList = false, notif_notAWhiteList = false;
     private String baseURL, pictureNotif, pictureMsg, e = "", ringtoneKey, vibrate_, vibrate_double_, led_;
     private Bitmap picprofile;
     private String[] picMsg, picNotif;
@@ -125,22 +125,20 @@ public class NotificationsJIS extends JobIntentService {
 
                 // save as shown (or ignored) to avoid showing it again
                 mPreferences.edit().putString("last_notification_text", text).apply();
-            } else
-                Log.i("tag", "notif blacklist");
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
 
-    // Sync the messages
     void SyncMessages() {
-        Elements result = null;
+        Element result = null;
         Helpers.getCookie();
         Log.i("JobIntentService_MFB", "Trying: " + "https://m.facebook.com/messages?soft=messages");
         try {
             Document doc = Jsoup.connect("https://m.facebook.com/messages?soft=messages").timeout(2000).cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).get();
             if (doc != null)
-                result = doc.getElementsByClass("item messages-flyout-item aclb abt").select("a.touchable.primary");
+                result = doc.getElementsByClass("item messages-flyout-item aclb abt").select("a.touchable.primary").first();
 
             final String content = result.select("div.oneLine.preview.mfss.fcg").text();
             if (!blist.isEmpty())
@@ -190,8 +188,7 @@ public class NotificationsJIS extends JobIntentService {
 
                 // save as shown (or ignored) to avoid showing it again
                 mPreferences.edit().putString("last_message", text).apply();
-            } else
-                Log.i("tag", "mensage blacklist");
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -227,6 +224,7 @@ public class NotificationsJIS extends JobIntentService {
         }
 
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, "me.zeeroooo.materialfb.notif")
+                .setStyle(new NotificationCompat.BigTextStyle().bigText(content))
                 .setColor(Theme.getColor(this))
                 .setContentTitle(title)
                 .setContentText(content)

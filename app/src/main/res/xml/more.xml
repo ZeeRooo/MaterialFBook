@@ -64,13 +64,6 @@
                 android:data="https://github.com/bumptech/glide"/>
         </PreferenceScreen>
         <PreferenceScreen
-            android:summary="PhotoView"
-            android:title="chrisbanes">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://github.com/chrisbanes/PhotoView"/>
-        </PreferenceScreen>
-        <PreferenceScreen
             android:summary="Firebase JobDispatcher"
             android:title="firebase">
             <intent

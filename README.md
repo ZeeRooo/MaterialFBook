@@ -273,10 +273,12 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Translations updates.
 - Switched from AlarmManager to JobScheduler (less battery usage).
 
+**Version 3.6.1:**
+- Bugfixes.
+
 
 **Notes:**
 _- Maybe some gifs cant be loaded because i need to add the url to the code. Report it as issue with the Facebook´s page link or website._
-- You can allow or deny the "publish actions" from the Facebook settings. If disabled, you cant use QuickShare.
 
 **Translations:** https://www.transifex.com/yaron/materialfbook/translate/
 

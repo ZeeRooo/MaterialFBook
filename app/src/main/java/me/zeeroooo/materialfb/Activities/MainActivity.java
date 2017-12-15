@@ -10,6 +10,7 @@ import android.Manifest;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.Context;
@@ -32,6 +33,7 @@ import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.design.widget.AppBarLayout;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.design.widget.NavigationView;
@@ -54,7 +56,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AdapterView;
-import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -69,7 +70,6 @@ import android.widget.TextView;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.lang.reflect.Field;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import me.zeeroooo.materialfb.Misc.BookmarksAdapter;
@@ -77,6 +77,7 @@ import me.zeeroooo.materialfb.Misc.BookmarksH;
 import me.zeeroooo.materialfb.Misc.DatabaseHelper;
 import me.zeeroooo.materialfb.Misc.UserInfo;
 import me.zeeroooo.materialfb.Notifications.NotificationsJIS;
+import me.zeeroooo.materialfb.Notifications.NotificationsJS;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.Ui.CookingAToast;
 import me.zeeroooo.materialfb.Ui.Theme;
@@ -500,7 +501,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         break;
                 }
 
-                if (url.contains("lookaside") || url.contains("cdn.fbsbx.com")) {
+               if (url.contains("lookaside") || url.contains("cdn.fbsbx.com")) {
                     Url = url;
                     RequestStoragePermission();
                 }
@@ -581,9 +582,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     if (photoFile != null) {
                         mCameraPhotoPath = "file:" + photoFile.getAbsolutePath();
                         takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(photoFile));
-                    } else {
+                    } else
                         takePictureIntent = null;
-                    }
                 }
                 // Set up the intent to get an existing image
                 Intent contentSelectionIntent = new Intent(Intent.ACTION_GET_CONTENT);
@@ -592,11 +592,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 // Set up the intents for the Intent chooser
                 Intent[] intentArray;
-                if (takePictureIntent != null) {
+                if (takePictureIntent != null)
                     intentArray = new Intent[]{takePictureIntent};
-                } else {
+                else
                     intentArray = new Intent[0];
-                }
+
                 if (sharedFromGallery == null) {
                     Intent chooserIntent = new Intent(Intent.ACTION_CHOOSER);
                     chooserIntent.putExtra(Intent.EXTRA_INTENT, contentSelectionIntent);
@@ -704,17 +704,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     DownloadManager.Request request = new DownloadManager.Request(Uri.parse(Url));
                     File downloads_dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-                    if (!downloads_dir.exists()) {
-                        if (!downloads_dir.mkdirs()) {
+                    if (!downloads_dir.exists())
+                        if (!downloads_dir.mkdirs())
                             return;
-                        }
-                    }
+
                     File destinationFile = new File(downloads_dir, Uri.parse(Url).getLastPathSegment());
                     request.setDestinationUri(Uri.fromFile(destinationFile));
                     request.setVisibleInDownloadsUi(true);
                     request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
                     mDownloadManager.enqueue(request);
-
+                    mWebView.goBack();
                     CookingAToast.cooking(this, getString(R.string.downloaded), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_download, false).show();
                 } else
                     CookingAToast.cooking(this, getString(R.string.permission_denied), Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
@@ -761,7 +760,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onPause() {
         super.onPause();
         mWebView.onPause();
-        if (Helpers.getCookie() != null && !mPreferences.getBoolean("save_data", false))
+        if (badgeTask != null && badgeUpdate != null)
             badgeUpdate.removeCallbacks(badgeTask);
     }
 
@@ -773,7 +772,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mWebView.clearHistory();
         mWebView.removeAllViews();
         mWebView.destroy();
-        if (Helpers.getCookie() != null && !mPreferences.getBoolean("save_data", false))
+        if (badgeTask != null && badgeUpdate != null)
             badgeUpdate.removeCallbacks(badgeTask);
         if (mPreferences.getBoolean("clear_cache", false))
             deleteCache(this);
@@ -837,16 +836,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else
             super.onBackPressed();
 
-        if (searchView.isSelected())
+        if (searchToolbar.isSelected())
             searchItem.collapseActionView();
     }
 
     private static void deleteCache(Context context) {
         try {
             final File dir = context.getCacheDir();
-            if (dir != null && dir.isDirectory()) {
+            if (dir != null && dir.isDirectory())
                 deleteDir(dir);
-            }
         } catch (Exception e) {
             //
         }
@@ -857,9 +855,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             final String[] children = dir.list();
             for (int i = 0; i < children.length; i++) {
                 boolean success = deleteDir(new File(dir, children[i]));
-                if (!success) {
+                if (!success)
                     return false;
-                }
             }
         }
         return dir.delete();
@@ -926,6 +923,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 item.setChecked(true);
                 break;
             case R.id.nav_search:
+                AppBarLayout appBarLayout = findViewById(R.id.appbarlayout);
+                appBarLayout.setExpanded(true);
+
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
                     circleReveal(R.id.searchtoolbar, 1, true, true);
                 else
@@ -952,7 +952,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 item.setChecked(true);
                 break;
             case R.id.nav_photos:
-                mWebView.loadUrl(baseURL + "me/photos");
+                //mWebView.loadUrl(baseURL + "me/photos");
+                startService(new Intent(this, NotificationsJIS.class));
                 break;
             case R.id.nav_settings:
                 startActivity(new Intent(this, SettingsActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
@@ -1041,7 +1042,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     // Thanks to Jaison Fernando for the great tutorial.
     // http://droidmentor.com/searchview-animation-like-whatsapp/
-    public void searchToolbar() {
+    private void searchToolbar() {
         searchToolbar = findViewById(R.id.searchtoolbar);
         searchToolbar.inflateMenu(R.menu.menu_search);
         Menu search_menu = searchToolbar.getMenu();
@@ -1060,7 +1061,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public boolean onQueryTextSubmit(String query) {
                 searchView.clearFocus();
-                mWebView.loadUrl(baseURL + "/search/?query=" + query);
+                mWebView.loadUrl(baseURL + "search/top/?q=" + query);
                 searchItem.collapseActionView();
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
                     circleReveal(R.id.searchtoolbar, 1, true, false);
@@ -1075,8 +1076,25 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
 
         });
+
+        searchItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem item) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                    circleReveal(R.id.searchtoolbar, 1, true, false);
+                } else
+                    searchToolbar.setVisibility(View.INVISIBLE);
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem item) {
+                return true;
+            }
+        });
     }
 
+    @TargetApi(21)
     public void circleReveal(int viewID, int posFromRight, boolean containsOverflow, final boolean isShow) {
         final View v = findViewById(viewID);
 

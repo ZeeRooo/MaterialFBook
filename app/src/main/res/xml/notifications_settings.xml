@@ -6,7 +6,7 @@
         android:key="notif_interval"
         android:entries="@array/intervalPrefTitles"
         android:entryValues="@array/intervalPrefValues"
-        android:defaultValue="60000" />
+        android:defaultValue="60" />
     <Preference
         android:key="BlackList"
         android:title="@string/blacklist_title"

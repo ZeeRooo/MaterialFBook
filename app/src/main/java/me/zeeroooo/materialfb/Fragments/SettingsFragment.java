@@ -4,6 +4,7 @@
 package me.zeeroooo.materialfb.Fragments;
 
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -13,7 +14,6 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
-import android.util.Log;
 import com.firebase.jobdispatcher.Constraint;
 import com.firebase.jobdispatcher.FirebaseJobDispatcher;
 import com.firebase.jobdispatcher.GooglePlayDriver;
@@ -30,54 +30,66 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
 
     private MainActivity mActivity;
     private SharedPreferences mPreferences;
-    private FirebaseJobDispatcher NotificationDispatcher;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.settings);
+        mPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
 
         // set onPreferenceClickListener for a few preferences
-        Preference Notif, Nav, More;
+        Preference Notif, Nav, More, location, stop_img, notif;
         Notif = findPreference("notifications_settings");
         Nav = findPreference("navigation_menu_settings");
         More = findPreference("moreandcredits");
+        location = findPreference("location_enabled");
+        stop_img = findPreference("stop_images");
+        notif = findPreference("notif");
         Notif.setOnPreferenceClickListener(this);
         Nav.setOnPreferenceClickListener(this);
         More.setOnPreferenceClickListener(this);
-
-        NotificationDispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(getActivity()));
-
-        mPreferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        SharedPreferences.OnSharedPreferenceChangeListener listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
-            public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-                switch (key) {
-                    case "stop_images":
-                        mActivity.mWebView.getSettings().setBlockNetworkImage(prefs.getBoolean(key, false));
-                        break;
-                    case "location_enabled":
-                        System.out.print("jgfn");
-                        Log.i("tag", "fgfd");
-                        ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-                        break;
-                    case "notif":
-                            setScheduler();
-                        break;
-                    case "notif_interval":
-                        NotificationDispatcher.cancelAll();
-                        setScheduler();
-                        break;
-                    default:
-                        break;
-                }
-            }
-        };
-
-        mPreferences.registerOnSharedPreferenceChangeListener(listener);
+        location.setOnPreferenceClickListener(this);
+        stop_img.setOnPreferenceClickListener(this);
+        notif.setOnPreferenceClickListener(this);
     }
 
-    private void setScheduler() {
-        if (mPreferences.getBoolean("notif", false)) {
+    @Override
+    public boolean onPreferenceClick(Preference preference) {
+        String key = preference.getKey();
+        switch (key) {
+            case "notifications_settings":
+                getFragmentManager().beginTransaction()
+                        .addToBackStack(null).replace(R.id.content_frame,
+                        new NotificationsSettingsFragment()).commit();
+                return true;
+            case "navigation_menu_settings":
+                getFragmentManager().beginTransaction()
+                        .addToBackStack(null).replace(R.id.content_frame,
+                        new NavigationMenuFragment()).commit();
+                return true;
+            case "moreandcredits":
+                startActivity(new Intent(getActivity(), More.class));
+                return true;
+            case "stop_images":
+                mActivity.mWebView.getSettings().setBlockNetworkImage(mPreferences.getBoolean(key, false));
+                return true;
+            case "location_enabled":
+                ActivityCompat.requestPermissions(getActivity(), new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+                return true;
+            case "notif":
+                if (mPreferences.getBoolean("notif", false))
+                    setScheduler(getActivity(), true, mPreferences);
+                else
+                    setScheduler(getActivity(), false, mPreferences);
+                return true;
+        }
+
+        return false;
+    }
+
+    public static void setScheduler(Context c, boolean enable, SharedPreferences mPreferences) {
+        FirebaseJobDispatcher NotificationDispatcher = new FirebaseJobDispatcher(new GooglePlayDriver(c));
+        if (enable) {
             int time = Integer.parseInt(mPreferences.getString("notif_interval", "60"));
             Job myJob = NotificationDispatcher.newJobBuilder()
                     .setService(NotificationsJS.class)
@@ -102,26 +114,5 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
                 else
                     CookingAToast.cooking(getActivity(), getString(R.string.permission_denied), Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
         }
-    }
-
-    @Override
-    public boolean onPreferenceClick(Preference preference) {
-        switch (preference.getKey()) {
-            case "notifications_settings":
-                getFragmentManager().beginTransaction()
-                        .addToBackStack(null).replace(R.id.content_frame,
-                        new NotificationsSettingsFragment()).commit();
-                return true;
-            case "navigation_menu_settings":
-                getFragmentManager().beginTransaction()
-                        .addToBackStack(null).replace(R.id.content_frame,
-                        new NavigationMenuFragment()).commit();
-                return true;
-            case "moreandcredits":
-                startActivity(new Intent(getActivity(), More.class));
-                return true;
-        }
-
-        return false;
     }
 }

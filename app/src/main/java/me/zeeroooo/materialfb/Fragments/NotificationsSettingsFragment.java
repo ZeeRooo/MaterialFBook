@@ -15,7 +15,6 @@ import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.RingtonePreference;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -29,11 +28,11 @@ import me.zeeroooo.materialfb.R;
 public class NotificationsSettingsFragment extends PreferenceFragment implements Preference.OnPreferenceClickListener {
 
     private SharedPreferences preferences;
-    private SharedPreferences.OnSharedPreferenceChangeListener prefChangeListener;
     private DatabaseHelper DBHelper;
     private BlackListH blh;
     private BlacklistAdapter adapter;
     private ArrayList<BlackListH> blacklist;
+    private SharedPreferences.OnSharedPreferenceChangeListener listener;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,23 +48,30 @@ public class NotificationsSettingsFragment extends PreferenceFragment implements
                 blacklist.add(blh);
             }
         }
-        Preference BlackList = findPreference("BlackList");
+        Preference BlackList;
+        BlackList = findPreference("BlackList");
         BlackList.setOnPreferenceClickListener(this);
-    }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-        // register the listener
-        preferences.registerOnSharedPreferenceChangeListener(prefChangeListener);
+        listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+            public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+                switch (key) {
+                    case "notif_interval":
+                        SettingsFragment.setScheduler(getActivity(), false, prefs);
+                        SettingsFragment.setScheduler(getActivity(), true, prefs);
+                        break;
+                    default:
+                        break;
+                }
+            }
+        };
+        preferences.registerOnSharedPreferenceChangeListener(listener);
     }
 
     @Override
     public void onStop() {
         super.onStop();
-        // unregister the listener
-        preferences.unregisterOnSharedPreferenceChangeListener(prefChangeListener);
         DBHelper.close();
+        preferences.unregisterOnSharedPreferenceChangeListener(listener);
     }
 
     @Override
