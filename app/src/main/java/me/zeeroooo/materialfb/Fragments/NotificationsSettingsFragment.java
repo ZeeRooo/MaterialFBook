@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import me.zeeroooo.materialfb.Misc.BlackListH;
 import me.zeeroooo.materialfb.Misc.BlacklistAdapter;
 import me.zeeroooo.materialfb.Misc.DatabaseHelper;
+import me.zeeroooo.materialfb.Notifications.Scheduler;
 import me.zeeroooo.materialfb.R;
 
 public class NotificationsSettingsFragment extends PreferenceFragment implements Preference.OnPreferenceClickListener {
@@ -48,16 +49,18 @@ public class NotificationsSettingsFragment extends PreferenceFragment implements
                 blacklist.add(blh);
             }
         }
-        Preference BlackList;
-        BlackList = findPreference("BlackList");
+        Preference BlackList = findPreference("BlackList");
         BlackList.setOnPreferenceClickListener(this);
+
 
         listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
             public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
                 switch (key) {
                     case "notif_interval":
-                        SettingsFragment.setScheduler(getActivity(), false, prefs);
-                        SettingsFragment.setScheduler(getActivity(), true, prefs);
+                        reschedule(prefs);
+                        break;
+                    case "notif_exact":
+                        reschedule(prefs);
                         break;
                     default:
                         break;
@@ -65,6 +68,12 @@ public class NotificationsSettingsFragment extends PreferenceFragment implements
             }
         };
         preferences.registerOnSharedPreferenceChangeListener(listener);
+    }
+
+    private void reschedule(SharedPreferences prefs) {
+        Scheduler mScheduler = new Scheduler(getActivity());
+        mScheduler.cancel();
+        mScheduler.schedule(Integer.parseInt(prefs.getString("notif_interval", "60000")), true);
     }
 
     @Override

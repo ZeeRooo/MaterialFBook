@@ -6,11 +6,16 @@
         android:key="notif_interval"
         android:entries="@array/intervalPrefTitles"
         android:entryValues="@array/intervalPrefValues"
-        android:defaultValue="60" />
+        android:defaultValue="60000" />
     <Preference
         android:key="BlackList"
         android:title="@string/blacklist_title"
         android:summary="@string/blacklist_summary"/>
+    <SwitchPreference
+        android:key="notif_exact"
+        android:title="@string/exact"
+        android:summary="@string/exact_summary"
+        android:defaultValue="false"/>
     <PreferenceCategory
         android:title="@string/nav_notifications">
         <SwitchPreference

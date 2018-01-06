@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <declare-styleable name="CircleImageView">
-        <attr name="civ_border_width" format="dimension" />
-        <attr name="civ_border_overlay" format="boolean" />
-        <attr name="civ_fill_color" format="color" />
-    </declare-styleable>
     <declare-styleable name="FloatingActionButton">
         <attr name="fab_colorNormal" format="color" />
         <attr name="fab_colorPressed" format="color" />

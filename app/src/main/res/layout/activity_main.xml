@@ -23,7 +23,6 @@
         app:menu="@menu/activity_main_drawer" />
 
     <android.support.design.widget.NavigationView
-        android:id="@+id/BookmarksView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="end"

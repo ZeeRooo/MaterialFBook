@@ -3,19 +3,15 @@ package me.zeeroooo.materialfb.Misc;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.widget.AppCompatImageButton;
-import android.support.v7.widget.AppCompatTextView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.Ui.CookingAToast;
-import me.zeeroooo.materialfb.WebView.Helpers;
 
 public class BookmarksAdapter extends ArrayAdapter<BookmarksH> {
     private ArrayList<BookmarksH> bookmarks;
@@ -43,16 +39,18 @@ public class BookmarksAdapter extends ArrayAdapter<BookmarksH> {
             viewHolder = new ViewHolder();
             LayoutInflater inflater = LayoutInflater.from(getContext());
             convertView = inflater.inflate(R.layout.bookmarks_listview, parent, false);
-            viewHolder.title = (AppCompatTextView) convertView.findViewById(R.id.bookmark_title);
-            viewHolder.delete = (AppCompatImageButton) convertView.findViewById(R.id.delete_bookmark);
-            viewHolder.share = (AppCompatImageButton) convertView.findViewById(R.id.share_bookmark);
+            viewHolder.title = convertView.findViewById(R.id.bookmark_title);
+            viewHolder.delete = convertView.findViewById(R.id.delete_bookmark);
+            viewHolder.share = convertView.findViewById(R.id.share_bookmark);
+
+            viewHolder.share.setColorFilter(viewHolder.title.getCurrentTextColor());
+            viewHolder.delete.setColorFilter(viewHolder.title.getCurrentTextColor());
 
             // Cache the viewHolder object inside the fresh view
             convertView.setTag(viewHolder);
-        } else {
-            // View is being recycled, retrieve the viewHolder object from tag
+        } else
             viewHolder = (ViewHolder) convertView.getTag();
-        }
+
         viewHolder.title.setText(bookmark.getTitle());
 
         viewHolder.delete.setOnClickListener(new View.OnClickListener() {

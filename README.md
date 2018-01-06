@@ -276,6 +276,10 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 **Version 3.6.1:**
 - Bugfixes.
 
+**Version 3.6.5:**
+- Fixed crash on JB.
+- Reworked schedule system (own api based on JobScheduler API21+ and AlarmManager API19-).
+
 
 **Notes:**
 _- Maybe some gifs cant be loaded because i need to add the url to the code. Report it as issue with the Facebook´s page link or website._
@@ -292,7 +296,6 @@ _- Maybe some gifs cant be loaded because i need to add the url to the code. Rep
 - FloatingActionButton by Clans.
 - PhotoView by chrisbanes.
 - Glide by bumptech.
-- Firebase JobDispatcher by Firebase.
 - All people who translated the app (more details in "More and Credits" and Transifex)
 
 

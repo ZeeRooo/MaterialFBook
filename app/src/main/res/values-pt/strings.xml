@@ -3,20 +3,19 @@
     <!-- Notifications -->
     <string name="notifications_setting_title">NOTIFICAÇÕES</string>
     <string name="notif">Notificações</string>
-    <string name="facebook_message">Notificações de mensagens</string>
-    <string name="facebook_notifications">Notificações do Facebook</string>
     <string name="applying_changes">Aplicando altereções</string>
     <string name="sync_problem">Cookies não podem ser sincronizados. Primeira execução, certo? Por favor reinicie o app</string>
     <string name="notification_sound_description">Escolher um toque ou manter silêncio: \u0020</string>
     <string name="notifications_settings">Configurações de notificações</string>
     <string name="notifications_settings_description">Configurações adicionais. Escolha intervalo de tempo, sons, LED e vibração.</string>
+    <string name="facebook_notifications">Notificações do Facebook</string>
+    <string name="facebook_message">Notificações de mensagens</string>
     <string name="interval_pref">Intervalo de tempo para verificação</string>
     <string name="notification_sound">Som de notificação</string>
     <string name="interval_pref_description_new">Notificações serão verificadas a cada %s.</string>
     <string name="notification_sound_msg">Som de mensagens</string>
     <string name="vibrate">Vibrar</string>
     <string name="led_light">LED</string>
-
     <string-array name="intervalPrefTitles">
         <item>1 minuto</item>
         <item>2 minutos</item>
@@ -41,10 +40,10 @@
     <string name="hide_sponsored_summary">Quando ativado, irá esconder Conteúdo &#8220;Patrocinado&#8221; (anúncios) do Feed de Notícias.</string>
     <string name="hide_birthdays_title">Ocultar Aniversários</string>
     <string name="hide_birthdays_summary">Quando ativado, irá ocultar aniversários do seu Feed de notícias.</string>
-    <string name="hide_menu_bar_title">Esconder barra de menu</string>
-    <string name="hide_menu_bar_summary">Quando ativado, a barra de menu do Facebook ira ser ocultada.</string>
-    <string name="hide_recently_commented">Hide recently commented</string>
-    <string name="hide_recently_commented_summary">X people recently commented on this.</string>
+    <string name="clearcache">Limpar cache ao sair</string>
+    <string name="clearcache_summary">A aplicação ira demorar mais tempo a iniciar</string>
+    <string name="hide_recently_commented">Esconder comentários recentes</string>
+    <string name="hide_recently_commented_summary">X pessoas comentaram recentemente isto</string>
     <string name="start_url">Start URL</string>
     <string-array name="Start">
         <item>MostRecent</item>
@@ -53,21 +52,7 @@
     </string-array>
     <!-- End general -->
 
-    <!-- About -->
-    <string name="more">Mais e créditos</string>
-    <string name="about_updates">Atualizações</string>
-    <string name="updates">Verifique se há uma nova versão</string>
-    <string name="updates_summary">Carregar a página e baixar a última versão</string>
-    <string name="people_who_translated">Os usuários que traduziram o aplicativo</string>
-    <string name="devs_who_helped_me">Os devs que me ajudaram em minhas perguntas e a ter o código a partir de seus aplicativos</string>
-    <string name="help_translations">Ajuda a traduzir o aplicativo para seu idioma</string>
-    <string name="about_translations">Ajude, precisamos de você!</string>
-    <string name="source_code">O código fonte no Github</string>
-    <string name="withYou">Relatar erros ou solicitar novos recursos</string>
-    <string name="changelog">Mudanças</string>
-    <!-- End about -->
-
-    <!-- APPEARANCE -->
+    <!-- Appearence -->
     <string name="appearance_setting_title">APARÊNCIA</string>
     <string name="web_themes">Temas da web</string>
     <string name="web_themes_summary">Você pode escolher diferentes temas da web.</string>
@@ -76,14 +61,14 @@
 
     <!-- Navigation -->
     <string name="navigation_setting_title">NAVEGAÇÃO</string>
-    <string name="navigation_menu_settings">Navigation menu items</string>
+    <string name="hide_menu_bar_title">Esconder barra de menu</string>
+    <string name="hide_menu_bar_summary">Quando ativado, a barra de menu do Facebook ira ser ocultada.</string>
+    <string name="navigation_menu_settings">Items Navegação do Menu</string>
     <string name="navigation_menu_settings_description">You can show/hide items in the navigation menu.</string>
-    <string name="save_data">Save data</string>
-    <string name="save_data_summary">When enabled, the app autoconfigure to save data</string>
-    <string name="clearcache">Clear cache on exit</string>
-    <string name="clearcache_summary">It will take more time to open the app.</string>
-    <string name="fab_enable">Floating Action Button</string>
-    <string name="fab_enable_summary">Show the FAB.</string>
+    <string name="save_data">Poupar Dados Móveis</string>
+    <string name="save_data_summary">Quando habilitado, a app poupa dados automáticamente</string>
+    <string name="fab_enable">Botão Flutuante de Acções(FAB)</string>
+    <string name="fab_enable_summary">Mostrar o FAB</string>
     <!-- Navigation: fab -->
     <string name="fab_text">Postar um status</string>
     <string name="fab_photo">Postar uma foto</string>
@@ -91,31 +76,34 @@
     <string name="fab_jump_top">Ir para o Topo</string>
     <!-- Navigation: items -->
     <string name="navigation_menu_title">MENU DE NAVEGAÇÃO</string>
-    <string name="ic_menu_exitapp">Exit app</string>
-    <string name="ic_menu_exitapp_summary">When enabled, &#8216;Exit app&#82167; button on navigation menu disappear.</string>
-    <string name="ic_menu_fblogout">Log out</string>
-    <string name="ic_menu_fblogout_summary">When enabled, &#8216;Log out&#82167; button on navigation menu disappear.</string>
-    <string name="menu_photos">Photos</string>
-    <string name="menu_photos_summary">When enabled, &#8216;Photos&#82167; button on navigation menu disappear.</string>
-    <string name="menu_events">Events</string>
-    <string name="menu_events_summary">When enabled, &#8216;Events&#82167; button on navigation menu disappear.</string>
+    <string name="ic_menu_exitapp">Sair da app</string>
+    <string name="ic_menu_exitapp_summary">Quando ligado, &#8216;Sai da app&#82167; será ocultado o botão do menu de navegação.</string>
+    <string name="ic_menu_fblogout">Fechar sessão</string>
+    <string name="ic_menu_fblogout_summary">Quando ligado, &#8216;Fechar sessão&#82167; será ocultado o botão do menu de navegação.</string>
+    <string name="menu_photos">Fotos</string>
+    <string name="menu_photos_summary">Quando ligado, &#8216;Fotos&#82167; será ocultado o botão do menu de navegação.</string>
+    <string name="menu_events">Eventos</string>
+    <string name="menu_events_summary">Quando ligado, &#8216;Eventos&#82167; será ocultado o botão do menu de navegação.</string>
     <string name="menu_back">Voltar</string>
-    <string name="menu_back_summary">If disabled, &#8216;Voltar&#82167; button on navigation menu disappear.</string>
-    <string name="menu_top_stories">Top stories</string>
-    <string name="menu_top_stories_summary">If disabled, &#8216;Top stories&#82167; button on navigation menu disappear.</string>
-    <string name="menu_most_recent">Most Recent</string>
-    <string name="menu_most_recent_summary">If disabled, &#8216;Most Recent&#82167; button on navigation menu disappear.</string>
+    <string name="menu_back_summary">Se desligado, &#8216;Voltar&#82167; será ocultado o botão do menu de navegação.</string>
+    <string name="menu_top_stories">Top Histórias</string>
+    <string name="menu_top_stories_summary">Se desligado, &#8216;Top Histórias&#82167; será ocultado o botão do menu de navegação.</string>
+    <string name="menu_most_recent">Mais Recentes</string>
+    <string name="menu_most_recent_summary">Se desligado, &#8216;Mais Recentes&#82167; será ocultado o botão do menu de navegação.</string>
     <string name="menu_friendreq">Solicitações de Amizade</string>
-    <string name="menu_friendreq_summary">If disabled, &#8216;Solicitações de Amizade&#82167; button on navigation menu disappear.</string>
-    <string name="menu_groups">Groups</string>
-    <string name="menu_groups_summary">If disabled, &#8216;Groups&#82167; button on navigation menu disappear.</string>
+    <string name="menu_friendreq_summary">Se desligado, &#8216;Solicitações de Amizade&#82167; será ocultado o botão do menu de navegação.</string>
+    <string name="menu_groups">Grupos</string>
+    <string name="menu_groups_summary">Se desligado, &#8216;Grupos&#82167; será ocultado o botão do menu de navegação.</string>
     <string name="menu_messages">Mensagens</string>
     <string name="menu_search">Pesquisar</string>
-    <string name="menu_search_summary">If disabled, &#8216;Pesquisar&#82167; button on navigation menu disappear.</string>
+    <string name="menu_search_summary">Se desligado, &#8216;Pesquisar&#82167; será ocultado o botão do menu de navegação.</string>
     <string name="menu_mainmenu">Menu Principal</string>
-    <string name="menu_mainmenu_summary">If disabled, &#8216;Menu Principal&#82167; button on navigation menu disappear.</string>
+    <string name="menu_mainmenu_summary">Se desligado, &#8216;Menu Principal&#82167; será ocultado o botão do menu de navegação.</string>
     <string name="messaging_enabled_title">Mensagens</string>
     <string name="messaging_enabled_summary">Quando ativado, irá proporcionar o acesso as Mensagens do Facebook. Desative se você tiver um aplicativo de mensagens.</string>
+    <!-- End navigation -->
+
+    <!-- App -->
     <string name="silent">Sem sons</string>
     <string name="file_logger_needs_permission">Sem acesso para o armazenamento externo. Log não pode ser salvo.</string>
     <string name="navigation_drawer_open">Abrir gaveta de navegação</string>
@@ -139,7 +127,22 @@
     <string name="error_facebook_error">Algo deu errado por parte do Facebook</string>
     <string name="loading">Carregando</string>
     <string name="permission_denied">Permissão negada, ação não pode ser finalizada</string>
-    <string name="downloaded">Downloaded</string>
-    <string name="new_bookmark">Added:</string>
-    <string name="remove_bookmark">Removed:</string>
+    <string name="downloaded">Descargas</string>
+    <string name="bookmarks">Favoritos</string>
+    <string name="new_bookmark">Adicionados:</string>
+    <string name="remove_bookmark">Removidos:</string>
+    <!-- About -->
+    <string name="more">Mais e créditos</string>
+    <string name="about_updates">Atualizações</string>
+    <string name="updates">Verifique se há uma nova versão</string>
+    <string name="updates_summary">Carregar a página e baixar a última versão</string>
+    <string name="people_who_translated">Os usuários que traduziram o aplicativo</string>
+    <string name="devs_who_helped_me">Os devs que me ajudaram em minhas perguntas e a ter o código a partir de seus aplicativos</string>
+    <string name="help_translations">Ajuda a traduzir o aplicativo para seu idioma</string>
+    <string name="about_translations">Ajude, precisamos de você!</string>
+    <string name="source_code">O código fonte no Github</string>
+    <string name="withYou">Relatar erros ou solicitar novos recursos</string>
+    <string name="changelog">Mudanças</string>
+    <!-- End about -->
+
 </resources>

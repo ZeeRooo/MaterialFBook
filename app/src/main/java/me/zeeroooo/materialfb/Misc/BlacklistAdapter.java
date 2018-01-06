@@ -2,15 +2,12 @@ package me.zeeroooo.materialfb.Misc;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.v7.widget.AppCompatImageButton;
-import android.support.v7.widget.AppCompatTextView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.Ui.CookingAToast;
@@ -40,6 +37,9 @@ public class BlacklistAdapter extends ArrayAdapter<BlackListH> {
             convertView = inflater.inflate(R.layout.blacklist_listview, parent, false);
             viewHolder.title = convertView.findViewById(R.id.blacklist_word);
             viewHolder.delete = convertView.findViewById(R.id.delete_word);
+
+            viewHolder.delete.setColorFilter(viewHolder.title.getCurrentTextColor());
+
             convertView.setTag(viewHolder);
         } else
             viewHolder = (ViewHolder) convertView.getTag();

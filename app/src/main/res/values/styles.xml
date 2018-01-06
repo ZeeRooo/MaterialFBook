@@ -81,19 +81,4 @@
         <item name="colorAccent">@color/GooglePlayGreenDark</item>
     </style>
 
-    <style name="MFB.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
-    <style name="MFB.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
-
-    <style name="FullscreenTheme" parent="MFB">
-        <item name="android:actionBarStyle">@style/FullscreenActionBarStyle</item>
-        <item name="android:windowActionBarOverlay">true</item>
-        <item name="android:windowBackground">@null</item>
-        <item name="metaButtonBarStyle">?android:attr/buttonBarStyle</item>
-        <item name="metaButtonBarButtonStyle">?android:attr/buttonBarButtonStyle</item>
-    </style>
-
-    <style name="FullscreenActionBarStyle" parent="Widget.AppCompat.ActionBar">
-        <item name="android:background">@color/black_overlay</item>
-    </style>
 </resources>

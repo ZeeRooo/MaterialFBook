@@ -22,13 +22,18 @@
         android:supportsRtl="true"
         android:theme="@style/MFB">
 
+        <receiver
+            android:name=".Notifications.Receiver"
+            android:exported="false"
+            android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
         <service
             android:name=".Notifications.NotificationsJS"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE"/>
-            </intent-filter>
-        </service>
+            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <service
             android:name=".Notifications.NotificationsJIS"
@@ -41,7 +46,6 @@
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
@@ -50,22 +54,9 @@
                 <category android:name="android.intent.category.DEFAULT" />
 
                 <data android:mimeType="image/*" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="video/*" />
-            </intent-filter>
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-
-                <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="text/plain" />
             </intent-filter>
-
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
 
@@ -129,7 +120,6 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Activities.MainActivity" />
         </activity>
-
         <activity
             android:name=".Activities.More"
             android:launchMode="singleTask" />

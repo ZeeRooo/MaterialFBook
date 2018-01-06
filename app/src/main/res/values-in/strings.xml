@@ -5,8 +5,6 @@
     <string name="notif">Notifikasi</string>
     <string name="facebook_message">Notifikasi Pesan</string>
     <string name="facebook_notifications">Notifikasi Facebook</string>
-    <string name="applying_changes">Menerapkan perubahan</string>
-    <string name="sync_problem">Cookies tidak bisa disinkron. Coba mulai ulang aplikasi</string>
     <string name="notification_sound_description">Pilih sebuah nada atau bisu: \u0020</string>
     <string name="notifications_settings">Pengaturan notifikasi</string>
     <string name="notifications_settings_description">Pengaturan tambahan. Pilih interval waktu, atur suara, LED dan getaran.</string>

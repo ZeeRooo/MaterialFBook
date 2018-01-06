@@ -42,6 +42,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -77,7 +78,6 @@ import me.zeeroooo.materialfb.Misc.BookmarksH;
 import me.zeeroooo.materialfb.Misc.DatabaseHelper;
 import me.zeeroooo.materialfb.Misc.UserInfo;
 import me.zeeroooo.materialfb.Notifications.NotificationsJIS;
-import me.zeeroooo.materialfb.Notifications.NotificationsJS;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.Ui.CookingAToast;
 import me.zeeroooo.materialfb.Ui.Theme;
@@ -402,10 +402,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             }
                         }
 
-                            Intent Photo = new Intent(MainActivity.this, Photo.class);
-                            Photo.putExtra("link", url);
-                            Photo.putExtra("title", view.getTitle());
-                            startActivity(Photo);
+                        Intent Photo = new Intent(MainActivity.this, Photo.class);
+                        Photo.putExtra("link", url);
+                        Photo.putExtra("title", view.getTitle());
+                        startActivity(Photo);
                         return true;
                     }
 
@@ -501,7 +501,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         break;
                 }
 
-               if (url.contains("lookaside") || url.contains("cdn.fbsbx.com")) {
+                if (url.contains("lookaside") || url.contains("cdn.fbsbx.com")) {
                     Url = url;
                     RequestStoragePermission();
                 }
@@ -558,12 +558,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
         mWebView.setWebChromeClient(new WebChromeClient() {
 
+            @Override
             public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, WebChromeClient.FileChooserParams fileChooserParams) {
 
                 // Double check that we don't have any existing callbacks
-                if (sharedFromGallery != null) {
+                if (sharedFromGallery != null)
                     filePathCallback.onReceiveValue(new Uri[]{sharedFromGallery});
-                }
+
                 mFilePathCallback = filePathCallback;
 
                 // Set up the take picture intent
@@ -612,14 +613,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
 
             // openFileChooser for Android 3.0+
-            private void openFileChooser(ValueCallback<Uri> uploadMsg, String acceptType) {
+            private void openFileChooser(ValueCallback uploadMsg, String acceptType) {
 
                 // Update message
-                if (sharedFromGallery != null) {
-                    uploadMsg.onReceiveValue(sharedFromGallery);
-                } else {
+                if (sharedFromGallery != null)
+                    uploadMsg.onReceiveValue((Uri) sharedFromGallery);
+                else
                     mUploadMessage = uploadMsg;
-                }
+
                 File imageStorageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
                 if (!imageStorageDir.exists()) {
                     imageStorageDir.mkdirs();
@@ -630,8 +631,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mCapturedImageURI = Uri.fromFile(file);
 
                 // Camera capture image intent
-                final Intent captureIntent = new Intent(
-                        android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
+                final Intent captureIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
 
                 captureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mCapturedImageURI);
 
@@ -772,7 +772,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mWebView.clearHistory();
         mWebView.removeAllViews();
         mWebView.destroy();
-		if (badgeTask != null && badgeUpdate != null)
+        if (badgeTask != null && badgeUpdate != null)
             badgeUpdate.removeCallbacks(badgeTask);
         if (mPreferences.getBoolean("clear_cache", false))
             deleteCache(this);
@@ -805,24 +805,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             mFilePathCallback.onReceiveValue(results);
             mFilePathCallback = null;
         } else {
-            if (Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
+            Log.i("gfd", "dfsdfsfdf");
+            if (requestCode == FILECHOOSER_RESULTCODE) {
+                if (null == this.mUploadMessage)
+                    return;
 
-                if (requestCode == FILECHOOSER_RESULTCODE) {
-                    if (null == this.mUploadMessage) {
-                        return;
-                    }
-
-                    Uri result;
-                    if (resultCode != RESULT_OK) {
-                        result = null;
-                    } else {
-                        // retrieve from the private variable if the intent is null
-                        result = data == null ? mCapturedImageURI : data.getData();
-                    }
-
-                    mUploadMessage.onReceiveValue(result);
-                    mUploadMessage = null;
+                Uri result;
+                if (resultCode != RESULT_OK)
+                    result = null;
+                else {
+                    // retrieve from the private variable if the intent is null
+                    result = data == null ? mCapturedImageURI : data.getData();
                 }
+
+                mUploadMessage.onReceiveValue(result);
+                mUploadMessage = null;
             }
         }
     }
@@ -979,6 +976,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Video.putExtra("video_url", video_url);
         startActivity(Video);
     }
+
 
     public void setNotificationNum(int num) {
         txtFormat(notif_badge, num, Color.WHITE, false);

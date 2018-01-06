@@ -5,7 +5,6 @@
     <string name="notif">Notifications</string>
     <string name="facebook_message">Message notifications</string>
     <string name="facebook_notifications">Facebook notifications</string>
-    <string name="sync_problem">Cookies cannot be synced. Try restarting the app</string>
     <string name="notification_sound_description">Choose a ringtone or silence: \u0020</string>
     <string name="notifications_settings">Notifications settings</string>
     <string name="notifications_settings_description">Additional settings. Choose time interval, set up sounds, LED and vibration.</string>
@@ -19,6 +18,8 @@
     <string name="blacklist_title">Black list</string>
     <string name="new_black_word">Write a new word to block</string>
     <string name="blacklist_summary">List of words to block the notifications</string>
+    <string name="exact">Exact time</string>
+    <string name="exact_summary">Reduce the notification delay. Isn\'t battery friendly</string>
 
     <string-array name="intervalPrefTitles">
         <item>1 minute</item>

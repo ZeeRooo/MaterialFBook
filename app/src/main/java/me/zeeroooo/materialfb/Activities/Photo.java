@@ -46,13 +46,12 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
 
     private ImageView mImageView;
     private DownloadManager mDownloadManager;
-    private String url, path;
+    private String url;
     private Target<Bitmap> ShareTarget;
-      public static int closed = 0;
+    public static int closed = 0;
     private boolean download = false;
-
     private Matrix matrix = new Matrix(), savedMatrix = new Matrix();
-    private int NONE = 0, DRAG = 1, ZOOM = 2, mode = NONE;
+    private int NONE = 0, DRAG = 1, ZOOM = 2, mode = NONE, share = 0;
     private PointF start = new PointF(), mid = new PointF();
     private float oldDist = 1f;
 
@@ -171,23 +170,8 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
             RequestStoragePermission();
         }
         if (id == R.id.share_image) {
-            // Share image
-            ShareTarget = new SimpleTarget<Bitmap>() {
-                @Override
-                public void onResourceReady(Bitmap bitmap, Transition<? super Bitmap> transition) {
-                    RequestStoragePermission();
-                    path = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, null, null);
-                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                    shareIntent.setType("image/*");
-                    shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
-                    startActivity(Intent.createChooser(shareIntent, getString(R.string.context_share_image)));
-                    if (!bitmap.isRecycled())
-                        bitmap.recycle();
-                    CookingAToast.cooking(Photo.this, getString(R.string.context_share_image_progress), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_share, false).show();
-                }
-            };
-            Glide.with(Photo.this).asBitmap().load(url).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into(ShareTarget);
-            onBackPressed();
+            share = 1;
+            RequestStoragePermission();
         }
         if (id == R.id.oopy_url_image) {
             final ClipboardManager clipboard = (ClipboardManager) this.getSystemService(Context.CLIPBOARD_SERVICE);
@@ -201,6 +185,22 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
         return false;
     }
 
+    private void shareImg() {
+        ShareTarget = new SimpleTarget<Bitmap>() {
+            @Override
+            public void onResourceReady(Bitmap bitmap, Transition<? super Bitmap> transition) {
+                String path = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, Uri.parse(url).getLastPathSegment(), null);
+                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                shareIntent.setType("image/*");
+                shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
+                startActivity(Intent.createChooser(shareIntent, getString(R.string.context_share_image)));
+                CookingAToast.cooking(Photo.this, getString(R.string.context_share_image_progress), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_share, false).show();
+            }
+        };
+        Glide.with(Photo.this).asBitmap().load(url).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into(ShareTarget);
+        share = 2;
+    }
+
     private void RequestStoragePermission() {
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
     }
@@ -209,8 +209,10 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
     public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
         switch (requestCode) {
             case 1: {
-                if (download) {
-                    if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    if (share == 1)
+                        shareImg();
+                    else if (download) {
                         // Save the image
                         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
 
@@ -230,9 +232,10 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
                         mDownloadManager.enqueue(request);
 
                         CookingAToast.cooking(this, getString(R.string.downloaded), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_download, false).show();
-                    } else
-                        CookingAToast.cooking(this, getString(R.string.permission_denied), Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
-                }
+                        download = false;
+                    }
+                } else
+                    CookingAToast.cooking(this, getString(R.string.permission_denied), Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
             }
         }
     }
@@ -247,9 +250,11 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        if (ShareTarget != null)
-            Glide.with(Photo.this).clear(ShareTarget);
-        if (mImageView != null)
-            mImageView.setImageDrawable(null);
+        if (!(share == 2)) {
+            if (ShareTarget != null)
+                Glide.with(Photo.this).clear(ShareTarget);
+            if (mImageView != null)
+                mImageView.setImageDrawable(null);
+        }
     }
 }

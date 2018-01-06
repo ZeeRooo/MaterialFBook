@@ -15,9 +15,7 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.AppCompatImageButton;
-import android.support.v7.widget.AppCompatSeekBar;
-import android.support.v7.widget.AppCompatTextView;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
@@ -48,7 +46,7 @@ public class Video extends AppCompatActivity {
         setContentView(R.layout.activity_video);
 
         url = getIntent().getStringExtra("video_url");
-
+        
         mVideoView = findViewById(R.id.video_view);
         mButtonsHeader = findViewById(R.id.buttons_header);
         mSeekbar = findViewById(R.id.progress);

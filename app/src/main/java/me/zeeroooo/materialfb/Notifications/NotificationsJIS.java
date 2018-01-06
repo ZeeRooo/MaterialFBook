@@ -13,6 +13,7 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.preference.PreferenceManager;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.JobIntentService;
 import android.support.v4.app.NotificationCompat;
@@ -53,7 +54,7 @@ public class NotificationsJIS extends JobIntentService {
     }
 
     @Override
-    protected void onHandleWork(Intent intent) {
+    protected void onHandleWork(@NonNull Intent intent) {
         Log.i("JobIntentService_MFB", "Started");
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         URLs();
@@ -100,7 +101,7 @@ public class NotificationsJIS extends JobIntentService {
         Log.i("JobIntentService_MFB", "Trying: " + "https://m.facebook.com/notifications.php");
 
         try {
-            Document doc = Jsoup.connect("https://m.facebook.com/notifications.php").timeout(2000).cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).get();
+            Document doc = Jsoup.connect("https://m.facebook.com/notifications.php").timeout(5000).cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).get();
             if (doc != null)
                 result = doc.select("a.touchable").not("a._19no").not("a.button").not("a.touchable.primary").first();
             if (result == null || result.text() == null)
@@ -136,10 +137,11 @@ public class NotificationsJIS extends JobIntentService {
         Helpers.getCookie();
         Log.i("JobIntentService_MFB", "Trying: " + "https://m.facebook.com/messages?soft=messages");
         try {
-            Document doc = Jsoup.connect("https://m.facebook.com/messages?soft=messages").timeout(2000).cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).get();
+            Document doc = Jsoup.connect("https://m.facebook.com/messages?soft=messages").timeout(10000).cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).get();
             if (doc != null)
                 result = doc.getElementsByClass("item messages-flyout-item aclb abt").select("a.touchable.primary").first();
-
+            if (result == null || result.text() == null)
+                return;
             final String content = result.select("div.oneLine.preview.mfss.fcg").text();
             if (!blist.isEmpty())
                 for (String s : blist) {
@@ -266,7 +268,7 @@ public class NotificationsJIS extends JobIntentService {
 
         Intent intent = new Intent(this, MainActivity.class);
         intent.setAction(Intent.ACTION_VIEW);
-        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("url", url);
         mBuilder.setOngoing(false);
         mBuilder.setOnlyAlertOnce(true);

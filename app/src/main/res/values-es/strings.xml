@@ -3,7 +3,6 @@
     <!-- Notifications -->
     <string name="notifications_setting_title">NOTIFICACIONES</string>
     <string name="notif">Notificaciones</string>
-    <string name="sync_problem">Las cookies no pudieron sincronizarse. Por favor, reinicie la app</string>
     <string name="notification_sound_description">Elija un ringtone: \u0020</string>
     <string name="notifications_settings">Ajustes de notificaciones</string>
     <string name="notifications_settings_description">Ajustes adicionales. Elija un intervalo de tiempo, elija sonidos, LED y vibración.</string>
