@@ -947,8 +947,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 item.setChecked(true);
                 break;
             case R.id.nav_photos:
-               // mWebView.loadUrl(baseURL + "photos/");
-                NotificationsJIS.enqueueWork(this, new Intent(this, NotificationsJIS.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
+                mWebView.loadUrl(baseURL + "photos/");
                 break;
             case R.id.nav_settings:
                 startActivity(new Intent(this, SettingsActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
