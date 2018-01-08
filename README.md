@@ -297,8 +297,8 @@ _- Maybe some gifs cant be loaded because i need to add the url to the code. Rep
 - Toffeed  by JakeLane.
 - SlimSocial for Facebook by rignaneseleo.
 - FloatingActionButton by Clans.
-- PhotoView by chrisbanes.
 - Glide by bumptech.
+- jsoup by Jonathan Hedley.
 - All people who translated the app (more details in "More and Credits" and Transifex)
 
 
