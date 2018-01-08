@@ -3,8 +3,6 @@
     <!-- Notifications -->
     <string name="notifications_setting_title">NOTIFICAÇÕES</string>
     <string name="notif">Notificações</string>
-    <string name="applying_changes">Aplicando altereções</string>
-    <string name="sync_problem">Cookies não podem ser sincronizados. Primeira execução, certo? Por favor reinicie o app</string>
     <string name="notification_sound_description">Escolher um toque ou manter silêncio: \u0020</string>
     <string name="notifications_settings">Configurações de notificações</string>
     <string name="notifications_settings_description">Configurações adicionais. Escolha intervalo de tempo, sons, LED e vibração.</string>
@@ -78,8 +76,6 @@
     <string name="navigation_menu_title">MENU DE NAVEGAÇÃO</string>
     <string name="ic_menu_exitapp">Sair da app</string>
     <string name="ic_menu_exitapp_summary">Quando ligado, &#8216;Sai da app&#82167; será ocultado o botão do menu de navegação.</string>
-    <string name="ic_menu_fblogout">Fechar sessão</string>
-    <string name="ic_menu_fblogout_summary">Quando ligado, &#8216;Fechar sessão&#82167; será ocultado o botão do menu de navegação.</string>
     <string name="menu_photos">Fotos</string>
     <string name="menu_photos_summary">Quando ligado, &#8216;Fotos&#82167; será ocultado o botão do menu de navegação.</string>
     <string name="menu_events">Eventos</string>
@@ -89,7 +85,6 @@
     <string name="menu_top_stories">Top Histórias</string>
     <string name="menu_top_stories_summary">Se desligado, &#8216;Top Histórias&#82167; será ocultado o botão do menu de navegação.</string>
     <string name="menu_most_recent">Mais Recentes</string>
-    <string name="menu_most_recent_summary">Se desligado, &#8216;Mais Recentes&#82167; será ocultado o botão do menu de navegação.</string>
     <string name="menu_friendreq">Solicitações de Amizade</string>
     <string name="menu_friendreq_summary">Se desligado, &#8216;Solicitações de Amizade&#82167; será ocultado o botão do menu de navegação.</string>
     <string name="menu_groups">Grupos</string>
@@ -99,36 +94,20 @@
     <string name="menu_search_summary">Se desligado, &#8216;Pesquisar&#82167; será ocultado o botão do menu de navegação.</string>
     <string name="menu_mainmenu">Menu Principal</string>
     <string name="menu_mainmenu_summary">Se desligado, &#8216;Menu Principal&#82167; será ocultado o botão do menu de navegação.</string>
-    <string name="messaging_enabled_title">Mensagens</string>
-    <string name="messaging_enabled_summary">Quando ativado, irá proporcionar o acesso as Mensagens do Facebook. Desative se você tiver um aplicativo de mensagens.</string>
     <!-- End navigation -->
 
     <!-- App -->
     <string name="silent">Sem sons</string>
-    <string name="file_logger_needs_permission">Sem acesso para o armazenamento externo. Log não pode ser salvo.</string>
     <string name="navigation_drawer_open">Abrir gaveta de navegação</string>
     <string name="navigation_drawer_close">Fechar gaveta de navegação</string>
-    <string name="default_user">Usuário</string>
-    <string name="header_profile_pic">Foto do perfil</string>
     <string name="nav_notifications">Notificações</string>
-    <string name="context_save_image">Salvar imagem</string>
     <string name="settings">Configurações</string>
     <string name="context_share_image">Compartilhar imagem</string>
-    <string name="context_copy_image_link">Copiar link da imagem</string>
     <string name="context_share_link">Compartilhar link</string>
-    <string name="context_copy_link">Copiar link</string>
     <string name="context_share_image_progress">Compartilhando imagem…</string>
     <string name="content_copy_link_done">Link copiado para área de transferência</string>
-    <string name="login_button">Login</string>
-    <string name="not_logged_in">Você não está logado</string>
-    <string name="error_login">Algo deu errado, por favor tente fazer login novamente</string>
-    <string name="error_super_wrong">Algo deu muito errado</string>
-    <string name="error_facebook_noconnection">Não foi possível acessar o Facebook</string>
-    <string name="error_facebook_error">Algo deu errado por parte do Facebook</string>
-    <string name="loading">Carregando</string>
     <string name="permission_denied">Permissão negada, ação não pode ser finalizada</string>
     <string name="downloaded">Descargas</string>
-    <string name="bookmarks">Favoritos</string>
     <string name="new_bookmark">Adicionados:</string>
     <string name="remove_bookmark">Removidos:</string>
     <!-- About -->

@@ -280,6 +280,9 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Fixed crash on JB.
 - Reworked schedule system (own api based on JobScheduler API21+ and AlarmManager API19-).
 
+**Version 3.6.6:**
+- Fixed some bugs on the notification system.
+
 
 **Notes:**
 _- Maybe some gifs cant be loaded because i need to add the url to the code. Report it as issue with the Facebook´s page link or website._

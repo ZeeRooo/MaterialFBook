@@ -20,6 +20,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
 import java.util.ArrayList;
+import java.util.List;
 import me.zeeroooo.materialfb.Misc.BlackListH;
 import me.zeeroooo.materialfb.Misc.BlacklistAdapter;
 import me.zeeroooo.materialfb.Misc.DatabaseHelper;
@@ -32,7 +33,7 @@ public class NotificationsSettingsFragment extends PreferenceFragment implements
     private DatabaseHelper DBHelper;
     private BlackListH blh;
     private BlacklistAdapter adapter;
-    private ArrayList<BlackListH> blacklist;
+    private List<BlackListH> blacklist;
     private SharedPreferences.OnSharedPreferenceChangeListener listener;
 
     @Override

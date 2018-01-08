@@ -2,6 +2,11 @@
 <resources>
     <string name="changelog_list" translatable="false">
 <![CDATA[
+<b>Version 3.6.6:</b>
+<br>
+- Bugfixes in the notification system.
+<br>
+<br>
 <b>Version 3.6.5:</b>
 <br>
 - Fixed crash on JB.

@@ -73,7 +73,7 @@ public class NotificationsJIS extends JobIntentService {
 
     private void URLs() {
         if (!mPreferences.getBoolean("save_data", false))
-            baseURL = "https://mobile.facebook.com/";
+            baseURL = "https://m.facebook.com/";
         else
             baseURL = "https://mbasic.facebook.com/";
     }
@@ -186,7 +186,7 @@ public class NotificationsJIS extends JobIntentService {
                     CtoDisplay += " " + emoji;
 
                 if (!mPreferences.getString("last_message", "").equals(text))
-                    notifier(CtoDisplay, name, baseURL + result.attr("href"), true, picMsg[1]);
+                    notifier(CtoDisplay, name, baseURL + "messages/", true, picMsg[1]);
 
                 // save as shown (or ignored) to avoid showing it again
                 mPreferences.edit().putString("last_message", text).apply();
@@ -203,6 +203,18 @@ public class NotificationsJIS extends JobIntentService {
             picprofile = Glide.with(this).asBitmap().load(Helpers.decodeImg(image_url)).apply(RequestOptions.circleCropTransform()).into(Target.SIZE_ORIGINAL, Target.SIZE_ORIGINAL).get();
         } catch (Exception e) {
             e.getStackTrace();
+        }
+
+        if (isMessage) {
+            ringtoneKey = "ringtone_msg";
+            vibrate_ = "vibrate_msg";
+            vibrate_double_ = "vibrate_double_msg";
+            led_ = "led_msj";
+        } else {
+            ringtoneKey = "ringtone";
+            vibrate_ = "vibrate_notif";
+            vibrate_double_ = "vibrate_double_notif";
+            led_ = "led_notif";
         }
 
         mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -235,29 +247,12 @@ public class NotificationsJIS extends JobIntentService {
                 .setSmallIcon(R.drawable.ic_material)
                 .setAutoCancel(true);
 
-        // ringtone
-        if (isMessage) {
-            ringtoneKey = "ringtone_msg";
-            vibrate_ = "vibrate_msg";
-            vibrate_double_ = "vibrate_double_msg";
-            led_ = "led_msj";
-        } else {
-            ringtoneKey = "ringtone";
-            vibrate_ = "vibrate_notif";
-            vibrate_double_ = "vibrate_double_notif";
-            led_ = "led_notif";
-        }
-
-        Uri ringtoneUri = Uri.parse(mPreferences.getString(ringtoneKey, "content://settings/system/notification_sound"));
-        mBuilder.setSound(ringtoneUri);
-
         if (mPreferences.getBoolean(vibrate_, false)) {
             mBuilder.setVibrate(new long[]{500, 500});
             if (mPreferences.getBoolean(vibrate_double_, false))
                 mBuilder.setVibrate(new long[]{500, 500, 500, 500});
-            else
-                mBuilder.setVibrate(new long[]{0L});
         }
+
         if (mPreferences.getBoolean(led_, false))
             mBuilder.setLights(Color.BLUE, 1000, 1000);
 
@@ -266,10 +261,13 @@ public class NotificationsJIS extends JobIntentService {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
             mBuilder.setCategory(Notification.CATEGORY_MESSAGE);
 
+        Uri ringtoneUri = Uri.parse(mPreferences.getString(ringtoneKey, "content://settings/system/notification_sound"));
+        mBuilder.setSound(ringtoneUri);
+
         Intent intent = new Intent(this, MainActivity.class);
         intent.setAction(Intent.ACTION_VIEW);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        intent.putExtra("url", url);
+        intent.putExtra("Job_url", url);
         mBuilder.setOngoing(false);
         mBuilder.setOnlyAlertOnce(true);
         TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
@@ -279,14 +277,9 @@ public class NotificationsJIS extends JobIntentService {
         mBuilder.setContentIntent(resultPendingIntent);
 
         if (isMessage)
-            VandD(1, mBuilder);
+            mNotificationManager.notify(1, mBuilder.build());
         else
-            VandD(0, mBuilder);
-    }
-
-    private void VandD(int id, NotificationCompat.Builder b) {
-        Notification note = b.build();
-        mNotificationManager.notify(id, note);
+            mNotificationManager.notify(0, mBuilder.build());
     }
 
     public static void ClearbyId(Context c, int id) {

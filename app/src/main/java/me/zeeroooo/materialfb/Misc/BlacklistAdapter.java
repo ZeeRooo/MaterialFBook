@@ -8,12 +8,12 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import java.util.ArrayList;
+import java.util.List;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.Ui.CookingAToast;
 
 public class BlacklistAdapter extends ArrayAdapter<BlackListH> {
-    private ArrayList<BlackListH> BlackLH;
+    private List<BlackListH> BlackLH;
     private DatabaseHelper DBHelper;
 
     private static class ViewHolder {
@@ -21,7 +21,7 @@ public class BlacklistAdapter extends ArrayAdapter<BlackListH> {
         ImageButton delete;
     }
 
-    public BlacklistAdapter(Context context,ArrayList<BlackListH> BlackLH, DatabaseHelper db) {
+    public BlacklistAdapter(Context context, List<BlackListH> BlackLH, DatabaseHelper db) {
         super(context, R.layout.blacklist_listview, BlackLH);
         this.DBHelper = db;
         this.BlackLH = BlackLH;

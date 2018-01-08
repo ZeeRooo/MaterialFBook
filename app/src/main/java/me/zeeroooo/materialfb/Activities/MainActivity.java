@@ -42,7 +42,6 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -91,7 +90,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Uri mCapturedImageURI = null, sharedFromGallery;
     private ValueCallback<Uri> mUploadMessage;
     private int FILECHOOSER_RESULTCODE = 2888, INPUT_FILE_REQUEST_CODE = 1, album = 0;
-    private String baseURL, mCameraPhotoPath, Url, css, urlIntent;
+    private String baseURL, mCameraPhotoPath, Url, css, urlIntent = null;
     private SwipeRefreshLayout swipeView;
     private NavigationView mNavigationView;
     private FloatingActionMenu mMenuFAB;
@@ -805,7 +804,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             mFilePathCallback.onReceiveValue(results);
             mFilePathCallback = null;
         } else {
-            Log.i("gfd", "dfsdfsfdf");
             if (requestCode == FILECHOOSER_RESULTCODE) {
                 if (null == this.mUploadMessage)
                     return;
@@ -949,7 +947,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 item.setChecked(true);
                 break;
             case R.id.nav_photos:
-                mWebView.loadUrl(baseURL + "photos/");
+               // mWebView.loadUrl(baseURL + "photos/");
+                NotificationsJIS.enqueueWork(this, new Intent(this, NotificationsJIS.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 break;
             case R.id.nav_settings:
                 startActivity(new Intent(this, SettingsActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
@@ -1018,7 +1017,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
 
         if (intent.getExtras() != null)
-            urlIntent = intent.getExtras().getString("url");
+            urlIntent = intent.getExtras().getString("Job_url");
 
         if (intent.getDataString() != null) {
             urlIntent = getIntent().getDataString();
@@ -1033,7 +1032,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mWebView.loadUrl("https://m.facebook.com");
             }
         }
-
         mWebView.loadUrl(urlIntent);
     }
 
