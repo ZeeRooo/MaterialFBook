@@ -40,14 +40,13 @@ import me.zeeroooo.materialfb.WebView.Helpers;
 public class NotificationsJIS extends JobIntentService {
     private SharedPreferences mPreferences;
     private boolean msg_notAWhiteList = false, notif_notAWhiteList = false;
-    private String baseURL, pictureNotif, pictureMsg, e = "", ringtoneKey, vibrate_, vibrate_double_, led_;
+    private String baseURL, pictureNotif, pictureMsg, e = "";
     private Bitmap picprofile;
     private String[] picMsg, picNotif;
     private Spanned emoji;
     private int mode = 0;
     private List<String> blist;
     private DatabaseHelper db;
-    private NotificationManager mNotificationManager;
 
     public static void enqueueWork(Context context, Intent work) {
         enqueueWork(context, NotificationsJIS.class, 2, work);
@@ -65,6 +64,7 @@ public class NotificationsJIS extends JobIntentService {
             if (data.getString(3) != null)
                 blist.add(data.getString(3));
         }
+        Helpers.getCookie();
         if (mPreferences.getBoolean("facebook_messages", false))
             SyncMessages();
         if (mPreferences.getBoolean("facebook_notifications", false))
@@ -96,36 +96,32 @@ public class NotificationsJIS extends JobIntentService {
 
     // Sync the notifications
     void SyncNotifications() {
-        Element result = null;
-        Helpers.getCookie();
         Log.i("JobIntentService_MFB", "Trying: " + "https://m.facebook.com/notifications.php");
 
         try {
             Document doc = Jsoup.connect("https://m.facebook.com/notifications.php").timeout(5000).cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).get();
-            if (doc != null)
-                result = doc.select("a.touchable").not("a._19no").not("a.button").not("a.touchable.primary").first();
-            if (result == null || result.text() == null)
-                return;
+            Element result = doc.select("a.touchable").not("a._19no").not("a.button").not("a.touchable.primary").first();
+            if (result != null) {
+                final String time = result.select("span.mfss.fcg").text();
+                final String content = result.select("div.c").text().replace(time, "");
+                if (!blist.isEmpty())
+                    for (String s : blist) {
+                        if (content.contains(s))
+                            notif_notAWhiteList = true;
+                    }
+                if (!notif_notAWhiteList) {
+                    final String text = content.replace(time, "");
+                    pictureNotif = result.select("i.img.l.profpic").attr("style");
 
-            final String time = result.select("span.mfss.fcg").text();
-            final String content = result.select("div.c").text().replace(time, "");
-            if (!blist.isEmpty())
-                for (String s : blist) {
-                    if (content.contains(s))
-                        notif_notAWhiteList = true;
+                    if (pictureNotif != null)
+                        picNotif = pictureNotif.split("('*')");
+
+                    if (!mPreferences.getString("last_notification_text", "").equals(text))
+                        notifier(content, getString(R.string.app_name), baseURL + "notifications.php", false, picNotif[1]);
+
+                    // save as shown (or ignored) to avoid showing it again
+                    mPreferences.edit().putString("last_notification_text", text).apply();
                 }
-            if (!notif_notAWhiteList) {
-                final String text = content.replace(time, "");
-                pictureNotif = result.select("i.img.l.profpic").attr("style");
-
-                if (pictureNotif != null)
-                    picNotif = pictureNotif.split("('*')");
-
-                if (!mPreferences.getString("last_notification_text", "").equals(text))
-                    notifier(content, getString(R.string.app_name), baseURL + "notifications.php", false, picNotif[1]);
-
-                // save as shown (or ignored) to avoid showing it again
-                mPreferences.edit().putString("last_notification_text", text).apply();
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -133,63 +129,60 @@ public class NotificationsJIS extends JobIntentService {
     }
 
     void SyncMessages() {
-        Element result = null;
-        Helpers.getCookie();
         Log.i("JobIntentService_MFB", "Trying: " + "https://m.facebook.com/messages?soft=messages");
         try {
             Document doc = Jsoup.connect("https://m.facebook.com/messages?soft=messages").timeout(10000).cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).get();
-            if (doc != null)
-                result = doc.getElementsByClass("item messages-flyout-item aclb abt").select("a.touchable.primary").first();
-            if (result == null || result.text() == null)
-                return;
-            final String content = result.select("div.oneLine.preview.mfss.fcg").text();
-            if (!blist.isEmpty())
-                for (String s : blist) {
-                    if (content.contains(s))
-                        msg_notAWhiteList = true;
+            Element result = doc.getElementsByClass("item messages-flyout-item aclb abt").select("a.touchable.primary").first();
+            if (result != null) {
+                final String content = result.select("div.oneLine.preview.mfss.fcg").text();
+                if (!blist.isEmpty())
+                    for (String s : blist) {
+                        if (content.contains(s))
+                            msg_notAWhiteList = true;
+                    }
+                if (!msg_notAWhiteList) {
+                    final String text = result.text().replace(result.select("div.time.r.nowrap.mfss.fcl").text(), "");
+                    final String name = result.select("div.title.thread-title.mfsl.fcb").text();
+                    pictureMsg = result.select("i.img.profpic").attr("style");
+                    String CtoDisplay = content;
+
+                    if (pictureMsg != null)
+                        picMsg = pictureMsg.split("('*')");
+
+                    Elements e_iemoji = result.select("._47e3._3kkw");
+                    if (!e_iemoji.isEmpty())
+                        for (Element em : e_iemoji) {
+                            String emojiUrl = em.attr("style");
+                            String[] emoji_sp = emojiUrl.split("/");
+                            String emoji_unicode = "0x" + emoji_sp[9].replace(".png)", "");
+                            int i = Integer.parseInt(emoji_unicode.substring(2), 16);
+                            String emoji_char = new String(Character.toChars(i));
+                            e = e + emoji_char;
+                            emoji = Html.fromHtml(e);
+                            mode = 1;
+                        }
+                    Elements e_emoji = result.select("._1ift._2560.img");
+                    if (!e_emoji.isEmpty())
+                        for (Element em : e_emoji) {
+                            String emojiUrl = em.attr("src");
+                            String[] emoji_sp = emojiUrl.split("/");
+                            String emoji_unicode = "0x" + emoji_sp[9].replace(".png", "");
+                            int i = Integer.parseInt(emoji_unicode.substring(2), 16);
+                            String emoji_char = new String(Character.toChars(i));
+                            e = e + emoji_char;
+                            emoji = Html.fromHtml(e);
+                            mode = 2;
+                        }
+
+                    if (mode != 0)
+                        CtoDisplay += " " + emoji;
+
+                    if (!mPreferences.getString("last_message", "").equals(text))
+                        notifier(CtoDisplay, name, baseURL + "messages/", true, picMsg[1]);
+
+                    // save as shown (or ignored) to avoid showing it again
+                    mPreferences.edit().putString("last_message", text).apply();
                 }
-            if (!msg_notAWhiteList) {
-                final String text = result.text().replace(result.select("div.time.r.nowrap.mfss.fcl").text(), "");
-                final String name = result.select("div.title.thread-title.mfsl.fcb").text();
-                pictureMsg = result.select("i.img.profpic").attr("style");
-                String CtoDisplay = content;
-
-                if (pictureMsg != null)
-                    picMsg = pictureMsg.split("('*')");
-
-                Elements e_iemoji = result.select("._47e3._3kkw");
-                if (!e_iemoji.isEmpty())
-                    for (Element em : e_iemoji) {
-                        String emojiUrl = em.attr("style");
-                        String[] emoji_sp = emojiUrl.split("/");
-                        String emoji_unicode = "0x" + emoji_sp[9].replace(".png)", "");
-                        int i = Integer.parseInt(emoji_unicode.substring(2), 16);
-                        String emoji_char = new String(Character.toChars(i));
-                        e = e + emoji_char;
-                        emoji = Html.fromHtml(e);
-                        mode = 1;
-                    }
-                Elements e_emoji = result.select("._1ift._2560.img");
-                if (!e_emoji.isEmpty())
-                    for (Element em : e_emoji) {
-                        String emojiUrl = em.attr("src");
-                        String[] emoji_sp = emojiUrl.split("/");
-                        String emoji_unicode = "0x" + emoji_sp[9].replace(".png", "");
-                        int i = Integer.parseInt(emoji_unicode.substring(2), 16);
-                        String emoji_char = new String(Character.toChars(i));
-                        e = e + emoji_char;
-                        emoji = Html.fromHtml(e);
-                        mode = 2;
-                    }
-
-                if (mode != 0)
-                    CtoDisplay += " " + emoji;
-
-                if (!mPreferences.getString("last_message", "").equals(text))
-                    notifier(CtoDisplay, name, baseURL + "messages/", true, picMsg[1]);
-
-                // save as shown (or ignored) to avoid showing it again
-                mPreferences.edit().putString("last_message", text).apply();
             }
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -205,6 +198,8 @@ public class NotificationsJIS extends JobIntentService {
             e.getStackTrace();
         }
 
+        String ringtoneKey, vibrate_, vibrate_double_, led_;
+
         if (isMessage) {
             ringtoneKey = "ringtone_msg";
             vibrate_ = "vibrate_msg";
@@ -217,23 +212,21 @@ public class NotificationsJIS extends JobIntentService {
             led_ = "led_notif";
         }
 
-        mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             NotificationChannel notificationChannel = new NotificationChannel("me.zeeroooo.materialfb.notif", "MFBNotifications", mNotificationManager.IMPORTANCE_HIGH);
             notificationChannel.setShowBadge(true);
             notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
+            notificationChannel.enableVibration(mPreferences.getBoolean(vibrate_, false));
+            notificationChannel.enableLights(mPreferences.getBoolean(led_, false));
             if (mPreferences.getBoolean(vibrate_, false)) {
                 notificationChannel.setVibrationPattern(new long[]{500, 500});
                 if (mPreferences.getBoolean(vibrate_double_, false))
                     notificationChannel.setVibrationPattern(new long[]{500, 500, 500, 500});
-                else
-                    notificationChannel.enableVibration(false);
             }
-            if (mPreferences.getBoolean(led_, false)) {
-                notificationChannel.enableLights(true);
+            if (mPreferences.getBoolean(led_, false))
                 notificationChannel.setLightColor(Color.BLUE);
-            }
             mNotificationManager.createNotificationChannel(notificationChannel);
         }
 

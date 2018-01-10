@@ -828,11 +828,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             drawer.closeDrawers();
         else if (mWebView.canGoBack())
             mWebView.goBack();
+        else if (searchToolbar.hasExpandedActionView())
+            searchItem.collapseActionView();
         else
             super.onBackPressed();
-
-        if (searchToolbar.isSelected())
-            searchItem.collapseActionView();
     }
 
     private static void deleteCache(Context context) {
@@ -1044,12 +1043,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         searchItem = search_menu.findItem(R.id.action_filter_search);
 
         searchView = (SearchView) search_menu.findItem(R.id.action_filter_search).getActionView();
-
-        // set hint and the text colors
-        EditText txtSearch = searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text);
-        txtSearch.setHint(R.string.menu_search);
-        txtSearch.setHintTextColor(Color.DKGRAY);
-        txtSearch.setTextColor(Theme.getColor(this));
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override

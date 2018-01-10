@@ -9,24 +9,23 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-		app:layout_scrollFlags="scroll|enterAlways|snap"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_scrollFlags="scroll|enterAlways|snap">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        app:layout_scrollFlags="scroll|enterAlways|snap"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:popupTheme="@style/AppTheme.PopupOverlay" />
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
 
-     <android.support.v7.widget.Toolbar
-         android:id="@+id/searchtoolbar"
-         android:layout_width="match_parent"
-         android:layout_height="?attr/actionBarSize"
-         android:background="#FFFFFF"
-         android:visibility="invisible"
-         app:collapseIcon="@drawable/ic_arrow_back" />
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/searchtoolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="#FFFFFF"
+            android:visibility="invisible"
+            android:theme="@style/ThemeOverlay.AppCompat.Light" />
 
     </RelativeLayout>
 

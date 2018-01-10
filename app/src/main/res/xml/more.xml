@@ -64,11 +64,11 @@
                 android:data="https://github.com/bumptech/glide"/>
         </PreferenceScreen>
         <PreferenceScreen
-            android:summary="Firebase JobDispatcher"
-            android:title="firebase">
+            android:summary="jsoup"
+            android:title="Jonathan Hedley">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/firebase/firebase-jobdispatcher-android"/>
+                android:data="https://github.com/jhy/jsoup"/>
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/people_who_translated">

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Notifications -->
-    <string name="notifications_setting_title">Уведомления</string>
+    <!--  Notifications  -->
+    <string name="notifications_setting_title">УВЕДОМЛЕНИЯ</string>
     <string name="notif">Уведомления</string>
-    <string name="facebook_message">СообщенияFacebook</string>
+    <string name="facebook_message">Уведомления о сообщениях</string>
     <string name="facebook_notifications">Уведомления Facebook</string>
     <string name="notification_sound_description">Выбор рингтона: \u0020</string>
     <string name="notifications_settings">Настройки уведомлений</string>
@@ -15,112 +15,107 @@
     <string name="vibrate">Вибрация</string>
     <string name="vibrate_double">Двойная вибрация</string>
     <string name="led_light">Светодиод</string>
-
     <string-array name="intervalPrefTitles">
-        <item>1 minuto</item>
-        <item>2 minutos</item>
-        <item>5 minutos</item>
-        <item>15 minutos</item>
-        <item>30 minutos</item>
-        <item>1 hora</item>
-        <item>3 horas</item>
-        <item>6 horas</item>
+        <item>1 минута</item>
+        <item>2 минуты</item>
+        <item>5 минут</item>
+        <item>15 минут</item>
+        <item>30 минут</item>
+        <item>1 час</item>
+        <item>3 часа</item>
+        <item>6 часов</item>
     </string-array>
-    <!-- End Notifications -->
-
-    <!-- General -->
-    <string name="general_setting_title">Общее</string>
-    <string name="location_enabled_title">Местоположение</string>
+    <!--  End Notifications  -->
+    <!--  General  -->
+    <string name="general_setting_title">ОБЩЕЕ</string>
+    <string name="location_enabled_title">Доступ к местоположению</string>
     <string name="location_enabled_summary">Включите, чтобы разрешить Facebook получать ваше местоположение.</string>
     <string name="hide_editor_newsfeed_title">Скрыть редактор статуса в ленте новостей</string>
-    <string name="hide_editor_newsfeed_summary">Редактор статуса будет скрыт в ленте новостей.</string>
-    <string name="stop_images_title">Без изображений</string>
-    <string name="stop_images_summary">Изображения не будут загружаться. Некоторые из них могут остаться в кеше.</string>
-    <string name="hide_sponsored_title">Скрыть рекламу</string>
-    <string name="hide_sponsored_summary">Реклама будет скрыта из ленты новостей.</string>
+    <string name="hide_editor_newsfeed_summary">Если этот параметр включен, редактор статуса будет скрыт в ленте новостей.</string>
+    <string name="stop_images_title">Не загружать изображения</string>
+    <string name="stop_images_summary">Если этот параметр включен, изображения загружаться не будут. Некоторые изображения могли остаться в кэше.</string>
+    <string name="hide_sponsored_title">Скрыть ‘рекламный’ контент</string>
+    <string name="hide_sponsored_summary">Скрыть ‘рекламный’ контент (рекламу) из ленты</string>
     <string name="hide_birthdays_title">Скрыть дни рождения</string>
-    <string name="hide_birthdays_summary">Дни рождения будут скрыты из ленты новостей.</string>
-    <string name="hide_menu_bar_title">Скрыть бар с меню</string>
-    <string name="hide_menu_bar_summary">Бар с Facebook меню будет скрыт.</string>
-    <string name="hide_recently_commented">Hide recently commented</string>
-    <string name="hide_recently_commented_summary">X people recently commented on this.</string>
-    <string name="start_url">Start URL</string>
+    <string name="hide_birthdays_summary">Дни рождения не будут отображаться в ленте, событиях и уведомлениях.</string>
+    <string name="hide_menu_bar_title">Скрыть панель меню</string>
+    <string name="hide_menu_bar_summary">Если этот параметр включен, панель меню Facebook будет скрыта.</string>
+    <string name="hide_recently_commented">Скрыть недавние комментарии</string>
+    <string name="hide_recently_commented_summary">Не показывать сообщение о недавних комментириях.</string>
+    <string name="start_url">Начальная страница</string>
     <string-array name="Start">
-        <item>MostRecent</item>
-        <item>TopStories</item>
-        <item>Messages</item>
+        <item>Последнее</item>
+        <item>Популярное</item>
+        <item>Сообщения</item>
     </string-array>
-    <!-- End general -->
-
-    <!-- About -->
+    <!--  End general  -->
+    <!--  About  -->
     <string name="more">Информация о программе</string>
     <string name="about_updates">Обновления</string>
     <string name="updates">Проверить наличие новой версии</string>
     <string name="updates_summary">Страница загрузки последней версии</string>
     <string name="people_who_translated">Переводчики:</string>
     <string name="devs_who_helped_me">Благодарности:</string>
-    <string name="help_translations">Перевод программы на ваш язык</string>
+    <string name="help_translations">Помогите мне перевести приложение на ваш язык</string>
     <string name="about_translations">Связь с разработчиком:</string>
     <string name="source_code">Исходный код на Github</string>
-    <string name="withYou">Багрепорт или запрос новой функции</string>
+    <string name="withYou">Сообщить об ошибках или запросить новые возможности</string>
     <string name="changelog">Список изменений</string>
-    <!-- End about -->
-
-    <!-- APPEARANCE -->
-    <string name="appearance_setting_title">Внешний вид</string>
+    <!--  End about  -->
+    <!--  APPEARANCE  -->
+    <string name="appearance_setting_title">ВНЕШНИЙ ВИД</string>
     <string name="web_themes">Стиль страницы</string>
-    <string name="web_themes_summary">Выбор стиля страницы.</string>
-    <string name="app_themes">Стиль программы</string>
-    <string name="app_themes_summary">Выбор стиля программы.</string>
-
-    <!-- Navigation -->
-    <string name="navigation_setting_title">Просмотр</string>
-    <string name="navigation_menu_settings">Элементы бокового меню</string>
-    <string name="navigation_menu_settings_description">Выбрать элементы для показа в боковом меню программы.</string>
+    <string name="web_themes_summary">Можно выбрать различные стили страницы.</string>
+    <string name="app_themes">Темы приложения</string>
+    <string name="app_themes_summary">Можно выбрать различные темы приложения.</string>
+    <!--  Navigation  -->
+    <string name="navigation_setting_title">ПРОСМОТР</string>
+    <string name="navigation_menu_settings">Элементы меню навигации</string>
+    <string name="navigation_menu_settings_description">В меню навигации можно отобразить или скрыть элементы.</string>
     <string name="save_data">Экономить трафик</string>
-    <string name="save_data_summary">Автонастройка программы для экономии трафика</string>
-    <string name="clearcache">Clear cache on exit</string>
-    <string name="clearcache_summary">It will take more time to open the app.</string>
-    <string name="fab_enable">Floating Action Button</string>
-    <string name="fab_enable_summary">Show the FAB.</string>
-    <!-- Navigation: fab -->
-    <string name="fab_text">Обновить статус</string>
-    <string name="fab_photo">Отправить фото</string>
-    <string name="fab_checkin">Местоположение</string>
-    <string name="fab_jump_top">Перейти в начало</string>
-    <!-- Navigation: items -->
-    <string name="navigation_menu_title">Элементы меню</string>
-    <string name="ic_menu_exitapp">Закрыть</string>
-    <string name="ic_menu_exitapp_summary">В боковом меню появляется кнопка выхода из программы.</string>
+    <string name="save_data_summary">Загружает Facebook в базовой версии, а также отключает значки и обновления сведений о профиле.</string>
+    <string name="clearcache">Очищать кеш при выходе</string>
+    <string name="clearcache_summary">Для открытия приложения потребуется больше времени.</string>
+    <string name="fab_enable">Кнопка действий</string>
+    <string name="fab_enable_summary">Показать кнопку действий.</string>
+    <!--  Navigation: fab  -->
+    <string name="fab_text">Опубликовать статус</string>
+    <string name="fab_photo">Опубликовать фото</string>
+    <string name="fab_checkin">Отметиться</string>
+    <string name="fab_jump_top">Перейти вверх</string>
+    <!--  Navigation: items  -->
+    <string name="navigation_menu_title">МЕНЮ ПРОСМОТРА</string>
+    <string name="ic_menu_exitapp">Закрыть приложение</string>
+    <string name="ic_menu_exitapp_summary">Показать кнопку ‘закрыть приложение’ в меню навигации.</string>
     <string name="menu_photos">Фото</string>
-    <string name="menu_photos_summary">В боковом меню появляется кнопка ваших фото.</string>
-    <string name="menu_events">Мероприятия</string>
-    <string name="menu_events_summary">В боковом меню появляется кнопка мероприятий.</string>
+    <string name="menu_photos_summary">Показать кнопку ‘фото’ в меню навигации.</string>
+    <string name="menu_events">События</string>
+    <string name="menu_events_summary">Показать кнопку ‘события’ в меню навигации.</string>
     <string name="menu_back">Назад</string>
-    <string name="menu_back_summary">В боковом меню появляется кнопка возврата.</string>
-    <string name="menu_top_stories">Популярные</string>
-    <string name="menu_top_stories_summary">В боковом меню появляется кнопка популярных новостей.</string>
-    <string name="menu_most_recent">Последние</string>
-    <string name="menu_friendreq">Запросы</string>
-    <string name="menu_friendreq_summary">В боковом меню появляется кнопка новых запросов в друзья.</string>
+    <string name="menu_back_summary">Показать кнопку ‘назад’ в меню навигации.</string>
+    <string name="menu_top_stories">Популярное</string>
+    <string name="menu_top_stories_summary">Показать кнопку ‘популярное’ в меню навигации.</string>
+    <string name="menu_most_recent">Последнее</string>
+    <string name="menu_friendreq">Запросы в друзья</string>
+    <string name="menu_friendreq_summary">Показать кнопку ‘запросы в друзья’ в меню навигации.</string>
     <string name="menu_groups">Группы</string>
-    <string name="menu_groups_summary">В боковом меню появляется кнопка ваших групп.</string>
+    <string name="menu_groups_summary">Показать кнопку ‘группы’ в меню навигации.</string>
     <string name="menu_messages">Сообщения</string>
     <string name="menu_search">Поиск</string>
-    <string name="menu_search_summary">В боковом меню появляется кнопка поиска.</string>
+    <string name="menu_search_summary">Показать кнопку ‘поиск’ в меню навигации.</string>
     <string name="menu_mainmenu">Главное меню</string>
-    <string name="menu_mainmenu_summary">В боковом меню появляется кнопка главного меню Facebook.</string>
+    <string name="menu_mainmenu_summary">Показать кнопку ‘главное меню’ в меню навигации.</string>
     <string name="silent">Без звука</string>
-    <string name="navigation_drawer_open">Open navigation drawer</string>
-    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="navigation_drawer_open">Открыть навигационное меню</string>
+    <string name="navigation_drawer_close">Закрыть навигационное меню</string>
     <string name="nav_notifications">Уведомления</string>
     <string name="settings">Настройки</string>
     <string name="context_share_image">Поделиться изображением</string>
     <string name="context_share_link">Поделиться ссылкой</string>
     <string name="context_share_image_progress">Отправка изображения…</string>
     <string name="content_copy_link_done">Ссылка скопирована в буфер обмена</string>
-    <string name="permission_denied">Нет доступа, невозможно закончить операцию!</string>
-    <string name="downloaded">Downloaded</string>
-    <string name="new_bookmark">Added:</string>
-    <string name="remove_bookmark">Removed:</string>
+    <string name="permission_denied">Нет доступа, невозможно завершить действие</string>
+    <string name="downloaded">Загруженные</string>
+    <string name="new_bookmark">Добавленные:</string>
+    <string name="remove_bookmark">Удаленные:</string>
 </resources>
