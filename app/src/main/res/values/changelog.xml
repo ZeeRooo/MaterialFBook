@@ -2,6 +2,13 @@
 <resources>
     <string name="changelog_list" translatable="false">
 <![CDATA[
+<b>Version 3.6.8:</b>
+<br>
+- Fixed timeout notification sync error.
+<br>
+- Changes on messages.
+<br>
+<br>
 <b>Version 3.6.7:</b>
 <br>
 - Minor changes.

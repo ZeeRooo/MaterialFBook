@@ -99,7 +99,7 @@ public class NotificationsJIS extends JobIntentService {
         Log.i("JobIntentService_MFB", "Trying: " + "https://m.facebook.com/notifications.php");
 
         try {
-            Document doc = Jsoup.connect("https://m.facebook.com/notifications.php").timeout(5000).cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).get();
+            Document doc = Jsoup.connect("https://m.facebook.com/notifications.php").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).get();
             Element result = doc.select("a.touchable").not("a._19no").not("a.button").not("a.touchable.primary").first();
             if (result != null) {
                 final String time = result.select("span.mfss.fcg").text();
@@ -131,7 +131,7 @@ public class NotificationsJIS extends JobIntentService {
     void SyncMessages() {
         Log.i("JobIntentService_MFB", "Trying: " + "https://m.facebook.com/messages?soft=messages");
         try {
-            Document doc = Jsoup.connect("https://m.facebook.com/messages?soft=messages").timeout(10000).cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).get();
+            Document doc = Jsoup.connect("https://m.facebook.com/messages?soft=messages").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).get();
             Element result = doc.getElementsByClass("item messages-flyout-item aclb abt").select("a.touchable.primary").first();
             if (result != null) {
                 final String content = result.select("div.oneLine.preview.mfss.fcg").text();

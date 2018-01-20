@@ -56,7 +56,6 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.AdapterView;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -882,16 +881,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         msg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mWebView.loadUrl(baseURL + "messages/");
+                mWebView.loadUrl("javascript:(function(){try{document.querySelector('#messages_jewel > a').click()}catch(_){window.location.href='https://m.facebook.com/home.php'}})()");
+                setTitle(R.string.menu_messages);
                 NotificationsJIS.ClearbyId(MainActivity.this, 1);
                 Helpers.uncheckRadioMenu(mNavigationView.getMenu());
             }
         });
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
         return true;
     }
 
