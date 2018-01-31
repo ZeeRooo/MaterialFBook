@@ -99,6 +99,7 @@
     <string name="menu_top_stories">Top Meldungen</string>
     <string name="menu_top_stories_summary">Aktivieren um &#8216;Top Meldungen&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
     <string name="menu_most_recent">Neueste Meldungen</string>
+	<string name="menu_most_recent_summary">Aktivere um &#8216;Neuste Meldungen&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
     <string name="menu_friendreq">Freundschaftsanfragen</string>
     <string name="menu_friendreq_summary">Aktivieren um &#8216;Freundschaftsanfragen&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
     <string name="menu_groups">Gruppen</string>
