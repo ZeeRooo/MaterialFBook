@@ -198,6 +198,23 @@ public class NotificationsJIS extends JobIntentService {
             e.getStackTrace();
         }
 
+        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        String channelId;
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            // create all channels at once so users can see/configure them all with the first notification
+            NotificationChannel messagesChannel = createNotificationChannel(mNotificationManager, "me.zeeroooo.materialfb.notif.messages", getString(R.string.facebook_message), "vibrate_msg", "vibrate_double_msg", "led_msj");
+            NotificationChannel facebookChannel = createNotificationChannel(mNotificationManager, "me.zeeroooo.materialfb.notif.facebook", getString(R.string.facebook_notifications), "vibrate_notif", "vibrate_double_notif", "led_notif");
+
+            if (isMessage)
+                channelId = messagesChannel.getId();
+            else
+                channelId = facebookChannel.getId();
+        } else {
+            channelId = "me.zeeroooo.materialfb.notif";
+        }
+
         String ringtoneKey, vibrate_, vibrate_double_, led_;
 
         if (isMessage) {
@@ -212,25 +229,7 @@ public class NotificationsJIS extends JobIntentService {
             led_ = "led_notif";
         }
 
-        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            NotificationChannel notificationChannel = new NotificationChannel("me.zeeroooo.materialfb.notif", "MFBNotifications", mNotificationManager.IMPORTANCE_HIGH);
-            notificationChannel.setShowBadge(true);
-            notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
-            notificationChannel.enableVibration(mPreferences.getBoolean(vibrate_, false));
-            notificationChannel.enableLights(mPreferences.getBoolean(led_, false));
-            if (mPreferences.getBoolean(vibrate_, false)) {
-                notificationChannel.setVibrationPattern(new long[]{500, 500});
-                if (mPreferences.getBoolean(vibrate_double_, false))
-                    notificationChannel.setVibrationPattern(new long[]{500, 500, 500, 500});
-            }
-            if (mPreferences.getBoolean(led_, false))
-                notificationChannel.setLightColor(Color.BLUE);
-            mNotificationManager.createNotificationChannel(notificationChannel);
-        }
-
-        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, "me.zeeroooo.materialfb.notif")
+        NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, channelId)
                 .setStyle(new NotificationCompat.BigTextStyle().bigText(content))
                 .setColor(Theme.getColor(this))
                 .setContentTitle(title)
@@ -273,6 +272,24 @@ public class NotificationsJIS extends JobIntentService {
             mNotificationManager.notify(1, mBuilder.build());
         else
             mNotificationManager.notify(0, mBuilder.build());
+    }
+
+    private NotificationChannel createNotificationChannel(NotificationManager notificationManager, String id, String name, String vibratePref, String doubleVibratePref, String ledPref) {
+        NotificationChannel notificationChannel = new NotificationChannel(id, name, NotificationManager.IMPORTANCE_HIGH);
+        notificationChannel.setShowBadge(true);
+        notificationChannel.setLockscreenVisibility(Notification.VISIBILITY_PUBLIC);
+        notificationChannel.enableVibration(mPreferences.getBoolean(vibratePref, false));
+        notificationChannel.enableLights(mPreferences.getBoolean(ledPref, false));
+        if (mPreferences.getBoolean(vibratePref, false)) {
+            notificationChannel.setVibrationPattern(new long[]{500, 500});
+            if (mPreferences.getBoolean(doubleVibratePref, false))
+                notificationChannel.setVibrationPattern(new long[]{500, 500, 500, 500});
+        }
+        if (mPreferences.getBoolean(ledPref, false))
+            notificationChannel.setLightColor(Color.BLUE);
+        notificationManager.createNotificationChannel(notificationChannel);
+
+        return notificationChannel;
     }
 
     public static void ClearbyId(Context c, int id) {
