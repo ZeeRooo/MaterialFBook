@@ -36,24 +36,53 @@
     <!-- General -->
     <string name="general_setting_title">GENERAL</string>
     <string name="location_enabled_title">Location access</string>
-    <string name="location_enabled_summary">Enable this to allow Facebook to obtain your location.</string>
+    <string name="location_enabled_summary">Allow Facebook to obtain your location.</string>
     <string name="hide_editor_newsfeed_title">Hide Status editor in News Feed</string>
-    <string name="hide_editor_newsfeed_summary">When enabled, the status editor will be hidden on the News Feed.</string>
+    <string name="hide_editor_newsfeed_summary">Hide status editor from feed.</string>
     <string name="stop_images_title">Don\'t load images</string>
-    <string name="stop_images_summary">When enabled, wont download images. Some images may remain in the cache.</string>
+    <string name="stop_images_summary">Won\'t download images. Some images may remain in the cache.</string>
     <string name="hide_sponsored_title">Hide &#8216;Sponsored&#8217; Content</string>
     <string name="hide_sponsored_summary">Hide &#8216;Sponsored&#8217; content (ads) from the feed.</string>
     <string name="hide_birthdays_title">Hide Birthdays</string>
     <string name="hide_birthdays_summary">Hide birthdays from the feed, events and notifications.</string>
     <string name="hide_menu_bar_title">Hide Menu bar</string>
-    <string name="hide_menu_bar_summary">When enabled, the Facebook Menu bar will be hidden.</string>
+    <string name="hide_menu_bar_summary">The Facebook Menu bar will be hidden.</string>
     <string name="hide_recently_commented">Hide recently commented</string>
-    <string name="hide_recently_commented_summary">X people recently commented on this.</string>
+    <string name="hide_recently_commented_summary">X people recently commented.</string>
     <string name="start_url">Start URL</string>
     <string-array name="Start">
         <item>MostRecent</item>
         <item>TopStories</item>
         <item>Messages</item>
+    </string-array>
+
+    <string name="localSwitcherTitle">Change app language</string>
+    <string name="localSwitcherSummary">Your current language is: %s</string>
+    <string-array name="appLocalesNames">
+        <item>Arabic [ar]</item>
+        <item>Czech [cs]</item>
+        <item>Danish [da]</item>
+        <item>German [de]</item>
+        <item>Greek [el]</item>
+        <item>Spanish [es]</item>
+        <item>English [en]</item>
+        <item>Filipino [fil]</item>
+        <item>French [fr]</item>
+        <item>Hungarian [hu]</item>
+        <item>Indonesian [in]</item>
+        <item>Italian [it]</item>
+        <item>Italian (Italy) [it_IT]</item>
+        <item>Hebrew [iw]</item>
+        <item>Kurdish [ku]</item>
+        <item>Dutch [nl]</item>
+        <item>Polish [pl]</item>
+        <item>Portuguese [pt]</item>
+        <item>Romanian [ro]</item>
+        <item>Russian [ru]</item>
+        <item>Russian (Russia) [ru_RU]</item>
+        <item>Serbian [sr]</item>
+        <item>Turkish [tr]</item>
+        <item>Vietnamese [vi]</item>
     </string-array>
     <!-- End general -->
 
@@ -82,8 +111,8 @@
     <string name="navigation_setting_title">NAVIGATION</string>
     <string name="navigation_menu_settings">Navigation menu items</string>
     <string name="navigation_menu_settings_description">You can show/hide items in the navigation menu.</string>
-    <string name="save_data">Lower data mode</string>
-    <string name="save_data_summary">Load the Facebook in basic version also disable the badges and profile info. updates.</string>
+    <string name="save_data">Low Data mode</string>
+    <string name="save_data_summary">Load Facebook in basic mode, disable the badges and profile updates.</string>
     <string name="clearcache">Clear cache on exit</string>
     <string name="clearcache_summary">It will take more time to open the app.</string>
     <string name="fab_enable">Floating Action Button</string>

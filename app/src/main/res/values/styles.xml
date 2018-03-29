@@ -7,6 +7,7 @@
     <style name="Photo" parent="MFB">
         <item name="windowActionBar">false</item>
         <item name="windowActionModeOverlay">true</item>
+        <item name="android:windowBackground">@android:color/black</item>
     </style>
 
     <style name="MFB" parent="Theme.AppCompat.Light.NoActionBar">

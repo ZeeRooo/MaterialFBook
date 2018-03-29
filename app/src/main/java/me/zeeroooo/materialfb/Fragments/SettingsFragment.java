@@ -7,12 +7,16 @@ import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.support.v4.app.ActivityCompat;
+
+import java.util.Locale;
+
 import me.zeeroooo.materialfb.Activities.More;
 import me.zeeroooo.materialfb.Notifications.Scheduler;
 import me.zeeroooo.materialfb.Ui.CookingAToast;
@@ -31,19 +35,24 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         mScheduler = new Scheduler(getActivity());
 
         // set onPreferenceClickListener for a few preferences
-        Preference Notif, Nav, More, location, saveData, notif;
-        Notif = findPreference("notifications_settings");
-        Nav = findPreference("navigation_menu_settings");
-        More = findPreference("moreandcredits");
-        location = findPreference("location_enabled");
-        saveData = findPreference("save_data");
-        notif = findPreference("notif");
-        Notif.setOnPreferenceClickListener(this);
-        Nav.setOnPreferenceClickListener(this);
-        More.setOnPreferenceClickListener(this);
-        location.setOnPreferenceClickListener(this);
-        notif.setOnPreferenceClickListener(this);
-        saveData.setOnPreferenceClickListener(this);
+        findPreference("notifications_settings").setOnPreferenceClickListener(this);
+        findPreference("navigation_menu_settings").setOnPreferenceClickListener(this);
+        findPreference("moreandcredits").setOnPreferenceClickListener(this);
+        findPreference("location_enabled").setOnPreferenceClickListener(this);
+        findPreference("save_data").setOnPreferenceClickListener(this);
+        findPreference("notif").setOnPreferenceClickListener(this);
+
+        findPreference("localeSwitcher").setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+            @Override
+            public boolean onPreferenceChange(Preference preference, Object o) {
+                Locale locale = new Locale(o.toString());
+                Locale.setDefault(locale);
+                Configuration config = new Configuration();
+                config.locale = locale;
+                getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+                return true;
+            }
+        });
     }
 
     @Override

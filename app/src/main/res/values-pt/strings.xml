@@ -1,127 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!-- Notifications -->
-    <string name="notifications_setting_title">NOTIFICAÇÕES</string>
-    <string name="notif">Notificações</string>
-    <string name="notification_sound_description">Escolher um toque ou manter silêncio: \u0020</string>
-    <string name="notifications_settings">Configurações de notificações</string>
-    <string name="notifications_settings_description">Configurações adicionais. Escolha intervalo de tempo, sons, LED e vibração.</string>
-    <string name="facebook_notifications">Notificações do Facebook</string>
-    <string name="facebook_message">Notificações de mensagens</string>
-    <string name="interval_pref">Intervalo de tempo para verificação</string>
-    <string name="notification_sound">Som de notificação</string>
-    <string name="interval_pref_description_new">Notificações serão verificadas a cada %s.</string>
-    <string name="notification_sound_msg">Som de mensagens</string>
-    <string name="vibrate">Vibrar</string>
-    <string name="led_light">LED</string>
+    <string name="notifications_setting_title">BENACHRICHTIGUNGEN</string>
+    <string name="notif">Benachrichtigungen</string>
+    <string name="facebook_message">Chat Benachrichtigungen</string>
+    <string name="facebook_notifications">Facebook Benachrichtigungen</string>
+    <string name="notification_sound_description">Wähle einen Klingelton oder lautlos: \u0020</string>
+    <string name="notifications_settings">Benachrichtigungseinstellungen</string>
+    <string name="notifications_settings_description">Zusätzliche Einstellungen. Wähle das Zeitintervall, wähle Benachrichtigungssounds, LED und Vibration.</string>
+    <string name="interval_pref">Zeitintervall der Überprüfung auf neue Benachrichtigungen</string>
+    <string name="notification_sound">Benachrichtigungston</string>
+    <string name="interval_pref_description_new">Benachrichtigunen werden alle %s kontrolliert.</string>
+    <string name="notification_sound_msg">Nachrichtenton</string>
+    <string name="vibrate">Vibration</string>
+    <string name="vibrate_double">Zweimal vibrieren</string>
+    <string name="led_light">LED-Benachrichtigung</string>
+
     <string-array name="intervalPrefTitles">
-        <item>1 minuto</item>
-        <item>2 minutos</item>
-        <item>5 minutos</item>
-        <item>15 minutos</item>
-        <item>30 minutos</item>
-        <item>1 hora</item>
-        <item>3 horas</item>
-        <item>6 horas</item>
+        <item>1 Minute</item>
+        <item>2 Minuten</item>
+        <item>5 Minuten</item>
+        <item>15 Minuten</item>
+        <item>30 Minuten</item>
+        <item>1 Stunde</item>
+        <item>3 Stunden</item>
+        <item>6 Stunden</item>
     </string-array>
     <!-- End Notifications -->
 
     <!-- General -->
-    <string name="general_setting_title">GERAL</string>
-    <string name="location_enabled_title">Acesso à localização</string>
-    <string name="location_enabled_summary">Ative isso para permitir que o Facebook obtenha a sua localização.</string>
-    <string name="hide_editor_newsfeed_title">Esconder o editor de Status no Feed de Notícias</string>
-    <string name="hide_editor_newsfeed_summary">Quando ativado, o editor de Status será escondido no Feed de Notícias.</string>
-    <string name="stop_images_title">Não carregar imagens</string>
-    <string name="stop_images_summary">Quando ativado, não irá baixar imagens. Algumas imagens podem permanecer no cache.</string>
-    <string name="hide_sponsored_title">Esconder Conteúdo Patrocinado</string>
-    <string name="hide_sponsored_summary">Quando ativado, irá esconder Conteúdo &#8220;Patrocinado&#8221; (anúncios) do Feed de Notícias.</string>
-    <string name="hide_birthdays_title">Ocultar Aniversários</string>
-    <string name="hide_birthdays_summary">Quando ativado, irá ocultar aniversários do seu Feed de notícias.</string>
-    <string name="clearcache">Limpar cache ao sair</string>
-    <string name="clearcache_summary">A aplicação ira demorar mais tempo a iniciar</string>
-    <string name="hide_recently_commented">Esconder comentários recentes</string>
-    <string name="hide_recently_commented_summary">X pessoas comentaram recentemente isto</string>
-    <string name="start_url">Start URL</string>
+    <string name="general_setting_title">ALLGEMEIN</string>
+    <string name="location_enabled_title">Standortzugriff</string>
+    <string name="location_enabled_summary">Aktivieren, um Facebook Standortzugriff zu erlauben.</string>
+    <string name="hide_editor_newsfeed_title">Verstecke den Status-Editor im News Feed</string>
+    <string name="hide_editor_newsfeed_summary">Aktiviere, um den Status-Editor im News Feed zu verstecken.</string>
+    <string name="stop_images_title">Bilder nicht laden</string>
+    <string name="stop_images_summary">Aktivere, um keine Bilder herunterzuladen. Einige Bilder könnten im Cache bleiben.</string>
+    <string name="hide_sponsored_title">Verstecke &#8216;Sponsored&#8217; Inhalte</string>
+    <string name="hide_sponsored_summary">Aktiviere, um &#8216;Sponsored&#8217; Inhalte (Werbung) aus dem News Feed zu entfernen.</string>
+    <string name="hide_birthdays_title">Verberge Geburtstage</string>
+    <string name="hide_birthdays_summary">Aktiviere, um Geburtstage im News Feed zu verbergen.</string>
+    <string name="hide_menu_bar_title">Verberge Menü-Leiste</string>
+    <string name="hide_menu_bar_summary">Aktiviere, um die Menü-Leiste zu verbergen.</string>
+    <string name="hide_recently_commented">Verberge kürzlich kommentierte</string>
+    <string name="hide_recently_commented_summary">X Leute haben das kommentiert.</string>
+    <string name="start_url">Start-URL</string>
     <string-array name="Start">
-        <item>MostRecent</item>
-        <item>TopStories</item>
-        <item>Messages</item>
+        <item>Neueste Meldungen</item>
+        <item>Top Meldungen</item>
+        <item>Nachrichten</item>
     </string-array>
     <!-- End general -->
 
-    <!-- Appearence -->
-    <string name="appearance_setting_title">APARÊNCIA</string>
-    <string name="web_themes">Temas da web</string>
-    <string name="web_themes_summary">Você pode escolher diferentes temas da web.</string>
-    <string name="app_themes">Temas de app</string>
-    <string name="app_themes_summary">Você pode escolher diferentes temas de app.</string>
-
-    <!-- Navigation -->
-    <string name="navigation_setting_title">NAVEGAÇÃO</string>
-    <string name="hide_menu_bar_title">Esconder barra de menu</string>
-    <string name="hide_menu_bar_summary">Quando ativado, a barra de menu do Facebook ira ser ocultada.</string>
-    <string name="navigation_menu_settings">Items Navegação do Menu</string>
-    <string name="navigation_menu_settings_description">You can show/hide items in the navigation menu.</string>
-    <string name="save_data">Poupar Dados Móveis</string>
-    <string name="save_data_summary">Quando habilitado, a app poupa dados automáticamente</string>
-    <string name="fab_enable">Botão Flutuante de Acções(FAB)</string>
-    <string name="fab_enable_summary">Mostrar o FAB</string>
-    <!-- Navigation: fab -->
-    <string name="fab_text">Postar um status</string>
-    <string name="fab_photo">Postar uma foto</string>
-    <string name="fab_checkin">Check-in</string>
-    <string name="fab_jump_top">Ir para o Topo</string>
-    <!-- Navigation: items -->
-    <string name="navigation_menu_title">MENU DE NAVEGAÇÃO</string>
-    <string name="ic_menu_exitapp">Sair da app</string>
-    <string name="ic_menu_exitapp_summary">Quando ligado, &#8216;Sai da app&#82167; será ocultado o botão do menu de navegação.</string>
-    <string name="menu_photos">Fotos</string>
-    <string name="menu_photos_summary">Quando ligado, &#8216;Fotos&#82167; será ocultado o botão do menu de navegação.</string>
-    <string name="menu_events">Eventos</string>
-    <string name="menu_events_summary">Quando ligado, &#8216;Eventos&#82167; será ocultado o botão do menu de navegação.</string>
-    <string name="menu_back">Voltar</string>
-    <string name="menu_back_summary">Se desligado, &#8216;Voltar&#82167; será ocultado o botão do menu de navegação.</string>
-    <string name="menu_top_stories">Top Histórias</string>
-    <string name="menu_top_stories_summary">Se desligado, &#8216;Top Histórias&#82167; será ocultado o botão do menu de navegação.</string>
-    <string name="menu_most_recent">Mais Recentes</string>
-    <string name="menu_friendreq">Solicitações de Amizade</string>
-    <string name="menu_friendreq_summary">Se desligado, &#8216;Solicitações de Amizade&#82167; será ocultado o botão do menu de navegação.</string>
-    <string name="menu_groups">Grupos</string>
-    <string name="menu_groups_summary">Se desligado, &#8216;Grupos&#82167; será ocultado o botão do menu de navegação.</string>
-    <string name="menu_messages">Mensagens</string>
-    <string name="menu_search">Pesquisar</string>
-    <string name="menu_search_summary">Se desligado, &#8216;Pesquisar&#82167; será ocultado o botão do menu de navegação.</string>
-    <string name="menu_mainmenu">Menu Principal</string>
-    <string name="menu_mainmenu_summary">Se desligado, &#8216;Menu Principal&#82167; será ocultado o botão do menu de navegação.</string>
-    <!-- End navigation -->
-
-    <!-- App -->
-    <string name="silent">Sem sons</string>
-    <string name="navigation_drawer_open">Abrir gaveta de navegação</string>
-    <string name="navigation_drawer_close">Fechar gaveta de navegação</string>
-    <string name="nav_notifications">Notificações</string>
-    <string name="settings">Configurações</string>
-    <string name="context_share_image">Compartilhar imagem</string>
-    <string name="context_share_link">Compartilhar link</string>
-    <string name="context_share_image_progress">Compartilhando imagem…</string>
-    <string name="content_copy_link_done">Link copiado para área de transferência</string>
-    <string name="permission_denied">Permissão negada, ação não pode ser finalizada</string>
-    <string name="downloaded">Descargas</string>
-    <string name="new_bookmark">Adicionados:</string>
-    <string name="remove_bookmark">Removidos:</string>
     <!-- About -->
-    <string name="more">Mais e créditos</string>
-    <string name="about_updates">Atualizações</string>
-    <string name="updates">Verifique se há uma nova versão</string>
-    <string name="updates_summary">Carregar a página e baixar a última versão</string>
-    <string name="people_who_translated">Os usuários que traduziram o aplicativo</string>
-    <string name="devs_who_helped_me">Os devs que me ajudaram em minhas perguntas e a ter o código a partir de seus aplicativos</string>
-    <string name="help_translations">Ajuda a traduzir o aplicativo para seu idioma</string>
-    <string name="about_translations">Ajude, precisamos de você!</string>
-    <string name="source_code">O código fonte no Github</string>
-    <string name="withYou">Relatar erros ou solicitar novos recursos</string>
-    <string name="changelog">Mudanças</string>
+    <string name="more">Mehr und Danksagungen</string>
+    <string name="about_updates">Updates</string>
+    <string name="updates">Prüfe auf neue Version</string>
+    <string name="updates_summary">Lade die neueste Version von der Website herunter</string>
+    <string name="people_who_translated">Übersetzer dieser App</string>
+    <string name="devs_who_helped_me">Entwickler die mitgeholfen haben indem sie Fragen beantwortet haben oder von deren Apps Code verwendet wurde</string>
+    <string name="help_translations">Hilf mit, die App in deine Sprache zu übersetzen</string>
+    <string name="about_translations">Wir brauchen deine Hilfe</string>
+    <string name="source_code">Quelltext auf Github</string>
+    <string name="withYou">Melde Fehler oder wünsche dir neue Funktionen</string>
+    <string name="changelog">Änderungshistorie</string>
     <!-- End about -->
 
+    <!-- APPEARANCE -->
+    <string name="appearance_setting_title">AUSSEHEN</string>
+    <string name="web_themes">Temas da web</string>
+    <string name="web_themes_summary">Você pode escolher diferentes temas da web.</string>
+    <string name="app_themes">App Designs</string>
+    <string name="app_themes_summary">Wähle aus verschiedenen App Designs.</string>
+
+    <!-- Navigation -->
+    <string name="navigation_setting_title">NAVIGATION</string>
+    <string name="navigation_menu_settings">Elemente der Navigationsleiste</string>
+    <string name="navigation_menu_settings_description">Verbergen/Anzeigen von Elementen der Navigationsleiste.</string>
+    <string name="save_data">Daten sparen - Erscheinungsbild des Feeds ändert sich!</string>
+    <string name="save_data_summary">Aktiviere wenn du oft im Mobilen Netz unterwegs bist, um Datenvolumen zu sparen. Das Erscheinungsbild des Feeds ändert sich!</string>
+    <string name="clearcache">Lösche Cache beim Beenden</string>
+    <string name="clearcache_summary">App benötigt länger zum Öffnen.</string>
+    <string name="fab_enable">Floating Action Button</string>
+    <string name="fab_enable_summary">Zeige FAB.</string>
+    <!-- Navigation: fab -->
+    <string name="fab_text">Poste einen Status</string>
+    <string name="fab_photo">Poste ein Foto</string>
+    <string name="fab_checkin">Einchecken</string>
+    <string name="fab_jump_top">Springe nach ganz oben</string>
+    <!-- Navigation: items -->
+    <string name="navigation_menu_title">NAVIGATIONSLEISTE</string>
+    <string name="ic_menu_exitapp">App verlassen</string>
+    <string name="ic_menu_exitapp_summary">Aktivieren um &#8216;App verlassen&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
+    <string name="menu_photos">Fotos</string>
+    <string name="menu_photos_summary">Aktivieren um &#8216;Fotos&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
+    <string name="menu_events">Veranstaltungen</string>
+    <string name="menu_events_summary">Aktivieren um &#8216;Veranstaltungen&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
+    <string name="menu_back">Zurück</string>
+    <string name="menu_back_summary">Aktivieren um &#8216;Zurück&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
+    <string name="menu_top_stories">Top Meldungen</string>
+    <string name="menu_top_stories_summary">Aktivieren um &#8216;Top Meldungen&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
+    <string name="menu_most_recent">Neueste Meldungen</string>
+    <string name="menu_friendreq">Freundschaftsanfragen</string>
+    <string name="menu_friendreq_summary">Aktivieren um &#8216;Freundschaftsanfragen&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
+    <string name="menu_groups">Gruppen</string>
+    <string name="menu_groups_summary">Aktivieren um &#8216;Gruppen&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
+    <string name="menu_messages">Nachrichten</string>
+    <string name="menu_search">Suche</string>
+    <string name="menu_search_summary">Aktivieren um &#8216;Suche&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
+    <string name="menu_mainmenu">Hauptmenü</string>
+    <string name="menu_mainmenu_summary">Aktivieren um &#8216;Hauptmenü&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
+    <string name="silent">Stumm</string>
+    <string name="navigation_drawer_open">Öffne die Navigationsleiste</string>
+    <string name="navigation_drawer_close">Schließe die Navigationsleiste</string>
+    <string name="nav_notifications">Benachrichtungen</string>
+    <string name="settings">Einstellungen</string>
+    <string name="context_share_image">Bild teilen</string>
+    <string name="context_share_link">Link teilen</string>
+    <string name="context_share_image_progress">Bild teilen…</string>
+    <string name="content_copy_link_done">Link in die Zwischenablage kopiert</string>
+    <string name="permission_denied">Zugriff verweigert, Aktion kann nicht ausgeführt werden.</string>
+    <string name="downloaded">Erfolgreich heruntergeladen</string>
+    <string name="new_bookmark">Hinzugefügt:</string>
+    <string name="remove_bookmark">Entfernt:</string>
 </resources>

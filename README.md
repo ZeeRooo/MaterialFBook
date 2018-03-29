@@ -291,6 +291,13 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Fixed notification timeout error.
 - Changes on messsages.
 
+**Version 3.7.0:**
+- Updated languages (added Czech).
+- Notification changes.
+- Force close fixed.
+- Some changes in the UI.
+- Language selector.
+
 
 **Notes:**
 _- Maybe some gifs cant be loaded because i need to add the url to the code. Report it as issue with the Facebook´s page link or website._

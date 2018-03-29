@@ -117,9 +117,9 @@
     <string name="settings">Ayarlar</string>
     <string name="context_share_image">Resim paylaş</string>
     <string name="context_share_link">Linki paylaş</string>
-    <string name="context_share_image_progress">Resim paylaşılıyor ...</string>
+    <string name="context_share_image_progress"></string>
     <string name="content_copy_link_done">Link panoya kopyalandı</string>
-    <string name="permission_denied">İzin reddedildi, işlem tamamlanamadı</string>
+    <string name="permission_denied"></string>
     <string name="downloaded">İndirildi</string>
     <string name="new_bookmark">Eklendi:</string>
     <string name="remove_bookmark">Silindi:</string>

@@ -117,9 +117,7 @@
     <string name="settings">Setari</string>
     <string name="context_share_image">Distribuie imaginea</string>
     <string name="context_share_link">Distribuie linkul</string>
-    <string name="context_share_image_progress">Distribuie imaginea</string>
     <string name="content_copy_link_done">Link copiat in clipboard</string>
-    <string name="permission_denied">Permisiuni neacceptate, nu pot continua</string>
     <string name="downloaded">Downloaded</string>
     <string name="new_bookmark">Added:</string>
     <string name="remove_bookmark">Removed:</string>

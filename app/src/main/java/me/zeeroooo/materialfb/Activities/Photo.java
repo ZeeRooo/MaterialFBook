@@ -14,6 +14,7 @@ import android.graphics.PointF;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
@@ -26,9 +27,13 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -38,7 +43,9 @@ import com.bumptech.glide.request.RequestOptions;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
+
 import java.io.File;
+
 import me.zeeroooo.materialfb.Ui.CookingAToast;
 import me.zeeroooo.materialfb.R;
 
@@ -54,6 +61,8 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
     private int NONE = 0, DRAG = 1, ZOOM = 2, mode = NONE, share = 0;
     private PointF start = new PointF(), mid = new PointF();
     private float oldDist = 1f;
+    private View imageTitle, topGradient;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +70,8 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
         setContentView(R.layout.activity_photo);
         mImageView = findViewById(R.id.container);
         mImageView.setOnTouchListener(this);
-        Toolbar mToolbar = findViewById(R.id.toolbar_ph);
+        topGradient = findViewById(R.id.photoViewerTopGradient);
+        mToolbar = findViewById(R.id.toolbar_ph);
         setSupportActionBar(mToolbar);
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -77,15 +87,18 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        TextView text = findViewById(R.id.photo_title);
+        imageTitle = findViewById(R.id.photo_title);
         url = getIntent().getStringExtra("link");
-        text.setText(getIntent().getStringExtra("title"));
+        ((TextView) imageTitle).setText(getIntent().getStringExtra("title"));
         Load();
         mDownloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
     }
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
+
+        setVisibility(View.VISIBLE, android.R.anim.fade_in);
+        setCountDown();
 
         switch (event.getAction() & MotionEvent.ACTION_MASK) {
             case MotionEvent.ACTION_DOWN:
@@ -126,6 +139,7 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
         }
 
         mImageView.setImageMatrix(matrix);
+        v.performClick();
 
         return true;
     }
@@ -147,8 +161,9 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
 
                     @Override
                     public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
-                        mImageView.setLayoutParams(new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+                        mImageView.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
                         findViewById(android.R.id.progress).setVisibility(View.GONE);
+                        setCountDown();
                         return false;
                     }
                 })
@@ -256,5 +271,30 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
             if (mImageView != null)
                 mImageView.setImageDrawable(null);
         }
+    }
+
+    private void setCountDown() {
+        new CountDownTimer(5000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+            }
+
+            @Override
+            public void onFinish() {
+                setVisibility(View.INVISIBLE, android.R.anim.fade_out);
+            }
+        }.start();
+    }
+
+    public void setVisibility(int visibility, int animation) {
+        Animation a = AnimationUtils.loadAnimation(this, animation);
+
+        topGradient.startAnimation(a);
+        mToolbar.startAnimation(a);
+        imageTitle.startAnimation(a);
+
+        topGradient.setVisibility(visibility);
+        mToolbar.setVisibility(visibility);
+        imageTitle.setVisibility(visibility);
     }
 }

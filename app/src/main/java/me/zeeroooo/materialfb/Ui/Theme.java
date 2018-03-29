@@ -7,6 +7,7 @@ package me.zeeroooo.materialfb.Ui;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.util.TypedValue;
+
 import me.zeeroooo.materialfb.R;
 
 public final class Theme {

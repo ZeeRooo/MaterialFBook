@@ -10,16 +10,18 @@ import android.Manifest;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.Configuration;
+import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.Point;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.net.UrlQuerySanitizer;
@@ -42,11 +44,16 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewAnimationUtils;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
 import android.webkit.GeolocationPermissions;
 import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
@@ -59,18 +66,24 @@ import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
+
 import com.github.clans.fab.FloatingActionMenu;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
+
 import android.support.v4.view.GravityCompat;
 import android.webkit.URLUtil;
 import android.widget.TextView;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.Locale;
+
 import me.zeeroooo.materialfb.Misc.BookmarksAdapter;
 import me.zeeroooo.materialfb.Misc.BookmarksH;
 import me.zeeroooo.materialfb.Misc.DatabaseHelper;
@@ -615,7 +628,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 // Update message
                 if (sharedFromGallery != null)
-                    uploadMsg.onReceiveValue((Uri) sharedFromGallery);
+                    uploadMsg.onReceiveValue(sharedFromGallery);
                 else
                     mUploadMessage = uploadMsg;
 
@@ -794,9 +807,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     }
                 } else {
                     String dataString = data.getDataString();
-                    if (dataString != null) {
+                    if (dataString != null)
                         results = new Uri[]{Uri.parse(dataString)};
-                    }
                 }
             }
 
@@ -821,14 +833,38 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         }
     }
 
+    private Point getPointOfView(View view) {
+        int[] location = new int[2];
+        view.getLocationInWindow(location);
+        return new Point(location[0], location[1]);
+    }
+
+    @SuppressWarnings("NewApi")
+    private void circleReveal(View view) {
+        int radius = (int) Math.hypot(mWebView.getWidth(), mWebView.getHeight());
+        int x, y;
+        if (view != null) {
+            Point point = getPointOfView(view);
+            x = point.x;
+            y = point.y;
+        } else {
+            x = 0;
+            y = mWebView.getHeight() / 2;
+        }
+        Animator anim = ViewAnimationUtils.createCircularReveal(mWebView, x, y, 0, radius);
+        anim.setInterpolator(new AccelerateDecelerateInterpolator());
+        anim.setDuration(300);
+        anim.start();
+    }
+
     @Override
     public void onBackPressed() {
         if (drawer.isDrawerOpen(GravityCompat.START))
             drawer.closeDrawers();
+        if (searchToolbar.hasExpandedActionView())
+            searchItem.collapseActionView();
         else if (mWebView.canGoBack())
             mWebView.goBack();
-        else if (searchToolbar.hasExpandedActionView())
-            searchItem.collapseActionView();
         else
             super.onBackPressed();
     }
@@ -866,24 +902,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         msg_badge = action_msg.findViewById(R.id.badge_count);
 
         ImageView notif = action_notif.findViewById(R.id.badge_icon);
+        setBackground(notif);
         notif.setImageDrawable(getResources().getDrawable(R.drawable.ic_notifications));
         notif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                    circleReveal(v);
                 mWebView.loadUrl(baseURL + "notifications.php");
                 setTitle(R.string.nav_notifications);
                 Helpers.uncheckRadioMenu(mNavigationView.getMenu());
-                NotificationsJIS.ClearbyId(MainActivity.this, 0);
+                NotificationsJIS.ClearbyId(MainActivity.this, 1);
             }
         });
         ImageView msg = action_msg.findViewById(R.id.badge_icon);
+        setBackground(msg);
         msg.setImageDrawable(getResources().getDrawable(R.drawable.ic_message));
         msg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+                    circleReveal(v);
                 mWebView.loadUrl("javascript:(function(){try{document.querySelector('#messages_jewel > a').click()}catch(_){window.location.href='https://m.facebook.com/home.php'}})()");
                 setTitle(R.string.menu_messages);
-                NotificationsJIS.ClearbyId(MainActivity.this, 1);
+                NotificationsJIS.ClearbyId(MainActivity.this, 969);
                 Helpers.uncheckRadioMenu(mNavigationView.getMenu());
             }
         });
@@ -893,6 +935,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         URLs();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            circleReveal(null);
         // Handle navigation view item clicks here.
         switch (item.getItemId()) {
             case R.id.nav_top_stories:
@@ -916,7 +960,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 appBarLayout.setExpanded(true);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-                    circleReveal(R.id.searchtoolbar, 1, true, true);
+                    circleReveal(R.id.searchtoolbar, true);
                 else
                     searchToolbar.setVisibility(View.VISIBLE);
 
@@ -979,11 +1023,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void setRequestsNum(int num) {
-        txtFormat(fr_badge, num, Theme.getColor(this), true);
+        txtFormat(fr_badge, num, Color.RED, true);
     }
 
     public void setMrNum(int num) {
-        txtFormat(mr_badge, num, Theme.getColor(this), true);
+        txtFormat(mr_badge, num, Color.RED, true);
     }
 
     private void txtFormat(TextView t, int i, int color, boolean bold) {
@@ -1046,7 +1090,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mWebView.loadUrl(baseURL + "search/top/?q=" + query);
                 searchItem.collapseActionView();
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-                    circleReveal(R.id.searchtoolbar, 1, true, false);
+                    circleReveal(R.id.searchtoolbar, false);
                 else
                     searchToolbar.setVisibility(View.INVISIBLE);
                 return false;
@@ -1063,7 +1107,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public boolean onMenuItemActionCollapse(MenuItem item) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                    circleReveal(R.id.searchtoolbar, 1, true, false);
+                    circleReveal(R.id.searchtoolbar, false);
                 } else
                     searchToolbar.setVisibility(View.INVISIBLE);
                 return true;
@@ -1076,45 +1120,47 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
     }
 
-    @TargetApi(21)
-    public void circleReveal(int viewID, int posFromRight, boolean containsOverflow, final boolean isShow) {
+    @SuppressWarnings("NewApi")
+    private void circleReveal(int viewID, final boolean show) {
         final View v = findViewById(viewID);
 
-        int width = v.getWidth();
-
-        if (posFromRight > 0)
-            width -= (posFromRight * getResources().getDimensionPixelSize(R.dimen.abc_action_button_min_width_material)) - (getResources().getDimensionPixelSize(R.dimen.abc_action_button_min_width_material) / 2);
-        if (containsOverflow)
-            width -= getResources().getDimensionPixelSize(R.dimen.abc_action_button_min_width_overflow_material);
-
-        int cx = width;
         int cy = v.getHeight() / 2;
 
         Animator anim;
-        if (isShow)
-            anim = ViewAnimationUtils.createCircularReveal(v, cx, cy, 0, (float) width);
+        if (show)
+            anim = ViewAnimationUtils.createCircularReveal(v, v.getWidth(), cy, 0, v.getWidth());
         else
-            anim = ViewAnimationUtils.createCircularReveal(v, cx, cy, (float) width, 0);
+            anim = ViewAnimationUtils.createCircularReveal(v, v.getWidth(), cy, v.getWidth(), 0);
 
-        anim.setDuration((long) 220);
+        anim.setDuration(220);
 
         // make the view invisible when the animation is done
         anim.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                if (!isShow) {
+                if (!show) {
                     super.onAnimationEnd(animation);
-                    v.setVisibility(View.INVISIBLE);
+                    v.setVisibility(View.GONE);
                 }
             }
         });
 
         // make the view visible and start the animation
-        if (isShow)
+        if (show)
             v.setVisibility(View.VISIBLE);
 
-        // start the animation
         anim.start();
+    }
+
+    private void setBackground(View btn) {
+        TypedValue typedValue = new TypedValue();
+        int bg;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            bg = android.R.attr.selectableItemBackgroundBorderless;
+        else
+            bg = android.R.attr.selectableItemBackground;
+        getTheme().resolveAttribute(bg, typedValue, true);
+        btn.setBackgroundResource(typedValue.resourceId);
     }
 
     private static class mHandler extends Handler {

@@ -117,9 +117,9 @@
     <string name="settings">Ustawienia</string>
     <string name="context_share_image">Udostępnij obraz</string>
     <string name="context_share_link">Udostępnij link</string>
-    <string name="context_share_image_progress">Udostępnianie obrazu…</string>
+    <string name="context_share_image_progress">Udostępnianie obrazu...</string>
     <string name="content_copy_link_done">Link skopiowany do schowka</string>
-    <string name="permission_denied">Odmowa pozwolenia. Nie można ukończyć zadania</string>
+    <string name="permission_denied">Odmowa uprawnień, nie można ukończyć działania</string>
     <string name="downloaded">Pobrane</string>
     <string name="new_bookmark">Dodano:</string>
     <string name="remove_bookmark">Usunięto:</string>

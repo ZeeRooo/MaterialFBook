@@ -9,6 +9,8 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Build;
+import android.os.CountDownTimer;
 import android.os.Environment;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -16,9 +18,12 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
@@ -77,7 +82,7 @@ public class Video extends AppCompatActivity {
                 mSeekbar.postDelayed(Update, 1000);
                 mElapsedTime.postDelayed(Update, 1000);
                 mRemainingTime.postDelayed(Update, 1000);
-                mButtonsHeader.setVisibility(View.GONE);
+                setVisibility(View.GONE, android.R.anim.fade_out);
                 if (position == 0)
                     mVideoView.start();
             }
@@ -85,6 +90,7 @@ public class Video extends AppCompatActivity {
 
         // Buttons
         final ImageButton pause = findViewById(R.id.pauseplay_btn);
+        setBackground(pause);
         pause.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 if (mVideoView.isPlaying()) {
@@ -98,6 +104,7 @@ public class Video extends AppCompatActivity {
         });
 
         final ImageButton previous = findViewById(R.id.previous_btn);
+        setBackground(previous);
         previous.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mVideoView.seekTo(0);
@@ -106,6 +113,7 @@ public class Video extends AppCompatActivity {
         });
 
         final ImageButton download = findViewById(R.id.download_btn);
+        setBackground(download);
         download.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 RequestStoragePermission();
@@ -115,19 +123,14 @@ public class Video extends AppCompatActivity {
         mVideoView.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        mButtonsHeader.setVisibility(View.GONE);
-                    }
-                }, 3000);
-                mButtonsHeader.setVisibility(View.VISIBLE);
+                setCountDown();
+                setVisibility(View.VISIBLE, android.R.anim.fade_in);
                 return false;
             }
         });
 
         final ImageButton share = findViewById(R.id.share_btn);
+        setBackground(share);
         share.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
@@ -218,5 +221,36 @@ public class Video extends AppCompatActivity {
         super.onResume();
         mVideoView.seekTo(position);
         mVideoView.start();
+    }
+
+    private void setCountDown() {
+        new CountDownTimer(5000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+            }
+
+            @Override
+            public void onFinish() {
+                setVisibility(View.INVISIBLE, android.R.anim.fade_out);
+            }
+        }.start();
+    }
+
+    public void setVisibility(int visibility, int animation) {
+        Animation a = AnimationUtils.loadAnimation(this, animation);
+
+        mButtonsHeader.startAnimation(a);
+        mButtonsHeader.setVisibility(visibility);
+    }
+
+    private void setBackground(View btn) {
+        TypedValue typedValue = new TypedValue();
+        int bg;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            bg = android.R.attr.selectableItemBackgroundBorderless;
+        else
+            bg = android.R.attr.selectableItemBackground;
+        getTheme().resolveAttribute(bg, typedValue, true);
+        btn.setBackgroundResource(typedValue.resourceId);
     }
 }

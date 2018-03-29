@@ -117,9 +117,7 @@
     <string name="settings">Поставке</string>
     <string name="context_share_image">Подели слику</string>
     <string name="context_share_link">Подели везу</string>
-    <string name="context_share_image_progress">Делим слику…</string>
     <string name="content_copy_link_done">Веза копирана на клипборд</string>
-    <string name="permission_denied">Приступ одбијен, не могу да завршим радњу</string>
     <string name="downloaded">Преузето</string>
     <string name="new_bookmark">Додат:</string>
     <string name="remove_bookmark">Уклоњен:</string>

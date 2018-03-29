@@ -6,8 +6,8 @@
             android:entries="@array/Start"
             android:entryValues="@array/StartValues"
             android:key="start_url"
-            android:title="@string/start_url"
-            android:summary="%s."/>
+            android:summary="%s."
+            android:title="@string/start_url" />
         <SwitchPreference
             android:defaultValue="false"
             android:key="location_enabled"
@@ -43,6 +43,13 @@
             android:key="comments_recently"
             android:summary="@string/hide_recently_commented_summary"
             android:title="@string/hide_recently_commented" />
+        <ListPreference
+            android:defaultValue="en"
+            android:key="localeSwitcher"
+            android:summary="@string/localSwitcherSummary"
+            android:title="@string/localSwitcherTitle"
+            android:entries="@array/appLocalesNames"
+            android:entryValues="@array/appLocales"/>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/appearance_setting_title">
         <ListPreference
@@ -51,25 +58,25 @@
             android:entryValues="@array/WebThemes"
             android:key="web_themes"
             android:summary="@string/web_themes_summary"
-            android:title="@string/web_themes"/>
+            android:title="@string/web_themes" />
         <ListPreference
+            android:defaultValue="MaterialFBook"
             android:entries="@array/AppThemes"
             android:entryValues="@array/AppThemes"
             android:key="app_theme"
             android:summary="@string/app_themes_summary"
-            android:title="@string/app_themes"
-            android:defaultValue="MaterialFBook" />
+            android:title="@string/app_themes" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/notifications_setting_title">
         <SwitchPreference
+            android:defaultValue="false"
             android:key="notif"
-            android:title="@string/notif"
-            android:defaultValue="false"/>
+            android:title="@string/notif" />
         <Preference
             android:dependency="notif"
             android:key="notifications_settings"
-            android:title="@string/notifications_settings"
-            android:summary="@string/notifications_settings_description"/>
+            android:summary="@string/notifications_settings_description"
+            android:title="@string/notifications_settings" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/general_setting_title">
         <SwitchPreference
@@ -89,12 +96,12 @@
             android:title="@string/clearcache" />
         <Preference
             android:key="navigation_menu_settings"
-            android:title="@string/navigation_menu_settings"
-            android:summary="@string/navigation_menu_settings_description"/>
+            android:summary="@string/navigation_menu_settings_description"
+            android:title="@string/navigation_menu_settings" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/more">
         <Preference
             android:key="moreandcredits"
-            android:title="@string/more"/>
+            android:title="@string/more" />
     </PreferenceCategory>
 </PreferenceScreen>
