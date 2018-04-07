@@ -45,6 +45,11 @@ import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
 
 import java.io.File;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import javax.net.ssl.HttpsURLConnection;
 
 import me.zeeroooo.materialfb.Ui.CookingAToast;
 import me.zeeroooo.materialfb.R;
@@ -53,16 +58,15 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
 
     private ImageView mImageView;
     private DownloadManager mDownloadManager;
-    private String url;
     private Target<Bitmap> ShareTarget;
-    public static int closed = 0;
-    private boolean download = false;
+    private boolean download = false, countdown = false;
     private Matrix matrix = new Matrix(), savedMatrix = new Matrix();
     private int NONE = 0, DRAG = 1, ZOOM = 2, mode = NONE, share = 0;
     private PointF start = new PointF(), mid = new PointF();
     private float oldDist = 1f;
     private View imageTitle, topGradient;
     private Toolbar mToolbar;
+    private String url;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,9 +90,8 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
                         | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
                         | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
-        imageTitle = findViewById(R.id.photo_title);
         url = getIntent().getStringExtra("link");
+        imageTitle = findViewById(R.id.photo_title);
         ((TextView) imageTitle).setText(getIntent().getStringExtra("title"));
         Load();
         mDownloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
@@ -259,7 +262,6 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
     public void onBackPressed() {
         super.onBackPressed();
         finish();
-        closed = 1;
     }
 
     @Override
@@ -274,16 +276,21 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
     }
 
     private void setCountDown() {
-        new CountDownTimer(5000, 1000) {
-
+        CountDownTimer countDownTimer = new CountDownTimer(5000, 1000) {
             public void onTick(long millisUntilFinished) {
+                countdown = true;
             }
 
             @Override
             public void onFinish() {
                 setVisibility(View.INVISIBLE, android.R.anim.fade_out);
+                countdown = false;
             }
-        }.start();
+        };
+        if (!countdown)
+            countDownTimer.start();
+        else
+            countDownTimer.cancel();
     }
 
     public void setVisibility(int visibility, int animation) {

@@ -41,7 +41,7 @@
         a.actor-link, a._1s79, ._5qc3._5qc3 a, ._1p79, .touch a, ._52ja, ._391s, ._52jh, .blueName, ._1s79._1s79, .touch .mfsl, ._2-cm._2-cm a, ._2om4, ._53r0 ._2om0 ._2om1 a, ._vqv {
             color: #3B5998 !important;
         }
-        ._32l5._2rec {
+        ._32l5._2rec._24e1 {
             background: #595959;
         }
         .abt {
@@ -325,7 +325,7 @@
         .touch ._52t1 {
             border: 1px solid #E91E63;
         }
-        ._32l5._2rec {
+        ._32l5._2rec._24e1 {
             background: #E91E63;
         }
         .abt {
@@ -424,7 +424,7 @@
         .touch ._52t1 {
             border: 1px solid #455A64;
         }
-        ._32l5._2rec {
+        ._32l5._2rec._24e1 {
             background: #607D8B;
         }
         .abt {
@@ -523,7 +523,7 @@
         .touch ._52t1 {
             border: 1px solid rgba(76, 175, 80, 0.2);
         }
-        ._32l5._2rec {
+        ._32l5._2rec._24e1 {
             background: #4CAF50;
         }
         .abt {
@@ -622,7 +622,7 @@
         .touch ._52t1 {
             border: 1px solid rgba(244, 67, 54, 0.2);
         }
-        ._32l5._2rec {
+        ._32l5._2rec._24e1 {
             background: #F44336;
         }
         .abt {
@@ -721,7 +721,7 @@
         .touch ._52t1 {
             border: 1px solid rgba(205, 220, 57, 0.2);
         }
-        ._32l5._2rec {
+        ._32l5._2rec._24e1 {
             background: #CDDC39;
         }
         .abt {
@@ -820,7 +820,7 @@
         .touch ._52t1 {
             border: 1px solid rgba(255, 235, 59, 0.2);
         }
-        ._32l5._2rec {
+        ._32l5._2rec._24e1 {
             background: #FFEB3B;
         }
         .abt {
@@ -919,7 +919,7 @@
         .touch ._52t1 {
             border: 1px solid rgba(156, 39, 176, 0.2);
         }
-        ._32l5._2rec {
+        ._32l5._2rec._24e1 {
             background: #9C27B0;
         }
         .abt {
@@ -1018,7 +1018,7 @@
         .touch ._52t1 {
             border: 1px solid rgba(3, 169, 244, 0.2);
         }
-        ._32l5._2rec {
+        ._32l5._2rec._24e1 {
             background: #03A9F4;
         }
         .abt {
@@ -1117,7 +1117,7 @@
         .touch ._52t1 {
             border: 1px solid rgba(255, 87, 34, 0.2);
         }
-        ._32l5._2rec {
+        ._32l5._2rec._24e1 {
             background: #FF5722;
         }
         .abt {
@@ -1216,7 +1216,7 @@
         .touch ._52t1 {
             border: 1px solid rgba(16, 156, 86, 0.2);
         }
-        ._32l5._2rec {
+        ._32l5._2rec._24e1 {
             background: #109c56;
         }
         .abt {

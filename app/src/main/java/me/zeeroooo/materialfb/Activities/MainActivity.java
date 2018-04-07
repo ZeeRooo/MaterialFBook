@@ -80,9 +80,14 @@ import android.widget.TextView;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.Locale;
+
+import javax.net.ssl.HttpsURLConnection;
 
 import me.zeeroooo.materialfb.Misc.BookmarksAdapter;
 import me.zeeroooo.materialfb.Misc.BookmarksH;
@@ -101,7 +106,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private ValueCallback<Uri[]> mFilePathCallback;
     private Uri mCapturedImageURI = null, sharedFromGallery;
     private ValueCallback<Uri> mUploadMessage;
-    private int FILECHOOSER_RESULTCODE = 2888, INPUT_FILE_REQUEST_CODE = 1, album = 0;
+    private int FILECHOOSER_RESULTCODE = 2888, INPUT_FILE_REQUEST_CODE = 1;
     private String baseURL, mCameraPhotoPath, Url, css, urlIntent = null;
     private SwipeRefreshLayout swipeView;
     private NavigationView mNavigationView;
@@ -122,6 +127,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Handler badgeUpdate;
     private Runnable badgeTask;
     private TextView mr_badge, fr_badge, notif_badge, msg_badge;
+    private boolean goBack = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -305,24 +311,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         else
             mWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
-        mWebView.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                if (mWebView.getUrl().contains("posts/pcb.")) {
-                    WebView.HitTestResult result = mWebView.getHitTestResult();
-                    if (result.getType() == WebView.HitTestResult.IMAGE_TYPE) {
-                        Message msg = new mHandler(MainActivity.this).obtainMessage();
-                        mWebView.requestImageRef(msg);
-                        album = 1;
-                    }
-                }
-                return false;
-            }
-
-        });
-
         mWebView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
-        mWebView.getSettings().setUserAgentString("Mozilla/5.0 (BB10; Kbd) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.4633 Mobile Safari/537.10+");
+        mWebView.getSettings().setUserAgentString("Mozilla/5.0 (Linux; Android 6.0) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.4633 Mobile Safari/537.10+");
         mWebView.setWebViewClient(new WebViewClient() {
             @SuppressLint("NewApi")
             @Override
@@ -335,8 +325,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 try {
                     // clean an url from facebook redirection before processing (no more blank pages on back)
-                    if (url != null)
-                        url = Helpers.cleanAndDecodeUrl(url);
+                    url = Helpers.cleanAndDecodeUrl(url);
 
                     if (url.contains("mailto:")) {
                         Intent mailto = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
@@ -383,7 +372,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                 String[] giphy1 = url.split("\\?");
                                 String giphy_html5_id = giphy1[0];
                                 url = giphy_html5_id + "/giphy.gif";
-                                System.out.println(url);
                             }
                         }
 
@@ -413,18 +401,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                             }
                         }
 
-                        Intent Photo = new Intent(MainActivity.this, Photo.class);
-                        Photo.putExtra("link", url);
-                        Photo.putExtra("title", view.getTitle());
-                        startActivity(Photo);
+                        imageLoader(url, view.getTitle());
+                        return true;
+                    } else {
+                        // Open external links in browser
+                        Intent browser = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                        startActivity(browser);
                         return true;
                     }
-
-                    // Open external links in browser
-                    Intent browser = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                    startActivity(browser);
-
-                    return true;
                 } catch (NullPointerException npe) {
                     return true;
                 }
@@ -459,6 +443,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     JavaScriptHelpers.loadCSS(view, css);
                 if (url.contains("facebook.com/composer/mbasic/") || url.contains("https://m.facebook.com/sharer.php?sid="))
                     css += "#page{top:0}";
+
+                if (url.contains("/photos/viewer/")) {
+                    mWebView.loadUrl(baseURL + "photo/view_full_size/?fbid=" + url.substring(url.indexOf("photo=") + 6).split("&")[0]);
+                    goBack = true;
+                }
+
+                if (url.contains("photo.php?fbid=")) {
+                    mWebView.loadUrl(baseURL + "photo/view_full_size/?fbid=" + url.substring(url.indexOf("fbid=") + 5).split("&")[0]);
+                    goBack = true;
+                }
             }
 
             @Override
@@ -697,6 +691,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             UrlIntent(getIntent());
     }
 
+    private void imageLoader(String url, String title) {
+        Intent Photo = new Intent(MainActivity.this, Photo.class);
+        Photo.putExtra("link", url);
+        Photo.putExtra("title", title);
+        startActivity(Photo);
+    }
+
     public void RequestStoragePermission() {
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
     }
@@ -763,8 +764,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             badgeTask.run();
             new UserInfo(MainActivity.this).execute();
         }
-        if (Photo.closed != 0 && album == 0)
-            mWebView.goBack();
+
+        if (goBack)
+            mWebView.loadUrl(baseURL);
     }
 
     @Override
@@ -1161,23 +1163,5 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             bg = android.R.attr.selectableItemBackground;
         getTheme().resolveAttribute(bg, typedValue, true);
         btn.setBackgroundResource(typedValue.resourceId);
-    }
-
-    private static class mHandler extends Handler {
-
-        MainActivity mActivity;
-
-        mHandler(MainActivity activity) {
-            this.mActivity = activity;
-        }
-
-        @Override
-        public void handleMessage(Message msg) {
-            String url = (String) msg.getData().get("url");
-            Intent Photo = new Intent(mActivity, Photo.class);
-            Photo.putExtra("link", url);
-            Photo.putExtra("title", mActivity.mWebView.getTitle());
-            mActivity.startActivity(Photo);
-        }
     }
 }

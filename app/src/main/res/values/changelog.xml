@@ -2,6 +2,15 @@
 <resources>
     <string name="changelog_list" translatable="false">
 <![CDATA[
+<b>**Version 3.7.5:**</b>
+<br>
+- Improved album photos quality.
+<br>
+- Fixed mbasic issue.
+<br>
+- Fixed wrong color in external link title.
+<br>
+<br>
 <b>**Version 3.7.0:**</b>
 <br>
 - Updated languages (added Czech).
