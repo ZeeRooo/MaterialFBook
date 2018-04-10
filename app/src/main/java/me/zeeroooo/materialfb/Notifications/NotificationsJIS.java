@@ -70,8 +70,8 @@ public class NotificationsJIS extends JobIntentService {
                 blist.add(data.getString(3));
         }
         Helpers.getCookie();
-        //     if (mPreferences.getBoolean("facebook_messages", false))
-        //         SyncMessages();
+        if (mPreferences.getBoolean("facebook_messages", false))
+               SyncMessages();
         if (mPreferences.getBoolean("facebook_notifications", false))
             SyncNotifications();
     }
