@@ -2,176 +2,140 @@ package me.zeeroooo.materialfb.Activities;
 
 import android.Manifest;
 import android.app.DownloadManager;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.graphics.PorterDuff;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
-import android.os.CountDownTimer;
 import android.os.Environment;
-import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.util.TypedValue;
-import android.view.MotionEvent;
+import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageButton;
-import android.widget.RelativeLayout;
-import android.widget.SeekBar;
-import android.widget.TextView;
-import android.widget.VideoView;
+
+import com.google.android.exoplayer2.ExoPlaybackException;
+import com.google.android.exoplayer2.ExoPlayer;
+import com.google.android.exoplayer2.ExoPlayerFactory;
+import com.google.android.exoplayer2.PlaybackParameters;
+import com.google.android.exoplayer2.SimpleExoPlayer;
+import com.google.android.exoplayer2.Timeline;
+import com.google.android.exoplayer2.extractor.DefaultExtractorsFactory;
+import com.google.android.exoplayer2.extractor.ExtractorsFactory;
+import com.google.android.exoplayer2.source.ExtractorMediaSource;
+import com.google.android.exoplayer2.source.MediaSource;
+import com.google.android.exoplayer2.source.TrackGroupArray;
+import com.google.android.exoplayer2.trackselection.AdaptiveTrackSelection;
+import com.google.android.exoplayer2.trackselection.DefaultTrackSelector;
+import com.google.android.exoplayer2.trackselection.TrackSelectionArray;
+import com.google.android.exoplayer2.trackselection.TrackSelector;
+import com.google.android.exoplayer2.ui.SimpleExoPlayerView;
+import com.google.android.exoplayer2.upstream.BandwidthMeter;
+import com.google.android.exoplayer2.upstream.DefaultBandwidthMeter;
+import com.google.android.exoplayer2.upstream.DefaultHttpDataSourceFactory;
+
 import java.io.File;
-import java.util.Locale;
-import java.util.concurrent.TimeUnit;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.Ui.CookingAToast;
 
-public class Video extends AppCompatActivity {
+public class Video extends AppCompatActivity implements ExoPlayer.EventListener {
 
-    private VideoView mVideoView;
-    private int position = 0;
+    SimpleExoPlayerView mVideoView;
+    SimpleExoPlayer exoPlayer;
     private DownloadManager mDownloadManager;
-    private RelativeLayout mButtonsHeader;
-    private SeekBar mSeekbar;
     private String url;
-    private TextView mElapsedTime, mRemainingTime;
+    private Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video);
+        mToolbar = findViewById(R.id.toolbar_ph);
+        setSupportActionBar(mToolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            getSupportActionBar().setDisplayShowTitleEnabled(false);
+        }
 
         url = getIntent().getStringExtra("video_url");
         
         mVideoView = findViewById(R.id.video_view);
-        mButtonsHeader = findViewById(R.id.buttons_header);
-        mSeekbar = findViewById(R.id.progress);
         mDownloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
-        mElapsedTime = findViewById(R.id.elapsed_time);
-        mRemainingTime = findViewById(R.id.remaining_time);
 
-        getWindow().getDecorView().setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LOW_PROFILE
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            getWindow().getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LOW_PROFILE
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+        }
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        mSeekbar.getProgressDrawable().setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN);
-        mSeekbar.getThumb().setColorFilter(Color.WHITE, PorterDuff.Mode.SRC_IN);
 
-        mVideoView.setVideoURI(Uri.parse(url));
+        BandwidthMeter bandwidthMeter = new DefaultBandwidthMeter();
+        TrackSelector trackSelector = new DefaultTrackSelector(new AdaptiveTrackSelection.Factory(bandwidthMeter));
+        exoPlayer = ExoPlayerFactory.newSimpleInstance(this, trackSelector);
 
-        mVideoView.requestFocus();
-        mVideoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+        DefaultHttpDataSourceFactory dataSourceFactory = new DefaultHttpDataSourceFactory("MaterialFBook_player");
+        ExtractorsFactory extractorsFactory = new DefaultExtractorsFactory();
+        MediaSource mediaSource = new ExtractorMediaSource(Uri.parse(url), dataSourceFactory, extractorsFactory, null, null);
+        mVideoView.setPlayer(exoPlayer);
+        exoPlayer.prepare(mediaSource);
+        exoPlayer.setPlayWhenReady(true);
 
-            public void onPrepared(MediaPlayer mediaPlayer) {
-                mVideoView.seekTo(position);
-                mSeekbar.setMax(mVideoView.getDuration());
-                mSeekbar.postDelayed(Update, 1000);
-                mElapsedTime.postDelayed(Update, 1000);
-                mRemainingTime.postDelayed(Update, 1000);
-                setVisibility(View.GONE, android.R.anim.fade_out);
-                if (position == 0)
-                    mVideoView.start();
-            }
-        });
 
-        // Buttons
-        final ImageButton pause = findViewById(R.id.pauseplay_btn);
-        setBackground(pause);
-        pause.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                if (mVideoView.isPlaying()) {
-                    mVideoView.pause();
-                    ((ImageButton) v).setImageResource(android.R.drawable.ic_media_play);
-                } else {
-                    mVideoView.start();
-                    ((ImageButton) v).setImageResource(android.R.drawable.ic_media_pause);
-                }
-            }
-        });
+    }
 
-        final ImageButton previous = findViewById(R.id.previous_btn);
-        setBackground(previous);
-        previous.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                mVideoView.seekTo(0);
-                mSeekbar.setProgress(0);
-            }
-        });
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_video, menu);
+        return true;
+    }
 
-        final ImageButton download = findViewById(R.id.download_btn);
-        setBackground(download);
-        download.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
+    @SuppressWarnings("ResultOfMethodCallIgnored")
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                finish();
+                return true;
+
+            case R.id.video_download:
                 RequestStoragePermission();
-            }
-        });
+                return true;
 
-        mVideoView.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                setCountDown();
-                setVisibility(View.VISIBLE, android.R.anim.fade_in);
-                return false;
-            }
-        });
+            case R.id.video_share:
+                try {
+                    Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                    shareIntent.setType("text/plain");
+                    shareIntent.putExtra(Intent.EXTRA_TEXT, url);
+                    startActivity(Intent.createChooser(shareIntent, getString(R.string.context_share_link)));
+                }catch (ActivityNotFoundException i){
+                    i.printStackTrace();
+                }
+                return true;
 
-        final ImageButton share = findViewById(R.id.share_btn);
-        setBackground(share);
-        share.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.setType("text/plain");
-                shareIntent.putExtra(Intent.EXTRA_TEXT, url);
-                startActivity(Intent.createChooser(shareIntent, getString(R.string.context_share_link)));
-            }
-        });
 
-        mSeekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
 
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {}
+            default:
+                return super.onOptionsItemSelected(item);
 
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {}
-
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (fromUser)
-                    mVideoView.seekTo(progress);
-            }
-        });
+        }
     }
 
-    private final Runnable Update = new Runnable() {
-        @Override
-        public void run() {
-            if(mSeekbar != null) {
-                mSeekbar.setProgress(mVideoView.getCurrentPosition());
-            }
-            if(mVideoView.isPlaying()) {
-                mSeekbar.postDelayed(Update, 1000);
-                mElapsedTime.setText(Time(mVideoView.getCurrentPosition()));
-                mRemainingTime.setText(Time(mVideoView.getDuration() - mVideoView.getCurrentPosition()));
-            }
-        }};
 
-    private String Time(long ms) {
-        return String.format(Locale.getDefault(), "%d:%d", TimeUnit.MILLISECONDS.toMinutes(ms), TimeUnit.MILLISECONDS.toSeconds(ms) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((ms))));
-    }
 
     private void RequestStoragePermission() {
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 1);
@@ -208,49 +172,91 @@ public class Video extends AppCompatActivity {
             }
         }
     }
-
     @Override
     public void onPause() {
         super.onPause();
-        position = mVideoView.getCurrentPosition();
-        mVideoView.pause();
+        if(exoPlayer != null) {
+            exoPlayer.setPlayWhenReady(false);
+        }
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        mVideoView.seekTo(position);
-        mVideoView.start();
     }
 
-    private void setCountDown() {
-        new CountDownTimer(5000, 1000) {
 
-            public void onTick(long millisUntilFinished) {
-            }
+    @Override
+    public void onTimelineChanged(Timeline timeline, Object manifest) {
 
+    }
+
+    @Override
+    public void onTracksChanged(TrackGroupArray trackGroups, TrackSelectionArray trackSelections) {
+
+    }
+
+    @Override
+    public void onLoadingChanged(boolean isLoading) {
+
+    }
+
+    @Override
+    public void onPlayerStateChanged(boolean playWhenReady, int playbackState) {
+        switch (playbackState) {
+            case ExoPlayer.STATE_BUFFERING:
+                //You can use progress dialog to show user that video is preparing or buffering so please wait
+                break;
+            case ExoPlayer.STATE_IDLE:
+                //idle state
+                break;
+            case ExoPlayer.STATE_READY:
+                // dismiss your dialog here because our video is ready to play now
+                break;
+            case ExoPlayer.STATE_ENDED:
+                // do your processing after ending of video
+                break;
+        }
+    }
+
+    @Override
+    public void onPlayerError(ExoPlaybackException error) {
+        // show user that something went wrong. I am showing dialog but you can use your way
+        AlertDialog.Builder adb = new AlertDialog.Builder(this);
+        adb.setTitle("Couldn't stream video");
+        adb.setMessage("It seems that something is going wrong.\nPlease try again.");
+        adb.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
-            public void onFinish() {
-                setVisibility(View.INVISIBLE, android.R.anim.fade_out);
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+                finish();
             }
-        }.start();
+        });
+        AlertDialog ad = adb.create();
+        ad.show();
     }
 
-    public void setVisibility(int visibility, int animation) {
-        Animation a = AnimationUtils.loadAnimation(this, animation);
-
-        mButtonsHeader.startAnimation(a);
-        mButtonsHeader.setVisibility(visibility);
+    @Override
+    public void onPositionDiscontinuity() {
+        //Video is not streaming properly
     }
 
-    private void setBackground(View btn) {
-        TypedValue typedValue = new TypedValue();
-        int bg;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-            bg = android.R.attr.selectableItemBackgroundBorderless;
-        else
-            bg = android.R.attr.selectableItemBackground;
-        getTheme().resolveAttribute(bg, typedValue, true);
-        btn.setBackgroundResource(typedValue.resourceId);
+    @Override
+    public void onPlaybackParametersChanged(PlaybackParameters playbackParameters) {
+
     }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        finish();
+    }
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        exoPlayer.release();
+    }
+
 }
