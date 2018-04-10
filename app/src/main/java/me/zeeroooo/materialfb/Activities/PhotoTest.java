@@ -196,6 +196,7 @@ public class PhotoTest extends AppCompatActivity implements View.OnTouchListener
                         mImageView.setLayoutParams(new FrameLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
                         findViewById(android.R.id.progress).setVisibility(View.GONE);
                         setCountDown();
+                        genericImage = webView.getUrl();
                         return false;
                     }
                 })
@@ -236,7 +237,7 @@ public class PhotoTest extends AppCompatActivity implements View.OnTouchListener
         ShareTarget = new SimpleTarget<Bitmap>() {
             @Override
             public void onResourceReady(Bitmap bitmap, Transition<? super Bitmap> transition) {
-                String path = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, Uri.parse(url).getLastPathSegment(), null);
+                String path = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, Uri.parse(genericImage).getLastPathSegment(), null);
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("image/*");
                 shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
@@ -244,7 +245,7 @@ public class PhotoTest extends AppCompatActivity implements View.OnTouchListener
                 CookingAToast.cooking(PhotoTest.this, getString(R.string.context_share_image_progress), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_share, false).show();
             }
         };
-        Glide.with(PhotoTest.this).asBitmap().load(url).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into(ShareTarget);
+        Glide.with(PhotoTest.this).asBitmap().load(genericImage).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into(ShareTarget);
         share = 2;
     }
 
@@ -261,14 +262,14 @@ public class PhotoTest extends AppCompatActivity implements View.OnTouchListener
                         shareImg();
                     else if (download) {
                         // Save the image
-                        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+                        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(genericImage));
 
                         // Set the download directory
                         File downloads_dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
                         if (!downloads_dir.exists())
                             if (!downloads_dir.mkdirs())
                                 return;
-                        File destinationFile = new File(downloads_dir, Uri.parse(url).getLastPathSegment());
+                        File destinationFile = new File(downloads_dir, Uri.parse(genericImage).getLastPathSegment());
                         request.setDestinationUri(Uri.fromFile(destinationFile));
 
                         // Make notification stay after download
