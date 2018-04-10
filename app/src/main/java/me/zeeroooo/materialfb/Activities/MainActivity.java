@@ -444,14 +444,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (url.contains("facebook.com/composer/mbasic/") || url.contains("https://m.facebook.com/sharer.php?sid="))
                     css += "#page{top:0}";
 
-                if (url.contains("/photos/viewer/")) {
-                    mWebView.loadUrl(baseURL + "photo/view_full_size/?fbid=" + url.substring(url.indexOf("photo=") + 6).split("&")[0]);
-                    goBack = true;
-                }
-
-                if (url.contains("photo.php?fbid=")) {
-                    mWebView.loadUrl(baseURL + "photo/view_full_size/?fbid=" + url.substring(url.indexOf("fbid=") + 5).split("&")[0]);
-                    goBack = true;
+                if (url.contains("photo/view_full_size/")) {
+                    imageLoaderTest(url, mWebView.getTitle());
+                    mWebView.stopLoading();
+                    mWebView.goBack();
                 }
             }
 
@@ -693,6 +689,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private void imageLoader(String url, String title) {
         Intent Photo = new Intent(MainActivity.this, Photo.class);
+        Photo.putExtra("link", url);
+        Photo.putExtra("title", title);
+        startActivity(Photo);
+    }
+    
+    private void imageLoaderTest(String url, String title) {
+        Intent Photo = new Intent(MainActivity.this, PhotoTest.class);
         Photo.putExtra("link", url);
         Photo.putExtra("title", title);
         startActivity(Photo);
