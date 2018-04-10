@@ -108,6 +108,13 @@
             android:configChanges="screenSize|orientation"
             android:launchMode="singleTask"
             android:theme="@style/Photo" />
+        
+        <activity
+            android:name=".Activities.PhotoTest"
+            android:configChanges="screenSize|orientation"
+            android:launchMode="singleTask"
+            android:theme="@style/Photo" />
+        
         <activity
             android:name=".Activities.SettingsActivity"
             android:configChanges="screenSize|orientation"
