@@ -1,84 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@android:color/black">
 
-    <VideoView
-        android:id="@+id/video_view"
+    <android.support.design.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center" />
+        android:fitsSystemWindows="true"
+        android:clickable="false">
 
-    <RelativeLayout
-        android:id="@+id/buttons_header"
+    <com.google.android.exoplayer2.ui.SimpleExoPlayerView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:layout_height="match_parent"
+        android:id="@+id/video_view"
+        android:fitsSystemWindows="true"/>
 
-        <SeekBar
-            android:id="@+id/progress"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_above="@+id/pauseplay_btn" />
+    </android.support.design.widget.CoordinatorLayout>
 
-        <ImageButton
-            android:id="@+id/pauseplay_btn"
-            style="@android:style/MediaButton.Pause"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true" />
+    <View
+        android:id="@+id/photoViewerTopGradient"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/gradient"
+        android:rotation="180" />
 
-        <ImageButton
-            android:id="@+id/previous_btn"
-            style="@android:style/MediaButton.Previous"
-            android:layout_alignParentBottom="true"
-            android:layout_toStartOf="@+id/pauseplay_btn" />
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_ph"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/AppTheme.AppBarOverlay" />
 
-        <ImageButton
-            android:id="@+id/download_btn"
-            style="@android:style/MediaButton.Next"
-            android:layout_alignParentBottom="true"
-            android:layout_toEndOf="@+id/pauseplay_btn"
-            android:src="@drawable/ic_download" />
 
-        <ImageButton
-            android:id="@+id/share_btn"
-            style="@android:style/MediaButton.Next"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentTop="true"
-            android:src="@drawable/ic_share" />
 
-        <TextView
-            android:id="@+id/elapsed_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/progress"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="3dp"
-            android:textAppearance="@style/TextAppearance.Design.Snackbar.Message"
-            android:textColor="@android:color/white"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/remaining_time"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_below="@+id/progress"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginEnd="3dp"
-            android:textAppearance="@style/TextAppearance.Design.Snackbar.Message"
-            android:textColor="@android:color/white"
-            android:textSize="14sp"
-            android:textStyle="bold" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="90dp"
-            android:layout_alignParentBottom="true"
-            android:background="#80000000" />
-
-    </RelativeLayout>
-
-</merge>
+</FrameLayout>
