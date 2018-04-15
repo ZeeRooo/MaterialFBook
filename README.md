@@ -324,6 +324,7 @@ _- Maybe some gifs cant be loaded because i need to add the url to the code. Rep
 - FloatingActionButton by Clans.
 - Glide by bumptech.
 - jsoup by Jonathan Hedley.
+- acra by ACRA.
 - All people who translated the app (more details in "More and Credits" and Transifex)
 
 
