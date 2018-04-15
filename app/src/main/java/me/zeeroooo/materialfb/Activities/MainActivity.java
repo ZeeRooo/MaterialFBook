@@ -115,6 +115,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Runnable badgeTask;
     private TextView mr_badge, fr_badge, notif_badge, msg_badge;
     private boolean photoView = false;
+    private Cursor cursor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -157,12 +158,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         DBHelper = new DatabaseHelper(this);
         bookmarks = new ArrayList<>();
 
-        final Cursor data = DBHelper.getListContents();
-        while (data.moveToNext()) {
-            if (data.getString(1) != null && data.getString(2) != null) {
-                bk = new BookmarksH(data.getString(1), data.getString(2));
-                bookmarks.add(bk);
-            }
+        cursor = DBHelper.getListContents();
+        while (cursor != null && cursor.moveToNext()) {
+            bk = new BookmarksH(cursor.getString(1), cursor.getString(2));
+            bookmarks.add(bk);
         }
 
         BLAdapter = new BookmarksAdapter(this, bookmarks, DBHelper);
@@ -428,7 +427,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     css += "#page{top:0}";
 
                 if (url.contains("/photos/viewer/"))
-                    imageLoader(baseURL + "photo/view_full_size/?fbid=" + url.substring(url.indexOf("photo=") + 6).split("&")[0],view);
+                    imageLoader(baseURL + "photo/view_full_size/?fbid=" + url.substring(url.indexOf("photo=") + 6).split("&")[0], view);
 
                 if (url.contains("/photo/view_full_size/?fbid="))
                     imageLoader(url.split("&ref_component")[0], view);
@@ -757,7 +756,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     protected void onDestroy() {
-        DBHelper.close();
+        if (!cursor.isClosed()) {
+            DBHelper.close();
+            cursor.close();
+        }
         super.onDestroy();
         mWebView.clearCache(true);
         mWebView.clearHistory();

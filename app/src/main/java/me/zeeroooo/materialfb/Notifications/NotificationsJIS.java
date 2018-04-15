@@ -52,6 +52,7 @@ public class NotificationsJIS extends JobIntentService {
     private int mode = 0;
     private List<String> blist;
     private DatabaseHelper db;
+    private Cursor cursor;
 
     public static void enqueueWork(Context context, Intent work) {
         enqueueWork(context, NotificationsJIS.class, 2, work);
@@ -64,14 +65,11 @@ public class NotificationsJIS extends JobIntentService {
         URLs();
         blist = new ArrayList<>();
         db = new DatabaseHelper(this);
-        final Cursor data = db.getListContents();
-        while (data.moveToNext()) {
-            if (data.getString(3) != null)
-                blist.add(data.getString(3));
-        }
-        Helpers.getCookie();
+        cursor = db.getListContents();
+        while (cursor != null && cursor.moveToNext())
+            blist.add(cursor.getString(3));
         if (mPreferences.getBoolean("facebook_messages", false))
-               SyncMessages();
+            SyncMessages();
         if (mPreferences.getBoolean("facebook_notifications", false))
             SyncNotifications();
     }
@@ -90,8 +88,10 @@ public class NotificationsJIS extends JobIntentService {
             pictureMsg = "";
         if (pictureNotif != null)
             pictureNotif = "";
-        if (db != null)
+        if (!cursor.isClosed()) {
             db.close();
+            cursor.close();
+        }
         if (msg_notAWhiteList)
             msg_notAWhiteList = false;
         if (notif_notAWhiteList)
@@ -104,7 +104,7 @@ public class NotificationsJIS extends JobIntentService {
         Log.i("JobIntentService_MFB", "Trying: " + "https://m.facebook.com/notifications.php");
 
         try {
-            Document doc = Jsoup.connect("https://m.facebook.com/notifications.php").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).timeout(60000).get();
+            Document doc = Jsoup.connect("https://m.facebook.com/notifications.php").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).timeout(300000).get();
             Element notifications = doc.selectFirst("div.aclb > div.touchable-notification > a.touchable");
 
             final String time = notifications.select("span.mfss.fcg").text();
@@ -134,7 +134,7 @@ public class NotificationsJIS extends JobIntentService {
     void SyncMessages() {
         Log.i("JobIntentService_MFB", "Trying: " + "https://m.facebook.com/messages?soft=messages");
         try {
-            Document doc = Jsoup.connect("https://m.facebook.com/messages?soft=messages").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).timeout(60000).get();
+            Document doc = Jsoup.connect("https://m.facebook.com/messages?soft=messages").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).timeout(300000).get();
             Element result = doc.getElementsByClass("item messages-flyout-item aclb abt").select("a.touchable.primary").first();
             final String content = result.select("div.oneLine.preview.mfss.fcg").text();
             if (!blist.isEmpty())

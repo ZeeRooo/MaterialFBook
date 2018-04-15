@@ -3,13 +3,17 @@ package me.zeeroooo.materialfb.Misc;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Build;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
 import java.util.ArrayList;
+
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.Ui.CookingAToast;
 
@@ -43,6 +47,8 @@ public class BookmarksAdapter extends ArrayAdapter<BookmarksH> {
             viewHolder.delete = convertView.findViewById(R.id.delete_bookmark);
             viewHolder.share = convertView.findViewById(R.id.share_bookmark);
 
+            setBackground(viewHolder.share);
+            setBackground(viewHolder.delete);
             viewHolder.share.setColorFilter(viewHolder.title.getCurrentTextColor());
             viewHolder.delete.setColorFilter(viewHolder.title.getCurrentTextColor());
 
@@ -72,5 +78,16 @@ public class BookmarksAdapter extends ArrayAdapter<BookmarksH> {
         });
         // Return the completed view to render on screen
         return convertView;
+    }
+
+    private void setBackground(View btn) {
+        TypedValue typedValue = new TypedValue();
+        int bg;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
+            bg = android.R.attr.selectableItemBackgroundBorderless;
+        else
+            bg = android.R.attr.selectableItemBackground;
+        getContext().getTheme().resolveAttribute(bg, typedValue, true);
+        btn.setBackgroundResource(typedValue.resourceId);
     }
 }

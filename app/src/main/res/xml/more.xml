@@ -70,6 +70,13 @@
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/jhy/jsoup"/>
         </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="acra"
+            android:title="ACRA">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/ACRA/acra"/>
+        </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/people_who_translated">
         <PreferenceScreen

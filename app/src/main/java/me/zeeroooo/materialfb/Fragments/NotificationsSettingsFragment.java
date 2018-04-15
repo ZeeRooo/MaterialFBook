@@ -19,8 +19,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import me.zeeroooo.materialfb.Misc.BlackListH;
 import me.zeeroooo.materialfb.Misc.BlacklistAdapter;
 import me.zeeroooo.materialfb.Misc.DatabaseHelper;
@@ -35,40 +37,41 @@ public class NotificationsSettingsFragment extends PreferenceFragment implements
     private BlacklistAdapter adapter;
     private List<BlackListH> blacklist;
     private SharedPreferences.OnSharedPreferenceChangeListener listener;
+    private Cursor cursor;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.notifications_settings);
-        preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
-        DBHelper = new DatabaseHelper(getActivity());
-        blacklist = new ArrayList<>();
-        final Cursor data = DBHelper.getListContents();
-        while (data.moveToNext()) {
-            if (data.getString(3) != null) {
-                blh = new BlackListH(data.getString(3));
+        if (getActivity() != null) {
+            preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
+            DBHelper = new DatabaseHelper(getActivity());
+            cursor = DBHelper.getListContents();
+            blacklist = new ArrayList<>();
+            while (cursor != null && cursor.moveToNext()) {
+                blh = new BlackListH(cursor.getString(3));
                 blacklist.add(blh);
             }
-        }
-        Preference BlackList = findPreference("BlackList");
-        BlackList.setOnPreferenceClickListener(this);
+            Preference BlackList = findPreference("BlackList");
+            BlackList.setOnPreferenceClickListener(this);
 
 
-        listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
-            public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
-                switch (key) {
-                    case "notif_interval":
-                        reschedule(prefs);
-                        break;
-                    case "notif_exact":
-                        reschedule(prefs);
-                        break;
-                    default:
-                        break;
+            listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+                public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
+                    switch (key) {
+                        case "notif_interval":
+                            reschedule(prefs);
+                            break;
+                        case "notif_exact":
+                            reschedule(prefs);
+                            break;
+                        default:
+                            break;
+                    }
                 }
-            }
-        };
-        preferences.registerOnSharedPreferenceChangeListener(listener);
+            };
+            preferences.registerOnSharedPreferenceChangeListener(listener);
+        }
     }
 
     private void reschedule(SharedPreferences prefs) {
@@ -80,7 +83,10 @@ public class NotificationsSettingsFragment extends PreferenceFragment implements
     @Override
     public void onStop() {
         super.onStop();
-        DBHelper.close();
+        if (!cursor.isClosed()) {
+            DBHelper.close();
+            cursor.close();
+        }
         preferences.unregisterOnSharedPreferenceChangeListener(listener);
     }
 

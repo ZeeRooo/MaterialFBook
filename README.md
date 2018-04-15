@@ -308,6 +308,9 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Implemented ACRA to send crash reports via email.
 - Fixed messages notification.
 
+**Version 3.7.8:**
+- Bugfixes.
+
 
 **Notes:**
 _- Maybe some gifs cant be loaded because i need to add the url to the code. Report it as issue with the Facebook´s page link or website._

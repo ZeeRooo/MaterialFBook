@@ -1,15 +1,20 @@
 package me.zeeroooo.materialfb.Misc;
 
 import me.zeeroooo.materialfb.Activities.MainActivity;
+
 import android.os.AsyncTask;
+
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Document;
 import org.jsoup.Jsoup;
+
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.WebView.Helpers;
+
 import android.webkit.CookieManager;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
@@ -17,7 +22,6 @@ import com.bumptech.glide.request.RequestOptions;
 public class UserInfo extends AsyncTask<Void, Void, String> {
     private MainActivity mActivity;
     private String name, cover;
-    private Element e;
 
     public UserInfo(MainActivity activity) {
         mActivity = activity;
@@ -26,16 +30,14 @@ public class UserInfo extends AsyncTask<Void, Void, String> {
     @Override
     protected String doInBackground(Void[] params) {
         try {
-            Document doc = Jsoup.connect("https://www.facebook.com/me").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).get();
-            if (doc != null) {
-                e = doc.body();
-                if (name == null)
-                    name = e.select("input[name=q]").attr("value");
-                if (cover == null) {
-                    String[] s = e.toString().split("<img class=\"coverPhotoImg photo img\" src=\"");
-                    String[] c = s[1].split("\"");
-                    cover = Helpers.decodeImg(c[0]);
-                }
+            Document doc = Jsoup.connect("https://www.facebook.com/me").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).timeout(300000).get();
+            Element e = doc.body();
+            if (name == null)
+                name = e.select("input[name=q]").attr("value");
+            if (cover == null) {
+                String[] s = e.toString().split("<img class=\"coverPhotoImg photo img\" src=\"");
+                String[] c = s[1].split("\"");
+                cover = Helpers.decodeImg(c[0]);
             }
         } catch (Exception e) {
             e.getStackTrace();
