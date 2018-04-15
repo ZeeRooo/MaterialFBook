@@ -14,6 +14,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
+        android:name=".Activities.MFB"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:hardwareAccelerated="true"
@@ -21,11 +22,10 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/MFB">
-
         <receiver
             android:name=".Notifications.Receiver"
-            android:exported="false"
-            android:enabled="false">
+            android:enabled="false"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED" />
             </intent-filter>
@@ -34,7 +34,6 @@
         <service
             android:name=".Notifications.NotificationsJS"
             android:permission="android.permission.BIND_JOB_SERVICE" />
-
         <service
             android:name=".Notifications.NotificationsJIS"
             android:permission="android.permission.BIND_JOB_SERVICE" />
@@ -46,6 +45,7 @@
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
             <intent-filter>
@@ -102,12 +102,11 @@
                 <data android:scheme="fb" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Activities.Photo"
             android:configChanges="screenSize|orientation"
             android:launchMode="singleTask"
-            android:theme="@style/Photo" />
+            android:theme="@style/Media" />
         <activity
             android:name=".Activities.SettingsActivity"
             android:configChanges="screenSize|orientation"
@@ -125,9 +124,10 @@
             android:launchMode="singleTask" />
         <activity
             android:name=".Activities.Video"
-            android:configChanges="orientation|screenSize"
             android:launchMode="singleTask"
-            android:theme="@style/Photo" />
+            android:screenOrientation="sensorLandscape"
+            android:theme="@style/Media" />
 
     </application>
+
 </manifest>

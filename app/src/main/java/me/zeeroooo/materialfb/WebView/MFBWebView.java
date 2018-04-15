@@ -1,7 +1,6 @@
 package me.zeeroooo.materialfb.WebView;
 
 import android.content.Context;
-import android.support.v4.view.MotionEventCompat;
 import android.support.v4.view.NestedScrollingChild;
 import android.support.v4.view.NestedScrollingChildHelper;
 import android.support.v4.view.ViewCompat;
@@ -16,7 +15,7 @@ public class MFBWebView extends WebView implements NestedScrollingChild {
     private final int[] mScrollConsumed = new int[2];
     private int mNestedOffsetY;
     private NestedScrollingChildHelper mChildHelper;
-    private OnScrollChangedCallback  mOnScrollChangedCallback;
+    private OnScrollChangedCallback mOnScrollChangedCallback;
 
     public MFBWebView(Context context) {
         super(context);
@@ -104,7 +103,7 @@ public class MFBWebView extends WebView implements NestedScrollingChild {
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         boolean rs = false;
-        final int action = MotionEventCompat.getActionMasked(event);
+        final int action = event.getActionMasked();
         if (action == MotionEvent.ACTION_DOWN) {
             mNestedOffsetY = 0;
         }

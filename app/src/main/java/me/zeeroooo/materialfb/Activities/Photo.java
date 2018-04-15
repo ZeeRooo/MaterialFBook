@@ -13,6 +13,7 @@ import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Environment;
@@ -26,12 +27,15 @@ import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
@@ -45,11 +49,6 @@ import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
 
 import java.io.File;
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-
-import javax.net.ssl.HttpsURLConnection;
 
 import me.zeeroooo.materialfb.Ui.CookingAToast;
 import me.zeeroooo.materialfb.R;
@@ -61,12 +60,13 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
     private Target<Bitmap> ShareTarget;
     private boolean download = false, countdown = false;
     private Matrix matrix = new Matrix(), savedMatrix = new Matrix();
-    private int NONE = 0, DRAG = 1, ZOOM = 2, mode = NONE, share = 0;
+    private int NONE = 0, mode = NONE, share = 0;
     private PointF start = new PointF(), mid = new PointF();
     private float oldDist = 1f;
     private View imageTitle, topGradient;
     private Toolbar mToolbar;
-    private String url;
+    private String imageUrl;
+    private WebView webView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,24 +82,50 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
             getSupportActionBar().setDisplayShowTitleEnabled(false);
         }
 
-        getWindow().getDecorView().setSystemUiVisibility(
-                View.SYSTEM_UI_FLAG_LOW_PROFILE
-                        | View.SYSTEM_UI_FLAG_FULLSCREEN
-                        | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
-                        | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
-                        | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
-                        | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        url = getIntent().getStringExtra("link");
+        webView = new WebView(this);
+        webView.getSettings().setBlockNetworkImage(true);
+        webView.getSettings().setAppCacheEnabled(false);
+        webView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+
+        if (Build.VERSION.SDK_INT >= 19)
+            webView.setLayerType(View.LAYER_TYPE_HARDWARE, null);
+        else
+            webView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+
+        webView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+        webView.loadUrl(getIntent().getStringExtra("link"));
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageFinished(WebView view, String url) {
+                imageUrl = url;
+                Load();
+            }
+        });
+
         imageTitle = findViewById(R.id.photo_title);
         ((TextView) imageTitle).setText(getIntent().getStringExtra("title"));
-        Load();
         mDownloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
     }
 
     @Override
-    public boolean onTouch(View v, MotionEvent event) {
+    public void onWindowFocusChanged(boolean hasFocus) {
+        super.onWindowFocusChanged(hasFocus);
+        if (hasFocus) {
+            Window window = getWindow();
+            window.getDecorView().setSystemUiVisibility(
+                    View.SYSTEM_UI_FLAG_LOW_PROFILE
+                            | View.SYSTEM_UI_FLAG_FULLSCREEN
+                            | View.SYSTEM_UI_FLAG_LAYOUT_STABLE
+                            | View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION
+                            | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY
+                            | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+            window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        }
+    }
 
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+        int DRAG = 1, ZOOM = 2;
         setVisibility(View.VISIBLE, android.R.anim.fade_in);
         setCountDown();
 
@@ -155,7 +181,7 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
 
     private void Load() {
         Glide.with(this)
-                .load(url)
+                .load(imageUrl)
                 .listener(new RequestListener<Drawable>() {
                     @Override
                     public boolean onLoadFailed(GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
@@ -193,7 +219,7 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
         }
         if (id == R.id.oopy_url_image) {
             final ClipboardManager clipboard = (ClipboardManager) this.getSystemService(Context.CLIPBOARD_SERVICE);
-            final ClipData clip = ClipData.newUri(this.getContentResolver(), "", Uri.parse(url));
+            final ClipData clip = ClipData.newUri(this.getContentResolver(), "", Uri.parse(imageUrl));
             if (clipboard != null)
                 clipboard.setPrimaryClip(clip);
             CookingAToast.cooking(Photo.this, getString(R.string.content_copy_link_done), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_copy_url, true).show();
@@ -207,7 +233,7 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
         ShareTarget = new SimpleTarget<Bitmap>() {
             @Override
             public void onResourceReady(Bitmap bitmap, Transition<? super Bitmap> transition) {
-                String path = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, Uri.parse(url).getLastPathSegment(), null);
+                String path = MediaStore.Images.Media.insertImage(getContentResolver(), bitmap, Uri.parse(imageUrl).getLastPathSegment(), null);
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("image/*");
                 shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
@@ -215,7 +241,7 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
                 CookingAToast.cooking(Photo.this, getString(R.string.context_share_image_progress), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_share, false).show();
             }
         };
-        Glide.with(Photo.this).asBitmap().load(url).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into(ShareTarget);
+        Glide.with(Photo.this).asBitmap().load(imageUrl).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into(ShareTarget);
         share = 2;
     }
 
@@ -232,14 +258,14 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
                         shareImg();
                     else if (download) {
                         // Save the image
-                        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+                        DownloadManager.Request request = new DownloadManager.Request(Uri.parse(imageUrl));
 
                         // Set the download directory
                         File downloads_dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
                         if (!downloads_dir.exists())
                             if (!downloads_dir.mkdirs())
                                 return;
-                        File destinationFile = new File(downloads_dir, Uri.parse(url).getLastPathSegment());
+                        File destinationFile = new File(downloads_dir, Uri.parse(imageUrl).getLastPathSegment());
                         request.setDestinationUri(Uri.fromFile(destinationFile));
 
                         // Make notification stay after download
@@ -273,6 +299,10 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
             if (mImageView != null)
                 mImageView.setImageDrawable(null);
         }
+        webView.clearCache(true);
+        webView.clearHistory();
+        webView.removeAllViews();
+        webView.destroy();
     }
 
     private void setCountDown() {

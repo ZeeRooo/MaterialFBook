@@ -17,11 +17,10 @@ import me.zeeroooo.materialfb.Ui.Theme;
 import me.zeeroooo.materialfb.R;
 
 public class SettingsActivity extends AppCompatActivity {
-    private SharedPreferences mPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         Theme.Temas(this, mPreferences);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);

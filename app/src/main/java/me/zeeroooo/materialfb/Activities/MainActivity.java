@@ -16,8 +16,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -30,7 +28,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
 import android.os.Handler;
-import android.os.Message;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
@@ -44,16 +41,12 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewAnimationUtils;
-import android.view.animation.AccelerateDecelerateInterpolator;
-import android.view.animation.Animation;
 import android.webkit.GeolocationPermissions;
 import android.webkit.JavascriptInterface;
 import android.webkit.ValueCallback;
@@ -80,14 +73,8 @@ import android.widget.TextView;
 import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.net.URLEncoder;
 import java.util.ArrayList;
-import java.util.Locale;
-
-import javax.net.ssl.HttpsURLConnection;
 
 import me.zeeroooo.materialfb.Misc.BookmarksAdapter;
 import me.zeeroooo.materialfb.Misc.BookmarksH;
@@ -107,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Uri mCapturedImageURI = null, sharedFromGallery;
     private ValueCallback<Uri> mUploadMessage;
     private int FILECHOOSER_RESULTCODE = 2888, INPUT_FILE_REQUEST_CODE = 1;
-    private String baseURL, mCameraPhotoPath, Url, css, urlIntent = null;
+    private String baseURL, mCameraPhotoPath, Url, css, urlIntent = null, previousPage;
     private SwipeRefreshLayout swipeView;
     private NavigationView mNavigationView;
     private FloatingActionMenu mMenuFAB;
@@ -127,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Handler badgeUpdate;
     private Runnable badgeTask;
     private TextView mr_badge, fr_badge, notif_badge, msg_badge;
-    private boolean goBack = false;
+    private boolean photoView = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -312,7 +299,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             mWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
         mWebView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
-        mWebView.getSettings().setUserAgentString("Mozilla/5.0 (Linux; Android 6.0) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.1.0.4633 Mobile Safari/537.10+");
+        mWebView.getSettings().setUserAgentString("Mozilla/5.0 (X11; Linux ARM) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36");
         mWebView.setWebViewClient(new WebViewClient() {
             @SuppressLint("NewApi")
             @Override
@@ -323,93 +310,89 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @SuppressWarnings("deprecation")
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
-                try {
-                    // clean an url from facebook redirection before processing (no more blank pages on back)
-                    url = Helpers.cleanAndDecodeUrl(url);
+                // clean an url from facebook redirection before processing (no more blank pages on back)
+                url = Helpers.cleanAndDecodeUrl(url);
 
-                    if (url.contains("mailto:")) {
-                        Intent mailto = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                        startActivity(mailto);
+                if (url.contains("mailto:")) {
+                    Intent mailto = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(mailto);
+                }
+
+                if ((Uri.parse(url).getHost().endsWith("facebook.com")
+                        || Uri.parse(url).getHost().endsWith("*.facebook.com")
+                        || Uri.parse(url).getHost().endsWith("akamaihd.net")
+                        || Uri.parse(url).getHost().endsWith("ad.doubleclick.net")
+                        || Uri.parse(url).getHost().endsWith("sync.liverail.com")
+                        || Uri.parse(url).getHost().endsWith("cdn.fbsbx.com")
+                        || Uri.parse(url).getHost().endsWith("lookaside.fbsbx.com"))) {
+                    return false;
+                }
+
+                if (url.contains("giphy") || url.contains("gifspace") || url.contains("tumblr") || url.contains("gph.is") || url.contains("gif") || url.contains("fbcdn.net") || url.contains("imgur")) {
+                    if (url.contains("giphy") || url.contains("gph")) {
+                        if (!url.endsWith(".gif")) {
+                            if (url.contains("giphy.com") || url.contains("html5"))
+                                url = String.format("http://media.giphy.com/media/%s/giphy.gif", url.replace("http://giphy.com/gifs/", ""));
+                            else if (url.contains("gph.is") && !url.contains("html5")) {
+                                view.loadUrl(url);
+                                url = String.format("http://media.giphy.com/media/%s/giphy.gif", url.replace("http://giphy.com/gifs/", ""));
+                            }
+
+                            if (url.contains("media.giphy.com/media/") && !url.contains("html5")) {
+                                String[] giphy = url.split("-");
+                                String giphy_id = giphy[giphy.length - 1];
+                                url = "http://media.giphy.com/media/" + giphy_id;
+                            }
+                            if (url.contains("media.giphy.com/media/http://media")) {
+                                String[] gph = url.split("/");
+                                String gph_id = gph[gph.length - 2];
+                                url = "http://media.giphy.com/media/" + gph_id + "/giphy.gif";
+                            }
+                            if (url.contains("html5/giphy.gif")) {
+                                String[] giphy_html5 = url.split("/");
+                                String giphy_html5_id = giphy_html5[giphy_html5.length - 3];
+                                url = "http://media.giphy.com/media/" + giphy_html5_id + "/giphy.gif";
+                            }
+                        }
+                        if (url.contains("?")) {
+                            String[] giphy1 = url.split("\\?");
+                            String giphy_html5_id = giphy1[0];
+                            url = giphy_html5_id + "/giphy.gif";
+                        }
                     }
 
-                    if ((Uri.parse(url).getHost().endsWith("facebook.com")
-                            || Uri.parse(url).getHost().endsWith("*.facebook.com")
-                            || Uri.parse(url).getHost().endsWith("akamaihd.net")
-                            || Uri.parse(url).getHost().endsWith("ad.doubleclick.net")
-                            || Uri.parse(url).getHost().endsWith("sync.liverail.com")
-                            || Uri.parse(url).getHost().endsWith("cdn.fbsbx.com")
-                            || Uri.parse(url).getHost().endsWith("lookaside.fbsbx.com"))) {
-                        return false;
+                    if (url.contains("gifspace")) {
+                        if (!url.endsWith(".gif"))
+                            url = String.format("http://gifspace.net/image/%s.gif", url.replace("http://gifspace.net/image/", ""));
                     }
 
-                    if (url.contains("giphy") || url.contains("gifspace") || url.contains("tumblr") || url.contains("gph.is") || url.contains("gif") || url.contains("fbcdn.net") || url.contains("imgur")) {
-                        if (url.contains("giphy") || url.contains("gph")) {
-                            if (!url.endsWith(".gif")) {
-                                if (url.contains("giphy.com") || url.contains("html5"))
-                                    url = String.format("http://media.giphy.com/media/%s/giphy.gif", url.replace("http://giphy.com/gifs/", ""));
-                                else if (url.contains("gph.is") && !url.contains("html5")) {
-                                    view.loadUrl(url);
-                                    url = String.format("http://media.giphy.com/media/%s/giphy.gif", url.replace("http://giphy.com/gifs/", ""));
-                                }
-
-                                if (url.contains("media.giphy.com/media/") && !url.contains("html5")) {
-                                    String[] giphy = url.split("-");
-                                    String giphy_id = giphy[giphy.length - 1];
-                                    url = "http://media.giphy.com/media/" + giphy_id;
-                                }
-                                if (url.contains("media.giphy.com/media/http://media")) {
-                                    String[] gph = url.split("/");
-                                    String gph_id = gph[gph.length - 2];
-                                    url = "http://media.giphy.com/media/" + gph_id + "/giphy.gif";
-                                }
-                                if (url.contains("html5/giphy.gif")) {
-                                    String[] giphy_html5 = url.split("/");
-                                    String giphy_html5_id = giphy_html5[giphy_html5.length - 3];
-                                    url = "http://media.giphy.com/media/" + giphy_html5_id + "/giphy.gif";
-                                }
-                            }
-                            if (url.contains("?")) {
-                                String[] giphy1 = url.split("\\?");
-                                String giphy_html5_id = giphy1[0];
-                                url = giphy_html5_id + "/giphy.gif";
-                            }
+                    if (url.contains("phygee")) {
+                        if (!url.endsWith(".gif")) {
+                            getSrc(url, "span", "img");
+                            url = "http://www.phygee.com/" + elements.attr("src");
                         }
-
-                        if (url.contains("gifspace")) {
-                            if (!url.endsWith(".gif"))
-                                url = String.format("http://gifspace.net/image/%s.gif", url.replace("http://gifspace.net/image/", ""));
-                        }
-
-                        if (url.contains("phygee")) {
-                            if (!url.endsWith(".gif")) {
-                                getSrc(url, "span", "img");
-                                url = "http://www.phygee.com/" + elements.attr("src");
-                            }
-                        }
-
-                        if (url.contains("imgur")) {
-                            if (!url.endsWith(".gif") && !url.endsWith(".jpg")) {
-                                getSrc(url, "div.post-image", "img");
-                                url = "https:" + elements.attr("src");
-                            }
-                        }
-
-                        if (url.contains("media.upgifs.com")) {
-                            if (!url.endsWith(".gif")) {
-                                getSrc(url, "div.gif-pager-container", "img#main-gif");
-                                url = elements.attr("src");
-                            }
-                        }
-
-                        imageLoader(url, view.getTitle());
-                        return true;
-                    } else {
-                        // Open external links in browser
-                        Intent browser = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                        startActivity(browser);
-                        return true;
                     }
-                } catch (NullPointerException npe) {
+
+                    if (url.contains("imgur")) {
+                        if (!url.endsWith(".gif") && !url.endsWith(".jpg")) {
+                            getSrc(url, "div.post-image", "img");
+                            url = "https:" + elements.attr("src");
+                        }
+                    }
+
+                    if (url.contains("media.upgifs.com")) {
+                        if (!url.endsWith(".gif")) {
+                            getSrc(url, "div.gif-pager-container", "img#main-gif");
+                            url = elements.attr("src");
+                        }
+                    }
+
+                    imageLoader(url, view);
+                    return true;
+                } else {
+                    // Open external links in browser
+                    Intent browser = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(browser);
                     return true;
                 }
             }
@@ -444,15 +427,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (url.contains("facebook.com/composer/mbasic/") || url.contains("https://m.facebook.com/sharer.php?sid="))
                     css += "#page{top:0}";
 
-                if (url.contains("/photos/viewer/")) {
-                    mWebView.loadUrl(baseURL + "photo/view_full_size/?fbid=" + url.substring(url.indexOf("photo=") + 6).split("&")[0]);
-                    goBack = true;
-                }
+                if (url.contains("/photos/viewer/"))
+                    imageLoader(baseURL + "photo/view_full_size/?fbid=" + url.substring(url.indexOf("photo=") + 6).split("&")[0],view);
 
-                if (url.contains("photo.php?fbid=")) {
-                    mWebView.loadUrl(baseURL + "photo/view_full_size/?fbid=" + url.substring(url.indexOf("fbid=") + 5).split("&")[0]);
-                    goBack = true;
-                }
+                if (url.contains("/photo/view_full_size/?fbid="))
+                    imageLoader(url.split("&ref_component")[0], view);
             }
 
             @Override
@@ -552,8 +531,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 if (mPreferences.getBoolean("comments_recently", true))
                     css += "._15ks+._4u3j{display:none}";
-
-                css += "._i81:after {display: none;}";
 
                 if (sharedFromGallery != null)
                     view.loadUrl("javascript:(function(){try{document.getElementsByClassName(\"_56bz _54k8 _52jh _5j35 _157e\")[0].click()}catch(_){document.getElementsByClassName(\"_50ux\")[0].click()}})()");
@@ -691,11 +668,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             UrlIntent(getIntent());
     }
 
-    private void imageLoader(String url, String title) {
-        Intent Photo = new Intent(MainActivity.this, Photo.class);
-        Photo.putExtra("link", url);
-        Photo.putExtra("title", title);
-        startActivity(Photo);
+    private void imageLoader(String url, WebView view) {
+        startActivity(new Intent(this, Photo.class).putExtra("link", url).putExtra("title", view.getTitle()));
+        view.stopLoading();
+        view.goBack();
     }
 
     public void RequestStoragePermission() {
@@ -765,8 +741,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             new UserInfo(MainActivity.this).execute();
         }
 
-        if (goBack)
-            mWebView.loadUrl(baseURL);
+        if (photoView) {
+            // mWebView.loadUrl(previousPage);
+            photoView = false;
+        }
     }
 
     @Override
@@ -854,7 +832,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             y = mWebView.getHeight() / 2;
         }
         Animator anim = ViewAnimationUtils.createCircularReveal(mWebView, x, y, 0, radius);
-        anim.setInterpolator(new AccelerateDecelerateInterpolator());
         anim.setDuration(300);
         anim.start();
     }
@@ -911,6 +888,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View v) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
                     circleReveal(v);
+                mWebView.stopLoading();
                 mWebView.loadUrl(baseURL + "notifications.php");
                 setTitle(R.string.nav_notifications);
                 Helpers.uncheckRadioMenu(mNavigationView.getMenu());
@@ -925,7 +903,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View v) {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
                     circleReveal(v);
-                mWebView.loadUrl("javascript:(function(){try{document.querySelector('#messages_jewel > a').click()}catch(_){window.location.href='https://m.facebook.com/home.php'}})()");
+                mWebView.stopLoading();
+                mWebView.loadUrl(baseURL + "messages/");
+                //mWebView.loadUrl("javascript:(function(){try{document.querySelector('#messages_jewel > a').click()}catch(_){window.location.href='https://m.facebook.com/home.php'}})()");
                 setTitle(R.string.menu_messages);
                 NotificationsJIS.ClearbyId(MainActivity.this, 969);
                 Helpers.uncheckRadioMenu(mNavigationView.getMenu());
@@ -939,6 +919,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         URLs();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
             circleReveal(null);
+        mWebView.stopLoading();
         // Handle navigation view item clicks here.
         switch (item.getItemId()) {
             case R.id.nav_top_stories:

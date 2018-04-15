@@ -4,12 +4,13 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="Photo" parent="MFB">
+    <style name="Media" parent="MFB">
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="windowActionBar">false</item>
         <item name="windowActionModeOverlay">true</item>
         <item name="android:windowDrawsSystemBarBackgrounds">true</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/black</item>
     </style>
 
     <style name="MFB" parent="Theme.AppCompat.Light.NoActionBar">

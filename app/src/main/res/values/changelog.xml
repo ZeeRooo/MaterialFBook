@@ -2,6 +2,15 @@
 <resources>
     <string name="changelog_list" translatable="false">
 <![CDATA[
+<b>**Version 3.7.7:**</b>
+<br>
+- Changed photo viewer background.
+<br>
+- Implemented ACRA to send crash reports via email.
+<br>
+- Fixed messages notification.
+<br>
+<br>
 <b>**Version 3.7.5:**</b>
 <br>
 - Improved album photos quality.
