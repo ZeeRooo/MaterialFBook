@@ -58,7 +58,7 @@
             android:defaultValue="1"
             android:key="textScale"
             android:summary="%s"
-            android:title="Scale"
+            android:title="@string/textScale"
             android:entries="@array/scalesText"
             android:entryValues="@array/scales"/>
     </PreferenceCategory>

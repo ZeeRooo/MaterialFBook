@@ -57,7 +57,7 @@
     </string-array>
 
     <string name="localSwitcherTitle">Change app language</string>
-    <string name="localSwitcherSummary">Your current language is: %s</string>
+    <string name="localSwitcherSummary">Current language: %s</string>
     <string-array name="appLocalesNames">
         <item>Arabic [ar]</item>
         <item>Czech [cs]</item>
@@ -169,4 +169,5 @@
     <string name="bookmarks_header">Bookmarks</string>
     <string name="new_bookmark">Added:</string>
     <string name="remove_bookmark">Removed:</string>
+    <string name="textScale">Text scale</string>
 </resources>

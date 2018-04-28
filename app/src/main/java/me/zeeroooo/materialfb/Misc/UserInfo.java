@@ -32,11 +32,8 @@ public class UserInfo extends AsyncTask<Void, Void, String> {
             Element e = Jsoup.connect("https://www.facebook.com/me").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).timeout(300000).get().body();
             if (name == null)
                 name = e.select("input[name=q]").attr("value");
-            if (cover == null) {
-                String[] s = e.toString().split("<img class=\"coverPhotoImg photo img\" src=\"");
-                String[] c = s[1].split("\"");
-                cover = Helpers.decodeImg(c[0]);
-            }
+            if (cover == null)
+                cover = Helpers.decodeImg(e.toString().split("<img class=\"coverPhotoImg photo img\" src=\"")[1].split("\"")[0]);
         } catch (Exception e) {
             e.getStackTrace();
         }

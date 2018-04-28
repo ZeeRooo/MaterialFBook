@@ -85,6 +85,7 @@
         <item>Vietnamita [vi]</item>
     </string-array>
 
+    <string name="textScale">Escala de texto</string>
     <string-array name="scalesText">
         <item>Normal</item>
         <item>Media</item>

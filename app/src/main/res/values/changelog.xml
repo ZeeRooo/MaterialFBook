@@ -2,6 +2,13 @@
 <resources>
     <string name="changelog_list" translatable="false">
 <![CDATA[
+<b>**Version 3.8.1:**</b>
+<br>
+- Amoled theme fixes.
+<br>
+- Updated Spanish translation.
+<br>
+<br>
 <b>**Version 3.8.0:**</b>
 <br>
 - Bugfixes.
