@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.preference.PreferenceScreen;
 import android.preference.RingtonePreference;
 import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.List;
 
+import me.zeeroooo.materialfb.BuildConfig;
 import me.zeeroooo.materialfb.Misc.BlackListH;
 import me.zeeroooo.materialfb.Misc.BlacklistAdapter;
 import me.zeeroooo.materialfb.Misc.DatabaseHelper;
@@ -36,7 +38,6 @@ public class NotificationsSettingsFragment extends PreferenceFragment implements
     private BlackListH blh;
     private BlacklistAdapter adapter;
     private List<BlackListH> blacklist;
-    private SharedPreferences.OnSharedPreferenceChangeListener listener;
     private Cursor cursor;
 
     @Override
@@ -46,17 +47,18 @@ public class NotificationsSettingsFragment extends PreferenceFragment implements
         if (getActivity() != null) {
             preferences = PreferenceManager.getDefaultSharedPreferences(getActivity());
             DBHelper = new DatabaseHelper(getActivity());
-            cursor = DBHelper.getListContents();
+            cursor = DBHelper.getReadableDatabase().rawQuery("SELECT BL FROM mfb_table", null);
             blacklist = new ArrayList<>();
             while (cursor != null && cursor.moveToNext()) {
-                blh = new BlackListH(cursor.getString(3));
-                blacklist.add(blh);
+                if (cursor.getString(0) != null) {
+                    blh = new BlackListH(cursor.getString(0));
+                    blacklist.add(blh);
+                }
             }
-            Preference BlackList = findPreference("BlackList");
-            BlackList.setOnPreferenceClickListener(this);
 
+            findPreference("BlackList").setOnPreferenceClickListener(this);
 
-            listener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+            preferences.registerOnSharedPreferenceChangeListener(new SharedPreferences.OnSharedPreferenceChangeListener() {
                 public void onSharedPreferenceChanged(SharedPreferences prefs, String key) {
                     switch (key) {
                         case "notif_interval":
@@ -69,8 +71,7 @@ public class NotificationsSettingsFragment extends PreferenceFragment implements
                             break;
                     }
                 }
-            };
-            preferences.registerOnSharedPreferenceChangeListener(listener);
+            });
         }
     }
 
@@ -87,14 +88,11 @@ public class NotificationsSettingsFragment extends PreferenceFragment implements
             DBHelper.close();
             cursor.close();
         }
-        preferences.unregisterOnSharedPreferenceChangeListener(listener);
     }
 
     @Override
     public boolean onPreferenceClick(Preference preference) {
-        String key = preference.getKey();
-
-        switch (key) {
+        switch (preference.getKey()) {
             case "BlackList":
                 AlertDialog.Builder BlacklistDialog = new AlertDialog.Builder(getActivity());
                 LayoutInflater inflater = LayoutInflater.from(getActivity());

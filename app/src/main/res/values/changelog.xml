@@ -2,6 +2,13 @@
 <resources>
     <string name="changelog_list" translatable="false">
 <![CDATA[
+<b>**Version 3.8.0:**</b>
+<br>
+- Bugfixes.
+<br>
+- Text scale selector.
+<br>
+<br>
 <b>**Version 3.7.8:**</b>
 <br>
 - Bugfixes.

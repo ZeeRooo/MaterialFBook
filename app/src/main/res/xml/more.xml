@@ -2,11 +2,11 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="@string/about_updates">
         <PreferenceScreen
-            android:summary="@string/updates_summary"
+            android:key="mfb_version"
             android:title="@string/updates">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/ZeeRooo/MaterialFBook/tree/master/apks"/>
+                android:data="https://github.com/ZeeRooo/MaterialFBook/releases"/>
         </PreferenceScreen>
         <Preference
             android:key="changelog"

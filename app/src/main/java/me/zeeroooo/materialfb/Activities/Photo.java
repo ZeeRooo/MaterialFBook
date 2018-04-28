@@ -261,10 +261,9 @@ public class Photo extends AppCompatActivity implements View.OnTouchListener {
                         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(imageUrl));
 
                         // Set the download directory
-                        File downloads_dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+                        File downloads_dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES + "/MaterialFBook");
                         if (!downloads_dir.exists())
-                            if (!downloads_dir.mkdirs())
-                                return;
+                            downloads_dir.mkdir();
                         File destinationFile = new File(downloads_dir, Uri.parse(imageUrl).getLastPathSegment());
                         request.setDestinationUri(Uri.fromFile(destinationFile));
 

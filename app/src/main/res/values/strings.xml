@@ -84,13 +84,20 @@
         <item>Turkish [tr]</item>
         <item>Vietnamese [vi]</item>
     </string-array>
+
+    <string-array name="scalesText">
+        <item>Default</item>
+        <item>Medium</item>
+        <item>Large</item>
+        <item>Extra large</item>
+    </string-array>
     <!-- End general -->
 
     <!-- About -->
     <string name="more">More and credits</string>
     <string name="about_updates">Updates</string>
     <string name="updates">Check for a new version</string>
-    <string name="updates_summary">Load the page and download the latest version</string>
+    <string name="updates_summary">Current version: %s</string>
     <string name="people_who_translated">Users who translated the app</string>
     <string name="devs_who_helped_me">Developers who helped me answering my questions and taking code from their apps</string>
     <string name="help_translations">Help me to translate the app to your language</string>

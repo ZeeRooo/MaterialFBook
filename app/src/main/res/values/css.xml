@@ -90,6 +90,9 @@
             border-radius: 50%;
             border: 0px;
         }
+        ._2a_i._2a_i a {
+            color: white !important;
+        }
         body, .touch ._3bg5.mSearchOverlay .mSearchTypeahead .mTypeahead .jx-typeahead-results, .touch ._3bg5 .mSideSearch, .jewel .flyout, article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2, .touch ._52t1 {
             background: black !important;
         }

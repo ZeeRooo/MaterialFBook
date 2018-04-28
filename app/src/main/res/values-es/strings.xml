@@ -84,6 +84,13 @@
         <item>Turco [tr]</item>
         <item>Vietnamita [vi]</item>
     </string-array>
+
+    <string-array name="scalesText">
+        <item>Normal</item>
+        <item>Media</item>
+        <item>Grande</item>
+        <item>Extra grande</item>
+    </string-array>
     <!-- End general -->
 
     <!-- Appearence -->
@@ -151,7 +158,7 @@
     <string name="more">Créditos y más</string>
     <string name="about_updates">Actualizaciones</string>
     <string name="updates">Verificar si hay una nueva versión disposible</string>
-    <string name="updates_summary">Carga la página y descarga la última versión</string>
+    <string name="updates_summary">Versión actual: %s</string>
     <string name="people_who_translated">Usuarios que tradujeron la app</string>
     <string name="devs_who_helped_me">Desarrolladores que me ayudaron respondiendo dudas y usando su código</string>
     <string name="help_translations">Ayudame a traducir la app a tu lenguaje</string>

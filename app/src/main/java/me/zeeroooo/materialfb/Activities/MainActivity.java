@@ -94,7 +94,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Uri mCapturedImageURI = null, sharedFromGallery;
     private ValueCallback<Uri> mUploadMessage;
     private int FILECHOOSER_RESULTCODE = 2888, INPUT_FILE_REQUEST_CODE = 1;
-    private String baseURL, mCameraPhotoPath, Url, css, urlIntent = null, previousPage;
+    private String baseURL, mCameraPhotoPath, Url, css, urlIntent = null;
     private SwipeRefreshLayout swipeView;
     private NavigationView mNavigationView;
     private FloatingActionMenu mMenuFAB;
@@ -114,8 +114,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Handler badgeUpdate;
     private Runnable badgeTask;
     private TextView mr_badge, fr_badge, notif_badge, msg_badge;
-    private boolean photoView = false;
+    private boolean showAnimation;
     private Cursor cursor;
+    private View circleRevealView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -158,10 +159,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         DBHelper = new DatabaseHelper(this);
         bookmarks = new ArrayList<>();
 
-        cursor = DBHelper.getListContents();
+        cursor = DBHelper.getReadableDatabase().rawQuery("SELECT TITLE, URL FROM mfb_table", null);
         while (cursor != null && cursor.moveToNext()) {
-            bk = new BookmarksH(cursor.getString(1), cursor.getString(2));
-            bookmarks.add(bk);
+            if (cursor.getString(0) != null && cursor.getString(1) != null) {
+                bk = new BookmarksH(cursor.getString(0), cursor.getString(1));
+                bookmarks.add(bk);
+            }
         }
 
         BLAdapter = new BookmarksAdapter(this, bookmarks, DBHelper);
@@ -282,6 +285,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         });
 
         mWebView.getSettings().setGeolocationEnabled(mPreferences.getBoolean("location_enabled", false));
+        mWebView.getSettings().setMinimumFontSize(Integer.parseInt(mPreferences.getString("textScale", "1")));
         mWebView.addJavascriptInterface(new JavaScriptInterfaces(this), "android");
         mWebView.addJavascriptInterface(this, "Vid");
         mWebView.getSettings().setBlockNetworkImage(mPreferences.getBoolean("stop_images", false));
@@ -511,9 +515,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     view.loadUrl("javascript:(function(){try{document.querySelector('button#u_0_1.btn.btnD.mfss.touchable').click()}catch(_){}})()");
                 }
 
-                // Hide Orange highlight on focus
-                css += "*{-webkit-tap-highlight-color:transparent;outline:0}";
-
                 if (mPreferences.getBoolean("hide_menu_bar", true))
                     css += "#page{top:-45px}";
                 // Hide the status editor on the News Feed if setting is enabled
@@ -526,7 +527,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 // Hide birthday content from News Feed
                 if (mPreferences.getBoolean("hide_birthdays", true))
-                    css += "article#u_1j_4{display:none}" + "article._55wm._5e4e._5fjt{display:none}";
+                    css += "article#u_1j_4{display:none}article._55wm._5e4e._5fjt{display:none}";
 
                 if (mPreferences.getBoolean("comments_recently", true))
                     css += "._15ks+._4u3j{display:none}";
@@ -534,10 +535,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (sharedFromGallery != null)
                     view.loadUrl("javascript:(function(){try{document.getElementsByClassName(\"_56bz _54k8 _52jh _5j35 _157e\")[0].click()}catch(_){document.getElementsByClassName(\"_50ux\")[0].click()}})()");
 
-                css += "article#u_0_q._d2r{display:none}";
+                css += "article#u_0_q._d2r{display:none}*{-webkit-tap-highlight-color:transparent;outline:0}";
             }
         });
+
         mWebView.setWebChromeClient(new WebChromeClient() {
+
+            @Override
+            public void onProgressChanged(WebView view, int progress) {
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP && showAnimation && progress == 100) {
+                    circleReveal();
+                    showAnimation = false;
+                }
+            }
 
             @Override
             public boolean onShowFileChooser(WebView webView, ValueCallback<Uri[]> filePathCallback, WebChromeClient.FileChooserParams fileChooserParams) {
@@ -603,9 +613,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     mUploadMessage = uploadMsg;
 
                 File imageStorageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
-                if (!imageStorageDir.exists()) {
+                if (!imageStorageDir.exists())
                     imageStorageDir.mkdirs();
-                }
+
                 // Create camera captured image file path and name
                 File file = new File(imageStorageDir + File.separator + "IMG_" + String.valueOf(System.currentTimeMillis()) + ".jpg");
 
@@ -739,11 +749,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             badgeTask.run();
             new UserInfo(MainActivity.this).execute();
         }
-
-        if (photoView) {
-            // mWebView.loadUrl(previousPage);
-            photoView = false;
-        }
     }
 
     @Override
@@ -822,11 +827,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @SuppressWarnings("NewApi")
-    private void circleReveal(View view) {
+    private void circleReveal() {
         int radius = (int) Math.hypot(mWebView.getWidth(), mWebView.getHeight());
         int x, y;
-        if (view != null) {
-            Point point = getPointOfView(view);
+        if (circleRevealView != null) {
+            Point point = getPointOfView(circleRevealView);
             x = point.x;
             y = point.y;
         } else {
@@ -836,6 +841,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Animator anim = ViewAnimationUtils.createCircularReveal(mWebView, x, y, 0, radius);
         anim.setDuration(300);
         anim.start();
+        mWebView.setVisibility(View.VISIBLE);
     }
 
     @Override
@@ -888,8 +894,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         notif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-                    circleReveal(v);
+                mWebView.setVisibility(View.INVISIBLE);
+                showAnimation = true;
+                circleRevealView = v;
+
                 mWebView.stopLoading();
                 mWebView.loadUrl(baseURL + "notifications.php");
                 setTitle(R.string.nav_notifications);
@@ -903,11 +911,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         msg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-                    circleReveal(v);
+                mWebView.setVisibility(View.INVISIBLE);
+                showAnimation = true;
+                circleRevealView = v;
+
                 mWebView.stopLoading();
                 mWebView.loadUrl(baseURL + "messages/");
-                //mWebView.loadUrl("javascript:(function(){try{document.querySelector('#messages_jewel > a').click()}catch(_){window.location.href='https://m.facebook.com/home.php'}})()");
                 setTitle(R.string.menu_messages);
                 NotificationsJIS.ClearbyId(MainActivity.this, 969);
                 Helpers.uncheckRadioMenu(mNavigationView.getMenu());
@@ -919,23 +928,30 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         URLs();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
-            circleReveal(null);
+
+        showAnimation = true;
+        circleRevealView = null;
         mWebView.stopLoading();
         // Handle navigation view item clicks here.
         switch (item.getItemId()) {
             case R.id.nav_top_stories:
+                mWebView.setVisibility(View.INVISIBLE);
+
                 mWebView.loadUrl(baseURL + "home.php?sk=h_nor");
                 setTitle(R.string.menu_top_stories);
                 item.setChecked(true);
                 break;
             case R.id.nav_most_recent:
+                mWebView.setVisibility(View.INVISIBLE);
+
                 mWebView.loadUrl(baseURL + "home.php?sk=h_chr'");
                 setTitle(R.string.menu_most_recent);
                 item.setChecked(true);
                 Helpers.uncheckRadioMenu(mNavigationView.getMenu());
                 break;
             case R.id.nav_friendreq:
+                mWebView.setVisibility(View.INVISIBLE);
+
                 mWebView.loadUrl(baseURL + "friends/center/requests/");
                 setTitle(R.string.menu_friendreq);
                 item.setChecked(true);
@@ -952,11 +968,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 searchItem.expandActionView();
                 break;
             case R.id.nav_groups:
+                mWebView.setVisibility(View.INVISIBLE);
+
                 mWebView.loadUrl(baseURL + "groups/?category=membership");
                 css += "._129- {position:initial}";
                 item.setChecked(true);
                 break;
             case R.id.nav_mainmenu:
+                mWebView.setVisibility(View.INVISIBLE);
+
                 if (!mPreferences.getBoolean("save_data", false))
                     mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23bookmarks_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + "https%3A%2F%2Fm.facebook.com%2F" + "home.php'%7D%7D)()");
                 else
@@ -965,11 +985,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 item.setChecked(true);
                 break;
             case R.id.nav_events:
-                mWebView.loadUrl(baseURL + "events/upcoming");
+                mWebView.setVisibility(View.INVISIBLE);
+
+                mWebView.loadUrl(baseURL + "events/");
                 css += "#page{top:0}";
                 item.setChecked(true);
                 break;
             case R.id.nav_photos:
+                mWebView.setVisibility(View.INVISIBLE);
+
                 mWebView.loadUrl(baseURL + "photos/");
                 break;
             case R.id.nav_settings:

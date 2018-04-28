@@ -311,6 +311,10 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 **Version 3.7.8:**
 - Bugfixes.
 
+**Version 3.8.0:**
+- Bugfixes.
+- Text scale selector.
+
 
 **Notes:**
 _- Maybe some gifs cant be loaded because i need to add the url to the code. Report it as issue with the Facebook´s page link or website._

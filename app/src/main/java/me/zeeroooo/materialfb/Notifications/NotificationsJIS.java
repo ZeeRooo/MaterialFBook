@@ -60,18 +60,24 @@ public class NotificationsJIS extends JobIntentService {
 
     @Override
     protected void onHandleWork(@NonNull Intent intent) {
+        db = new DatabaseHelper(this);
         Log.i("JobIntentService_MFB", "Started");
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         URLs();
         blist = new ArrayList<>();
-        db = new DatabaseHelper(this);
-        cursor = db.getListContents();
-        while (cursor != null && cursor.moveToNext())
-            blist.add(cursor.getString(3));
-        if (mPreferences.getBoolean("facebook_messages", false))
-            SyncMessages();
-        if (mPreferences.getBoolean("facebook_notifications", false))
-            SyncNotifications();
+
+        try {
+            cursor = db.getReadableDatabase().rawQuery("SELECT BL FROM mfb_table", null);
+            while (cursor != null && cursor.moveToNext())
+                if (cursor.getString(0) != null)
+                    blist.add(cursor.getString(0));
+            if (mPreferences.getBoolean("facebook_messages", false))
+                SyncMessages();
+            if (mPreferences.getBoolean("facebook_notifications", false))
+                SyncNotifications();
+        } catch (Exception e) {
+            e.getStackTrace();
+        }
     }
 
     private void URLs() {
@@ -100,42 +106,37 @@ public class NotificationsJIS extends JobIntentService {
     }
 
     // Sync the notifications
-    void SyncNotifications() {
+    void SyncNotifications() throws Exception {
         Log.i("JobIntentService_MFB", "Trying: " + "https://m.facebook.com/notifications.php");
+        Document doc = Jsoup.connect("https://m.facebook.com/notifications.php").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).timeout(300000).get();
+        Element notifications = doc.selectFirst("div.aclb > div.touchable-notification > a.touchable");
 
-        try {
-            Document doc = Jsoup.connect("https://m.facebook.com/notifications.php").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).timeout(300000).get();
-            Element notifications = doc.selectFirst("div.aclb > div.touchable-notification > a.touchable");
-
-            final String time = notifications.select("span.mfss.fcg").text();
-            final String content = notifications.select("div.c").text().replace(time, "");
-            if (!blist.isEmpty())
-                for (int listCount = 0; listCount < blist.size(); listCount++) {
-                    if (content.contains(blist.get(listCount)))
-                        notif_notAWhiteList = true;
-                }
-            if (!notif_notAWhiteList) {
-                final String text = content.replace(time, "");
-                pictureNotif = notifications.select("i.img.l.profpic").attr("style");
-
-                if (pictureNotif != null)
-                    picNotif = pictureNotif.split("('*')");
-
-                if (!mPreferences.getString("last_notification_text", "").contains(text))
-                    notifier(content, getString(R.string.app_name), baseURL + "/notifications.php", picNotif[1], 12);
-
-                mPreferences.edit().putString("last_notification_text", text).apply();
+        final String time = notifications.select("span.mfss.fcg").text();
+        final String content = notifications.select("div.c").text().replace(time, "");
+        if (!blist.isEmpty())
+            for (int listCount = 0; listCount < blist.size(); listCount++) {
+                if (content.contains(blist.get(listCount)))
+                    notif_notAWhiteList = true;
             }
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        if (!notif_notAWhiteList) {
+            final String text = content.replace(time, "");
+            pictureNotif = notifications.select("i.img.l.profpic").attr("style");
+
+            if (pictureNotif != null)
+                picNotif = pictureNotif.split("('*')");
+
+            if (!mPreferences.getString("last_notification_text", "").contains(text))
+                notifier(content, getString(R.string.app_name), baseURL + "/notifications.php", picNotif[1], 12);
+
+            mPreferences.edit().putString("last_notification_text", text).apply();
         }
     }
 
-    void SyncMessages() {
+    void SyncMessages() throws Exception {
         Log.i("JobIntentService_MFB", "Trying: " + "https://m.facebook.com/messages?soft=messages");
-        try {
-            Document doc = Jsoup.connect("https://m.facebook.com/messages?soft=messages").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).timeout(300000).get();
-            Element result = doc.getElementsByClass("item messages-flyout-item aclb abt").select("a.touchable.primary").first();
+        Document doc = Jsoup.connect("https://m.facebook.com/messages?soft=messages").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).timeout(300000).get();
+        Element result = doc.getElementsByClass("item messages-flyout-item aclb abt").select("a.touchable.primary").first();
+        if (result != null) {
             final String content = result.select("div.oneLine.preview.mfss.fcg").text();
             if (!blist.isEmpty())
                 for (String s : blist) {
@@ -185,8 +186,6 @@ public class NotificationsJIS extends JobIntentService {
                 // save as shown (or ignored) to avoid showing it again
                 mPreferences.edit().putString("last_message", text).apply();
             }
-        } catch (Exception ex) {
-            ex.printStackTrace();
         }
     }
 

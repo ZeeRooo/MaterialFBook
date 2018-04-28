@@ -196,12 +196,9 @@ public class Video extends AppCompatActivity {
                     DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
 
                     // Set the download directory
-                    File downloads_dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES);
-                    if (!downloads_dir.exists()) {
-                        if (!downloads_dir.mkdirs()) {
-                            return;
-                        }
-                    }
+                    File downloads_dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_MOVIES + "/MaterialFBook");
+                    if (!downloads_dir.exists())
+                        downloads_dir.mkdir();
                     File destinationFile = new File(downloads_dir, Uri.parse(url).getLastPathSegment());
                     request.setDestinationUri(Uri.fromFile(destinationFile));
 
@@ -213,9 +210,8 @@ public class Video extends AppCompatActivity {
                     mDownloadManager.enqueue(request);
 
                     CookingAToast.cooking(this, getString(R.string.downloaded), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_download, false).show();
-                } else {
+                } else
                     CookingAToast.cooking(this, getString(R.string.permission_denied), Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
-                }
             }
         }
     }

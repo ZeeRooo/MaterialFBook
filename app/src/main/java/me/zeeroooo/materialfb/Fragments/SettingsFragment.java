@@ -18,6 +18,7 @@ import android.support.v4.app.ActivityCompat;
 import java.util.Locale;
 
 import me.zeeroooo.materialfb.Activities.More;
+import me.zeeroooo.materialfb.BuildConfig;
 import me.zeeroooo.materialfb.Notifications.Scheduler;
 import me.zeeroooo.materialfb.Ui.CookingAToast;
 import me.zeeroooo.materialfb.R;
@@ -57,8 +58,7 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
 
     @Override
     public boolean onPreferenceClick(Preference preference) {
-        String key = preference.getKey();
-        switch (key) {
+        switch (preference.getKey()) {
             case "notifications_settings":
                 getFragmentManager().beginTransaction()
                         .addToBackStack(null).replace(R.id.content_frame,

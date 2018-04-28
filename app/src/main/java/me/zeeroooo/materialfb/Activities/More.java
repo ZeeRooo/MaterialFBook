@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Html;
 
+import me.zeeroooo.materialfb.BuildConfig;
 import me.zeeroooo.materialfb.Ui.Theme;
 import me.zeeroooo.materialfb.R;
 
@@ -31,14 +32,13 @@ public class More extends AppCompatActivity {
         public void onCreate(final Bundle Instance) {
             super.onCreate(Instance);
             addPreferencesFromResource(R.xml.more);
-            Preference changelog = findPreference("changelog");
-            changelog.setOnPreferenceClickListener(this);
+            findPreference("changelog").setOnPreferenceClickListener(this);
+            findPreference("mfb_version").setSummary(getString(R.string.updates_summary, BuildConfig.VERSION_NAME));
         }
 
         @Override
         public boolean onPreferenceClick(Preference preference) {
-            String key = preference.getKey();
-            switch (key) {
+            switch (preference.getKey()) {
                 case "changelog":
                     AlertDialog.Builder changelog = new AlertDialog.Builder(getActivity());
                     changelog.setTitle(getResources().getString(R.string.changelog));

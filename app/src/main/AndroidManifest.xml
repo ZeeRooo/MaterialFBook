@@ -124,8 +124,8 @@
             android:launchMode="singleTask" />
         <activity
             android:name=".Activities.Video"
+            android:configChanges="orientation|screenSize"
             android:launchMode="singleTask"
-            android:screenOrientation="sensorLandscape"
             android:theme="@style/Media" />
 
     </application>

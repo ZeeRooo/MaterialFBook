@@ -5,7 +5,6 @@ import me.zeeroooo.materialfb.Activities.MainActivity;
 import android.os.AsyncTask;
 
 import org.jsoup.nodes.Element;
-import org.jsoup.nodes.Document;
 import org.jsoup.Jsoup;
 
 import me.zeeroooo.materialfb.R;
@@ -30,8 +29,7 @@ public class UserInfo extends AsyncTask<Void, Void, String> {
     @Override
     protected String doInBackground(Void[] params) {
         try {
-            Document doc = Jsoup.connect("https://www.facebook.com/me").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).timeout(300000).get();
-            Element e = doc.body();
+            Element e = Jsoup.connect("https://www.facebook.com/me").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).timeout(300000).get().body();
             if (name == null)
                 name = e.select("input[name=q]").attr("value");
             if (cover == null) {
