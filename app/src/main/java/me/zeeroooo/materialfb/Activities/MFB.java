@@ -9,7 +9,7 @@ import org.acra.annotation.ReportsCrashes;
  * Created by ZeeRooo on 15/04/18
  */
 
-@ReportsCrashes(mailTo = "chavesjuan400@gmail.com")
+@ReportsCrashes(mailTo = "putYourOwnEmail...")
 public class MFB extends Application {
     @Override
     public void onCreate(){
