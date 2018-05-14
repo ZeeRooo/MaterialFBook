@@ -79,34 +79,23 @@
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/people_who_translated">
-        <PreferenceScreen
-            android:summary="GorranKurd"
-            android:title="Kurdish">
+<PreferenceScreen
+            android:summary="akkk33"
+            android:title="Arabic">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="http://forum.xda-developers.com/member.php?u=4604711"/>
+                android:data="https://github.com/akkk33"/>
         </PreferenceScreen>
         <PreferenceScreen
-            android:summary="Me, ZeeRooo"
-            android:title="Spanish">
+            android:summary="mhtorp"
+            android:title="Danish">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="http://forum.xda-developers.com/member.php?u=7490500"/>
+                android:data="https://github.com/mhtorp" />
         </PreferenceScreen>
 		<PreferenceScreen
             android:summary="Sebacestmoi"
             android:title="French">
-        </PreferenceScreen>
-        <PreferenceScreen
-            android:summary="alekksander"
-            android:title="Polish">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://github.com/alekksander"/>
-        </PreferenceScreen>
-        <PreferenceScreen
-            android:summary="maxel85"
-            android:title="Russian">
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="fabsmusicjunkie"
@@ -116,25 +105,11 @@
                 android:data="https://github.com/fabsmusicjunkie"/>
         </PreferenceScreen>	
         <PreferenceScreen
-            android:summary="nishimura-san"
-            android:title="Romanian">
+            android:summary="yarons"
+            android:title="Hebrew">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="http://forum.xda-developers.com/member.php?u=4995498"/>
-        </PreferenceScreen>
-        <PreferenceScreen
-            android:summary="ngoisaosang"
-            android:title="Vietnamese">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://github.com/ngoisaosang"/>
-        </PreferenceScreen>
-        <PreferenceScreen
-            android:summary="abacate123"
-            android:title="Portuguese">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://github.com/abacate123"/>
+                android:data="https://github.com/yarons"/>
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="István Vass"
@@ -144,6 +119,45 @@
                 android:data="http://forum.xda-developers.com/member.php?u=2946536"/>
         </PreferenceScreen>
         <PreferenceScreen
+            android:summary="Aditya Prasetyo"
+            android:title="Indonesian">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://forum.xda-developers.com/member.php?u=4563814" />
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="GorranKurd"
+            android:title="Kurdish">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://forum.xda-developers.com/member.php?u=4604711"/>
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="alekksander"
+            android:title="Polish">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/alekksander"/>
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="abacate123"
+            android:title="Portuguese">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/abacate123"/>
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="nishimura-san"
+            android:title="Romanian">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="http://forum.xda-developers.com/member.php?u=4995498"/>
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:summary="maxel85"
+            android:title="Russian">
+        </PreferenceScreen>
+        <PreferenceScreen
             android:summary="PoP992"
             android:title="Serbian">
             <intent
@@ -151,36 +165,22 @@
                 android:data="https://github.com/PoP992"/>
         </PreferenceScreen>
         <PreferenceScreen
-            android:summary="yarons"
-            android:title="Hebrew">
+            android:summary="Me, ZeeRooo"
+            android:title="Spanish">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/yarons"/>
-        </PreferenceScreen>
-		<PreferenceScreen
-            android:summary="akkk33"
-            android:title="Arabic">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://github.com/akkk33"/>
+                android:data="http://forum.xda-developers.com/member.php?u=7490500"/>
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="Baran Aydin"
             android:title="Turkish">
         </PreferenceScreen>
         <PreferenceScreen
-            android:summary="mhtorp"
-            android:title="Danish">
+            android:summary="ngoisaosang"
+            android:title="Vietnamese">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/mhtorp" />
-        </PreferenceScreen>
-        <PreferenceScreen
-            android:summary="Aditya Prasetyo"
-            android:title="Indonesian">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://forum.xda-developers.com/member.php?u=4563814" />
+                android:data="https://github.com/ngoisaosang"/>
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/about_translations">
