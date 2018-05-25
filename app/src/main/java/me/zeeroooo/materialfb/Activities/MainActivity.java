@@ -1083,12 +1083,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         String more_new_url;
         if(newUrl != null && newUrl.contains("www.facebook.com")) {
             more_new_url = newUrl.replace("www.facebook.com", "m.facebook.com");
-            webView.loadUrl(more_new_url);
+            mWebView.loadUrl(more_new_url);
         } else if(newUrl != null &&  newUrl.contains("web.facebook.com")) {
             more_new_url = newUrl.replace("web.facebook.com", "m.facebook.com");
-            webView.loadUrl(more_new_url);
+            mWebView.loadUrl(more_new_url);
         } else {
-            webView.loadUrl(urlIntent);
+            mWebView.loadUrl(urlIntent);
         }
     }
 
