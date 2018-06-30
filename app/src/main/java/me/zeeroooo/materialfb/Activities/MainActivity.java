@@ -117,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private boolean showAnimation;
     private Cursor cursor;
     private View circleRevealView;
+    private boolean isPhoto, isCheckin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -235,15 +236,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View v) {
                 switch (v.getId()) {
                     case R.id.textFAB:
-                        mWebView.loadUrl("javascript:(function(){try{document.querySelector('button[name=\"view_overview\"]').click()}catch(_){window.location.href=\"" + baseURL + "?pageload=composer\"}})()");
+                        isPhoto = false;
+                        isCheckin = false;
+                        mWebView.loadUrl("javascript:document.querySelector('._4g34._6ber._5i2i._52we').click();");
                         swipeView.setEnabled(false);
                         break;
                     case R.id.photoFAB:
-                        mWebView.loadUrl("javascript:(function(){try{document.querySelector('button[name=\"view_photo\"]').click()}catch(_){window.location.href=\"" + baseURL + "?pageload=composer_photo\"}})()");
+                        isPhoto = true;
+                        isCheckin = false;
+                        mWebView.loadUrl("javascript:document.querySelector('._4g34._6ber._5i2i._52we').click();");
                         swipeView.setEnabled(false);
                         break;
                     case R.id.checkinFAB:
-                        mWebView.loadUrl("javascript:(function(){try{document.querySelector('button[name=\"view_location\"]').click()}catch(_){window.location.href=\"" + baseURL + "?pageload=composer_checkin\"}})()");
+                        isPhoto = false;
+                        isCheckin = true;
+                        mWebView.loadUrl("javascript:document.querySelector('._4g34._6ber._5i2i._52we').click();");
                         swipeView.setEnabled(false);
                         break;
                     case R.id.topFAB:
@@ -423,7 +430,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
 
             @Override
-            public void onLoadResource(WebView view, String url) {
+            public void onLoadResource(final WebView view, String url) {
                 JavaScriptHelpers.videoView(view);
                 if (swipeView.isRefreshing())
                     JavaScriptHelpers.loadCSS(view, css);
@@ -435,10 +442,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 if (url.contains("/photo/view_full_size/?fbid="))
                     imageLoader(url.split("&ref_component")[0], view);
+
+                if(isPhoto) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            view.loadUrl("javascript:document.querySelector('button._50o7.touchable._21db').click();");
+                        }
+                    }, 300);
+                }
+
+                if(isCheckin) {
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            view.loadUrl("javascript:document.querySelector('[data-sigil*=\"touchable hidden-button at-button\"]').click();");
+                        }
+                    }, 300);
+                }
             }
 
             @Override
-            public void onPageFinished(WebView view, String url) {
+            public void onPageFinished(final WebView view, String url) {
                 swipeView.setRefreshing(false);
 
                 switch (mPreferences.getString("web_themes", "Material")) {
@@ -519,7 +544,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     css += "#page{top:-45px}";
                 // Hide the status editor on the News Feed if setting is enabled
                 if (mPreferences.getBoolean("hide_editor_newsfeed", true))
-                    css += "#mbasic_inline_feed_composer{display:none}";
+                    css += "._6beq{display:none}";
 
                 // Hide 'Sponsored' content (ads)
                 if (mPreferences.getBoolean("hide_sponsored", true))
@@ -532,8 +557,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (mPreferences.getBoolean("comments_recently", true))
                     css += "._15ks+._4u3j{display:none}";
 
-                if (sharedFromGallery != null)
-                    view.loadUrl("javascript:(function(){try{document.getElementsByClassName(\"_56bz _54k8 _52jh _5j35 _157e\")[0].click()}catch(_){document.getElementsByClassName(\"_50ux\")[0].click()}})()");
+                if (sharedFromGallery != null) {
+                    view.loadUrl("javascript:document.querySelector('._4g34._6ber._5i2i._52we').click();");
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            view.loadUrl("javascript:document.querySelector('button._50o7.touchable._21db').click();");
+                        }
+                    }, 1500);
+                }
 
                 css += "article#u_0_q._d2r{display:none}*{-webkit-tap-highlight-color:transparent;outline:0}";
             }
@@ -680,7 +712,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void imageLoader(String url, WebView view) {
         startActivity(new Intent(this, Photo.class).putExtra("link", url).putExtra("title", view.getTitle()));
         view.stopLoading();
-        view.goBack();
     }
 
     public void RequestStoragePermission() {
@@ -757,6 +788,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mWebView.onPause();
         if (badgeTask != null && badgeUpdate != null)
             badgeUpdate.removeCallbacks(badgeTask);
+        isPhoto = false;
+        isCheckin = false;
     }
 
     @Override
@@ -846,6 +879,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public void onBackPressed() {
+        isPhoto = false;
+        isCheckin = false;
         if (drawer.isDrawerOpen(GravityCompat.START))
             drawer.closeDrawers();
         if (searchToolbar.hasExpandedActionView())
@@ -1078,7 +1113,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mWebView.loadUrl("https://m.facebook.com");
             }
         }
-        
+
         String newUrl = urlIntent;
         String more_new_url;
         if(newUrl != null && newUrl.contains("www.facebook.com")) {
