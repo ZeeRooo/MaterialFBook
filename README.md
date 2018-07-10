@@ -339,4 +339,4 @@ _- Maybe some gifs cant be loaded because i need to add the url to the code. Rep
 
 
 ## Screens:
-<center> <img src="http://i.imgur.com/thUumVk.png"> <img src="http://i.imgur.com/Lv12hwg.png"> <img src="http://i.imgur.com/OZYVtbA.png"> <img src="http://i.imgur.com/wEngW4M.png"> <img src="http://i.imgur.com/o2phVsQ.png"> <img src="http://i.imgur.com/4SvUcBL.png"> <img src="http://i.imgur.com/hp0aNj5.png"> </center>
+ <img src="http://i.imgur.com/thUumVk.png" width="30%"> <img src="http://i.imgur.com/Lv12hwg.png" width="30%"> <img src="http://i.imgur.com/OZYVtbA.png" width="30%"> <img src="http://i.imgur.com/wEngW4M.png" width="30%"> <img src="http://i.imgur.com/o2phVsQ.png" width="30%"> <img src="http://i.imgur.com/4SvUcBL.png" width="30%"> <img src="http://i.imgur.com/hp0aNj5.png" width="30%"> 
