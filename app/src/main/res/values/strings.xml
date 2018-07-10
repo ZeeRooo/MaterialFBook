@@ -142,6 +142,7 @@
     <string name="menu_top_stories">Top stories</string>
     <string name="menu_top_stories_summary">Show &#8216;Top stories&#8217; button on navigation drawer.</string>
     <string name="menu_most_recent">Most Recent</string>
+    <string name="menu_most_recent_summary">Show &#8216;Most Recent&#8217; button on navigation drawer.</string>
     <string name="menu_friendreq">Friend Requests</string>
     <string name="menu_friendreq_summary">Show &#8216;Friend Requests&#8217; button on navigation drawer.</string>
     <string name="menu_groups">Groups</string>
