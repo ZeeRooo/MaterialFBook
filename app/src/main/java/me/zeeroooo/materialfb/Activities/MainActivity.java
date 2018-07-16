@@ -520,6 +520,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 // Hide the status editor on the News Feed if setting is enabled
                 if (mPreferences.getBoolean("hide_editor_newsfeed", true))
                     css += "#mbasic_inline_feed_composer{display:none}";
+                    css += "div#MComposer{display: none;}";
 
                 // Hide 'Sponsored' content (ads)
                 if (mPreferences.getBoolean("hide_sponsored", true))
