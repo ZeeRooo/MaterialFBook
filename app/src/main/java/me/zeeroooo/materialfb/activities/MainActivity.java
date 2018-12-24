@@ -1001,12 +1001,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(new Intent(this, SettingsActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 return true;
             case R.id.nav_exitapp:
-                WorkManager.getInstance().enqueue(new OneTimeWorkRequest.Builder(NotificationsService.class)
-                        .setConstraints(new Constraints.Builder()
-                                .setRequiredNetworkType(NetworkType.CONNECTED)
-                                .build())
-                        .build());
-                //finishAffinity();
+                finishAffinity();
                 return true;
             default:
                 return true;
