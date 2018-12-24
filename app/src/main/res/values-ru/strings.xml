@@ -96,8 +96,6 @@
     <string name="menu_photos_summary">Показать кнопку &#8216;фото&#8217; в меню навигации.</string>
     <string name="menu_events">События</string>
     <string name="menu_events_summary">Показать кнопку &#8216;события&#8217; в меню навигации.</string>
-    <string name="menu_back">Назад</string>
-    <string name="menu_back_summary">Показать кнопку &#8216;назад&#8217; в меню навигации.</string>
     <string name="menu_top_stories">Популярное</string>
     <string name="menu_top_stories_summary">Показать кнопку &#8216;популярное&#8217; в меню навигации.</string>
     <string name="menu_most_recent">Последнее</string>

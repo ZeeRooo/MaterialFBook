@@ -96,8 +96,6 @@
     <string name="menu_photos_summary">Engedélyezve a &#8220;Fotók&#8221; gomb eltűnik a navigációs menüből.</string>
     <string name="menu_events">Események</string>
     <string name="menu_events_summary">Engedélyezve a &#8220;Események&#8221; gomb eltűnik a navigációs menüből.</string>
-    <string name="menu_back">Vissza</string>
-    <string name="menu_back_summary">Ha kikapcsolod a &#8220;Vissza&#8221; gomb eltűnik a navigációs menüből.</string>
     <string name="menu_top_stories">Legjobb hírek</string>
     <string name="menu_top_stories_summary">Ha kikapcsolod a &#8220;Legjobb hírek&#8221; gomb eltűnik a navigációs menüből.</string>
     <string name="menu_most_recent">Legfrissebbek</string>

@@ -96,8 +96,6 @@
     <string name="menu_photos_summary">Zobrazit &#8216;Fotky&#8217; tlačítko na navigační liště.</string>
     <string name="menu_events">Události</string>
     <string name="menu_events_summary">Zobrazit &#8216;Události&#8217; tlačítko na navigační liště.</string>
-    <string name="menu_back">Zpět</string>
-    <string name="menu_back_summary">Zobrazit &#8216;Zpět&#8217; tlačítko na navigační liště.</string>
     <string name="menu_top_stories">Nejlepší příběhy</string>
     <string name="menu_top_stories_summary">Zobrazit &#8216;Nejlepší příběhy&#8217; tlačítko na navigační liště.</string>
     <string name="menu_most_recent">Nejnovější</string>

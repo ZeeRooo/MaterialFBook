@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="Material" translatable="false">
-        .profpic, ._508n {
-            background: transparent;
-            border-radius: 50%;
-            border: 0px;
-        }
-        article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
+        article, aclb, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
             border-radius: 5px;
         }
@@ -86,10 +81,6 @@
         }
     </string>
     <string name="MaterialAmoled" translatable="false">
-        .profpic, ._508n {
-            border-radius: 50%;
-            border: 0px;
-        }
         ._2a_i._2a_i a, ._5rgs._5rgs a {
             color: white !important;
         }
@@ -177,11 +168,6 @@
         }
     </string>
     <string name="MaterialBlack" translatable="false">
-        .profpic, ._508n {
-            background: transparent;
-            border-radius: 50%;
-            border: 0px;
-        }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
             border-radius: 5px;
@@ -279,11 +265,6 @@
         }
     </string>
     <string name="MaterialPink" translatable="false">
-        .profpic, ._508n {
-            background: transparent;
-            border-radius: 50%;
-            border: 0px;
-        }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
             border-radius: 5px;
@@ -378,11 +359,6 @@
         }
     </string>
     <string name="MaterialGrey" translatable="false">
-        .profpic, ._508n {
-            background: transparent;
-            border-radius: 50%;
-            border: 0px;
-        }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
             border-radius: 5px;
@@ -477,11 +453,6 @@
         }
     </string>
     <string name="MaterialGreen" translatable="false">
-        .profpic, ._508n {
-            background: transparent;
-            border-radius: 50%;
-            border: 0px;
-        }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
             border-radius: 5px;
@@ -576,11 +547,6 @@
         }
     </string>
     <string name="MaterialRed" translatable="false">
-        .profpic, ._508n {
-            background: transparent;
-            border-radius: 50%;
-            border: 0px;
-        }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
             border-radius: 5px;
@@ -675,11 +641,6 @@
         }
     </string>
     <string name="MaterialLime" translatable="false">
-        .profpic, ._508n {
-            background: transparent;
-            border-radius: 50%;
-            border: 0px;
-        }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
             border-radius: 5px;
@@ -774,11 +735,6 @@
         }
     </string>
     <string name="MaterialYellow" translatable="false">
-        .profpic, ._508n {
-            background: transparent;
-            border-radius: 50%;
-            border: 0px;
-        }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
             border-radius: 5px;
@@ -873,11 +829,6 @@
         }
     </string>
     <string name="MaterialPurple" translatable="false">
-        .profpic, ._508n {
-            background: transparent;
-            border-radius: 50%;
-            border: 0px;
-        }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
             border-radius: 5px;
@@ -972,11 +923,6 @@
         }
     </string>
     <string name="MaterialLightBlue" translatable="false">
-        .profpic, ._508n {
-            background: transparent;
-            border-radius: 50%;
-            border: 0px;
-        }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
             border-radius: 5px;
@@ -1071,11 +1017,6 @@
         }
     </string>
     <string name="MaterialOrange" translatable="false">
-        .profpic, ._508n {
-            background: transparent;
-            border-radius: 50%;
-            border: 0px;
-        }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
             border-radius: 5px;
@@ -1170,11 +1111,6 @@
         }
     </string>
     <string name="MaterialGPG" translatable="false">
-        .profpic, ._508n {
-            background: transparent;
-            border-radius: 50%;
-            border: 0px;
-        }
         article, aside, figcaption, figure, footer, nav, section, ._7k7, ._55wo, ._2s20, ._55wo._2s20._2s21, ._10c_ ._2jl2 {
             margin: 7px 5px;
             border-radius: 5px;

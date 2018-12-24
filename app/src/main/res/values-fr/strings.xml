@@ -95,8 +95,6 @@
     <string name="menu_photos_summary">Masque le bouton &#8216;Photos&#8217; du menu de navigation</string>
     <string name="menu_events">Evènements</string>
     <string name="menu_events_summary">Masque le bouton &#8216;Evènements&#8217; du menu de navigation.</string>
-    <string name="menu_back">Retour</string>
-    <string name="menu_back_summary">Masque le bouton &#8216;Retour&#8217; du menu de navigation.</string>
     <string name="menu_top_stories">A la une</string>
     <string name="menu_top_stories_summary">Masque le bouton &#8216;A la une&#8217; du menu de navigation.</string>
     <string name="menu_most_recent">Le plus récent</string>

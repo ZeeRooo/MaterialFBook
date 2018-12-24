@@ -95,8 +95,6 @@
     <string name="menu_photos_summary">ئەگەر چالاک بێت دوگمەی \'وێنەکان\' دەشارێتەوە لە لیستی هەڵبژاردندا</string>
     <string name="menu_events">ڕووداوەکان</string>
     <string name="menu_events_summary">ئەگەر چالاک بێت دوگمەی \'ڕووداوەکان\' دەشارێتەوە لە لیستی هەڵبژاردندا</string>
-    <string name="menu_back">گەڕانەوە</string>
-    <string name="menu_back_summary">شاردنەوەی دوگمەی \'گەڕانەوە\' لەبەشی سەرەکیدا</string>
     <string name="menu_top_stories">باشترین بابەت</string>
     <string name="menu_top_stories_summary">ئەگەر ناچالاک بێت دوگمەی \'باشترین بابەت\' دەشارێتەوە لەلیستی سەرەکیدا</string>
     <string name="menu_most_recent">دوایین بابەت</string>

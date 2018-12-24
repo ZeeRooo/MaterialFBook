@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <CheckBoxPreference android:key="acra.disable"
-        android:title="Disable ACRA"
+    <CheckBoxPreference
+        android:defaultValue="false"
+        android:key="acra.disable"
         android:summary="Send crash reports via email (NO PERSONAL INFORMATION)"
-        android:defaultValue="false"/>
+        android:title="Disable ACRA" />
     <PreferenceCategory android:title="@string/navigation_setting_title">
         <ListPreference
             android:defaultValue="Most_recent"
@@ -49,18 +50,18 @@
             android:title="@string/hide_recently_commented" />
         <ListPreference
             android:defaultValue="en"
+            android:entries="@array/appLocalesNames"
+            android:entryValues="@array/appLocales"
             android:key="localeSwitcher"
             android:summary="@string/localSwitcherSummary"
-            android:title="@string/localSwitcherTitle"
-            android:entries="@array/appLocalesNames"
-            android:entryValues="@array/appLocales"/>
+            android:title="@string/localSwitcherTitle" />
         <ListPreference
             android:defaultValue="1"
+            android:entries="@array/scalesText"
+            android:entryValues="@array/scales"
             android:key="textScale"
             android:summary="%s"
-            android:title="@string/textScale"
-            android:entries="@array/scalesText"
-            android:entryValues="@array/scales"/>
+            android:title="@string/textScale" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/appearance_setting_title">
         <ListPreference

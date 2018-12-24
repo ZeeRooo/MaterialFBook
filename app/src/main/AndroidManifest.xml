@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="me.zeeroooo.materialfb"
     android:installLocation="auto">
 
@@ -14,34 +13,22 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
     <application
-        android:name=".Activities.MFB"
+        android:name=".MFB"
         android:allowBackup="true"
         android:fullBackupContent="true"
         android:hardwareAccelerated="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/MFB">
-        <receiver
-            android:name=".Notifications.Receiver"
-            android:enabled="false"
-            android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-
-        <service
-            android:name=".Notifications.NotificationsJS"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
-        <service
-            android:name=".Notifications.NotificationsJIS"
-            android:permission="android.permission.BIND_JOB_SERVICE" />
 
         <activity
-            android:name=".Activities.MainActivity"
-            android:configChanges="orientation|screenSize"
+            android:name=".activities.MainActivity"
+            android:configChanges="orientation|screenSize|screenLayout"
             android:launchMode="singleTask"
+            android:resizeableActivity="true"
+            android:theme="@style/Splash"
             android:windowSoftInputMode="adjustResize">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -102,30 +89,37 @@
                 <data android:scheme="fb" />
             </intent-filter>
         </activity>
+
         <activity
-            android:name=".Activities.Photo"
-            android:configChanges="screenSize|orientation"
+            android:name=".activities.PhotoActivity"
+            android:configChanges="orientation|screenSize|screenLayout"
             android:launchMode="singleTask"
+            android:resizeableActivity="true"
             android:theme="@style/Media" />
+
         <activity
-            android:name=".Activities.SettingsActivity"
-            android:configChanges="screenSize|orientation"
+            android:name=".activities.SettingsActivity"
+            android:configChanges="orientation|screenSize|screenLayout"
             android:label="@string/settings"
             android:launchMode="singleTask"
-            android:parentActivityName=".Activities.MainActivity"
-            android:theme="@style/MFB"
-            tools:ignore="UnusedAttribute">
+            android:parentActivityName=".activities.MainActivity"
+            android:resizeableActivity="true">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Activities.MainActivity" />
+                android:value=".activities.MainActivity" />
         </activity>
+
         <activity
-            android:name=".Activities.More"
-            android:launchMode="singleTask" />
-        <activity
-            android:name=".Activities.Video"
-            android:configChanges="orientation|screenSize"
+            android:name=".activities.MoreActivity"
+            android:configChanges="orientation|screenSize|screenLayout"
             android:launchMode="singleTask"
+            android:resizeableActivity="true" />
+
+        <activity
+            android:name=".activities.VideoActivity"
+            android:configChanges="orientation|screenSize|screenLayout"
+            android:launchMode="singleTask"
+            android:resizeableActivity="true"
             android:theme="@style/Media" />
 
     </application>

@@ -18,8 +18,6 @@
     <string name="blacklist_title">Bloqueo por palabra</string>
     <string name="new_black_word">Escriba una nueva palabra a bloquear</string>
     <string name="blacklist_summary">Lista de palabras para bloquear las notificaciones</string>
-    <string name="exact">Tiempo exacto</string>
-    <string name="exact_summary">Disminuye el delay de las notificaciones. Consume más bateria.</string>
 
     <string-array name="intervalPrefTitles">
         <item>1 minuto</item>
@@ -124,8 +122,6 @@
     <string name="menu_photos_summary">Muestra &#8216;Fotos&#8217; del menú de navegación.</string>
     <string name="menu_events">Eventos</string>
     <string name="menu_events_summary">Muestra &#8216;Eventos&#8217; del menú de navegación.</string>
-    <string name="menu_back">Atras</string>
-    <string name="menu_back_summary">Muestra &#8216;Atras&#8217; del menú de navegación.</string>
     <string name="menu_top_stories">Historias populares</string>
     <string name="menu_top_stories_summary">Muestra &#8216;Historias populares&#8217; del menú de navegación.</string>
     <string name="menu_most_recent">Más reciente</string>

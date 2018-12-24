@@ -96,8 +96,6 @@
     <string name="menu_photos_summary">Ipakita ang button na &#8216;Mga Imahe&#8217; sa nabigasyon ng drawer.</string>
     <string name="menu_events">Mga Events</string>
     <string name="menu_events_summary">Ipakita ang button na &#8216;Mga Events&#8217; sa nabigasyon ng drawer.</string>
-    <string name="menu_back">Bumalik</string>
-    <string name="menu_back_summary">Ipakita ang button na &#8216;Bumalik&#8217; sa nabigasyon ng drawer.</string>
     <string name="menu_top_stories">Nangungunang istorya</string>
     <string name="menu_top_stories_summary">Ipakita ang button na &#8216;Nangungunang Istorya&#8217; sa nabigasyon ng drawer.</string>
     <string name="menu_most_recent">Pinakabago</string>

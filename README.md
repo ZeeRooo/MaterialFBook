@@ -319,6 +319,12 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Amoled theme fixes.
 - Updated Spanish translation.
 
+**Version 3.8.5:**
+- Bugfixes.
+- Notifications improvements.
+- Enabled resizable activities for Oreo+.
+- Added support for API 29 (Pie).
+
 **Notes:**
 _- Maybe some gifs cant be loaded because i need to add the url to the code. Report it as issue with the Facebook´s page link or website._
 

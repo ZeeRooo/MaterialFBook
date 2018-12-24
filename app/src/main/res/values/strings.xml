@@ -18,8 +18,6 @@
     <string name="blacklist_title">Black list</string>
     <string name="new_black_word">Write a new word to block</string>
     <string name="blacklist_summary">List of words to block the notifications</string>
-    <string name="exact">Exact time</string>
-    <string name="exact_summary">Reduce the notification delay. Isn\'t battery friendly</string>
 
     <string-array name="intervalPrefTitles">
         <item>1 minute</item>
@@ -137,8 +135,6 @@
     <string name="menu_photos_summary">Show &#8216;Photos&#8217; button on navigation drawer.</string>
     <string name="menu_events">Events</string>
     <string name="menu_events_summary">Show &#8216;Events&#8217; button on navigation drawer.</string>
-    <string name="menu_back">Back</string>
-    <string name="menu_back_summary">Show &#8216;Back&#8217; button on navigation drawer.</string>
     <string name="menu_top_stories">Top stories</string>
     <string name="menu_top_stories_summary">Show &#8216;Top stories&#8217; button on navigation drawer.</string>
     <string name="menu_most_recent">Most Recent</string>

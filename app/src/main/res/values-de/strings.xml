@@ -18,8 +18,6 @@
 	<string name="blacklist_title">Schwarze Liste</string>
     <string name="new_black_word">Wort zum Blockieren hinzufügen</string>
     <string name="blacklist_summary">Liste der Wörter zum Blockieren der Benachrichtigunen</string>
-    <string name="exact">Genaue Zeit</string>
-	<string name="exact_summary">Reduziert die Benachrichtigungsverzögerung. Ist nicht Akku schonend</string>
 
     <string-array name="intervalPrefTitles">
         <item>1 Minute</item>
@@ -138,8 +136,6 @@
     <string name="menu_photos_summary">Aktivieren um &#8216;Fotos&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
     <string name="menu_events">Veranstaltungen</string>
     <string name="menu_events_summary">Aktivieren um &#8216;Veranstaltungen&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
-    <string name="menu_back">Zurück</string>
-    <string name="menu_back_summary">Aktivieren um &#8216;Zurück&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
     <string name="menu_top_stories">Top Meldungen</string>
     <string name="menu_top_stories_summary">Aktivieren um &#8216;Top Meldungen&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
     <string name="menu_most_recent">Neueste Meldungen</string>

@@ -96,8 +96,6 @@
     <string name="menu_photos_summary">Khi được kích hoạt, nút &#8216;Ảnh&#8217; trên menu điều hướng sẽ biến mất.</string>
     <string name="menu_events">Sự kiện</string>
     <string name="menu_events_summary">Khi được kích hoạt, nút &#8216;Sự kiện&#8217; trên menu điều hướng sẽ biến mất.</string>
-    <string name="menu_back">Quay lại</string>
-    <string name="menu_back_summary">Khi được vô hiệu hóa, nút &#8216;Quay lại&#8217; trên menu điều hướng sẽ biến mất.</string>
     <string name="menu_top_stories">Top stories</string>
     <string name="menu_top_stories_summary">Khi được vô hiệu hóa, &#8216;Top stories&#8217; trên menu điều hướng sẽ biến mất.</string>
     <string name="menu_most_recent">Most Recent</string>

@@ -96,8 +96,6 @@
     <string name="menu_photos_summary">Mostra il pulsante di &#8216;Foto&#8217; sul drawer di navigazione.</string>
     <string name="menu_events">Eventi</string>
     <string name="menu_events_summary">Mostra il pulsante di &#8216;Eventi&#8217; sul drawer di navigazione.</string>
-    <string name="menu_back">Indietro</string>
-    <string name="menu_back_summary">Mostra il pulsante di &#8216;Indietro&#8217; sul drawer di navigazione.</string>
     <string name="menu_top_stories">Migliori storie</string>
     <string name="menu_top_stories_summary">Mostra il pulsante di &#8216;Migliori storie&#8217; sul drawer di navigazione.</string>
     <string name="menu_most_recent">Più recente</string>

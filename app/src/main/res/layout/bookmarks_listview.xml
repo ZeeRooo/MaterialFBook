@@ -2,10 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="?android:attr/listPreferredItemHeight"
-    android:layout_marginStart="5dp"
     android:descendantFocusability="blocksDescendants"
-    android:paddingEnd="5dp"
-    android:paddingStart="20dp">
+    android:paddingStart="16dp"
+    android:paddingTop="12dp"
+    android:paddingEnd="16dp"
+    android:paddingBottom="12dp">
 
     <TextView
         android:id="@+id/bookmark_title"
@@ -14,14 +15,15 @@
         android:layout_height="match_parent"
         android:layout_alignParentStart="true"
         android:layout_toStartOf="@+id/share_bookmark"
+        android:ellipsize="end"
         android:fontFamily="sans-serif-medium"
         android:gravity="center_vertical"
-        android:textSize="14sp" />
+        android:maxLines="2" />
 
     <ImageButton
         android:id="@+id/delete_bookmark"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:contentDescription="@string/remove_bookmark"
         android:src="@drawable/ic_delete" />
@@ -29,8 +31,9 @@
     <ImageButton
         android:id="@+id/share_bookmark"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_marginEnd="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="5dp"
         android:layout_toStartOf="@+id/delete_bookmark"
         android:contentDescription="@string/context_share_link"
         android:src="@drawable/ic_share" />

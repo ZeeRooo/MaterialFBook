@@ -96,8 +96,6 @@
     <string name="menu_photos_summary">Εμφάνιση κουμπιού &#8216;Φωτογραφίες&#8217; στο μενού πλοήγησης.</string>
     <string name="menu_events">Εκδηλώσεις</string>
     <string name="menu_events_summary">Εμφάνιση κουμπιού &#8216;Εκδηλώσεις&#8217; στο μενού πλοήγησης.</string>
-    <string name="menu_back">Πίσω</string>
-    <string name="menu_back_summary">Εμφάνιση κουμπιού &#8216;Πίσω&#8217; στο μενού πλοήγησης.</string>
     <string name="menu_top_stories">Δημοφιλείς ιστορίες</string>
     <string name="menu_top_stories_summary">Εμφάνιση κουμπιού &#8216;Δημοφιλείς ιστορίες&#8217; στο μενού πλοήγησης.</string>
     <string name="menu_most_recent">Πρόσφατα</string>
