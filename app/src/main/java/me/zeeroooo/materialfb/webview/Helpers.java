@@ -1,7 +1,16 @@
 package me.zeeroooo.materialfb.webview;
 
+import android.app.Activity;
+import android.content.Context;
+import android.content.res.Configuration;
+import android.content.res.Resources;
+import android.os.LocaleList;
+import android.preference.PreferenceManager;
 import android.view.Menu;
+import android.view.View;
 import android.webkit.CookieManager;
+
+import java.util.Locale;
 
 public class Helpers {
 
@@ -42,7 +51,7 @@ public class Helpers {
     }
 
     // "clean" an url and remove Facebook tracking redirection
-    private static String cleanUrl(String url) {
+    public static String cleanUrl(String url) {
         return url.replace("http://lm.facebook.com/l.php?u=", "")
                 .replace("https://m.facebook.com/l.php?u=", "")
                 .replace("http://0.facebook.com/l.php?u=", "")
@@ -67,5 +76,15 @@ public class Helpers {
 
     public static String decodeImg(String img_url) {
         return img_url.replace("\\3a ", ":").replace("efg\\3d ", "oh=").replace("\\3d ", "=").replace("\\26 ", "&").replace("\\", "").replace("&amp;", "&");
+    }
+
+    public static void setLocale(Activity activity, int contentViewId) {
+        Locale locale = new Locale(PreferenceManager.getDefaultSharedPreferences(activity).getString("defaultLocale", Locale.getDefault().getLanguage()));
+        Locale.setDefault(locale);
+        Configuration config = new Configuration();
+        config.locale = locale;
+        config.setLocale(locale);
+        activity.getResources().updateConfiguration(config, activity.getResources().getDisplayMetrics());
+        activity.setContentView(contentViewId);
     }
 }

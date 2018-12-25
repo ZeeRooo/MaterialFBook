@@ -14,8 +14,8 @@ android {
         applicationId "me.zeeroooo.materialfb"
         minSdkVersion 17
         targetSdkVersion 28
-        versionCode 68
-        versionName "3.8.5"
+        versionCode 69
+        versionName "3.8.6"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -32,6 +32,11 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -44,7 +49,6 @@ dependencies {
     implementation 'com.github.bumptech.glide:glide:4.8.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation "android.arch.work:work-runtime:1.0.0-beta01"
+    implementation "ch.acra:acra-mail:5.2.1"
     testImplementation 'junit:junit:4.12'
-
-    implementation 'ch.acra:acra:4.11'
 }

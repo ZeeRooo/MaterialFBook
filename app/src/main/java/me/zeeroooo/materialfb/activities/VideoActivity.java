@@ -2,7 +2,6 @@ package me.zeeroooo.materialfb.activities;
 
 import android.Manifest;
 import android.app.DownloadManager;
-import android.app.PictureInPictureParams;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -14,7 +13,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Environment;
-import android.util.Rational;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
@@ -37,6 +35,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.ui.CookingAToast;
+import me.zeeroooo.materialfb.webview.Helpers;
 
 public class VideoActivity extends AppCompatActivity {
 
@@ -50,7 +49,9 @@ public class VideoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_video);
+        //  setContentView(R.layout.activity_video);
+
+        Helpers.setLocale(this, R.layout.activity_video);
 
         url = getIntent().getStringExtra("video_url");
 

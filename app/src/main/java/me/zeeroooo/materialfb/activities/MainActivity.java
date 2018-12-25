@@ -76,10 +76,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.work.Constraints;
-import androidx.work.NetworkType;
-import androidx.work.OneTimeWorkRequest;
-import androidx.work.WorkManager;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.misc.BookmarksAdapter;
 import me.zeeroooo.materialfb.misc.BookmarksH;
@@ -104,7 +100,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private FloatingActionMenu mMenuFAB;
     private MFBWebView mWebView;
     private SharedPreferences mPreferences;
-    private DownloadManager mDownloadManager;
     private DatabaseHelper DBHelper;
     private BookmarksAdapter BLAdapter;
     private ListView BookmarksListView;
@@ -130,6 +125,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Helpers.setLocale(this, R.layout.activity_main);
+
         mWebView = findViewById(R.id.webview);
         mNavigationView = findViewById(R.id.nav_view);
         mNavigationView.setNavigationItemSelectedListener(this);
@@ -148,13 +145,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         switch (mPreferences.getString("start_url", "Most_recent")) {
             case "Most_recent":
-                baseURL = baseURL + "home.php?sk=h_chr";
+                baseURL += "home.php?sk=h_chr";
                 break;
             case "Top_stories":
-                baseURL = baseURL + "home.php?sk=h_nor";
+                baseURL += "home.php?sk=h_nor";
                 break;
             case "Messages":
-                baseURL = baseURL + "messages/";
+                baseURL += "messages/";
                 break;
             default:
                 break;
@@ -678,8 +675,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     setTitle(title);
             }
         });
-
-        mDownloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
     }
 
     private void imageLoader(String url, WebView view) {
@@ -712,7 +707,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             request.setDestinationUri(Uri.fromFile(destinationFile));
             request.setVisibleInDownloadsUi(true);
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
-            mDownloadManager.enqueue(request);
+            ((DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE)).enqueue(request);
             mWebView.goBack();
             CookingAToast.cooking(this, getString(R.string.downloaded), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_download, false).show();
         } else
@@ -726,6 +721,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (intent.getBooleanExtra("apply", false))
             recreate();
 
+        URLs();
         UrlIntent(intent);
     }
 
@@ -1056,8 +1052,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         }
 
-        if (intent.getExtras() != null)
+        if (intent.getExtras() != null && intent.getExtras().containsKey("notifUrl")) {
             baseURL = intent.getExtras().getString("notifUrl");
+        }
 
         if (intent.getDataString() != null) {
             baseURL = getIntent().getDataString();
@@ -1073,7 +1070,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         }
 
-        mWebView.loadUrl(baseURL);
+        mWebView.loadUrl(Helpers.cleanUrl(baseURL));
     }
 
     // Thanks to Jaison Fernando for the great tutorial.

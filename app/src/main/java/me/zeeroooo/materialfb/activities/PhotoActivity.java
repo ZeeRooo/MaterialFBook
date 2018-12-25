@@ -52,6 +52,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.ActivityCompat;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.ui.CookingAToast;
+import me.zeeroooo.materialfb.webview.Helpers;
 
 public class PhotoActivity extends AppCompatActivity implements View.OnTouchListener {
 
@@ -69,7 +70,10 @@ public class PhotoActivity extends AppCompatActivity implements View.OnTouchList
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_photo);
+        // setContentView(R.layout.activity_photo);
+
+        Helpers.setLocale(this, R.layout.activity_photo);
+
         mImageView = findViewById(R.id.container);
         mImageView.setOnTouchListener(this);
         topGradient = findViewById(R.id.photoViewerTopGradient);

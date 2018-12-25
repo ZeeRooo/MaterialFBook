@@ -26,6 +26,7 @@ import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.activities.MoreActivity;
 import me.zeeroooo.materialfb.notifications.NotificationsService;
 import me.zeeroooo.materialfb.ui.CookingAToast;
+import me.zeeroooo.materialfb.webview.Helpers;
 
 public class SettingsFragment extends PreferenceFragment implements Preference.OnPreferenceClickListener {
 
@@ -50,11 +51,8 @@ public class SettingsFragment extends PreferenceFragment implements Preference.O
         findPreference("localeSwitcher").setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
             @Override
             public boolean onPreferenceChange(Preference preference, Object o) {
-                Locale locale = new Locale(o.toString());
-                Locale.setDefault(locale);
-                Configuration config = new Configuration();
-                config.locale = locale;
-                getResources().updateConfiguration(config, getResources().getDisplayMetrics());
+                mPreferences.edit().putString("defaultLocale", o.toString()).apply();
+                getActivity().recreate();
                 return true;
             }
         });

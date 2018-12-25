@@ -16,6 +16,7 @@ import androidx.appcompat.widget.Toolbar;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.fragments.SettingsFragment;
 import me.zeeroooo.materialfb.ui.Theme;
+import me.zeeroooo.materialfb.webview.Helpers;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -23,8 +24,12 @@ public class SettingsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         Theme.Temas(this, mPreferences);
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+        //setContentView(R.layout.activity_settings);
+
+        Helpers.setLocale(this, R.layout.activity_settings);
+
         Toolbar mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
         if (getSupportActionBar() != null) {
@@ -35,14 +40,11 @@ public class SettingsActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        int count = getFragmentManager().getBackStackEntryCount();
-        if (count == 0) {
-            Intent apply = new Intent(this, MainActivity.class);
-            apply.putExtra("apply", true);
-            startActivity(apply);
-            finish();
-        } else
-            getFragmentManager().popBackStack();
+        Intent apply = new Intent(this, MainActivity.class);
+        apply.putExtra("apply", true);
+        startActivity(apply);
+
+        super.onBackPressed();
     }
 
     @Override

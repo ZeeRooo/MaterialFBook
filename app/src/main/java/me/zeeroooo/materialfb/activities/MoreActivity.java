@@ -6,14 +6,15 @@ import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
+import android.text.Html;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import android.text.Html;
-
 import me.zeeroooo.materialfb.BuildConfig;
-import me.zeeroooo.materialfb.ui.Theme;
 import me.zeeroooo.materialfb.R;
+import me.zeeroooo.materialfb.ui.Theme;
+import me.zeeroooo.materialfb.webview.Helpers;
 
 public class MoreActivity extends AppCompatActivity {
 
@@ -22,7 +23,10 @@ public class MoreActivity extends AppCompatActivity {
         SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         Theme.Temas(this, mPreferences);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_more);
+        // setContentView(R.layout.activity_more);
+
+        Helpers.setLocale(this, R.layout.activity_more);
+
         Toolbar mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
     }
