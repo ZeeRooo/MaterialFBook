@@ -320,7 +320,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             mWebView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
 
         mWebView.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
-        mWebView.getSettings().setUserAgentString("Mozilla/5.0 (X11; Linux ARM) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36");
+        mWebView.getSettings().setUserAgentString("Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36");
         mWebView.setWebViewClient(new WebViewClient() {
             @SuppressLint("NewApi")
             @Override
