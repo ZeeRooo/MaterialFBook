@@ -96,8 +96,6 @@
     <string name="menu_photos_summary">Приказ дугмета „Фотографије“ у фиоци навигације.</string>
     <string name="menu_events">Догађаји</string>
     <string name="menu_events_summary">Приказ дугмета „Догађаји“ у фиоци навигације.</string>
-    <string name="menu_back">Назад</string>
-    <string name="menu_back_summary">Приказ дугмета „Назад“ у фиоци навигације.</string>
     <string name="menu_top_stories">Најважније приче</string>
     <string name="menu_top_stories_summary">Приказ дугмета „Најважније приче“ у фиоци навигације.</string>
     <string name="menu_most_recent">Недавне приче</string>

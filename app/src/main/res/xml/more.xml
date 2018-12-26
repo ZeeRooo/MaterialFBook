@@ -6,18 +6,17 @@
             android:title="@string/updates">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/ZeeRooo/MaterialFBook/releases"/>
+                android:data="https://github.com/ZeeRooo/MaterialFBook/releases" />
         </PreferenceScreen>
         <Preference
             android:key="changelog"
-            android:title="@string/changelog"/>
+            android:title="@string/changelog" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/source_code">
-        <PreferenceScreen
-            android:title="@string/source_code">
+        <PreferenceScreen android:title="@string/source_code">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/ZeeRooo/MaterialFBook"/>
+                android:data="https://github.com/ZeeRooo/MaterialFBook" />
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/devs_who_helped_me">
@@ -26,65 +25,65 @@
             android:title="rignaneseleo">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/rignaneseleo/SlimSocial-for-Facebook"/>
+                android:data="https://github.com/rignaneseleo/SlimSocial-for-Facebook" />
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="Toffeed"
             android:title="JakeLane">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/JakeLane/Toffeed"/>
+                android:data="https://github.com/JakeLane/Toffeed" />
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="Folio for Facebook"
             android:title="creativetrendsapps">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/creativetrendsapps/FolioforFacebook"/>
+                android:data="https://github.com/creativetrendsapps/FolioforFacebook" />
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="FaceSlim"
             android:title="indywidualny">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/indywidualny/FaceSlim"/>
+                android:data="https://github.com/indywidualny/FaceSlim" />
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="FloatingActionButton"
             android:title="Clans">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/Clans/FloatingActionButton"/>
+                android:data="https://github.com/Clans/FloatingActionButton" />
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="Glide"
             android:title="bumptech">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/bumptech/glide"/>
+                android:data="https://github.com/bumptech/glide" />
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="jsoup"
             android:title="Jonathan Hedley">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/jhy/jsoup"/>
+                android:data="https://github.com/jhy/jsoup" />
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="acra"
             android:title="ACRA">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/ACRA/acra"/>
+                android:data="https://github.com/ACRA/acra" />
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/people_who_translated">
-<PreferenceScreen
+        <PreferenceScreen
             android:summary="akkk33"
             android:title="Arabic">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/akkk33"/>
+                android:data="https://github.com/akkk33" />
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="mhtorp"
@@ -93,30 +92,29 @@
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/mhtorp" />
         </PreferenceScreen>
-		<PreferenceScreen
+        <PreferenceScreen
             android:summary="Sebacestmoi"
-            android:title="French">
-        </PreferenceScreen>
+            android:title="French"></PreferenceScreen>
         <PreferenceScreen
             android:summary="fabsmusicjunkie"
             android:title="German">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/fabsmusicjunkie"/>
-        </PreferenceScreen>	
+                android:data="https://github.com/fabsmusicjunkie" />
+        </PreferenceScreen>
         <PreferenceScreen
             android:summary="yarons"
             android:title="Hebrew">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/yarons"/>
+                android:data="https://github.com/yarons" />
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="István Vass"
             android:title="Hungarian">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="http://forum.xda-developers.com/member.php?u=2946536"/>
+                android:data="http://forum.xda-developers.com/member.php?u=2946536" />
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="Aditya Prasetyo"
@@ -130,71 +128,67 @@
             android:title="Kurdish">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="http://forum.xda-developers.com/member.php?u=4604711"/>
+                android:data="http://forum.xda-developers.com/member.php?u=4604711" />
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="alekksander"
             android:title="Polish">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/alekksander"/>
+                android:data="https://github.com/alekksander" />
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="abacate123"
             android:title="Portuguese">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/abacate123"/>
+                android:data="https://github.com/abacate123" />
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="nishimura-san"
             android:title="Romanian">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="http://forum.xda-developers.com/member.php?u=4995498"/>
+                android:data="http://forum.xda-developers.com/member.php?u=4995498" />
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="maxel85"
-            android:title="Russian">
-        </PreferenceScreen>
+            android:title="Russian"></PreferenceScreen>
         <PreferenceScreen
             android:summary="PoP992"
             android:title="Serbian">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/PoP992"/>
+                android:data="https://github.com/PoP992" />
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="Me, ZeeRooo"
             android:title="Spanish">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="http://forum.xda-developers.com/member.php?u=7490500"/>
+                android:data="http://forum.xda-developers.com/member.php?u=7490500" />
         </PreferenceScreen>
         <PreferenceScreen
             android:summary="Baran Aydin"
-            android:title="Turkish">
-        </PreferenceScreen>
+            android:title="Turkish"></PreferenceScreen>
         <PreferenceScreen
             android:summary="ngoisaosang"
             android:title="Vietnamese">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/ngoisaosang"/>
+                android:data="https://github.com/ngoisaosang" />
         </PreferenceScreen>
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/about_translations">
-        <PreferenceScreen
-            android:title="@string/help_translations">
+        <PreferenceScreen android:title="@string/help_translations">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://www.transifex.com/yaron/materialfbook/translate/"/>
+                android:data="https://www.transifex.com/yaron/materialfbook/translate/" />
         </PreferenceScreen>
-        <PreferenceScreen
-            android:title="@string/withYou">
+        <PreferenceScreen android:title="@string/withYou">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/ZeeRooo/MaterialFBook/issues"/>
+                android:data="https://github.com/ZeeRooo/MaterialFBook/issues" />
         </PreferenceScreen>
     </PreferenceCategory>
 </PreferenceScreen>

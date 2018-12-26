@@ -96,8 +96,6 @@
     <string name="menu_photos_summary">Jeśli wyłączone, przycisk \„Zdjęcia\” zniknie z menu nawigacji.</string>
     <string name="menu_events">Wydarzenia</string>
     <string name="menu_events_summary">Jeśli wyłączone, przycisk \„Wydarzenia\” zniknie z menu nawigacji.</string>
-    <string name="menu_back">Cofnij</string>
-    <string name="menu_back_summary">Jeśli wyłączone, przycisk \„Cofnij\” zniknie z menu nawigacji.</string>
     <string name="menu_top_stories">Najciekawsze zdarzenia</string>
     <string name="menu_top_stories_summary">Jeśli wyłączone, przycisk \„Najciekawsze zdarzenia\” zniknie z menu nawigacji.</string>
     <string name="menu_most_recent">Najnowsze</string>

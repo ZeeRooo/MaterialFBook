@@ -96,8 +96,6 @@
     <string name="menu_photos_summary">הצגת הכפתור &#8216;תמונות&#8217; במגירת הניווט.</string>
     <string name="menu_events">אירועים</string>
     <string name="menu_events_summary">הצגת הכפתור &#8216;אירועים&#8217; במגירת הניווט.</string>
-    <string name="menu_back">חזרה</string>
-    <string name="menu_back_summary">הצגת הכפתור &#8216;חזרה&#8217; במגירת הניווט.</string>
     <string name="menu_top_stories">סיפורים מובילים</string>
     <string name="menu_top_stories_summary">הצגת הכפתור &#8216;סיפורים מובילים&#8217; במגירת הניווט.</string>
     <string name="menu_most_recent">העדכניים ביותר</string>

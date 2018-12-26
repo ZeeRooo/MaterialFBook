@@ -96,8 +96,6 @@
     <string name="menu_photos_summary">إظهار &#8216;زر الصور &#8217; في درج التنقل.</string>
     <string name="menu_events">الأحداث</string>
     <string name="menu_events_summary">إظهار &#8216;زر الأحداث&#8217; في درج التنقل.</string>
-    <string name="menu_back">عودة</string>
-    <string name="menu_back_summary">إظهار &#8216;زر العودة&#8217; في درج التنقل.</string>
     <string name="menu_top_stories">أهم الأخبار</string>
     <string name="menu_top_stories_summary">إظهار &#8216;زر أهم الأخبار&#8217;  في درج التنقل.</string>
     <string name="menu_most_recent">آخر الأخبار</string>

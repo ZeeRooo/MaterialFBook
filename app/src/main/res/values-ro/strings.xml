@@ -96,8 +96,6 @@
     <string name="menu_photos_summary">Cand este activat, butonul &#8216;Fotografii&#8217; dispare.</string>
     <string name="menu_events">Evenimente</string>
     <string name="menu_events_summary">Cand este activat, butonul &#8216;Evenimente&#8217; dispare.</string>
-    <string name="menu_back">Inapoi</string>
-    <string name="menu_back_summary">Cand este dezactivat, butonul &#8216;Inapoi&#8217; dispare.</string>
     <string name="menu_top_stories">Povesti de top</string>
     <string name="menu_top_stories_summary">Cand este dezactivat, butonul &#8216;Povesti de top&#8217; dispare.</string>
     <string name="menu_most_recent">Cele mai recente</string>

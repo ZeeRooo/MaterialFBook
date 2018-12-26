@@ -15,6 +15,9 @@
     <string name="vibrate">Vibration</string>
     <string name="vibrate_double">Zweimal vibrieren</string>
     <string name="led_light">LED-Benachrichtigung</string>
+	<string name="blacklist_title">Schwarze Liste</string>
+    <string name="new_black_word">Wort zum Blockieren hinzufügen</string>
+    <string name="blacklist_summary">Liste der Wörter zum Blockieren der Benachrichtigunen</string>
 
     <string-array name="intervalPrefTitles">
         <item>1 Minute</item>
@@ -50,7 +53,44 @@
         <item>Top Meldungen</item>
         <item>Nachrichten</item>
     </string-array>
-    <!-- End general -->
+	
+	<string name="localSwitcherTitle">Ändern Sie die App Sprache</string>
+    <string name="localSwitcherSummary">Aktuelle Sprache: %s</string>
+    <string-array name="appLocalesNames">
+        <item>Arabic [ar]</item>
+        <item>Czech [cs]</item>
+        <item>Danish [da]</item>
+        <item>Deutsch [de]</item>
+        <item>Greek [el]</item>
+        <item>Spanish [es]</item>
+        <item>English [en]</item>
+        <item>Filipino [fil]</item>
+        <item>French [fr]</item>
+        <item>Hungarian [hu]</item>
+        <item>Indonesian [in]</item>
+        <item>Italian [it]</item>
+        <item>Italian (Italy) [it_IT]</item>
+        <item>Hebrew [iw]</item>
+        <item>Kurdish [ku]</item>
+        <item>Dutch [nl]</item>
+        <item>Polish [pl]</item>
+        <item>Portuguese [pt]</item>
+        <item>Romanian [ro]</item>
+        <item>Russian [ru]</item>
+        <item>Russian (Russia) [ru_RU]</item>
+        <item>Serbian [sr]</item>
+        <item>Turkish [tr]</item>
+        <item>Vietnamese [vi]</item>
+    </string-array>
+
+    <string-array name="scalesText">
+        <item>Standard</item>
+        <item>Mittel</item>
+        <item>Groß</item>
+        <item>Extra Groß</item>
+    </string-array>
+<!-- End general -->
+	
 
     <!-- About -->
     <string name="more">Mehr und Danksagungen</string>
@@ -68,6 +108,8 @@
 
     <!-- APPEARANCE -->
     <string name="appearance_setting_title">AUSSEHEN</string>
+    <string name="web_themes">Web Template</string>
+	<string name="web_themes_summary">Wähle aus verschiedenen Web Templates.</string>
     <string name="app_themes">App Designs</string>
     <string name="app_themes_summary">Wähle aus verschiedenen App Designs.</string>
 
@@ -94,8 +136,6 @@
     <string name="menu_photos_summary">Aktivieren um &#8216;Fotos&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
     <string name="menu_events">Veranstaltungen</string>
     <string name="menu_events_summary">Aktivieren um &#8216;Veranstaltungen&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
-    <string name="menu_back">Zurück</string>
-    <string name="menu_back_summary">Aktivieren um &#8216;Zurück&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
     <string name="menu_top_stories">Top Meldungen</string>
     <string name="menu_top_stories_summary">Aktivieren um &#8216;Top Meldungen&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
     <string name="menu_most_recent">Neueste Meldungen</string>
@@ -108,6 +148,10 @@
     <string name="menu_search_summary">Aktivieren um &#8216;Suche&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
     <string name="menu_mainmenu">Hauptmenü</string>
     <string name="menu_mainmenu_summary">Aktivieren um &#8216;Hauptmenü&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
+    <!-- End navigation -->
+
+    <!-- App -->
+	<string name="app_name" translatable="false">MaterialFBook</string>	
     <string name="silent">Stumm</string>
     <string name="navigation_drawer_open">Öffne die Navigationsleiste</string>
     <string name="navigation_drawer_close">Schließe die Navigationsleiste</string>
@@ -122,4 +166,5 @@
     <string name="new_bookmark">Hinzugefügt:</string>
     <string name="remove_bookmark">Entfernt:</string>
     <string name="bookmarks_header">Lesezeichen</string>
+	<string name="textScale">Textgröße</string>
 </resources>

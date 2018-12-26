@@ -96,8 +96,6 @@
     <string name="menu_photos_summary">Hide &#8216;Photos&#8217; button on navigation drawer.</string>
     <string name="menu_events">Events</string>
     <string name="menu_events_summary">Hide &#8216;Events&#8217; button on navigation drawer.</string>
-    <string name="menu_back">Back</string>
-    <string name="menu_back_summary">Hide &#8216;Back&#8217; button on navigation drawer.</string>
     <string name="menu_top_stories">Top stories</string>
     <string name="menu_top_stories_summary">Hide &#8216;Top stories&#8217; button on navigation drawer.</string>
     <string name="menu_most_recent">Most Recent</string>

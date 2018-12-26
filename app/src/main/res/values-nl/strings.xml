@@ -96,8 +96,6 @@
     <string name="menu_photos_summary">&#8216;Foto\'s&#8217;-knop weergeven op de navigatiebalk.</string>
     <string name="menu_events">Evenementen</string>
     <string name="menu_events_summary">&#8216;Evenementen&#8217;-knop weergeven op de navigatiebalk.</string>
-    <string name="menu_back">Terug</string>
-    <string name="menu_back_summary">&#8216;Terug&#8217;-knop weergeven op de navigatiebalk.</string>
     <string name="menu_top_stories">Topverslagen</string>
     <string name="menu_top_stories_summary">&#8216;Topverslagen&#8217;-knop weergeven op de navigatiebalk.</string>
     <string name="menu_most_recent">Meest recent</string>

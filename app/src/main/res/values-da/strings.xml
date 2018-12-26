@@ -96,8 +96,6 @@
     <string name="menu_photos_summary">Vis &#8216;Fotos&#8217; knap i navigationsskuffen.</string>
     <string name="menu_events">Begivenheder</string>
     <string name="menu_events_summary">Vis &#8216;Begivenheder&#8217; knap i navigationsskuffen.</string>
-    <string name="menu_back">Tilbage</string>
-    <string name="menu_back_summary">Vis &#8216;Tilbage&#8217; knap i navigationsskuffen.</string>
     <string name="menu_top_stories">Tophistorier</string>
     <string name="menu_top_stories_summary">Vis &#8216;Top historier&#8217; knap i navigationsskuffen.</string>
     <string name="menu_most_recent">Seneste</string>

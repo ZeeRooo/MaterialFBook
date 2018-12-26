@@ -96,8 +96,6 @@
     <string name="menu_photos_summary">Gezinme çekmecesinde &#8216;Fotoğraflar&#8217; düğmesini göster.</string>
     <string name="menu_events">Olaylar</string>
     <string name="menu_events_summary">Gezinme çekmecesinde &#8216;Olaylar&#8217; düğmesini göster.</string>
-    <string name="menu_back">Geri</string>
-    <string name="menu_back_summary">Gezinme çekmecesinde &#8216;Geri&#8217;  düğmesini göster.</string>
     <string name="menu_top_stories">En iyi hikayeler</string>
     <string name="menu_top_stories_summary">Gezinme çekmecesinde &#8216;En İyi Hikayeler&#8217; düğmesini göster.</string>
     <string name="menu_most_recent">En Yeni</string>
