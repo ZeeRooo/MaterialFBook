@@ -120,6 +120,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        PreferenceManager.setDefaultValues(this, R.xml.navigation_menu_settings, true);
         mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         Theme.Temas(this, mPreferences);
         super.onCreate(savedInstanceState);
