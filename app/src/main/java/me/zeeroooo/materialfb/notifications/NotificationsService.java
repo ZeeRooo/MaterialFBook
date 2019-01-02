@@ -137,8 +137,7 @@ public class NotificationsService extends Worker {
                 }
 
                 if (!mPreferences.getString("last_message", "").equals(content))
-                    notifier(content, name, baseURL + "messages", pictureMsg, 969);
-                else System.out.println("Chau");
+                    notifier(content.replaceAll("<img src=\"(.*)>", ""), name, baseURL + "messages", pictureMsg, 969);
 
                 // save as shown (or ignored) to avoid showing it again
                 mPreferences.edit().putString("last_message", content).apply();
