@@ -14,8 +14,8 @@ android {
         applicationId "me.zeeroooo.materialfb"
         minSdkVersion 17
         targetSdkVersion 28
-        versionCode 69
-        versionName "3.8.6"
+        versionCode 70
+        versionName "3.8.7"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

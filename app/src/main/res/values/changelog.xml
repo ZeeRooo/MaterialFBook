@@ -2,6 +2,13 @@
 <resources>
     <string name="changelog_list" translatable="false">
 <![CDATA[
+<b>**Version 3.8.7:**</b>
+<br>
+- Facebook albums enhancements (#204).
+<br>
+- Updated serbian translation.
+<br>
+<br>
 <b>**Version 3.8.6:**</b>
 <br>
 - Bugfixes.
