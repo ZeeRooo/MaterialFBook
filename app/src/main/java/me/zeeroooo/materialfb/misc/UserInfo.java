@@ -11,23 +11,24 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Element;
+import org.jsoup.nodes.Document;
 
 import me.zeeroooo.materialfb.R;
-import me.zeeroooo.materialfb.webview.Helpers;
 
 public class UserInfo extends AsyncTask<Activity, Void, Activity> {
-    private String name, cover;
+    private String name, cover, propic;
 
     @Override
     protected Activity doInBackground(Activity[] activities) {
         try {
             if (!activities[0].isDestroyed()) {
-                Element e = Jsoup.connect("https://www.facebook.com/me").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).timeout(300000).get().body();
+                Document document = Jsoup.connect("https://mbasic.facebook.com/me").cookie(("https://m.facebook.com/"), CookieManager.getInstance().getCookie(("https://m.facebook.com/"))).timeout(300000).get();
                 if (name == null)
-                    name = e.select("input[name=q]").attr("value");
+                    name = document.getElementsByClass("br").select("div > a > img").attr("alt");
                 if (cover == null)
-                    cover = Helpers.decodeImg(e.toString().split("<img class=\"coverPhotoImg photo img\" src=\"")[1].split("\"")[0]);
+                    cover = document.getElementById("profile_cover_photo_container").select("div > a > img").attr("src");
+                if(propic == null)
+                    propic = document.getElementsByClass("br").select("div > a > img").attr("src");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -46,9 +47,9 @@ public class UserInfo extends AsyncTask<Activity, Void, Activity> {
                             .load(cover)
                             .apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL))
                             .into((ImageView) activity.findViewById(R.id.cover));
-                if (Helpers.getCookie() != null && activity.findViewById(R.id.profile_picture) != null)
+                if (propic != null && activity.findViewById(R.id.profile_picture) != null)
                     Glide.with(activity)
-                            .load("https://graph.facebook.com/" + Helpers.getCookie() + "/picture?type=large")
+                            .load(propic)
                             .apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL).circleCrop())
                             .into((ImageView) activity.findViewById(R.id.profile_picture));
             } catch (Exception e) {
