@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Notifications -->
+    <string name="notifications_setting_title">NOTÌFICAS</string>
+    <string name="notif">Notìficas</string>
+    <string name="facebook_message">Notìficas de sos messàgios</string>
+    <string name="facebook_notifications">Notìficas de Facebook</string>
+    <string name="applying_changes">Aplichende sas mudas</string>
+    <string name="sync_problem">Sos cookies non podent èssere sincronizados. Proa a torrare a allùghere s\'aplicatzione</string>
+    <string name="notification_sound_description">Issèbera una soneria o imposta a sa muda: \u0020</string>
+    <string name="notifications_settings">Impostatziones de sas notìficas</string>
+    <string name="notifications_settings_description">Impostatziones agiuntivas. Issèbera s\'intervallu de tempus e imposta sos sonos, su LED e sa vibratzione.</string>
+    <string name="interval_pref">Intervallu de verìfica</string>
+    <string name="notification_sound">Sonu pro sas notìficas</string>
+    <string name="interval_pref_description_new">Sas notìficas ant a èssere compidadas cada %s.</string>
+    <string name="notification_sound_msg">Sonu de sos messàgios</string>
+    <string name="vibrate">Vibratzione</string>
+    <string name="vibrate_double">Vibratzione dòpia</string>
+    <string name="led_light">Lughe LED</string>
+
+    <string-array name="intervalPrefTitles">
+        <item>1 minutu</item>
+        <item>2 minutos</item>
+        <item>5 minutos</item>
+        <item>15 minutos</item>
+        <item>30 minutos</item>
+        <item>1 ora</item>
+        <item>3 oras</item>
+        <item>6 oras</item>
+    </string-array>
+    <!-- End Notifications -->
+
+    <!-- General -->
+    <string name="general_setting_title">GENERALES</string>
+    <string name="location_enabled_title">Atzessu a sa positzione</string>
+    <string name="location_enabled_summary">Abilita custu pro permìtere a Facebook de otènnere sa positzione tua</string>
+    <string name="hide_editor_newsfeed_title">Cua s\'editore de istadu in su Flussu de Noas</string>
+    <string name="hide_editor_newsfeed_summary">Cando est abilitadu s\'editore de istadu at a èssere cuadu dae su Flussu de Noas.</string>
+    <string name="stop_images_title">Non càrrighes sas immàgines</string>
+    <string name="stop_images_summary">Cando est abilitadu no at a iscarrigare immàgines. Carchi immàgine diat pòdere abarrare in sa memòria temporànea (cache).</string>
+    <string name="hide_sponsored_title">Cua sos cuntenutos &#8216;isponsorizados&#8217;</string>
+    <string name="hide_sponsored_summary">Cua sos cuntenutos &#8216;isponsorizados&#8217; (sa publitzidade) dae su flussu.</string>
+    <string name="hide_birthdays_title">Cua sos cumpleannos</string>
+    <string name="hide_birthdays_summary">Cua sos cumpleannos dae su flussu, sos eventos e sas notìficas.</string>
+    <string name="hide_menu_bar_title">Cua sa barra de su menù</string>
+    <string name="hide_menu_bar_summary">Cando est abilitadu sa barra de su menù de Facebook at a bènnere cuada.</string>
+    <string name="hide_recently_commented">Cua sos cummentos reghentes</string>
+    <string name="hide_recently_commented_summary">X persones ant cummentadu custu dae pagu.</string>
+    <string name="start_url">URL de incumintzu</string>
+    <string-array name="Start">
+        <item>Prus reghentes</item>
+        <item>Populares</item>
+        <item>Messàgios</item>
+    </string-array>
+    <!-- End general -->
+
+    <!-- About -->
+    <string name="more">Àteru e crèditos</string>
+    <string name="about_updates">Agiornamentos</string>
+    <string name="updates">Chirca una versione noa</string>
+    <string name="updates_summary">Càrriga sa pàgina e iscàrriga s\'ùrtima versione</string>
+    <string name="people_who_translated">Impreadores chi ant bortadu s\'aplicatzione</string>
+    <string name="devs_who_helped_me">Isvilupadores chi m\'ant agiudadu rispondende a sas preguntas meas e pighende còdighe dae sas aplicatziones issoro</string>
+    <string name="help_translations">Agiuda·mi a traduire s\'aplicatzione in sa limba tua</string>
+    <string name="about_translations">Agiuda·nos, bisongiamus de tene</string>
+    <string name="source_code">Còdighe mitza in GitHub</string>
+    <string name="withYou">Sinnala unu problema o pedi funtzionalidades noas</string>
+    <string name="changelog">Registru de sas modìficas</string>
+    <!-- End about -->
+
+    <!-- APPEARANCE -->
+    <string name="appearance_setting_title">APARÈNTZIA</string>
+    <string name="web_themes">Temas web</string>
+    <string name="web_themes_summary">Podes isseberare temas web diferentes</string>
+    <string name="app_themes">Temas de s\'aplicatzione</string>
+    <string name="app_themes_summary">Podes isseberare temas de s\'aplicatzione diferentes</string>
+
+    <!-- Navigation -->
+    <string name="navigation_setting_title">NAVIGATZIONE</string>
+    <string name="navigation_menu_settings">Elementos de su menù de navigatzione</string>
+    <string name="navigation_menu_settings_description">Podes ammustrare/cuare elementos in su menù de navigatzione</string>
+    <string name="save_data">Modalidade a datos bassos</string>
+    <string name="save_data_summary">Càrrigat Facebook in modalidade base e disabìlita fintzas sos distintivos e sos agiornamentos de sas informatziones de profilu.</string>
+    <string name="clearcache">Isbòida sa memòria temporànea a s\'essida</string>
+    <string name="clearcache_summary">Pro abèrrere s\'aplicatzione b\'at a bòlere prus tempus.</string>
+    <string name="fab_enable">Butone de atzione chi flutuat</string>
+    <string name="fab_enable_summary">Ammustra su BAF.</string>
+    <!-- Navigation: fab -->
+    <string name="fab_text">Pùblica un\'istadu</string>
+    <string name="fab_photo">Pùblica una fotografia</string>
+    <string name="fab_checkin">Registra·ti</string>
+    <string name="fab_jump_top">Torra a susu</string>
+    <!-- Navigation: items -->
+    <string name="navigation_menu_title">MENÙ DE NAVIGATZIONE</string>
+    <string name="ic_menu_exitapp">Essi dae s\'aplicatzione</string>
+    <string name="ic_menu_exitapp_summary">Ammustra su butone de &#8216;essida dae s\'aplicatzione&#8217;  in su menù de navigatzione.</string>
+    <string name="ic_menu_fblogout">Essi</string>
+    <string name="ic_menu_fblogout_summary">Ammustra su butone de &#8216;essida dae su contu&#8217;  in su menù de navigatzione.</string>
+    <string name="menu_photos">Fotografias</string>
+    <string name="menu_photos_summary">Ammustra su butone pro &#8216;sas fotografias&#8217;  in su menù de navigatzione.</string>
+    <string name="menu_events">Eventos</string>
+    <string name="menu_events_summary">Ammustra su butone pro &#8216;sos eventos&#8217;  in su menù de navigatzione.</string>
+    <string name="menu_back">Antepostu</string>
+    <string name="menu_back_summary">Ammustra su butone pro &#8216;torrare in segus&#8217;  in su menù de navigatzione.</string>
+    <string name="menu_top_stories">Istòrias populares</string>
+    <string name="menu_top_stories_summary">Ammustra su butone pro &#8216;sas istòrias populares&#8217;  in su menù de navigatzione.</string>
+    <string name="menu_most_recent">Prus reghentes</string>
+    <string name="menu_most_recent_summary">Ammustra su butone pro &#8216;sas publicatziones prus reghentes&#8217;  in su menù de navigatzione.</string>
+    <string name="menu_friendreq">Pregunta de amistade</string>
+    <string name="menu_friendreq_summary">Ammustra su butone pro &#8216;sas preguntas de amistade&#8217;  in su menù de navigatzione.</string>
+    <string name="menu_groups">Grupos</string>
+    <string name="menu_groups_summary">Ammustra su butone pro &#8216;sos grupos&#8217;  in su menù de navigatzione.</string>
+    <string name="menu_messages">Messàgios</string>
+    <string name="menu_search">Chirca</string>
+    <string name="menu_search_summary">Ammustra su butone pro &#8216;sa chirca&#8217;  in su menù de navigatzione.</string>
+    <string name="menu_mainmenu">Menù printzipale</string>
+    <string name="menu_mainmenu_summary">Ammustra su butone pro &#8216;su menù printzipale&#8217;  in su menù de navigatzione.</string>
+    <string name="messaging_enabled_title">Messagìstica</string>
+    <string name="messaging_enabled_summary">Cando est abilitadu at a frunire atzessu a sos messàgios de Facebook. Disabilita·lu si tenes un\'aplicatzione pro sos messàgios.</string>
+    <string name="silent">Perunu sonu</string>
+    <string name="file_logger_needs_permission">Perunu atzessu a sa memòria esterna. Su registru non podet èssere sarvadu</string>
+    <string name="navigation_drawer_open">Aberi su menù de navigatzione</string>
+    <string name="navigation_drawer_close">Serra su menù de navigatzione</string>
+    <string name="default_user">Impreadore</string>
+    <string name="header_profile_pic">Immàgine de profilu</string>
+    <string name="nav_notifications">Notìficas</string>
+    <string name="context_save_image">Sarva s\'immàgine</string>
+    <string name="settings">Impostatziones</string>
+    <string name="context_share_image">Cumpartzi s\'immàgine</string>
+    <string name="context_copy_image_link">Còpia su ligàmene de s\'immàgine</string>
+    <string name="context_share_link">Cumpartzi su ligàmene</string>
+    <string name="context_copy_link">Còpia su ligàmene</string>
+    <string name="context_share_image_progress">Cumpartzende s\'immàgine…</string>
+    <string name="content_copy_link_done">Ligàmene copiadu in punta de billete</string>
+    <string name="login_button">Intra</string>
+    <string name="not_logged_in">Non ses intradu</string>
+    <string name="error_login">B\'at àpidu carchi problema, torra a proare a intrare</string>
+    <string name="error_super_wrong">B\'at àpidu carchi problema mannu</string>
+    <string name="error_facebook_noconnection">No est istadu possìbile a intrare in Facebook</string>
+    <string name="error_facebook_error">B\'at àpidu carchi problema dae s\'ala de Facebook</string>
+    <string name="loading">Carrighende</string>
+    <string name="permission_denied">Permissu negadu, non si podet acabare s\'atzione</string>
+    <string name="downloaded">Iscarrigadu</string>
+    <string name="add">Sinnalibros</string>
+    <string name="new_bookmark">Annantu:</string>
+    <string name="remove_bookmark">Bogadu:</string>
+</resources>
