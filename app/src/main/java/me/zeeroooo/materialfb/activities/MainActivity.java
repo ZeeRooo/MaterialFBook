@@ -64,6 +64,8 @@ import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.button.MaterialButton;
@@ -85,6 +87,7 @@ import me.zeeroooo.materialfb.adapters.AdapterBookmarks;
 import me.zeeroooo.materialfb.misc.DatabaseHelper;
 import me.zeeroooo.materialfb.misc.ModelBookmarks;
 import me.zeeroooo.materialfb.misc.UserInfo;
+import me.zeeroooo.materialfb.notifications.NotificationsService;
 import me.zeeroooo.materialfb.ui.CookingAToast;
 import me.zeeroooo.materialfb.ui.MFBFloatingActionButton;
 import me.zeeroooo.materialfb.ui.MFBResources;

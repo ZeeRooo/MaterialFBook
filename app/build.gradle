@@ -11,7 +11,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "me.zeeroooo.materialfb"
+        applicationId "me.zeerooo.materialfb"
         minSdkVersion 17
         targetSdkVersion 29
         versionCode 71
@@ -20,9 +20,11 @@ android {
     }
 
     productFlavors {
-        fdroid {}
-        labs {
-            applicationId "me.zeerooo.materialfb"
+        product {
+
+        }
+        fdroid {
+            applicationId "me.zeeroooo.materialfb"
         }
     }
 

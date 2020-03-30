@@ -101,6 +101,7 @@ public class NotificationsService extends Worker {
         for (byte a = 0; a < notifications.size(); a++) {
             time = notifications.get(a).select("span.mfss.fcg").text();
             content = notifications.get(a).select("div.c").text().replace(time, "");
+            previousNotifLength = stringBuilder.length();
 
             if (!blist.isEmpty())
                 for (int position = 0; position < blist.size(); position++) {
@@ -111,21 +112,20 @@ public class NotificationsService extends Worker {
             if (!notif_notAWhiteList) {
                 pictureNotif = notifications.get(a).select("div.ib > i").attr("style");
 
-                previousNotifLength = stringBuilder.length();
-
                 stringBuilder.append(content.replace(time, ""));
 
-                if (!mPreferences.getString("last_notification_text", "").contains(stringBuilder.substring(previousNotifLength, stringBuilder.length())))
-                    notifier(content, getApplicationContext().getString(R.string.app_name), baseURL + "notifications.php", pictureNotif.split("('*')")[1], (int) System.currentTimeMillis(), false);
+                if (!mPreferences.getString("last_notification_text", "").contains(stringBuilder.substring(previousNotifLength)))
+                    notifier(stringBuilder.substring(previousNotifLength), getApplicationContext().getString(R.string.app_name), baseURL + "notifications.php", pictureNotif.split("('*')")[1], (int) System.currentTimeMillis(), false);
             }
         }
+
         mPreferences.edit().putString("last_notification_text", stringBuilder.toString()).apply();
     }
 
     private void SyncMessages() throws Exception {
         final Document doc = Jsoup.connect("https://mbasic.facebook.com/messages").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).timeout(300000).get();
 
-        final Elements results = doc.select("table.bo.bp.bq.br.bs.bt.bu.bv.bw");
+        final Elements results = doc.getElementsByClass("bo bp bq br bs bt bu bv bw");
 
         if (results != null) {
             String name, pictureMsg;
@@ -135,7 +135,7 @@ public class NotificationsService extends Worker {
             for (byte a = 0; a < results.size(); a++) {
                 previousMsgLength = stringBuilder.length();
 
-                stringBuilder.append(results.get(a).selectFirst("h3 > span").text());
+                stringBuilder.append(results.get(a).selectFirst("tbody > tr > td > div > h3.cd.ba.ce > span").text());
 
                 if (!blist.isEmpty())
                     for (int position = 0; position < blist.size(); position++) {
@@ -144,30 +144,18 @@ public class NotificationsService extends Worker {
                     }
 
                 if (!msg_notAWhiteList) {
-                    name = results.get(a).selectFirst("h3 > a").text();
-                    pictureMsg = "https://graph.facebook.com/" + results.get(a).select(" h3 > a").attr("href").split("cid\\.c\\.")[1].split("%3A")[0] + "/picture?type=large";
+                    name = results.get(a).selectFirst("tbody > tr > td > div > h3.bz.ca.cb > a").text();
+                    pictureMsg = "https://graph.facebook.com/" + results.get(a).select("tbody > tr > td > div > h3.bz.ca.cb > a").attr("href").split("%3A")[1].split("&")[0] + "/picture?type=large";
 
-             /*   if (content.contains("<i class=\"cg ch\"")) {
-                    Elements e_iemoji = result.getElementsByClass("cg ch");
-                    for (Element em : e_iemoji) {
-                        content = content.replace("<i class=\"cg ch\" style=\"" + em.attr("style") + "\"></i>", getEmoji(em.attr("style").replace("f0000", "1F44D")));
-                    }
-                }*/
-
-                    if (!mPreferences.getString("last_message", "").contains(stringBuilder.substring(previousMsgLength, stringBuilder.length())))
-                        notifier(stringBuilder.toString(), name, baseURL + "messages", pictureMsg, (int) System.currentTimeMillis(), true);
+                    if (!mPreferences.getString("last_message", "").contains(stringBuilder.substring(previousMsgLength)))
+                        notifier(stringBuilder.substring(previousMsgLength), name, baseURL + "messages", pictureMsg, (int) System.currentTimeMillis(), true);
                 }
+
             }
+
             mPreferences.edit().putString("last_message", stringBuilder.toString()).apply();
         }
     }
-
-  /*  private String getEmoji(String emojiUrl) {
-        String[] emoji_sp = emojiUrl.split("/");
-        String emoji_unicode = "0x" + emoji_sp[9].replace(".png)", "");
-        int i = Integer.parseInt(emoji_unicode.substring(2), 16);
-        return new String(Character.toChars(i));
-    }*/
 
     // create a notification and display it
     private void notifier(final String content, final String title, final String url, final String image_url, int id, boolean isMessage) throws Exception {
