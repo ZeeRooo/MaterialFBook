@@ -332,6 +332,14 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Facebook albums enhancements #204 .
 - Updated serbian translation
 
+**Version 4.0.0:**
+- Added color picker.
+- Notifications reworked.
+- Translated to Amharic by Nigusu.
+- Translated to Sardinian by asereze.
+- Translated to Breton by Irriep Nala Novram.
+- Translated to Ukranian by sfilmak.
+
 **Notes:**
 _- Maybe some gifs cant be loaded because i need to add the url to the code. Report it as issue with the Facebook´s page link or website._
 
@@ -344,7 +352,6 @@ _- Maybe some gifs cant be loaded because i need to add the url to the code. Rep
 - FaceSlim  by indywidualny.
 - Toffeed  by JakeLane.
 - SlimSocial for Facebook by rignaneseleo.
-- FloatingActionButton by Clans.
 - Glide by bumptech.
 - jsoup by Jonathan Hedley.
 - acra by ACRA.

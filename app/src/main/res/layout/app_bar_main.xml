@@ -1,82 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:fab="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_bar_main_root_view"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
     tools:context=".activities.MainActivity">
 
-    <include layout="@layout/toolbar" />
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/app_bar_main_coordinator_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <include layout="@layout/content_main" />
-
-    <com.github.clans.fab.FloatingActionMenu
-        android:id="@+id/menuFAB"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="16dp"
-        android:focusable="true"
-        fab:menu_colorNormal="?attr/colorPrimary"
-        fab:menu_colorPressed="?attr/colorPrimaryDark"
-        fab:menu_colorRipple="?attr/colorPrimary"
-        fab:menu_icon="@drawable/ic_fab_menu">
-
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/checkinFAB"
-            android:layout_width="wrap_content"
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbarlayout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:src="@drawable/ic_fab_checkin"
-            fab:fab_colorNormal="?attr/colorPrimary"
-            fab:fab_colorPressed="?attr/colorPrimaryDark"
-            fab:fab_colorRipple="?attr/colorPrimary"
-            fab:fab_label="@string/fab_checkin"
-            fab:fab_size="mini" />
+            android:fitsSystemWindows="true">
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/photoFAB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_fab_photo"
-            fab:fab_colorNormal="?attr/colorPrimary"
-            fab:fab_colorPressed="?attr/colorPrimaryDark"
-            fab:fab_colorRipple="?attr/colorPrimary"
-            fab:fab_label="@string/fab_photo"
-            fab:fab_size="mini" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:layout_scrollFlags="scroll|enterAlways|snap">
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/textFAB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_fab_text"
-            fab:fab_colorNormal="?attr/colorPrimary"
-            fab:fab_colorPressed="?attr/colorPrimaryDark"
-            fab:fab_colorRipple="?attr/colorPrimary"
-            fab:fab_label="@string/fab_text"
-            fab:fab_size="mini" />
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize" />
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/topFAB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_fab_jump_top"
-            fab:fab_colorNormal="?attr/colorPrimary"
-            fab:fab_colorPressed="?attr/colorPrimaryDark"
-            fab:fab_colorRipple="?attr/colorPrimary"
-            fab:fab_label="@string/fab_jump_top"
-            fab:fab_size="mini" />
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/searchtoolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="#FFFFFF"
+                    android:theme="@style/ThemeOverlay.MaterialComponents.Light"
+                    android:visibility="invisible" />
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/shareFAB"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_share"
-            fab:fab_colorNormal="?attr/colorPrimary"
-            fab:fab_colorPressed="?attr/colorPrimaryDark"
-            fab:fab_colorRipple="?attr/colorPrimary"
-            fab:fab_label="@string/context_share_link"
-            fab:fab_size="mini" />
+            </RelativeLayout>
 
-    </com.github.clans.fab.FloatingActionMenu>
+        </com.google.android.material.appbar.AppBarLayout>
 
+        <include layout="@layout/content_main" />
+
+        <me.zeeroooo.materialfb.ui.MFBFloatingActionButton
+            android:id="@+id/menuFAB"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="end|bottom" />
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

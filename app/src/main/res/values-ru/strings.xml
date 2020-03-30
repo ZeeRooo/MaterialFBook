@@ -16,20 +16,10 @@
     <string name="vibrate_double">Двойная вибрация</string>
     <string name="led_light">Светодиод</string>
 
-    <string-array name="intervalPrefTitles">
-        <item>1 минута</item>
-        <item>2 минуты</item>
-        <item>5 минут</item>
-        <item>15 минут</item>
-        <item>30 минут</item>
-        <item>1 час</item>
-        <item>3 часа</item>
-        <item>6 часов</item>
-    </string-array>
+    <string name="general_setting_title">ОБЩЕЕ</string>
     <!-- End Notifications -->
 
     <!-- General -->
-    <string name="general_setting_title">ОБЩЕЕ</string>
     <string name="location_enabled_title">Доступ к местоположению</string>
     <string name="location_enabled_summary">Включите, чтобы разрешить Facebook получать ваше местоположение.</string>
     <string name="hide_editor_newsfeed_title">Скрыть редактор статуса в ленте новостей</string>
@@ -45,16 +35,11 @@
     <string name="hide_recently_commented">Скрыть недавние комментарии</string>
     <string name="hide_recently_commented_summary">Не показывать сообщение о недавних комментириях.</string>
     <string name="start_url">Начальная страница</string>
-    <string-array name="Start">
-        <item>Последнее</item>
-        <item>Популярное</item>
-        <item>Сообщения</item>
-    </string-array>
+    <string name="more">Информация о программе</string>
+    <string name="about_updates">Обновления</string>
     <!-- End general -->
 
     <!-- About -->
-    <string name="more">Информация о программе</string>
-    <string name="about_updates">Обновления</string>
     <string name="updates">Проверить наличие новой версии</string>
     <string name="updates_summary">Страница загрузки последней версии</string>
     <string name="people_who_translated">Переводчики:</string>
@@ -64,35 +49,29 @@
     <string name="source_code">Исходный код на Github</string>
     <string name="withYou">Сообщить об ошибках или запросить новые возможности</string>
     <string name="changelog">Список изменений</string>
+    <string name="appearance_setting_title">ВНЕШНИЙ ВИД</string>
+    <string name="app_themes">Темы приложения</string>
     <!-- End about -->
 
     <!-- APPEARANCE -->
-    <string name="appearance_setting_title">ВНЕШНИЙ ВИД</string>
-    <string name="web_themes">Стиль страницы</string>
-    <string name="web_themes_summary">Можно выбрать различные стили страницы.</string>
-    <string name="app_themes">Темы приложения</string>
     <string name="app_themes_summary">Можно выбрать различные темы приложения.</string>
-
-    <!-- Navigation -->
     <string name="navigation_setting_title">ПРОСМОТР</string>
     <string name="navigation_menu_settings">Элементы меню навигации</string>
+
+    <!-- Navigation -->
     <string name="navigation_menu_settings_description">В меню навигации можно отобразить или скрыть элементы.</string>
     <string name="save_data">Экономить трафик</string>
     <string name="save_data_summary">Загружает Facebook в базовой версии, а также отключает значки и обновления сведений о профиле.</string>
-    <string name="clearcache">Очищать кеш при выходе</string>
-    <string name="clearcache_summary">Для открытия приложения потребуется больше времени.</string>
     <string name="fab_enable">Кнопка действий</string>
     <string name="fab_enable_summary">Показать кнопку действий.</string>
-    <!-- Navigation: fab -->
     <string name="fab_text">Опубликовать статус</string>
     <string name="fab_photo">Опубликовать фото</string>
+    <!-- Navigation: fab -->
     <string name="fab_checkin">Отметиться</string>
     <string name="fab_jump_top">Перейти вверх</string>
-    <!-- Navigation: items -->
     <string name="navigation_menu_title">МЕНЮ ПРОСМОТРА</string>
-    <string name="ic_menu_exitapp">Закрыть приложение</string>
-    <string name="ic_menu_exitapp_summary">Показать кнопку &#8216;закрыть приложение&#8217; в меню навигации.</string>
     <string name="menu_photos">Фото</string>
+    <!-- Navigation: items -->
     <string name="menu_photos_summary">Показать кнопку &#8216;фото&#8217; в меню навигации.</string>
     <string name="menu_events">События</string>
     <string name="menu_events_summary">Показать кнопку &#8216;события&#8217; в меню навигации.</string>
@@ -121,4 +100,19 @@
     <string name="downloaded">Загруженные</string>
     <string name="new_bookmark">Добавленные:</string>
     <string name="remove_bookmark">Удаленные:</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 минута</item>
+        <item>2 минуты</item>
+        <item>5 минут</item>
+        <item>15 минут</item>
+        <item>30 минут</item>
+        <item>1 час</item>
+        <item>3 часа</item>
+        <item>6 часов</item>
+    </string-array>
+    <string-array name="Start">
+        <item>Последнее</item>
+        <item>Популярное</item>
+        <item>Сообщения</item>
+    </string-array>
 </resources>

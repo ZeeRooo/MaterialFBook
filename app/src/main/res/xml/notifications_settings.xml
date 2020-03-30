@@ -1,5 +1,7 @@
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <ListPreference
+        app:iconSpaceReserved="false"
         android:defaultValue="60000"
         android:entries="@array/intervalPrefTitles"
         android:entryValues="@array/intervalPrefValues"
@@ -7,79 +9,72 @@
         android:summary="@string/interval_pref_description_new"
         android:title="@string/interval_pref" />
     <Preference
+        app:iconSpaceReserved="false"
         android:key="BlackList"
         android:summary="@string/blacklist_summary"
         android:title="@string/blacklist_title" />
-    <!-- <SwitchPreference
-         android:key="notif_exact"
-         android:title="@string/exact"
-         android:summary="@string/exact_summary"
-         android:defaultValue="false"/>-->
-    <PreferenceCategory android:title="@string/nav_notifications">
-        <SwitchPreference
+    <me.zeeroooo.materialfb.ui.MFBPreferenceCategory android:title="@string/nav_notifications">
+        <me.zeeroooo.materialfb.ui.MFBSwitchPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="false"
             android:key="facebook_notifications"
             android:title="@string/facebook_notifications" />
-        <RingtonePreference
+        <Preference
+            app:iconSpaceReserved="false"
             android:defaultValue="content://settings/system/notification_sound"
             android:dependency="facebook_notifications"
             android:key="ringtone"
-            android:ringtoneType="notification"
-            android:showDefault="true"
-            android:showSilent="true"
-            android:summary="@string/notification_sound_description"
             android:title="@string/notification_sound" />
-        <SwitchPreference
+        <me.zeeroooo.materialfb.ui.MFBSwitchPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="false"
             android:dependency="facebook_notifications"
             android:key="vibrate_notif"
-            android:summary="@string/facebook_notifications"
             android:title="@string/vibrate" />
-        <SwitchPreference
+        <me.zeeroooo.materialfb.ui.MFBSwitchPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="false"
             android:dependency="vibrate_notif"
             android:key="vibrate_double_notif"
-            android:summary="@string/facebook_notifications"
             android:title="@string/vibrate_double" />
-        <SwitchPreference
+        <me.zeeroooo.materialfb.ui.MFBSwitchPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="false"
             android:dependency="facebook_notifications"
             android:key="led_notif"
-            android:summary="@string/facebook_notifications"
             android:title="@string/led_light" />
-    </PreferenceCategory>
+    </me.zeeroooo.materialfb.ui.MFBPreferenceCategory>
 
-    <PreferenceCategory android:title="@string/menu_messages">
-        <SwitchPreference
+    <me.zeeroooo.materialfb.ui.MFBPreferenceCategory android:title="@string/menu_messages">
+        <me.zeeroooo.materialfb.ui.MFBSwitchPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="false"
             android:key="facebook_messages"
             android:title="@string/facebook_message" />
-        <RingtonePreference
+        <Preference
+            app:iconSpaceReserved="false"
             android:defaultValue="content://settings/system/notification_sound"
             android:dependency="facebook_messages"
             android:key="ringtone_msg"
             android:ringtoneType="notification"
-            android:showDefault="true"
-            android:showSilent="true"
-            android:summary="@string/notification_sound_description"
             android:title="@string/notification_sound_msg" />
-        <SwitchPreference
+        <me.zeeroooo.materialfb.ui.MFBSwitchPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="false"
             android:dependency="facebook_messages"
             android:key="vibrate_msg"
-            android:summary="@string/facebook_message"
             android:title="@string/vibrate" />
-        <SwitchPreference
+        <me.zeeroooo.materialfb.ui.MFBSwitchPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="false"
             android:dependency="vibrate_msg"
             android:key="vibrate_double_msg"
-            android:summary="@string/facebook_message"
             android:title="@string/vibrate_double" />
-        <SwitchPreference
+        <me.zeeroooo.materialfb.ui.MFBSwitchPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="false"
             android:dependency="facebook_messages"
             android:key="led_msj"
-            android:summary="@string/facebook_message"
             android:title="@string/led_light" />
-    </PreferenceCategory>
+    </me.zeeroooo.materialfb.ui.MFBPreferenceCategory>
 </PreferenceScreen>

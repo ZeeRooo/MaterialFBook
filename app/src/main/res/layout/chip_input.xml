@@ -6,6 +6,21 @@
     android:orientation="vertical"
     android:padding="10dp">
 
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:scrollbars="none">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/tagsChipGroup"
+            style="@style/Widget.MaterialComponents.ChipGroup"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:chipSpacing="4dp" />
+
+    </androidx.core.widget.NestedScrollView>
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
@@ -22,20 +37,5 @@
             android:paddingEnd="10dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
-
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:scrollbars="none">
-
-        <com.google.android.material.chip.ChipGroup
-            android:id="@+id/tagsChipGroup"
-            style="@style/Widget.MaterialComponents.ChipGroup"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            app:chipSpacing="4dp" />
-
-    </androidx.core.widget.NestedScrollView>
 
 </LinearLayout>

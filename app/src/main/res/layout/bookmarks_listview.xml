@@ -8,18 +8,6 @@
     android:paddingEnd="16dp"
     android:paddingBottom="12dp">
 
-    <TextView
-        android:id="@+id/bookmark_title"
-        style="?android:attr/textAppearanceListItem"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_toStartOf="@+id/share_bookmark"
-        android:ellipsize="end"
-        android:fontFamily="sans-serif-medium"
-        android:gravity="center_vertical"
-        android:maxLines="2" />
-
     <ImageButton
         android:id="@+id/delete_bookmark"
         android:layout_width="wrap_content"
@@ -37,5 +25,17 @@
         android:layout_toStartOf="@+id/delete_bookmark"
         android:contentDescription="@string/context_share_link"
         android:src="@drawable/ic_share" />
+
+    <TextView
+        android:id="@+id/bookmark_title"
+        style="?android:attr/textAppearanceListItem"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/share_bookmark"
+        android:ellipsize="end"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_vertical"
+        android:maxLines="2" />
 
 </RelativeLayout>

@@ -16,20 +16,10 @@
     <string name="vibrate_double">الإهتزاز المزدوج</string>
     <string name="led_light">ضوء الإشعارات</string>
 
-    <string-array name="intervalPrefTitles">
-        <item>دقيقة</item>
-        <item>دقيقتان</item>
-        <item>5 دقائق</item>
-        <item>15 دقيقة</item>
-        <item>30 دقيقة</item>
-        <item>ساعة</item>
-        <item>3 ساعات</item>
-        <item>6 ساعات</item>
-    </string-array>
+    <string name="general_setting_title">عام</string>
     <!-- End Notifications -->
 
     <!-- General -->
-    <string name="general_setting_title">عام</string>
     <string name="location_enabled_title">تحديد الموقع الجغرافي</string>
     <string name="location_enabled_summary">تفعيل هذا سوف يسمح للفيسبوك بتحديد موقعك الجغرافي.</string>
     <string name="hide_editor_newsfeed_title">إخفاء محرر الحالة في صفحة الأخبار</string>
@@ -45,16 +35,11 @@
     <string name="hide_recently_commented">Hide recently commented</string>
     <string name="hide_recently_commented_summary">X people recently commented on this.</string>
     <string name="start_url">Start URL</string>
-    <string-array name="Start">
-        <item>MostRecent</item>
-        <item>TopStories</item>
-        <item>Messages</item>
-    </string-array>
+    <string name="more">المزيد</string>
+    <string name="about_updates">التحديثات</string>
     <!-- End general -->
 
     <!-- About -->
-    <string name="more">المزيد</string>
-    <string name="about_updates">التحديثات</string>
     <string name="updates">ابحث عن التحديثات</string>
     <string name="updates_summary">افتح الصفحة وحمل أحدث نسخة</string>
     <string name="people_who_translated">الأشخاص الذين قاموا بترجمة التطبيق</string>
@@ -64,35 +49,29 @@
     <string name="source_code">الكود المصدري على موقع جٍتْهَب</string>
     <string name="withYou">بلّغ عن الأخطاء، أو اطلب مزايا جديدة</string>
     <string name="changelog">سجل التغييرات</string>
+    <string name="appearance_setting_title">المظهر</string>
+    <string name="app_themes">سمات التطبيق</string>
     <!-- End about -->
 
     <!-- APPEARANCE -->
-    <string name="appearance_setting_title">المظهر</string>
-    <string name="web_themes">سِمات الويب</string>
-    <string name="web_themes_summary">يمكنك اختيار سمة مختلفة لصفحة الويب.</string>
-    <string name="app_themes">سمات التطبيق</string>
     <string name="app_themes_summary">يمكنك اختيار سمة مختلفة للتطبيق.</string>
-
-    <!-- Navigation -->
     <string name="navigation_setting_title">التنقل</string>
     <string name="navigation_menu_settings">عناصر قائمة التنقل</string>
+
+    <!-- Navigation -->
     <string name="navigation_menu_settings_description">يمكنك إظهار/إخفاء عناصر قائمة التنقل.</string>
     <string name="save_data">وضع توفير البيانات</string>
     <string name="save_data_summary">تحميل النسخة الأساسية من فيسبوك وإخفاء الأشرطة وبيانات الملفات الشخصية. والتحديثات.</string>
-    <string name="clearcache">حذف ملفات الكاش عند الخروج</string>
-    <string name="clearcache_summary">هذا سيستغرق المزيد من الوقت عند غلق التطبيق.</string>
     <string name="fab_enable">الزر العائم</string>
     <string name="fab_enable_summary">إظهار الزر العائم.</string>
-    <!-- Navigation: fab -->
     <string name="fab_text">نشر حالة</string>
     <string name="fab_photo">نشر صورة</string>
+    <!-- Navigation: fab -->
     <string name="fab_checkin">تحقق</string>
     <string name="fab_jump_top">قفز إلى الأعلى</string>
-    <!-- Navigation: items -->
     <string name="navigation_menu_title">قائمة التنقل</string>
-    <string name="ic_menu_exitapp">الخروج من التطبيق</string>
-    <string name="ic_menu_exitapp_summary">إظهار &#8216;زر الخروج من التطبيق &#8217; في درج التنقل.</string>
     <string name="menu_photos">الصور</string>
+    <!-- Navigation: items -->
     <string name="menu_photos_summary">إظهار &#8216;زر الصور &#8217; في درج التنقل.</string>
     <string name="menu_events">الأحداث</string>
     <string name="menu_events_summary">إظهار &#8216;زر الأحداث&#8217; في درج التنقل.</string>
@@ -121,4 +100,19 @@
     <string name="downloaded">تم التحميل</string>
     <string name="new_bookmark">Added:</string>
     <string name="remove_bookmark">Removed:</string>
+    <string-array name="intervalPrefTitles">
+        <item>دقيقة</item>
+        <item>دقيقتان</item>
+        <item>5 دقائق</item>
+        <item>15 دقيقة</item>
+        <item>30 دقيقة</item>
+        <item>ساعة</item>
+        <item>3 ساعات</item>
+        <item>6 ساعات</item>
+    </string-array>
+    <string-array name="Start">
+        <item>MostRecent</item>
+        <item>TopStories</item>
+        <item>Messages</item>
+    </string-array>
 </resources>

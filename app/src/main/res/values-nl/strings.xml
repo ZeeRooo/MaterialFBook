@@ -16,20 +16,10 @@
     <string name="vibrate_double">Tweemaal trillen</string>
     <string name="led_light">LED-lampje</string>
 
-    <string-array name="intervalPrefTitles">
-        <item>1 minuut</item>
-        <item>2 minuten</item>
-        <item>5 minuten</item>
-        <item>15 minuten</item>
-        <item>30 minuten</item>
-        <item>1 uur</item>
-        <item>3 uur</item>
-        <item>6 uur</item>
-    </string-array>
+    <string name="general_setting_title">ALGEMEEN</string>
     <!-- End Notifications -->
 
     <!-- General -->
-    <string name="general_setting_title">ALGEMEEN</string>
     <string name="location_enabled_title">Locatietoegang</string>
     <string name="location_enabled_summary">Schakel dit in om Facebook toestemming te geven uw locatie te bepalen.</string>
     <string name="hide_editor_newsfeed_title">Statusbewerker verbergen in Nieuwsoverzicht</string>
@@ -45,16 +35,11 @@
     <string name="hide_recently_commented">Recent beantwoord verbergen</string>
     <string name="hide_recently_commented_summary">X mensen hebben hier recent op geantwoord.</string>
     <string name="start_url">Start-URL</string>
-    <string-array name="Start">
-        <item>Meest recent</item>
-        <item>Topverslagen</item>
-        <item>Berichten</item>
-    </string-array>
+    <string name="more">Meer en bedankjes</string>
+    <string name="about_updates">Updates</string>
     <!-- End general -->
 
     <!-- About -->
-    <string name="more">Meer en bedankjes</string>
-    <string name="about_updates">Updates</string>
     <string name="updates">Controleren op nieuwe versie</string>
     <string name="updates_summary">Laad de pagina en download de nieuwste versie</string>
     <string name="people_who_translated">Gebruikers die de app vertaald hebben</string>
@@ -64,35 +49,29 @@
     <string name="source_code">Broncode op GitHub</string>
     <string name="withYou">Fouten (bugs) rapporteren of nieuwe mogelijkheden aanvragen</string>
     <string name="changelog">Wijzigingslog</string>
+    <string name="appearance_setting_title">UITERLIJK</string>
+    <string name="app_themes">App-thema\'s</string>
     <!-- End about -->
 
     <!-- APPEARANCE -->
-    <string name="appearance_setting_title">UITERLIJK</string>
-    <string name="web_themes">Webthema\'s</string>
-    <string name="web_themes_summary">U kunt kiezen uit verschillende webthema\'s.</string>
-    <string name="app_themes">App-thema\'s</string>
     <string name="app_themes_summary">U kunt kiezen uit verschillende app-thema\'s.</string>
-
-    <!-- Navigation -->
     <string name="navigation_setting_title">NAVIGATIE</string>
     <string name="navigation_menu_settings">Items in navigatiemenu</string>
+
+    <!-- Navigation -->
     <string name="navigation_menu_settings_description">U kunt items van het navigatiemenu weergeven/verbergen.</string>
     <string name="save_data">Gegevensverbruik verminderen</string>
     <string name="save_data_summary">Facebook laden in de lichtste modus. Dit schakelt profielfoto\'s en het bijwerken van profielinformatie uit.</string>
-    <string name="clearcache">Cache wissen bij afsluiten</string>
-    <string name="clearcache_summary">De app heeft meer tijd nodig om op te starten.</string>
     <string name="fab_enable">Zwevende actieknop</string>
     <string name="fab_enable_summary">De zwevende actieknop weergeven.</string>
-    <!-- Navigation: fab -->
     <string name="fab_text">Status bijwerken</string>
     <string name="fab_photo">Foto plaatsen</string>
+    <!-- Navigation: fab -->
     <string name="fab_checkin">Inchecken</string>
     <string name="fab_jump_top">Scrollen naar bovenkant</string>
-    <!-- Navigation: items -->
     <string name="navigation_menu_title">NAVIGATIEMENU</string>
-    <string name="ic_menu_exitapp">App afsluiten</string>
-    <string name="ic_menu_exitapp_summary">&#8216;App afsluiten&#8217;-knop weergeven op de navigatiebalk.</string>
     <string name="menu_photos">Foto\'s</string>
+    <!-- Navigation: items -->
     <string name="menu_photos_summary">&#8216;Foto\'s&#8217;-knop weergeven op de navigatiebalk.</string>
     <string name="menu_events">Evenementen</string>
     <string name="menu_events_summary">&#8216;Evenementen&#8217;-knop weergeven op de navigatiebalk.</string>
@@ -115,10 +94,25 @@
     <string name="settings">Instellingen</string>
     <string name="context_share_image">Afbeelding delen</string>
     <string name="context_share_link">Link delen</string>
-    <string name="context_share_image_progress">Bezig met delen van afbeelding...</string>
+    <string name="context_share_image_progress">Bezig met delen van afbeelding…</string>
     <string name="content_copy_link_done">De link is gekopieerd naar het klembord</string>
     <string name="permission_denied">Toegang geweigerd; de actie kan niet worden voltooid.</string>
     <string name="downloaded">Gedownload</string>
     <string name="new_bookmark">Toegevoegd:</string>
     <string name="remove_bookmark">Verwijderd:</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 minuut</item>
+        <item>2 minuten</item>
+        <item>5 minuten</item>
+        <item>15 minuten</item>
+        <item>30 minuten</item>
+        <item>1 uur</item>
+        <item>3 uur</item>
+        <item>6 uur</item>
+    </string-array>
+    <string-array name="Start">
+        <item>Meest recent</item>
+        <item>Topverslagen</item>
+        <item>Berichten</item>
+    </string-array>
 </resources>

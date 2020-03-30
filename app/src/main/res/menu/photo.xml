@@ -6,18 +6,18 @@
         android:id="@+id/download_image"
         android:icon="@drawable/ic_download"
         android:title="Download image"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/share_image"
         android:icon="@drawable/ic_share"
         android:title="Share image"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
 
     <item
         android:id="@+id/oopy_url_image"
         android:icon="@drawable/ic_copy_url"
         android:title="Copy URL"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="ifRoom" />
 
 </menu>

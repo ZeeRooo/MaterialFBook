@@ -16,20 +16,10 @@
     <string name="vibrate_double">Dobbelt vibration</string>
     <string name="led_light">LED-lys</string>
 
-    <string-array name="intervalPrefTitles">
-        <item>1 minut</item>
-        <item>2 minutter</item>
-        <item>5 minutter</item>
-        <item>15 minutter</item>
-        <item>30 minutter</item>
-        <item>1 time</item>
-        <item>3 timer</item>
-        <item>6 timer</item>
-    </string-array>
+    <string name="general_setting_title">GENERELT</string>
     <!-- End Notifications -->
 
     <!-- General -->
-    <string name="general_setting_title">GENERELT</string>
     <string name="location_enabled_title">Placeringsadgang</string>
     <string name="location_enabled_summary">Aktivér denne for at give Facebook adgang til din placering.</string>
     <string name="hide_editor_newsfeed_title">Skjul Status editor i Nyhedsfeedet</string>
@@ -45,16 +35,11 @@
     <string name="hide_recently_commented">Skjul nyligt kommenterede</string>
     <string name="hide_recently_commented_summary">X personer har for nyligt kommenteret dette.</string>
     <string name="start_url">Start URL</string>
-    <string-array name="Start">
-        <item>Seneste</item>
-        <item>TopHistorier</item>
-        <item>Beskeder</item>
-    </string-array>
+    <string name="more">Mere og anerkendelser</string>
+    <string name="about_updates">Opdateringer</string>
     <!-- End general -->
 
     <!-- About -->
-    <string name="more">Mere og anerkendelser</string>
-    <string name="about_updates">Opdateringer</string>
     <string name="updates">Check for ny version</string>
     <string name="updates_summary">Indlæs siden og hent den nyeste version</string>
     <string name="people_who_translated">Brugere, som har oversat app\'en</string>
@@ -64,35 +49,29 @@
     <string name="source_code">Kildekode på Github</string>
     <string name="withYou">Rapportér fejl eller foreslå nye funktioner</string>
     <string name="changelog">Ændringslog</string>
+    <string name="appearance_setting_title">UDSEENDE</string>
+    <string name="app_themes">Apptemaer</string>
     <!-- End about -->
 
     <!-- APPEARANCE -->
-    <string name="appearance_setting_title">UDSEENDE</string>
-    <string name="web_themes">Webtemaer</string>
-    <string name="web_themes_summary">Du kan vælge forskellige webtemaer.</string>
-    <string name="app_themes">Apptemaer</string>
     <string name="app_themes_summary">Du kan vælge forskellige apptemaer.</string>
-
-    <!-- Navigation -->
     <string name="navigation_setting_title">NAVIGATION</string>
     <string name="navigation_menu_settings">Navigationsmenu indhold</string>
+
+    <!-- Navigation -->
     <string name="navigation_menu_settings_description">Du kan vise/skjule emner fra navigationsmenuen.</string>
     <string name="save_data">Begræns dataforbrug</string>
     <string name="save_data_summary">Indlæs Facebook i en enkel udgave og deaktiver badges, profilinfo og opdateringer.</string>
-    <string name="clearcache">Ryd cache ved afslutning</string>
-    <string name="clearcache_summary">Det vil tage længere tid at åbne appen.</string>
     <string name="fab_enable">Flydende handlingsknap</string>
     <string name="fab_enable_summary">Vis den flydende handlingsknap.</string>
-    <!-- Navigation: fab -->
     <string name="fab_text">Lav statusopdatering</string>
     <string name="fab_photo">Læg billede op</string>
+    <!-- Navigation: fab -->
     <string name="fab_checkin">Check Ind</string>
     <string name="fab_jump_top">Gå til toppen</string>
-    <!-- Navigation: items -->
     <string name="navigation_menu_title">NAVIGATIONSMENU</string>
-    <string name="ic_menu_exitapp">Afslut app</string>
-    <string name="ic_menu_exitapp_summary">Vis &#8216;Afslut app&#8217; knap i navigationsskuffen.</string>
     <string name="menu_photos">Fotos</string>
+    <!-- Navigation: items -->
     <string name="menu_photos_summary">Vis &#8216;Fotos&#8217; knap i navigationsskuffen.</string>
     <string name="menu_events">Begivenheder</string>
     <string name="menu_events_summary">Vis &#8216;Begivenheder&#8217; knap i navigationsskuffen.</string>
@@ -121,4 +100,19 @@
     <string name="downloaded">Hentet</string>
     <string name="new_bookmark">Tilføjet:</string>
     <string name="remove_bookmark">Fjernet:</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 minut</item>
+        <item>2 minutter</item>
+        <item>5 minutter</item>
+        <item>15 minutter</item>
+        <item>30 minutter</item>
+        <item>1 time</item>
+        <item>3 timer</item>
+        <item>6 timer</item>
+    </string-array>
+    <string-array name="Start">
+        <item>Seneste</item>
+        <item>TopHistorier</item>
+        <item>Beskeder</item>
+    </string-array>
 </resources>

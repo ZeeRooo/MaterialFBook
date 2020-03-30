@@ -16,20 +16,10 @@
     <string name="vibrate_double">Dvojitá vibrace</string>
     <string name="led_light">LED světlo</string>
 
-    <string-array name="intervalPrefTitles">
-        <item>1 minuta</item>
-        <item>2 minuty</item>
-        <item>5 minut</item>
-        <item>15 minut</item>
-        <item>30 minut</item>
-        <item>1 hodina</item>
-        <item>3 hodiny</item>
-        <item>6 hodin</item>
-    </string-array>
+    <string name="general_setting_title">GLOBÁLNÍ</string>
     <!-- End Notifications -->
 
     <!-- General -->
-    <string name="general_setting_title">GLOBÁLNÍ</string>
     <string name="location_enabled_title">Přístup k poloze</string>
     <string name="location_enabled_summary">Povolením dáte facebooku přístup k vaší poloze.</string>
     <string name="hide_editor_newsfeed_title">Skrýt editor stavu v aplikaci News Feed</string>
@@ -45,16 +35,11 @@
     <string name="hide_recently_commented">Skrýt nedávno komentované</string>
     <string name="hide_recently_commented_summary">X lidí toto nedávno komentovalo.</string>
     <string name="start_url">Start URL</string>
-    <string-array name="Start">
-        <item>Nejnovější</item>
-        <item>Nejlepší příběhy</item>
-        <item>Zprávy</item>
-    </string-array>
+    <string name="more">Více a kredity</string>
+    <string name="about_updates">Aktualizace</string>
     <!-- End general -->
 
     <!-- About -->
-    <string name="more">Více a kredity</string>
-    <string name="about_updates">Aktualizace</string>
     <string name="updates">Zkontrolujte novou verzi</string>
     <string name="updates_summary">Načtěte stránku a stáhněte nejnovější verzi</string>
     <string name="people_who_translated">Uživatelé, kteří aplikaci přeložili</string>
@@ -64,35 +49,29 @@
     <string name="source_code">Zdrojový kód na Github</string>
     <string name="withYou">Nahlásit chyby nebo požádat o nové funkce</string>
     <string name="changelog">Seznam změn</string>
+    <string name="appearance_setting_title">VZHLED</string>
+    <string name="app_themes">Témata aplikací</string>
     <!-- End about -->
 
     <!-- APPEARANCE -->
-    <string name="appearance_setting_title">VZHLED</string>
-    <string name="web_themes">Webová témata</string>
-    <string name="web_themes_summary">Můžete si vybrat různé webové motivy.</string>
-    <string name="app_themes">Témata aplikací</string>
     <string name="app_themes_summary">Můžete si vybrat různé motivy aplikací.</string>
-
-    <!-- Navigation -->
     <string name="navigation_setting_title">NAVIGACE</string>
     <string name="navigation_menu_settings">Položky v navigační nabídce</string>
+
+    <!-- Navigation -->
     <string name="navigation_menu_settings_description">V navigačním menu si můžete zobrazit/skrýt položky.</string>
     <string name="save_data">Úsporný datový režim</string>
     <string name="save_data_summary">Načtení Facebooku v základní verzi také zakáže odznaky a informace o profilech</string>
-    <string name="clearcache">Vymaže mezipaměť při ukončení</string>
-    <string name="clearcache_summary">Otevření aplikace bude trvat déle.</string>
     <string name="fab_enable">Plovoucí akční tlačítko</string>
     <string name="fab_enable_summary">Zobrazit FAB</string>
-    <!-- Navigation: fab -->
     <string name="fab_text">Přidat stav</string>
     <string name="fab_photo">Přidat fotku</string>
+    <!-- Navigation: fab -->
     <string name="fab_checkin">Check In</string>
     <string name="fab_jump_top">Skoč na začátek</string>
-    <!-- Navigation: items -->
     <string name="navigation_menu_title">NAVIGAČNÍ MENU</string>
-    <string name="ic_menu_exitapp">Ukončení aplikace</string>
-    <string name="ic_menu_exitapp_summary">Zobrazit &#8216;Ukončit aplikaci&#8217; tlačítko na navigační liště.</string>
     <string name="menu_photos">Fotky</string>
+    <!-- Navigation: items -->
     <string name="menu_photos_summary">Zobrazit &#8216;Fotky&#8217; tlačítko na navigační liště.</string>
     <string name="menu_events">Události</string>
     <string name="menu_events_summary">Zobrazit &#8216;Události&#8217; tlačítko na navigační liště.</string>
@@ -115,10 +94,25 @@
     <string name="settings">Nastavení</string>
     <string name="context_share_image">Sdílet obrázek</string>
     <string name="context_share_link">Sdílet odkaz</string>
-    <string name="context_share_image_progress">Sdílet obrázek...</string>
+    <string name="context_share_image_progress">Sdílet obrázek…</string>
     <string name="content_copy_link_done">Link zkopírován do schránky</string>
     <string name="permission_denied">Oprávnění bylo odepřeno, nemůžeme dokončit akci</string>
     <string name="downloaded">Staženo</string>
     <string name="new_bookmark">Přidat:</string>
     <string name="remove_bookmark">Odstranit:</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 minuta</item>
+        <item>2 minuty</item>
+        <item>5 minut</item>
+        <item>15 minut</item>
+        <item>30 minut</item>
+        <item>1 hodina</item>
+        <item>3 hodiny</item>
+        <item>6 hodin</item>
+    </string-array>
+    <string-array name="Start">
+        <item>Nejnovější</item>
+        <item>Nejlepší příběhy</item>
+        <item>Zprávy</item>
+    </string-array>
 </resources>

@@ -16,20 +16,10 @@
     <string name="vibrate_double">Getaran ganda</string>
     <string name="led_light">Lampu LED</string>
 
-    <string-array name="intervalPrefTitles">
-        <item>1 menit</item>
-        <item>2 menit</item>
-        <item>5 menit</item>
-        <item>15 menit</item>
-        <item>30 menit</item>
-        <item>1 jam</item>
-        <item>3 jam</item>
-        <item>6 jam</item>
-    </string-array>
+    <string name="general_setting_title">Umum</string>
     <!-- End Notifications -->
 
     <!-- General -->
-    <string name="general_setting_title">Umum</string>
     <string name="location_enabled_title">Akses lokasi</string>
     <string name="location_enabled_summary">Aktifkan untuk mengizikan Facebook mendapatkan lokasi anda.</string>
     <string name="hide_editor_newsfeed_title">Sembunyikan editor Status di News Feed</string>
@@ -45,16 +35,11 @@
     <string name="hide_recently_commented">Sembunyikan komentar terbaru</string>
     <string name="hide_recently_commented_summary">X orang baru saja komentar di sini.</string>
     <string name="start_url">Mulai URL</string>
-    <string-array name="Start">
-        <item>PalingTerbaru</item>
-        <item>BeritaTeratas</item>
-        <item>Pesan</item>
-    </string-array>
+    <string name="more">Lainnya dan kredit</string>
+    <string name="about_updates">Pembaharuan</string>
     <!-- End general -->
 
     <!-- About -->
-    <string name="more">Lainnya dan kredit</string>
-    <string name="about_updates">Pembaharuan</string>
     <string name="updates">Cek untuk versi terbaru</string>
     <string name="updates_summary">Muat laman dan unduh versi terbaru</string>
     <string name="people_who_translated">Pengguna yang menterjemahkan aplikasi</string>
@@ -64,31 +49,41 @@
     <string name="source_code">Sumber kode di Github</string>
     <string name="withYou">Laporan bugs atau minta fitur baru</string>
     <string name="changelog">Perubahan</string>
+    <string name="appearance_setting_title">PENAMPILAN</string>
+    <string name="app_themes">Tema aplikasi</string>
     <!-- End about -->
 
     <!-- APPEARANCE -->
-    <string name="appearance_setting_title">PENAMPILAN</string>
-    <string name="web_themes">Tema web</string>
-    <string name="web_themes_summary">Anda bisa memilih tema web berbeda.</string>
-    <string name="app_themes">Tema aplikasi</string>
     <string name="app_themes_summary">Anda bisa memilih tema aplikasi berbeda.</string>
-
-    <!-- Navigation -->
     <string name="navigation_setting_title">NAVIGASI</string>
     <string name="navigation_menu_settings">Navigasi item menu.</string>
+
+    <!-- Navigation -->
     <string name="navigation_menu_settings_description">Anda bisa tampilkan/sembunyikan item di menu Navigasi.</string>
     <string name="save_data">Mode hemat data</string>
     <string name="save_data_summary">Muat Facebook di versi biasa juga mematikan badge dan Info pembaharuan profil.</string>
-    <string name="clearcache">Hapus cache saat keluar</string>
-    <string name="clearcache_summary">Akan memakan banyak waktu untuk membuka aplikasi.</string>
     <string name="fab_enable">Tombol Floating Action</string>
     <string name="fab_enable_summary">Tampilkan FAB.</string>
-    <!-- Navigation: fab -->
     <string name="fab_text">Pos sebuah status</string>
     <string name="fab_photo">Pos sebuah foto</string>
+    <!-- Navigation: fab -->
     <string name="fab_checkin">Singgah</string>
     <string name="fab_jump_top">Lompat ke atas</string>
-    <!-- Navigation: items -->
     <string name="navigation_menu_title">MENU NAVIGASI</string>
-    <string name="ic_menu_exitapp">Keluar dari aplikasi</string>
-    </resources>
+    <string-array name="intervalPrefTitles">
+        <item>1 menit</item>
+        <item>2 menit</item>
+        <item>5 menit</item>
+        <item>15 menit</item>
+        <item>30 menit</item>
+        <item>1 jam</item>
+        <item>3 jam</item>
+        <item>6 jam</item>
+    </string-array>
+    <!-- Navigation: items -->
+    <string-array name="Start">
+        <item>PalingTerbaru</item>
+        <item>BeritaTeratas</item>
+        <item>Pesan</item>
+    </string-array>
+</resources>

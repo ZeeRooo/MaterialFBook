@@ -16,20 +16,10 @@
     <string name="vibrate_double">Двоструко вибрирање</string>
     <string name="led_light">ЛЕД светло</string>
 
-    <string-array name="intervalPrefTitles">
-        <item>1 минуту</item>
-        <item>2 минуте</item>
-        <item>5 минута</item>
-        <item>15 минута</item>
-        <item>30 минута</item>
-        <item>1 сат</item>
-        <item>3 сата</item>
-        <item>6 сати</item>
-    </string-array>
+    <string name="general_setting_title">ОПШТЕ</string>
     <!-- End Notifications -->
 
     <!-- General -->
-    <string name="general_setting_title">ОПШТЕ</string>
     <string name="location_enabled_title">Приступ локацији</string>
     <string name="location_enabled_summary">Омогућује Фејсбуку приступ локацији вашег уређаја.</string>
     <string name="hide_editor_newsfeed_title">Сакриј уређивач објава са почетне</string>
@@ -45,16 +35,11 @@
     <string name="hide_recently_commented">Сакриј недавне коментаре</string>
     <string name="hide_recently_commented_summary">Скрива „икс људи је недавно коментарисало ово“.</string>
     <string name="start_url">Почетак</string>
-    <string-array name="Start">
-        <item>Недавне приче</item>
-        <item>Најважније приче</item>
-        <item>Поруке</item>
-    </string-array>
+    <string name="more">О програму и заслуге</string>
+    <string name="about_updates">Надоградње</string>
     <!-- End general -->
 
     <!-- About -->
-    <string name="more">О програму и заслуге</string>
-    <string name="about_updates">Надоградње</string>
     <string name="updates">Провера новог издања</string>
     <string name="updates_summary">Учитава страницу и преузима најновије издање</string>
     <string name="people_who_translated">Преводиоци ове апликације</string>
@@ -64,35 +49,29 @@
     <string name="source_code">Изворни кôд на Гитхабу</string>
     <string name="withYou">Пријавом грешака или захтева</string>
     <string name="changelog">Дневник измена</string>
+    <string name="appearance_setting_title">ИЗГЛЕД</string>
+    <string name="app_themes">Теме апликације</string>
     <!-- End about -->
 
     <!-- APPEARANCE -->
-    <string name="appearance_setting_title">ИЗГЛЕД</string>
-    <string name="web_themes">Веб теме</string>
-    <string name="web_themes_summary">Избор различитих тема приказа страница.</string>
-    <string name="app_themes">Теме апликације</string>
     <string name="app_themes_summary">Избор различитих тема апликације.</string>
-
-    <!-- Navigation -->
     <string name="navigation_setting_title">НАВИГАЦИЈА</string>
     <string name="navigation_menu_settings">Ставке менија навигације</string>
+
+    <!-- Navigation -->
     <string name="navigation_menu_settings_description">Приказ/скривање ставки у менију навигације.</string>
     <string name="save_data">Режим мале потрошње</string>
     <string name="save_data_summary">Учитавање Фејсбука у основном режиму, без беџева и ажурирања информација профила.</string>
-    <string name="clearcache">Очисти кеш по излазу</string>
-    <string name="clearcache_summary">Биће потребно више времена за поновно покретање.</string>
     <string name="fab_enable">Плутајуће дугме радњи</string>
     <string name="fab_enable_summary">Приказ плутајућег дугмета радњи.</string>
-    <!-- Navigation: fab -->
     <string name="fab_text">Објави текст</string>
     <string name="fab_photo">Објави фотографију</string>
+    <!-- Navigation: fab -->
     <string name="fab_checkin">Објави локацију</string>
     <string name="fab_jump_top">Скочи на врх</string>
-    <!-- Navigation: items -->
     <string name="navigation_menu_title">МЕНИ НАВИГАЦИЈЕ</string>
-    <string name="ic_menu_exitapp">Напусти апликацију</string>
-    <string name="ic_menu_exitapp_summary">Приказ дугмета „Напусти апликацију“ у фиоци навигације.</string>
     <string name="menu_photos">Фотографије</string>
+    <!-- Navigation: items -->
     <string name="menu_photos_summary">Приказ дугмета „Фотографије“ у фиоци навигације.</string>
     <string name="menu_events">Догађаји</string>
     <string name="menu_events_summary">Приказ дугмета „Догађаји“ у фиоци навигације.</string>
@@ -122,4 +101,19 @@
     <string name="downloaded">Преузето</string>
     <string name="new_bookmark">Додат:</string>
     <string name="remove_bookmark">Уклоњен:</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 минуту</item>
+        <item>2 минуте</item>
+        <item>5 минута</item>
+        <item>15 минута</item>
+        <item>30 минута</item>
+        <item>1 сат</item>
+        <item>3 сата</item>
+        <item>6 сати</item>
+    </string-array>
+    <string-array name="Start">
+        <item>Недавне приче</item>
+        <item>Најважније приче</item>
+        <item>Поруке</item>
+    </string-array>
 </resources>

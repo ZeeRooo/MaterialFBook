@@ -34,7 +34,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public boolean addData(String title, String url, String blackword) {
-        ContentValues contentValues = new ContentValues();
+        final ContentValues contentValues = new ContentValues();
         if (title != null && url != null) {
             contentValues.put(COL1, title);
             contentValues.put(COL2, url);
@@ -47,7 +47,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
     public void remove(String title, String url, String s) {
-        SQLiteDatabase db = this.getWritableDatabase();
+        final SQLiteDatabase db = this.getWritableDatabase();
         String query;
         if (s == null)
             query = "DELETE FROM " + TABLE_NAME + " WHERE " + COL1 + " = '" + title + "'" + " AND " + COL2 + " = '" + url + "'";

@@ -16,20 +16,10 @@
     <string name="vibrate_double">Dupla rezgés</string>
     <string name="led_light">LED fényjelzés</string>
 
-    <string-array name="intervalPrefTitles">
-        <item>1 minuto</item>
-        <item>2 minutos</item>
-        <item>5 minutos</item>
-        <item>15 minutos</item>
-        <item>30 minutos</item>
-        <item>1 hora</item>
-        <item>3 horas</item>
-        <item>6 horas</item>
-    </string-array>
+    <string name="general_setting_title">ÁLTALÁNOS</string>
     <!-- End Notifications -->
 
     <!-- General -->
-    <string name="general_setting_title">ÁLTALÁNOS</string>
     <string name="location_enabled_title">Helyhozzáférés</string>
     <string name="location_enabled_summary">Engedélyezd, ha szeretnéd, hogy a Facebook hozzáférjen tartózkodási helyedhez.</string>
     <string name="hide_editor_newsfeed_title">Állapot szerkesztő elrejtése a Hírfolyamban.</string>
@@ -45,16 +35,11 @@
     <string name="hide_recently_commented">Hide recently commented</string>
     <string name="hide_recently_commented_summary">X people recently commented on this.</string>
     <string name="start_url">Start URL</string>
-    <string-array name="Start">
-        <item>MostRecent</item>
-        <item>TopStories</item>
-        <item>Messages</item>
-    </string-array>
+    <string name="more">Továbbiak és  készítő</string>
+    <string name="about_updates">Frissítések</string>
     <!-- End general -->
 
     <!-- About -->
-    <string name="more">Továbbiak és  készítő</string>
-    <string name="about_updates">Frissítések</string>
     <string name="updates">Frissítések keresése</string>
     <string name="updates_summary">Oldal betöltése a legújabb frissítés letöltéséhez.</string>
     <string name="people_who_translated">Az alkalmazás fordítói</string>
@@ -64,35 +49,29 @@
     <string name="source_code">Forráskód a Github-on</string>
     <string name="withYou">Hibák jelzése, új ötletek</string>
     <string name="changelog">Változások</string>
+    <string name="appearance_setting_title">MEGJELENÉS</string>
+    <string name="app_themes">Alkalmazás témák</string>
     <!-- End about -->
 
     <!-- APPEARANCE -->
-    <string name="appearance_setting_title">MEGJELENÉS</string>
-    <string name="web_themes">Web kinézet</string>
-    <string name="web_themes_summary">Különböző web témák kiválasztása.</string>
-    <string name="app_themes">Alkalmazás témák</string>
     <string name="app_themes_summary">Különböző alkalmazás témák kiválasztása.</string>
-
-    <!-- Navigation -->
     <string name="navigation_setting_title">NAVIGÁCIÓ</string>
     <string name="navigation_menu_settings">Navigációs menü elemek</string>
+
+    <!-- Navigation -->
     <string name="navigation_menu_settings_description">Megjelenítheted/elrejtheted a navigációs menü elemeit.</string>
     <string name="save_data">Adatok mentése</string>
     <string name="save_data_summary">When enabled, the app autoconfigure to save data.</string>
-    <string name="clearcache">Clear cache on exit</string>
-    <string name="clearcache_summary">It will take more time to open the app.</string>
     <string name="fab_enable">Floating Action Button</string>
     <string name="fab_enable_summary">Show the FAB.</string>
-    <!-- Navigation: fab -->
     <string name="fab_text">Státusz megosztása</string>
     <string name="fab_photo">Kép megosztása</string>
+    <!-- Navigation: fab -->
     <string name="fab_checkin">Bejelentkezés</string>
     <string name="fab_jump_top">Tetejére ugrás</string>
-    <!-- Navigation: items -->
     <string name="navigation_menu_title">NAVIGÁCIÓS MENÜ</string>
-    <string name="ic_menu_exitapp">Kilépés</string>
-    <string name="ic_menu_exitapp_summary">Engedélyezve a &#8220;Kilépés&#8221; gomb eltűnik a navigációs menüből.</string>
     <string name="menu_photos">Fotók</string>
+    <!-- Navigation: items -->
     <string name="menu_photos_summary">Engedélyezve a &#8220;Fotók&#8221; gomb eltűnik a navigációs menüből.</string>
     <string name="menu_events">Események</string>
     <string name="menu_events_summary">Engedélyezve a &#8220;Események&#8221; gomb eltűnik a navigációs menüből.</string>
@@ -121,4 +100,19 @@
     <string name="downloaded">Downloaded</string>
     <string name="new_bookmark">Added:</string>
     <string name="remove_bookmark">Removed:</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 minuto</item>
+        <item>2 minutos</item>
+        <item>5 minutos</item>
+        <item>15 minutos</item>
+        <item>30 minutos</item>
+        <item>1 hora</item>
+        <item>3 horas</item>
+        <item>6 horas</item>
+    </string-array>
+    <string-array name="Start">
+        <item>MostRecent</item>
+        <item>TopStories</item>
+        <item>Messages</item>
+    </string-array>
 </resources>

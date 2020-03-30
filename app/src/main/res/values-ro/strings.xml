@@ -16,20 +16,10 @@
     <string name="vibrate_double">Vibratii duble</string>
     <string name="led_light">LED de notificari</string>
 
-    <string-array name="intervalPrefTitles">
-        <item>1 minuto</item>
-        <item>2 minutos</item>
-        <item>5 minutos</item>
-        <item>15 minutos</item>
-        <item>30 minutos</item>
-        <item>1 hora</item>
-        <item>3 horas</item>
-        <item>6 horas</item>
-    </string-array>
+    <string name="general_setting_title">GENERAL</string>
     <!-- End Notifications -->
 
     <!-- General -->
-    <string name="general_setting_title">GENERAL</string>
     <string name="location_enabled_title">Acces la locatie</string>
     <string name="location_enabled_summary">Activeaza ca sa permiti accesul la locatie.</string>
     <string name="hide_editor_newsfeed_title">Ascunde Editorul de Status din Feed</string>
@@ -45,16 +35,11 @@
     <string name="hide_recently_commented">Hide recently commented</string>
     <string name="hide_recently_commented_summary">X people recently commented on this.</string>
     <string name="start_url">Start URL</string>
-    <string-array name="Start">
-        <item>MostRecent</item>
-        <item>TopStories</item>
-        <item>Messages</item>
-    </string-array>
+    <string name="more">Mai multe si credite</string>
+    <string name="about_updates">Update-uri</string>
     <!-- End general -->
 
     <!-- About -->
-    <string name="more">Mai multe si credite</string>
-    <string name="about_updates">Update-uri</string>
     <string name="updates">Verifica pentru o noua versiune</string>
     <string name="updates_summary">Incarca pagina si descarca ultima versiune</string>
     <string name="people_who_translated">Userii care au tradus aplicatia</string>
@@ -64,35 +49,29 @@
     <string name="source_code">Codul-sursa pe Github</string>
     <string name="withYou">Raporteaza bug-uri sau cere noi functii</string>
     <string name="changelog">Jurnalul schimbarilor</string>
+    <string name="appearance_setting_title">INTERFATA</string>
+    <string name="app_themes">Tema aplicatiei</string>
     <!-- End about -->
 
     <!-- APPEARANCE -->
-    <string name="appearance_setting_title">INTERFATA</string>
-    <string name="web_themes">Teme web</string>
-    <string name="web_themes_summary">De aici poti alege diferite teme web.</string>
-    <string name="app_themes">Tema aplicatiei</string>
     <string name="app_themes_summary">De aici se poate alege tema aplicatiei.</string>
-
-    <!-- Navigation -->
     <string name="navigation_setting_title">NAVIGATIE</string>
     <string name="navigation_menu_settings">Itemii meniului de navigare</string>
+
+    <!-- Navigation -->
     <string name="navigation_menu_settings_description">Aici se pot afisa/ascunde itemi din meniul de navigare.</string>
     <string name="save_data">Economizator de date</string>
     <string name="save_data_summary">Cand este activat, aplicatia se autoconfigureaza intr-un mod de economisire a datelor</string>
-    <string name="clearcache">Clear cache on exit</string>
-    <string name="clearcache_summary">It will take more time to open the app.</string>
     <string name="fab_enable">Floating Action Button</string>
     <string name="fab_enable_summary">Show the FAB.</string>
-    <!-- Navigation: fab -->
     <string name="fab_text">Posteaza un status</string>
     <string name="fab_photo">Posteaza o fotografie</string>
+    <!-- Navigation: fab -->
     <string name="fab_checkin">Check In</string>
     <string name="fab_jump_top">Revino sus</string>
-    <!-- Navigation: items -->
     <string name="navigation_menu_title">MENIUL DE NAVIGARE</string>
-    <string name="ic_menu_exitapp">Iesi din aplicatie</string>
-    <string name="ic_menu_exitapp_summary">Cand este activat, butonul &#8216;Iesi din aplicatie&#8217; dispare.</string>
     <string name="menu_photos">Fotografii</string>
+    <!-- Navigation: items -->
     <string name="menu_photos_summary">Cand este activat, butonul &#8216;Fotografii&#8217; dispare.</string>
     <string name="menu_events">Evenimente</string>
     <string name="menu_events_summary">Cand este activat, butonul &#8216;Evenimente&#8217; dispare.</string>
@@ -119,4 +98,19 @@
     <string name="downloaded">Downloaded</string>
     <string name="new_bookmark">Added:</string>
     <string name="remove_bookmark">Removed:</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 minuto</item>
+        <item>2 minutos</item>
+        <item>5 minutos</item>
+        <item>15 minutos</item>
+        <item>30 minutos</item>
+        <item>1 hora</item>
+        <item>3 horas</item>
+        <item>6 horas</item>
+    </string-array>
+    <string-array name="Start">
+        <item>MostRecent</item>
+        <item>TopStories</item>
+        <item>Messages</item>
+    </string-array>
 </resources>

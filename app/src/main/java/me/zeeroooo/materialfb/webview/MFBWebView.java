@@ -1,18 +1,19 @@
 package me.zeeroooo.materialfb.webview;
 
 import android.content.Context;
-import androidx.core.view.NestedScrollingChild;
-import androidx.core.view.NestedScrollingChildHelper;
-import androidx.core.view.ViewCompat;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.webkit.WebView;
 
+import androidx.core.view.NestedScrollingChild;
+import androidx.core.view.NestedScrollingChildHelper;
+import androidx.core.view.ViewCompat;
+
 public class MFBWebView extends WebView implements NestedScrollingChild {
 
-    private int mLastY;
     private final int[] mScrollOffset = new int[2];
     private final int[] mScrollConsumed = new int[2];
+    private int mLastY;
     private int mNestedOffsetY;
     private NestedScrollingChildHelper mChildHelper;
     private OnScrollChangedCallback mOnScrollChangedCallback;
@@ -50,18 +51,14 @@ public class MFBWebView extends WebView implements NestedScrollingChild {
         this.mOnScrollChangedCallback = mOnScrollChangedCallback;
     }
 
-    public interface OnScrollChangedCallback {
-        void onScrollChange(WebView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY);
+    @Override
+    public boolean isNestedScrollingEnabled() {
+        return mChildHelper.isNestedScrollingEnabled();
     }
 
     @Override
     public void setNestedScrollingEnabled(boolean enabled) {
         mChildHelper.setNestedScrollingEnabled(enabled);
-    }
-
-    @Override
-    public boolean isNestedScrollingEnabled() {
-        return mChildHelper.isNestedScrollingEnabled();
     }
 
     @Override
@@ -107,7 +104,7 @@ public class MFBWebView extends WebView implements NestedScrollingChild {
         if (action == MotionEvent.ACTION_DOWN) {
             mNestedOffsetY = 0;
         }
-        int y = (int) event.getY();
+        final int y = (int) event.getY();
         event.offsetLocation(0, mNestedOffsetY);
         switch (action) {
             case MotionEvent.ACTION_DOWN:
@@ -116,7 +113,7 @@ public class MFBWebView extends WebView implements NestedScrollingChild {
                 break;
             case MotionEvent.ACTION_MOVE:
                 int dy = mLastY - y;
-                int oldY = getScrollY();
+                final int oldY = getScrollY();
                 startNestedScroll(ViewCompat.SCROLL_AXIS_VERTICAL);
                 if (dispatchNestedPreScroll(0, dy, mScrollConsumed, mScrollOffset)) {
                     dy -= mScrollConsumed[1];
@@ -126,7 +123,7 @@ public class MFBWebView extends WebView implements NestedScrollingChild {
                 rs = super.onTouchEvent(event);
                 mLastY = y - mScrollOffset[1];
                 if (dy < 0) {
-                    int newScrollY = Math.max(0, oldY + dy);
+                    final int newScrollY = Math.max(0, oldY + dy);
                     dy -= newScrollY - oldY;
                     if (dispatchNestedScroll(0, newScrollY - dy, 0, dy, mScrollOffset)) {
                         event.offsetLocation(0, mScrollOffset[1]);
@@ -142,5 +139,9 @@ public class MFBWebView extends WebView implements NestedScrollingChild {
                 break;
         }
         return rs;
+    }
+
+    public interface OnScrollChangedCallback {
+        void onScrollChange(WebView v, int scrollX, int scrollY, int oldScrollX, int oldScrollY);
     }
 }

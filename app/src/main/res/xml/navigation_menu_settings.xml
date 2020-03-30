@@ -1,50 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="@string/navigation_menu_title">
-        <SwitchPreference
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <me.zeeroooo.materialfb.ui.MFBPreferenceCategory android:title="@string/navigation_menu_title">
+        <me.zeeroooo.materialfb.ui.MFBSwitchPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="true"
             android:key="nav_groups"
             android:summary="@string/menu_groups_summary"
             android:title="@string/menu_groups" />
-        <SwitchPreference
+        <me.zeeroooo.materialfb.ui.MFBSwitchPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="true"
             android:key="nav_search"
             android:summary="@string/menu_search_summary"
             android:title="@string/menu_search" />
-        <SwitchPreference
+        <me.zeeroooo.materialfb.ui.MFBSwitchPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="true"
             android:key="nav_mainmenu"
             android:summary="@string/menu_mainmenu_summary"
             android:title="@string/menu_mainmenu" />
-        <SwitchPreference
+        <me.zeeroooo.materialfb.ui.MFBSwitchPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="true"
             android:key="nav_most_recent"
             android:summary="@string/menu_most_recent_summary"
             android:title="@string/menu_most_recent" />
-        <SwitchPreference
-            android:defaultValue="true"
-            android:key="nav_exitapp"
-            android:summary="@string/ic_menu_exitapp_summary"
-            android:title="@string/ic_menu_exitapp" />
-        <SwitchPreference
+        <me.zeeroooo.materialfb.ui.MFBSwitchPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="true"
             android:key="nav_events"
             android:summary="@string/menu_events_summary"
             android:title="@string/menu_events" />
-        <SwitchPreference
+        <me.zeeroooo.materialfb.ui.MFBSwitchPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="true"
             android:key="nav_photos"
             android:summary="@string/menu_photos_summary"
             android:title="@string/menu_photos" />
-        <SwitchPreference
+        <me.zeeroooo.materialfb.ui.MFBSwitchPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="true"
             android:key="nav_friendreq"
             android:summary="@string/menu_friendreq_summary"
             android:title="@string/menu_friendreq" />
-        <SwitchPreference
+        <me.zeeroooo.materialfb.ui.MFBSwitchPreference
+            app:iconSpaceReserved="false"
             android:defaultValue="true"
             android:key="nav_top_stories"
             android:summary="@string/menu_top_stories_summary"
             android:title="@string/menu_top_stories" />
-    </PreferenceCategory>
+    </me.zeeroooo.materialfb.ui.MFBPreferenceCategory>
 </PreferenceScreen>

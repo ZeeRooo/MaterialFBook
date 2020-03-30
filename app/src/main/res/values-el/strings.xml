@@ -16,20 +16,10 @@
     <string name="vibrate_double">Διπλή δόνηση</string>
     <string name="led_light">Φως LED</string>
 
-    <string-array name="intervalPrefTitles">
-        <item>1 λεπτό</item>
-        <item>2 λεπτά</item>
-        <item>5 λεπτά</item>
-        <item>15 λεπτά</item>
-        <item>30 λεπτά</item>
-        <item>1 ώρα</item>
-        <item>3 ώρες</item>
-        <item>6 ώρες</item>
-    </string-array>
+    <string name="general_setting_title">ΓΕΝΙΚΑ</string>
     <!-- End Notifications -->
 
     <!-- General -->
-    <string name="general_setting_title">ΓΕΝΙΚΑ</string>
     <string name="location_enabled_title">Πρόσβαση στην τοποθεσία</string>
     <string name="location_enabled_summary">Ενεργοποίησε αυτό για να επιτρέψεις στο Facebook να λάβει την τοποθεσία σου.</string>
     <string name="hide_editor_newsfeed_title">Απόκρυψη της ενημέρωσης κατάστασης στην Ροή Νέων</string>
@@ -45,16 +35,11 @@
     <string name="hide_recently_commented">Απόκρυψη προσφάτως σχολιασμένων</string>
     <string name="hide_recently_commented_summary">Χ άτομα σχολίασαν πρόσφατα σε αυτό.</string>
     <string name="start_url">Διεύθυνση Έναρξης</string>
-    <string-array name="Start">
-        <item>Πρόσφατα</item>
-        <item>ΤοπΙστορίες</item>
-        <item>Μηνύματα</item>
-    </string-array>
+    <string name="more">Περισσότερα και συντελεστές</string>
+    <string name="about_updates">Αναβαθμίσεις</string>
     <!-- End general -->
 
     <!-- About -->
-    <string name="more">Περισσότερα και συντελεστές</string>
-    <string name="about_updates">Αναβαθμίσεις</string>
     <string name="updates">Έλεγχος για νέα έκδοση</string>
     <string name="updates_summary">Φόρτωμα της σελίδας και κατέβασμα της τελευταίας έκδοσης</string>
     <string name="people_who_translated">Χρήστες που μετάφρασαν την εφαρμογή</string>
@@ -64,35 +49,29 @@
     <string name="source_code">Πηγαίος κώδικας στο Github</string>
     <string name="withYou">Αναφορά σφαλμάτων ή αίτηση νέων δυνατοτήτων</string>
     <string name="changelog">Λίστα Αλλαγών</string>
+    <string name="appearance_setting_title">ΕΜΦΑΝΙΣΗ</string>
+    <string name="app_themes">Θέματα Εφαρμογής</string>
     <!-- End about -->
 
     <!-- APPEARANCE -->
-    <string name="appearance_setting_title">ΕΜΦΑΝΙΣΗ</string>
-    <string name="web_themes">Θέματα web</string>
-    <string name="web_themes_summary">Μπορείς να επιλέξεις διαφορετικά θέματα web.</string>
-    <string name="app_themes">Θέματα Εφαρμογής</string>
     <string name="app_themes_summary">Μπορείς να επιλέξεις διαφορετικά θέματα εφαρμογής.</string>
-
-    <!-- Navigation -->
     <string name="navigation_setting_title">ΠΛΟΗΓΗΣΗ</string>
     <string name="navigation_menu_settings">Αντικείμενα του μενού πλοήγησης</string>
+
+    <!-- Navigation -->
     <string name="navigation_menu_settings_description">Μπορείς να φανερώσεις/κρύψεις αντικείμενα στο μενού πλοήγησης</string>
     <string name="save_data">Χαμηλότερη χρήση δεδομένων</string>
     <string name="save_data_summary">Φορτώνει την βασική έκδοση του Facebook και απενεργοποιεί τα λογότυπα και τις ενημερώσεις πληροφοριών προφίλ.</string>
-    <string name="clearcache">Καθάρισμα μνήμης cache κατά την έξοδο</string>
-    <string name="clearcache_summary">Θα παίρνει περισσότερη ώρα να ανοίξει η εφαρμογή</string>
     <string name="fab_enable">Αιωρούμενο Κουμπί Ενεργειών</string>
     <string name="fab_enable_summary">Εμφάνιση του ΑΚΕ.</string>
-    <!-- Navigation: fab -->
     <string name="fab_text">Δημοσίευση ενημέρωσης</string>
     <string name="fab_photo">Δημοσίευση φωτογραφίας</string>
+    <!-- Navigation: fab -->
     <string name="fab_checkin">Check In</string>
     <string name="fab_jump_top">Μετάβαση στην Κορυφή</string>
-    <!-- Navigation: items -->
     <string name="navigation_menu_title">ΜΕΝΟΥ ΠΛΟΗΓΗΣΗ</string>
-    <string name="ic_menu_exitapp">Έξοδος από την εφαρμογή</string>
-    <string name="ic_menu_exitapp_summary">Εμφάνιση κουμπιού &#8216;Έξοδος από την εφαρμογή&#8217; στο μενού πλοήγησης.</string>
     <string name="menu_photos">Φωτογραφίες</string>
+    <!-- Navigation: items -->
     <string name="menu_photos_summary">Εμφάνιση κουμπιού &#8216;Φωτογραφίες&#8217; στο μενού πλοήγησης.</string>
     <string name="menu_events">Εκδηλώσεις</string>
     <string name="menu_events_summary">Εμφάνιση κουμπιού &#8216;Εκδηλώσεις&#8217; στο μενού πλοήγησης.</string>
@@ -115,10 +94,25 @@
     <string name="settings">Ρυθμίσεις</string>
     <string name="context_share_image">Διαμοιρασμός εικόνας</string>
     <string name="context_share_link">Διαμοιρασμός συνδέσμου</string>
-    <string name="context_share_image_progress">Η εικόνα μοιράζεται...</string>
+    <string name="context_share_image_progress">Η εικόνα μοιράζεται…</string>
     <string name="content_copy_link_done">Ο σύνδεσμος αντιγράφτηκε στο πρόχειρο</string>
     <string name="permission_denied">Άρνηση έγκρισης, δεν μπορεί να ολοκληρωθεί η ενέργεια</string>
     <string name="downloaded">Κατεβασμένα</string>
     <string name="new_bookmark">Προσθεμένα:</string>
     <string name="remove_bookmark">Αφαιρεμένα:</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 λεπτό</item>
+        <item>2 λεπτά</item>
+        <item>5 λεπτά</item>
+        <item>15 λεπτά</item>
+        <item>30 λεπτά</item>
+        <item>1 ώρα</item>
+        <item>3 ώρες</item>
+        <item>6 ώρες</item>
+    </string-array>
+    <string-array name="Start">
+        <item>Πρόσφατα</item>
+        <item>ΤοπΙστορίες</item>
+        <item>Μηνύματα</item>
+    </string-array>
 </resources>

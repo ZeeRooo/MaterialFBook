@@ -5,6 +5,7 @@ import android.webkit.WebView;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 
 public class JavaScriptHelpers {
 
@@ -20,8 +21,8 @@ public class JavaScriptHelpers {
 
     public static void loadCSS(WebView view, String css) {
         try {
-            InputStream inputStream = new ByteArrayInputStream(css.getBytes("UTF-8"));
-            byte[] buffer = new byte[inputStream.available()];
+            final InputStream inputStream = new ByteArrayInputStream(css.getBytes(StandardCharsets.UTF_8));
+            final byte[] buffer = new byte[inputStream.available()];
             inputStream.read(buffer);
             inputStream.close();
             view.loadUrl("javascript:(function() {var parent = document.getElementsByTagName('head').item(0);var style = document.createElement('style');style.type = 'text/css';style.innerHTML = window.atob('" + Base64.encodeToString(buffer, Base64.NO_WRAP) + "');parent.appendChild(style)})()");

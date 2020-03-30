@@ -1,19 +1,19 @@
 package me.zeeroooo.materialfb.misc;
 
-public class BookmarksH {
+public class ModelBookmarks {
     private String url, title;
 
-    public BookmarksH(String title, String url) {
-            this.url = url;
-            this.title = title;
-    }
-
-    public void setTitle(String title) {
+    public ModelBookmarks(String title, String url) {
+        this.url = url;
         this.title = title;
     }
 
     public String getTitle() {
         return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getUrl() {

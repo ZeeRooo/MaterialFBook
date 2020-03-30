@@ -2,11 +2,11 @@
 <set xmlns:android="http://schemas.android.com/apk/res/android"
     android:interpolator="@android:interpolator/accelerate_quint">
     <alpha
+        android:duration="150"
         android:fromAlpha="1"
-        android:toAlpha="0"
-        android:duration="150" />
+        android:toAlpha="0" />
     <translate
+        android:duration="200"
         android:fromXDelta="0"
-        android:toXDelta="-30%p"
-        android:duration="200" />
+        android:toXDelta="-30%p" />
 </set>

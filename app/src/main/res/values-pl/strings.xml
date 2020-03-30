@@ -16,20 +16,10 @@
     <string name="vibrate_double">Podwójna wibracja</string>
     <string name="led_light">Dioda LED</string>
 
-    <string-array name="intervalPrefTitles">
-        <item>1 minuta</item>
-        <item>2 minuty</item>
-        <item>5 minut</item>
-        <item>15 minut</item>
-        <item>30 minut</item>
-        <item>1 godzina</item>
-        <item>3 godziny</item>
-        <item>6 godzin</item>
-    </string-array>
+    <string name="general_setting_title">OGÓLNE</string>
     <!-- End Notifications -->
 
     <!-- General -->
-    <string name="general_setting_title">OGÓLNE</string>
     <string name="location_enabled_title">Dostęp do lokalizacji</string>
     <string name="location_enabled_summary">Włącz, by pozwolić facebookowi uzyskiwać twoją lokalizację.</string>
     <string name="hide_editor_newsfeed_title">Ukryj edytor statusu w Aktualnościach</string>
@@ -45,16 +35,11 @@
     <string name="hide_recently_commented">Ukryj ostatnio skomentowane</string>
     <string name="hide_recently_commented_summary">\"X\" ludzi niedawno skomentowało to.</string>
     <string name="start_url">Start URL</string>
-    <string-array name="Start">
-        <item>Najnowsze</item>
-        <item>Najciekawsze</item>
-        <item>Wiadomości</item>
-    </string-array>
+    <string name="more">Więcej i zasługi</string>
+    <string name="about_updates">Aktualizacje</string>
     <!-- End general -->
 
     <!-- About -->
-    <string name="more">Więcej i zasługi</string>
-    <string name="about_updates">Aktualizacje</string>
     <string name="updates">Sprawdź czy jest nowsza wersja</string>
     <string name="updates_summary">Załaduj stronę i ściągnij najnowszą wersję</string>
     <string name="people_who_translated">Użytkownicy, którzy przetłumaczyli aplikację</string>
@@ -64,35 +49,29 @@
     <string name="source_code">Kod źródłowy na Github</string>
     <string name="withYou">Zaraportuj błędy, lub poproś o nową funkcję</string>
     <string name="changelog">Lista zmian</string>
+    <string name="appearance_setting_title">WYGLĄD</string>
+    <string name="app_themes">Wygląd aplikacji</string>
     <!-- End about -->
 
     <!-- APPEARANCE -->
-    <string name="appearance_setting_title">WYGLĄD</string>
-    <string name="web_themes">Wygląd facebooka </string>
-    <string name="web_themes_summary">Możesz wybrać wzornictwo facebooka.</string>
-    <string name="app_themes">Wygląd aplikacji</string>
     <string name="app_themes_summary">Możesz wybrać wzornictwo aplikacji.</string>
-
-    <!-- Navigation -->
     <string name="navigation_setting_title">NAWIGACJA</string>
     <string name="navigation_menu_settings">Elementy menu nawigacji</string>
+
+    <!-- Navigation -->
     <string name="navigation_menu_settings_description">Możesz dodać/ukryć elementy w menu nawigacyjnym aplikacji.</string>
     <string name="save_data">Niższe zużycie danych</string>
     <string name="save_data_summary">Ładuje Facebooka w wersji podstawowej, a także wyłącza znaczniki oraz informacje profilowe.</string>
-    <string name="clearcache">Wyczyść pamięć podręczną przy zamykaniu</string>
-    <string name="clearcache_summary">Kiedy włączone, aplikacja będzie uruchamiać się dłużej.</string>
     <string name="fab_enable">Ruchomy przycisk akcji</string>
     <string name="fab_enable_summary">Pokaż przycisk.</string>
-    <!-- Navigation: fab -->
     <string name="fab_text">Opublikuj status</string>
     <string name="fab_photo">Opublikuj zdjęcie</string>
+    <!-- Navigation: fab -->
     <string name="fab_checkin">Zamelduj się</string>
     <string name="fab_jump_top">Skocz na górę</string>
-    <!-- Navigation: items -->
     <string name="navigation_menu_title">MENU NAWIGACJI</string>
-    <string name="ic_menu_exitapp">Wyłącz aplikację</string>
-    <string name="ic_menu_exitapp_summary">Jeśli wyłączone, przycisk \„Wyłącz aplikację\” zniknie z menu nawigacji.</string>
     <string name="menu_photos">Zdjęcia</string>
+    <!-- Navigation: items -->
     <string name="menu_photos_summary">Jeśli wyłączone, przycisk \„Zdjęcia\” zniknie z menu nawigacji.</string>
     <string name="menu_events">Wydarzenia</string>
     <string name="menu_events_summary">Jeśli wyłączone, przycisk \„Wydarzenia\” zniknie z menu nawigacji.</string>
@@ -115,10 +94,25 @@
     <string name="settings">Ustawienia</string>
     <string name="context_share_image">Udostępnij obraz</string>
     <string name="context_share_link">Udostępnij link</string>
-    <string name="context_share_image_progress">Udostępnianie obrazu...</string>
+    <string name="context_share_image_progress">Udostępnianie obrazu…</string>
     <string name="content_copy_link_done">Link skopiowany do schowka</string>
     <string name="permission_denied">Odmowa uprawnień, nie można ukończyć działania</string>
     <string name="downloaded">Pobrane</string>
     <string name="new_bookmark">Dodano:</string>
     <string name="remove_bookmark">Usunięto:</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 minuta</item>
+        <item>2 minuty</item>
+        <item>5 minut</item>
+        <item>15 minut</item>
+        <item>30 minut</item>
+        <item>1 godzina</item>
+        <item>3 godziny</item>
+        <item>6 godzin</item>
+    </string-array>
+    <string-array name="Start">
+        <item>Najnowsze</item>
+        <item>Najciekawsze</item>
+        <item>Wiadomości</item>
+    </string-array>
 </resources>

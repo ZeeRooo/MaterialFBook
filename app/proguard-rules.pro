@@ -23,6 +23,6 @@
 
 -keeppackagenames org.jsoup.nodes
 
--keep class android.support.v7.widget.SearchView { *; }
+#-keep class androidx.appcompat.widget.SearchView { *; }
 
 -keepnames class com.mypackage.MyGlideModule

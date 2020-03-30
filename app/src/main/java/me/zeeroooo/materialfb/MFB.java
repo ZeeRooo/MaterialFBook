@@ -12,8 +12,9 @@ import org.acra.annotation.AcraMailSender;
  */
 
 @AcraCore(buildConfigClass = BuildConfig.class)
-@AcraMailSender(mailTo = "mail@host.com")
+@AcraMailSender(mailTo = "chavesjuan400@gmail.com")
 public class MFB extends Application {
+    public static int colorPrimary, colorPrimaryDark, colorAccent, textColor;
 
     @Override
     protected void attachBaseContext(Context base) {

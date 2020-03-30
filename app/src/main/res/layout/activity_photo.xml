@@ -17,19 +17,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center" />
 
-    <View
-        android:id="@+id/photoViewerTopGradient"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="@drawable/gradient"
-        android:rotation="180" />
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_ph"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:theme="@style/AppTheme.AppBarOverlay" />
-
     <TextView
         android:id="@+id/photo_title"
         android:layout_width="match_parent"
@@ -42,5 +29,18 @@
         android:shadowRadius="4"
         android:textAlignment="center"
         android:textColor="@android:color/white" />
+
+    <View
+        android:id="@+id/photoViewerTopGradient"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@drawable/gradient"
+        android:rotation="180" />
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_ph"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar" />
 
 </FrameLayout>

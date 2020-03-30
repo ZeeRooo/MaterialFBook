@@ -34,6 +34,11 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.ActivityCompat;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.DataSource;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
@@ -45,16 +50,10 @@ import com.bumptech.glide.request.target.SizeReadyCallback;
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.ui.CookingAToast;
-import me.zeeroooo.materialfb.webview.Helpers;
 
-public class PhotoActivity extends AppCompatActivity implements View.OnTouchListener {
+public class PhotoActivity extends MFBActivity implements View.OnTouchListener {
 
     private ImageView mImageView;
     private boolean download = false, countdown = false;
@@ -68,11 +67,10 @@ public class PhotoActivity extends AppCompatActivity implements View.OnTouchList
     private WebView webView;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // setContentView(R.layout.activity_photo);
+    protected void create(Bundle savedInstanceState) {
+        super.create(savedInstanceState);
 
-        Helpers.setLocale(this, R.layout.activity_photo);
+        setContentView(R.layout.activity_photo);
 
         mImageView = findViewById(R.id.container);
         mImageView.setOnTouchListener(this);
@@ -117,7 +115,7 @@ public class PhotoActivity extends AppCompatActivity implements View.OnTouchList
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus) {
-            Window window = getWindow();
+            final Window window = getWindow();
             window.getDecorView().setSystemUiVisibility(
                     View.SYSTEM_UI_FLAG_LOW_PROFILE
                             | View.SYSTEM_UI_FLAG_FULLSCREEN
@@ -131,7 +129,7 @@ public class PhotoActivity extends AppCompatActivity implements View.OnTouchList
 
     @Override
     public boolean onTouch(View v, MotionEvent event) {
-        int DRAG = 1, ZOOM = 2;
+        final int DRAG = 1, ZOOM = 2;
 
         if (!mToolbar.isShown()) {
             setVisibility(View.VISIBLE, android.R.anim.fade_in);
@@ -183,8 +181,8 @@ public class PhotoActivity extends AppCompatActivity implements View.OnTouchList
     }
 
     private float spacing(MotionEvent event) {
-        float x = event.getX(0) - event.getX(1);
-        float y = event.getY(0) - event.getY(1);
+        final float x = event.getX(0) - event.getX(1);
+        final float y = event.getY(0) - event.getY(1);
         return (float) Math.sqrt(x * x + y * y);
     } // https://stackoverflow.com/a/6650484 all the credits to Chirag Raval
 
@@ -217,25 +215,27 @@ public class PhotoActivity extends AppCompatActivity implements View.OnTouchList
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-        if (id == R.id.download_image) {
-            download = true;
-            RequestStoragePermission();
+        switch (item.getItemId()) {
+            case R.id.download_image:
+                download = true;
+                RequestStoragePermission();
+                break;
+            case R.id.share_image:
+                share = 1;
+                RequestStoragePermission();
+                break;
+            case R.id.oopy_url_image:
+                final ClipboardManager clipboard = (ClipboardManager) this.getSystemService(Context.CLIPBOARD_SERVICE);
+                final ClipData clip = ClipData.newUri(this.getContentResolver(), "", Uri.parse(imageUrl));
+                if (clipboard != null)
+                    clipboard.setPrimaryClip(clip);
+                CookingAToast.cooking(PhotoActivity.this, getString(R.string.content_copy_link_done), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_copy_url, true).show();
+                break;
+            case android.R.id.home:
+                onBackPressed();
+                break;
         }
-        if (id == R.id.share_image) {
-            share = 1;
-            RequestStoragePermission();
-        }
-        if (id == R.id.oopy_url_image) {
-            final ClipboardManager clipboard = (ClipboardManager) this.getSystemService(Context.CLIPBOARD_SERVICE);
-            final ClipData clip = ClipData.newUri(this.getContentResolver(), "", Uri.parse(imageUrl));
-            if (clipboard != null)
-                clipboard.setPrimaryClip(clip);
-            CookingAToast.cooking(PhotoActivity.this, getString(R.string.content_copy_link_done), Color.WHITE, Color.parseColor("#00C851"), R.drawable.ic_copy_url, true).show();
-        }
-        if (id == android.R.id.home)
-            onBackPressed();
-        return false;
+        return super.onOptionsItemSelected(item);
     }
 
     private void shareImg() {
@@ -252,8 +252,8 @@ public class PhotoActivity extends AppCompatActivity implements View.OnTouchList
 
             @Override
             public void onResourceReady(@NonNull Bitmap resource, @Nullable Transition<? super Bitmap> transition) {
-                String path = MediaStore.Images.Media.insertImage(getContentResolver(), resource, Uri.parse(imageUrl).getLastPathSegment(), null);
-                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                final String path = MediaStore.Images.Media.insertImage(getContentResolver(), resource, Uri.parse(imageUrl).getLastPathSegment(), null);
+                final Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("image/*");
                 shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.parse(path));
                 startActivity(Intent.createChooser(shareIntent, getString(R.string.context_share_image)));
@@ -275,15 +275,15 @@ public class PhotoActivity extends AppCompatActivity implements View.OnTouchList
 
             }
 
-            @Override
-            public void setRequest(@Nullable Request request) {
-
-            }
-
             @Nullable
             @Override
             public Request getRequest() {
                 return null;
+            }
+
+            @Override
+            public void setRequest(@Nullable Request request) {
+
             }
 
             @Override
@@ -309,15 +309,15 @@ public class PhotoActivity extends AppCompatActivity implements View.OnTouchList
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             if (share == 1)
                 shareImg();
             else if (download) {
                 // Save the image
-                DownloadManager mDownloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+                final DownloadManager mDownloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
 
-                DownloadManager.Request request = new DownloadManager.Request(Uri.parse(imageUrl));
+                final DownloadManager.Request request = new DownloadManager.Request(Uri.parse(imageUrl));
                 request.setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES + "/MaterialFBook", System.currentTimeMillis() + ".jpg");
                 request.setVisibleInDownloadsUi(true);
                 request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
@@ -330,12 +330,6 @@ public class PhotoActivity extends AppCompatActivity implements View.OnTouchList
             }
         } else
             CookingAToast.cooking(this, getString(R.string.permission_denied), Color.WHITE, Color.parseColor("#ff4444"), R.drawable.ic_error, true).show();
-    }
-
-    @Override
-    public void onBackPressed() {
-        super.onBackPressed();
-        finish();
     }
 
     @Override
@@ -352,7 +346,7 @@ public class PhotoActivity extends AppCompatActivity implements View.OnTouchList
     }
 
     private void setCountDown() {
-        CountDownTimer countDownTimer = new CountDownTimer(5000, 1000) {
+        final CountDownTimer countDownTimer = new CountDownTimer(5000, 1000) {
             public void onTick(long millisUntilFinished) {
                 countdown = true;
             }
@@ -370,7 +364,7 @@ public class PhotoActivity extends AppCompatActivity implements View.OnTouchList
     }
 
     public void setVisibility(int visibility, int animation) {
-        Animation a = AnimationUtils.loadAnimation(this, animation);
+        final Animation a = AnimationUtils.loadAnimation(this, animation);
 
         topGradient.startAnimation(a);
         mToolbar.startAnimation(a);

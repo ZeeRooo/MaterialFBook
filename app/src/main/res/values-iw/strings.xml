@@ -16,20 +16,10 @@
     <string name="vibrate_double">רטט כפול</string>
     <string name="led_light">נורית</string>
 
-    <string-array name="intervalPrefTitles">
-        <item>דקה אחת</item>
-        <item>2 דקות</item>
-        <item>5 דקות</item>
-        <item>רבע שעה</item>
-        <item>חצי שעה</item>
-        <item>שעה</item>
-        <item>3 שעות</item>
-        <item>6 שעות</item>
-    </string-array>
+    <string name="general_setting_title">כללי</string>
     <!-- End Notifications -->
 
     <!-- General -->
-    <string name="general_setting_title">כללי</string>
     <string name="location_enabled_title">גישה למיקום</string>
     <string name="location_enabled_summary">הפעלת תכונה זו תאפשר לפייסבוק לאתר את המיקום שלך.</string>
     <string name="hide_editor_newsfeed_title">הסתרת עורך הודעות המצב בציר החדשות</string>
@@ -45,16 +35,11 @@
     <string name="hide_recently_commented">הסתרת תגובות אחרונות</string>
     <string name="hide_recently_commented_summary">X אנשים הגיבו על זה לאחרונה.</string>
     <string name="start_url">כתובת התחלה</string>
-    <string-array name="Start">
-        <item>עדכניים_ביותר</item>
-        <item>סיפורים_מובילים</item>
-        <item>הודעות</item>
-    </string-array>
+    <string name="more">עוד ותודות</string>
+    <string name="about_updates">עדכונים</string>
     <!-- End general -->
 
     <!-- About -->
-    <string name="more">עוד ותודות</string>
-    <string name="about_updates">עדכונים</string>
     <string name="updates">חיפוש גרסה חדשה</string>
     <string name="updates_summary">טעינת העמוד והורדת הגרסה העדכנית ביותר</string>
     <string name="people_who_translated">משתמשים שתרגמו את היישומון</string>
@@ -64,35 +49,29 @@
     <string name="source_code">קוד המקור ב־Github</string>
     <string name="withYou">דיווח על תקלות או בקשה של תכונות חדשות</string>
     <string name="changelog">יומן שינויים</string>
+    <string name="appearance_setting_title">מראה</string>
+    <string name="app_themes">ערכות עיצוב יישומון</string>
     <!-- End about -->
 
     <!-- APPEARANCE -->
-    <string name="appearance_setting_title">מראה</string>
-    <string name="web_themes">ערכות עיצוב פנימיות</string>
-    <string name="web_themes_summary">ניתן לבחור ערכות עיצוב לתצוגה של פייסבוק.</string>
-    <string name="app_themes">ערכות עיצוב יישומון</string>
     <string name="app_themes_summary">ניתן לבחור ערכות עיצוב שונות ליישומון.</string>
-
-    <!-- Navigation -->
     <string name="navigation_setting_title">ניווט</string>
     <string name="navigation_menu_settings">פריטים בתפריט הניווט</string>
+
+    <!-- Navigation -->
     <string name="navigation_menu_settings_description">ניתן להציג/להסתיר פריטים בתפריט הניווט.</string>
     <string name="save_data">הפחתת כמות נתונים</string>
     <string name="save_data_summary">טעינת פייסבוק במצב בסיסי מנטרל גם את הטלאים ואת פרטי הפרופיל.</string>
-    <string name="clearcache">מחיקת המטמון עם היציאה</string>
-    <string name="clearcache_summary">הפעלת היישומון עשויה לארוך זמן רב יותר.</string>
     <string name="fab_enable">כפתור פעולה צף</string>
     <string name="fab_enable_summary">הצגת הכפתור הצף.</string>
-    <!-- Navigation: fab -->
     <string name="fab_text">פרסום הודעת מצב</string>
     <string name="fab_photo">פרסום תמונה</string>
+    <!-- Navigation: fab -->
     <string name="fab_checkin">סימון מיקום</string>
     <string name="fab_jump_top">קפיצה למעלה</string>
-    <!-- Navigation: items -->
     <string name="navigation_menu_title">תפריט ניווט</string>
-    <string name="ic_menu_exitapp">יציאה מהיישומון</string>
-    <string name="ic_menu_exitapp_summary">הצגת הכפתור &#8216;יציאה מהיישומון&#8217; במגירת הניווט.</string>
     <string name="menu_photos">תמונות</string>
+    <!-- Navigation: items -->
     <string name="menu_photos_summary">הצגת הכפתור &#8216;תמונות&#8217; במגירת הניווט.</string>
     <string name="menu_events">אירועים</string>
     <string name="menu_events_summary">הצגת הכפתור &#8216;אירועים&#8217; במגירת הניווט.</string>
@@ -121,4 +100,19 @@
     <string name="downloaded">התקבל</string>
     <string name="new_bookmark">נוספו:</string>
     <string name="remove_bookmark">הוסרו:</string>
+    <string-array name="intervalPrefTitles">
+        <item>דקה אחת</item>
+        <item>2 דקות</item>
+        <item>5 דקות</item>
+        <item>רבע שעה</item>
+        <item>חצי שעה</item>
+        <item>שעה</item>
+        <item>3 שעות</item>
+        <item>6 שעות</item>
+    </string-array>
+    <string-array name="Start">
+        <item>עדכניים_ביותר</item>
+        <item>סיפורים_מובילים</item>
+        <item>הודעות</item>
+    </string-array>
 </resources>

@@ -6,53 +6,47 @@
 package me.zeeroooo.materialfb.activities;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-import android.view.MenuItem;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import me.zeeroooo.materialfb.MFB;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.fragments.SettingsFragment;
-import me.zeeroooo.materialfb.ui.Theme;
-import me.zeeroooo.materialfb.webview.Helpers;
 
-public class SettingsActivity extends AppCompatActivity {
+public class SettingsActivity extends MFBActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        SharedPreferences mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        Theme.Temas(this, mPreferences);
+    protected void create(Bundle savedInstanceState) {
+        super.create(savedInstanceState);
 
-        super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_settings);
+        setContentView(R.layout.activity_settings);
 
-        Helpers.setLocale(this, R.layout.activity_settings);
+        getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, new SettingsFragment()).commit();
 
-        Toolbar mToolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(mToolbar);
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-            getFragmentManager().beginTransaction().replace(R.id.content_frame, new SettingsFragment()).commit();
+        findViewById(R.id.settings_root_view).setBackgroundColor(MFB.colorPrimary);
+
+        final Toolbar mToolbar = findViewById(R.id.settings_toolbar);
+        mToolbar.setNavigationIcon(R.mipmap.ic_launcher);
+
+        final Drawable backArrowDrawable = getResources().getDrawable(R.drawable.abc_ic_ab_back_material);
+
+        if (themeMode == 0) {
+            mToolbar.setTitleTextColor(MFB.textColor);
+            backArrowDrawable.setColorFilter(MFB.textColor, PorterDuff.Mode.SRC_ATOP);
         }
+
+        setSupportActionBar(mToolbar);
+
+        getSupportActionBar().setHomeAsUpIndicator(backArrowDrawable);
     }
 
     @Override
     public void onBackPressed() {
-        Intent apply = new Intent(this, MainActivity.class);
-        apply.putExtra("apply", true);
-        startActivity(apply);
+        startActivity(new Intent(this, MainActivity.class).putExtra("apply", true));
 
         super.onBackPressed();
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            onBackPressed();
-            return true;
-        }
-        return false;
     }
 }

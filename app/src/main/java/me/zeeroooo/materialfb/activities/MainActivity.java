@@ -1,9 +1,9 @@
-/*
- * Code taken from:
- * - FaceSlim by indywidualny. Thanks.
- * - Folio for Facebook by creativetrendsapps. Thanks.
- * - Toffed by JakeLane. Thanks.
- */
+//
+//* Code taken from:
+//* - FaceSlim by indywidualny. Thanks.
+//* - Folio for Facebook by creativetrendsapps. Thanks.
+//* - Toffed by JakeLane. Thanks.
+//
 package me.zeeroooo.materialfb.activities;
 
 import android.Manifest;
@@ -14,8 +14,8 @@ import android.app.Activity;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -30,7 +30,6 @@ import android.os.Environment;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Parcelable;
-import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -48,18 +47,30 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-import android.widget.AdapterView;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.github.clans.fab.FloatingActionMenu;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
+import androidx.coordinatorlayout.widget.CoordinatorLayout;
+import androidx.core.app.ActivityCompat;
+import androidx.core.graphics.BlendModeColorFilterCompat;
+import androidx.core.graphics.BlendModeCompat;
+import androidx.core.view.GravityCompat;
+import androidx.core.view.ViewCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+
 import com.google.android.material.appbar.AppBarLayout;
+import com.google.android.material.button.MaterialButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
 import org.jsoup.select.Elements;
 
 import java.io.File;
@@ -68,45 +79,36 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.SearchView;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import me.zeeroooo.materialfb.MFB;
 import me.zeeroooo.materialfb.R;
-import me.zeeroooo.materialfb.misc.BookmarksAdapter;
-import me.zeeroooo.materialfb.misc.BookmarksH;
+import me.zeeroooo.materialfb.adapters.AdapterBookmarks;
 import me.zeeroooo.materialfb.misc.DatabaseHelper;
+import me.zeeroooo.materialfb.misc.ModelBookmarks;
 import me.zeeroooo.materialfb.misc.UserInfo;
-import me.zeeroooo.materialfb.notifications.NotificationsService;
 import me.zeeroooo.materialfb.ui.CookingAToast;
-import me.zeeroooo.materialfb.ui.Theme;
+import me.zeeroooo.materialfb.ui.MFBFloatingActionButton;
+import me.zeeroooo.materialfb.ui.MFBResources;
 import me.zeeroooo.materialfb.webview.Helpers;
 import me.zeeroooo.materialfb.webview.JavaScriptHelpers;
 import me.zeeroooo.materialfb.webview.JavaScriptInterfaces;
 import me.zeeroooo.materialfb.webview.MFBWebView;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, Handler.Callback {
+public class MainActivity extends MFBActivity implements NavigationView.OnNavigationItemSelectedListener, Handler.Callback {
     private ValueCallback<Uri[]> mFilePathCallback;
     private Uri mCapturedImageURI = null, sharedFromGallery;
     private ValueCallback<Uri> mUploadMessage;
-    private int FILECHOOSER_RESULTCODE = 2888, INPUT_FILE_REQUEST_CODE = 1;
+    private int FILECHOOSER_RESULTCODE = 2888, INPUT_FILE_REQUEST_CODE = 1, lastEvent;
+    private boolean showAnimation, showHeader = false, loadCss = true;
     private String baseURL, mCameraPhotoPath, Url;
     private SwipeRefreshLayout swipeView;
     private NavigationView mNavigationView;
-    private FloatingActionMenu mMenuFAB;
+    private MFBFloatingActionButton mfbFloatingActionButton;
     private MFBWebView mWebView;
-    private SharedPreferences mPreferences;
     private DatabaseHelper DBHelper;
-    private BookmarksAdapter BLAdapter;
+    private AdapterBookmarks BLAdapter;
     private ListView BookmarksListView;
-    private ArrayList<BookmarksH> bookmarks;
-    private BookmarksH bk;
+    private ArrayList<ModelBookmarks> bookmarks;
+    private ModelBookmarks bk;
     private DrawerLayout drawer;
     private Elements elements;
     private Toolbar searchToolbar;
@@ -115,38 +117,54 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private Handler badgeUpdate;
     private Runnable badgeTask;
     private TextView mr_badge, fr_badge, notif_badge, msg_badge;
-    private boolean showAnimation;
     private Cursor cursor;
     private View circleRevealView;
-    private StringBuilder css = new StringBuilder();
-    private Handler mHandler = new Handler(this);
-    private int lastEvent;
+    private final StringBuilder css = new StringBuilder();
+    private final Handler mHandler = new Handler(this);
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        mPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-        Theme.Temas(this, mPreferences);
-        super.onCreate(savedInstanceState);
+    protected void create(Bundle savedInstanceState) {
+        super.create(savedInstanceState);
+
+        ((MFBResources) getResources()).setColors(sharedPreferences);
+
         setContentView(R.layout.activity_main);
 
-        Helpers.setLocale(this, R.layout.activity_main);
+        final AppBarLayout appBarLayout = findViewById(R.id.appbarlayout);
+        appBarLayout.setBackgroundColor(MFB.colorPrimary);
+
+        findViewById(R.id.app_bar_main_root_view).setBackgroundColor(MFB.colorPrimary);
+
+        CoordinatorLayout coordinatorLayout = findViewById(R.id.app_bar_main_coordinator_layout);
+        ViewCompat.setOnApplyWindowInsetsListener(coordinatorLayout, (view, insets) ->
+                ViewCompat.onApplyWindowInsets(coordinatorLayout, insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), 0, insets.getSystemWindowInsetRight(), insets.getSystemWindowInsetBottom()))
+        );
 
         mWebView = findViewById(R.id.webview);
+
         mNavigationView = findViewById(R.id.nav_view);
+
         drawer = findViewById(R.id.drawer_layout);
 
-        // Setup the toolbar
-        Toolbar mToolbar = findViewById(R.id.toolbar);
+        final Toolbar mToolbar = findViewById(R.id.toolbar);
         setSupportActionBar(mToolbar);
 
         // Setup the DrawLayout
         final ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
+        if (themeMode == 0) {
+            toggle.getDrawerArrowDrawable().setColor(Color.WHITE);
+            mToolbar.setTitleTextColor(Color.WHITE);
+        }
+
+        MFB.textColor = toggle.getDrawerArrowDrawable().getColor();
+
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         URLs();
 
-        switch (mPreferences.getString("start_url", "Most_recent")) {
+        switch (sharedPreferences.getString("start_url", "Most_recent")) {
             case "Most_recent":
                 baseURL += "home.php?sk=h_chr";
                 break;
@@ -162,59 +180,49 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         UrlIntent(getIntent());
 
-        mr_badge = (TextView) mNavigationView.getMenu().findItem(R.id.nav_most_recent).getActionView();
-        fr_badge = (TextView) mNavigationView.getMenu().findItem(R.id.nav_friendreq).getActionView();
-
         // Start the Swipe to reload listener
         swipeView = findViewById(R.id.swipeLayout);
-        swipeView.setColorSchemeResources(android.R.color.white);
-        swipeView.setProgressBackgroundColorSchemeColor(Theme.getColor(this));
+        if (themeMode == 0)
+            swipeView.setColorSchemeResources(android.R.color.white);
+        else
+            swipeView.setColorSchemeResources(android.R.color.black);
+        swipeView.setProgressBackgroundColorSchemeColor(getResources().getColor(R.color.colorPrimary));
         swipeView.setOnRefreshListener(() -> mWebView.reload());
 
         // Inflate the FAB menu
-        mMenuFAB = findViewById(R.id.menuFAB);
+        mfbFloatingActionButton = findViewById(R.id.menuFAB);
 
         View.OnClickListener mFABClickListener = (View v) -> {
             switch (v.getId()) {
-                case R.id.textFAB:
+                case 1:
                     mWebView.loadUrl("javascript:(function(){document.getElementsByClassName('_3-99')[1].click()})()");
                     swipeView.setEnabled(false);
                     break;
-                case R.id.photoFAB:
+                case 2:
                     mWebView.loadUrl("javascript:(function(){document.getElementsByClassName('_3-99')[0].click()})()");
                     swipeView.setEnabled(false);
                     break;
-                case R.id.checkinFAB:
+                case 3:
                     mWebView.loadUrl("javascript:(function(){document.getElementsByClassName('_3-99')[3].click()})()");
                     swipeView.setEnabled(false);
                     break;
-                case R.id.topFAB:
+                case 4:
                     mWebView.scrollTo(0, 0);
                     break;
-                case R.id.shareFAB:
+                case 5:
                     Intent shareIntent = new Intent(Intent.ACTION_SEND);
                     shareIntent.setType("text/plain");
                     shareIntent.putExtra(Intent.EXTRA_TEXT, mWebView.getUrl());
                     startActivity(Intent.createChooser(shareIntent, getString(R.string.context_share_link)));
                     break;
-                default:
-                    break;
             }
-            mMenuFAB.close(true);
         };
 
-        findViewById(R.id.textFAB).setOnClickListener(mFABClickListener);
-        findViewById(R.id.photoFAB).setOnClickListener(mFABClickListener);
-        findViewById(R.id.checkinFAB).setOnClickListener(mFABClickListener);
-        findViewById(R.id.topFAB).setOnClickListener(mFABClickListener);
-        findViewById(R.id.shareFAB).setOnClickListener(mFABClickListener);
-
-        // Add OnClick listener to Profile picture
-        ImageView profileImage = mNavigationView.getHeaderView(0).findViewById(R.id.profile_picture);
-        profileImage.setOnClickListener((View v) -> {
-            drawer.closeDrawers();
-            mWebView.loadUrl(baseURL + "me");
-        });
+        mfbFloatingActionButton.addButton(getResources().getDrawable(R.drawable.ic_fab_checkin), getString(R.string.fab_checkin), FloatingActionButton.SIZE_MINI, mFABClickListener);
+        mfbFloatingActionButton.addButton(getResources().getDrawable(R.drawable.ic_fab_photo), getString(R.string.fab_photo), FloatingActionButton.SIZE_MINI, mFABClickListener);
+        mfbFloatingActionButton.addButton(getResources().getDrawable(R.drawable.ic_fab_text), getString(R.string.fab_text), FloatingActionButton.SIZE_MINI, mFABClickListener);
+        mfbFloatingActionButton.addButton(getResources().getDrawable(R.drawable.ic_fab_jump_top), getString(R.string.fab_jump_top), FloatingActionButton.SIZE_MINI, mFABClickListener);
+        mfbFloatingActionButton.addButton(getResources().getDrawable(R.drawable.ic_share), getString(R.string.context_share_link), FloatingActionButton.SIZE_MINI, mFABClickListener);
     }
 
     @Override
@@ -223,6 +231,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         searchToolbar();
 
+        final int defaultColor = mNavigationView.getItemTextColor().getDefaultColor();
+        ColorStateList colorStateList = new ColorStateList(
+                new int[][]{new int[]{android.R.attr.state_checked}, new int[]{android.R.attr.state_enabled}, new int[]{android.R.attr.state_pressed}, new int[]{android.R.attr.state_focused}, new int[]{android.R.attr.state_pressed}},
+                new int[]{MFB.colorPrimary, defaultColor, defaultColor, defaultColor, defaultColor}
+        );
+
+        mNavigationView.setItemTextColor(colorStateList);
+        mNavigationView.setItemIconTintList(colorStateList);
         mNavigationView.setNavigationItemSelectedListener(this);
         mNavigationView.setCheckedItem(R.id.nav_most_recent);
 
@@ -232,63 +248,66 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         cursor = DBHelper.getReadableDatabase().rawQuery("SELECT TITLE, URL FROM mfb_table", null);
         while (cursor.moveToNext()) {
             if (cursor.getString(0) != null && cursor.getString(1) != null) {
-                bk = new BookmarksH(cursor.getString(0), cursor.getString(1));
+                bk = new ModelBookmarks(cursor.getString(0), cursor.getString(1));
                 bookmarks.add(bk);
             }
         }
 
-        BLAdapter = new BookmarksAdapter(this, bookmarks, DBHelper);
+        BLAdapter = new AdapterBookmarks(this, bookmarks, DBHelper);
         BookmarksListView = findViewById(R.id.bookmarksListView);
         BookmarksListView.setAdapter(BLAdapter);
 
-        BookmarksListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView adapter, View view, int position, long arg) {
-                BookmarksH item = (BookmarksH) BookmarksListView.getAdapter().getItem(position);
-                mWebView.loadUrl(item.getUrl());
-                drawer.closeDrawers();
-            }
+        BookmarksListView.setOnItemClickListener((adapter, view, position, arg) -> {
+            mWebView.loadUrl(((ModelBookmarks) BookmarksListView.getAdapter().getItem(position)).getUrl());
+            drawer.closeDrawers();
         });
 
-        ImageButton newbookmark = findViewById(R.id.add_bookmark);
+        final MaterialButton newbookmark = findViewById(R.id.add_bookmark);
+        newbookmark.setBackgroundColor(MFB.colorPrimary);
+        newbookmark.setTextColor(MFB.textColor);
+        newbookmark.getCompoundDrawablesRelative()[2].setColorFilter(BlendModeColorFilterCompat.createBlendModeColorFilterCompat(MFB.textColor, BlendModeCompat.SRC_ATOP));
         newbookmark.setOnClickListener((View v) -> {
-            bk = new BookmarksH(mWebView.getTitle(), mWebView.getUrl());
+            bk = new ModelBookmarks(mWebView.getTitle(), mWebView.getUrl());
             DBHelper.addData(bk.getTitle(), bk.getUrl(), null);
             bookmarks.add(bk);
             BLAdapter.notifyDataSetChanged();
             CookingAToast.cooking(MainActivity.this, getString(R.string.new_bookmark) + " " + mWebView.getTitle(), Color.WHITE, Color.parseColor("#214594"), R.drawable.ic_bookmarks, false).show();
         });
 
+        mr_badge = (TextView) mNavigationView.getMenu().findItem(R.id.nav_most_recent).getActionView();
+        fr_badge = (TextView) mNavigationView.getMenu().findItem(R.id.nav_friendreq).getActionView();
+
         // Hide buttons if they are disabled
-        mNavigationView.getMenu().findItem(R.id.nav_groups).setVisible(mPreferences.getBoolean("nav_groups", true));
-        mNavigationView.getMenu().findItem(R.id.nav_search).setVisible(mPreferences.getBoolean("nav_search", true));
-        mNavigationView.getMenu().findItem(R.id.nav_mainmenu).setVisible(mPreferences.getBoolean("nav_mainmenu", true));
-        mNavigationView.getMenu().findItem(R.id.nav_most_recent).setVisible(mPreferences.getBoolean("nav_most_recent", true));
-        mNavigationView.getMenu().findItem(R.id.nav_events).setVisible(mPreferences.getBoolean("nav_events", true));
-        mNavigationView.getMenu().findItem(R.id.nav_photos).setVisible(mPreferences.getBoolean("nav_photos", true));
-        mNavigationView.getMenu().findItem(R.id.nav_exitapp).setVisible(mPreferences.getBoolean("nav_exitapp", true));
-        mNavigationView.getMenu().findItem(R.id.nav_top_stories).setVisible(mPreferences.getBoolean("nav_top_stories", true));
-        mNavigationView.getMenu().findItem(R.id.nav_friendreq).setVisible(mPreferences.getBoolean("nav_friendreq", true));
+        mNavigationView.getMenu().findItem(R.id.nav_groups).setVisible(sharedPreferences.getBoolean("nav_groups", true));
+        mNavigationView.getMenu().findItem(R.id.nav_search).setVisible(sharedPreferences.getBoolean("nav_search", true));
+        mNavigationView.getMenu().findItem(R.id.nav_mainmenu).setVisible(sharedPreferences.getBoolean("nav_mainmenu", true));
+        mNavigationView.getMenu().findItem(R.id.nav_most_recent).setVisible(sharedPreferences.getBoolean("nav_most_recent", true));
+        mNavigationView.getMenu().findItem(R.id.nav_events).setVisible(sharedPreferences.getBoolean("nav_events", true));
+        mNavigationView.getMenu().findItem(R.id.nav_photos).setVisible(sharedPreferences.getBoolean("nav_photos", true));
+        mNavigationView.getMenu().findItem(R.id.nav_top_stories).setVisible(sharedPreferences.getBoolean("nav_top_stories", true));
+        mNavigationView.getMenu().findItem(R.id.nav_friendreq).setVisible(sharedPreferences.getBoolean("nav_friendreq", true));
 
 
         mWebView.setOnScrollChangedCallback((WebView view, int scrollX, int scrollY, int oldScrollX, int oldScrollY) -> {
             // Make sure the hiding is enabled and the scroll was significant
-            if (Math.abs(oldScrollY - scrollY) > getApplication().getResources().getDimensionPixelOffset(R.dimen.fab_scroll_threshold)) {
+            if (Math.abs(oldScrollY - scrollY) > 4) {
                 if (scrollY > oldScrollY) {
                     // User scrolled down, hide the button
-                    mMenuFAB.hideMenuButton(true);
+                    mfbFloatingActionButton.hide();
                 } else if (scrollY < oldScrollY) {
                     // User scrolled up, show the button
-                    mMenuFAB.showMenuButton(true);
+                    mfbFloatingActionButton.show();
                 }
             }
         });
 
-        mWebView.getSettings().setGeolocationEnabled(mPreferences.getBoolean("location_enabled", false));
-        mWebView.getSettings().setMinimumFontSize(Integer.parseInt(mPreferences.getString("textScale", "1")));
+        showHeader = sharedPreferences.getBoolean("hide_menu_bar", true);
+
+        mWebView.getSettings().setGeolocationEnabled(sharedPreferences.getBoolean("location_enabled", false));
+        mWebView.getSettings().setMinimumFontSize(Integer.parseInt(sharedPreferences.getString("textScale", "1")));
         mWebView.addJavascriptInterface(new JavaScriptInterfaces(this), "android");
         mWebView.addJavascriptInterface(this, "Vid");
-        mWebView.getSettings().setBlockNetworkImage(mPreferences.getBoolean("stop_images", false));
+        mWebView.getSettings().setBlockNetworkImage(sharedPreferences.getBoolean("stop_images", false));
         mWebView.getSettings().setAppCacheEnabled(true);
         mWebView.getSettings().setUseWideViewPort(true);
         mWebView.getSettings().setJavaScriptEnabled(true);
@@ -316,10 +335,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 // clean an url from facebook redirection before processing (no more blank pages on back)
                 url = Helpers.cleanAndDecodeUrl(url);
 
-                if (url.contains("mailto:")) {
-                    Intent mailto = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                    startActivity(mailto);
-                }
+                if (url.contains("mailto:"))
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
 
                 if (Uri.parse(url).getHost().endsWith("facebook.com")
                         || Uri.parse(url).getHost().endsWith("*.facebook.com")
@@ -335,44 +352,32 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     if (url.contains("giphy") || url.contains("gph")) {
                         if (!url.endsWith(".gif")) {
                             if (url.contains("giphy.com") || url.contains("html5"))
-                                url = String.format("http://media.giphy.com/media/%s/giphy.gif", url.replace("http://giphy.com/gifs/", ""));
+                                url = String.format("https://media.giphy.com/media/%s/giphy.gif", url.replace("http://giphy.com/gifs/", ""));
                             else if (url.contains("gph.is") && !url.contains("html5")) {
                                 view.loadUrl(url);
-                                url = String.format("http://media.giphy.com/media/%s/giphy.gif", url.replace("http://giphy.com/gifs/", ""));
+                                url = String.format("https://media.giphy.com/media/%s/giphy.gif", url.replace("http://giphy.com/gifs/", ""));
                             }
 
                             if (url.contains("media.giphy.com/media/") && !url.contains("html5")) {
                                 String[] giphy = url.split("-");
                                 String giphy_id = giphy[giphy.length - 1];
-                                url = "http://media.giphy.com/media/" + giphy_id;
+                                url = "https://media.giphy.com/media/" + giphy_id;
                             }
                             if (url.contains("media.giphy.com/media/http://media")) {
                                 String[] gph = url.split("/");
                                 String gph_id = gph[gph.length - 2];
-                                url = "http://media.giphy.com/media/" + gph_id + "/giphy.gif";
+                                url = "https://media.giphy.com/media/" + gph_id + "/giphy.gif";
                             }
                             if (url.contains("html5/giphy.gif")) {
                                 String[] giphy_html5 = url.split("/");
                                 String giphy_html5_id = giphy_html5[giphy_html5.length - 3];
-                                url = "http://media.giphy.com/media/" + giphy_html5_id + "/giphy.gif";
+                                url = "https://media.giphy.com/media/" + giphy_html5_id + "/giphy.gif";
                             }
                         }
                         if (url.contains("?")) {
                             String[] giphy1 = url.split("\\?");
                             String giphy_html5_id = giphy1[0];
                             url = giphy_html5_id + "/giphy.gif";
-                        }
-                    }
-
-                    if (url.contains("gifspace")) {
-                        if (!url.endsWith(".gif"))
-                            url = String.format("http://gifspace.net/image/%s.gif", url.replace("http://gifspace.net/image/", ""));
-                    }
-
-                    if (url.contains("phygee")) {
-                        if (!url.endsWith(".gif")) {
-                            getSrc(url, "span", "img");
-                            url = "http://www.phygee.com/" + elements.attr("src");
                         }
                     }
 
@@ -393,9 +398,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     imageLoader(url);
                     return true;
                 } else {
-                    // Open external links in browser
-                    Intent browser = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                    startActivity(browser);
+                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
                     return true;
                 }
             }
@@ -405,8 +408,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     @Override
                     protected Void doInBackground(Void[] params) {
                         try {
-                            Document document = Jsoup.connect(url).get();
-                            elements = document.select(select).select(select2);
+                            elements = Jsoup.connect(url).get().select(select).select(select2);
                         } catch (IOException ioex) {
                             ioex.getStackTrace();
                         }
@@ -425,10 +427,40 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onLoadResource(WebView view, String url) {
                 JavaScriptHelpers.videoView(view);
-                if (swipeView.isRefreshing())
-                    JavaScriptHelpers.loadCSS(view, css.toString());
+
                 if (url.contains("facebook.com/composer/mbasic/") || url.contains("https://m.facebook.com/sharer.php?sid="))
-                    css.append("#page{top:0}");
+                    showHeader = true;
+
+                if (loadCss) {
+                    if (showHeader)
+                        css.append("#header { display: inherit; }");
+                    else
+                        css.append("#header { display: none; }");
+
+                    css.append(Helpers.cssThemeEngine(themeMode));
+                    // Hide the status editor on the News Feed if setting is enabled
+                    if (sharedPreferences.getBoolean("hide_editor_newsfeed", true))
+                        css.append("#MComposer { display:none }");
+
+                    // Hide 'Sponsored' content (ads)
+                    if (sharedPreferences.getBoolean("hide_sponsored", true))
+                        css.append("article[data-ft*=ei] { display:none }");
+
+                    // Hide birthday content from News Feed
+                    if (sharedPreferences.getBoolean("hide_birthdays", true))
+                        css.append("article#u_1j_4 { display:none } article._55wm._5e4e._5fjt { display:none }");
+
+                    if (sharedPreferences.getBoolean("comments_recently", true))
+                        css.append("._5gh8 ._15ks:last-child, ._5gh8 ._15ks+._4u3j { display:none }");
+
+                    // css.append("article#u_0_q._d2r{display:none}* { -webkit-tap-highlight-color:transparent; outline:0 }");
+
+                    css.append("._i81:after { display: none; }");
+
+                    JavaScriptHelpers.loadCSS(view, css.toString());
+
+                    loadCss = false;
+                }
 
                 if (url.contains("/photo/view_full_size/?fbid="))
                     imageLoader(url.split("&ref_component")[0]);
@@ -438,52 +470,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onPageFinished(WebView view, String url) {
                 swipeView.setRefreshing(false);
 
-                switch (mPreferences.getString("web_themes", "Material")) {
-                    case "FacebookMobile":
-                        break;
-                    case "Material":
-                        css.append(getString(R.string.Material));
-                        break;
-                    case "MaterialAmoled":
-                        css.append(getString(R.string.MaterialAmoled));
-                        css.append("::selection {background: #D3D3D3;}");
-                        break;
-                    case "MaterialBlack":
-                        css.append(getString(R.string.MaterialBlack));
-                        break;
-                    case "MaterialPink":
-                        css.append(getString(R.string.MaterialPink));
-                        break;
-                    case "MaterialGrey":
-                        css.append(getString(R.string.MaterialGrey));
-                        break;
-                    case "MaterialGreen":
-                        css.append(getString(R.string.MaterialGreen));
-                        break;
-                    case "MaterialRed":
-                        css.append(getString(R.string.MaterialRed));
-                        break;
-                    case "MaterialLime":
-                        css.append(getString(R.string.MaterialLime));
-                        break;
-                    case "MaterialYellow":
-                        css.append(getString(R.string.MaterialYellow));
-                        break;
-                    case "MaterialPurple":
-                        css.append(getString(R.string.MaterialPurple));
-                        break;
-                    case "MaterialLightBlue":
-                        css.append(getString(R.string.MaterialLightBlue));
-                        break;
-                    case "MaterialOrange":
-                        css.append(getString(R.string.MaterialOrange));
-                        break;
-                    case "MaterialGooglePlayGreen":
-                        css.append(getString(R.string.MaterialGPG));
-                        break;
-                    default:
-                        break;
-                }
+                css.delete(0, css.length());
 
                 if (url.contains("lookaside") || url.contains("cdn.fbsbx.com")) {
                     Url = url;
@@ -491,10 +478,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
 
                 // Enable or disable FAB
-                if (url.contains("messages") || !mPreferences.getBoolean("fab_enable", false))
-                    mMenuFAB.setVisibility(View.GONE);
+                if (url.contains("messages") || !sharedPreferences.getBoolean("fab_enable", false))
+                    mfbFloatingActionButton.setVisibility(View.GONE);
                 else
-                    mMenuFAB.setVisibility(View.VISIBLE);
+                    mfbFloatingActionButton.setVisibility(View.VISIBLE);
 
                 if (url.contains("https://mbasic.facebook.com/composer/?text=")) {
                     final UrlQuerySanitizer sanitizer = new UrlQuerySanitizer();
@@ -505,36 +492,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
 
                 if (url.contains("https://m.facebook.com/public/")) {
-                    String[] user = url.split("/");
-                    String profile = user[user.length - 1];
+                    final String[] user = url.split("/");
+                    final String profile = user[user.length - 1];
                     view.loadUrl("javascript:(function(){document.querySelector('input#u_0_0._5whq.input').value='" + profile + "'})()");
                     view.loadUrl("javascript:(function(){try{document.querySelector('button#u_0_1.btn.btnD.mfss.touchable').disabled = false}catch(_){}})()");
                     view.loadUrl("javascript:(function(){try{document.querySelector('button#u_0_1.btn.btnD.mfss.touchable').click()}catch(_){}})()");
                 }
 
-                if (mPreferences.getBoolean("hide_menu_bar", true))
-                    css.append("#page{top:-45px}");
-                // Hide the status editor on the News Feed if setting is enabled
-                if (mPreferences.getBoolean("hide_editor_newsfeed", true))
-                    css.append("#MComposer{display:none}");
-
-                // Hide 'Sponsored' content (ads)
-                if (mPreferences.getBoolean("hide_sponsored", true))
-                    css.append("article[data-ft*=ei]{display:none}");
-
-                // Hide birthday content from News Feed
-                if (mPreferences.getBoolean("hide_birthdays", true))
-                    css.append("article#u_1j_4{display:none}article._55wm._5e4e._5fjt{display:none}");
-
-                if (mPreferences.getBoolean("comments_recently", true))
-                    css.append("._15ks+._4u3j{display:none}");
-
                 if (sharedFromGallery != null)
-                    view.loadUrl("javascript:(function(){try{document.getElementsByClassName(\"_56bz _54k8 _52jh _5j35 _157e\")[0].click()}catch(_){document.getElementsByClassName(\"_50ux\")[0].click()}})()");
+                    view.loadUrl("javascript:(function(){try{document.getElementsByName('view_photo')[0].click()}catch(_){document.getElementsByClassName('bb bc')[0].click()}})()");
 
-                css.append("article#u_0_q._d2r{display:none}*{-webkit-tap-highlight-color:transparent;outline:0}");
+                if (showHeader)
+                    showHeader = false;
 
-                css.append("._i81:after {display: none;}");
+                loadCss = true;
             }
         });
 
@@ -577,7 +548,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         takePictureIntent = null;
                 }
                 // Set up the intent to get an existing image
-                Intent contentSelectionIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                final Intent contentSelectionIntent = new Intent(Intent.ACTION_GET_CONTENT);
                 contentSelectionIntent.addCategory(Intent.CATEGORY_OPENABLE);
                 contentSelectionIntent.setType("*/*");
 
@@ -589,7 +560,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     intentArray = new Intent[0];
 
                 if (sharedFromGallery == null) {
-                    Intent chooserIntent = new Intent(Intent.ACTION_CHOOSER);
+                    final Intent chooserIntent = new Intent(Intent.ACTION_CHOOSER);
                     chooserIntent.putExtra(Intent.EXTRA_INTENT, contentSelectionIntent);
                     chooserIntent.putExtra(Intent.EXTRA_TITLE, "Image Chooser");
                     chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, intentArray);
@@ -611,12 +582,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 else
                     mUploadMessage = uploadMsg;
 
-                File imageStorageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+                final File imageStorageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
                 if (!imageStorageDir.exists())
                     imageStorageDir.mkdirs();
 
                 // Create camera captured image file path and name
-                File file = new File(imageStorageDir + File.separator + "IMG_" + String.valueOf(System.currentTimeMillis()) + ".jpg");
+                final File file = new File(imageStorageDir + File.separator + "IMG_" + System.currentTimeMillis() + ".jpg");
 
                 mCapturedImageURI = Uri.fromFile(file);
 
@@ -625,12 +596,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
                 captureIntent.putExtra(MediaStore.EXTRA_OUTPUT, mCapturedImageURI);
 
-                Intent i = new Intent(Intent.ACTION_GET_CONTENT);
+                final Intent i = new Intent(Intent.ACTION_GET_CONTENT);
                 i.addCategory(Intent.CATEGORY_OPENABLE);
                 i.setType("*/*");
 
                 if (sharedFromGallery == null) {
-                    Intent chooserIntent = Intent.createChooser(i, "Image Chooser");
+                    final Intent chooserIntent = Intent.createChooser(i, "Image Chooser");
                     chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Parcelable[]{captureIntent});
                     startActivityForResult(chooserIntent, FILECHOOSER_RESULTCODE);
                 }
@@ -638,7 +609,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
             private File createImageFile() throws IOException {
                 // Create an image file name
-                File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+                final File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
                 return File.createTempFile("IMG_" + System.currentTimeMillis(), ".jpg", storageDir);
             }
 
@@ -683,22 +654,22 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void URLs() {
-        if (!mPreferences.getBoolean("save_data", false))
+        if (!sharedPreferences.getBoolean("save_data", false))
             baseURL = "https://m.facebook.com/";
         else
             baseURL = "https://mbasic.facebook.com/";
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            DownloadManager.Request request = new DownloadManager.Request(Uri.parse(Url));
-            File downloads_dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
+            final DownloadManager.Request request = new DownloadManager.Request(Uri.parse(Url));
+            final File downloads_dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
             if (!downloads_dir.exists())
                 if (!downloads_dir.mkdirs())
                     return;
 
-            File destinationFile = new File(downloads_dir, Uri.parse(Url).getLastPathSegment());
+            final File destinationFile = new File(downloads_dir, Uri.parse(Url).getLastPathSegment());
             request.setDestinationUri(Uri.fromFile(destinationFile));
             request.setVisibleInDownloadsUi(true);
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
@@ -711,6 +682,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     protected void onNewIntent(Intent intent) {
+        super.onNewIntent(intent);
         setIntent(intent);
 
         if (intent.getBooleanExtra("apply", false))
@@ -729,7 +701,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mWebView.onResume();
         mWebView.resumeTimers();
 
-        if (Helpers.getCookie() != null && !mPreferences.getBoolean("save_data", false)) {
+        if (Helpers.getCookie() != null && !sharedPreferences.getBoolean("save_data", false)) {
             badgeUpdate = new Handler();
             badgeTask = () -> {
                 JavaScriptHelpers.updateNumsService(mWebView);
@@ -761,13 +733,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         mWebView.destroy();
         if (badgeTask != null && badgeUpdate != null)
             badgeUpdate.removeCallbacks(badgeTask);
-        if (mPreferences.getBoolean("clear_cache", false))
-            deleteCache(this);
     }
 
     @Override
     protected void onActivityResult(final int requestCode, final int resultCode, final Intent data) {
         // Thanks to Koras for the tutorial. http://dev.indywidualni.org/2015/02/an-advanced-webview-with-some-cool-features
+        super.onActivityResult(requestCode, resultCode, data);
         if (Build.VERSION.SDK_INT >= 21) {
             if (requestCode != INPUT_FILE_REQUEST_CODE || mFilePathCallback == null)
                 return;
@@ -782,7 +753,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         results = new Uri[]{Uri.parse(mCameraPhotoPath)};
                     }
                 } else {
-                    String dataString = data.getDataString();
+                    final String dataString = data.getDataString();
                     if (dataString != null)
                         results = new Uri[]{Uri.parse(dataString)};
                 }
@@ -810,14 +781,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private Point getPointOfView(View view) {
-        int[] location = new int[2];
+        final int[] location = new int[2];
         view.getLocationInWindow(location);
         return new Point(location[0], location[1]);
     }
 
     @SuppressWarnings("NewApi")
     private void circleReveal() {
-        int radius = (int) Math.hypot(mWebView.getWidth(), mWebView.getHeight());
+        final int radius = (int) Math.hypot(mWebView.getWidth(), mWebView.getHeight());
         int x, y;
         if (circleRevealView != null) {
             Point point = getPointOfView(circleRevealView);
@@ -827,7 +798,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             x = 0;
             y = mWebView.getHeight() / 2;
         }
-        Animator anim = ViewAnimationUtils.createCircularReveal(mWebView, x, y, 0, radius);
+        final Animator anim = ViewAnimationUtils.createCircularReveal(mWebView, x, y, 0, radius);
         anim.setDuration(300);
         anim.start();
         mWebView.setVisibility(View.VISIBLE);
@@ -845,41 +816,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             super.onBackPressed();
     }
 
-    private static void deleteCache(Context context) {
-        try {
-            final File dir = context.getCacheDir();
-            if (dir != null && dir.isDirectory())
-                deleteDir(dir);
-        } catch (Exception e) {
-            //
-        }
-    }
-
-    private static boolean deleteDir(File dir) {
-        if (dir != null && dir.isDirectory()) {
-            final String[] children = dir.list();
-            for (int i = 0; i < children.length; i++) {
-                boolean success = deleteDir(new File(dir, children[i]));
-                if (!success)
-                    return false;
-            }
-        }
-        return dir.delete();
-    }
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.main, menu);
 
-        View action_notif = menu.findItem(R.id.action_notifications).getActionView();
-        View action_msg = menu.findItem(R.id.action_messages).getActionView();
+        final View action_notif = menu.findItem(R.id.action_notifications).getActionView();
+        final View action_msg = menu.findItem(R.id.action_messages).getActionView();
 
         notif_badge = action_notif.findViewById(R.id.badge_count);
         msg_badge = action_msg.findViewById(R.id.badge_count);
 
-        ImageView notif = action_notif.findViewById(R.id.badge_icon);
+        final ImageView notif = action_notif.findViewById(R.id.badge_icon);
         setBackground(notif);
         notif.setImageDrawable(getResources().getDrawable(R.drawable.ic_notifications));
+        notif.setColorFilter(MFB.textColor);
         notif.setOnClickListener((View v) -> {
             mWebView.setVisibility(View.INVISIBLE);
             showAnimation = true;
@@ -889,11 +839,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             mWebView.loadUrl(baseURL + "notifications.php");
             setTitle(R.string.nav_notifications);
             Helpers.uncheckRadioMenu(mNavigationView.getMenu());
-            NotificationsService.clearbyId(MainActivity.this, 12);
+            //NotificationsService.clearbyId(MainActivity.this, 12);
         });
-        ImageView msg = action_msg.findViewById(R.id.badge_icon);
+        final ImageView msg = action_msg.findViewById(R.id.badge_icon);
         setBackground(msg);
         msg.setImageDrawable(getResources().getDrawable(R.drawable.ic_message));
+        msg.setColorFilter(MFB.textColor);
         msg.setOnClickListener((View v) -> {
             mWebView.setVisibility(View.INVISIBLE);
             showAnimation = true;
@@ -902,7 +853,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             mWebView.stopLoading();
             mWebView.loadUrl(baseURL + "messages/");
             setTitle(R.string.menu_messages);
-            NotificationsService.clearbyId(MainActivity.this, 969);
+            //NotificationsService.clearbyId(MainActivity.this, 969);
             Helpers.uncheckRadioMenu(mNavigationView.getMenu());
         });
         return true;
@@ -924,7 +875,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_most_recent:
                 mWebView.setVisibility(View.INVISIBLE);
 
-                mWebView.loadUrl(baseURL + "home.php?sk=h_chr'");
+                mWebView.loadUrl(baseURL + "home.php?sk=h_chr");
                 setTitle(R.string.menu_most_recent);
                 Helpers.uncheckRadioMenu(mNavigationView.getMenu());
                 return true;
@@ -935,9 +886,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 setTitle(R.string.menu_friendreq);
                 return true;
             case R.id.nav_search:
-                AppBarLayout appBarLayout = findViewById(R.id.appbarlayout);
-                appBarLayout.setExpanded(true);
-
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
                     circleReveal(R.id.searchtoolbar, true);
                 else
@@ -946,16 +894,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 searchItem.expandActionView();
                 return true;
             case R.id.nav_groups:
+                loadCss = true;
+                showHeader = true;
+
                 mWebView.setVisibility(View.INVISIBLE);
 
                 mWebView.loadUrl(baseURL + "groups/?category=membership");
-                css.append("._129- {position:initial}");
                 return true;
             case R.id.nav_mainmenu:
+                loadCss = true;
+                showHeader = true;
                 mWebView.setVisibility(View.INVISIBLE);
 
-                if (!mPreferences.getBoolean("save_data", false))
-                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23bookmarks_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'" + "https%3A%2F%2Fm.facebook.com%2F" + "home.php'%7D%7D)()");
+                if (!sharedPreferences.getBoolean("save_data", false))
+                    mWebView.loadUrl("javascript:(function()%7Btry%7Bdocument.querySelector('%23bookmarks_jewel%20%3E%20a').click()%7Dcatch(_)%7Bwindow.location.href%3D'https%3A%2F%2Fm.facebook.com%2Fhome.php'%7D%7D)()");
                 else
                     mWebView.loadUrl("https://mbasic.facebook.com/menu/bookmarks/?ref_component=mbasic_home_header&ref_page=%2Fwap%2Fhome.php&refid=8");
                 setTitle(R.string.menu_mainmenu);
@@ -964,7 +916,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 mWebView.setVisibility(View.INVISIBLE);
 
                 mWebView.loadUrl(baseURL + "events/");
-                css.append("#page{top:0}");
                 return true;
             case R.id.nav_photos:
                 mWebView.setVisibility(View.INVISIBLE);
@@ -974,9 +925,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_settings:
                 startActivity(new Intent(this, SettingsActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP));
                 return true;
-            case R.id.nav_exitapp:
-                finishAffinity();
-                return true;
             default:
                 return true;
         }
@@ -985,11 +933,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     @JavascriptInterface
     @SuppressWarnings("unused")
     public void LoadVideo(final String video_url) {
-        Intent Video = new Intent(this, VideoActivity.class);
-        Video.putExtra("video_url", video_url);
-        startActivity(Video);
+        startActivity(new Intent(this, VideoActivity.class).putExtra("video_url", video_url));
     }
-
 
     public void setNotificationNum(int num) {
         txtFormat(notif_badge, num, Color.WHITE, false);
@@ -1043,8 +988,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         if (Intent.ACTION_SEND.equals(intent.getAction()) && intent.getType() != null) {
             if (intent.getType().startsWith("image/") || intent.getType().startsWith("video/") || intent.getType().startsWith("audio/")) {
                 sharedFromGallery = intent.getParcelableExtra(Intent.EXTRA_STREAM);
-                css.append("#MComposer{display:initial}");
-                baseURL = "https://m.facebook.com";
+                // css.append("#MComposer{display:initial}");
+                baseURL = "https://mbasic.facebook.com";
             }
         }
 
@@ -1056,7 +1001,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void searchToolbar() {
         searchToolbar = findViewById(R.id.searchtoolbar);
         searchToolbar.inflateMenu(R.menu.menu_search);
-        Menu search_menu = searchToolbar.getMenu();
+        final Menu search_menu = searchToolbar.getMenu();
 
         searchItem = search_menu.findItem(R.id.action_filter_search);
 
@@ -1103,7 +1048,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     private void circleReveal(int viewID, final boolean show) {
         final View v = findViewById(viewID);
 
-        int cy = v.getHeight() / 2;
+        final int cy = v.getHeight() / 2;
 
         Animator anim;
         if (show)
@@ -1132,7 +1077,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     private void setBackground(View btn) {
-        TypedValue typedValue = new TypedValue();
+        final TypedValue typedValue = new TypedValue();
         int bg;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
             bg = android.R.attr.selectableItemBackgroundBorderless;

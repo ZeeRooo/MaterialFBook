@@ -1,4 +1,4 @@
-package me.zeeroooo.materialfb.misc;
+package me.zeeroooo.materialfb.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -12,37 +12,44 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import java.util.ArrayList;
 
 import me.zeeroooo.materialfb.R;
+import me.zeeroooo.materialfb.misc.DatabaseHelper;
+import me.zeeroooo.materialfb.misc.ModelBookmarks;
 import me.zeeroooo.materialfb.ui.CookingAToast;
 
-public class BookmarksAdapter extends ArrayAdapter<BookmarksH> {
-    private ArrayList<BookmarksH> bookmarks;
+public class AdapterBookmarks extends ArrayAdapter<ModelBookmarks> {
+    private ArrayList<ModelBookmarks> bookmarks;
     private DatabaseHelper DBHelper;
+    private ModelBookmarks modelBookmarks;
+    private ViewHolder viewHolder;
+    private LayoutInflater layoutInflater;
 
-    private static class ViewHolder {
-        TextView title;
-        ImageButton delete, share;
-    }
-
-    public BookmarksAdapter(Context context, ArrayList<BookmarksH> bk, DatabaseHelper db) {
+    public AdapterBookmarks(Context context, ArrayList<ModelBookmarks> bk, DatabaseHelper db) {
         super(context, R.layout.bookmarks_listview, bk);
         this.bookmarks = bk;
         this.DBHelper = db;
     }
 
+    private static class ViewHolder {
+        private TextView title;
+        private ImageButton delete, share;
+    }
+
+    @NonNull
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
-        // Get the data item for this position
-        final BookmarksH bookmark = getItem(position);
-        // Check if an existing view is being reused, otherwise inflate the view
-        ViewHolder viewHolder; // view lookup cache stored in tag
+    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+        modelBookmarks = getItem(position);
+
         if (convertView == null) {
-            // If there's no view to re-use, inflate a brand new view for row
             viewHolder = new ViewHolder();
-            LayoutInflater inflater = LayoutInflater.from(getContext());
-            convertView = inflater.inflate(R.layout.bookmarks_listview, parent, false);
+
+            layoutInflater = LayoutInflater.from(getContext());
+            convertView = layoutInflater.inflate(R.layout.bookmarks_listview, parent, false);
             viewHolder.title = convertView.findViewById(R.id.bookmark_title);
             viewHolder.delete = convertView.findViewById(R.id.delete_bookmark);
             viewHolder.share = convertView.findViewById(R.id.share_bookmark);
@@ -57,31 +64,31 @@ public class BookmarksAdapter extends ArrayAdapter<BookmarksH> {
         } else
             viewHolder = (ViewHolder) convertView.getTag();
 
-        viewHolder.title.setText(bookmark.getTitle());
+        viewHolder.title.setText(modelBookmarks.getTitle());
 
         viewHolder.delete.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DBHelper.remove(bookmark.getTitle(), bookmark.getUrl(), null);
+                DBHelper.remove(modelBookmarks.getTitle(), modelBookmarks.getUrl(), null);
                 bookmarks.remove(position);
                 notifyDataSetChanged();
-                CookingAToast.cooking(getContext(), getContext().getString(R.string.remove_bookmark) + " " + bookmark.getTitle(), Color.WHITE, Color.parseColor("#fcd90f"), R.drawable.ic_delete, false).show();
+                CookingAToast.cooking(getContext(), getContext().getString(R.string.remove_bookmark) + " " + modelBookmarks.getTitle(), Color.WHITE, Color.parseColor("#fcd90f"), R.drawable.ic_delete, false).show();
             }
         });
 
         viewHolder.share.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                final Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
-                shareIntent.putExtra(Intent.EXTRA_TEXT, bookmark.getUrl());
+                shareIntent.putExtra(Intent.EXTRA_TEXT, modelBookmarks.getUrl());
                 getContext().startActivity(Intent.createChooser(shareIntent, getContext().getString(R.string.context_share_link)));
             }
         });
-        // Return the completed view to render on screen
+
         return convertView;
     }
 
-    private void setBackground(View btn) {
-        TypedValue typedValue = new TypedValue();
+    private void setBackground(ImageButton btn) {
+        final TypedValue typedValue = new TypedValue();
         int bg;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
             bg = android.R.attr.selectableItemBackgroundBorderless;
@@ -89,5 +96,6 @@ public class BookmarksAdapter extends ArrayAdapter<BookmarksH> {
             bg = android.R.attr.selectableItemBackground;
         getContext().getTheme().resolveAttribute(bg, typedValue, true);
         btn.setBackgroundResource(typedValue.resourceId);
+
     }
 }

@@ -16,20 +16,10 @@
     <string name="vibrate_double">Çift titreşim</string>
     <string name="led_light">LED ışık</string>
 
-    <string-array name="intervalPrefTitles">
-        <item>1 dakika</item>
-        <item>2 dakika</item>
-        <item>5 dakika</item>
-        <item>15 dakika</item>
-        <item>30 dakika</item>
-        <item>1 saat</item>
-        <item>3 saat</item>
-        <item>6 saat</item>
-    </string-array>
+    <string name="general_setting_title">GENEL</string>
     <!-- End Notifications -->
 
     <!-- General -->
-    <string name="general_setting_title">GENEL</string>
     <string name="location_enabled_title">Konum erişimi</string>
     <string name="location_enabled_summary">Facebook\'un konumunuzu almasını sağlamak için bunu etkinleştirin.</string>
     <string name="hide_editor_newsfeed_title">Haber Kaynağı\'nda Durum düzenleyicisini gizle</string>
@@ -45,16 +35,11 @@
     <string name="hide_recently_commented">Son zamanlarda yapılmış yorumları gizle</string>
     <string name="hide_recently_commented_summary">X kişi yakın zamanda bu konuyla ilgili yorum yaptı.</string>
     <string name="start_url">URL başlat</string>
-    <string-array name="Start">
-        <item>EnYeni</item>
-        <item>EnİyiHikayeler</item>
-        <item>Mesajlar</item>
-    </string-array>
+    <string name="more">Daha fazla ve oluşturanlar </string>
+    <string name="about_updates">Güncellemer</string>
     <!-- End general -->
 
     <!-- About -->
-    <string name="more">Daha fazla ve oluşturanlar </string>
-    <string name="about_updates">Güncellemer</string>
     <string name="updates">Yeni versiyonu kontrol et</string>
     <string name="updates_summary">Sayfayı yükleyin ve en yeni sürümü indirin</string>
     <string name="people_who_translated">Uygulamayı çevirenler</string>
@@ -64,35 +49,29 @@
     <string name="source_code">Github üzerinde kaynak kodu</string>
     <string name="withYou">Hataları bildirin veya yeni özellikler isteyin</string>
     <string name="changelog">Değişim günlüğü</string>
+    <string name="appearance_setting_title">GÖRÜNÜM</string>
+    <string name="app_themes">Uygulama temaları</string>
     <!-- End about -->
 
     <!-- APPEARANCE -->
-    <string name="appearance_setting_title">GÖRÜNÜM</string>
-    <string name="web_themes">Web temaları</string>
-    <string name="web_themes_summary">Farklı bir web teması seçebilirsiniz.</string>
-    <string name="app_themes">Uygulama temaları</string>
     <string name="app_themes_summary">Farklı bir uygulama teması seçebilirsiniz</string>
-
-    <!-- Navigation -->
     <string name="navigation_setting_title">GEZİNME</string>
     <string name="navigation_menu_settings">Gezinme menüsü öğeleri</string>
+
+    <!-- Navigation -->
     <string name="navigation_menu_settings_description">Gezinme menüsünde öğeleri gösterebilir / gizleyebilirsiniz.</string>
     <string name="save_data">Düşük veri modu</string>
     <string name="save_data_summary">Facebook\'u temel sürüme yükle, rozetleri ve profil bilgilerini, güncellemeleri devre dışı bırak.</string>
-    <string name="clearcache">Çıkışta ön belleği temizle</string>
-    <string name="clearcache_summary">Uygulamanın açılması daha uzun sürecektir.</string>
     <string name="fab_enable">Hareketli Eylem Düğmesi</string>
     <string name="fab_enable_summary">HAD\'ı göster</string>
-    <!-- Navigation: fab -->
     <string name="fab_text">Bir durum paylaş</string>
     <string name="fab_photo">Bir fotoğraf paylaş</string>
+    <!-- Navigation: fab -->
     <string name="fab_checkin">Yer bildirimi</string>
     <string name="fab_jump_top">Yukarıya çık</string>
-    <!-- Navigation: items -->
     <string name="navigation_menu_title">GEZİNME MENÜSÜ</string>
-    <string name="ic_menu_exitapp">Uygulamayı kapat</string>
-    <string name="ic_menu_exitapp_summary">Gezinme çekmecesinde &#8216;Uygulamayı kapatma&#8217; düğmesini göster.</string>
     <string name="menu_photos">Fotoğraflar</string>
+    <!-- Navigation: items -->
     <string name="menu_photos_summary">Gezinme çekmecesinde &#8216;Fotoğraflar&#8217; düğmesini göster.</string>
     <string name="menu_events">Olaylar</string>
     <string name="menu_events_summary">Gezinme çekmecesinde &#8216;Olaylar&#8217; düğmesini göster.</string>
@@ -121,4 +100,19 @@
     <string name="downloaded">İndirildi</string>
     <string name="new_bookmark">Eklendi:</string>
     <string name="remove_bookmark">Silindi:</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 dakika</item>
+        <item>2 dakika</item>
+        <item>5 dakika</item>
+        <item>15 dakika</item>
+        <item>30 dakika</item>
+        <item>1 saat</item>
+        <item>3 saat</item>
+        <item>6 saat</item>
+    </string-array>
+    <string-array name="Start">
+        <item>EnYeni</item>
+        <item>EnİyiHikayeler</item>
+        <item>Mesajlar</item>
+    </string-array>
 </resources>

@@ -5,20 +5,15 @@
     android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fitsSystemWindows="false"
     tools:openDrawer="start">
 
-    <include
-        layout="@layout/app_bar_main"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <include layout="@layout/app_bar_main" />
 
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="false"
         app:headerLayout="@layout/nav_header_main"
         app:menu="@menu/activity_main_drawer" />
 
@@ -27,43 +22,24 @@
         android:layout_height="match_parent"
         android:layout_gravity="end">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <ImageButton
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/add_bookmark"
-                android:layout_width="wrap_content"
-                android:layout_height="80dp"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentEnd="true"
-                android:background="?attr/colorPrimary"
-                android:paddingStart="20dp"
-                android:paddingTop="40dp"
-                android:paddingEnd="16dp"
-                android:paddingBottom="20dp"
-                android:src="@drawable/ic_bookmarks" />
-
-            <TextView
-                android:id="@+id/bookmarksTextView"
                 android:layout_width="match_parent"
-                android:layout_height="80dp"
-                android:layout_alignParentTop="true"
-                android:layout_toStartOf="@id/add_bookmark"
-                android:background="?attr/colorPrimary"
-                android:paddingStart="16dp"
-                android:paddingTop="40dp"
-                android:paddingEnd="30dp"
-                android:text="@string/bookmarks_header"
-                android:textAppearance="@style/TextAppearance.Widget.AppCompat.Toolbar.Title"
-                android:textColor="@android:color/white" />
+                android:layout_height="70dp"
+                android:layout_margin="10dp"
+                android:drawableEnd="@drawable/ic_bookmarks"
+                android:text="@string/bookmarks_header" />
 
             <ListView
                 android:id="@+id/bookmarksListView"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/bookmarksTextView" />
-        </RelativeLayout>
+                android:layout_height="match_parent" />
+        </LinearLayout>
     </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

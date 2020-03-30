@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Notifications -->
+    <string name="notifications_setting_title">KEMENNOÙ</string>
+    <string name="notif">Kemennoù</string>
+    <string name="facebook_message">Kemennoù kemennadennoù</string>
+    <string name="facebook_notifications">Kemennoù Facebook</string>
+    <string name="applying_changes">Arloañ ar cheñchamantoù</string>
+    <string name="sync_problem">N\'hall ket bezañ sinkronelaet an toupinoù. Adloc\'hit an arload.</string>
+    <string name="notification_sound_description">Dibabit ur son-diridin pe didrouz: \u0020</string>
+    <string name="notifications_settings">Arventennoù kemennoù</string>
+    <string name="notifications_settings_description">Arventenoù ouzhpenn. Dibabit an amzer freskaat, ar sonioù, LED hag ar froumadennoù.</string>
+    <string name="interval_pref">Amzer freskaat da wiriañ</string>
+    <string name="notification_sound">Son kemenn</string>
+    <string name="interval_pref_description_new">Ar c\'hemennoù a vo gwiriet bep %s.</string>
+    <string name="notification_sound_msg">Son ar c\'hemennadennoù</string>
+    <string name="vibrate">Froumadenn</string>
+    <string name="vibrate_double">Froumadenn zoubl</string>
+    <string name="led_light">Gouloù LED</string>
+
+    <string-array name="intervalPrefTitles">
+        <item>1 vunutenn</item>
+        <item>2 vunutenn</item>
+        <item>5 munutenn</item>
+        <item>15 munutenn</item>
+        <item>30 munutenn</item>
+        <item>1 eurvezh</item>
+        <item>3 eurvezh</item>
+        <item>6 eurvezh</item>
+    </string-array>
+    <!-- End Notifications -->
+
+    <!-- General -->
+    <string name="general_setting_title">HOLLEK</string>
+    <string name="location_enabled_title">Douarlec\'hiadur</string>
+    <string name="location_enabled_summary">Enaouiñ an dra-se evit aotren Facebook da gaout ho touarlec\'hiadur.</string>
+    <string name="hide_editor_newsfeed_title">Kuzhat an aozer statudoù</string>
+    <string name="hide_editor_newsfeed_summary">Pa vez enaouet, an aozer statudoù a vo kuzhet diwar froud ar c\'heleier.</string>
+    <string name="stop_images_title">Chom hep kargañ ar skeudennoù</string>
+    <string name="stop_images_summary">Pa vez enaouet, ne vo ket pellgarget ar skeudennoù. Darn a c\'hall chom er grubuilh memestra.</string>
+    <string name="hide_sponsored_title">Kuzhat an endalc\'had &#8216;Sponsoret&#8217;</string>
+    <string name="hide_sponsored_summary">Kuzhat an endalc\'hadoù &#8216;Sponsoret&#8217; (bruderezhioù) diwar ar froud.</string>
+    <string name="hide_birthdays_title">Kuzhat an deizioù-ha-bloaz</string>
+    <string name="hide_birthdays_summary">Kuzhat an deizioù-ha-bloaz diwar ar froud, an darvoudoù hag ar c\'hemennoù.</string>
+    <string name="hide_menu_bar_title">Kuzhaat barrenn al Lañserioù</string>
+    <string name="hide_menu_bar_summary">Pa vez enaouet, barrenn Lañserioù Facebook a vo kuzhet.</string>
+    <string name="hide_recently_commented">Kuzhat an evezhiadennoù nevez</string>
+    <string name="hide_recently_commented_summary">X den a zo bet o skrivañ evezhiadennoù war an dra-se.</string>
+    <string name="start_url">URL loc\'hañ</string>
+    <string-array name="Start">
+        <item>Nevesañ</item>
+        <item>Keloù pennañ</item>
+        <item>Kemennadennoù</item>
+    </string-array>
+    <!-- End general -->
+
+    <!-- About -->
+    <string name="more">Muioc\'h a ditouroù ha kreditoù</string>
+    <string name="about_updates">Hizivadurioù</string>
+    <string name="updates">Klask war-lerc\'h hizivadurioù</string>
+    <string name="updates_summary">Kargañ ar bajenn ha pellgargañ ar stumm diwezhañ</string>
+    <string name="people_who_translated">Implijerien troet ganto an arload</string>
+    <string name="devs_who_helped_me">Diorroerien o deus sikouret ac\'hanon en ur respont d\'am goulennoù ha laosket kemer linennoù-kod diwar o arload.</string>
+    <string name="help_translations">Sikourit ac\'hanon da dreiñ hoc\'h arload en ho yezh deoc\'h.</string>
+    <string name="about_translations">Sikour, ezhomm hon eus sikour!</string>
+    <string name="source_code">Kod mammenn war Github</string>
+    <string name="withYou">Danevelliñ ur veugenn pe goulenn un arc\'hweladur nevez</string>
+    <string name="changelog">Roll ar cheñchamantoù</string>
+    <!-- End about -->
+
+    <!-- APPEARANCE -->
+    <string name="appearance_setting_title">NEUZ</string>
+    <string name="web_themes">Tem web</string>
+    <string name="web_themes_summary">Gellout a rit dibab etre meur a dem web disheñvel.</string>
+    <string name="app_themes">Tem arload</string>
+    <string name="app_themes_summary">Gellout a rit dibab etre meur a dem arload disheñvel.</string>
+
+    <!-- Navigation -->
+    <string name="navigation_setting_title">MERDEIÑ</string>
+    <string name="navigation_menu_settings">Elfennoù al lañser merdeiñ</string>
+    <string name="navigation_menu_settings_description">Gellout a rit diskouez/kuzhat elfennoù el/diwar lañser merdeiñ.</string>
+    <string name="save_data">Mod roadennoù bihanoc\'h</string>
+    <string name="save_data_summary">Kargañ Facebook en ur stumm diazez, lazhañ ivez ar badjoù hag an titouroù profil hizivaet.</string>
+    <string name="clearcache">Sklaeraat ar grubuilh pa guitait</string>
+    <string name="clearcache_summary">Kemer a raio muioc\'h a amzer da zigeriñ an arload.</string>
+    <string name="fab_enable">Bouton flod ober</string>
+    <string name="fab_enable_summary">Diskouez ar bouton flod ober</string>
+    <!-- Navigation: fab -->
+    <string name="fab_text">Embann ur statud</string>
+    <string name="fab_photo">Embann ur skeudenn</string>
+    <string name="fab_checkin">Marilhañ</string>
+    <string name="fab_jump_top">Distreiñ d\'al laez</string>
+    <!-- Navigation: items -->
+    <string name="navigation_menu_title">LAÑSER MERDEIÑ</string>
+    <string name="ic_menu_exitapp">Kuitaat an arload</string>
+    <string name="ic_menu_exitapp_summary">Diskouez ar bouton &#8216;Kuitaat an arload&#8217; adalek al lañser merdeiñ.</string>
+    <string name="ic_menu_fblogout">Digevreañ</string>
+    <string name="ic_menu_fblogout_summary">Diskouez ar bouton &#8216;Digevreañ&#8217; adalek al lañser merdeiñ.</string>
+    <string name="menu_photos">Skeudennoù</string>
+    <string name="menu_photos_summary">Diskouez ar bouton &#8216;Skeudennoù&#8217; adalek al lañser merdeiñ.</string>
+    <string name="menu_events">Darvoudoù</string>
+    <string name="menu_events_summary">Diskouez ar bouton &#8216;Darvoudoù&#8217; adalek al lañser merdeiñ.</string>
+    <string name="menu_back">Distreiñ</string>
+    <string name="menu_back_summary">Diskouez ar bouton &#8216;Distreiñ&#8217; adalek al lañser merdeiñ.</string>
+    <string name="menu_top_stories">Keleier pennañ</string>
+    <string name="menu_top_stories_summary">Diskouez ar bouton &#8216;Keleier pennañ&#8217; adalek al lañser merdeiñ.</string>
+    <string name="menu_most_recent">Nevesañ</string>
+    <string name="menu_most_recent_summary">Diskouez ar bouton &#8216;Nevesañ&#8217; adalek al lañser merdeiñ.</string>
+    <string name="menu_friendreq">Reked bezañ mignon</string>
+    <string name="menu_friendreq_summary">Diskouez ar bouton &#8216;Reked bezañ mignon&#8217; adalek al lañser merdeiñ.</string>
+    <string name="menu_groups">Strolladoù</string>
+    <string name="menu_groups_summary">Diskouez ar bouton &#8216;Strolladoù&#8217; adalek al lañser merdeiñ.</string>
+    <string name="menu_messages">Kemennadennoù</string>
+    <string name="menu_search">Klask</string>
+    <string name="menu_search_summary">Diskouez ar bouton &#8216;Klask&#8217; adalek al lañser merdeiñ.</string>
+    <string name="menu_mainmenu">Lañser pennañ</string>
+    <string name="menu_mainmenu_summary">Diskouez ar bouton &#8216;Lañser pennañ&#8217; adalek al lañser merdeiñ.</string>
+    <string name="messaging_enabled_title">Kemennadennerezh</string>
+    <string name="messaging_enabled_summary">Pa vez enaouet, pourveziñ a raio ur moned d\'ar c\'hemennadennoù Facebook. Da vezañ lazhet m\'ho peus un arload eskemm.</string>
+    <string name="silent">Son ebet</string>
+    <string name="file_logger_needs_permission">Moned ebet d\'ur stoker diavaez. N\'hall ket bezañ enrollet ar renabl</string>
+    <string name="navigation_drawer_open">Digeriñ al lañser merdeiñ</string>
+    <string name="navigation_drawer_close">Serrién al lañser merdeiñ</string>
+    <string name="default_user">Implijer</string>
+    <string name="header_profile_pic">Skeudenn brofil</string>
+    <string name="nav_notifications">Kemennoù</string>
+    <string name="context_save_image">Enrollañ ar skeudenn</string>
+    <string name="settings">Arventennoù</string>
+    <string name="context_share_image">Lodañ ar skeudenn</string>
+    <string name="context_copy_image_link">Eilañ liamm ar skeudenn</string>
+    <string name="context_share_link">Rannañ al liamm</string>
+    <string name="context_copy_link">Eilañ al liamm</string>
+    <string name="context_share_image_progress">O lodañ ar skeudenn...</string>
+    <string name="content_copy_link_done">Liamm eilet er golver</string>
+    <string name="login_button">Kevreañ</string>
+    <string name="not_logged_in">N\'hoc\'h ket kevreet</string>
+    <string name="error_login">Un dra bennak \'zo aet a-dreuz, klaskit kevreañ diwezhatoc\'h mar plij</string>
+    <string name="error_super_wrong">Un dra bennak a zo aet a-dreuz da vat</string>
+    <string name="error_facebook_noconnection">N\'heller ket tizhout Facebook</string>
+    <string name="error_facebook_error">Un dra bennak a zo aet a-dreuz gant Facebook</string>
+    <string name="loading">O kargañ</string>
+    <string name="permission_denied">Aotre nac\'het, n\'heller ket klokaat an ober</string>
+    <string name="downloaded">Pellgarget</string>
+    <string name="add">Sinedoù</string>
+    <string name="new_bookmark">Ouzhpennet:</string>
+    <string name="remove_bookmark">Dilamet:</string>
+</resources>

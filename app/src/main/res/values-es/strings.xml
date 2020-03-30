@@ -18,21 +18,13 @@
     <string name="blacklist_title">Bloqueo por palabra</string>
     <string name="new_black_word">Escriba una nueva palabra a bloquear</string>
     <string name="blacklist_summary">Lista de palabras para bloquear las notificaciones</string>
+    <string name="notification_channel_shortcut_summary">Modifique los ajustes de notificaciones desde el sistema</string>
+    <string name="notification_channel_shortcut_title">Más ajustes de notificaciones</string>
 
-    <string-array name="intervalPrefTitles">
-        <item>1 minuto</item>
-        <item>2 minutos</item>
-        <item>5 minutos</item>
-        <item>15 minutos</item>
-        <item>30 minutos</item>
-        <item>1 hora</item>
-        <item>3 horas</item>
-        <item>6 horas</item>
-    </string-array>
+    <string name="general_setting_title">GENERAL</string>
     <!-- End Notifications -->
 
     <!-- General -->
-    <string name="general_setting_title">GENERAL</string>
     <string name="location_enabled_title">Acceso a localización</string>
     <string name="location_enabled_summary">Habilitalo para que Facebook sepa donde estas (GPS).</string>
     <string name="hide_editor_newsfeed_title">Oculta el editor de estado</string>
@@ -43,19 +35,100 @@
     <string name="hide_sponsored_summary">Si está habilitado, la publicidad del patrocinador no se mostrará.</string>
     <string name="hide_birthdays_title">Oculta cumpleaños</string>
     <string name="hide_birthdays_summary">Si está habilitado, los cumpleaños no se mostrarán.</string>
-    <string name="clearcache">Limpiar cache al salir</string>
-    <string name="clearcache_summary">Tardará más tiempo en abrir la app.</string>
     <string name="hide_recently_commented">Oculta comentarios recientes</string>
     <string name="hide_recently_commented_summary">X persona comentó recientemente.</string>
     <string name="start_url">URL de inicio</string>
+    <string name="localSwitcherTitle">Cambiar el idioma</string>
+    <string name="localSwitcherSummary">Idioma actual: %s</string>
+
+    <string name="textScale">Escala de texto</string>
+    <string name="appearance_setting_title">APARIENCIA</string>
+    <string name="app_themes">Temas de la app</string>
+
+    <string name="app_themes_summary">Paleta de colores para personalizar la app.</string>
+    <string name="color_picker_title">Paleta de colores</string>
+    <!-- End general -->
+
+    <!-- Appearence -->
+    <string name="dark_mode">Modo oscuro</string>
+    <string name="navigation_setting_title">NAVEGACIÓN</string>
+    <string name="hide_menu_bar_title">Oculta la barra de menú de Facebook</string>
+    <string name="hide_menu_bar_summary">Si está habilitado, la barra de menú de Facebook no se mostrará.</string>
+    <string name="navigation_menu_settings">Elementos de la barra de navegación</string>
+
+    <!-- Navigation -->
+    <string name="navigation_menu_settings_description">Elije los elementos que aparecen en la barra de navegación.</string>
+    <string name="save_data">Ahorra datos</string>
+    <string name="save_data_summary">Carga la versión básica de Facebook, deshabilita la sincronización de la info. del usuario.</string>
+    <string name="fab_enable">Botón flotante</string>
+    <string name="fab_enable_summary">Muestra el botón flotante (FAB).</string>
+    <string name="fab_text">Publica un estado</string>
+    <string name="fab_photo">Publica una foto</string>
+    <string name="fab_checkin">Estoy en&#8230;</string>
+    <string name="fab_jump_top">Ir al principio</string>
+    <!-- Navigation: fab -->
+    <string name="navigation_menu_title">MENÚ DE NAVEGACIÓN</string>
+    <string name="menu_photos">Fotos</string>
+    <string name="menu_photos_summary">Muestra &#8216;Fotos&#8217; del menú de navegación.</string>
+    <string name="menu_events">Eventos</string>
+    <!-- Navigation: items -->
+    <string name="menu_events_summary">Muestra &#8216;Eventos&#8217; del menú de navegación.</string>
+    <string name="menu_top_stories">Historias populares</string>
+    <string name="menu_top_stories_summary">Muestra &#8216;Historias populares&#8217; del menú de navegación.</string>
+    <string name="menu_most_recent">Más reciente</string>
+    <string name="menu_friendreq">Solicitudes de amistad</string>
+    <string name="menu_friendreq_summary">Muestra &#8216;Solicitudes de amistad&#8217; del menú de navegación.</string>
+    <string name="menu_groups">Grupos</string>
+    <string name="menu_groups_summary">Muestra &#8216;Grupos&#8217; del menú de navegación.</string>
+    <string name="menu_messages">Mensajes</string>
+    <string name="menu_search">Buscar</string>
+    <string name="menu_search_summary">Muestra &#8216;Buscar&#8217; del menú de navegación.</string>
+    <string name="menu_mainmenu">Menú principal</string>
+    <string name="menu_mainmenu_summary">Muestra &#8216;Menú principal&#8217; del menú de navegación.</string>
+    <string name="silent">Silencio</string>
+    <string name="navigation_drawer_open">Abrir cajón de navegación</string>
+    <string name="navigation_drawer_close">Cerrar cajón de navegación</string>
+    <string name="nav_notifications">Notificaciones</string>
+    <!-- End navigation -->
+
+    <!-- App -->
+    <string name="settings">Ajustes</string>
+    <string name="context_share_image">Compartir imagen</string>
+    <string name="context_share_link">Compartir link</string>
+    <string name="context_share_image_progress">Compartiendo imagen&#8230;</string>
+    <string name="content_copy_link_done">Link copiado</string>
+    <string name="permission_denied">Permiso denegado, la acción no se pudo completar</string>
+    <string name="downloaded">Descargado</string>
+    <string name="bookmarks_header">Marcadores</string>
+    <string name="new_bookmark">Agregando:</string>
+    <string name="remove_bookmark">Eliminado:</string>
+    <string name="more">Créditos y más</string>
+    <string name="about_updates">Actualizaciones</string>
+    <string name="updates">Verificar si hay una nueva versión disposible</string>
+    <string name="updates_summary">Versión actual: %s</string>
+    <!-- About -->
+    <string name="people_who_translated">Usuarios que tradujeron la app</string>
+    <string name="devs_who_helped_me">Desarrolladores que me ayudaron respondiendo dudas y usando su código</string>
+    <string name="help_translations">Ayudame a traducir la app a tu lenguaje</string>
+    <string name="about_translations">¡Ayúdanos, te necesitamos!</string>
+    <string name="source_code">Código en Github</string>
+    <string name="withYou">Reporta un bug o solicita un cambio</string>
+    <string name="changelog">Lista de cambios</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 minuto</item>
+        <item>2 minutos</item>
+        <item>5 minutos</item>
+        <item>15 minutos</item>
+        <item>30 minutos</item>
+        <item>1 hora</item>
+        <item>3 horas</item>
+        <item>6 horas</item>
+    </string-array>
     <string-array name="Start">
         <item>MásReciente</item>
         <item>HistoriasPopulares</item>
         <item>Mensajes</item>
     </string-array>
-
-    <string name="localSwitcherTitle">Cambiar el idioma</string>
-    <string name="localSwitcherSummary">Idioma actual: %s</string>
     <string-array name="appLocalesNames">
         <item>Árabe [ar]</item>
         <item>Checo [cs]</item>
@@ -82,87 +155,12 @@
         <item>Turco [tr]</item>
         <item>Vietnamita [vi]</item>
     </string-array>
-
-    <string name="textScale">Escala de texto</string>
     <string-array name="scalesText">
         <item>Normal</item>
         <item>Media</item>
         <item>Grande</item>
         <item>Extra grande</item>
     </string-array>
-    <!-- End general -->
-
-    <!-- Appearence -->
-    <string name="appearance_setting_title">APARIENCIA</string>
-    <string name="web_themes">Temas Web</string>
-    <string name="web_themes_summary">Elije diferentes temas para la web.</string>
-    <string name="app_themes">Temas de la app</string>
-    <string name="app_themes_summary">Elije diferentes temas para la app.</string>
-
-    <!-- Navigation -->
-    <string name="navigation_setting_title">NAVEGACIÓN</string>
-    <string name="hide_menu_bar_title">Oculta la barra de menú de Facebook</string>
-    <string name="hide_menu_bar_summary">Si está habilitado, la barra de menú de Facebook no se mostrará.</string>
-    <string name="navigation_menu_settings">Elementos de la barra de navegación</string>
-    <string name="navigation_menu_settings_description">Elije los elementos que aparecen en la barra de navegación.</string>
-    <string name="save_data">Ahorra datos</string>
-    <string name="save_data_summary">Carga la versión básica de Facebook, deshabilita la sincronización de la info. del usuario.</string>
-    <string name="fab_enable">Botón flotante</string>
-    <string name="fab_enable_summary">Muestra el botón flotante (FAB).</string>
-    <!-- Navigation: fab -->
-    <string name="fab_text">Publica un estado</string>
-    <string name="fab_photo">Publica una foto</string>
-    <string name="fab_checkin">Estoy en&#8230;</string>
-    <string name="fab_jump_top">Ir al principio</string>
-    <!-- Navigation: items -->
-    <string name="navigation_menu_title">MENÚ DE NAVEGACIÓN</string>
-    <string name="ic_menu_exitapp">Salir</string>
-    <string name="ic_menu_exitapp_summary">Muestra &#8216;Salir&#8217; del menú de navegación.</string>
-    <string name="menu_photos">Fotos</string>
-    <string name="menu_photos_summary">Muestra &#8216;Fotos&#8217; del menú de navegación.</string>
-    <string name="menu_events">Eventos</string>
-    <string name="menu_events_summary">Muestra &#8216;Eventos&#8217; del menú de navegación.</string>
-    <string name="menu_top_stories">Historias populares</string>
-    <string name="menu_top_stories_summary">Muestra &#8216;Historias populares&#8217; del menú de navegación.</string>
-    <string name="menu_most_recent">Más reciente</string>
-    <string name="menu_friendreq">Solicitudes de amistad</string>
-    <string name="menu_friendreq_summary">Muestra &#8216;Solicitudes de amistad&#8217; del menú de navegación.</string>
-    <string name="menu_groups">Grupos</string>
-    <string name="menu_groups_summary">Muestra &#8216;Grupos&#8217; del menú de navegación.</string>
-    <string name="menu_messages">Mensajes</string>
-    <string name="menu_search">Buscar</string>
-    <string name="menu_search_summary">Muestra &#8216;Buscar&#8217; del menú de navegación.</string>
-    <string name="menu_mainmenu">Menú principal</string>
-    <string name="menu_mainmenu_summary">Muestra &#8216;Menú principal&#8217; del menú de navegación.</string>
-    <!-- End navigation -->
-
-    <!-- App -->
-    <string name="silent">Silencio</string>
-    <string name="navigation_drawer_open">Abrir cajón de navegación</string>
-    <string name="navigation_drawer_close">Cerrar cajón de navegación</string>
-    <string name="nav_notifications">Notificaciones</string>
-    <string name="settings">Ajustes</string>
-    <string name="context_share_image">Compartir imágen</string>
-    <string name="context_share_link">Compartir link</string>
-    <string name="context_share_image_progress">Compartiendo imágen&#8230;</string>
-    <string name="content_copy_link_done">Link copiado</string>
-    <string name="permission_denied">Permiso denegado, la acción no se pudo completar</string>
-    <string name="downloaded">Descargado</string>
-	<string name="bookmarks_header">Marcadores</string>
-    <string name="new_bookmark">Agregando:</string>
-    <string name="remove_bookmark">Eliminado:</string>
-    <!-- About -->
-    <string name="more">Créditos y más</string>
-    <string name="about_updates">Actualizaciones</string>
-    <string name="updates">Verificar si hay una nueva versión disposible</string>
-    <string name="updates_summary">Versión actual: %s</string>
-    <string name="people_who_translated">Usuarios que tradujeron la app</string>
-    <string name="devs_who_helped_me">Desarrolladores que me ayudaron respondiendo dudas y usando su código</string>
-    <string name="help_translations">Ayudame a traducir la app a tu lenguaje</string>
-    <string name="about_translations">¡Ayúdanos, te necesitamos!</string>
-    <string name="source_code">Código en Github</string>
-    <string name="withYou">Reporta un bug o solicita un cambio</string>
-    <string name="changelog">Lista de cambios</string>
     <!-- End about -->
-	
+
 </resources>

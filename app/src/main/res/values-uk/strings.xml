@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Notifications -->
+    <string name="notifications_setting_title">СПОВІЩЕННЯ</string>
+    <string name="notif">Сповіщення</string>
+    <string name="facebook_message">Сповіщення про повідомлення</string>
+    <string name="facebook_notifications">Сповіщення Facebook</string>
+    <string name="applying_changes">Застосовуємо зміни</string>
+    <string name="sync_problem">Файли Cookie не можуть бути синхронізовані. Спробуйте перезапустити додаток</string>
+    <string name="notification_sound_description">Оберіть рінгтон або тишу: \u0020</string>
+    <string name="notifications_settings">Налаштування сповіщень</string>
+    <string name="notifications_settings_description">Додаткові налаштування. Оберіть інтервал перевірки сповіщень, налаштуйте звуки, LED та вібрацію.</string>
+    <string name="interval_pref">Інтервал перевірки сповіщень</string>
+    <string name="notification_sound">Звук сповіщень</string>
+    <string name="interval_pref_description_new">Сповіщення будуть перевірятись кожні %s.</string>
+    <string name="notification_sound_msg">Звук повідомлень</string>
+    <string name="vibrate">Вібрація</string>
+    <string name="vibrate_double">Подвійна вібрація</string>
+    <string name="led_light">LED</string>
+
+    <string-array name="intervalPrefTitles">
+        <item>1 хвилина</item>
+        <item>2 хвилини</item>
+        <item>5 хвилин</item>
+        <item>15 хвилин</item>
+        <item>30 хвилин</item>
+        <item>1 година</item>
+        <item>3 години</item>
+        <item>6 годин</item>
+    </string-array>
+    <!-- End Notifications -->
+
+    <!-- General -->
+    <string name="general_setting_title">Загальні</string>
+    <string name="location_enabled_title">Доступ до геолокації</string>
+    <string name="location_enabled_summary">Увімкніть, щоб Facebook мав доступ до Вашої геолокації.</string>
+    <string name="hide_editor_newsfeed_title">Прибрати редактор статусу зі стрічки новин</string>
+    <string name="hide_editor_newsfeed_summary">При увімкненні редактор статусу буде приховано зі стрічки новин.</string>
+    <string name="stop_images_title">Не завантажувати зображення</string>
+    <string name="stop_images_summary">При увімкненні зображення не будуть завантажуватись. Деякі зображення збережені в кеші</string>
+    <string name="hide_sponsored_title">Прибрати &#8216;Рекомендований&#8217; контент</string>
+    <string name="hide_sponsored_summary">Прибрати &#8216;Рекомендований&#8217; контент (реклама) зі стрічки новин.</string>
+    <string name="hide_birthdays_title">Прибрати дні народження</string>
+    <string name="hide_birthdays_summary">Прибрати дні народження зі стрічки, заходів та сповіщень</string>
+    <string name="hide_menu_bar_title">Прибрати верхнє меню</string>
+    <string name="hide_menu_bar_summary">При увімкненні верхнє меню Facebook буде приховане.</string>
+    <string name="hide_recently_commented">Прибрати сповіщення про нещодавні коментарі</string>
+    <string name="hide_recently_commented_summary">X людей прокоментувало це теж.</string>
+    <string name="start_url">Початковий URL</string>
+    <string-array name="Start">
+        <item>Останні</item>
+        <item>Рекомендовані</item>
+        <item>Повідомлення</item>
+    </string-array>
+    <!-- End general -->
+
+    <!-- About -->
+    <string name="more">Більше та подяки</string>
+    <string name="about_updates">Оновлення</string>
+    <string name="updates">Перевірити на наявність нової версії</string>
+    <string name="updates_summary">Відкрити сторінку та завантажити останню версію</string>
+    <string name="people_who_translated">Користувачі, які переклали додаток</string>
+    <string name="devs_who_helped_me">Розробники, які допомогли мені з моїми питаннями та кодом своїх додатків.</string>
+    <string name="help_translations">Допоможіть перевести додаток на Вашу мову</string>
+    <string name="about_translations">Ви потрібні нам</string>
+    <string name="source_code">Відкритий код на Github</string>
+    <string name="withYou">Сповістити про баг або запропонувати нові функції</string>
+    <string name="changelog">Список змін</string>
+    <!-- End about -->
+
+    <!-- APPEARANCE -->
+    <string name="appearance_setting_title">ОФОРМЛЕННЯ</string>
+    <string name="web_themes">Веб-теми</string>
+    <string name="web_themes_summary">Ви можете обрати різні веб-теми.</string>
+    <string name="app_themes">Теми додатку</string>
+    <string name="app_themes_summary">Ви можете обрати різні стилі оформлення додатку.</string>
+
+    <!-- Navigation -->
+    <string name="navigation_setting_title">НАВІГАЦІЯ</string>
+    <string name="navigation_menu_settings">Пункти меню навігації</string>
+    <string name="navigation_menu_settings_description">Ви можете приховати або показати пункти меню навігації</string>
+    <string name="save_data">Режим збереження трафіку</string>
+    <string name="save_data_summary">Завантажувати Facebook в базовій версії та вимкнути завантаження інформації про Ваш профіль.</string>
+    <string name="clearcache">Очищати кеш при виході</string>
+    <string name="clearcache_summary">Це займе більше часу при відкритті додатку</string>
+    <string name="fab_enable">Плаваюча кнопка</string>
+    <string name="fab_enable_summary">Показувати плаваючу кнопку.</string>
+    <!-- Navigation: fab -->
+    <string name="fab_text">Оновити статус</string>
+    <string name="fab_photo">Завантажити зображення</string>
+    <string name="fab_checkin">Відмітитись</string>
+    <string name="fab_jump_top">Вгору</string>
+    <!-- Navigation: items -->
+    <string name="navigation_menu_title">МЕНЮ НАВІГАЦІЇ</string>
+    <string name="ic_menu_exitapp">Закрити додаток</string>
+    <string name="ic_menu_exitapp_summary">Показувати кнопку &#8216;Закрити додаток&#8217; в боковому меню.</string>
+    <string name="ic_menu_fblogout">Вийти</string>
+    <string name="ic_menu_fblogout_summary">Показувати кнопку &#8216;Вийти&#8217; в боковому меню.</string>
+    <string name="menu_photos">Зображення</string>
+    <string name="menu_photos_summary">Показувати кнопку &#8216;Зображення&#8217; в боковому меню.</string>
+    <string name="menu_events">Заходи</string>
+    <string name="menu_events_summary">Показувати кнопку &#8216;Заходи&#8217; в боковому меню.</string>
+    <string name="menu_back">Назад</string>
+    <string name="menu_back_summary">Показувати кнопку &#8216;Назад&#8217; в боковому меню.</string>
+    <string name="menu_top_stories">Найкращі історії</string>
+    <string name="menu_top_stories_summary">Показувати кнопку &#8216;Найкращі історії&#8217; в боковому меню.</string>
+    <string name="menu_most_recent">Останні історії</string>
+    <string name="menu_most_recent_summary">Показувати кнопку &#8216;Останні історії&#8217; в боковому меню.</string>
+    <string name="menu_friendreq">Запити</string>
+    <string name="menu_friendreq_summary">Показувати кнопку &#8216;Запити&#8217; в боковому меню.</string>
+    <string name="menu_groups">Групи</string>
+    <string name="menu_groups_summary">Показувати кнопку &#8216;Групи&#8217; в боковому меню.</string>
+    <string name="menu_messages">Повідомлення</string>
+    <string name="menu_search">Пошук</string>
+    <string name="menu_search_summary">Показувати кнопку &#8216;Пошук&#8217; в боковому меню.</string>
+    <string name="menu_mainmenu">Головне меню</string>
+    <string name="menu_mainmenu_summary">Показувати кнопку &#8216;Головне меню&#8217; в боковому меню.</string>
+    <string name="messaging_enabled_title">Обмін повідомленнями</string>
+    <string name="messaging_enabled_summary">При увімкненні відкриватимуться повідомлення Facebook. Вимкніть, якщо у Вас є додаток Messenger.</string>
+    <!-- End navigation -->
+
+    <!-- App -->
+    <string name="silent">Без звуку</string>
+    <string name="file_logger_needs_permission">Доступ до пам\'яті відсутній. Немає можливості зберегти лог</string>
+    <string name="navigation_drawer_open">Відкрити бокове меню</string>
+    <string name="navigation_drawer_close">Закрити бокове меню</string>
+    <string name="default_user">Користувач</string>
+    <string name="header_profile_pic">Світлина профілю</string>
+    <string name="nav_notifications">Сповіщення</string>
+    <string name="context_save_image">Зберегти зображення</string>
+    <string name="settings">Налаштування</string>
+    <string name="context_share_image">Поділитись зображенням</string>
+    <string name="context_copy_image_link">Скопіювати посилання на зображення</string>
+    <string name="context_share_link">Поділитись посиланням</string>
+    <string name="context_copy_link">Скопіювати посилання</string>
+    <string name="context_share_image_progress">Ділимось зображенням…</string>
+    <string name="content_copy_link_done">Посилання скопійовано в буфер обміну</string>
+    <string name="login_button">Увійти</string>
+    <string name="not_logged_in">Ви не увійшли</string>
+    <string name="error_login">Щось пішло не так. Будь ласка, спробуйте увійти ще раз</string>
+    <string name="error_super_wrong">Щось пішло зовсім не так</string>
+    <string name="error_facebook_noconnection">Не можу під\'єднатись до Facebook</string>
+    <string name="error_facebook_error">Щось пішло не так на стороні Facebook</string>
+    <string name="loading">Завантаження</string>
+    <string name="permission_denied">Дозвіл не отримано, не можу завершити дію</string>
+    <string name="downloaded">Збережено</string>
+    <string name="add">Закладки</string>
+    <string name="new_bookmark">Додано:</string>
+    <string name="remove_bookmark">Видалено:</string>
+</resources>

@@ -18,7 +18,6 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
@@ -26,18 +25,17 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.VideoView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+
 import java.util.Locale;
 import java.util.concurrent.TimeUnit;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.ui.CookingAToast;
-import me.zeeroooo.materialfb.webview.Helpers;
 
-public class VideoActivity extends AppCompatActivity {
+public class VideoActivity extends MFBActivity {
 
     private VideoView mVideoView;
     private int position = 0;
@@ -45,13 +43,25 @@ public class VideoActivity extends AppCompatActivity {
     private SeekBar mSeekbar;
     private String url;
     private TextView mElapsedTime, mRemainingTime;
+    private final Runnable Update = new Runnable() {
+        @Override
+        public void run() {
+            if (mSeekbar != null) {
+                mSeekbar.setProgress(mVideoView.getCurrentPosition());
+            }
+            if (mVideoView.isPlaying()) {
+                mSeekbar.postDelayed(Update, 1000);
+                mElapsedTime.setText(Time(mVideoView.getCurrentPosition()));
+                mRemainingTime.setText(Time(mVideoView.getDuration() - mVideoView.getCurrentPosition()));
+            }
+        }
+    };
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        //  setContentView(R.layout.activity_video);
+    protected void create(Bundle savedInstanceState) {
+        super.create(savedInstanceState);
 
-        Helpers.setLocale(this, R.layout.activity_video);
+        setContentView(R.layout.activity_video);
 
         url = getIntent().getStringExtra("video_url");
 
@@ -130,7 +140,7 @@ public class VideoActivity extends AppCompatActivity {
         setBackground(share);
         share.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent shareIntent = new Intent(Intent.ACTION_SEND);
+                final Intent shareIntent = new Intent(Intent.ACTION_SEND);
                 shareIntent.setType("text/plain");
                 shareIntent.putExtra(Intent.EXTRA_TEXT, url);
                 startActivity(Intent.createChooser(shareIntent, getString(R.string.context_share_link)));
@@ -159,7 +169,7 @@ public class VideoActivity extends AppCompatActivity {
     public void onWindowFocusChanged(boolean hasFocus) {
         super.onWindowFocusChanged(hasFocus);
         if (hasFocus) {
-            Window window = getWindow();
+            final Window window = getWindow();
             window.getDecorView().setSystemUiVisibility(
                     View.SYSTEM_UI_FLAG_LOW_PROFILE
                             | View.SYSTEM_UI_FLAG_FULLSCREEN
@@ -171,20 +181,6 @@ public class VideoActivity extends AppCompatActivity {
         }
     }
 
-    private final Runnable Update = new Runnable() {
-        @Override
-        public void run() {
-            if (mSeekbar != null) {
-                mSeekbar.setProgress(mVideoView.getCurrentPosition());
-            }
-            if (mVideoView.isPlaying()) {
-                mSeekbar.postDelayed(Update, 1000);
-                mElapsedTime.setText(Time(mVideoView.getCurrentPosition()));
-                mRemainingTime.setText(Time(mVideoView.getDuration() - mVideoView.getCurrentPosition()));
-            }
-        }
-    };
-
     private String Time(long ms) {
         return String.format(Locale.getDefault(), "%d:%d", TimeUnit.MILLISECONDS.toMinutes(ms), TimeUnit.MILLISECONDS.toSeconds(ms) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes((ms))));
     }
@@ -194,11 +190,11 @@ public class VideoActivity extends AppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-            DownloadManager mDownloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
+            final DownloadManager mDownloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
 
-            DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
+            final DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
 
             request.setDestinationInExternalPublicDir(Environment.DIRECTORY_MOVIES + "/MaterialFBook", System.currentTimeMillis() + url.substring(url.indexOf("_n") + 2).split("\\?_")[0]);
             request.setVisibleInDownloadsUi(true);
@@ -240,14 +236,12 @@ public class VideoActivity extends AppCompatActivity {
     }
 
     public void setVisibility(int visibility, int animation) {
-        Animation a = AnimationUtils.loadAnimation(this, animation);
-
-        mButtonsHeader.startAnimation(a);
+        mButtonsHeader.startAnimation(AnimationUtils.loadAnimation(this, animation));
         mButtonsHeader.setVisibility(visibility);
     }
 
     private void setBackground(View btn) {
-        TypedValue typedValue = new TypedValue();
+        final TypedValue typedValue = new TypedValue();
         int bg;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP)
             bg = android.R.attr.selectableItemBackgroundBorderless;

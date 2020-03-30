@@ -16,20 +16,10 @@
     <string name="vibrate_double">Doppia Vibrazione</string>
     <string name="led_light">LED light</string>
 
-    <string-array name="intervalPrefTitles">
-        <item>1 minuto</item>
-        <item>2 minutos</item>
-        <item>5 minutos</item>
-        <item>15 minutos</item>
-        <item>30 minutos</item>
-        <item>1 hora</item>
-        <item>3 horas</item>
-        <item>6 horas</item>
-    </string-array>
+    <string name="general_setting_title">GENERAL</string>
     <!-- End Notifications -->
 
     <!-- General -->
-    <string name="general_setting_title">GENERAL</string>
     <string name="location_enabled_title">Accesso alla posizione</string>
     <string name="location_enabled_summary">Attivala per permettere a Toffeed di ottenere la tua posizione.</string>
     <string name="hide_editor_newsfeed_title">Nascondi l\'editor di stato nel News Feed</string>
@@ -45,16 +35,11 @@
     <string name="hide_recently_commented">Hide recently commented</string>
     <string name="hide_recently_commented_summary">X people recently commented on this.</string>
     <string name="start_url">Start URL</string>
-    <string-array name="Start">
-        <item>MostRecent</item>
-        <item>TopStories</item>
-        <item>Messages</item>
-    </string-array>
+    <string name="more">More and credits</string>
+    <string name="about_updates">Updates</string>
     <!-- End general -->
 
     <!-- About -->
-    <string name="more">More and credits</string>
-    <string name="about_updates">Updates</string>
     <string name="updates">Check for a new version</string>
     <string name="updates_summary">Load the page and download the latest version</string>
     <string name="people_who_translated">Users who translated the app</string>
@@ -64,35 +49,29 @@
     <string name="source_code">Source code on Github</string>
     <string name="withYou">Report bugs or requst new features</string>
     <string name="changelog">Changelog</string>
+    <string name="appearance_setting_title">APPEARANCE</string>
+    <string name="app_themes">App themes</string>
     <!-- End about -->
 
     <!-- APPEARANCE -->
-    <string name="appearance_setting_title">APPEARANCE</string>
-    <string name="web_themes">Web themes</string>
-    <string name="web_themes_summary">You can choose different web themes.</string>
-    <string name="app_themes">App themes</string>
     <string name="app_themes_summary">You can choose different app themes.</string>
-
-    <!-- Navigation -->
     <string name="navigation_setting_title">NAVIGATION</string>
     <string name="navigation_menu_settings">Navigation menu items</string>
+
+    <!-- Navigation -->
     <string name="navigation_menu_settings_description">You can show/hide items in the navigation menu.</string>
     <string name="save_data">Save data</string>
     <string name="save_data_summary">When enabled, the app autoconfigure to save data</string>
-    <string name="clearcache">Clear cache on exit</string>
-    <string name="clearcache_summary">It will take more time to open the app.</string>
     <string name="fab_enable">Floating Action Button</string>
     <string name="fab_enable_summary">Show the FAB.</string>
-    <!-- Navigation: fab -->
     <string name="fab_text">Condividi uno stato</string>
     <string name="fab_photo">Condividi una foto</string>
+    <!-- Navigation: fab -->
     <string name="fab_checkin">Condividi posizione</string>
     <string name="fab_jump_top">Torna in Alto</string>
-    <!-- Navigation: items -->
     <string name="navigation_menu_title">NAVIGATION MENU</string>
-    <string name="ic_menu_exitapp">Exit app</string>
-    <string name="ic_menu_exitapp_summary">Hide &#8216;Exit app&#8217; button on navigation drawer.</string>
     <string name="menu_photos">Photos</string>
+    <!-- Navigation: items -->
     <string name="menu_photos_summary">Hide &#8216;Photos&#8217; button on navigation drawer.</string>
     <string name="menu_events">Events</string>
     <string name="menu_events_summary">Hide &#8216;Events&#8217; button on navigation drawer.</string>
@@ -121,4 +100,19 @@
     <string name="downloaded">Downloaded</string>
     <string name="new_bookmark">Added:</string>
     <string name="remove_bookmark">Removed:</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 minuto</item>
+        <item>2 minutos</item>
+        <item>5 minutos</item>
+        <item>15 minutos</item>
+        <item>30 minutos</item>
+        <item>1 hora</item>
+        <item>3 horas</item>
+        <item>6 horas</item>
+    </string-array>
+    <string-array name="Start">
+        <item>MostRecent</item>
+        <item>TopStories</item>
+        <item>Messages</item>
+    </string-array>
 </resources>

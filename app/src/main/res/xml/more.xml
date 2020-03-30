@@ -1,26 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="@string/about_updates">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <me.zeeroooo.materialfb.ui.MFBPreferenceCategory android:title="@string/about_updates">
+        <Preference
+            app:iconSpaceReserved="false"
+            android:key="changelog"
+            android:title="@string/changelog" />
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:key="mfb_version"
             android:title="@string/updates">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/ZeeRooo/MaterialFBook/releases" />
         </PreferenceScreen>
-        <Preference
-            android:key="changelog"
-            android:title="@string/changelog" />
-    </PreferenceCategory>
-    <PreferenceCategory android:title="@string/source_code">
-        <PreferenceScreen android:title="@string/source_code">
+    </me.zeeroooo.materialfb.ui.MFBPreferenceCategory>
+    <me.zeeroooo.materialfb.ui.MFBPreferenceCategory android:title="@string/source_code">
+        <PreferenceScreen
+            app:iconSpaceReserved="false"
+            android:title="@string/source_code">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/ZeeRooo/MaterialFBook" />
         </PreferenceScreen>
-    </PreferenceCategory>
-    <PreferenceCategory android:title="@string/devs_who_helped_me">
+    </me.zeeroooo.materialfb.ui.MFBPreferenceCategory>
+    <me.zeeroooo.materialfb.ui.MFBPreferenceCategory android:title="@string/devs_who_helped_me">
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="SlimSocial for Facebook"
             android:title="rignaneseleo">
             <intent
@@ -28,6 +34,7 @@
                 android:data="https://github.com/rignaneseleo/SlimSocial-for-Facebook" />
         </PreferenceScreen>
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="Toffeed"
             android:title="JakeLane">
             <intent
@@ -35,6 +42,7 @@
                 android:data="https://github.com/JakeLane/Toffeed" />
         </PreferenceScreen>
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="Folio for Facebook"
             android:title="creativetrendsapps">
             <intent
@@ -42,6 +50,7 @@
                 android:data="https://github.com/creativetrendsapps/FolioforFacebook" />
         </PreferenceScreen>
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="FaceSlim"
             android:title="indywidualny">
             <intent
@@ -49,13 +58,7 @@
                 android:data="https://github.com/indywidualny/FaceSlim" />
         </PreferenceScreen>
         <PreferenceScreen
-            android:summary="FloatingActionButton"
-            android:title="Clans">
-            <intent
-                android:action="android.intent.action.VIEW"
-                android:data="https://github.com/Clans/FloatingActionButton" />
-        </PreferenceScreen>
-        <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="Glide"
             android:title="bumptech">
             <intent
@@ -63,6 +66,7 @@
                 android:data="https://github.com/bumptech/glide" />
         </PreferenceScreen>
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="jsoup"
             android:title="Jonathan Hedley">
             <intent
@@ -70,15 +74,17 @@
                 android:data="https://github.com/jhy/jsoup" />
         </PreferenceScreen>
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="acra"
             android:title="ACRA">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/ACRA/acra" />
         </PreferenceScreen>
-    </PreferenceCategory>
-    <PreferenceCategory android:title="@string/people_who_translated">
+    </me.zeeroooo.materialfb.ui.MFBPreferenceCategory>
+    <me.zeeroooo.materialfb.ui.MFBPreferenceCategory android:title="@string/people_who_translated">
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="akkk33"
             android:title="Arabic">
             <intent
@@ -86,6 +92,7 @@
                 android:data="https://github.com/akkk33" />
         </PreferenceScreen>
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="mhtorp"
             android:title="Danish">
             <intent
@@ -93,9 +100,11 @@
                 android:data="https://github.com/mhtorp" />
         </PreferenceScreen>
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="Sebacestmoi"
-            android:title="French"></PreferenceScreen>
+            android:title="French" />
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="fabsmusicjunkie"
             android:title="German">
             <intent
@@ -103,6 +112,7 @@
                 android:data="https://github.com/fabsmusicjunkie" />
         </PreferenceScreen>
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="yarons"
             android:title="Hebrew">
             <intent
@@ -110,6 +120,7 @@
                 android:data="https://github.com/yarons" />
         </PreferenceScreen>
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="István Vass"
             android:title="Hungarian">
             <intent
@@ -117,6 +128,7 @@
                 android:data="http://forum.xda-developers.com/member.php?u=2946536" />
         </PreferenceScreen>
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="Aditya Prasetyo"
             android:title="Indonesian">
             <intent
@@ -124,6 +136,7 @@
                 android:data="https://forum.xda-developers.com/member.php?u=4563814" />
         </PreferenceScreen>
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="GorranKurd"
             android:title="Kurdish">
             <intent
@@ -131,6 +144,7 @@
                 android:data="http://forum.xda-developers.com/member.php?u=4604711" />
         </PreferenceScreen>
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="alekksander"
             android:title="Polish">
             <intent
@@ -138,6 +152,7 @@
                 android:data="https://github.com/alekksander" />
         </PreferenceScreen>
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="abacate123"
             android:title="Portuguese">
             <intent
@@ -145,6 +160,7 @@
                 android:data="https://github.com/abacate123" />
         </PreferenceScreen>
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="nishimura-san"
             android:title="Romanian">
             <intent
@@ -152,9 +168,11 @@
                 android:data="http://forum.xda-developers.com/member.php?u=4995498" />
         </PreferenceScreen>
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="maxel85"
-            android:title="Russian"></PreferenceScreen>
+            android:title="Russian" />
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="PoP992"
             android:title="Serbian">
             <intent
@@ -162,6 +180,7 @@
                 android:data="https://github.com/PoP992" />
         </PreferenceScreen>
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="Me, ZeeRooo"
             android:title="Spanish">
             <intent
@@ -169,26 +188,56 @@
                 android:data="http://forum.xda-developers.com/member.php?u=7490500" />
         </PreferenceScreen>
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="Baran Aydin"
-            android:title="Turkish"></PreferenceScreen>
+            android:title="Turkish" />
         <PreferenceScreen
+            app:iconSpaceReserved="false"
             android:summary="ngoisaosang"
             android:title="Vietnamese">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/ngoisaosang" />
         </PreferenceScreen>
-    </PreferenceCategory>
-    <PreferenceCategory android:title="@string/about_translations">
-        <PreferenceScreen android:title="@string/help_translations">
+        <PreferenceScreen
+            app:iconSpaceReserved="false"
+            android:summary="Nigusu"
+            android:title="Amharic" />
+        <PreferenceScreen
+            app:iconSpaceReserved="false"
+            android:summary="asereze"
+            android:title="Sardinian">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/asereze" />
+        </PreferenceScreen>
+        <PreferenceScreen
+            app:iconSpaceReserved="false"
+            android:summary="Irriep Nala Novram"
+            android:title="Breton" />
+        <PreferenceScreen
+            app:iconSpaceReserved="false"
+            android:summary="sfilmak"
+            android:title="Ukrainian">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/sfilmak" />
+        </PreferenceScreen>
+    </me.zeeroooo.materialfb.ui.MFBPreferenceCategory>
+    <me.zeeroooo.materialfb.ui.MFBPreferenceCategory android:title="@string/about_translations">
+        <PreferenceScreen
+            app:iconSpaceReserved="false"
+            android:title="@string/help_translations">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://www.transifex.com/yaron/materialfbook/translate/" />
         </PreferenceScreen>
-        <PreferenceScreen android:title="@string/withYou">
+        <PreferenceScreen
+            app:iconSpaceReserved="false"
+            android:title="@string/withYou">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/ZeeRooo/MaterialFBook/issues" />
         </PreferenceScreen>
-    </PreferenceCategory>
+    </me.zeeroooo.materialfb.ui.MFBPreferenceCategory>
 </PreferenceScreen>

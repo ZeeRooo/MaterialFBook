@@ -16,20 +16,10 @@
     <string name="vibrate_double">Zweimal vibrieren</string>
     <string name="led_light">LED-Benachrichtigung</string>
 
-    <string-array name="intervalPrefTitles">
-        <item>1 Minute</item>
-        <item>2 Minuten</item>
-        <item>5 Minuten</item>
-        <item>15 Minuten</item>
-        <item>30 Minuten</item>
-        <item>1 Stunde</item>
-        <item>3 Stunden</item>
-        <item>6 Stunden</item>
-    </string-array>
+    <string name="general_setting_title">ALLGEMEIN</string>
     <!-- End Notifications -->
 
     <!-- General -->
-    <string name="general_setting_title">ALLGEMEIN</string>
     <string name="location_enabled_title">Standortzugriff</string>
     <string name="location_enabled_summary">Aktivieren, um Facebook Standortzugriff zu erlauben.</string>
     <string name="hide_editor_newsfeed_title">Verstecke den Status-Editor im News Feed</string>
@@ -45,16 +35,11 @@
     <string name="hide_recently_commented">Verberge kürzlich kommentierte</string>
     <string name="hide_recently_commented_summary">X Leute haben das kommentiert.</string>
     <string name="start_url">Start-URL</string>
-    <string-array name="Start">
-        <item>Neueste Meldungen</item>
-        <item>Top Meldungen</item>
-        <item>Nachrichten</item>
-    </string-array>
+    <string name="more">Mehr und Danksagungen</string>
+    <string name="about_updates">Updates</string>
     <!-- End general -->
 
     <!-- About -->
-    <string name="more">Mehr und Danksagungen</string>
-    <string name="about_updates">Updates</string>
     <string name="updates">Prüfe auf neue Version</string>
     <string name="updates_summary">Lade die neueste Version von der Website herunter</string>
     <string name="people_who_translated">Übersetzer dieser App</string>
@@ -64,35 +49,29 @@
     <string name="source_code">Quelltext auf Github</string>
     <string name="withYou">Melde Fehler oder wünsche dir neue Funktionen</string>
     <string name="changelog">Änderungshistorie</string>
+    <string name="appearance_setting_title">AUSSEHEN</string>
+    <string name="app_themes">App Designs</string>
     <!-- End about -->
 
     <!-- APPEARANCE -->
-    <string name="appearance_setting_title">AUSSEHEN</string>
-    <string name="web_themes">Temas da web</string>
-    <string name="web_themes_summary">Você pode escolher diferentes temas da web.</string>
-    <string name="app_themes">App Designs</string>
     <string name="app_themes_summary">Wähle aus verschiedenen App Designs.</string>
-
-    <!-- Navigation -->
     <string name="navigation_setting_title">NAVIGATION</string>
     <string name="navigation_menu_settings">Elemente der Navigationsleiste</string>
+
+    <!-- Navigation -->
     <string name="navigation_menu_settings_description">Verbergen/Anzeigen von Elementen der Navigationsleiste.</string>
     <string name="save_data">Daten sparen - Erscheinungsbild des Feeds ändert sich!</string>
     <string name="save_data_summary">Aktiviere wenn du oft im Mobilen Netz unterwegs bist, um Datenvolumen zu sparen. Das Erscheinungsbild des Feeds ändert sich!</string>
-    <string name="clearcache">Lösche Cache beim Beenden</string>
-    <string name="clearcache_summary">App benötigt länger zum Öffnen.</string>
     <string name="fab_enable">Floating Action Button</string>
     <string name="fab_enable_summary">Zeige FAB.</string>
-    <!-- Navigation: fab -->
     <string name="fab_text">Poste einen Status</string>
     <string name="fab_photo">Poste ein Foto</string>
+    <!-- Navigation: fab -->
     <string name="fab_checkin">Einchecken</string>
     <string name="fab_jump_top">Springe nach ganz oben</string>
-    <!-- Navigation: items -->
     <string name="navigation_menu_title">NAVIGATIONSLEISTE</string>
-    <string name="ic_menu_exitapp">App verlassen</string>
-    <string name="ic_menu_exitapp_summary">Aktivieren um &#8216;App verlassen&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
     <string name="menu_photos">Fotos</string>
+    <!-- Navigation: items -->
     <string name="menu_photos_summary">Aktivieren um &#8216;Fotos&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
     <string name="menu_events">Veranstaltungen</string>
     <string name="menu_events_summary">Aktivieren um &#8216;Veranstaltungen&#8217; Verknüpfung in der Navigationsleiste anzuzeigen.</string>
@@ -121,4 +100,19 @@
     <string name="downloaded">Erfolgreich heruntergeladen</string>
     <string name="new_bookmark">Hinzugefügt:</string>
     <string name="remove_bookmark">Entfernt:</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 Minute</item>
+        <item>2 Minuten</item>
+        <item>5 Minuten</item>
+        <item>15 Minuten</item>
+        <item>30 Minuten</item>
+        <item>1 Stunde</item>
+        <item>3 Stunden</item>
+        <item>6 Stunden</item>
+    </string-array>
+    <string-array name="Start">
+        <item>Neueste Meldungen</item>
+        <item>Top Meldungen</item>
+        <item>Nachrichten</item>
+    </string-array>
 </resources>

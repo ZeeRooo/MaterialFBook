@@ -2,6 +2,21 @@
 <resources>
     <string name="changelog_list" translatable="false">
 <![CDATA[
+<b>**Version 4.0.0:**</b>
+<br>
+- Added color picker.
+<br>
+- Notifications reworked.
+<br>
+- Translated to Amharic by Nigusu.
+<br>
+- Translated to Sardinian by asereze.
+<br>
+- Translated to Breton by Irriep Nala Novram.
+<br>
+- Translated to Ukranian by sfilmak.
+<br>
+<br>
 <b>**Version 3.8.7:**</b>
 <br>
 - Facebook albums enhancements (#204).

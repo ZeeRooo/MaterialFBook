@@ -23,11 +23,11 @@ public class UserInfo extends AsyncTask<Activity, Void, Activity> {
     protected Activity doInBackground(Activity[] activities) {
         try {
             if (!activities[0].isDestroyed()) {
-                Element e = Jsoup.connect("https://www.facebook.com/me").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).timeout(300000).get().body();
+                final Element e = Jsoup.connect("https://mbasic.facebook.com/me").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).timeout(300000).get().body();
                 if (name == null)
-                    name = e.select("input[name=q]").attr("value");
+                    name = e.getElementsByClass("profpic img").attr("alt");
                 if (cover == null)
-                    cover = Helpers.decodeImg(e.toString().split("<img class=\"coverPhotoImg photo img\" src=\"")[1].split("\"")[0]);
+                    cover = Helpers.decodeImg(e.selectFirst("div#profile_cover_photo_container > a > img").attr("src"));
             }
         } catch (Exception e) {
             e.printStackTrace();

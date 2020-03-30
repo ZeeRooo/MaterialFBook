@@ -1,131 +1,24 @@
 <resources>
 
-    <style name="Media" parent="MFB">
+    <style name="Media" parent="AppTheme">
         <item name="android:navigationBarColor">@android:color/transparent</item>
         <item name="windowActionBar">false</item>
         <item name="windowActionModeOverlay">true</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowBackground">@android:color/black</item>
     </style>
 
-    <style name="MFB" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/MFBPrimary</item>
-        <item name="colorPrimaryDark">@color/MFBPrimaryDark</item>
-        <item name="colorAccent">@color/MFBPrimaryDark</item>
-        <item name="android:colorControlHighlight">@color/MFBRipple</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:windowTranslucentStatus">true</item>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
-    </style>
-
-    <style name="Pink" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/PinkPrimary</item>
-        <item name="colorPrimaryDark">@color/PinkDark</item>
-        <item name="colorAccent">@color/PinkDark</item>
-        <item name="android:colorControlHighlight">@color/PinkRipple</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowTranslucentStatus">true</item>
-    </style>
-
-    <style name="Grey" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/GreyPrimary</item>
-        <item name="colorPrimaryDark">@color/GreyDark</item>
-        <item name="colorAccent">@color/GreyDark</item>
-        <item name="android:colorControlHighlight">@color/GreyRipple</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowTranslucentStatus">true</item>
-    </style>
-
-    <style name="Green" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/GreenPrimary</item>
-        <item name="colorPrimaryDark">@color/GreenDark</item>
-        <item name="colorAccent">@color/GreenDark</item>
-        <item name="android:colorControlHighlight">@color/GreenRipple</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowTranslucentStatus">true</item>
-    </style>
-
-    <style name="Red" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/RedPrimary</item>
-        <item name="colorPrimaryDark">@color/RedDark</item>
-        <item name="colorAccent">@color/RedDark</item>
-        <item name="android:colorControlHighlight">@color/RedRipple</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowTranslucentStatus">true</item>
-    </style>
-
-    <style name="Lime" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/LimePrimary</item>
-        <item name="colorPrimaryDark">@color/LimeDark</item>
-        <item name="colorAccent">@color/LimeDark</item>
-        <item name="android:colorControlHighlight">@color/LimeRipple</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowTranslucentStatus">true</item>
-    </style>
-
-    <style name="Yellow" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/YellowPrimary</item>
-        <item name="colorPrimaryDark">@color/YellowDark</item>
-        <item name="colorAccent">@color/YellowDark</item>
-        <item name="android:colorControlHighlight">@color/YellowRipple</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowTranslucentStatus">true</item>
-    </style>
-
-    <style name="Purple" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/PurplePrimary</item>
-        <item name="colorPrimaryDark">@color/PurpleDark</item>
-        <item name="colorAccent">@color/PurpleDark</item>
-        <item name="android:colorControlHighlight">@color/PurpleRipple</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowTranslucentStatus">true</item>
-    </style>
-
-    <style name="LightBlue" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/LightBluePrimary</item>
-        <item name="colorPrimaryDark">@color/LightBlueDark</item>
-        <item name="colorAccent">@color/LightBlueDark</item>
-        <item name="android:colorControlHighlight">@color/LightBlueRipple</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowTranslucentStatus">true</item>
     </style>
 
     <style name="Black" parent="Theme.MaterialComponents.NoActionBar">
-        <item name="colorPrimary">@android:color/black</item>
-        <item name="colorPrimaryDark">@android:color/black</item>
-        <item name="colorAccent">@android:color/white</item>
-        <item name="android:colorControlHighlight">@android:color/white</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowTranslucentStatus">true</item>
     </style>
 
-    <style name="Orange" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/OrangePrimary</item>
-        <item name="colorPrimaryDark">@color/OrangeDark</item>
-        <item name="colorAccent">@color/OrangeDark</item>
-        <item name="android:colorControlHighlight">@color/OrangeRipple</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowTranslucentStatus">true</item>
-    </style>
-
-    <style name="GooglePlayGreen" parent="Theme.MaterialComponents.Light.NoActionBar">
-        <item name="colorPrimary">@color/GooglePlayGreenPrimary</item>
-        <item name="colorPrimaryDark">@color/GooglePlayGreenDark</item>
-        <item name="colorAccent">@color/GooglePlayGreenDark</item>
-        <item name="android:colorControlHighlight">@color/GooglePlayGreenRipple</item>
-        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowTranslucentStatus">true</item>
-    </style>
 </resources>

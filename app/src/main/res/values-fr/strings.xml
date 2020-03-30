@@ -15,20 +15,10 @@
     <string name="vibrate">Vibrations</string>
     <string name="led_light">LED de notification</string>
 
-    <string-array name="intervalPrefTitles">
-        <item>1 minute</item>
-        <item>2 minutes</item>
-        <item>5 minutes</item>
-        <item>15 minutes</item>
-        <item>30 minutes</item>
-        <item>1 heure</item>
-        <item>3 heures</item>
-        <item>6 heures</item>
-    </string-array>
+    <string name="general_setting_title">GENERAL</string>
     <!-- End Notifications -->
 
     <!-- General -->
-    <string name="general_setting_title">GENERAL</string>
     <string name="location_enabled_title">Localisation</string>
     <string name="location_enabled_summary">Autorise Facebook à obtenir votre localisation.</string>
     <string name="hide_editor_newsfeed_title">Masquer l’éditeur de statut</string>
@@ -44,16 +34,11 @@
     <string name="hide_recently_commented">Masquer les commentaires recents</string>
     <string name="hide_recently_commented_summary">Masque X personne a comment cela recemment.</string>
     <string name="start_url">Page de demarrage</string>
-    <string-array name="Start">
-        <item>Le plus recent</item>
-        <item>A la une</item>
-        <item>Messages</item>
-    </string-array>
+    <string name="more">Plus d\'infos et crédits</string>
+    <string name="about_updates">Mise a à jour</string>
     <!-- End general -->
 
     <!-- About -->
-    <string name="more">Plus d\'infos et crédits</string>
-    <string name="about_updates">Mise a à jour</string>
     <string name="updates">Rechercher les mises à jour</string>
     <string name="updates_summary">Charge la page et télécharge la dernière version</string>
     <string name="people_who_translated">Utilisateurs qui ont traduit l’application</string>
@@ -63,35 +48,29 @@
     <string name="source_code">Code source sur Github</string>
     <string name="withYou">Reportez un bug ou demandez une nouvelle fonctionnalité</string>
     <string name="changelog">Journal des modifications</string>
+    <string name="appearance_setting_title">APPARENCE</string>
+    <string name="app_themes">Thèmes d’application</string>
     <!-- End about -->
 
     <!-- APPEARANCE -->
-    <string name="appearance_setting_title">APPARENCE</string>
-    <string name="web_themes">Thèmes web</string>
-    <string name="web_themes_summary">Vous pouvez choisir parmi différents thèmes web.</string>
-    <string name="app_themes">Thèmes d’application</string>
     <string name="app_themes_summary">Vous pouvez choisir parmi différents thèmes d\'application.</string>
-
-    <!-- Navigation -->
     <string name="navigation_setting_title">NAVIGATION</string>
     <string name="navigation_menu_settings">Objets du menu de navigation</string>
+
+    <!-- Navigation -->
     <string name="navigation_menu_settings_description">Vous pouvez afficher/masquer les objets du menu de navigation.</string>
     <string name="save_data">Enregistrer les données</string>
     <string name="save_data_summary">activé, l\'application consomment moins de données</string>
-    <string name="clearcache">Vider le cache lors de la fermeture</string>
-    <string name="clearcache_summary">L\'application mettra plus de temps dmarrer.</string>
     <string name="fab_enable">Bouton d\'action flottant</string>
     <string name="fab_enable_summary">Afiche le bouton d\'action flottant</string>
-    <!-- Navigation: fab -->
     <string name="fab_text">Poster un statut</string>
     <string name="fab_photo">Poster une photo</string>
+    <!-- Navigation: fab -->
     <string name="fab_checkin">Envoyer localisation</string>
     <string name="fab_jump_top">Revenir au début</string>
-    <!-- Navigation: items -->
     <string name="navigation_menu_title">MENU DE NAVIGATION</string>
-    <string name="ic_menu_exitapp">Quitter l\'application</string>
-    <string name="ic_menu_exitapp_summary">Masque le bouton &#8216;Quitter l&#8217;application&#8217; du menu de navigation.</string>
     <string name="menu_photos">Photos</string>
+    <!-- Navigation: items -->
     <string name="menu_photos_summary">Masque le bouton &#8216;Photos&#8217; du menu de navigation</string>
     <string name="menu_events">Evènements</string>
     <string name="menu_events_summary">Masque le bouton &#8216;Evènements&#8217; du menu de navigation.</string>
@@ -120,4 +99,19 @@
     <string name="downloaded">Downloaded</string>
     <string name="new_bookmark">Added:</string>
     <string name="remove_bookmark">Removed:</string>
+    <string-array name="intervalPrefTitles">
+        <item>1 minute</item>
+        <item>2 minutes</item>
+        <item>5 minutes</item>
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 heure</item>
+        <item>3 heures</item>
+        <item>6 heures</item>
+    </string-array>
+    <string-array name="Start">
+        <item>Le plus recent</item>
+        <item>A la une</item>
+        <item>Messages</item>
+    </string-array>
 </resources>
