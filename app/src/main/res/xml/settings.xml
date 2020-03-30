@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <CheckBoxPreference
         app:iconSpaceReserved="false"
@@ -8,7 +8,7 @@
         android:summary="Send crash reports via email (NO PERSONAL INFORMATION)"
         android:title="Disable ACRA" />
     <me.zeeroooo.materialfb.ui.MFBPreferenceCategory android:title="@string/navigation_setting_title">
-        <ListPreference
+        <androidx.preference.ListPreference
             app:iconSpaceReserved="false"
             android:defaultValue="Most_recent"
             android:entries="@array/Start"
@@ -16,7 +16,7 @@
             android:key="start_url"
             android:summary="%s"
             android:title="@string/start_url" />
-        <ListPreference
+        <androidx.preference.ListPreference
             app:iconSpaceReserved="false"
             android:defaultValue="en"
             android:entries="@array/appLocalesNames"
@@ -24,7 +24,7 @@
             android:key="localeSwitcher"
             android:summary="@string/localSwitcherSummary"
             android:title="@string/localSwitcherTitle" />
-        <ListPreference
+        <androidx.preference.ListPreference
             app:iconSpaceReserved="false"
             android:defaultValue="1"
             android:entries="@array/scalesText"
@@ -76,7 +76,7 @@
             android:title="@string/hide_recently_commented" />
     </me.zeeroooo.materialfb.ui.MFBPreferenceCategory>
     <me.zeeroooo.materialfb.ui.MFBPreferenceCategory android:title="@string/appearance_setting_title">
-        <Preference
+        <androidx.preference.Preference
             app:iconSpaceReserved="false"
             android:key="color_picker"
             android:summary="@string/app_themes_summary"
@@ -88,7 +88,7 @@
             android:defaultValue="false"
             android:key="notif"
             android:title="@string/notif" />
-        <Preference
+        <androidx.preference.Preference
             app:iconSpaceReserved="false"
             android:dependency="notif"
             android:key="notifications_settings"
@@ -96,7 +96,7 @@
             android:title="@string/notifications_settings" />
     </me.zeeroooo.materialfb.ui.MFBPreferenceCategory>
     <me.zeeroooo.materialfb.ui.MFBPreferenceCategory android:title="@string/general_setting_title">
-        <Preference
+        <androidx.preference.Preference
             app:iconSpaceReserved="false"
             android:key="navigation_menu_settings"
             android:summary="@string/navigation_menu_settings_description"
@@ -115,9 +115,9 @@
             android:title="@string/fab_enable" />
     </me.zeeroooo.materialfb.ui.MFBPreferenceCategory>
     <me.zeeroooo.materialfb.ui.MFBPreferenceCategory android:title="@string/more">
-        <Preference
+        <androidx.preference.Preference
             app:iconSpaceReserved="false"
             android:key="more_and_credits"
             android:title="@string/more" />
     </me.zeeroooo.materialfb.ui.MFBPreferenceCategory>
-</PreferenceScreen>
+</androidx.preference.PreferenceScreen>

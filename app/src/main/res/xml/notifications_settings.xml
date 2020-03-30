@@ -1,6 +1,6 @@
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <ListPreference
+    <androidx.preference.ListPreference
         app:iconSpaceReserved="false"
         android:defaultValue="60000"
         android:entries="@array/intervalPrefTitles"
@@ -8,7 +8,7 @@
         android:key="notif_interval"
         android:summary="@string/interval_pref_description_new"
         android:title="@string/interval_pref" />
-    <Preference
+    <androidx.preference.Preference
         app:iconSpaceReserved="false"
         android:key="BlackList"
         android:summary="@string/blacklist_summary"
@@ -19,7 +19,7 @@
             android:defaultValue="false"
             android:key="facebook_notifications"
             android:title="@string/facebook_notifications" />
-        <Preference
+        <androidx.preference.Preference
             app:iconSpaceReserved="false"
             android:defaultValue="content://settings/system/notification_sound"
             android:dependency="facebook_notifications"
@@ -51,7 +51,7 @@
             android:defaultValue="false"
             android:key="facebook_messages"
             android:title="@string/facebook_message" />
-        <Preference
+        <androidx.preference.Preference
             app:iconSpaceReserved="false"
             android:defaultValue="content://settings/system/notification_sound"
             android:dependency="facebook_messages"
@@ -77,4 +77,4 @@
             android:key="led_msj"
             android:title="@string/led_light" />
     </me.zeeroooo.materialfb.ui.MFBPreferenceCategory>
-</PreferenceScreen>
+</androidx.preference.PreferenceScreen>

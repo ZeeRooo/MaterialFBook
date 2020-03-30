@@ -1,6 +1,6 @@
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.preference.PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
-    <ListPreference
+    <androidx.preference.ListPreference
         android:defaultValue="60000"
         android:entries="@array/intervalPrefTitles"
         android:entryValues="@array/intervalPrefValues"
@@ -8,7 +8,7 @@
         android:summary="@string/interval_pref_description_new"
         android:title="@string/interval_pref"
         app:iconSpaceReserved="false" />
-    <Preference
+    <androidx.preference.Preference
         android:key="BlackList"
         android:summary="@string/blacklist_summary"
         android:title="@string/blacklist_title"
@@ -42,10 +42,10 @@
     </me.zeeroooo.materialfb.ui.MFBPreferenceCategory>
 
     <me.zeeroooo.materialfb.ui.MFBPreferenceCategory>
-        <Preference
+        <androidx.preference.Preference
             android:key="notification_channel_shortcut"
             android:summary="@string/notification_channel_shortcut_summary"
             android:title="@string/notification_channel_shortcut_title"
             app:iconSpaceReserved="false" />
     </me.zeeroooo.materialfb.ui.MFBPreferenceCategory>
-</PreferenceScreen>
+</androidx.preference.PreferenceScreen>
