@@ -23,6 +23,12 @@
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/ZeeRooo/MaterialFBook" />
         </androidx.preference.PreferenceScreen>
+        <androidx.preference.PreferenceScreen android:title="@string/licence"
+            app:iconSpaceReserved="false">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://raw.githubusercontent.com/ZeeRooo/MaterialFBook/master/LICENCE" />
+        </androidx.preference.PreferenceScreen>
     </me.zeeroooo.materialfb.ui.MFBPreferenceCategory>
     <me.zeeroooo.materialfb.ui.MFBPreferenceCategory android:title="@string/devs_who_helped_me">
         <androidx.preference.PreferenceScreen

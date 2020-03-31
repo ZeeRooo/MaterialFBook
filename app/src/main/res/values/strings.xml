@@ -46,6 +46,7 @@
     <string name="more">More and credits</string>
     <string name="about_updates">Updates</string>
     <string name="updates">Check for a new version</string>
+    <string name="licence">Licence</string>
 
     <string name="updates_summary">Current version: %s</string>
     <!-- End general -->

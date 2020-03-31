@@ -40,7 +40,7 @@
     <string name="start_url">URL de inicio</string>
     <string name="localSwitcherTitle">Cambiar el idioma</string>
     <string name="localSwitcherSummary">Idioma actual: %s</string>
-
+    <string name="licence">Licencia</string>
     <string name="textScale">Escala de texto</string>
     <string name="appearance_setting_title">APARIENCIA</string>
     <string name="app_themes">Temas de la app</string>
