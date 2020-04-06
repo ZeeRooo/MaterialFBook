@@ -340,6 +340,10 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Translated to Breton by Irriep Nala Novram.
 - Translated to Ukranian by sfilmak.
 
+**Version 4.0.1:**
+- Fixed some visual glitches.
+- Copy & paste feature restored.
+
 **Notes:**
 _- Maybe some gifs cant be loaded because i need to add the url to the code. Report it as issue with the Facebook´s page link or website._
 

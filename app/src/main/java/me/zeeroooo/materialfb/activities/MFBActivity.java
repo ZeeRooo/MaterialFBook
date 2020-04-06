@@ -73,8 +73,8 @@ public class MFBActivity extends AppCompatActivity {
 
         themeMode = getThemeMode();
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && themeMode == 3)
-            getWindow().getDecorView().setSystemUiVisibility(getWindow().getDecorView().getSystemUiVisibility() |View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && (themeMode == 2 || themeMode == 3))
+            getWindow().getDecorView().setSystemUiVisibility(getWindow().getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
         super.setContentView(layoutResID);
     }

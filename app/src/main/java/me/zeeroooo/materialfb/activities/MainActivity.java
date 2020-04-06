@@ -64,8 +64,6 @@ import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
-import androidx.work.OneTimeWorkRequest;
-import androidx.work.WorkManager;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.button.MaterialButton;
@@ -87,7 +85,6 @@ import me.zeeroooo.materialfb.adapters.AdapterBookmarks;
 import me.zeeroooo.materialfb.misc.DatabaseHelper;
 import me.zeeroooo.materialfb.misc.ModelBookmarks;
 import me.zeeroooo.materialfb.misc.UserInfo;
-import me.zeeroooo.materialfb.notifications.NotificationsService;
 import me.zeeroooo.materialfb.ui.CookingAToast;
 import me.zeeroooo.materialfb.ui.MFBFloatingActionButton;
 import me.zeeroooo.materialfb.ui.MFBResources;
@@ -155,9 +152,12 @@ public class MainActivity extends MFBActivity implements NavigationView.OnNaviga
         // Setup the DrawLayout
         final ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
-        if (themeMode == 0) {
+        if (themeMode == 0 | themeMode == 1) {
             toggle.getDrawerArrowDrawable().setColor(Color.WHITE);
             mToolbar.setTitleTextColor(Color.WHITE);
+        } else if (themeMode == 2) {
+            toggle.getDrawerArrowDrawable().setColor(Color.BLACK);
+            mToolbar.setTitleTextColor(Color.BLACK);
         }
 
         MFB.textColor = toggle.getDrawerArrowDrawable().getColor();
@@ -185,7 +185,7 @@ public class MainActivity extends MFBActivity implements NavigationView.OnNaviga
 
         // Start the Swipe to reload listener
         swipeView = findViewById(R.id.swipeLayout);
-        if (themeMode == 0)
+        if (themeMode == 0 | themeMode == 1)
             swipeView.setColorSchemeResources(android.R.color.white);
         else
             swipeView.setColorSchemeResources(android.R.color.black);

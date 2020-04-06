@@ -5,7 +5,6 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import androidx.annotation.NonNull;
@@ -74,7 +73,7 @@ public class MFBFloatingActionButton extends LinearLayout {
         floatingActionButton = new FloatingActionButton(getContext());
         floatingActionButton.setImageDrawable(icon);
         floatingActionButton.setBackgroundTintList(ColorStateList.valueOf(MFB.colorAccent));
-        floatingActionButton.setColorFilter(MFB.textColor);
+        floatingActionButton.setColorFilter(MFB.colorAccent == Color.WHITE ? MFB.colorPrimary : Color.WHITE);
         floatingActionButton.setOnClickListener(onClickListener);
         floatingActionButton.setSize(size);
         floatingActionButton.setContentDescription(description);

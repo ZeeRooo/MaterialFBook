@@ -33,10 +33,8 @@ public class SettingsActivity extends MFBActivity {
 
         final Drawable backArrowDrawable = getResources().getDrawable(R.drawable.abc_ic_ab_back_material);
 
-        if (themeMode == 0) {
-            mToolbar.setTitleTextColor(MFB.textColor);
-            backArrowDrawable.setColorFilter(MFB.textColor, PorterDuff.Mode.SRC_ATOP);
-        }
+        mToolbar.setTitleTextColor(MFB.textColor);
+        backArrowDrawable.setColorFilter(MFB.textColor, PorterDuff.Mode.SRC_ATOP);
 
         setSupportActionBar(mToolbar);
 

@@ -89,6 +89,8 @@ public class Helpers {
         if (themeMode == 1 || themeMode == 3)
             stringBuilder.append("._34em ._34ee, .touch ._8hq8, ._6j_d ._6j_c, ._59tg, ._u42 ._55fj { color: #").append(Integer.toHexString(MFB.colorAccent).substring(2)).append(" !important; }");
 
+        stringBuilder.append("._5rgr,  ._5rgt p { -webkit-user-select: initial !important; }");
+
         return stringBuilder.toString();
     }
 }

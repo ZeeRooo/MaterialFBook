@@ -147,7 +147,7 @@ public class SettingsFragment extends MFBPreferenceFragment implements Preferenc
                     colorPrimary = Color.rgb(red, green, blue);
                     int colorAccent;
 
-                    if (ColorUtils.calculateLuminance(colorPrimary) > 0.8) // it's too bright
+                    if (ColorUtils.calculateLuminance(colorPrimary) > 0.8 || (ColorUtils.calculateLuminance(MFB.colorPrimary) < 0.5 && switchMaterial.isChecked())) // it's too bright
                         colorAccent = Color.BLACK;
                     else if (ColorUtils.calculateLuminance(colorPrimary) < 0.01 && switchMaterial.isChecked()) // it's too dark
                         colorAccent = Color.WHITE;

@@ -2,6 +2,13 @@
 <resources>
     <string name="changelog_list" translatable="false">
 <![CDATA[
+<b>**Version 4.0.1:**</b>
+<br>
+- Fixed some visual glitches.
+<br>
+- Copy & paste feature restored.
+<br>
+<br>
 <b>**Version 4.0.0:**</b>
 <br>
 - Added color picker.

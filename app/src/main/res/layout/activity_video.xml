@@ -3,6 +3,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <VideoView
+        android:id="@+id/video_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center" />
+
     <RelativeLayout
         android:id="@+id/buttons_header"
         android:layout_width="match_parent"
@@ -74,11 +80,5 @@
             android:background="#80000000" />
 
     </RelativeLayout>
-
-    <VideoView
-        android:id="@+id/video_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center" />
 
 </merge>
