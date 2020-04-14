@@ -129,32 +129,6 @@
         <item>HistoriasPopulares</item>
         <item>Mensajes</item>
     </string-array>
-    <string-array name="appLocalesNames">
-        <item>Árabe [ar]</item>
-        <item>Checo [cs]</item>
-        <item>Danés [da]</item>
-        <item>Alemán [de]</item>
-        <item>Griego [el]</item>
-        <item>Español [es]</item>
-        <item>Inglés [en]</item>
-        <item>Filipino [fil]</item>
-        <item>Francés [fr]</item>
-        <item>Húngaro [hu]</item>
-        <item>Indonesio [in]</item>
-        <item>Italiano [it]</item>
-        <item>Italiano (Italy) [it_IT]</item>
-        <item>Hebreo [iw]</item>
-        <item>Kurdo [ku]</item>
-        <item>Holandés [nl]</item>
-        <item>Polaco [pl]</item>
-        <item>Portugués [pt]</item>
-        <item>Romano [ro]</item>
-        <item>Ruso [ru]</item>
-        <item>Ruso (Russia) [ru_RU]</item>
-        <item>Serbio [sr]</item>
-        <item>Turco [tr]</item>
-        <item>Vietnamita [vi]</item>
-    </string-array>
     <string-array name="scalesText">
         <item>Normal</item>
         <item>Media</item>

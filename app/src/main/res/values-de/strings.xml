@@ -129,32 +129,6 @@
         <item>Top Meldungen</item>
         <item>Nachrichten</item>
     </string-array>
-    <string-array name="appLocalesNames">
-        <item>Arabic [ar]</item>
-        <item>Czech [cs]</item>
-        <item>Danish [da]</item>
-        <item>Deutsch [de]</item>
-        <item>Greek [el]</item>
-        <item>Spanish [es]</item>
-        <item>English [en]</item>
-        <item>Filipino [fil]</item>
-        <item>French [fr]</item>
-        <item>Hungarian [hu]</item>
-        <item>Indonesian [in]</item>
-        <item>Italian [it]</item>
-        <item>Italian (Italy) [it_IT]</item>
-        <item>Hebrew [iw]</item>
-        <item>Kurdish [ku]</item>
-        <item>Dutch [nl]</item>
-        <item>Polish [pl]</item>
-        <item>Portuguese [pt]</item>
-        <item>Romanian [ro]</item>
-        <item>Russian [ru]</item>
-        <item>Russian (Russia) [ru_RU]</item>
-        <item>Serbian [sr]</item>
-        <item>Turkish [tr]</item>
-        <item>Vietnamese [vi]</item>
-    </string-array>
     <string-array name="scalesText">
         <item>Standard</item>
         <item>Mittel</item>

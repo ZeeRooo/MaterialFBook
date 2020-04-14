@@ -20,6 +20,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.Point;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.net.UrlQuerySanitizer;
@@ -97,8 +98,8 @@ public class MainActivity extends MFBActivity implements NavigationView.OnNaviga
     private ValueCallback<Uri[]> mFilePathCallback;
     private Uri mCapturedImageURI = null, sharedFromGallery;
     private ValueCallback<Uri> mUploadMessage;
-    private int FILECHOOSER_RESULTCODE = 2888, INPUT_FILE_REQUEST_CODE = 1, lastEvent;
-    private boolean showAnimation, showHeader = false, loadCss = true;
+    private int lastEvent, screenHeight;
+    private boolean showAnimation, showHeader = false, loadCss = true, hideHeaderPref;
     private String baseURL, mCameraPhotoPath, Url;
     private SwipeRefreshLayout swipeView;
     private NavigationView mNavigationView;
@@ -133,9 +134,10 @@ public class MainActivity extends MFBActivity implements NavigationView.OnNaviga
         final AppBarLayout appBarLayout = findViewById(R.id.appbarlayout);
         appBarLayout.setBackgroundColor(MFB.colorPrimary);
 
-        findViewById(R.id.app_bar_main_root_view).setBackgroundColor(MFB.colorPrimary);
+        final CoordinatorLayout coordinatorLayoutRootView = findViewById(R.id.app_bar_main_root_view);
+        coordinatorLayoutRootView.setBackgroundColor(MFB.colorPrimary);
 
-        CoordinatorLayout coordinatorLayout = findViewById(R.id.app_bar_main_coordinator_layout);
+        final CoordinatorLayout coordinatorLayout = findViewById(R.id.app_bar_main_coordinator_layout);
         ViewCompat.setOnApplyWindowInsetsListener(coordinatorLayout, (view, insets) ->
                 ViewCompat.onApplyWindowInsets(coordinatorLayout, insets.replaceSystemWindowInsets(insets.getSystemWindowInsetLeft(), 0, insets.getSystemWindowInsetRight(), insets.getSystemWindowInsetBottom()))
         );
@@ -183,7 +185,6 @@ public class MainActivity extends MFBActivity implements NavigationView.OnNaviga
 
         UrlIntent(getIntent());
 
-        // Start the Swipe to reload listener
         swipeView = findViewById(R.id.swipeLayout);
         if (themeMode == 0 | themeMode == 1)
             swipeView.setColorSchemeResources(android.R.color.white);
@@ -191,6 +192,15 @@ public class MainActivity extends MFBActivity implements NavigationView.OnNaviga
             swipeView.setColorSchemeResources(android.R.color.black);
         swipeView.setProgressBackgroundColorSchemeColor(getResources().getColor(R.color.colorPrimary));
         swipeView.setOnRefreshListener(() -> mWebView.reload());
+
+        final Rect rect = new Rect();
+        coordinatorLayoutRootView.getViewTreeObserver().addOnGlobalLayoutListener(() -> {
+            coordinatorLayoutRootView.getWindowVisibleDisplayFrame(rect);
+
+            screenHeight = coordinatorLayoutRootView.getHeight();
+
+            swipeView.setEnabled((screenHeight - rect.bottom) < screenHeight * 0.15);
+        });
 
         // Inflate the FAB menu
         mfbFloatingActionButton = findViewById(R.id.menuFAB);
@@ -304,7 +314,7 @@ public class MainActivity extends MFBActivity implements NavigationView.OnNaviga
             }
         });
 
-        showHeader = sharedPreferences.getBoolean("hide_menu_bar", true);
+        hideHeaderPref = sharedPreferences.getBoolean("hide_menu_bar", true);
 
         mWebView.getSettings().setGeolocationEnabled(sharedPreferences.getBoolean("location_enabled", false));
         mWebView.getSettings().setMinimumFontSize(Integer.parseInt(sharedPreferences.getString("textScale", "1")));
@@ -435,9 +445,9 @@ public class MainActivity extends MFBActivity implements NavigationView.OnNaviga
                     showHeader = true;
 
                 if (loadCss) {
-                    if (showHeader)
+                    if (showHeader || !hideHeaderPref) {
                         css.append("#header { display: inherit; }");
-                    else
+                    } else
                         css.append("#header { display: none; }");
 
                     css.append(Helpers.cssThemeEngine(themeMode));
@@ -567,7 +577,7 @@ public class MainActivity extends MFBActivity implements NavigationView.OnNaviga
                     chooserIntent.putExtra(Intent.EXTRA_INTENT, contentSelectionIntent);
                     chooserIntent.putExtra(Intent.EXTRA_TITLE, "Image Chooser");
                     chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, intentArray);
-                    startActivityForResult(chooserIntent, INPUT_FILE_REQUEST_CODE);
+                    startActivityForResult(chooserIntent, 1);
                 }
                 return true;
             }
@@ -606,7 +616,7 @@ public class MainActivity extends MFBActivity implements NavigationView.OnNaviga
                 if (sharedFromGallery == null) {
                     final Intent chooserIntent = Intent.createChooser(i, "Image Chooser");
                     chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Parcelable[]{captureIntent});
-                    startActivityForResult(chooserIntent, FILECHOOSER_RESULTCODE);
+                    startActivityForResult(chooserIntent, 2888);
                 }
             }
 
@@ -743,7 +753,7 @@ public class MainActivity extends MFBActivity implements NavigationView.OnNaviga
         // Thanks to Koras for the tutorial. http://dev.indywidualni.org/2015/02/an-advanced-webview-with-some-cool-features
         super.onActivityResult(requestCode, resultCode, data);
         if (Build.VERSION.SDK_INT >= 21) {
-            if (requestCode != INPUT_FILE_REQUEST_CODE || mFilePathCallback == null)
+            if (requestCode != 1 || mFilePathCallback == null)
                 return;
 
             Uri[] results = null;
@@ -765,7 +775,7 @@ public class MainActivity extends MFBActivity implements NavigationView.OnNaviga
             mFilePathCallback.onReceiveValue(results);
             mFilePathCallback = null;
         } else {
-            if (requestCode == FILECHOOSER_RESULTCODE) {
+            if (requestCode == 2888) {
                 if (null == this.mUploadMessage)
                     return;
 

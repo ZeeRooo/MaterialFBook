@@ -159,7 +159,8 @@ public class SettingsFragment extends MFBPreferenceFragment implements Preferenc
                     mPreferences.edit().putInt("colorAccent", colorAccent).apply();
                     mPreferences.edit().putBoolean("darkMode", switchMaterial.isChecked()).apply();
 
-                    CookingAToast.cooking(getActivity(), getString(R.string.required_restart), Color.WHITE, colorPrimary, R.drawable.ic_error, true).show();
+                    getActivity().recreate();
+                    //CookingAToast.cooking(getActivity(), getString(R.string.required_restart), Color.WHITE, colorPrimary, R.drawable.ic_error, true).show();
                 });
 
                 mfbColorPickerDialog.setView(rootView);

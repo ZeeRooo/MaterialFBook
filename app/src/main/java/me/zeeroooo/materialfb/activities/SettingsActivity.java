@@ -29,6 +29,7 @@ public class SettingsActivity extends MFBActivity {
         findViewById(R.id.settings_root_view).setBackgroundColor(MFB.colorPrimary);
 
         final Toolbar mToolbar = findViewById(R.id.settings_toolbar);
+        mToolbar.setTitle(getString(R.string.settings));
         mToolbar.setNavigationIcon(R.mipmap.ic_launcher);
 
         final Drawable backArrowDrawable = getResources().getDrawable(R.drawable.abc_ic_ab_back_material);

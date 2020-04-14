@@ -135,29 +135,32 @@
         <item>Messages</item>
     </string-array>
     <string-array name="appLocalesNames">
+        <item>Amharic [am]</item>
         <item>Arabic [ar]</item>
         <item>Czech [cs]</item>
         <item>Danish [da]</item>
-        <item>German [de]</item>
-        <item>Greek [el]</item>
-        <item>Spanish [es]</item>
+        <item>Dutch [nl]</item>
         <item>English [en]</item>
         <item>Filipino [fil]</item>
         <item>French [fr]</item>
+        <item>German [de]</item>
+        <item>Greek [el]</item>
+        <item>Hebrew [iw]</item>
         <item>Hungarian [hu]</item>
         <item>Indonesian [in]</item>
+        <item>Italian (Italy) [it-rIT]</item>
         <item>Italian [it]</item>
-        <item>Italian (Italy) [it_IT]</item>
-        <item>Hebrew [iw]</item>
         <item>Kurdish [ku]</item>
-        <item>Dutch [nl]</item>
         <item>Polish [pl]</item>
         <item>Portuguese [pt]</item>
         <item>Romanian [ro]</item>
-        <item>Russian [ru]</item>
         <item>Russian (Russia) [ru_RU]</item>
+        <item>Russian [ru]</item>
+        <item>Sardinian [sc]</item>
         <item>Serbian [sr]</item>
+        <item>Spanish [es]</item>
         <item>Turkish [tr]</item>
+        <item>Ukrainian [uk]</item>
         <item>Vietnamese [vi]</item>
     </string-array>
     <string-array name="scalesText">

@@ -1,10 +1,10 @@
 package me.zeeroooo.materialfb.activities;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
@@ -25,6 +25,14 @@ public class MFBActivity extends AppCompatActivity {
     protected SharedPreferences sharedPreferences;
     private boolean darkTheme;
     protected byte themeMode;
+    private MFBResources mfbResources = null;
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(newBase);
+
+        super.attachBaseContext(updateResources(newBase));
+    }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,12 +41,12 @@ public class MFBActivity extends AppCompatActivity {
 
     @Override
     public Resources getResources() {
-        return new MFBResources(super.getResources());
+        if (mfbResources == null)
+            mfbResources = new MFBResources(super.getResources());
+        return mfbResources;
     }
 
     protected void create(Bundle savedInstanceState) {
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
-
         darkTheme = sharedPreferences.getBoolean("darkMode", false);
 
         if (darkTheme)
@@ -62,20 +70,28 @@ public class MFBActivity extends AppCompatActivity {
 
     @Override
     public void setContentView(int layoutResID) {
-
-        final Locale locale = new Locale(PreferenceManager.getDefaultSharedPreferences(this).getString("defaultLocale", Locale.getDefault().getLanguage()));
-        Locale.setDefault(locale);
-
-        final Configuration config = new Configuration();
-        config.locale = locale;
-        config.setLocale(locale);
-        getResources().updateConfiguration(config, getResources().getDisplayMetrics());
-
         themeMode = getThemeMode();
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && (themeMode == 2 || themeMode == 3))
             getWindow().getDecorView().setSystemUiVisibility(getWindow().getDecorView().getSystemUiVisibility() | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
         super.setContentView(layoutResID);
+    }
+
+    private Context updateResources(Context context) {
+        final Locale locale = new Locale(sharedPreferences.getString("defaultLocale", Locale.getDefault().getLanguage()));
+        Locale.setDefault(locale);
+
+        final Resources resources = context.getResources();
+        final Configuration config = new Configuration(resources.getConfiguration());
+        if (Build.VERSION.SDK_INT >= 17) {
+            config.setLocale(locale);
+            context = context.createConfigurationContext(config);
+        } else {
+            config.locale = locale;
+            resources.updateConfiguration(config, resources.getDisplayMetrics());
+        }
+
+        return context;
     }
 }

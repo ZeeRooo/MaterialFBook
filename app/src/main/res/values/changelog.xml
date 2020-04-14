@@ -2,6 +2,15 @@
 <resources>
     <string name="changelog_list" translatable="false">
 <![CDATA[
+<b>**Version 4.0.2:**</b>
+<br>
+- Fixed facebook menu bar hiding when option is disabled.
+<br>
+- Fixed language selector.
+<br>
+- Disabled swipe to refresh feature when keyboard is shown (#217).
+<br>
+<br>
 <b>**Version 4.0.1:**</b>
 <br>
 - Fixed some visual glitches.

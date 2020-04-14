@@ -5,7 +5,7 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
  
 <img src="http://i.imgur.com/VctN6iC.png"> </p>
 
-[![MaterialFBook on fdroid.org](http://i.imgur.com/nyp9kHq.png "Download from fdroid.org")](https://f-droid.org/app/me.zeeroooo.materialfb) [![MaterialFBook on xda labs](http://i.imgur.com/yQrfgN8.png "Download from xda labs")](https://labs.xda-developers.com/store/app/me.zeerooo.materialfb)
+[![MaterialFBook on fdroid.org](http://i.imgur.com/nyp9kHq.png "Download from fdroid.org")](https://f-droid.org/app/me.zeeroooo.materialfb)
 
 ## Changelog
 
@@ -343,6 +343,11 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 **Version 4.0.1:**
 - Fixed some visual glitches.
 - Copy & paste feature restored.
+
+**Version 4.0.2:**
+- Fixed facebook menu bar hiding when option is disabled.
+- Fixed language selector.
+- Disabled swipe to refresh feature when keyboard is shown (#217).
 
 **Notes:**
 _- Maybe some gifs cant be loaded because i need to add the url to the code. Report it as issue with the Facebook´s page link or website._
