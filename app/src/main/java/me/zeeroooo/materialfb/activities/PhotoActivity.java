@@ -50,6 +50,8 @@ import com.bumptech.glide.request.target.SizeReadyCallback;
 import com.bumptech.glide.request.target.Target;
 import com.bumptech.glide.request.transition.Transition;
 
+import java.io.File;
+
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.ui.CookingAToast;
 
@@ -318,7 +320,7 @@ public class PhotoActivity extends MFBActivity implements View.OnTouchListener {
                 final DownloadManager mDownloadManager = (DownloadManager) getSystemService(Context.DOWNLOAD_SERVICE);
 
                 final DownloadManager.Request request = new DownloadManager.Request(Uri.parse(imageUrl));
-                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES + "/MaterialFBook", System.currentTimeMillis() + ".jpg");
+                request.setDestinationInExternalPublicDir(Environment.DIRECTORY_PICTURES, System.currentTimeMillis() + ".jpg");
                 request.setVisibleInDownloadsUi(true);
                 request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 

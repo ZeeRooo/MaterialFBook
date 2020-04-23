@@ -196,7 +196,7 @@ public class VideoActivity extends MFBActivity {
 
             final DownloadManager.Request request = new DownloadManager.Request(Uri.parse(url));
 
-            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_MOVIES + "/MaterialFBook", System.currentTimeMillis() + url.substring(url.indexOf("_n") + 2).split("\\?_")[0]);
+            request.setDestinationInExternalPublicDir(Environment.DIRECTORY_MOVIES, System.currentTimeMillis() + url.substring(url.indexOf("_n") + 2).split("\\?_")[0]);
             request.setVisibleInDownloadsUi(true);
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);
 

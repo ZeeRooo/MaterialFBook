@@ -2,6 +2,17 @@
 <resources>
     <string name="changelog_list" translatable="false">
 <![CDATA[
+<b>**Version 4.0.3:**</b>
+<br>
+- Fixed some black theme glitches.
+<br>
+- Fixed crashes on Android 10+.
+<br>
+- Notification fixes.
+<br>
+- Temporarily disabled copy & paste feature as it\'s causing crashes.
+<br>
+<br>
 <b>**Version 4.0.2:**</b>
 <br>
 - Fixed facebook menu bar hiding when option is disabled.

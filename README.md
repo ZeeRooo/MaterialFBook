@@ -349,6 +349,12 @@ _This app is based on Toffeed by JakeLane (https://github.com/JakeLane/Toffeed).
 - Fixed language selector.
 - Disabled swipe to refresh feature when keyboard is shown (#217).
 
+**Version 4.0.3:**
+- Fixed some black theme glitches.
+- Fixed crashes on Android 10+.
+- Notification fixes.
+- Temporarily disabled copy & paste feature as it\'s causing crashes.
+
 **Notes:**
 _- Maybe some gifs cant be loaded because i need to add the url to the code. Report it as issue with the Facebook´s page link or website._
 

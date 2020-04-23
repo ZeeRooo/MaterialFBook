@@ -4,15 +4,13 @@ import android.app.Application;
 import android.content.Context;
 
 import org.acra.ACRA;
-import org.acra.annotation.AcraCore;
-import org.acra.annotation.AcraMailSender;
+import org.acra.annotation.ReportsCrashes;
 
 /**
  * Created by ZeeRooo on 15/04/18
  */
 
-@AcraCore(buildConfigClass = BuildConfig.class)
-@AcraMailSender(mailTo = "chavesjuan400@gmail.com")
+@ReportsCrashes(mailTo = "chavesjuan400@gmail.com")
 public class MFB extends Application {
     public static int colorPrimary, colorPrimaryDark, colorAccent, textColor;
 

@@ -16,6 +16,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.ColorStateList;
+import android.content.res.Configuration;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -65,6 +66,8 @@ import androidx.core.view.GravityCompat;
 import androidx.core.view.ViewCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.work.OneTimeWorkRequest;
+import androidx.work.WorkManager;
 
 import com.google.android.material.appbar.AppBarLayout;
 import com.google.android.material.button.MaterialButton;
@@ -86,6 +89,7 @@ import me.zeeroooo.materialfb.adapters.AdapterBookmarks;
 import me.zeeroooo.materialfb.misc.DatabaseHelper;
 import me.zeeroooo.materialfb.misc.ModelBookmarks;
 import me.zeeroooo.materialfb.misc.UserInfo;
+import me.zeeroooo.materialfb.notifications.NotificationsService;
 import me.zeeroooo.materialfb.ui.CookingAToast;
 import me.zeeroooo.materialfb.ui.MFBFloatingActionButton;
 import me.zeeroooo.materialfb.ui.MFBResources;
@@ -126,7 +130,7 @@ public class MainActivity extends MFBActivity implements NavigationView.OnNaviga
     @Override
     protected void create(Bundle savedInstanceState) {
         super.create(savedInstanceState);
-
+        WorkManager.getInstance().enqueue(new OneTimeWorkRequest.Builder(NotificationsService.class).build());
         ((MFBResources) getResources()).setColors(sharedPreferences);
 
         setContentView(R.layout.activity_main);
@@ -677,12 +681,8 @@ public class MainActivity extends MFBActivity implements NavigationView.OnNaviga
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
             final DownloadManager.Request request = new DownloadManager.Request(Uri.parse(Url));
-            final File downloads_dir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-            if (!downloads_dir.exists())
-                if (!downloads_dir.mkdirs())
-                    return;
 
-            final File destinationFile = new File(downloads_dir, Uri.parse(Url).getLastPathSegment());
+            final File destinationFile = new File(Environment.DIRECTORY_DOWNLOADS, Uri.parse(Url).getLastPathSegment());
             request.setDestinationUri(Uri.fromFile(destinationFile));
             request.setVisibleInDownloadsUi(true);
             request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE_NOTIFY_COMPLETED);

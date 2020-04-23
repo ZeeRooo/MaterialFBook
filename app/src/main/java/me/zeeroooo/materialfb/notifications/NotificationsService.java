@@ -12,12 +12,12 @@ import android.database.Cursor;
 import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
-import android.preference.PreferenceManager;
 import android.webkit.CookieManager;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.NotificationCompat;
 import androidx.core.app.TaskStackBuilder;
+import androidx.preference.PreferenceManager;
 import androidx.work.Worker;
 import androidx.work.WorkerParameters;
 
@@ -135,7 +135,7 @@ public class NotificationsService extends Worker {
             for (byte a = 0; a < results.size(); a++) {
                 previousMsgLength = stringBuilder.length();
 
-                stringBuilder.append(results.get(a).selectFirst("tbody > tr > td > div > h3.cd.ba.ce > span").text());
+                stringBuilder.append(results.get(a).selectFirst("tr > td > header h3 > span").text());
 
                 if (!blist.isEmpty())
                     for (int position = 0; position < blist.size(); position++) {
@@ -144,8 +144,8 @@ public class NotificationsService extends Worker {
                     }
 
                 if (!msg_notAWhiteList) {
-                    name = results.get(a).selectFirst("tbody > tr > td > div > h3.bz.ca.cb > a").text();
-                    pictureMsg = "https://graph.facebook.com/" + results.get(a).select("tbody > tr > td > div > h3.bz.ca.cb > a").attr("href").split("%3A")[1].split("&")[0] + "/picture?type=large";
+                    name = results.get(a).selectFirst("tr > td > header h3 > a").text();
+                    pictureMsg = "https://graph.facebook.com/" + results.get(a).select("tr > td > header h3 > a").attr("href").split("cid.c.")[1].split("&")[0].replace(Helpers.getCookie(), "").replace("%3A", "") + "/picture?type=large";
 
                     if (!mPreferences.getString("last_message", "").contains(stringBuilder.substring(previousMsgLength)))
                         notifier(stringBuilder.substring(previousMsgLength), name, baseURL + "messages", pictureMsg, (int) System.currentTimeMillis(), true);
