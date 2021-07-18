@@ -11,23 +11,26 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import me.zeeroooo.materialfb.R;
 import me.zeeroooo.materialfb.webview.Helpers;
 
 public class UserInfo extends AsyncTask<Activity, Void, Activity> {
-    private String name, cover;
+    private String name, cover, picture;
 
     @Override
     protected Activity doInBackground(Activity[] activities) {
         try {
             if (!activities[0].isDestroyed()) {
-                final Element e = Jsoup.connect("https://mbasic.facebook.com/me").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).timeout(300000).get().body();
+                final Document e = Jsoup.connect("https://mbasic.facebook.com/me").cookie(("https://m.facebook.com"), CookieManager.getInstance().getCookie(("https://m.facebook.com"))).timeout(300000).get();
                 if (name == null)
-                    name = e.getElementsByClass("profpic img").attr("alt");
+                    name = e.title();
                 if (cover == null)
-                    cover = Helpers.decodeImg(e.selectFirst("div#profile_cover_photo_container > a > img").attr("src"));
+                    cover = e.select("div#m-timeline-cover-section").select("img").eq(0).attr("src");
+                if (picture == null)
+                    picture = e.select("div#m-timeline-cover-section").select("img").eq(1).attr("src");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -48,7 +51,7 @@ public class UserInfo extends AsyncTask<Activity, Void, Activity> {
                             .into((ImageView) activity.findViewById(R.id.cover));
                 if (Helpers.getCookie() != null && activity.findViewById(R.id.profile_picture) != null)
                     Glide.with(activity)
-                            .load("https://graph.facebook.com/" + Helpers.getCookie() + "/picture?type=large")
+                            .load(picture)
                             .apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.ALL).circleCrop())
                             .into((ImageView) activity.findViewById(R.id.profile_picture));
             } catch (Exception e) {
